@@ -1,0 +1,56 @@
+ID: 0001
+
+SOURCE: IMO Shortlist
+
+YEAR: 2010
+
+TOPIC: Algebra
+
+SUBTOPICS: Functional Equations
+
+STATEMENT:
+Find all function $f:\mathbb{R}\rightarrow\mathbb{R}$ such that for all $x,y\in\mathbb{R}$ the following equality holds\[f(\left\lfloor x\right\rfloor y)=f(x)\left\lfloor f(y)\right\rfloor \]where $\left\lfloor a\right\rfloor $ is greatest integer not greater than $a.$
+
+SOLUTION 1:
+Put $x=y=0$. Then $f(0)=0$ or $\lfloor f(0) \rfloor=1$.
+
+$\bullet$ If $\lfloor f(0) \rfloor=1$, putting $y=0$ we get $f(x)=f(0)$, that is f is constant.
+Substituing in the original equation we find $f(x)=0, \ \forall x \in \mathbb{R}$ or $f(x)=a, \ \forall x \in \mathbb{R}$, where $a \in [1,2)$.
+
+$\bullet$ If $f(0)=0$, putting $x=y=1$ we get $f(1)=0$ or $\lfloor f(1) \rfloor=1$.
+
+For $f(1)=0$, we set $x=1$ to find $f(y)=0 \ \forall y$, which is a solution.
+
+
+For $\lfloor f(1) \rfloor=1$, setting $y=1$ yields $f(\lfloor x \rfloor)=f(x), \ (*)$.
+
+Putting $x=2, y=\frac{1}{2}$ to the original we get $f(1)=f(2)\lfloor f(\frac{1}{2}) \rfloor$.
+However, from $(*)$ we have $f(\frac{1}{2})=f(0)=0$, so $f(1)=0$ which contradicts the fact $\lfloor f(1) \rfloor=1$.
+
+So, $f(x)=0, \ \forall x$ or $f(x)=a, \ \forall x, \ a \in [1,2)$.
+
+SOLUTION 2:
+Let $P(x,y)$ be the assertation of $f([x]y)=f(x)[f(y)]$
+$P(0,0): f(0)=f(0)[f(0)]$
+There are 2 cases:
+1. $[f(0)]=1$. Then,
+$P(x,0): f(0)=f(x)$
+Making $f(x)=c$ for some constant $c$. Substituting back to $P(x,y)$, we get:
+$c=c[c]$
+or $[c]=1$.
+Then, $1\leq c<2$.
+2. $f(0)=0$.
+$P(1,1): f(1)=f(1)[f(1)]$
+Again, there are 2 subcases:
+a. $f(1)=0$.
+$P(1,y): f(y)=0$.
+After checking back to the f.q., we get $f(x)=0$ is also a solution.
+b. $[f(1)]=1$.
+$P(x,1): f(x)=f([x])$.
+Consider:
+$P(2010,\frac1{2010}): f(1)=f(2010)[f(\frac{1}{2010})]=f(2010)[f(0)]=0$.
+Contradiction, because $1=[f(1)]=[0]=0$.
+
+Then the function which satisfies $P(x,y)$ is:
+$f(x)=0\forall x\in\mathbb{R}$
+$f(x)=c\forall x\in\mathbb{R}, 1\leq c<2$.
