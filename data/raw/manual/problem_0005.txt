@@ -1,0 +1,42 @@
+ID: 0005
+
+SOURCE: IMO Shortlist
+
+YEAR: 2010
+
+TOPIC: Algebra
+
+SUBTOPICS: Functional Equations
+
+STATEMENT: Denote by $\mathbb{Q}^+$ the set of all positive rational numbers. Determine all functions $f : \mathbb{Q}^+ \mapsto \mathbb{Q}^+$ which satisfy the following equation for all $x, y \in \mathbb{Q}^+:$\[f\left( f(x)^2y \right) = x^3 f(xy).\]
+
+SOLUTION 1: As usual, let $P(x,y)$ be the given FE.
+
+We start with some Claims:
+
+Claim 1: $f$ is injective and $f(1)=1$.
+Proof: To prove injectivity, just consider $P(x,1)$. In addition, $P(1,1) \Rightarrow f(f^2(1))=f(1)$, which implies $f(1)=1$ since $f(1)>0$ and $f$ is injective $\blacksquare$.
+
+Claim 2: $f(x^6)=f^6(x)$
+Proof: $P(x,\dfrac{1}{x})$ implies $f(\dfrac{f^2(x)}{x})=x^3, \,\, (*)$ and $P(x,1)$ implies $f(f^2(x))=x^3f(x), \,\, (**)$, so by taking $x \rightarrow f^2(x)$ at $(*)$ and using $(**)$, we obtain the desired $\blacksquare$.
+
+Claim 3: $f(f(x))=\sqrt{x^3f(x)}$.
+Proof: Consider $P(x,\frac{f^2(x)}{x^2})$, to obtain$$f(\frac{f^4(x)}{x^2})=x^3f(\dfrac{f^2(x)}{x})=x^6,$$so by taking $x \rightarrow f(x)$ at the latter and using injectivity, we obtain$$\frac{f^4(f(x))}{f(x)^2}=x^6 \Rightarrow f(f(x))=\sqrt{x^3f(x)},$$as desired $\blacksquare$.
+
+To the problem, by the last Claim's result we have that $x^3f(x)$, or equivalently $xf(x)$, must be the square of a rational number, for all $x$. Put $x \rightarrow f(x)$ at $f(f(x))=\sqrt{x^3f(x)}$, to obtain that $f(x)^3f(f(x))$ is the square of a rational as well. But,$$f(x)^3f(f(x))=f(x)^3\sqrt{x^3f(x)}=\sqrt[4]{f(x)^7x^3},$$so $f(x)^7x^3$, or equivalently $(f(x)x)^7$, must be a perfect fourth power for all $x$. Since $\gcd(4,7)=1$, we actually have that $xf(x)$ is a perfect fourth power.
+
+We easily see a pattern. In order to formalize it, we do the following:
+
+We define each iteration as a step. Let the powers of $f(x)$ and $x$ at the $i_{\rm th}$ step be $a_i$ and $b_i$, while the exponent is $1/2^i$. So, in the first step, $a_1=1,b_1=3$ and the exponent is $1/2$ - namely, the square root.
+
+At the $(i+1)_{\rm th}$ step, the expression $\sqrt[2^i]{f(x)^{a_i}x^{b_i}}$ transforms to $\sqrt[2^i]{f(f(x))^{a_i}f(x)^{b_i}}$, which after some algebraic manipulations turns out to be $\sqrt[2^{i+1}]{f(x)^{a_i+2b_i}x^{3a_i}}$.
+
+That is, $a_{i+1}=a_i+2b_i$ and $b_{i+1}=3a_i$ for all $i$.
+
+In addition, if we define $c_i=b_i-a_i$ for each $i$, then $c_{i+1}=b_{i+1}-a_{a+1}=2(a_i-b_i)=2c_i$, and since $c_1=b_1-a_1=2$ we have that $c_i=2^i$ for all $i$.
+
+Now, note that $a_{i+1}=a_i+2b_i \equiv a_i \pmod  2$, hence all $a_i$ are odd.
+
+Finally, we have$$\sqrt[2^i]{f(x)^{a_i}x^{b_i}}=\sqrt[2^i]{(f(x)x)^{a_i}} \cdot x,$$since $b_i-a_i=2^i$, and since $a_i$ is odd, $f(x)x$ is a perfect ${2^i}_{\rm th}$ power, for all $i$.
+
+But this readily implies that $f(x)x=1$, therefore $f(x)=\frac{1}{x}$, which evidently satisfies, so it is our only solution.

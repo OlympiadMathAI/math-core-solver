@@ -1,0 +1,67 @@
+ID: 0004
+
+SOURCE: IMO Shortlist
+
+YEAR: 2010
+
+TOPIC: Algebra
+
+SUBTOPICS: Sequences
+
+STATEMENT: A sequence $x_1, x_2, \ldots$ is defined by $x_1 = 1$ and $x_{2k}=-x_k, x_{2k-1} = (-1)^{k+1}x_k$ for all $k \geq 1.$ Prove that $\forall n \geq 1$ $x_1 + x_2 + \ldots + x_n \geq 0.$
+
+SOLUTION 1: Let $s_n = x_1 + x_2 + \ldots + x_n$. We first note that $s_k = x_1 + x_2 + \cdots + x_k \equiv 1 + 1 + \cdots + 1 \equiv k \pmod{2}$. Next, we note that
+
+\begin{align*}
+x_{4k+1} &= x_{2(2k+1) - 1} = (-1)^{2k+2} x_{2k+1} = x_{2(k+1)-1} = (-1)^k x_{k+1} \\
+x_{4k+2} &= -x_{2k+1} = (-1)^{k+1} x_{k+1} \\
+x_{4k+3} &= x_{2(2k+2)-1} = (-1)^{2k+3} x_{2k+2} = x_{k+1} \\
+x_{4k+4} &= -x_{2k+2} = x_{k+1}.
+\end{align*}
+
+In particular, we have $x_{4k+1} + x_{4k+2} = 0$ and $x_{4k+1} + x_{4k+2} + x_{4k+3} + x_{4k+4} = 2x_{k+1}$, whence $s_{4k+2} = s_{4k}$ and $s_{4k} = 2s_k$ for all $k \geq 1$.
+
+Suppose for the sake of contradiction that $s_k < 0$ for some $k$; take the minimal such $k$. It is clear that $k > 4$. Since $s_{k-1} \geq 0$ by minimality of $k$, and $s_{k-1} = s_k - x_k \leq s_k + 1 \leq 0$, we have $s_{k-1} = 0$ and $x_k = -1$.
+
+If $k \equiv 1 \pmod{4}$, let $k = 4j + 1$. Then $s_{k-1} = s_{4j} = 2s_j = 0$, so $s_j = 0$, whence $j$ must be even. Furthermore, since $s_{j+1} > 0$ (by minimality of $k$), $x_{j+1} = 1$, so $x_k = s_{4j+1} = (-1)^j x_{j+1} = 1 \neq -1$, contradiction.
+
+If $k \equiv 3 \pmod{4}$, let $k = 4j + 3$. Then $s_{4j + 2} = s_{4j} = 2s_j = 0$, so $s_j = 0$,. Furthermore, since $s_{j+1} > 0$ (by minimality of $k$), $x_{j+1} = 1$, so $x_k = x_{4j+3} = x_{j+1} = 1 \neq -1$, contradiction.
+
+It follows that $s_k \geq 0$ for all positive integers $k$, as desired.
+
+SOLUTION 2: Let $S_n = x_1+x_2+...+x_n$. We also define $S_0 = 0$
+
+Fact 1: $|x_k| = 1$ for every $k\ge 1$
+
+Proof: We do induction on $k$. It is true for $x_1$. Let $n>1$ and suppose it is true for every $0<k < n$.
+If $n=2m$, we have $0<m<n$, then $|x_m|=1$, and so $|x_n|=|x_m|=1$
+If $n=2m-1$, we have that $0<m<n$, then $|x_m|=1$, and so $|x_n|=|x_m|=1$.
+
+Fact 2: $S_{4m}=2S_{m}$ for every $m\ge 0$
+
+Proof: Notice first that for every $m\ge 1$ we have:
+$x_{4m}=-x_{2m}=x_{m} $
+$x_{4m-1}=-x_{2m}=x_{m}$
+$x_{4m-2}=-x_{2m-1}=(-1)^mx_m$
+$x_{4m-3}=x_{2m-1}=(-1)^{m+1}x_m$
+We do induction on $m$.
+It is true for $m=0$. Let $m>0$ and suppose it is true for $m-1$.
+$S_{4m} = S_{4m-4} + x_{4m-3}+x_{4m-2}+x_{4m-1}+x_{4m} = S_{4m-4} + 2x_m = 2S_{m-1} + 2x_m = S_m$
+
+Now we prove the problem by induction on $n$.
+It is easy to see that $S_n\ge$ 0 for $n=0, 1, 2, 3, 4$.
+Let $n>4$ and suppose that $S_k\ge 0$ for every $0\le k<n$.
+Let $m = \lceil{n/4}\rceil$. Then $1<m<n$
+Then $S_{m-1}\ge 0$ and $S_m\ge 0$ by induction hypotesis.
+If $S_{m-1} = 0$ then 0 is the sum of $m-1$ numbers that are $\pm 1$ and so $m$ is odd. Also $x_m = 1$ since $S_m \ge 0$.
+Then $x_{4m-3} = 1, x_{4m-2} = -1, x_{4m-1}=1, x_{4m}=1$. We also have $S_{4m-4}=S{m-1} =0$.
+Then $S_{4m-3}, S_{4m-2}, S_{4m-1}, S_{4m}$ are all $\ge 0$. Then $S_n\ge 0$, since $n\in\{4m-3,4m-2,4m-1,4m\}$
+If $S_{m-1}> 0$, then $S_{m-1}\ge 1$, and so $S_{4m-4}\ge 2$.
+$S_{4m-3} = S_{4m-4}+x_{4m-3}\ge 2-1= 1$
+$S_{4m-2} = S_{4m-4}+x_{4m-3}+x_{4m-3} = S{4m-4}\ge 2$
+$S_{4m-1} = S_{4m-2}+x_{4m-1}\ge 2-1 = 1$
+$S_{4m}= S_{4m-2}+x_{4m-1}+x_{4m}\ge 2-1-1=0$
+Then $S_{4m-3}, S_{4m-2}, S_{4m-1}, S_{4m}$ are all $\ge 0$. Then $S_n\ge 0$, since $n\in\{4m-3,4m-2,4m-1,4m\}$
+
+In both cases we have that $S_n\ge 0$.
+Then, by induction $S_n\ge 0$ for every $n\ge 0$

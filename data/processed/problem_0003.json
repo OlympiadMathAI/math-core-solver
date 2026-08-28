@@ -1,0 +1,14 @@
+{
+  "id": "0003",
+  "source": "IMO Shortlist",
+  "year": "2010",
+  "topic": "Algebra",
+  "subtopics": [
+    "Inequalities"
+  ],
+  "statement": "Let $x_1, \\ldots , x_{100}$ be nonnegative real numbers such that $x_i + x_{i+1} + x_{i+2} \\leq 1$ for all $i = 1, \\ldots , 100$ (we put $x_{101 } = x_1, x_{102} = x_2).$ Find the maximal possible value of the sum $S = \\sum^{100}_{i=1} x_i x_{i+2}.$",
+  "solutions": [
+    "Answer: $\\frac{50}{4}$, and the example is when $x_{2k}=1/2$ otherwise $x_i=0$\nClaim:For any $i=1,2,\\dots,100$: $x_ix_{i+2}+x_{i+1}x_{i+3} \\leq \\frac{1}{4}$\nProof:$$x_ix_{i+2}+x_{i+1}x_{i+3} \\leq x_{i+2}(1-x_{i+2}-x_{i+1})+x_{i+1}(1-x_{i+2}-x_{i+1})$$$$x_ix_{i+2}+x_{i+1}x_{i+3} \\leq (1-x_{i+2}-x_{i+1})(x_{i+2}+x_{i+1})\\leq \\frac{1}{4}$$The last part is by AM-AG. $\\square$\nFinally: $S = \\sum^{100}_{i=1} x_i x_{i+2} \\implies 2S = \\sum^{100}_{i=1} x_i x_{i+2}+x_{i+1} x_{i+3} \\leq \\frac{100}{4} \\implies S\\leq \\frac{50}{4}  $\nSo we are done.",
+    "Lemma: $x_ix_{i+2}+x_{i+1}x_{i+3}\\le \\frac{1}{4}$.\nProof: by AM-GM$$x_ix_{i+2}+x_{i+1}x_{i+3} \\le \\max\\{x_i, x_{i+3}\\}(x_{i+1}+x_{i+2}) \\le \\left(\\frac{\\max\\{x_i, x_{i+3}\\}+x_{i+1}+x_{i+2}}{2}\\right)^2 \\le \\frac{1}{4}.$$\nSumming the lemma for $i=1, 3, \\ldots, 99$ gives the maximum as $S = \\boxed{\\frac{25}{2}}$ with equality case when $x_1=x_3=\\cdots =x_{99} = \\frac{1}{2}$ and everything else is $0$."
+  ]
+}

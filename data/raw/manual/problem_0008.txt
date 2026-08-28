@@ -1,0 +1,26 @@
+ID: 0008
+
+SOURCE: IMO Shortlist
+
+YEAR: 2010
+
+TOPIC: Algebra
+
+SUBTOPICS: Inequalities
+
+STATEMENT: Given six positive numbers $a,b,c,d,e,f$ such that $a < b < c < d < e < f.$ Let $a+c+e=S$ and $b+d+f=T.$ Prove that
+\[2ST > \sqrt{3(S+T)\left(S(bd + bf + df) + T(ac + ae + ce) \right)}.\]
+
+SOLUTION 1: Let $\sqrt{a^2+c^2+e^2}:=S'$ and $\sqrt{b^2+d^2+f^2}:=T'$. Furthermore, define $x:=b-a$, $y:=d-c$, $z:=f-e$ and $v:=c-b$, $w:=e-d$.
+Then $2(ac+ce+ea)=(a+c+e)^2-(a^2+c^2+e^2)=S^2-S'^2$; likewise, $2(bd+df+fb)=T^2-T'^2$. Squaring the initial inequality and then multiplying by $2$ yields
+\[8S^2T^2>3(S+T)(S(T^2-T'^2)+T(S^2-S'^2))\]\[\iff 3S'^2(S+T)T+3T'^2(S+T)S>3(S+T)^2ST-8S^2T^2\]\[\iff (S+T)\left(T(3S'^2-S^2)+S(3T'^2-T^2)\right)\\>3(S+T)^2ST-8S^2T^2-(S+T)^2ST=2ST(S-T)^2.\quad (1)\]We have\[3S'^2-S^2=3(a^2+c^2+e^2)-(a+c+e)^2= (a-c)^2+(c-e)^2+(e-a)^2\\\quad \quad =(x+v)^2+(y+w)^2+(x+y+v+w)^2.\]Thus, $3S'^2-S^2>x^2+y^2+(x+y)^2=2(x^2+y^2+xy)$. A similar estimation can be obtained for $3T'^2-T^2$. Taking into account these two estimations and $T-S=x+y+z$, (1) can be sharpened as follows:
+\[\frac{S+T}{S}(x^2+y^2+xy)+\frac{S+T}{T}(y^2+z^2+yz)>(x+y+z)^2\]\[\iff T^2(x^2+y^2+xy)+S^2(y^2+z^2+yz)>ST(xy+yz+2xz-y^2). \quad (2)\]
+Now,
+\[T^2x^2+S^2z^2-2STxz=(xT-zS)^2, \\
+T^2xy+S^2yz-ST(xy+yz)=y(T-S)(xT-zS).\]
+Hence (2) is equivalent to
+\[ (xT-zS)^2+y(T-S)(xT-zS)+y^2(T^2+S^2+TS)>0 \\
+\iff \left( (xT-zS)+y\frac{T-S}{2}\right)^2+y^2\left(T^2+S^2+TS-\frac{(T-S)^2}{4}\right)>0,\]
+which is clearly true.
+
+SOLUTION 2: Let $P(x) = T(x-a)(x-c)(x-e) + S(x-b)(x-d)(x-f)$. We see that $T > S$. Therefore, we see that due to Intermediate Value Theorem, there exists roots of $P$ in the intervals $(a, b), (c, d)$ and $(e, f)$, let these roots be $x, y, z$. We see that $P(x) = x^3(S +T) - 2x^2ST + x(T(ac + ce + ea) + S(bd + df + fb)) - (Tace + Sbdf)$. We see that since $x, y, z$ are roots of the polynomial $P$, we have $x + y + z = \dfrac{2ST}{S + T}$ and $xy + yz + zx = \dfrac{T(ac + ce + ea) + S(bd + df + fb)}{S + T}$ due to Vieta's relations. We see that since $x, y$ and $z$ are all distinct, $(x+y+z)^2 \geq 3(xy+yz+zx)$ (equality happens only at $x = y = z$). This means that $\dfrac{(2ST)^2}{(S+T)^2} = (x+y+z)^2 > 3(xy+yz+zx) = \dfrac{3T(ac + ce + ea) + 3S(bd + df + fb)}{S + T}$. This means that $(2ST)^2 > 3(S+T)(T(ac + ce + ea) + S(bd + df + fb)) \implies 2ST > \sqrt{3(S+T)(T(ac + ce + ea) + S(bd + df + fb)) }$.

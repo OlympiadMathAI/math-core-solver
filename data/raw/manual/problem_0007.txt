@@ -1,0 +1,51 @@
+ID: 0007
+
+SOURCE: IMO Shortlist 
+
+YEAR: 2010
+
+TOPIC: Algebra
+
+SUBTOPICS: Sequences
+
+STATEMENT: Let $a_1, a_2, a_3, \ldots$ be a sequence of positive real numbers, and $s$ be a positive integer, such that
+\[a_n = \max \{ a_k + a_{n-k} \mid 1 \leq k \leq n-1 \} \ \textrm{ for all } \ n > s.\]
+Prove there exist positive integers $\ell \leq s$ and $N$, such that
+\[a_n = a_{\ell} + a_{n - \ell} \ \textrm{ for all } \ n \geq N.\]
+
+SOLUTION 1: Claim: $a_n = \max\{ a_{k}+a_{n-k}\mid 1\leq k\leq s\}$ for all $n > s$.
+Proof: by induction. The base cases $n = s+1, s+2, \cdots, 2s$ are just the given recurrence.
+For $n > 2s$, we clearly have $a_n = \max\{ a_{k}+a_{n-k}\mid 1\leq k\leq n-1\}\geq \max\{ a_{k}+a_{n-k}\mid 1\leq k\leq s\}$. Additionally, we have\[a_n = a_{j} + a_{n-j}\]for some $1\leq j \leq n-1$. WLOG, $j \geq \frac{n}{2} > s$. Therefore, by the inductive hypothesis, we have\[a_n = a_{k} + a_{j-k} + a_{n-j}\]for some $1 \leq k \leq s$. We also have $n-k > 2s - s = s$. Therefore,
+\begin{align*}
+a_n &= a_{k} + a_{j-k} + a_{n-j} \\
+&\leq a_k + \max\{ a_{m}+a_{n-k - m}\mid 1\leq m\leq n-k-1\}\\
+&= a_k + a_{n-k} \\
+&\leq \max\{ a_{k}+a_{n-k}\mid 1\leq k\leq s\}.
+\end{align*}
+So $n$ is both less than or equal to and greater than or equal to $\max\{ a_{k}+a_{n-k}\mid 1\leq k\leq s\}$, which means it is equal to it.
+
+Now, let $l$ be a maximizer of $\frac{a_l}{l}$ for $1 \leq l \leq s$. We have the following claim:
+
+Claim: $\frac{a_n}{n} \leq \frac{a_l}{l}$ for all $n$.
+Proof: We induct on $n$. The base cases $n = 1, 2, \cdots, s$ result from the choice of $l$.
+For $n > s$, we have $a_n = a_k + a_{n-k}$ for some $k < n$, so by the inductive hypothesis
+\begin{align*}
+a_n &= a_k+a_{n-k}\\
+&\leq k \frac{a_l}{l} + (n-k) \frac{a_l}{l}\\
+&= n\frac{a_{l}}{l}
+\end{align*}
+implying the result.
+
+Now, define the sequence $b_n = n a_l - l a_n$. By the last claim, this is a sequence of nonnegative real numbers. Now, we have the following claim:
+
+Claim: For all $n$, $b_n$ can be expressed in the form $e_1 b_1 + e_2 b_2 + \cdots + e_s b_s$, where $e_1, e_2, \cdots, e_s$ are nonnegative integers.
+Proof: We, again, induct. For the base case $n \leq s$, we can choose $e_i = 1$ for $i \neq n$ and $e_n = 0$.
+If $n > s$, then by the first claim, we have $a_n = a_k + a_{n-k}$ for some $1 \leq k \leq s$. Therefore, $b_n = b_k + b_{n-k} =b_k+ d_1 b_1 + d_2 b_2 + \cdots + d_s b_s $ by the inductive hypothesis, where $d_1, d_2, \cdots, d_s$ are nonnegative integers. Then we can choose $e_i = d_i$ for $i \neq k$ and $e_k = d_k + 1$, and the claim is proven.
+
+Additionally, we have $b_{n+l} = (n+l) a_l - l a_{n+l} \leq (n+l) a_l - l (a_n + a_l) = b_n$. Therefore, $b_n \leq \max\{b_k\mid 1\leq k\leq l\}$ for all $n$, because every $n$ can be expressed as $r + ql$, where $1 \leq r \leq l$, and then\[b_{n} = b_{r+ql} \leq b_{r+(q-1)l} \leq \cdots \leq b_{r+l} \leq b_{r}.\]This, combined with the third claim, implies that $b_n$ only takes finitely many values, so since $b_{n+l} \leq b_n$, the sequence $b_{q}, b_{q+l}, b_{q+2l}, \cdots$ is eventually constant for all $q$, which means that $b_{n} = b_{n-l}$ for sufficiently large $n$, which rearranges to $a_{n}= a_l + a_{n-l}$, and we're done.
+
+SOLUTION 2: Note that we can show inductively that for each $n$, there are nonnegative integers $c_1,...,c_s$ such that $a_n=\sum_{k=1}^s c_k\cdot a_k$ with $\sum_{k=1}^s c_k\cdot k=n$ - just use the fact that $a_n=a_t+a_{n-t}$ for some $1\le t\le n-1$. Moreover, we can also show inductively that if $c_1', ..., c_s'$ are integers such that $\sum_{k=1}^s c_k\cdot k=n$, then $a_n\ge \sum_{k=1}^s c_k'\cdot a_k$. Indeed, if $a_n<\sum_{k=1}^s c_k'\cdot a_k$, then note that if we take $c_m>0$ and $c_k''=c_k'$ when $k\neq m$, $c_m'-1$ otherwise, then$$a_n<\sum_{k=1}^s c_k'\cdot a_k=a_m+\sum_{k=1}^s c_k''\cdot a_k\le a_m+a_{n-m}$$by the inductive hypothesis, contradiction!
+
+Using this, we have that if $c_\ell > 0$, then that$$a_n=\sum_{k=1}^s c_k\cdot a_k = a_\ell + \sum_{k=1}^s c_k'\cdot a_k \le a_\ell + a_{n-\ell}$$where $c_k'=c_k$ when $k\neq \ell$ and $c_\ell -1$ otherwise. But note that $a_n\ge a_\ell + a_{n-\ell}$ by definition, so we have $a_n=a_\ell + a_{n-\ell}$. Now we claim that for $n$ large, there is some fixed $\ell$ with $c_\ell >0$ for $n$ large.
+
+Let $\ell$ be such that $\frac{a_\ell}{\ell}=\max_{k=1,...,s} \left(\frac{a_k}{k}\right)$. Take $a_n=\sum_{k=1}^s c_k\cdot a_k$. Take $n$ large, and suppose for the sake of contradiction $c_\ell=0$. For $n$ large, we must have $c_m>\ell$ for some $m$. But note that$$c_m\cdot a_m=(c_m-\ell)\cdot a_m + \ell \cdot a_m \le (c_m-\ell) \cdot a_m + m\cdot a_\ell$$In particular, replacing $c_m$ with $c_m-\ell$ and $c_\ell=0$ with $c_\ell = m$ can only optimize $a_n$. Thus $c_\ell>0$ for $n$ large, and thus $a_n=a_\ell + a_{n-\ell}$ as desired.
