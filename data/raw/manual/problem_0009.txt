@@ -1,0 +1,31 @@
+ID: 0009
+
+SOURCE: IMO Shortlist
+
+YEAR: 2010
+
+TOPIC: Combinatorics
+
+SUBTOPICS: 
+
+STATEMENT: In a concert, $20$ singers will perform. For each singer, there is a (possibly empty) set of other singers such that he wishes to perform later than all the singers from that set. Can it happen that there are exactly $2010$ orders of the singers such that all their wishes are satisfied?
+
+SOLUTION 1: Call a number $a$ to be $b$-good, if it is possible to find $b$ singers whose mutual preferences account for exactly $a$ possible orders.
+
+Claim. Suppose $m$ is $k$-good and $n$ is $\ell$-good. Then $mn$ is $(k+\ell)$-good.
+
+(Proof) Put the $k$ singers in group $A$ and $\ell$ singers in group $B$. Assume no singer in $A$ sings before any singer in $B$. Then $A \cup B$ equipped with this ordering is the desired $(k+\ell)$-set. $\blacksquare$
+
+Claim. $30$ is $5$-good.
+
+(Proof) Pick $a,b,c,d,e$ with $a <b, c <d$ as the lot of singers. Clearly, $5!/(2!)^2=30$ valid permutations exist. $\blacksquare$
+
+Claim. $67$ is $15$-good.
+
+(Proof) Pick singers $A_1>A_2>A_3>A_4>B_1>B_2>B_3>B_4$ and $X, Y, Z$ with $X>Y>Z$ and $A_4>Z>B_4$, $A_1>X>Y>B_2$. We claim that these singers have exactly $67$ possible orders.
+If $A_4>Z>B_1$ then $\binom{5}{2}$ ways to pick $X, Y$;
+If $B_1>Z>B_2$ then $\binom{6}{2}$ ways to pick $X, Y$;
+If $B_2>Z$, then $2$ ways to pick $Z$ and $\binom{7}{2}=21$ ways to pick $X, Y$.
+
+In total, we have $10+15+2 \cdot 21=67$ ways. 
+Apply the initial claim to conclude that $2010$ orders are attainable for some set of $20$ singers.

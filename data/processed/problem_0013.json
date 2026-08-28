@@ -1,0 +1,11 @@
+{
+  "id": "0013",
+  "source": "IMO Shortlist",
+  "year": "2010",
+  "topic": "Combinatorics",
+  "subtopics": [],
+  "statement": "$n \\geq 4$ players participated in a tennis tournament. Any two players have played exactly one game, and there was no tie game. We call a company of four players $bad$ if one player was defeated by the other three players, and each of these three players won a game and lost another game among themselves. Suppose that there is no bad company in this tournament. Let $w_i$ and $l_i$ be respectively the number of wins and losses of the $i$-th player. Prove that\\[\\sum^n_{i=1} \\left(w_i - l_i\\right)^3 \\geq 0.\\]",
+  "solutions": [
+    "Lemma 1: $\\sum w_i = \\sum l_i$\nDouble count. Both are equal to the number of edges\n\nLemma 2: $\\sum w_i^2 = \\sum l_i^2$\nDouble count. By counting the number of subgraphs size-3 that are NOT 3 cycles, we obtain $\\sum \\binom{w_i}{2}=\\sum \\binom{l_i}{2},$ and the result follows from applying lemma 1.\n\nView the tennis tournament as a directed graph. Then $w_i,l_i$ are out and in-degree respectively.\nConsider all groups of 4 players, and consider the subgraph they make. Let $S$ be the set of their out-degrees. Note, S must be one of\n$\\{3,2,1,0\\},$\n$\\{3,1,1,1\\}$\n$\\{2,2,1,1\\}$\n$\\{2,2,2,0\\}$\nLet $a,b,c,d$ be the number of the first,second, third, and fourth type, respectively. Notice the condition tells us $d=0.$\n\nNotice $a+b$ is exactly the number of times there are 3 outgoing edges from a vertex. Thus,\n$\\sum \\binom{w_i}{3} = a+b$\nSimilarly,\n$\\sum \\binom{l_i}{3} = a+d$\n$\\sum \\binom{w_i}{2}*l_i = a+2c+3d$\n$\\sum \\binom{l_i}{2}*w_i = a+3b+2c$\nBy lemmas 1 and 2,\n$b=b-d=(a+b)-(a+d)=\\sum\\frac{w_i^3-l_i^3}{6}$\n$\\sum(w_i^3-l_i^3)=6b$\n\n$3b=(a+2c+3b)-(a+2c+3d)=\\sum \\frac{(w_il_i^2-w_il_i)-(w_i^2l_i-w_il_i)}{2}=\\sum \\frac{w_il_i(l_i-w_i)}{2}$\n$\\sum(-3w_i^2l_i+3w_il_i^2)=18b$\nAdding the two results gives us\n$\\sum (w_i-l_i)^3=24b \\ge 0,$ as desired."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "0012",
+  "source": "IMO Shortlist",
+  "year": "2010",
+  "topic": "Combinatorics",
+  "subtopics": [],
+  "statement": "Each of the six boxes $B_1$, $B_2$, $B_3$, $B_4$, $B_5$, $B_6$ initially contains one coin. The following operations are allowed\n\nType 1) Choose a non-empty box $B_j$, $1\\leq j \\leq 5$, remove one coin from $B_j$ and add two coins to $B_{j+1}$;\n\nType 2) Choose a non-empty box $B_k$, $1\\leq k \\leq 4$, remove one coin from $B_k$ and swap the contents (maybe empty) of the boxes $B_{k+1}$ and $B_{k+2}$.\n\nDetermine if there exists a finite sequence of operations of the allowed types, such that the five boxes $B_1$, $B_2$, $B_3$, $B_4$, $B_5$ become empty, while box $B_6$ contains exactly $2010^{2010^{2010}}$ coins.",
+  "solutions": [
+    "First,\\begin{align*} \t(1,1,1,1,1,1) &\\to (0,3,1,0,3,1) \\to (0,0,7,0,0,7) \\\\ \t&\\to (0,0,6,2,0,7) \\to (0,0,6,1,2,7) \\to (0,0,6,1,0,11) \\\\ \t&\\to (0,0,6,0,11,0) \\to (0,0,5,11,0,0). \\end{align*}and henceforth we ignore boxes $B_1$ and $B_2$, looking at just the last four boxes; so we write the current position as $(5,11,0,0)$.\n\nWe prove a lemma:\n\nClaim: Let $k \\ge 0$ and $n > 0$. From $(k,n,0,0)$ we may reach $(k-1,2^n,0,0)$.\n\nProof. Working with only the last three boxes for now,\\begin{align*} \t\t(n,0,0) &\\to (n-1, 2, 0) \\to (n-1, 0, 4) \\\\ \t\t&\\to (n-2, 4, 0) \\to (n-2, 0, 8) \\\\ \t\t&\\to (n-3, 8, 0) \\to (n-3, 0, 16) \\\\ \t\t&\\to \\dots \\to (1, 2^{n-1}, 0) \\to (1, 0, 2^n) \\to (0, 2^n, 0). \t\\end{align*}Finally we have $(k,n,0,0) \\to (k,0,2^n,0) \\to (k-1,2^n, 0,0)$. $\\blacksquare$\n\nNow from $(5,11,0,0)$ we go as follows:\\begin{align*} (5,11,0,0) &\\to (4, 2^{11}, 0, 0) \t\\to \\left(3, 2^{2^{11}}, 0, 0\\right) \t\\to \\left(2, 2^{2^{2^{11}}}, 0, 0\\right) \\\\ \t&\\to \\left( 1, 2^{2^{2^{2^{11}}}}, 0, 0\\right) \t\\to \\left(0, 2^{2^{2^{2^{2^{11}}}}}, 0, 0\\right). \\end{align*}Let $A = 2^{2^{2^{2^{2^{11}}}}} > 2010^{2010^{2010}} = B$. Then by using move 2 repeatedly on $k = 4$ (throwing away several coins by swapping the empty $B_5$ and $B_6$), we go from $(0,A,0,0)$ to $(0,B/4,0,0)$. From there we reach $(0,0,0,B)$."
+  ]
+}

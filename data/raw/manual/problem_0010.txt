@@ -1,0 +1,19 @@
+ID: 0010
+
+SOURCE: IMO Shortlist
+
+YEAR: 2010
+
+TOPIC: Combinatorics
+
+SUBTOPICS:  
+
+STATEMENT: On some planet, there are $2^N$ countries $(N \geq 4).$ Each country has a flag $N$ units wide and one unit high composed of $N$ fields of size $1 \times 1,$ each field being either yellow or blue. No two countries have the same flag. We say that a set of $N$ flags is diverse if these flags can be arranged into an $N \times N$ square so that all $N$ fields on its main diagonal will have the same color. Determine the smallest positive integer $M$ such that among any $M$ distinct flags, there exist $N$ flags forming a diverse set.
+
+SOLUTION 1: The answer is $M = 2^{N-2}+1$; interpret as binary strings. To show $M > 2^{N-2}$, we simply take a set of flags with all $0$ in first column and all $1$ in second column (thus using the fact that $N \ge 4$).
+
+Now, we show that any bad sets of $m$ flags satisfies $m \le 2^{N-2}$.
+Since it's impossible to align $0$'s on the diagonal, by Hall's Marriage Theorem there is a set of $1 \le a < N$ indices so that almost all (i.e. all but $a-1$) strings have all $1$'s in these positions; call these strings $0$-deficient. Define the $1$-deficient strings over a set of $1 \le b < N$ indices similarly.
+If the two sets of indices overlap, then no string can be both $0$ and $1$ deficient, so $m \le (a-1) + (b-1) \le 2N-4 \le 2^{N-2}$.
+Otherwise, there can be up to $2^{N-(a+b)}$ strings which are both $0$ and $1$-deficient, so we deduce $m \le (a-1) + (b-1) + 2^{N-(a+b)} \le 2^{N-2}$ with equality when $a+b=2$.
+In both cases we're done. $\blacksquare$
