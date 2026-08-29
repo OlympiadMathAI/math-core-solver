@@ -1,0 +1,158 @@
+ID: 0027
+
+SOURCE: IMO Shortlist
+
+YEAR: 2010
+
+TOPIC: Number Theory
+
+SUBTOPICS: Functional Equations, Squares, Prime Divisibility, Injectivity
+
+STATEMENT:
+Let $\mathbb N$ be the set of positive integers. Find all functions
+\[
+f:\mathbb N\to\mathbb N
+\]
+such that
+\[
+\bigl(f(m)+n\bigr)\bigl(m+f(n)\bigr)
+\]
+is a perfect square for all $m,n\in\mathbb N$.
+
+SOLUTION 1:
+All solutions are
+\[
+\boxed{f(n)=n+c},
+\]
+where $c$ is a nonnegative integer.
+
+Indeed, if $f(n)=n+c$, then
+\[
+\bigl(f(m)+n\bigr)\bigl(m+f(n)\bigr)
+=(m+n+c)^2,
+\]
+so every such function works.
+
+We prove that there are no others.
+
+\textbf{Lemma.} Let $p$ be a prime. If
+\[
+p\mid f(k)-f(\ell),
+\]
+then
+\[
+p\mid k-\ell.
+\]
+
+First suppose
+\[
+p^2\mid f(k)-f(\ell).
+\]
+Write
+\[
+f(\ell)=f(k)+p^2a
+\]
+for some integer $a$. Choose a positive integer
+\[
+D>\max\{f(k),f(\ell)\}
+\]
+with $p\nmid D$, and put
+\[
+n=pD-f(k).
+\]
+Then
+\[
+n+f(k)=pD,
+\qquad
+n+f(\ell)=p(D+pa),
+\]
+and both numbers are divisible by $p$ but not by $p^2$.
+
+The two numbers
+\[
+\bigl(f(k)+n\bigr)\bigl(f(n)+k\bigr)
+\]
+and
+\[
+\bigl(f(\ell)+n\bigr)\bigl(f(n)+\ell\bigr)
+\]
+are squares. Since their first factors have odd $p$-adic valuation, their second factors must be divisible by $p$. Hence
+\[
+p\mid f(n)+k
+\quad\text{and}\quad
+p\mid f(n)+\ell,
+\]
+so
+\[
+p\mid k-\ell.
+\]
+
+Now suppose that $p\mid f(k)-f(\ell)$ but
+\[
+p^2\nmid f(k)-f(\ell).
+\]
+Choose $D$ as above and set
+\[
+n=p^3D-f(k).
+\]
+Then
+\[
+n+f(k)=p^3D
+\]
+has $p$-adic valuation $3$, while
+\[
+n+f(\ell)=p^3D+f(\ell)-f(k)
+\]
+has $p$-adic valuation $1$. Applying the square condition again shows that both
+\[
+f(n)+k
+\quad\text{and}\quad
+f(n)+\ell
+\]
+are divisible by $p$. Hence $p\mid k-\ell$, and the lemma is proved.
+
+Now suppose
+\[
+f(k)=f(\ell).
+\]
+Every prime divides $f(k)-f(\ell)$, so the lemma implies that every prime divides $k-\ell$. Therefore $k=\ell$, and $f$ is injective.
+
+For consecutive arguments, if a prime $p$ divided
+\[
+f(k+1)-f(k),
+\]
+the lemma would give $p\mid1$, which is impossible. Since injectivity also shows that this difference is nonzero, we obtain
+\[
+|f(k+1)-f(k)|=1
+\tag{1}
+\]
+for every $k$.
+
+Let
+\[
+q=f(2)-f(1)\in\{-1,1\}.
+\]
+We prove by induction that
+\[
+f(n)=f(1)+q(n-1).
+\tag{2}
+\]
+The formula is true for $n=1,2$. If it is true up to $n$, then by (1),
+\[
+f(n+1)=f(n)\pm1.
+\]
+The choice opposite to $q$ would give
+\[
+f(n+1)=f(n-1),
+\]
+contradicting injectivity. Thus the same sign $q$ continues, proving (2).
+
+The value $q=-1$ is impossible because $f(n)$ would eventually be nonpositive. Hence $q=1$, and
+\[
+f(n)=n+f(1)-1.
+\]
+Since $f(1)\ge1$, the constant
+\[
+c=f(1)-1
+\]
+is a nonnegative integer. This completes the proof.

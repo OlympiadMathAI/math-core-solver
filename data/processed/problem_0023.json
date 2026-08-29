@@ -1,0 +1,15 @@
+{
+  "id": "0023",
+  "source": "IMO Shortlist",
+  "year": "2010",
+  "topic": "Number Theory",
+  "subtopics": [
+    "Products",
+    "Telescoping",
+    "Extremal Bounds"
+  ],
+  "statement": "Find the least positive integer $n$ for which there exist $n$ distinct positive integers\n\\[\ns_1,s_2,\\ldots,s_n\n\\]\nsuch that\n\\[\n\\left(1-\\frac1{s_1}\\right)\n\\left(1-\\frac1{s_2}\\right)\n\\cdots\n\\left(1-\\frac1{s_n}\\right)\n=\n\\frac{51}{2010}.\n\\]",
+  "solutions": [
+    "The least possible value is\n\\[\n\\boxed{39}.\n\\]\n\nSuppose that such integers exist, and order them as\n\\[\ns_1<s_2<\\cdots<s_n.\n\\]\nNone of them equals $1$, because that would make the product zero. Since the $s_i$ are distinct positive integers greater than $1$,\n\\[\ns_i\\ge i+1\n\\qquad(i=1,\\ldots,n).\n\\]\nThe function $x\\mapsto1-\\frac1x$ is increasing for $x>0$, so\n\\[\n\\begin{aligned}\n\\frac{51}{2010}\n&=\n\\prod_{i=1}^n\\left(1-\\frac1{s_i}\\right)\\\\\n&\\ge\n\\prod_{i=1}^n\\left(1-\\frac1{i+1}\\right)\\\\\n&=\n\\frac12\\cdot\\frac23\\cdots\\frac{n}{n+1}\\\\\n&=\\frac1{n+1}.\n\\end{aligned}\n\\]\nHence\n\\[\nn+1\\ge\\frac{2010}{51}=\\frac{670}{17}>39,\n\\]\nand therefore\n\\[\nn\\ge39.\n\\]\n\nIt remains to construct an example with $39$ integers. Take\n\\[\n\\{2,3,\\ldots,33,35,36,\\ldots,40,67\\}.\n\\]\nThere are\n\\[\n32+6+1=39\n\\]\nnumbers in this set, and\n\\[\n\\begin{aligned}\n&\\prod_{s=2}^{33}\\left(1-\\frac1s\\right)\n\\prod_{s=35}^{40}\\left(1-\\frac1s\\right)\n\\left(1-\\frac1{67}\\right)\\\\\n&\\qquad=\n\\frac12\\cdot\\frac23\\cdots\\frac{32}{33}\n\\cdot\n\\frac{34}{35}\\cdot\\frac{35}{36}\\cdots\\frac{39}{40}\n\\cdot\\frac{66}{67}\\\\\n&\\qquad=\n\\frac1{33}\\cdot\\frac{34}{40}\\cdot\\frac{66}{67}\\\\\n&\\qquad=\n\\frac{17}{670}\n=\n\\frac{51}{2010}.\n\\end{aligned}\n\\]\nThus $n=39$ is attainable and is minimal."
+  ]
+}

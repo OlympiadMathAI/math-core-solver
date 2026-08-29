@@ -1,0 +1,229 @@
+ID: 0020
+
+SOURCE: IMO Shortlist
+
+YEAR: 2010
+
+TOPIC: Geometry
+
+SUBTOPICS: Convex Pentagons, Central Symmetry, Cyclic Quadrilaterals, Trigonometry
+
+STATEMENT:
+Let $ABCDE$ be a convex pentagon such that
+\[
+BC\parallel AE,\qquad
+AB=BC+AE,\qquad
+\angle ABC=\angle CDE.
+\]
+Let $M$ be the midpoint of $CE$, and let $O$ be the circumcenter of triangle $BCD$. Given that
+\[
+\angle DMO=90^\circ,
+\]
+prove that
+\[
+2\angle BDA=\angle CDE.
+\]
+
+SOLUTION 1:
+Choose $T$ on the ray $AE$ so that
+\[
+AT=AB.
+\]
+Since $AT=AB$, triangle $ABT$ is isosceles, and therefore
+\[
+\angle ATB=\angle ABT.
+\]
+Since $AT\parallel BC$, we also have
+\[
+\angle CBT=\angle ATB.
+\]
+Thus
+\[
+\angle CBT=\angle ABT,
+\]
+so $BT$ bisects $\angle ABC$. 
+Thus $BT$ bisects $\angle ABC$.
+
+Moreover,
+\[
+ET=AT-AE=AB-AE=BC.
+\]
+Together with $ET\parallel BC$, this shows that $BCTE$ is a parallelogram. Hence its diagonals $BT$ and $CE$ bisect each other, so $M$ is also the midpoint of $BT$.
+
+Let $K$ be the reflection of $D$ in $M$. Since $M$ is the midpoint of $DK$ and
+\[
+DM\perp OM,
+\]
+the line $OM$ is the perpendicular bisector of $DK$. Therefore
+\[
+OD=OK.
+\]
+As $O$ is the circumcenter of triangle $BCD$, the point $K$ also lies on the circumcircle of $BCD$.
+
+Thus
+\[
+\angle BKC=\angle BDC.
+\]
+The half-turn about $M$ sends
+\[
+B\leftrightarrow T,\qquad
+C\leftrightarrow E,\qquad
+K\leftrightarrow D,
+\]
+so
+\[
+\angle TDE=\angle BKC=\angle BDC.
+\]
+Consequently,
+\[
+\angle BDT
+=\angle BDE+\angle EDT
+=\angle BDE+\angle BDC
+=\angle CDE.
+\]
+By hypothesis,
+\[
+\angle BDT=\angle ABC.
+\]
+Since $AT\parallel BC$,
+\[
+\angle BAT+\angle ABC=180^\circ.
+\]
+Hence
+\[
+\angle BDT+\angle BAT=180^\circ,
+\]
+so $A,B,D,T$ are concyclic. Therefore
+\[
+\angle ADB=\angle ATB
+=\frac12\angle ABC
+=\frac12\angle CDE.
+\]
+This is the desired result.
+
+SOLUTION 2:
+Set
+\[
+\angle CBD=\alpha,\qquad
+\angle BDC=\beta,\qquad
+\angle ADE=\gamma,
+\]
+and write
+\[
+\angle ABC=\angle CDE=2\varphi.
+\]
+Angle chasing gives
+\[
+\angle ADB=2\varphi-\beta-\gamma,
+\]
+\[
+\angle BCD=180^\circ-\alpha-\beta,
+\]
+\[
+\angle AED=180^\circ-2\varphi+\alpha+\beta,
+\]
+and
+\[
+\angle DAE=2\varphi-\alpha-\beta-\gamma.
+\]
+
+Let $N$ be the midpoint of $CD$. Since $O$ is the circumcenter of triangle $BCD$,
+\[
+ON\perp CD.
+\]
+Together with $OM\perp DM$, this implies that $D,M,O,N$ are cyclic on the circle with diameter $DO$. In either possible configuration,
+\[
+\angle DMN=\alpha.
+\]
+Because $M$ and $N$ are the midpoints of $CE$ and $CD$ in triangle $CDE$,
+\[
+MN\parallel DE.
+\]
+Hence
+\[
+\angle MDE=\alpha,
+\qquad
+\angle NDM=2\varphi-\alpha.
+\]
+
+Apply the sine rule in the triangles $ABD,ADE,BCD$, and $MND$. We obtain
+\[
+\frac{AB}{AD}
+=
+\frac{\sin(2\varphi-\beta-\gamma)}
+     {\sin(2\varphi-\alpha)},
+\]
+\[
+\frac{AE}{AD}
+=
+\frac{\sin\gamma}
+     {\sin(2\varphi-\alpha-\beta)},
+\]
+\[
+\frac{DE}{AD}
+=
+\frac{\sin(2\varphi-\alpha-\beta-\gamma)}
+     {\sin(2\varphi-\alpha-\beta)},
+\]
+\[
+\frac{BC}{CD}=\frac{\sin\beta}{\sin\alpha},
+\]
+and
+\[
+\frac{CD}{DE}
+=
+\frac{ND}{NM}
+=
+\frac{\sin\alpha}{\sin(2\varphi-\alpha)}.
+\]
+Therefore
+\[
+\frac{BC}{AD}
+=
+\frac{\sin\beta\,
+\sin(2\varphi-\alpha-\beta-\gamma)}
+{\sin(2\varphi-\alpha)\,
+\sin(2\varphi-\alpha-\beta)}.
+\]
+
+The condition $AB=AE+BC$, after substitution and multiplication by the common denominator, becomes
+\[
+\begin{aligned}
+&\sin(2\varphi-\alpha-\beta)
+ \sin(2\varphi-\beta-\gamma)\\
+&\qquad=
+\sin\gamma\,\sin(2\varphi-\alpha)
++
+\sin\beta\,\sin(2\varphi-\alpha-\beta-\gamma).
+\end{aligned}
+\]
+Using product-to-sum formulas, this is equivalent to
+\[
+\cos\varphi\,
+\sin(2\varphi-\beta-\alpha)\,
+\sin(\varphi-\beta-\gamma)=0.
+\]
+Now
+\[
+0<\varphi<90^\circ
+\]
+and
+\[
+0<2\varphi-\beta-\alpha
+=180^\circ-\angle AED<180^\circ.
+\]
+Thus the first two factors are nonzero, and
+\[
+\varphi=\beta+\gamma.
+\]
+Finally,
+\[
+\angle BDA
+=2\varphi-\beta-\gamma
+=\varphi
+=\frac12\angle CDE.
+\]
+Hence
+\[
+2\angle BDA=\angle CDE.
+\]

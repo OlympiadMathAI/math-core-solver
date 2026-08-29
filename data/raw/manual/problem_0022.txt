@@ -1,0 +1,168 @@
+ID: 0022
+
+SOURCE: IMO Shortlist
+
+YEAR: 2010
+
+TOPIC: Geometry
+
+SUBTOPICS: Tangent Circles, Homothety, Ellipses, Loci
+
+STATEMENT:
+Three circular arcs $\gamma_1,\gamma_2,\gamma_3$ connect two points $A$ and $C$. They lie in the same half-plane bounded by $AC$, with $\gamma_2$ between $\gamma_1$ and $\gamma_3$. A point $B$ lies on the segment $AC$.
+
+Let $h_1,h_2,h_3$ be three rays from $B$ in that half-plane, with $h_2$ between $h_1$ and $h_3$. For $i,j\in\{1,2,3\}$, let
+\[
+V_{ij}=h_i\cap\gamma_j.
+\]
+
+For $i<k$ and $j<\ell$, consider the curved quadrilateral bounded by the two ray segments
+\[
+V_{ij}V_{i\ell},\qquad V_{kj}V_{k\ell},
+\]
+and the two arc segments
+\[
+\widehat{V_{ij}V_{kj}}\subset\gamma_j,
+\qquad
+\widehat{V_{i\ell}V_{k\ell}}\subset\gamma_\ell.
+\]
+Call it circumscribed if a circle is tangent to all four boundary pieces.
+
+Suppose the following three curved quadrilaterals are circumscribed:
+\[
+(V_{11},V_{21},V_{22},V_{12}),
+\]
+\[
+(V_{12},V_{22},V_{23},V_{13}),
+\]
+\[
+(V_{21},V_{31},V_{32},V_{22}).
+\]
+Prove that
+\[
+(V_{22},V_{32},V_{33},V_{23})
+\]
+is circumscribed as well.
+
+SOLUTION 1:
+Let $O_i$ and $R_i$ be the center and radius of the circle containing $\gamma_i$. Let $H$ be the half-plane containing the configuration. For a point $P\in H$, write
+\[
+d(P)=d(P,AC).
+\]
+Let $\Omega(P,r)$ denote the circle with center $P$ and radius $r$.
+
+\textbf{Lemma 1.} Fix $1\le i<j\le3$ and consider circles $\Omega(P,r)$ tangent to both rays $h_i$ and $h_j$.
+
+Their centers lie on the internal angle bisector $\beta_{ij}$ of the two rays. Moreover, there is a constant $u_{ij}>0$, depending only on the two rays, such that
+\[
+r=u_{ij}d(P).
+\tag{1}
+\]
+
+Indeed, all circles tangent to the two rays are homothetic with center of homothety $B$. Therefore both their radii and their distances from $AC$ change by the same factor, proving (1).
+
+\textbf{Lemma 2.} Fix $1\le i<j\le3$ and consider circles $\Omega(P,r)$ that are externally tangent to $\gamma_i$ and internally tangent to $\gamma_j$.
+
+Their centers lie on an ellipse arc $\varepsilon_{ij}$ joining $A$ and $C$. Moreover, there is a constant $v_{ij}>0$, depending only on the two arcs, such that
+\[
+r=v_{ij}d(P).
+\tag{2}
+\]
+
+The tangency conditions are
+\[
+O_iP=R_i+r,
+\qquad
+O_jP=R_j-r.
+\]
+Thus
+\[
+O_iP+O_jP=R_i+R_j,
+\]
+so $P$ lies on the ellipse with foci $O_i,O_j$ and major-axis length $R_i+R_j$. The relevant part of this ellipse is the arc $\varepsilon_{ij}$ inside $H$ joining $A$ and $C$.
+
+It remains to prove the linear relation (2). Put
+\[
+\boldsymbol{\rho}=\overrightarrow{AP},
+\qquad
+\boldsymbol{\rho_i}=\overrightarrow{AO_i},
+\qquad
+\boldsymbol{\rho_j}=\overrightarrow{AO_j}.
+\]
+Because $A$ lies on both circles,
+\[
+|\boldsymbol{\rho_i}|=R_i,
+\qquad
+|\boldsymbol{\rho_j}|=R_j.
+\]
+The tangency equations yield
+\[
+|\boldsymbol{\rho}-\boldsymbol{\rho_i}|^2
+-
+|\boldsymbol{\rho}-\boldsymbol{\rho_j}|^2
+=
+(R_i+r)^2-(R_j-r)^2.
+\]
+After expansion and cancellation,
+\[
+\boldsymbol{\rho}\cdot
+(\boldsymbol{\rho_j}-\boldsymbol{\rho_i})
+=
+r(R_i+R_j).
+\tag{3}
+\]
+
+The centers $O_i,O_j$ lie on the perpendicular bisector of $AC$, so $O_iO_j\perp AC$. If
+\[
+d_{ij}=O_iO_j,
+\]
+then the left side of (3) equals
+\[
+d_{ij}d(P).
+\]
+Therefore
+\[
+r=\frac{d_{ij}}{R_i+R_j}\,d(P).
+\]
+Thus
+\[
+v_{ij}=\frac{d_{ij}}{R_i+R_j}.
+\]
+
+\textbf{Lemma 3.} The curved quadrilateral bounded by the consecutive rays $h_i,h_{i+1}$ and consecutive arcs $\gamma_j,\gamma_{j+1}$ is circumscribed if and only if
+\[
+u_{i,i+1}=v_{j,j+1}.
+\tag{4}
+\]
+
+If the quadrilateral has an incircle $\Omega(P,r)$, Lemmas 1 and 2 give
+\[
+r=u_{i,i+1}d(P)
+\quad\text{and}\quad
+r=v_{j,j+1}d(P),
+\]
+so (4) follows.
+
+Conversely, suppose (4) holds. Let $P$ be the intersection of the angle bisector $\beta_{i,i+1}$ with the ellipse arc $\varepsilon_{j,j+1}$, and set
+\[
+r=u_{i,i+1}d(P)=v_{j,j+1}d(P).
+\]
+By Lemma 1, $\Omega(P,r)$ is tangent to the two rays; by Lemma 2, it is tangent to the two arcs. Hence the curved quadrilateral is circumscribed.
+
+We now translate the three hypotheses by Lemma 3. They give
+\[
+u_{12}=v_{12},
+\qquad
+u_{12}=v_{23},
+\qquad
+u_{23}=v_{12}.
+\]
+Therefore
+\[
+u_{23}=v_{23}.
+\]
+A final application of Lemma 3 shows that the curved quadrilateral bounded by $h_2,h_3$ and $\gamma_2,\gamma_3$, namely
+\[
+(V_{22},V_{32},V_{33},V_{23}),
+\]
+is circumscribed.

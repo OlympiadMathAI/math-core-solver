@@ -1,0 +1,199 @@
+ID: 0019
+
+SOURCE: IMO Shortlist
+
+YEAR: 2010
+
+TOPIC: Geometry
+
+SUBTOPICS: Incenter, Menelaus Theorem, Similar Triangles, Cyclic Quadrilaterals
+
+STATEMENT:
+Let $I$ be the incenter of triangle $ABC$, and let $\Gamma$ be its circumcircle. The line $AI$ meets $\Gamma$ again at $D\ne A$. Let $F$ be a point on $BC$, and let $E$ be a point on the arc $BDC$, such that
+\[
+\angle BAF=\angle CAE<\frac12\angle BAC.
+\]
+Let $G$ be the midpoint of $IF$. Prove that the lines $DG$ and $EI$ meet on $\Gamma$.
+
+SOLUTION 1:
+Let $X\ne E$ be the second intersection of $EI$ with $\Gamma$, and let
+\[
+L=AI\cap BC.
+\]
+Let
+\[
+G'=DX\cap IF,
+\qquad
+T=DX\cap AF.
+\]
+It is enough to prove that $G'=G$, or equivalently
+\[
+IG'=G'F.
+\]
+
+Apply Menelaus' theorem to triangle $AIF$ and the transversal $D,G',T$. In directed ratios,
+\[
+\frac{G'F}{IG'}
+=
+\frac{TF}{AT}\cdot\frac{AD}{ID}.
+\]
+Thus it suffices to prove
+\[
+\frac{TF}{AT}=\frac{ID}{AD}.
+\tag{1}
+\]
+
+Let $K\ne A$ be the second intersection of $AF$ with $\Gamma$. Since
+\[
+\angle BAK=\angle CAE,
+\]
+the arcs $\widehat{BK}$ and $\widehat{CE}$ are equal, and therefore
+\[
+KE\parallel BC.
+\tag{2}
+\]
+
+Also,
+\[
+\angle IAT
+=\angle DAK
+=\angle EAD
+=\angle EXD
+=\angle IXT.
+\]
+Hence $I,A,X,T$ are concyclic. Therefore
+\[
+\angle ITA
+=\angle IXA
+=\angle EXA
+=\angle EKA,
+\]
+so
+\[
+IT\parallel KE\parallel BC.
+\tag{3}
+\]
+
+In triangle $AFL$, relation (3) gives
+\[
+\frac{TF}{AT}=\frac{IL}{AI}.
+\tag{4}
+\]
+Since $CI$ bisects $\angle ACL$, the angle-bisector theorem in triangle $ACL$ gives
+\[
+\frac{IL}{AI}=\frac{CL}{AC}.
+\tag{5}
+\]
+
+Furthermore,
+\[
+\angle DCL=\angle DCB=\angle DAB=\angle CAD.
+\]
+Thus triangles $DCL$ and $DAC$ are similar, so
+\[
+\frac{CL}{AC}=\frac{DC}{AD}.
+\tag{6}
+\]
+
+The point $D$ is the midpoint of arc $BC$ not containing $A$, and the standard incenter relation gives
+\[
+DB=DC=DI.
+\]
+Hence
+\[
+\frac{DC}{AD}=\frac{ID}{AD}.
+\tag{7}
+\]
+
+Combining (4)--(7), we obtain (1). Therefore $IG'=G'F$, so $G'=G$. Since $X\in\Gamma$, the lines $DG$ and $EI$ meet at the point $X$ on $\Gamma$.
+
+SOLUTION 2:
+Use the same points $X,T,K$ as in Solution 1. Menelaus reduces the problem to
+\[
+\frac{TF}{AT}=\frac{DI}{AD}.
+\]
+Equivalently,
+\[
+\frac{AT}{AD}=\frac{AF}{AD+DI}.
+\tag{1}
+\]
+
+We first compute the left-hand side. Since
+\[
+\angle FAD=\angle EAI
+\]
+and
+\[
+\angle TDA=\angle XDA=\angle XEA=\angle IEA,
+\]
+the triangles $ATD$ and $AIE$ are similar. Hence
+\[
+\frac{AT}{AD}=\frac{AI}{AE}.
+\tag{2}
+\]
+
+Next, use the relation
+\[
+DB=DC=DI.
+\]
+Choose a point $J$ on the extension of $AD$ beyond $D$ such that
+\[
+DJ=DI=DC.
+\]
+Then
+\[
+\angle DJC=\angle JCD
+=\frac12\left(180^\circ-\angle JDC\right)
+=\frac12\angle ADC
+=\frac12\angle ABC
+=\angle ABI.
+\]
+Moreover,
+\[
+\angle BAI=\angle JAC.
+\]
+Therefore
+\[
+\triangle ABI\sim\triangle AJC,
+\]
+and
+\[
+\frac{AB}{AJ}=\frac{AI}{AC}.
+\]
+Since $AJ=AD+DI$,
+\[
+AB\cdot AC=(AD+DI)\cdot AI.
+\tag{3}
+\]
+
+On the other hand,
+\[
+\angle ABF=\angle ABC=\angle AEC
+\]
+and
+\[
+\angle BAF=\angle CAE.
+\]
+Thus
+\[
+\triangle ABF\sim\triangle AEC,
+\]
+which yields
+\[
+\frac{AF}{AC}=\frac{AB}{AE},
+\]
+or
+\[
+AB\cdot AC=AF\cdot AE.
+\tag{4}
+\]
+
+From (3) and (4),
+\[
+(AD+DI)\cdot AI=AF\cdot AE,
+\]
+so
+\[
+\frac{AI}{AE}=\frac{AF}{AD+DI}.
+\]
+Together with (2), this proves (1), and hence the required concurrency on $\Gamma$.

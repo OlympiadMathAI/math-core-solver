@@ -1,0 +1,177 @@
+ID: 0018
+
+SOURCE: IMO Shortlist
+
+YEAR: 2010
+
+TOPIC: Geometry
+
+SUBTOPICS: Convex Polygons, Orthogonal Projections, Circumcircles, Trigonometry
+
+STATEMENT:
+Let $A_1A_2\cdots A_n$ be a convex polygon. A point $P$ inside the polygon is chosen so that its perpendicular projections $P_1,\ldots,P_n$ onto the lines
+\[
+A_1A_2,\ A_2A_3,\ \ldots,\ A_nA_1
+\]
+lie on the corresponding sides. For arbitrary points
+\[
+X_i\in A_iA_{i+1}
+\qquad (i=1,\ldots,n),
+\]
+where indices are taken modulo $n$, prove that
+\[
+\max_{1\le i\le n}\frac{X_iX_{i+1}}{P_iP_{i+1}}\ge1.
+\]
+
+SOLUTION 1:
+We use the following lemma.
+
+\textbf{Lemma.} Let $Q$ be a point inside the convex polygon $A_1A_2\cdots A_n$. Then $Q$ lies inside or on at least one of the circumcircles of the triangles
+\[
+X_iA_{i+1}X_{i+1},
+\qquad i=1,\ldots,n.
+\]
+
+If $Q$ lies in one of these triangles, the assertion is immediate. Otherwise $Q$ lies inside the polygon $X_1X_2\cdots X_n$. Then
+\[
+\begin{aligned}
+&\sum_{i=1}^n
+\left(
+\angle X_iA_{i+1}X_{i+1}
++
+\angle X_iQX_{i+1}
+\right)\\
+&\qquad=(n-2)\pi+2\pi=n\pi.
+\end{aligned}
+\]
+Therefore, for some index $i$,
+\[
+\angle X_iA_{i+1}X_{i+1}
++
+\angle X_iQX_{i+1}
+\ge\pi.
+\]
+Since the quadrilateral $QX_iA_{i+1}X_{i+1}$ is convex, this means that $Q$ lies inside or on the circumcircle of triangle $X_iA_{i+1}X_{i+1}$. The lemma follows.
+
+Apply the lemma to $Q=P$. For some $i$, the point $P$ lies inside or on the circumcircle $\Omega$ of
+\[
+X_iA_{i+1}X_{i+1}.
+\]
+Let its radius be $R$. Let $\omega$ be the circumcircle of
+\[
+P_iA_{i+1}P_{i+1},
+\]
+and let its radius be $r$. Since
+\[
+PP_i\perp A_iA_{i+1},
+\qquad
+PP_{i+1}\perp A_{i+1}A_{i+2},
+\]
+the segment $A_{i+1}P$ is a diameter of $\omega$, so
+\[
+2r=A_{i+1}P.
+\]
+Because $P$ lies inside $\Omega$ and $A_{i+1}\in\Omega$,
+\[
+A_{i+1}P\le2R,
+\]
+hence $r\le R$.
+
+The angles at $A_{i+1}$ in the two triangles are equal, because both are the angle between the adjacent sides of the polygon. Thus
+\[
+\begin{aligned}
+P_iP_{i+1}
+&=2r\sin\angle P_iA_{i+1}P_{i+1}\\
+&\le2R\sin\angle X_iA_{i+1}X_{i+1}\\
+&=X_iX_{i+1}.
+\end{aligned}
+\]
+Therefore
+\[
+\frac{X_iX_{i+1}}{P_iP_{i+1}}\ge1,
+\]
+which proves the claim.
+
+SOLUTION 2:
+We prove the stronger statement
+\[
+\max_{1\le i\le n}
+\left(
+\frac{X_iX_{i+1}}{P_iP_{i+1}}\cos\alpha_i
+\right)\ge1,
+\tag{1}
+\]
+where $\alpha_i$ is the angle between the lines $X_iX_{i+1}$ and $P_iP_{i+1}$.
+
+Define
+\[
+\beta_i=\angle A_iP_iP_{i-1},
+\qquad
+\gamma_i=\angle A_{i+1}P_iP_{i+1}.
+\]
+All these angles are acute.
+
+Suppose that, for some $i$, the point $X_i$ lies on the segment $A_iP_i$ and $X_{i+1}$ lies on the segment $P_{i+1}A_{i+2}$. The orthogonal projection of $X_iX_{i+1}$ onto the line $P_iP_{i+1}$ then contains the whole segment $P_iP_{i+1}$. Hence
+\[
+X_iX_{i+1}\cos\alpha_i\ge P_iP_{i+1},
+\]
+and (1) follows.
+
+Thus it remains only to consider the case in which all $X_i$ lie on the segments
+\[
+P_iA_{i+1};
+\]
+the opposite uniform orientation is analogous.
+
+Assume, for a contradiction, that
+\[
+X_iX_{i+1}\cos\alpha_i<P_iP_{i+1}
+\tag{2}
+\]
+for every $i$. Let $Y_i$ and $Y'_{i+1}$ be the perpendicular projections of $X_i$ and $X_{i+1}$ onto the line $P_iP_{i+1}$. Inequality (2) says
+\[
+Y_iY'_{i+1}<P_iP_{i+1},
+\]
+which, in the present configuration, is equivalent to
+\[
+P_iY_i>P_{i+1}Y'_{i+1}.
+\]
+Therefore
+\[
+X_iP_i\cos\gamma_i
+>
+X_{i+1}P_{i+1}\cos\beta_{i+1}.
+\]
+Multiplying these inequalities for all $i$ gives
+\[
+\prod_{i=1}^n\cos\gamma_i
+>
+\prod_{i=1}^n\cos\beta_i.
+\tag{3}
+\]
+
+Now apply the sine rule to triangle $PP_iP_{i+1}$. Its angles at $P_i$ and $P_{i+1}$ are
+\[
+\frac{\pi}{2}-\gamma_i
+\quad\text{and}\quad
+\frac{\pi}{2}-\beta_{i+1},
+\]
+respectively, so
+\[
+\frac{PP_i}{PP_{i+1}}
+=
+\frac{\cos\beta_{i+1}}{\cos\gamma_i}.
+\]
+Multiplying these equalities cyclically,
+\[
+1=
+\prod_{i=1}^n
+\frac{\cos\beta_{i+1}}{\cos\gamma_i},
+\]
+or
+\[
+\prod_{i=1}^n\cos\gamma_i
+=
+\prod_{i=1}^n\cos\beta_i,
+\]
+contradicting (3). Hence (1) holds. Since $\cos\alpha_i\le1$, the required inequality follows.

@@ -1,0 +1,189 @@
+ID: 0021
+
+SOURCE: IMO Shortlist
+
+YEAR: 2010
+
+TOPIC: Geometry
+
+SUBTOPICS: Incenter, Equilateral Triangle, Incircles, Arc Estimates
+
+STATEMENT:
+The vertices $X,Y,Z$ of an equilateral triangle lie respectively on the sides $BC,CA,AB$ of an acute triangle $ABC$. Prove that the incenter of triangle $ABC$ lies inside triangle $XYZ$.
+
+SOLUTION 1:
+We prove the stronger statement that the incenter $I$ of triangle $ABC$ lies inside the incircle of the equilateral triangle $XYZ$.
+
+Let $O$ be the center of triangle $XYZ$. Denote by
+\[
+r,\qquad r',\qquad R'
+\]
+the inradius of $ABC$, the inradius of $XYZ$, and the circumradius of $XYZ$, respectively. Since $XYZ$ is equilateral,
+\[
+R'=2r'.
+\]
+Thus it is enough to prove
+\[
+OI\le r'.
+\tag{1}
+\]
+
+Let the incircle of $ABC$ touch $BC,CA,AB$ at $A_1,B_1,C_1$, respectively. The three perpendicular lines
+\[
+IA_1,\quad IB_1,\quad IC_1
+\]
+divide the plane into six acute sectors. We may suppose that $O$ lies in the sector bounded by $IA_1$ and $IC_1$ that contains $C_1$.
+
+Let $A'$ and $C'$ be the perpendicular projections of $O$ onto $IA_1$ and $IC_1$, respectively.
+
+Because $X\in BC$ and $OX=R'$,
+\[
+d(O,BC)\le R'.
+\]
+Since $OA'\parallel BC$,
+\[
+d(A',BC)=IA'+r\le R',
+\]
+and hence
+\[
+IA'\le R'-r.
+\tag{2}
+\]
+
+The incircle of $XYZ$ lies inside triangle $XYZ$, and therefore inside triangle $ABC$. Consequently,
+\[
+d(O,AB)\ge r'.
+\]
+Since $OC'\parallel AB$,
+\[
+d(O,AB)=C'C_1=r-IC',
+\]
+so
+\[
+IC'\le r-r'.
+\tag{3}
+\]
+
+The quadrilateral $IA'OC'$ is cyclic, because
+\[
+\angle IA'O=\angle IC'O=90^\circ.
+\]
+Also, the angle $\angle A'IC'$ is acute. Since $OI$ is a diameter of this circle, comparison of the corresponding arcs gives
+\[
+A'O<IC'.
+\tag{4}
+\]
+
+Finally, by the triangle inequality and (2)--(4),
+\[
+\begin{aligned}
+OI
+&\le IA'+A'O\\
+&<IA'+IC'\\
+&\le(R'-r)+(r-r')\\
+&=R'-r'=r'.
+\end{aligned}
+\]
+Thus $I$ lies inside the incircle of $XYZ$, and hence inside triangle $XYZ$.
+
+SOLUTION 2:
+Assume, for a contradiction, that the incenter $I$ lies outside triangle $XYZ$. Since $XYZ$ is contained in $ABC$, the point $I$ must lie in one of the three corner triangles
+\[
+AYZ,\qquad BXZ,\qquad CXY.
+\]
+Without loss of generality, assume
+\[
+I\in\triangle AYZ.
+\]
+
+Let the incircle $\omega$ of $ABC$ touch $BC$ and $CA$ at $A_1$ and $B_1$, respectively. By symmetry of the argument, assume that $A_1$ lies on the segment $CX$. We shall prove that
+\[
+\angle C>90^\circ,
+\]
+contradicting the fact that $ABC$ is acute.
+
+The circle $\omega$ meets each of the segments $XY$ and $YZ$ twice. Denote the intersection points by
+\[
+U,U'\in XY,\qquad V,V'\in YZ,
+\]
+chosen so that
+\[
+YU>YU',\qquad YV>YV'.
+\]
+Because $\angle XYZ=60^\circ$, the intersecting-secants angle formula gives
+\[
+60^\circ
+=\frac12\left(\widehat{UV}-\widehat{U'V'}\right)
+\le\frac12\widehat{UV}.
+\]
+Hence
+\[
+\widehat{UV}\ge120^\circ.
+\tag{1}
+\]
+
+Since $I$ lies in triangle $AYZ$, the relevant arc $\widehat{VUV'}$ is less than $180^\circ$. Therefore
+\[
+\widehat{UA_1U'}
+\le\widehat{UA_1V'}
+<
+180^\circ-\widehat{UV}
+\le60^\circ.
+\tag{2}
+\]
+
+There are two possible orders of $Y$ and $B_1$ on $AC$.
+
+\textbf{Case 1.} Suppose that $Y$ lies on the segment $AB_1$.
+
+Using (2),
+\[
+\angle YXC
+=\frac12\left(\widehat{A_1U'}-\widehat{A_1U}\right)
+\le\frac12\widehat{UA_1U'}
+<30^\circ.
+\]
+Similarly,
+\[
+\angle XYC<30^\circ.
+\]
+Thus
+\[
+\angle YCX
+=180^\circ-\angle YXC-\angle XYC
+>120^\circ,
+\]
+which is impossible in an acute triangle.
+
+\textbf{Case 2.} Suppose that $Y$ lies on the segment $CB_1$.
+
+As above,
+\[
+\angle YXC<30^\circ.
+\tag{3}
+\]
+Since $I$ lies inside $\angle XYZ$ and $Z,Y,I$ occur in the relevant order,
+\[
+\angle IYX>\angle ZYX=60^\circ.
+\]
+The line $YB_1$ is tangent to $\omega$, while $YX$ is a secant, so
+\[
+\angle IYX<\angle IYB_1.
+\]
+Consequently,
+\[
+\begin{aligned}
+120^\circ
+&<\angle IYB_1+\angle IYX\\
+&=\angle B_1YX\\
+&=\angle YXC+\angle YCX\\
+&<30^\circ+\angle YCX.
+\end{aligned}
+\]
+Hence
+\[
+\angle YCX>90^\circ,
+\]
+again contradicting the acuteness of $ABC$.
+
+Both cases are impossible. Therefore $I$ lies inside triangle $XYZ$.

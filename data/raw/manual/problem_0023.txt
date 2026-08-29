@@ -1,0 +1,90 @@
+ID: 0023
+
+SOURCE: IMO Shortlist
+
+YEAR: 2010
+
+TOPIC: Number Theory
+
+SUBTOPICS: Products, Telescoping, Extremal Bounds
+
+STATEMENT:
+Find the least positive integer $n$ for which there exist $n$ distinct positive integers
+\[
+s_1,s_2,\ldots,s_n
+\]
+such that
+\[
+\left(1-\frac1{s_1}\right)
+\left(1-\frac1{s_2}\right)
+\cdots
+\left(1-\frac1{s_n}\right)
+=
+\frac{51}{2010}.
+\]
+
+SOLUTION 1:
+The least possible value is
+\[
+\boxed{39}.
+\]
+
+Suppose that such integers exist, and order them as
+\[
+s_1<s_2<\cdots<s_n.
+\]
+None of them equals $1$, because that would make the product zero. Since the $s_i$ are distinct positive integers greater than $1$,
+\[
+s_i\ge i+1
+\qquad(i=1,\ldots,n).
+\]
+The function $x\mapsto1-\frac1x$ is increasing for $x>0$, so
+\[
+\begin{aligned}
+\frac{51}{2010}
+&=
+\prod_{i=1}^n\left(1-\frac1{s_i}\right)\\
+&\ge
+\prod_{i=1}^n\left(1-\frac1{i+1}\right)\\
+&=
+\frac12\cdot\frac23\cdots\frac{n}{n+1}\\
+&=\frac1{n+1}.
+\end{aligned}
+\]
+Hence
+\[
+n+1\ge\frac{2010}{51}=\frac{670}{17}>39,
+\]
+and therefore
+\[
+n\ge39.
+\]
+
+It remains to construct an example with $39$ integers. Take
+\[
+\{2,3,\ldots,33,35,36,\ldots,40,67\}.
+\]
+There are
+\[
+32+6+1=39
+\]
+numbers in this set, and
+\[
+\begin{aligned}
+&\prod_{s=2}^{33}\left(1-\frac1s\right)
+\prod_{s=35}^{40}\left(1-\frac1s\right)
+\left(1-\frac1{67}\right)\\
+&\qquad=
+\frac12\cdot\frac23\cdots\frac{32}{33}
+\cdot
+\frac{34}{35}\cdot\frac{35}{36}\cdots\frac{39}{40}
+\cdot\frac{66}{67}\\
+&\qquad=
+\frac1{33}\cdot\frac{34}{40}\cdot\frac{66}{67}\\
+&\qquad=
+\frac{17}{670}
+=
+\frac{51}{2010}.
+\end{aligned}
+\]
+Thus $n=39$ is attainable and is minimal.

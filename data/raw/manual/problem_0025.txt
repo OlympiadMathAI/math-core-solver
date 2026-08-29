@@ -1,0 +1,159 @@
+ID: 0025
+
+SOURCE: IMO Shortlist
+
+YEAR: 2010
+
+TOPIC: Number Theory
+
+SUBTOPICS: Sums of Squares, Rational Polynomials, Infinite Descent, Four-Square Identity
+
+STATEMENT:
+Find the smallest positive integer $n$ for which there exist polynomials
+\[
+f_1,f_2,\ldots,f_n\in\mathbb{Q}[x]
+\]
+such that
+\[
+x^2+7
+=
+f_1(x)^2+f_2(x)^2+\cdots+f_n(x)^2.
+\]
+
+SOLUTION 1:
+The smallest value is
+\[
+\boxed{5}.
+\]
+Indeed,
+\[
+x^2+7=x^2+2^2+1^2+1^2+1^2,
+\]
+so five squares suffice.
+
+Suppose, for a contradiction, that four squares suffice:
+\[
+x^2+7
+=
+f_1(x)^2+f_2(x)^2+f_3(x)^2+f_4(x)^2.
+\tag{1}
+\]
+Every $f_i$ has degree at most $1$, since a term of larger degree could not be cancelled in a sum of squares over the reals. Write
+\[
+f_i(x)=a_ix+b_i,
+\qquad
+a_i,b_i\in\mathbb Q.
+\]
+Comparing coefficients in (1),
+\[
+\sum_{i=1}^4a_i^2=1,
+\qquad
+\sum_{i=1}^4a_ib_i=0,
+\qquad
+\sum_{i=1}^4b_i^2=7.
+\tag{2}
+\]
+
+Put
+\[
+p_i=a_i+b_i,
+\qquad
+q_i=a_i-b_i.
+\]
+Then (2) gives
+\[
+\sum_{i=1}^4p_i^2=8,
+\qquad
+\sum_{i=1}^4q_i^2=8,
+\qquad
+\sum_{i=1}^4p_iq_i=-6.
+\tag{3}
+\]
+
+Clear denominators. There exist integers
+\[
+x_1,\ldots,x_4,\ y_1,\ldots,y_4
+\]
+and a positive integer $m$ such that
+\[
+p_i=\frac{x_i}{m},
+\qquad
+q_i=\frac{y_i}{m},
+\]
+and hence
+\[
+\sum_{i=1}^4x_i^2=8m^2,
+\tag{4}
+\]
+\[
+\sum_{i=1}^4y_i^2=8m^2,
+\tag{5}
+\]
+\[
+\sum_{i=1}^4x_iy_i=-6m^2.
+\tag{6}
+\]
+Choose such a solution with $m$ minimal.
+
+Squares modulo $8$ are $0,1,4$. From (4), the sum of four squares is divisible by $8$, which forces all $x_i$ to be even. Similarly, all $y_i$ are even. Then the left side of (6) is divisible by $4$, so $m$ is even as well. Dividing every $x_i,y_i,m$ by $2$ gives another solution of (4)--(6) with a smaller positive denominator, contradicting the minimality of $m$.
+
+Thus four squares are impossible, while five squares are possible. Hence the minimum is $5$.
+
+SOLUTION 2:
+As in Solution 1, suppose that
+\[
+x^2+7=\sum_{i=1}^4(a_ix+b_i)^2
+\]
+with rational $a_i,b_i$. Then
+\[
+\sum a_i^2=1,
+\qquad
+\sum a_ib_i=0,
+\qquad
+\sum b_i^2=7.
+\tag{1}
+\]
+
+Euler's four-square identity states that
+\[
+\begin{aligned}
+\left(\sum_{i=1}^4a_i^2\right)
+\left(\sum_{i=1}^4b_i^2\right)
+&=
+(a_1b_1+a_2b_2+a_3b_3+a_4b_4)^2\\
+&\quad+
+(a_1b_2-a_2b_1+a_3b_4-a_4b_3)^2\\
+&\quad+
+(a_1b_3-a_3b_1+a_4b_2-a_2b_4)^2\\
+&\quad+
+(a_1b_4-a_4b_1+a_2b_3-a_3b_2)^2.
+\end{aligned}
+\]
+Using (1), the first square on the right vanishes, so
+\[
+7=r_1^2+r_2^2+r_3^2
+\tag{2}
+\]
+for three rational numbers $r_1,r_2,r_3$.
+
+Choose integers $m_1,m_2,m_3$ and a positive integer $m$, with $m$ minimal, such that
+\[
+r_i=\frac{m_i}{m}.
+\]
+Equation (2) becomes
+\[
+7m^2=m_1^2+m_2^2+m_3^2,
+\]
+or equivalently
+\[
+8m^2=m_1^2+m_2^2+m_3^2+m^2.
+\tag{3}
+\]
+
+The right side of (3) is a sum of four squares divisible by $8$. Therefore
+\[
+m_1,m_2,m_3,m
+\]
+are all even. Dividing them all by $2$ produces a representation of the same form with a smaller positive denominator, contradicting the minimality of $m$.
+
+Hence $7$ is not a sum of three rational squares, so four polynomial squares are impossible. The five-square representation from Solution 1 proves that the answer is $5$.

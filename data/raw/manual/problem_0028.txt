@@ -1,0 +1,272 @@
+ID: 0028
+
+SOURCE: IMO Shortlist
+
+YEAR: 2010
+
+TOPIC: Number Theory
+
+SUBTOPICS: Fibonacci Numbers, Modular Periods, Directed Graphs, Two-Adic Valuation
+
+STATEMENT:
+The rows and columns of a
+\[
+2^n\times2^n
+\]
+table are numbered
+\[
+0,1,\ldots,2^n-1.
+\]
+The cells are colored so that, for every $0\le i,j<2^n$, the cell in row $i$, column $j$ has the same color as the cell in row $j$, column $i+j$, where column indices are taken modulo $2^n$.
+
+Prove that the maximum possible number of colors is
+\[
+2^n.
+\]
+
+SOLUTION 1:
+We use the convention $v_2(0)=+\infty$.
+Represent a cell by its coordinate pair $(i,j)$. Consider the directed graph whose vertices are the cells and whose edges are
+\[
+(i,j)\longrightarrow(j,i+j\pmod{2^n}).
+\tag{1}
+\]
+Every vertex has exactly one outgoing edge. It also has exactly one incoming edge, because the unique predecessor of $(j,k)$ is
+\[
+(k-j,j)
+\pmod{2^n}.
+\]
+Therefore the graph is a disjoint union of directed cycles.
+
+The coloring condition says that all cells in one cycle must have the same color. Conversely, assigning a distinct color to every cycle satisfies the condition. Thus the maximum number of colors equals the number of cycles of the map in (1).
+
+Take a cycle beginning at $(a_0,a_1)$ and define
+\[
+a_{r+1}=a_r+a_{r-1}
+\qquad(r\ge1).
+\]
+Then the successive cells are
+\[
+(a_0,a_1),\ (a_1,a_2),\ (a_2,a_3),\ldots
+\pmod{2^n}.
+\]
+We must therefore study Fibonacci-type sequences modulo $2^n$.
+
+Let
+\[
+F_0=0,\qquad F_1=1,\qquad F_{r+2}=F_{r+1}+F_r,
+\]
+and set $F_{-1}=1$. For a positive integer $m$, let
+\[
+\nu(m)=v_2(m).
+\]
+
+\textbf{Lemma 1.} Every Fibonacci-type sequence satisfies
+\[
+a_r=F_{r-1}a_0+F_ra_1
+\qquad(r\ge0).
+\tag{2}
+\]
+
+This follows immediately by induction.
+
+\textbf{Lemma 2.} For every integer $m\ge3$:
+
+\[
+\text{(a)}\qquad
+v_2\left(F_{3\cdot2^{m-2}}\right)=m;
+\]
+
+\[
+\text{(b)}\qquad
+3\cdot2^{m-2}
+\]
+is the least positive index $d$ for which
+\[
+2^m\mid F_d;
+\]
+
+\[
+\text{(c)}\qquad
+F_{3\cdot2^{m-2}+1}
+\equiv1+2^{m-1}\pmod{2^m}.
+\]
+
+We prove the three assertions simultaneously by induction on $m$. For $m=3$,
+\[
+F_6=8,
+\qquad
+F_7=13\equiv1+4\pmod8,
+\]
+and none of $F_1,\ldots,F_5$ is divisible by $8$.
+
+Now let $m>3$ and put
+\[
+k=3\cdot2^{m-3}.
+\]
+The standard identities
+\[
+F_{2k}=2F_{k+1}F_k-F_k^2,
+\tag{3}
+\]
+\[
+F_{2k+1}=F_k^2+F_{k+1}^2
+\tag{4}
+\]
+follow from Lemma 1. By induction,
+\[
+v_2(F_k)=m-1,
+\]
+while $F_{k+1}$ is odd. In (3), the first term has valuation $m$ and the second has larger valuation, so
+\[
+v_2(F_{2k})=m.
+\]
+This proves (a).
+
+By the induction hypothesis, for some integer $c$,
+\[
+F_{k+1}=1+2^{m-2}+c2^{m-1}.
+\]
+Using (4),
+\[
+\begin{aligned}
+F_{2k+1}
+&=F_k^2+F_{k+1}^2\\
+&\equiv
+\left(1+2^{m-2}+c2^{m-1}\right)^2\\
+&\equiv1+2^{m-1}\pmod{2^m}.
+\end{aligned}
+\]
+This proves (c).
+
+It remains to prove minimality in (b). Suppose
+\[
+0<\ell<2k
+\quad\text{and}\quad
+2^m\mid F_\ell.
+\]
+Then $2^{m-1}\mid F_\ell$, so the induction hypothesis gives $\ell>k$. By the addition formula,
+\[
+F_\ell
+=
+F_{k-1}F_{\ell-k}
++
+F_kF_{\ell-k+1}.
+\]
+The second term is divisible by $2^{m-1}$. The first is not: $F_{k-1}$ is odd and
+\[
+0<\ell-k<k,
+\]
+so the induction hypothesis says that $F_{\ell-k}$ is not divisible by $2^{m-1}$. Hence $F_\ell$ is not even divisible by $2^{m-1}$, a contradiction. Lemma 2 follows.
+
+For a pair $(a,b)\ne(0,0)$, define
+\[
+\mu(a,b)=\min\{v_2(a),v_2(b)\}.
+\]
+The value of $\mu$ is unchanged under
+\[
+(a,b)\mapsto(b,a+b),
+\]
+so it is constant along a Fibonacci-type sequence. Denote it by $\mu(A)$.
+
+Let $p_n(A)$ be the least positive period of a Fibonacci-type sequence $A$ modulo $2^n$.
+
+\textbf{Lemma 3.} If
+\[
+\mu(A)=k<n,
+\]
+then
+\[
+p_n(A)=3\cdot2^{n-1-k}.
+\tag{5}
+\]
+
+Divide all terms by $2^k$. This reduces the assertion to the case $k=0$, with modulus $2^{n-k}$. Thus assume $\mu(A)=0$.
+
+For $n=1$, every such sequence has period $3$ modulo $2$; for $n=2$, it has period $6$ modulo $4$. Now take $n\ge3$ and put
+\[
+s=3\cdot2^{n-2}.
+\]
+By induction, $s$ is the period modulo $2^{n-1}$, so
+\[
+s\mid p_n(A).
+\tag{6}
+\]
+
+After shifting the sequence if necessary, we may suppose that $a_0$ is even and $a_1$ is odd. Write
+\[
+a_0=2b_0,
+\qquad
+a_1=2b_1+1,
+\]
+and let $(b_r)$ be the Fibonacci-type sequence beginning with $b_0,b_1$. By induction and Lemma 1,
+\[
+a_r=2b_r+F_r.
+\tag{7}
+\]
+
+The sequence $(b_r)$ has period dividing $s$ modulo $2^{n-1}$, so $(2b_r)$ is $s$-periodic modulo $2^n$. By Lemma 2,
+\[
+F_{s+1}\equiv1+2^{n-1}\pmod{2^n},
+\]
+and
+\[
+F_{2s}\equiv0,\qquad
+F_{2s+1}\equiv1\pmod{2^n}.
+\]
+Using (7),
+\[
+a_{s+1}
+\equiv a_1+2^{n-1}
+\not\equiv a_1\pmod{2^n},
+\]
+so $s$ is not a period. On the other hand,
+\[
+a_{2s}\equiv a_0,
+\qquad
+a_{2s+1}\equiv a_1
+\pmod{2^n},
+\]
+so $2s$ is a period. Together with (6), this gives
+\[
+p_n(A)=2s=3\cdot2^{n-1}.
+\]
+Restoring the factor $2^k$ proves (5).
+
+We now count the cycles. Fix
+\[
+0\le k\le n-1.
+\]
+The number of pairs $(i,j)$ modulo $2^n$ satisfying
+\[
+\mu(i,j)=k
+\]
+is
+\[
+2^{2(n-k)}-2^{2(n-k-1)}
+=
+3\cdot2^{2n-2k-2}.
+\]
+By Lemma 3, every corresponding cycle has length
+\[
+3\cdot2^{n-1-k}.
+\]
+Hence the number of cycles in this class is
+\[
+\frac{3\cdot2^{2n-2k-2}}
+     {3\cdot2^{n-1-k}}
+=
+2^{n-k-1}.
+\]
+The remaining cell $(0,0)$ forms one cycle by itself. Therefore the total number of cycles is
+\[
+1+\sum_{k=0}^{n-1}2^{n-k-1}
+=
+1+(1+2+\cdots+2^{n-1})
+=
+2^n.
+\]
+Thus the maximal possible number of colors is
+\[
+\boxed{2^n}.
+\]

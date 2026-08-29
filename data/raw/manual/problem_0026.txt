@@ -1,0 +1,213 @@
+ID: 0026
+
+SOURCE: IMO Shortlist
+
+YEAR: 2010
+
+TOPIC: Number Theory
+
+SUBTOPICS: Polynomial Congruences, Chinese Remainder Theorem, Prime Powers
+
+STATEMENT:
+Let $a,b$ be integers and define
+\[
+P(x)=ax^3+bx.
+\]
+For a positive integer $n$, call the pair $(a,b)$ \emph{$n$-good} if, for all integers $m,k$,
+\[
+n\mid P(m)-P(k)
+\quad\Longrightarrow\quad
+n\mid m-k.
+\]
+Call $(a,b)$ \emph{very good} if it is $n$-good for infinitely many positive integers $n$.
+
+\textbf{(a)} Find a pair $(a,b)$ that is $51$-good but not very good.
+
+\textbf{(b)} Prove that every $2010$-good pair is very good.
+
+SOLUTION 1:
+\textbf{Part (a).} Take
+\[
+\boxed{(a,b)=(1,-51^2)}.
+\]
+Then
+\[
+P(x)=x^3-51^2x.
+\]
+
+Since
+\[
+P(51)=P(0),
+\]
+the pair cannot be $n$-good unless $n\mid51$. Thus it is $n$-good for at most finitely many $n$, and so it is not very good.
+
+Now suppose
+\[
+P(m)\equiv P(k)\pmod{51}.
+\]
+The linear terms vanish modulo $51$, so
+\[
+m^3\equiv k^3\pmod{51}.
+\]
+Modulo $3$,
+\[
+m\equiv m^3\equiv k^3\equiv k\pmod3.
+\]
+Modulo $17$, raising the congruence to the eleventh power gives
+\[
+m^{33}\equiv k^{33}\pmod{17}.
+\]
+By Fermat's theorem,
+\[
+x^{33}\equiv x\pmod{17}
+\]
+for every integer $x$, hence
+\[
+m\equiv k\pmod{17}.
+\]
+Therefore
+\[
+m\equiv k\pmod{51}.
+\]
+Thus $(1,-51^2)$ is $51$-good but not very good.
+
+\textbf{Part (b).} We prove that a $2010$-good pair is $67^r$-good for every positive integer $r$.
+
+\textbf{Claim 1.} Every $2010$-good pair is $67$-good.
+
+Suppose
+\[
+P(m)\equiv P(k)\pmod{67}.
+\]
+Since $\gcd(30,67)=1$, the Chinese remainder theorem gives integers $m',k'$ such that
+\[
+m'\equiv m\pmod{67},
+\qquad
+m'\equiv0\pmod{30},
+\]
+\[
+k'\equiv k\pmod{67},
+\qquad
+k'\equiv0\pmod{30}.
+\]
+Then
+\[
+P(m')\equiv P(k')\pmod{30}
+\]
+and
+\[
+P(m')\equiv P(m)\equiv P(k)\equiv P(k')\pmod{67}.
+\]
+Hence
+\[
+P(m')\equiv P(k')\pmod{2010}.
+\]
+Since the pair is $2010$-good,
+\[
+m'\equiv k'\pmod{2010},
+\]
+and therefore
+\[
+m\equiv k\pmod{67}.
+\]
+This proves Claim 1.
+
+\textbf{Claim 2.} If $(a,b)$ is $67$-good, then
+\[
+67\mid a.
+\]
+
+Assume instead that $67\nmid a$. Consider the two sets of residues
+\[
+\{at^2\bmod67:0\le t\le33\}
+\]
+and
+\[
+\{-3as^2-b\bmod67:0\le s\le33\}.
+\]
+Each has $34$ elements, because the numbers $0,1,\ldots,33$ represent the distinct square classes up to sign and $a$ is invertible modulo $67$. Therefore the two sets intersect. Choose $s,t$ such that
+\[
+at^2\equiv-3as^2-b\pmod{67}.
+\tag{1}
+\]
+
+First take
+\[
+m=t+s,\qquad k=-2s.
+\]
+Then
+\[
+m-k=t+3s
+\]
+and
+\[
+m^2+mk+k^2=t^2+3s^2.
+\]
+Using
+\[
+P(m)-P(k)
+=(m-k)\left(a(m^2+mk+k^2)+b\right)
+\]
+and (1), we get
+\[
+67\mid P(m)-P(k).
+\]
+Since the pair is $67$-good,
+\[
+t+3s\equiv0\pmod{67}.
+\tag{2}
+\]
+
+Now take
+\[
+m=t-s,\qquad k=2s.
+\]
+The same quadratic factor occurs, so
+\[
+t-3s\equiv0\pmod{67}.
+\tag{3}
+\]
+Equations (2) and (3) imply
+\[
+t\equiv s\equiv0\pmod{67}.
+\]
+Because $0\le s,t\le33$, we have $s=t=0$. Then (1) gives
+\[
+b\equiv0\pmod{67}.
+\]
+But now
+\[
+P(7)-P(2)
+=5(67a+b)
+\]
+is divisible by $67$, while $7-2=5$ is not, contradicting $67$-goodness. Hence
+\[
+67\mid a.
+\]
+
+\textbf{Claim 3.} Every $2010$-good pair is $67^r$-good for all $r\ge1$.
+
+By Claims 1 and 2,
+\[
+67\mid a.
+\]
+We must have
+\[
+67\nmid b;
+\]
+otherwise $P(x)\equiv P(0)\pmod{67}$ for every $x$, contradicting $67$-goodness.
+
+Suppose
+\[
+67^r\mid P(m)-P(k).
+\]
+Factoring,
+\[
+P(m)-P(k)
+=(m-k)\left(a(m^2+mk+k^2)+b\right).
+\]
+The second factor is not divisible by $67$, because $67\mid a$ and $67\nmid b$. Therefore
+\[
+67^r\mid m-k.
+\]
+Thus the pair is $67^r$-good for every $r\ge1$. Since there are infinitely many such moduli, the pair is very good.

@@ -1,0 +1,16 @@
+{
+  "id": "0027",
+  "source": "IMO Shortlist",
+  "year": "2010",
+  "topic": "Number Theory",
+  "subtopics": [
+    "Functional Equations",
+    "Squares",
+    "Prime Divisibility",
+    "Injectivity"
+  ],
+  "statement": "Let $\\mathbb N$ be the set of positive integers. Find all functions\n\\[\nf:\\mathbb N\\to\\mathbb N\n\\]\nsuch that\n\\[\n\\bigl(f(m)+n\\bigr)\\bigl(m+f(n)\\bigr)\n\\]\nis a perfect square for all $m,n\\in\\mathbb N$.",
+  "solutions": [
+    "All solutions are\n\\[\n\\boxed{f(n)=n+c},\n\\]\nwhere $c$ is a nonnegative integer.\n\nIndeed, if $f(n)=n+c$, then\n\\[\n\\bigl(f(m)+n\\bigr)\\bigl(m+f(n)\\bigr)\n=(m+n+c)^2,\n\\]\nso every such function works.\n\nWe prove that there are no others.\n\n\\textbf{Lemma.} Let $p$ be a prime. If\n\\[\np\\mid f(k)-f(\\ell),\n\\]\nthen\n\\[\np\\mid k-\\ell.\n\\]\n\nFirst suppose\n\\[\np^2\\mid f(k)-f(\\ell).\n\\]\nWrite\n\\[\nf(\\ell)=f(k)+p^2a\n\\]\nfor some integer $a$. Choose a positive integer\n\\[\nD>\\max\\{f(k),f(\\ell)\\}\n\\]\nwith $p\\nmid D$, and put\n\\[\nn=pD-f(k).\n\\]\nThen\n\\[\nn+f(k)=pD,\n\\qquad\nn+f(\\ell)=p(D+pa),\n\\]\nand both numbers are divisible by $p$ but not by $p^2$.\n\nThe two numbers\n\\[\n\\bigl(f(k)+n\\bigr)\\bigl(f(n)+k\\bigr)\n\\]\nand\n\\[\n\\bigl(f(\\ell)+n\\bigr)\\bigl(f(n)+\\ell\\bigr)\n\\]\nare squares. Since their first factors have odd $p$-adic valuation, their second factors must be divisible by $p$. Hence\n\\[\np\\mid f(n)+k\n\\quad\\text{and}\\quad\np\\mid f(n)+\\ell,\n\\]\nso\n\\[\np\\mid k-\\ell.\n\\]\n\nNow suppose that $p\\mid f(k)-f(\\ell)$ but\n\\[\np^2\\nmid f(k)-f(\\ell).\n\\]\nChoose $D$ as above and set\n\\[\nn=p^3D-f(k).\n\\]\nThen\n\\[\nn+f(k)=p^3D\n\\]\nhas $p$-adic valuation $3$, while\n\\[\nn+f(\\ell)=p^3D+f(\\ell)-f(k)\n\\]\nhas $p$-adic valuation $1$. Applying the square condition again shows that both\n\\[\nf(n)+k\n\\quad\\text{and}\\quad\nf(n)+\\ell\n\\]\nare divisible by $p$. Hence $p\\mid k-\\ell$, and the lemma is proved.\n\nNow suppose\n\\[\nf(k)=f(\\ell).\n\\]\nEvery prime divides $f(k)-f(\\ell)$, so the lemma implies that every prime divides $k-\\ell$. Therefore $k=\\ell$, and $f$ is injective.\n\nFor consecutive arguments, if a prime $p$ divided\n\\[\nf(k+1)-f(k),\n\\]\nthe lemma would give $p\\mid1$, which is impossible. Since injectivity also shows that this difference is nonzero, we obtain\n\\[\n|f(k+1)-f(k)|=1\n\\tag{1}\n\\]\nfor every $k$.\n\nLet\n\\[\nq=f(2)-f(1)\\in\\{-1,1\\}.\n\\]\nWe prove by induction that\n\\[\nf(n)=f(1)+q(n-1).\n\\tag{2}\n\\]\nThe formula is true for $n=1,2$. If it is true up to $n$, then by (1),\n\\[\nf(n+1)=f(n)\\pm1.\n\\]\nThe choice opposite to $q$ would give\n\\[\nf(n+1)=f(n-1),\n\\]\ncontradicting injectivity. Thus the same sign $q$ continues, proving (2).\n\nThe value $q=-1$ is impossible because $f(n)$ would eventually be nonpositive. Hence $q=1$, and\n\\[\nf(n)=n+f(1)-1.\n\\]\nSince $f(1)\\ge1$, the constant\n\\[\nc=f(1)-1\n\\]\nis a nonnegative integer. This completes the proof."
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "0016",
+  "source": "IMO Shortlist",
+  "year": "2010",
+  "topic": "Geometry",
+  "subtopics": [
+    "Orthic Triangle",
+    "Cyclic Quadrilaterals",
+    "Angle Chasing",
+    "Reflection"
+  ],
+  "statement": "Let $ABC$ be an acute triangle, and let $D,E,F$ be the feet of the altitudes on $BC,CA,AB$, respectively. A point $P$ is one of the two intersections of the line $EF$ with the circumcircle of $ABC$. The lines $BP$ and $DF$ meet at $Q$. Prove that\n\\[\nAP=AQ.\n\\]",
+  "solutions": [
+    "Write\n\\[\n\\angle CAB=\\alpha,\\qquad\n\\angle ABC=\\beta,\\qquad\n\\angle BCA=\\gamma.\n\\]\nThe quadrilaterals $BCEF$ and $CAFD$ are cyclic, because they contain right angles. Hence\n\\[\n\\angle BDF=\\alpha,\\qquad\n\\angle AFE=\\gamma,\\qquad\n\\angle DFB=\\gamma.\n\\]\n\nThere are two possible positions of $P$.\n\n\\textbf{Case 1.} Suppose that $P$ lies on the ray $EF$.\n\nSince $P$ lies on the arc $AB$ of the circumcircle,\n\\[\n\\angle PBA<\\angle BCA=\\gamma.\n\\]\nTherefore,\n\\[\n\\begin{aligned}\n\\angle PBD+\\angle BDF\n&=\\angle PBA+\\angle ABD+\\angle BDF\\\\\n&<\\gamma+\\beta+\\alpha\\\\\n&=180^\\circ.\n\\end{aligned}\n\\]\nHence $Q$ lies on the extensions of $BP$ and $DF$ beyond\n$P$ and $F$, respectively.\nSince $A,P,B,C$ are concyclic,\n\\[\n\\angle QPA\n=180^\\circ-\\angle APB\n=\\angle BCA\n=\\gamma.\n\\]\nAlso,\n\\[\n\\angle QFA=\\angle DFB=\\gamma.\n\\]\nTherefore\n\\[\n\\angle QPA=\\angle QFA,\n\\]\nso $A,Q,P,F$ are concyclic. It follows that\n\\[\n\\angle AQP\n=180^\\circ-\\angle PFA\n=\\angle AFE\n=\\gamma.\n\\]\nThus\n\\[\n\\angle AQP=\\angle QPA,\n\\]\nand consequently $AP=AQ$.\n\n\\textbf{Case 2.} Suppose that $P$ lies on the ray $FE$.\n\nNow $Q$ lies inside the segment $FD$. As before,\n\\[\n\\angle QPA=\\angle BCA=\\gamma.\n\\]\nMoreover,\n\\[\n\\angle DFB=\\gamma=180^\\circ-\\angle AFQ,\n\\]\nand hence\n\\[\n\\angle QPA+\\angle AFQ=180^\\circ.\n\\]\nThus $A,F,Q,P$ are cyclic. Therefore\n\\[\n\\angle AQP=\\angle AFP=\\angle AFE=\\gamma=\\angle QPA.\n\\]\nAgain triangle $AQP$ is isosceles, so $AP=AQ$.",
+    "Let $P$ and $P'$ be the two intersections of $EF$ with the circumcircle of $ABC$, where $P$ lies on arc $AB$ and $P'$ lies on arc $CA$. Let\n\\[\nQ=BP\\cap DF,\\qquad\nQ'=BP'\\cap DF.\n\\]\nWe prove the stronger relation\n\\[\nAP=AP'=AQ=AQ'.\n\\]\n\nPut $\\gamma=\\angle BCA$. As in Solution 1,\n\\[\n\\angle AFE=\\angle BFP=\\angle DFB=\\gamma.\n\\]\nFor points on the circumcircle, let $\\widehat{XY}$ denote the measure of the relevant arc from $X$ to $Y$. We have\n\\[\n\\widehat{PB}+\\widehat{P'A}\n=2\\angle AFP'\n=2\\gamma\n=2\\angle BCA\n=\\widehat{AP}+\\widehat{PB}.\n\\]\nHence\n\\[\n\\widehat{AP}=\\widehat{P'A},\n\\]\nso\n\\[\nAP=AP'\n\\quad\\text{and}\\quad\n\\angle PBA=\\angle ABP'.\n\\tag{1}\n\\]\n\nThe last angle equality means that the lines $BP$ and $BP'=BQ'$ are mirror images in the line $AB$. Also,\n\\[\n\\angle BFP=\\angle Q'FB,\n\\]\nbecause $FQ'$ lies on $FD$. Thus $FP$ and $FQ'$ are mirror images in $AB$. Their intersections show that $P$ and $Q'$ are reflections of each other in $AB$. Therefore\n\\[\nAP=AQ'.\n\\tag{2}\n\\]\n\nThe same reflection argument interchanges $P'$ and $Q$, giving\n\\[\nAP'=AQ.\n\\tag{3}\n\\]\nCombining (1), (2), and (3), we obtain\n\\[\nAP=AP'=AQ=AQ',\n\\]\nand in particular $AP=AQ$."
+  ]
+}

@@ -1,0 +1,254 @@
+ID: 0017
+
+SOURCE: IMO Shortlist
+
+YEAR: 2010
+
+TOPIC: Geometry
+
+SUBTOPICS: Apollonius Circle, Similar Triangles, Arc Chasing, Tangent-Chord Theorem
+
+STATEMENT:
+A point $P$ lies inside triangle $ABC$. The lines $AP,BP,CP$ meet the circumcircle $\omega$ of $ABC$ again at $K,L,M$, respectively. The tangent to $\omega$ at $C$ meets the line $AB$ at $S$. Prove that
+\[
+SC=SP
+\quad\Longleftrightarrow\quad
+MK=ML.
+\]
+
+SOLUTION 1:
+We may assume that $CA>CB$, so $S$ lies on the ray $AB$.
+
+The triangles $PKM$ and $PCA$ are similar, and so are the triangles $PLM$ and $PCB$. Hence
+\[
+\frac{PM}{KM}=\frac{PA}{CA},
+\qquad
+\frac{LM}{PM}=\frac{CB}{PB}.
+\]
+Multiplying,
+\[
+\frac{LM}{KM}
+=\frac{CB}{CA}\cdot\frac{PA}{PB}.
+\]
+Therefore
+\[
+MK=ML
+\quad\Longleftrightarrow\quad
+\frac{PA}{PB}=\frac{CA}{CB}.
+\tag{1}
+\]
+
+Let $E$ be the point where the internal bisector of $\angle ACB$ meets $AB$. The locus of points $X$ satisfying
+\[
+\frac{XA}{XB}=\frac{CA}{CB}
+\]
+is an Apollonius circle $\Omega$ whose center $Q$ lies on $AB$. By the angle-bisector theorem, $E\in\Omega$, and clearly $C\in\Omega$. Thus (1) is equivalent to
+\[
+P\in\Omega
+\quad\Longleftrightarrow\quad
+QP=QC.
+\tag{2}
+\]
+
+It remains to identify $Q$. By the tangent-chord theorem and the fact that $CE$ bisects $\angle ACB$,
+\[
+\angle CES
+=\angle CAE+\angle ACE
+=\angle BCS+\angle ECB
+=\angle ECS.
+\]
+Hence
+\[
+SC=SE.
+\]
+Thus $S$ lies on the perpendicular bisector of $CE$. Since $S$ also lies on $AB$, it is the center $Q$ of the Apollonius circle through $C$ and $E$. Therefore $Q=S$, and (2) becomes
+\[
+MK=ML
+\quad\Longleftrightarrow\quad
+SP=SC.
+\]
+
+SOLUTION 2:
+Again assume that $S$ lies on the ray $AB$. Let the line $SP$ meet $\omega$ at $E$ and $F$, with $E$ lying on the segment $SP$.
+
+We first prove
+\[
+SP=SC\quad\Longrightarrow\quad MK=ML.
+\]
+
+Because $SC$ is tangent to $\omega$,
+\[
+SC^2=SA\cdot SB.
+\]
+If $SP=SC$, then
+\[
+SP^2=SA\cdot SB,
+\]
+and hence
+\[
+\frac{SP}{SB}=\frac{SA}{SP}.
+\]
+Thus
+\[
+\triangle PSA\sim\triangle BSP,
+\]
+so
+\[
+\angle BPS=\angle SAP.
+\tag{1}
+\]
+
+Using the intersecting-chords and inscribed-angle formulas,
+\[
+2\angle BPS=\widehat{BE}+\widehat{LF},
+\qquad
+2\angle SAP=\widehat{BE}+\widehat{EK}.
+\]
+From (1),
+\[
+\widehat{LF}=\widehat{EK}.
+\tag{2}
+\]
+
+Also, $SP=SC$ gives
+\[
+\angle SPC=\angle SCP.
+\]
+Again using arc measures,
+\[
+2\angle SPC=\widehat{EC}+\widehat{MF},
+\qquad
+2\angle SCP=\widehat{EC}+\widehat{EM}.
+\]
+Therefore
+\[
+\widehat{MF}=\widehat{EM}.
+\tag{3}
+\]
+
+Adding (2) and (3),
+\[
+\widehat{MFL}
+=\widehat{MF}+\widehat{FL}
+=\widehat{ME}+\widehat{EK}
+=\widehat{MEK}.
+\]
+Equal arcs subtend equal chords, so
+\[
+ML=MK.
+\]
+
+Now assume conversely that $MK=ML$. Since
+\[
+SC^2=SE\cdot SF,
+\]
+there is a point $P'$ on the segment $EF$ such that
+\[
+SP'=SC.
+\]
+Let $AP',BP',CP'$ meet $\omega$ again at $K',L',M'$, respectively. The forward implication already proved gives
+\[
+\widehat{M'FL'}=\widehat{M'EK'}.
+\tag{4}
+\]
+
+Suppose $P'\ne P$. If $P'$ lies on the segment $PF$, the cyclic order of the corresponding intersection points gives
+\[
+\widehat{MFL}
+>
+\widehat{M'FL'}
+=
+\widehat{M'EK'}
+>
+\widehat{MEK},
+\]
+contradicting $MK=ML$. If $P'$ lies on the segment $EP$, all inequalities reverse, and we obtain the same contradiction. Hence $P'=P$, and therefore
+\[
+SP=SP'=SC.
+\]
+
+SOLUTION 3:
+We prove only the converse implication. Assume that
+\[
+MK=ML.
+\]
+Let $E,F$ be the intersections of $SP$ with $\omega$, as in Solution 2. Equality of the chords gives
+\[
+\widehat{MEK}=\widehat{MFL}.
+\tag{1}
+\]
+We claim that
+\[
+\widehat{ME}=\widehat{MF}
+\quad\text{and}\quad
+\widehat{EK}=\widehat{FL}.
+\tag{2}
+\]
+
+Suppose first that
+\[
+\widehat{ME}>\widehat{MF}.
+\]
+Then (1) implies
+\[
+\widehat{EK}<\widehat{FL}.
+\]
+Consequently,
+\[
+2\angle SCM
+=\widehat{EC}+\widehat{ME}
+>
+\widehat{EC}+\widehat{MF}
+=2\angle SPC,
+\]
+so in triangle $SPC$,
+\[
+SP>SC.
+\tag{3}
+\]
+
+On the other hand,
+\[
+2\angle SPK
+=\widehat{EK}+\widehat{AF}
+<
+\widehat{FL}+\widehat{AF}
+=2\angle ABL.
+\]
+Since $A,P,K$ are collinear and $B,P,L$ are collinear,
+\[
+\angle SPA
+=180^\circ-\angle SPK
+>
+180^\circ-\angle ABL
+=\angle SBP.
+\]
+Choose $A'$ on the ray $SA$ so that
+\[
+\angle SPA'=\angle SBP.
+\]
+Then
+\[
+\triangle SBP\sim\triangle SPA',
+\]
+and therefore
+\[
+SP^2=SB\cdot SA'<SB\cdot SA=SC^2,
+\]
+contradicting (3).
+
+The case $\widehat{ME}<\widehat{MF}$ is analogous. Hence (2) holds. Finally,
+\[
+2\angle SCM
+=\widehat{EC}+\widehat{ME}
+=\widehat{EC}+\widehat{MF}
+=2\angle SPC.
+\]
+Because $C,P,M$ are collinear, $\angle SCM=\angle SCP$, so
+\[
+\angle SCP=\angle SPC.
+\]
+Thus triangle $SPC$ is isosceles and
+\[
+SC=SP.
+\]
