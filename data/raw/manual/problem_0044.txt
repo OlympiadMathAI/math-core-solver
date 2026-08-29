@@ -1,0 +1,119 @@
+ID: 0044
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Geometry
+
+SUBTOPICS: Power of a Point, Signed Lengths, Circle Equations, Coordinates
+
+STATEMENT:
+Let $A_1A_2A_3A_4$ be a non-cyclic quadrilateral. Let $O_1$ and $r_1$ be the circumcenter and circumradius of triangle $A_2A_3A_4$. Define $O_2,O_3,O_4$ and $r_2,r_3,r_4$ analogously. Prove that
+\[
+\frac1{O_1A_1^2-r_1^2}
++\frac1{O_2A_2^2-r_2^2}
++\frac1{O_3A_3^2-r_3^2}
++\frac1{O_4A_4^2-r_4^2}
+=0.
+\]
+
+SOLUTION 1:
+Let
+\[
+M=A_1A_3\cap A_2A_4.
+\]
+Choose an orientation on each diagonal, and denote the corresponding signed distances by
+\[
+MA_1=x,\qquad MA_2=y,\qquad MA_3=z,\qquad MA_4=w.
+\]
+Since the quadrilateral is not cyclic,
+\[
+\Delta=yw-xz\ne0;
+\]
+indeed, $yw=xz$ would be the intersecting-chords criterion for cyclicity.
+
+Let $\omega_1$ be the circumcircle of $A_2A_3A_4$, and let $B_1$ be its second intersection with the line $A_1A_3$. By the power-of-a-point relation at $M$,
+\[
+MB_1\cdot MA_3=MA_2\cdot MA_4,
+\]
+so
+\[
+MB_1=\frac{yw}{z}.
+\]
+The power of $A_1$ with respect to $\omega_1$ is therefore
+\[
+\begin{aligned}
+O_1A_1^2-r_1^2
+&=A_1B_1\cdot A_1A_3\\
+&=\left(\frac{yw}{z}-x\right)(z-x)\\
+&=\frac{z-x}{z}\,(yw-xz)\\
+&=\frac{z-x}{z}\,\Delta.
+\end{aligned}
+\tag{1}
+\]
+The three analogous calculations give
+\[
+O_2A_2^2-r_2^2=-\frac{w-y}{w}\,\Delta,
+\]
+\[
+O_3A_3^2-r_3^2=\frac{x-z}{x}\,\Delta,
+\]
+and
+\[
+O_4A_4^2-r_4^2=-\frac{y-w}{y}\,\Delta.
+\tag{2}
+\]
+Consequently,
+\[
+\begin{aligned}
+\sum_{i=1}^4\frac1{O_iA_i^2-r_i^2}
+&=\frac1\Delta
+\left(
+\frac{z}{z-x}-\frac{w}{w-y}
++\frac{x}{x-z}-\frac{y}{y-w}
+\right)\\
+&=\frac1\Delta\bigl(1-1\bigr)\\
+&=0.
+\end{aligned}
+\]
+This proves the identity.
+
+SOLUTION 2:
+Introduce Cartesian coordinates. For each $i\in\{1,2,3,4\}$, let the circumcircle of the three vertices other than $A_i$ have equation
+\[
+p_i(X,Y)=X^2+Y^2+\ell_i(X,Y)=0,
+\]
+where $\ell_i$ is affine linear. Put
+\[
+q_i=O_iA_i^2-r_i^2.
+\]
+The number $q_i$ is the power of $A_i$ with respect to this circle, so
+\[
+q_i=p_i(A_i).
+\]
+It is nonzero because the four vertices are not concyclic.
+
+Consider
+\[
+F(X,Y)=\sum_{i=1}^4\frac{p_i(X,Y)}{q_i}.
+\]
+For a fixed $j$, the point $A_j$ lies on each circle $p_i=0$ with $i\ne j$. Hence
+\[
+F(A_j)=\frac{p_j(A_j)}{q_j}=1.
+\]
+Thus all four vertices lie on the locus
+\[
+F(X,Y)=1.
+\tag{1}
+\]
+The left side of (1), after moving $1$ to the left, has the form
+\[
+\left(\sum_{i=1}^4\frac1{q_i}\right)(X^2+Y^2)
++\text{an affine-linear expression}.
+\]
+If this polynomial were nonzero, its zero set would be either a circle or a line. It contains all four vertices, but the vertices form a non-cyclic quadrilateral and do not all lie on one line. Therefore the polynomial must vanish identically. Its quadratic coefficient is consequently zero:
+\[
+\sum_{i=1}^4\frac1{q_i}=0.
+\]
+Since $q_i=O_iA_i^2-r_i^2$, this is exactly the required identity.

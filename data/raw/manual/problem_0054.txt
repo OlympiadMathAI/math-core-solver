@@ -1,0 +1,171 @@
+ID: 0054
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Number Theory
+
+SUBTOPICS: Odd Parts, Modular Arithmetic, Two-Adic Valuation
+
+STATEMENT:
+For every positive integer $k$, let $t(k)$ be the largest odd divisor of $k$. Determine all positive integers $a$ for which there exists a positive integer $n$ such that all the numbers
+\[
+t(n+a+i)-t(n+i),
+\qquad
+i=0,1,\ldots,a-1,
+\]
+are divisible by $4$.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{a\in\{1,3,5\}}.
+\]
+
+Call a pair $(a,n)$ \emph{winning} if
+\[
+4\mid t(n+a+i)-t(n+i)
+\qquad(i=0,\ldots,a-1).
+\]
+
+The pairs
+\[
+(1,1),\qquad(3,1),\qquad(5,4)
+\]
+are winning. Indeed:
+
+- for $(1,1)$, the only difference is
+\[
+t(2)-t(1)=1-1=0;
+\]
+
+- for $(3,1)$, the three differences are
+\[
+t(4)-t(1)=0,\qquad
+t(5)-t(2)=4,\qquad
+t(6)-t(3)=0;
+\]
+
+- for $(5,4)$, the five differences are
+\[
+8,\ 0,\ 8,\ -4,\ 12.
+\]
+
+It remains to exclude every other positive integer $a$.
+
+\textbf{Case 1: $a$ is even.}
+
+Write
+\[
+a=2^\alpha d,
+\]
+where $\alpha\ge1$ and $d$ is odd. Since $a\ge2^\alpha$, among the $a$ consecutive integers
+\[
+n,n+1,\ldots,n+a-1
+\]
+there is one of the form
+\[
+n+i=2^{\alpha-1}e
+\]
+with $e$ odd. Then
+\[
+t(n+i)=e,
+\]
+whereas
+\[
+n+a+i
+=2^{\alpha-1}(e+2d).
+\]
+The number $e+2d$ is odd, so
+\[
+t(n+a+i)=e+2d\equiv e+2\pmod4.
+\]
+Thus
+\[
+t(n+a+i)-t(n+i)\equiv2\pmod4,
+\]
+and no pair $(a,n)$ is winning.
+
+\textbf{Case 2: $a$ is odd and $a>8$.}
+
+Among the consecutive integers
+\[
+n,n+1,\ldots,n+a-5
+\]
+there is an integer congruent to $2$ modulo $4$. Hence, for some
+\[
+0\le i\le a-5,
+\]
+we may write
+\[
+n+i=2d
+\]
+with $d$ odd. Then
+\[
+t(n+i)=d,
+\qquad
+t(n+i+4)=d+2,
+\]
+so
+\[
+t(n+i+4)-t(n+i)\equiv2\pmod4.
+\tag{1}
+\]
+
+Because $a$ is odd, both $n+a+i$ and $n+a+i+4$ are odd. Therefore
+\[
+t(n+a+i+4)-t(n+a+i)=4\equiv0\pmod4.
+\tag{2}
+\]
+If both differences
+\[
+t(n+a+i)-t(n+i)
+\]
+and
+\[
+t(n+a+i+4)-t(n+i+4)
+\]
+were divisible by $4$, then their difference would be divisible by $4$. But by (1) and (2), that difference is congruent to $2$ modulo $4$, a contradiction. Thus $(a,n)$ cannot be winning.
+
+\textbf{Case 3: $a=7$.}
+
+Among any seven consecutive integers, at least one is congruent to $3$ or $6$ modulo $8$. Thus, for some
+\[
+0\le i\le6,
+\]
+the number $n+i$ has one of the forms
+\[
+8q+3
+\quad\text{or}\quad
+8q+6.
+\]
+
+If $n+i=8q+3$, then
+\[
+t(n+i)=8q+3\equiv3\pmod4,
+\]
+while
+\[
+t(n+i+7)=t(8q+10)=4q+5\equiv1\pmod4.
+\]
+
+If $n+i=8q+6$, then
+\[
+t(n+i)=4q+3\equiv3\pmod4,
+\]
+while
+\[
+t(n+i+7)=8q+13\equiv1\pmod4.
+\]
+
+In either case,
+\[
+t(n+i+7)-t(n+i)\not\equiv0\pmod4.
+\]
+Hence $a=7$ is impossible.
+
+All positive integers other than $1,3,5$ fall into one of these three cases. Therefore the required values are exactly
+\[
+\boxed{1,3,5}.
+\]

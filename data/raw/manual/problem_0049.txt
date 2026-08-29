@@ -1,0 +1,189 @@
+ID: 0049
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Geometry
+
+SUBTOPICS: Tangential Polygons, Rotations, Polarity, Vectors
+
+STATEMENT:
+Let $ABCDEF$ be a convex hexagon all of whose sides are tangent to a circle $\omega$ with center $O$. Suppose that the circumcircle of triangle $ACE$ is concentric with $\omega$. Let $J$ be the foot of the perpendicular from $B$ to $CD$. The line through $B$ perpendicular to $DF$ meets $EO$ at $K$. Let $L$ be the foot of the perpendicular from $K$ to $DE$. Prove that
+\[
+DJ=DL.
+\]
+
+SOLUTION 1:
+Let $r$ be the radius of $\omega$. Since the circumcircle of $ACE$ is centered at $O$, we have $OA=OC=OE$. The tangent length from any one of $A,C,E$ to $\omega$ is $\sqrt{OX^2-r^2}$, so these three tangent lengths are equal. It follows that
+\[
+AB=BC,
+\qquad
+CD=DE,
+\qquad
+EF=FA.
+\tag{1}
+\]
+Moreover, $O$ lies on the internal angle bisectors at $A,C,E$, and $\sin(\angle X/2)=r/OX$ at each of these vertices. Since $OA=OC=OE$, the corresponding vertex angles are equal:
+\[
+\angle BCD=\angle DEF=\angle FAB.
+\tag{2}
+\]
+
+Consider the rotation about $D$ that sends $C$ to $E$. Let $B'$ and $L'$ be the images of $B$ and $J$. Then
+\[
+DJ=DL',
+\qquad
+B'L'\perp DE,
+\]
+and triangles $B'ED$ and $BCD$ are congruent. Let
+\[
+K'=EO\cap B'L'.
+\]
+It is enough to prove
+\[
+K'B\perp DF.
+\tag{3}
+\]
+Indeed, (3) would imply $K'=K$, and then the perpendicular foot from $K$ to $DE$ would be $L'=L$, giving $DJ=DL$.
+
+Now consider the rotation about $F$ that sends $A$ to $E$, and let $B''$ be the image of $B$. Then triangles $FAB$ and $FEB''$ are congruent. By (1) and (2),
+\[
+EB''=AB=BC=EB'
+\]
+and
+\[
+\angle FEB''=\angle FAB=\angle BCD=\angle DEB'.
+\]
+Thus $B'$ and $B''$ are symmetric with respect to the angle bisector $EO$ of $\angle DEF$. Since $K'\in EO$ and
+\[
+K'B'\perp DE,
+\]
+reflection in $EO$ gives
+\[
+K'B''\perp EF.
+\tag{4}
+\]
+
+Because $K'B'\perp DE$, the perpendicular components cancel when squared distances to $D$ and $E$ are subtracted, so
+\[
+K'D^2-K'E^2=B'D^2-B'E^2.
+\tag{5}
+\]
+Similarly, (4) gives
+\[
+K'E^2-K'F^2=B''E^2-B''F^2.
+\tag{6}
+\]
+Adding (5) and (6), and using $B'E=B''E$, we obtain
+\[
+\begin{aligned}
+K'D^2-K'F^2
+&=B'D^2-B''F^2\\
+&=BD^2-BF^2,
+\end{aligned}
+\tag{7}
+\]
+because the two rotations preserve the corresponding distances.
+
+For any points $X,Y$, the equality
+\[
+XD^2-XF^2=YD^2-YF^2
+\]
+is equivalent to
+\[
+XY\perp DF.
+\]
+Applying this to (7) with $X=K'$ and $Y=B$ proves (3). Therefore $K'=K$, $L'=L$, and
+\[
+DJ=DL.
+\]
+
+SOLUTION 2:
+Let $R,S,T,U,V,W$ be the points where the sides
+\[
+AB,BC,CD,DE,EF,FA
+\]
+touch $\omega$, respectively. As in Solution 1,
+\[
+AR=AW=CS=CT=EU=EV.
+\tag{1}
+\]
+Reflection in the line $BO$ sends $R$ to $S$. In view of (1), it also sends $A$ to $C$ and $W$ to $T$. Hence
+\[
+RS\parallel WT,
+\]
+and both lines are perpendicular to $OB$.
+
+Let
+\[
+Z=UV\cap WT.
+\]
+The lines $UV$ and $WT$ are not parallel. Otherwise the hexagon would be symmetric about $BO$, and the line through $B$ perpendicular to $DF$ would coincide with $EO$, so the point $K$ would not be uniquely defined. We use the standard pole-polar fact that
+\[
+D,F,Z\text{ are collinear}.
+\tag{2}
+\]
+Indeed, with respect to $\omega$, the point $D$ is the pole of the chord $TU$, and $F$ is the pole of $VW$. Put $Q=TU\cap VW$. By La Hire's theorem, both $D$ and $F$ lie on the polar of $Q$. For the complete quadrilateral with vertices $T,U,V,W$, the diagonal points $Q=TU\cap VW$ and $Z=TW\cap UV$ are conjugate; hence $Z$ also lies on the polar of $Q$. Thus $D,F,Z$ are collinear.
+
+Place the origin at $O$ and identify every point with its position vector. Since $K\in EO$ and $UV$ is the chord of contact from $E$, we have
+\[
+OK\perp UV,
+\]
+so, because $Z,U\in UV$,
+\[
+K\cdot(Z-U)=0.
+\tag{3}
+\]
+Also $OB\perp WT$, and $Z,T\in WT$, so
+\[
+B\cdot(Z-T)=0.
+\tag{4}
+\]
+By the definition of $K$ and (2),
+\[
+BK\perp DF=DZ.
+\]
+Therefore
+\[
+(K-B)\cdot(D-Z)=0,
+\]
+or
+\[
+K\cdot(D-Z)=B\cdot(D-Z).
+\tag{5}
+\]
+Adding (3) to the left side of (5), and (4) to its right side, gives
+\[
+K\cdot(D-U)=B\cdot(D-T).
+\tag{6}
+\]
+
+The two tangent segments from $D$ to $\omega$ are equal, so
+\[
+DU=DT.
+\]
+Since also $OU=OT$, expansion of the two squared distances yields
+\[
+D\cdot(D-U)=D\cdot(D-T).
+\tag{7}
+\]
+Subtracting (7) from (6), we obtain
+\[
+(K-D)\cdot(D-U)=(B-D)\cdot(D-T),
+\]
+or, in directed-vector notation,
+\[
+\overrightarrow{DK}\cdot\overrightarrow{UD}
+=
+\overrightarrow{DB}\cdot\overrightarrow{TD}.
+\tag{8}
+\]
+The orthogonal projection of $\overrightarrow{DK}$ onto $DU$ has length $DL$, and the orthogonal projection of $\overrightarrow{DB}$ onto $DT$ has length $DJ$. Hence (8) becomes
+\[
+DL\cdot DU=DJ\cdot DT.
+\]
+Since $DU=DT$, we conclude that
+\[
+DL=DJ.
+\]

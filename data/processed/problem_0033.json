@@ -1,0 +1,15 @@
+{
+  "id": "0033",
+  "source": "IMO Shortlist",
+  "year": "2011",
+  "topic": "Algebra",
+  "subtopics": [
+    "Construction",
+    "Induction",
+    "Obtuse Triangles"
+  ],
+  "statement": "Prove that for every positive integer $n$, the set\n\\[\n\\{2,3,4,\\ldots,3n+1\\}\n\\]\ncan be partitioned into $n$ triples such that the three numbers in every triple are the side lengths of an obtuse triangle.",
+  "solutions": [
+    "For integers $a\\le b$, write\n\\[\n[a,b]=\\{a,a+1,\\ldots,b\\}.\n\\]\nCall a triple $\\{a,b,c\\}$ with $a<b<c$ an \\emph{obtuse triple} if its elements are the side lengths of an obtuse triangle.\n\nWe prove by induction on $n$ a slightly stronger assertion: the interval\n\\[\n[2,3n+1]\n\\]\ncan be partitioned into triples\n\\[\nA_i=\\{i,a_i,b_i\\},\n\\qquad 2\\le i\\le n+1,\n\\]\neach of which is obtuse.\n\nFor $n=1$, take\n\\[\nA_2=\\{2,3,4\\}.\n\\]\nIndeed, $2+3>4$ and $4^2>2^2+3^2$.\n\nWe need a simple lemma.\n\n\\textbf{Lemma.} If $a<b<c$ form an obtuse triple and $x>0$, then\n\\[\n\\{a,b+x,c+x\\}\n\\]\nis also an obtuse triple.\n\nSince $c-b<a$, we have\n\\[\n(c+x)-(b+x)=c-b<a,\n\\]\nso the new numbers satisfy the triangle inequality. Moreover,\n\\[\n\\begin{aligned}\n(c+x)^2-(b+x)^2\n&=(c-b)(b+c+2x)\\\\\n&>(c-b)(b+c)>a^2.\n\\end{aligned}\n\\]\nThus the new triangle is obtuse.\n\nNow let $n>1$ and put\n\\[\nt=\\left\\lfloor\\frac n2\\right\\rfloor.\n\\]\nBy the induction hypothesis, $[2,3t+1]$ has a partition\n\\[\nA_i'=\\{i,a_i',b_i'\\},\n\\qquad 2\\le i\\le t+1,\n\\]\ninto obtuse triples. For these indices define\n\\[\nA_i=\\{i,a_i'+n-t,b_i'+n-t\\}.\n\\]\nBy the lemma these triples remain obtuse. They are disjoint, and their union is\n\\[\n[2,t+1]\\cup[n+2,n+2t+1].\n\\tag{1}\n\\]\n\nFor each\n\\[\nt+2\\le i\\le n+1,\n\\]\ndefine\n\\[\nA_i=\\{i,n+t+i,2n+i\\}.\n\\tag{2}\n\\]\nThese triples are disjoint, and their union is\n\\[\n[t+2,n+1]\n\\cup[n+2t+2,2n+t+1]\n\\cup[2n+t+2,3n+1].\n\\tag{3}\n\\]\nRelations (1) and (3) show that all the triples together partition $[2,3n+1]$.\n\nIt remains to verify that every triple in (2) is obtuse. First,\n\\[\n(2n+i)-(n+t+i)=n-t<i,\n\\]\nbecause $i\\ge t+2$. Thus its elements satisfy the triangle inequality. Next,\n\\[\n\\begin{aligned}\n(2n+i)^2-(n+t+i)^2\n&=(n-t)(3n+t+2i)\\\\\n&\\ge \\frac n2\\bigl(3n+3(t+1)+1\\bigr)\\\\\n&>\\frac{9n^2}{4}\\\\\n&\\ge(n+1)^2\\\\\n&\\ge i^2.\n\\end{aligned}\n\\]\nHere $n\\ge2$ and $i\\le n+1$. Therefore\n\\[\n(2n+i)^2>(n+t+i)^2+i^2,\n\\]\nso the triangle is obtuse. This completes the induction."
+  ]
+}

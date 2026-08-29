@@ -1,0 +1,172 @@
+ID: 0056
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Number Theory
+
+SUBTOPICS: Polynomial Congruences, Multiplicative Orders, Bezout Identity
+
+STATEMENT:
+Let $P(x),Q(x)\in\mathbb Z[x]$ be polynomials such that no nonconstant polynomial with rational coefficients divides both of them. Suppose that, for every positive integer $n$, the integers $P(n)$ and $Q(n)$ are positive and
+\[
+2^{Q(n)}-1\mid 3^{P(n)}-1.
+\]
+Prove that $Q(x)$ is constant.
+
+SOLUTION 1:
+Because $P$ and $Q$ are relatively prime in $\mathbb Q[x]$, there exist polynomials
+\[
+R_0(x),S_0(x)\in\mathbb Q[x]
+\]
+such that
+\[
+P(x)R_0(x)-Q(x)S_0(x)=1.
+\]
+After multiplying by a suitable positive integer $d$, we obtain polynomials
+\[
+R(x),S(x)\in\mathbb Z[x]
+\]
+satisfying
+\[
+P(x)R(x)-Q(x)S(x)=d.
+\tag{1}
+\]
+Consequently, for every positive integer $n$,
+\[
+\gcd(P(n),Q(n))\le d.
+\tag{2}
+\]
+
+Assume, for a contradiction, that $Q$ is nonconstant. Since $Q(n)>0$ for every positive integer $n$, the sequence $Q(n)$ is unbounded. Choose a positive integer $m$ so large that
+\[
+M=2^{Q(m)}-1
+\ge
+3^{\,\max\{P(1),P(2),\ldots,P(d)\}}.
+\tag{3}
+\]
+
+The number $M$ is odd. Moreover,
+\[
+M\mid3^{P(m)}-1,
+\]
+so $3\nmid M$. Hence both $2$ and $3$ are invertible modulo $M$. Let
+\[
+a=\operatorname{ord}_M(2),
+\qquad
+b=\operatorname{ord}_M(3)
+\]
+be their multiplicative orders.
+
+We have
+\[
+a=Q(m).
+\tag{4}
+\]
+Indeed,
+\[
+2^{Q(m)}\equiv1\pmod M,
+\]
+while for every $0<r<Q(m)$,
+\[
+0<2^r-1<M,
+\]
+so $M\nmid2^r-1$.
+
+Also,
+\[
+b\mid P(m),
+\tag{5}
+\]
+because $M\mid3^{P(m)}-1$. From (2), (4), and (5),
+\[
+\gcd(a,b)\le\gcd(P(m),Q(m))\le d.
+\tag{6}
+\]
+
+Let
+\[
+g=\gcd(a,b).
+\]
+Choose an integer $r$ with
+\[
+1\le r\le g
+\qquad\text{and}\qquad
+r\equiv m\pmod g.
+\]
+Then $r-m$ is an integer multiple of $g$. Since every multiple of $g$ can be written as
+\[
+ax-by
+\]
+with nonnegative integers $x,y$ after adding a sufficiently large common multiple to an integer solution, there exist $x,y\ge0$ such that
+\[
+r=m+ax-by.
+\tag{7}
+\]
+By (6),
+\[
+1\le r\le d.
+\tag{8}
+\]
+
+Because
+\[
+m+ax\equiv m\pmod a,
+\]
+integer-coefficient polynomial congruences give
+\[
+Q(m+ax)\equiv Q(m)\pmod a.
+\]
+Using (4),
+\[
+2^{Q(m+ax)}
+\equiv2^{Q(m)}
+\equiv1\pmod M.
+\]
+Thus
+\[
+M\mid2^{Q(m+ax)}-1.
+\]
+By the hypothesis of the problem,
+\[
+2^{Q(m+ax)}-1\mid3^{P(m+ax)}-1,
+\]
+and therefore
+\[
+3^{P(m+ax)}\equiv1\pmod M.
+\tag{9}
+\]
+
+Next, (7) gives
+\[
+r\equiv m+ax\pmod b.
+\]
+Hence
+\[
+P(r)\equiv P(m+ax)\pmod b.
+\]
+Since $b=\operatorname{ord}_M(3)$, relation (9) implies
+\[
+3^{P(r)}
+\equiv3^{P(m+ax)}
+\equiv1\pmod M.
+\]
+As $P(r)>0$,
+\[
+M\le3^{P(r)}-1<3^{P(r)}.
+\tag{10}
+\]
+
+But (8) shows that $P(r)$ is one of
+\[
+P(1),P(2),\ldots,P(d).
+\]
+Therefore, by (10),
+\[
+M<
+3^{\,\max\{P(1),P(2),\ldots,P(d)\}},
+\]
+contradicting (3).
+
+Hence $Q(x)$ must be a constant polynomial.

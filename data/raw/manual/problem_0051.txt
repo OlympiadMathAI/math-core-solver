@@ -1,0 +1,150 @@
+ID: 0051
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Number Theory
+
+SUBTOPICS: Divisor Function, Prime Factorization, Extremal Construction
+
+STATEMENT:
+For every positive integer $d$, let $f(d)$ be the smallest positive integer having exactly $d$ positive divisors. Prove that, for every integer $k\ge 0$,
+\[
+f(2^k)\mid f(2^{k+1}).
+\]
+
+SOLUTION 1:
+For a positive integer $n$, let $\tau(n)$ denote the number of its positive divisors. Write
+\[
+n=\prod_p p^{a(p)},
+\]
+where $p$ ranges over the primes, the integers $a(p)$ are nonnegative, and all but finitely many of them are zero. Then
+\[
+\tau(n)=\prod_p\bigl(a(p)+1\bigr).
+\]
+
+Consequently, $\tau(n)$ is a power of $2$ if and only if, for each prime $p$, there is a nonnegative integer $b(p)$ such that
+\[
+a(p)=2^{b(p)}-1
+=1+2+2^2+\cdots+2^{b(p)-1}.
+\]
+In that case,
+\[
+n=\prod_p\prod_{r=0}^{b(p)-1}p^{2^r},
+\qquad
+\tau(n)=2^k,
+\qquad
+k=\sum_p b(p).
+\tag{1}
+\]
+
+Let
+\[
+\mathcal S=\left\{p^{2^r}:p\text{ prime},\ r\ge0\right\}.
+\]
+Formula (1) associates to $n$ a finite subset
+\[
+T=\left\{p^{2^r}:0\le r<b(p)\right\}\subset\mathcal S.
+\]
+This subset has $k$ elements and is downward closed under divisibility: if $t\in T$, $s\in\mathcal S$, and $s\mid t$, then $s\in T$.
+
+Conversely, every finite subset $T\subset\mathcal S$ with this property determines an integer $n=\prod_{t\in T}t$ satisfying
+\[
+\tau(n)=2^{|T|}.
+\]
+
+Let $T_k$ be the set of the $k$ smallest elements of $\mathcal S$. It is downward closed: whenever $p^{2^r}\in T_k$, every element
+\[
+p,p^2,p^4,\ldots,p^{2^{r-1}}
+\]
+is smaller and therefore also belongs to $T_k$.
+
+Among all $k$-element subsets of $\mathcal S$, the product is minimized by the set of the $k$ smallest elements. Hence
+\[
+f(2^k)=\prod_{t\in T_k}t.
+\]
+Since
+\[
+T_k\subset T_{k+1},
+\]
+we immediately obtain
+\[
+f(2^k)\mid f(2^{k+1}).
+\]
+
+SOLUTION 2:
+We use the prime-exponent description from Solution 1. Write
+\[
+f(2^k)=\prod_p p^{\,2^{b(p)}-1},
+\qquad
+\sum_p b(p)=k,
+\tag{1}
+\]
+where all but finitely many $b(p)$ are zero.
+
+We first record a consequence of the minimality of $f(2^k)$. For any two distinct primes $p,q$ with $b(q)>0$, one has
+\[
+p^{2^{b(p)}}>q^{2^{b(q)-1}}.
+\tag{2}
+\]
+Indeed, put
+\[
+m=p^{2^{b(p)}},
+\qquad
+\ell=q^{2^{b(q)-1}}.
+\]
+The number
+\[
+f(2^k)\frac{m}{\ell}
+\]
+still has exactly $2^k$ divisors: multiplying by $m$ increases $b(p)$ by $1$, while dividing by $\ell$ decreases $b(q)$ by $1$. By the definition of $f(2^k)$,
+\[
+f(2^k)\frac{m}{\ell}\ge f(2^k),
+\]
+so $m\ge\ell$. Equality is impossible because $p\ne q$, proving (2).
+
+Now write
+\[
+f(2^{k+1})=\prod_p p^{\,2^{s(p)}-1},
+\qquad
+\sum_p s(p)=k+1.
+\tag{3}
+\]
+Since
+\[
+\sum_p s(p)>\sum_p b(p),
+\]
+there is a prime $p$ such that
+\[
+s(p)>b(p).
+\tag{4}
+\]
+
+Let $q\ne p$ be any prime with $b(q)>0$. Apply (2) first to the exponent pattern $s(\cdot)$ and then to the exponent pattern $b(\cdot)$. We obtain
+\[
+q^{2^{s(q)}}
+>
+p^{2^{s(p)-1}}
+\ge
+p^{2^{b(p)}}
+>
+q^{2^{b(q)-1}}.
+\]
+Therefore
+\[
+s(q)\ge b(q).
+\]
+For $q=p$, this follows from (4), and for primes with $b(q)=0$ it is automatic. Thus
+\[
+s(q)\ge b(q)
+\qquad\text{for every prime }q.
+\]
+It follows that every prime exponent in $f(2^{k+1})$ is at least the corresponding exponent in $f(2^k)$:
+\[
+2^{s(q)}-1\ge2^{b(q)}-1.
+\]
+Hence
+\[
+f(2^k)\mid f(2^{k+1}).
+\]

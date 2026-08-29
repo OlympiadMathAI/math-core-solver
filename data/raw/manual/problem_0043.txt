@@ -1,0 +1,66 @@
+ID: 0043
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Geometry
+
+SUBTOPICS: Circle Geometry, Tangency, Reflection, Circumcenters
+
+STATEMENT:
+Let $ABC$ be an acute triangle. Let $\omega$ be a circle whose center $L$ lies on the side $BC$. Suppose that $\omega$ is tangent to $AB$ at $B'$ and to $AC$ at $C'$. Suppose also that the circumcenter $O$ of triangle $ABC$ lies on the shorter arc $B'C'$ of $\omega$. Prove that the circumcircle of $ABC$ and $\omega$ intersect at two points.
+
+SOLUTION 1:
+The tangency points $B'$ and $C'$ are the perpendicular projections of $L$ onto $AB$ and $AC$. Since $ABC$ is acute and $L\in BC$, both points lie in the interiors of the corresponding sides. The shorter arc $B'C'$ of $\omega$ lies inside triangle $AB'C'$, so the point $O$ lies inside that triangle. In particular,
+\[
+\angle BOC<\angle B'OC'.
+\tag{1}
+\]
+
+Put
+\[
+\alpha=\angle BAC.
+\]
+Since $O$ is the center of the circumcircle of $ABC$,
+\[
+\angle BOC=2\alpha.
+\tag{2}
+\]
+On the other hand, $O$ lies on $\omega$, so $\angle B'OC'$ is an inscribed angle of $\omega$. It subtends the major arc $B'C'$, and hence
+\[
+2\angle B'OC'=360^\circ-\angle B'LC'.
+\tag{3}
+\]
+The quadrilateral $AB'LC'$ is a kite with right angles at $B'$ and $C'$. Therefore
+\[
+\angle B'LC'=180^\circ-\angle B'AC'=180^\circ-\alpha.
+\tag{4}
+\]
+Combining (1)--(4), we obtain
+\[
+2\alpha
+<\frac{360^\circ-(180^\circ-\alpha)}2
+=90^\circ+\frac\alpha2.
+\]
+Thus
+\[
+\alpha<60^\circ.
+\tag{5}
+\]
+
+Let $O'$ be the reflection of $O$ in the line $BC$. Since the center $L$ of $\omega$ lies on $BC$ and $O\in\omega$, reflection in $BC$ preserves $\omega$ and therefore
+\[
+O'\in\omega.
+\]
+The point $O$ is inside the circumcircle of $ABC$. We claim that $O'$ is outside it. Indeed,
+\[
+\angle BO'C=\angle BOC=2\alpha,
+\]
+and by (5),
+\[
+\angle BO'C+\angle BAC=3\alpha<180^\circ.
+\]
+For a point on the side of $BC$ opposite to $A$, equality with $180^\circ$ characterizes the circumcircle of $ABC$; the strict inequality shows that $O'$ lies outside that circle.
+
+Thus the circle $\omega$ contains one point, namely $O$, inside the circumcircle of $ABC$, and another point, namely $O'$, outside it. Each of the two arcs of $\omega$ joining $O$ to $O'$ must cross the circumcircle. The two crossings are distinct, so the two circles intersect at two points.

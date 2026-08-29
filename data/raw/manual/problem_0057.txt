@@ -1,0 +1,258 @@
+ID: 0057
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Number Theory
+
+SUBTOPICS: Harmonic Sums, Congruences, Binomial Coefficients
+
+STATEMENT:
+Let $p$ be an odd prime. For every integer $a$, define
+\[
+S_a=\frac a1+\frac{a^2}{2}+\cdots+\frac{a^{p-1}}{p-1}.
+\]
+Let $m,n$ be integers with $n\ne0$ such that
+\[
+S_3+S_4-3S_2=\frac mn.
+\]
+Prove that
+\[
+p\mid m.
+\]
+
+SOLUTION 1:
+We use congruences modulo $p$ for rational numbers whose denominators are not divisible by $p$. Thus
+\[
+\frac{u_1}{v_1}\equiv\frac{u_2}{v_2}\pmod p
+\]
+means
+\[
+p\mid u_1v_2-u_2v_1,
+\qquad
+p\nmid v_1v_2.
+\]
+
+For $1\le k\le p-1$,
+\[
+\frac1p\binom pk
+=
+\frac{(p-1)(p-2)\cdots(p-k+1)}{k!}
+\equiv
+\frac{(-1)^{k-1}}k
+\pmod p.
+\tag{1}
+\]
+Therefore
+\[
+\begin{aligned}
+S_a
+&=-\sum_{k=1}^{p-1}
+(-a)^k\frac{(-1)^{k-1}}k\\
+&\equiv
+-\frac1p\sum_{k=1}^{p-1}\binom pk(-a)^k
+\pmod p.
+\end{aligned}
+\]
+Using the binomial theorem and the fact that $p$ is odd,
+\[
+\begin{aligned}
+-\frac1p\sum_{k=1}^{p-1}\binom pk(-a)^k
+&=
+-\frac{(1-a)^p-1-(-a)^p}{p}\\
+&=
+\frac{(a-1)^p-a^p+1}{p}.
+\end{aligned}
+\]
+Hence
+\[
+S_a\equiv
+\frac{(a-1)^p-a^p+1}{p}
+\pmod p.
+\tag{2}
+\]
+
+Applying (2) for $a=2,3,4$, we obtain
+\[
+\begin{aligned}
+S_3+S_4-3S_2
+&\equiv
+\frac{(2^p-3^p+1)+(3^p-4^p+1)-3(1-2^p+1)}p\\
+&=
+\frac{4\cdot2^p-4^p-4}{p}\\
+&=
+-\frac{(2^p-2)^2}{p}
+\pmod p.
+\end{aligned}
+\tag{3}
+\]
+By Fermat's little theorem,
+\[
+p\mid2^p-2.
+\]
+Thus the numerator $(2^p-2)^2$ in (3) is divisible by $p^2$, and consequently
+\[
+S_3+S_4-3S_2\equiv0\pmod p.
+\tag{4}
+\]
+
+The number on the left of (4) has a denominator not divisible by $p$, because all its summands have denominators among $1,2,\ldots,p-1$. Write it in lowest terms as
+\[
+\frac AB,
+\qquad
+p\nmid B.
+\]
+Relation (4) says that
+\[
+p\mid A.
+\]
+Since
+\[
+\frac mn=\frac AB,
+\]
+we have
+\[
+mB=nA.
+\]
+Thus $p\mid mB$, and because $p\nmid B$,
+\[
+p\mid m.
+\]
+
+SOLUTION 2:
+As in Solution 1, all congruences between rational numbers are taken modulo $p$, with denominators coprime to $p$.
+
+We first prove the following lemma.
+
+\textbf{Lemma.} For every integer $a$,
+\[
+S_{a+1}\equiv S_{-a}\pmod p.
+\tag{1}
+\]
+
+Indeed, by the binomial theorem,
+\[
+\begin{aligned}
+S_{a+1}
+&=\sum_{k=1}^{p-1}\frac1k
+   \sum_{j=0}^k\binom kj a^j\\
+&=
+\sum_{k=1}^{p-1}\frac1k
++
+\sum_{j=1}^{p-1}a^j
+\sum_{k=j}^{p-1}\frac1k\binom kj.
+\end{aligned}
+\tag{2}
+\]
+The first sum vanishes modulo $p$, because
+\[
+\frac1k+\frac1{p-k}
+=\frac{p}{k(p-k)}
+\equiv0\pmod p.
+\tag{3}
+\]
+
+For the second sum, use
+\[
+\frac1k\binom kj
+=
+\frac1j\binom{k-1}{j-1}
+\]
+and the hockey-stick identity:
+\[
+\sum_{k=j}^{p-1}\binom{k-1}{j-1}
+=
+\binom{p-1}{j}
+\equiv(-1)^j\pmod p.
+\]
+Substituting into (2),
+\[
+S_{a+1}
+\equiv
+\sum_{j=1}^{p-1}\frac{(-a)^j}{j}
+=S_{-a}
+\pmod p.
+\]
+This proves the lemma.
+
+Taking $a=2$ in (1),
+\[
+S_3\equiv S_{-2}\pmod p.
+\]
+Therefore
+\[
+S_3-3S_2
+\equiv
+\sum_{k=1}^{p-1}\frac{(-2)^k-3\cdot2^k}{k}
+\pmod p.
+\tag{4}
+\]
+
+For even $k=2\ell$, the summand in (4) is
+\[
+-\frac{2\cdot2^{2\ell}}{2\ell}
+=-\frac{4^\ell}{\ell}.
+\]
+For odd $k=2\ell-1$, it is
+\[
+-\frac{4\cdot2^{2\ell-1}}{2\ell-1}
+=-\frac{2^{2\ell+1}}{2\ell-1}.
+\]
+By Fermat's little theorem,
+\[
+2^{p-1}\equiv1\pmod p,
+\]
+so
+\[
+-\frac{2^{2\ell+1}}{2\ell-1}
+\equiv
+-\frac{2^{p+2\ell}}{p+2\ell-1}
+\pmod p.
+\]
+Put
+\[
+r=\ell+\frac{p-1}{2}.
+\]
+Then
+\[
+p+2\ell-1=2r
+\]
+and
+\[
+-\frac{2^{p+2\ell}}{p+2\ell-1}
+=
+-\frac{2\cdot4^r}{2r}
+=
+-\frac{4^r}{r}.
+\]
+
+As $\ell$ ranges from $1$ to $(p-1)/2$, the even terms give the indices
+\[
+1,\ldots,\frac{p-1}{2},
+\]
+while the transformed odd terms give
+\[
+\frac{p+1}{2},\ldots,p-1.
+\]
+Thus (4) becomes
+\[
+S_3-3S_2
+\equiv
+-\sum_{r=1}^{p-1}\frac{4^r}{r}
+=-S_4
+\pmod p.
+\]
+Hence
+\[
+S_3+S_4-3S_2\equiv0\pmod p.
+\]
+
+As explained at the end of Solution 1, the left-hand side has a denominator coprime to $p$. Therefore, from
+\[
+S_3+S_4-3S_2=\frac mn,
+\]
+it follows that
+\[
+p\mid m.
+\]

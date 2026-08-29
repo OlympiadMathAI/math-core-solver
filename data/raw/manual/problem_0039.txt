@@ -1,0 +1,133 @@
+ID: 0039
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Additive Combinatorics, Graph Theory, Double Counting
+
+STATEMENT:
+Determine the greatest positive integer $k$ with the following property: the positive integers can be partitioned into $k$ sets
+\[
+A_1,A_2,\ldots,A_k
+\]
+such that, for every integer $n\ge15$ and every $i\in\{1,2,\ldots,k\}$, there are two distinct elements of $A_i$ whose sum is $n$.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{3}.
+\]
+
+First, the following partition shows that $k=3$ is possible:
+\[
+A_1=\{1,2,3\}\cup\{3m:m\ge4\},
+\]
+\[
+A_2=\{4,5,6\}\cup\{3m-1:m\ge4\},
+\]
+\[
+A_3=\{7,8,9\}\cup\{3m-2:m\ge4\}.
+\]
+For $A_1$, every $n\ge13$ is the sum of one element of $\{1,2,3\}$ and a suitable multiple of $3$ at least $12$. For $A_2$, every $n\ge15$ is the sum of one element of $\{4,5,6\}$ and a suitable number congruent to $2\pmod3$ and at least $11$. For $A_3$, the same argument represents every $n\ge17$, while
+\[
+15=7+8,
+\qquad
+16=7+9.
+\]
+Thus this partition works.
+
+It remains to prove that $k\le3$. If a partition into $k\ge4$ sets existed, merging all sets after the third would give a partition into four sets with the same property. Thus assume
+\[
+k=4.
+\]
+For $i=1,2,3,4$, put
+\[
+B_i=A_i\cap\{1,2,\ldots,23\}.
+\]
+For each $i$, every one of the ten integers
+\[
+15,16,\ldots,24
+\]
+must be a sum of two distinct elements of $B_i$: both summands are positive and a summand in a representation of a number at most $24$ is at most $23$. Since a set of four elements has only six unordered pairs, each $B_i$ contains at least five elements.
+
+The four sets $B_i$ partition $\{1,2,\ldots,23\}$, so
+\[
+|B_1|+|B_2|+|B_3|+|B_4|=23.
+\]
+Hence some $B_j$ has exactly five elements, say
+\[
+B_j=\{x_1,x_2,x_3,x_4,x_5\}.
+\]
+Its ten unordered pairs must produce the ten distinct sums $15,16,\ldots,24$, so these pairwise sums are exactly those ten integers. Summing all ten pair sums in two ways gives
+\[
+4(x_1+x_2+x_3+x_4+x_5)
+=15+16+\cdots+24
+=195,
+\]
+which is impossible because the left side is divisible by $4$. Therefore $k\le3$, and the maximum is $3$.
+
+SOLUTION 2:
+The construction in Solution 1 proves that $k=3$ is attainable. We give a graph-theoretic proof that $k\le3$.
+
+Suppose
+\[
+A_1,A_2,\ldots,A_k
+\]
+is a partition with the required property. Construct an edge-colored graph $G$ on the vertex set
+\[
+V=\{1,2,\ldots,18\}.
+\]
+For every color $i\in\{1,\ldots,k\}$ and every
+\[
+d\in\{15,16,17,19\},
+\]
+choose distinct $a,b\in A_i$ with $a+b=d$ and draw the edge $ab$ in color $i$. Both endpoints lie in $V$, and there are exactly four chosen edges of each color.
+
+Every connected component is monochromatic, because a vertex belongs to only one of the sets $A_i$. Therefore each component has at most four edges.
+
+We claim that $G$ contains at most one cycle. A component cannot contain two cycles, since a graph containing two cycles has at least five edges unless it is a multigraph, while $G$ is simple. Also, any cycle has length at most four.
+
+A $4$-cycle with consecutive vertices $a,b,c,d$ would use the four edge sums
+\[
+a+b,\ b+c,\ c+d,\ d+a,
+\]
+which must be $15,16,17,19$ in some order. But then
+\[
+2(a+b+c+d)=15+16+17+19=67,
+\]
+an impossibility. Thus every cycle is a triangle.
+
+For a triangle with vertices $a,b,c$, its three edge sums form a three-element subset of
+\[
+\{15,16,17,19\}.
+\]
+The subset $\{15,17,19\}$ is impossible because its total is odd, whereas
+\[
+(a+b)+(b+c)+(c+a)=2(a+b+c)
+\]
+is even. The other three possibilities give, respectively,
+\[
+\{a,b,c\}=\{7,8,9\},
+\quad
+\{6,9,10\},
+\quad
+\{7,9,10\}.
+\]
+Every triangle therefore contains the vertex $9$. Since distinct connected components are disjoint, at most one component can contain a cycle. This proves the claim.
+
+The graph has
+\[
+4k
+\]
+edges and at least $k$ connected components, because components are monochromatic and every color occurs. A graph with $e$ edges, $c$ components, and at most one cycle has at least
+\[
+e+c-1
+\]
+vertices. Hence
+\[
+18\ge |V(G)|\ge4k+k-1=5k-1,
+\]
+so $k\le3$.

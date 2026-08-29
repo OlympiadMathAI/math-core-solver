@@ -1,0 +1,241 @@
+ID: 0050
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Geometry
+
+SUBTOPICS: Reflections, Simson Line, Miquel's Theorem, Pascal's Theorem
+
+STATEMENT:
+Let $ABC$ be an acute triangle with circumcircle $\omega$, and let $t$ be a tangent line to $\omega$. Let $t_a,t_b,t_c$ be the reflections of $t$ in the lines $BC,CA,AB$, respectively. Prove that the circumcircle of the triangle determined by the three lines $t_a,t_b,t_c$ is tangent to $\omega$.
+
+SOLUTION 1:
+All angles in this solution are oriented modulo $180^\circ$. Let $T$ be the point where $t$ touches $\omega$, and put
+\[
+A'=t_b\cap t_c,
+\qquad
+B'=t_a\cap t_c,
+\qquad
+C'=t_a\cap t_b.
+\]
+Choose $A''\in\omega$ so that $A$ is the midpoint of the appropriate arc $TA''$, that is,
+\[
+\widehat{TA}=\widehat{AA''}.
+\]
+Define $B''$ and $C''$ analogously.
+
+Because $B$ and $C$ are the midpoints of the corresponding arcs $TB''$ and $TC''$, an oriented-angle calculation gives
+\[
+\begin{aligned}
+\angle(t,B''C'')
+&=\angle(t,TC'')+\angle(TC'',B''C'')\\
+&=2\angle(t,TC)+2\angle(TC'',BC'')\\
+&=2\bigl(\angle(t,TC)+\angle(TC,BC)\bigr)\\
+&=2\angle(t,BC)\\
+&=\angle(t,t_a).
+\end{aligned}
+\]
+Hence
+\[
+t_a\parallel B''C''.
+\]
+Similarly,
+\[
+t_b\parallel A''C'',
+\qquad
+t_c\parallel A''B''.
+\tag{1}
+\]
+Therefore the triangles $A'B'C'$ and $A''B''C''$ have pairwise parallel corresponding sides; they are either homothetic or translates. We prove that they are homothetic with a center lying on $\omega$.
+
+We need two claims.
+
+\textbf{Claim 1.} The point
+\[
+X=B''C\cap BC''
+\]
+lies on $t_a$.
+
+Indeed, because $C$ is the midpoint of the arc $TC''$, the rays $CT$ and $CB''$ are mirror images in $BC$; similarly, because $B$ is the midpoint of the arc $TB''$, the rays $BT$ and $BC''$ are mirror images in $BC$. Hence reflection in $BC$ sends the intersection $T=CT\cap BT$ to $X=CB''\cap BC''$. Since the same reflection sends $t$ to $t_a$, we get $X\in t_a$.
+
+\textbf{Claim 2.} The point
+\[
+I=BB'\cap CC'
+\]
+lies on $\omega$.
+
+Assume first that $t$ is not parallel to a side of $ABC$; the parallel cases follow as limiting cases. Let
+\[
+D=t\cap BC,
+\qquad
+E=t\cap CA,
+\qquad
+F=t\cap AB.
+\]
+Because $t_a$ and $t_c$ are the reflections of $t$ in $BC$ and $AB$, the point $B$ is an incenter or an excenter of triangle $B'DF$. The corresponding angle-bisector relations yield
+\[
+\angle(B'B,B'C')=90^\circ-\angle(BC,AB).
+\tag{2}
+\]
+Analogously,
+\[
+\angle(C'C,B'C')=90^\circ-\angle(BC,AC).
+\tag{3}
+\]
+Since $B,I,B'$ and $C,I,C'$ are collinear, (2) and (3) give
+\[
+\begin{aligned}
+\angle(BI,CI)
+&=\angle(B'B,B'C')+\angle(B'C',C'C)\\
+&=\angle(BC,AC)-\angle(BC,AB)\\
+&=\angle(AB,AC).
+\end{aligned}
+\]
+Thus $A,B,I,C$ are cyclic, proving Claim 2.
+
+Let $K\ne B''$ be the second intersection of the line $B'B''$ with $\omega$. Apply Pascal's theorem to the inscribed hexagon
+\[
+K,B'',C,I,B,C''.
+\]
+The intersections of its three pairs of opposite sides are
+\[
+KB''\cap IB=B',
+\]
+\[
+B''C\cap BC''=X,
+\]
+and
+\[
+CI\cap C''K.
+\]
+Pascal's theorem says that these three points are collinear. By Claim 1, the line $B'X$ is $t_a$. Since
+\[
+C'=t_a\cap CI,
+\]
+the third intersection is $C'$. Therefore
+\[
+K,C',C''\text{ are collinear}.
+\]
+By construction,
+\[
+K,B',B''\text{ are collinear}.
+\]
+Together with (1), this shows that $K$ is the center of the homothety mapping triangle $A'B'C'$ to triangle $A''B''C''$.
+
+The circumcircle of $A''B''C''$ is $\omega$. Under this homothety it is mapped to the circumcircle of $A'B'C'$. Since the homothety center $K$ lies on $\omega$ and is fixed, the two circles pass through $K$ and have the same tangent there. Hence they are tangent.
+
+SOLUTION 2:
+Continue to use oriented angles modulo $180^\circ$. Again let $T$ be the point of tangency of $t$ with $\omega$, and define
+\[
+A'=t_b\cap t_c,
+\qquad
+B'=t_a\cap t_c,
+\qquad
+C'=t_a\cap t_b.
+\]
+Let $X,Y,Z$ be the reflections of $T$ in $BC,CA,AB$, respectively.
+
+The perpendicular projections of $T$ onto the three sides of $ABC$ lie on the Simson line of $T$. Reflection in a side sends $T$ to a point obtained from the corresponding projection by a homothety of ratio $2$ centered at $T$. Hence
+\[
+X,Y,Z\text{ are collinear}.
+\tag{1}
+\]
+Moreover, from the definitions of the reflected lines,
+\[
+X\in B'C',
+\qquad
+Y\in C'A',
+\qquad
+Z\in A'B'.
+\tag{2}
+\]
+
+Put
+\[
+\alpha=\angle(t,TC)=\angle(BT,BC).
+\]
+Reflection in $BC$ and $AC$ gives
+\[
+\angle(BC,BX)=\alpha
+\]
+and
+\[
+\angle(XC,XC')=\angle(YC,YC')=\alpha.
+\]
+Thus the points
+\[
+X,Y,C,C'
+\]
+are cyclic; denote their circle by $\omega_c$. Define analogously $\omega_a$ as the circle through $Y,Z,A,A'$, and $\omega_b$ as the circle through $Z,X,B,B'$.
+Let $\omega'$ be the circumcircle of $A'B'C'$.
+
+Apply Miquel's theorem to the four lines
+\[
+A'B',\quad B'C',\quad C'A',\quad XYZ.
+\]
+Using (1) and (2), it follows that the four circles
+\[
+\omega',\quad\omega_a,\quad\omega_b,\quad\omega_c
+\]
+have a common point; call it $K$.
+
+We first show that
+\[
+K\in\omega.
+\tag{3}
+\]
+Since $X$ and $Z$ are reflections of $T$ in lines through $B$,
+\[
+XB=TB=ZB.
+\]
+Thus $B$ is the midpoint of one of the arcs $XZ$ of $\omega_b$, and consequently
+\[
+\angle(KB,KX)=\angle(XZ,XB).
+\tag{4}
+\]
+Likewise, $CX=CT=CY$, because $X$ and $Y$ are reflections of $T$ in lines through $C$. Thus $C$ is the midpoint of one of the arcs $XY$ of $\omega_c$, and
+\[
+\angle(KX,KC)=\angle(XC,XY).
+\tag{5}
+\]
+Adding (4) and (5), and using the collinearity of $X,Y,Z$, we get
+\[
+\begin{aligned}
+\angle(KB,KC)
+&=\angle(XZ,XB)+\angle(XC,XZ)\\
+&=\angle(XC,XB)\\
+&=\angle(TB,TC),
+\end{aligned}
+\]
+where the final equality follows from reflection in $BC$. Thus $K,B,C,T$ are cyclic. Since $B,C,T\in\omega$, relation (3) follows.
+
+Let $k$ be the tangent to $\omega$ at $K$. We prove that $k$ is also tangent to $\omega'$ at $K$. By the tangent-chord theorem in $\omega$, and then cyclicity in $\omega_c$,
+\[
+\begin{aligned}
+\angle(k,KC')
+&=\angle(k,KC)+\angle(KC,KC')\\
+&=\angle(KB,BC)+\angle(XC,XC').
+\end{aligned}
+\tag{6}
+\]
+Now
+\[
+\angle(KB,BC)
+=\angle(KB,BX)-\angle(BC,BX)
+=\angle(KB,BX)-\alpha,
+\]
+while $\angle(XC,XC')=\alpha$. Since $K,B,B',X$ are cyclic on $\omega_b$,
+\[
+\angle(KB,BX)=\angle(KB',B'X).
+\]
+Using $B',X,C'\in t_a$, equation (6) becomes
+\[
+\begin{aligned}
+\angle(k,KC')
+&=\angle(KB',B'X)-\alpha+\alpha\\
+&=\angle(KB',B'C').
+\end{aligned}
+\]
+This is precisely the tangent-chord criterion for $k$ to be tangent to $\omega'$ at $K$. Therefore the circumcircle of the triangle formed by $t_a,t_b,t_c$ is tangent to $\omega$.

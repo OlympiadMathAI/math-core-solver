@@ -1,0 +1,158 @@
+ID: 0052
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Number Theory
+
+SUBTOPICS: Prime Divisors, Pigeonhole Principle, P-Adic Valuation
+
+STATEMENT:
+Let
+\[
+P(x)=(x+d_1)(x+d_2)\cdots(x+d_9),
+\]
+where $d_1,d_2,\ldots,d_9$ are nine distinct integers. Prove that there exists an integer $N$ such that, for every integer $x\ge N$, the number $P(x)$ is divisible by a prime greater than $20$.
+
+SOLUTION 1:
+Translating the variable $x$ changes only the value of the required threshold $N$. We may therefore assume that
+\[
+d_1,d_2,\ldots,d_9>0.
+\]
+Put
+\[
+d=\max\{d_1,\ldots,d_9\}.
+\]
+We claim that
+\[
+N=d^8
+\]
+works.
+
+Suppose, to the contrary, that for some $x\ge d^8$, every prime divisor of $P(x)$ is at most $20$. The only such primes are
+\[
+2,3,5,7,11,13,17,19.
+\]
+Thus, for every $i$, the positive integer $x+d_i$ is a product of powers of these eight primes.
+
+Since
+\[
+x+d_i>x\ge d^8,
+\]
+at least one of the eight prime-power factors in the factorization of $x+d_i$ is greater than $d$. Choose such a prime power and call it $q_i$.
+
+There are nine indices but only eight possible underlying primes. Hence, by the pigeonhole principle, two of the chosen powers, say $q_i$ and $q_j$, are powers of the same prime. Assume
+\[
+q_i\le q_j.
+\]
+Then $q_i$ divides both $x+d_i$ and $x+d_j$, and therefore
+\[
+q_i\mid d_i-d_j.
+\]
+But the $d_i$ are distinct, while
+\[
+0<|d_i-d_j|\le d<q_i,
+\]
+which is impossible. Therefore every sufficiently large $P(x)$ has a prime divisor greater than $20$.
+
+SOLUTION 2:
+For each $i\in\{1,\ldots,9\}$, define
+\[
+D_i=\prod_{\substack{1\le j\le9\\j\ne i}}|d_i-d_j|.
+\]
+The integers $D_i$ are positive because the $d_i$ are distinct. We claim that
+\[
+N=\max_{1\le i\le9}(D_i-d_i)+1
+\]
+has the required property.
+
+Suppose that $x\ge N$ and that every prime divisor of $P(x)$ is smaller than $20$. Then, for every $i$,
+\[
+x+d_i>D_i>0.
+\]
+Reduce the fraction
+\[
+\frac{x+d_i}{D_i}
+\]
+to lowest terms. Its numerator is greater than $1$, so it has a prime divisor $p_i<20$.
+
+Among the nine primes $p_i$, two are equal. Choose distinct indices $i,j$ such that
+\[
+p_i=p_j=p.
+\]
+Let
+\[
+p^{\alpha_i}\parallel x+d_i,
+\qquad
+p^{\alpha_j}\parallel x+d_j,
+\]
+and assume without loss of generality that
+\[
+\alpha_i\le\alpha_j.
+\]
+Then
+\[
+p^{\alpha_i}\mid(x+d_i)-(x+d_j)=d_i-d_j.
+\]
+Consequently,
+\[
+p^{\alpha_i}\mid D_i.
+\]
+Thus every factor of $p$ occurring in the numerator $x+d_i$ is cancelled when the fraction $(x+d_i)/D_i$ is reduced. This contradicts the choice of $p=p_i$ as a prime divisor of the reduced numerator.
+
+Hence $P(x)$ must have a prime divisor greater than $20$ whenever $x\ge N$.
+
+SOLUTION 3:
+For a nonzero integer $M$ and a prime $p$, write $v_p(M)$ for the exponent of $p$ in the prime factorization of $|M|$.
+
+Assume, for a contradiction, that the required integer $N$ does not exist. Then there is a sequence of positive integers
+\[
+x_1<x_2<\cdots,\qquad x_r\to\infty,
+\]
+such that no $P(x_r)$ has a prime divisor greater than $20$. After discarding finitely many terms, we may also assume that
+\[
+x_r+d_i\ne0
+\qquad\text{for every }r\text{ and }i.
+\]
+
+Fix $i=1$. Since $|x_r+d_1|\to\infty$ and all its prime divisors belong to the finite set
+\[
+\{2,3,5,7,11,13,17,19\},
+\]
+there is a prime $p_1<20$ for which the sequence
+\[
+v_{p_1}(x_r+d_1)
+\]
+is unbounded. Passing to a subsequence, we may suppose that
+\[
+v_{p_1}(x_r+d_1)\to\infty.
+\]
+
+Repeat this argument successively for $i=2,\ldots,9$, passing to a further subsequence each time. We obtain primes
+\[
+p_1,\ldots,p_9<20
+\]
+such that
+\[
+v_{p_i}(x_r+d_i)\to\infty
+\qquad(i=1,\ldots,9).
+\]
+
+By the pigeonhole principle, there are distinct indices $i,j$ and a prime $p<20$ such that
+\[
+p_i=p_j=p.
+\]
+Put
+\[
+h=v_p(d_i-d_j).
+\]
+For sufficiently large $r$,
+\[
+v_p(x_r+d_i)>h
+\quad\text{and}\quad
+v_p(x_r+d_j)>h.
+\]
+Thus both $x_r+d_i$ and $x_r+d_j$ are divisible by $p^{h+1}$, so their difference $d_i-d_j$ is also divisible by $p^{h+1}$. This contradicts the definition of $h$.
+
+Therefore the required threshold $N$ exists.

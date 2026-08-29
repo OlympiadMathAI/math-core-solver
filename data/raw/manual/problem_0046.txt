@@ -1,0 +1,145 @@
+ID: 0046
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Geometry
+
+SUBTOPICS: Homothety, Radical Axis, Tangent Circles, Centroid
+
+STATEMENT:
+Let $ABC$ be an acute triangle with circumcircle $\Omega$. Let $B_0$ and $C_0$ be the midpoints of $AC$ and $AB$, respectively. Let $D$ be the foot of the altitude from $A$, and let $G$ be the centroid of triangle $ABC$. A circle $\omega$ through $B_0$ and $C_0$ is tangent to $\Omega$ at a point $X\ne A$. Prove that $D,G,X$ are collinear.
+
+SOLUTION 1:
+If $AB=AC$, the whole configuration is symmetric about the altitude from $A$, and the assertion follows immediately. Assume from now on that
+\[
+AB<AC.
+\]
+Let $a$ and $x$ be the tangents to $\Omega$ at $A$ and $X$, respectively. Let $\Omega_1$ be the circumcircle of triangle $AB_0C_0$.
+
+The homothety with center $A$ and ratio $1/2$ maps $\Omega$ to $\Omega_1$. Hence the two circles are tangent at $A$, and their radical axis is the line $a$. The radical axis of $\Omega$ and $\omega$ is the common tangent $x$, while the radical axis of $\Omega_1$ and $\omega$ is $B_0C_0$. By the radical-axis theorem, the three lines
+\[
+a,\quad x,\quad B_0C_0
+\]
+meet at one point; call it $W$.
+
+The line $B_0C_0$ is the midline parallel to $BC$, and reflection in it maps $A$ to the altitude foot $D$. Thus
+\[
+WA=WD.
+\]
+Also $WA$ and $WX$ are tangent segments from $W$ to $\Omega$, so
+\[
+WA=WX.
+\]
+Therefore
+\[
+WA=WD=WX,
+\]
+and $W$ is the center of the circle $\gamma$ through $A,D,X$.
+
+Let $O$ be the center of $\Omega$. Since
+\[
+WA\perp OA,
+\qquad
+WX\perp OX,
+\]
+the points $A,W,X,O$ are cyclic, and hence
+\[
+\angle AWX+\angle AOX=180^\circ.
+\tag{1}
+\]
+Let $T\ne X$ be the second intersection of the line $DX$ with $\Omega$. In the circle $\gamma$,
+\[
+\angle ADX=\frac12\bigl(360^\circ-\angle AWX\bigr),
+\]
+while in $\Omega$,
+\[
+\angle ATX=\frac12\angle AOX.
+\]
+Using directed angles along the line $D,X,T$ (equivalently, the exterior-angle relation in the displayed configuration), we get
+\[
+\begin{aligned}
+\angle DAT
+&=\angle ADX-\angle ATX\\
+&=180^\circ-\frac12\bigl(\angle AWX+\angle AOX\bigr)\\
+&=90^\circ
+\end{aligned}
+\]
+by (1). Thus
+\[
+AT\parallel BC.
+\tag{2}
+\]
+The cyclic trapezoid $ATCB$ is therefore isosceles, so
+\[
+\angle TCB=\angle CBA.
+\tag{3}
+\]
+
+Let $A_0$ be the midpoint of $BC$. Consider the homothety $h$ with center $G$ and ratio $-1/2$. It maps
+\[
+A\mapsto A_0,
+\qquad
+B\mapsto B_0,
+\qquad
+C\mapsto C_0.
+\]
+We show that $h(T)=D$. By (2), the image of the line $AT$ is the line through $A_0$ parallel to $BC$, namely $BC$ itself. Thus $h(T)\in BC$.
+
+Moreover, reflection in $B_0C_0$ maps $A$ to $D$, so
+\[
+\angle B_0C_0A=\angle DC_0B_0.
+\]
+Since $B_0C_0\parallel BC$, relation (3) implies
+\[
+CT\parallel C_0D.
+\]
+The image of $CT$ under $h$ is therefore the line $C_0D$. Hence $h(T)$ lies on both $BC$ and $C_0D$, and so
+\[
+h(T)=D.
+\]
+A point and its image under a homothety are collinear with the center; therefore $D,G,T$ are collinear. Since $D,X,T$ are collinear as well, the points $D,G,X$ are collinear.
+
+SOLUTION 2:
+Use the notation $A_0,O,W$ from Solution 1, and again assume $AB<AC$. Let $Q$ be the perpendicular projection of $A_0$ onto $B_0C_0$. Since $O,A_0,Q$ are collinear and $B_0C_0\parallel BC$, we have
+\[
+WQ\perp OQ.
+\]
+Together with
+\[
+WA\perp OA,
+\qquad
+WX\perp OX,
+\]
+this shows that the five points
+\[
+A,W,X,O,Q
+\]
+lie on the circle with diameter $WO$.
+
+Reflection in $B_0C_0$ maps $A$ to $D$ and fixes $Q,W$. Also, because
+\[
+OA=OX
+\quad\text{and}\quad
+WA=WX,
+\]
+the line $OW$ is the perpendicular bisector of $AX$, so reflection in $OW$ maps $A$ to $X$. These symmetries and the cyclicity above give
+\[
+\angle WQD
+=\angle AQW
+=\angle AXW
+=\angle WAX
+=\angle WQX.
+\]
+Hence the rays $QD$ and $QX$ lie on the same line, so
+\[
+Q,D,X\text{ are collinear}.
+\tag{1}
+\]
+
+Now consider the homothety with center $G$ and ratio $-1/2$ that maps triangle $ABC$ to triangle $A_0B_0C_0$. The altitude $AD$ is mapped to the altitude from $A_0$ to $B_0C_0$, namely $A_0Q$. The line $BC$ is mapped to $B_0C_0$. Therefore their intersection $D$ is mapped to
+\[
+A_0Q\cap B_0C_0=Q.
+\]
+Thus $D,G,Q$ are collinear. Combining this with (1), we conclude that $D,G,X$ are collinear.

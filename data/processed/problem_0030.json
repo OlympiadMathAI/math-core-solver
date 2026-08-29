@@ -1,0 +1,15 @@
+{
+  "id": "0030",
+  "source": "IMO Shortlist",
+  "year": "2011",
+  "topic": "Algebra",
+  "subtopics": [
+    "Exponential Sums",
+    "Sequences",
+    "Linear Independence"
+  ],
+  "statement": "Determine all sequences\n\\[\n(x_1,x_2,\\ldots,x_{2011})\n\\]\nof positive integers such that, for every positive integer $n$, there exists an integer $a$ satisfying\n\\[\nx_1^n+2x_2^n+\\cdots+2011x_{2011}^n=a^{n+1}+1.\n\\tag{1}\n\\]",
+  "solutions": [
+    "Put\n\\[\nK=2+3+\\cdots+2011=2023065.\n\\]\nThe sequence\n\\[\n\\boxed{(x_1,x_2,\\ldots,x_{2011})=(1,K,K,\\ldots,K)}\n\\]\nworks, because for every $n\\ge1$,\n\\[\n1^n+\\sum_{i=2}^{2011}iK^n\n=1+K\\cdot K^n\n=K^{n+1}+1.\n\\]\nWe prove that there is no other sequence.\n\nFor each $n$, choose a positive integer $y_n$ such that\n\\[\n\\sum_{i=1}^{2011}i x_i^n=y_n^{n+1}+1.\n\\tag{2}\n\\]\nWe may take $y_n>0$, since the left side is greater than $1$. Let\n\\[\nC=\\sum_{i=1}^{2011}i x_i.\n\\]\nThen\n\\[\n\\sum_{i=1}^{2011}i x_i^n<C^{n+1},\n\\]\nso (2) implies\n\\[\ny_n<C.\n\\]\nThus the sequence $(y_n)$ is bounded. Consequently, some positive integer $y$ occurs as $y_n$ for infinitely many values of $n$. Clearly $y>1$.\n\nLet\n\\[\nm=\\max\\{x_1,x_2,\\ldots,x_{2011}\\}.\n\\]\nFor $1\\le j\\le m$, define\n\\[\nc_j=\\sum_{\\substack{1\\le i\\le2011\\\\x_i=j}}i.\n\\]\nThen $c_j\\ge0$, $c_m>0$, and\n\\[\n\\sum_{j=1}^m c_j=1+2+\\cdots+2011=1+K.\n\\tag{3}\n\\]\nFor infinitely many $n$, equation (2) becomes\n\\[\nc_1+c_2 2^n+\\cdots+c_m m^n=1+y\\,y^n.\n\\tag{4}\n\\]\n\nWe use the following lemma.\n\n\\textbf{Lemma.} Let $b_1,\\ldots,b_N$ be integers. If\n\\[\nb_1+b_2 2^n+\\cdots+b_NN^n=0\n\\]\nfor arbitrarily large positive integers $n$, then\n\\[\nb_1=b_2=\\cdots=b_N=0.\n\\]\n\nIndeed, otherwise choose the largest $N$ with $b_N\\ne0$. If $N=1$, the assertion is immediate. For $N\\ge2$, division by $N^n$ gives\n\\[\n|b_N|\n\\le\n\\left(|b_1|+\\cdots+|b_{N-1}|\\right)\n\\left(\\frac{N-1}{N}\\right)^n,\n\\]\nwhich is impossible for arbitrarily large $n$.\n\nApply the lemma to (4), after moving the right side to the left and adjoining zero coefficients if necessary. Since $c_m>0$, the largest occurring base must be the same on both sides, so\n\\[\ny=m.\n\\]\nThe lemma then gives\n\\[\nc_1=1,\n\\qquad\nc_m=m,\n\\qquad\nc_j=0\\quad(1<j<m).\n\\tag{5}\n\\]\nBecause $c_1=1$, the only index with $x_i=1$ is $i=1$. Hence every $x_i$ with $i\\ge2$ equals $m$. Using (3) and (5),\n\\[\n1+m=1+K,\n\\]\nso\n\\[\nm=K.\n\\]\nTherefore the unique sequence is\n\\[\n(1,K,K,\\ldots,K),\n\\qquad K=2023065.\n\\]"
+  ]
+}

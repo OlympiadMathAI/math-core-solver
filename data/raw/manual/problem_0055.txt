@@ -1,0 +1,255 @@
+ID: 0055
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Number Theory
+
+SUBTOPICS: Divisibility Functions, Induction, Finite Image
+
+STATEMENT:
+Let
+\[
+f:\mathbb Z\to\mathbb Z_{>0}
+\]
+be a function such that, for every pair of integers $m,n$,
+\[
+f(m-n)\mid f(m)-f(n).
+\tag{1}
+\]
+Prove that whenever
+\[
+f(m)\le f(n),
+\]
+one has
+\[
+f(m)\mid f(n).
+\]
+
+SOLUTION 1:
+Suppose first that
+\[
+f(x)<f(y).
+\]
+We prove that
+\[
+f(x)\mid f(y).
+\]
+
+From (1), applied to $m=x$ and $n=y$,
+\[
+f(x-y)\mid f(x)-f(y).
+\]
+Since $f(x-y)>0$,
+\[
+f(x-y)\le f(y)-f(x)<f(y).
+\tag{2}
+\]
+
+Put
+\[
+d=f(x)-f(x-y).
+\]
+The inequalities in (2) imply
+\[
+-f(y)<-f(x-y)<d<f(x)<f(y),
+\]
+and hence
+\[
+|d|<f(y).
+\tag{3}
+\]
+
+Now apply (1) with $m=x$ and $n=x-y$. Since
+\[
+m-n=y,
+\]
+we get
+\[
+f(y)\mid f(x)-f(x-y)=d.
+\]
+By (3), this is possible only if
+\[
+d=0.
+\]
+Thus
+\[
+f(x)=f(x-y).
+\tag{4}
+\]
+
+Returning to (1) with $m=x$ and $n=y$, relation (4) gives
+\[
+f(x)=f(x-y)\mid f(x)-f(y).
+\]
+Therefore
+\[
+f(x)\mid f(y).
+\]
+
+If $f(x)=f(y)$, the divisibility is immediate. Hence, whenever $f(m)\le f(n)$,
+\[
+f(m)\mid f(n).
+\]
+
+SOLUTION 2:
+We prove the result through several claims.
+
+\textbf{Claim 1.} For all integers $m,n$,
+\[
+f(n)\mid f(mn).
+\tag{2}
+\]
+
+For every integer $r$, condition (1) gives
+\[
+f(n)=f\bigl((r+1)n-rn\bigr)
+\mid f((r+1)n)-f(rn).
+\]
+Starting with the trivial divisibility $f(n)\mid f(n)$ and proceeding by induction in both directions on $r$, we obtain (2).
+
+\textbf{Claim 2.} For every integer $n$,
+\[
+f(n)\mid f(0)
+\qquad\text{and}\qquad
+f(n)=f(-n).
+\tag{3}
+\]
+
+The first assertion follows from Claim 1 by taking $m=0$. Taking $m=-1$ in Claim 1 gives
+\[
+f(n)\mid f(-n).
+\]
+Replacing $n$ by $-n$ gives the reverse divisibility. Since both values are positive, they are equal.
+
+Claim 1 with $n=1$ shows that
+\[
+f(1)\mid f(m)
+\qquad(m\in\mathbb Z).
+\tag{4}
+\]
+Thus $f(1)$ is the least value attained by $f$. By (3), every value of $f$ divides the fixed positive integer $f(0)$, so $f$ takes only finitely many values.
+
+We now use induction on the number $N_f$ of distinct values attained by $f$.
+
+If $N_f\le2$, the conclusion is immediate. Indeed, if $f(0)=f(1)$, then (3) and (4) force $f$ to be constant. Otherwise the two values are $f(1)$ and $f(0)$, with
+\[
+f(1)\mid f(0),
+\]
+so the required assertion holds.
+
+Assume now that
+\[
+N_f\ge3
+\]
+and that the result has been proved for every function with fewer than $N_f$ values.
+
+Let $a$ be the least positive integer satisfying
+\[
+f(a)>f(1).
+\tag{5}
+\]
+Such an $a$ exists: otherwise, by the symmetry $f(n)=f(-n)$, the function would take at most the two values $f(1)$ and $f(0)$, contradicting $N_f\ge3$.
+
+\textbf{Claim 3.} For every integer $n$,
+\[
+f(n)\ne f(1)
+\quad\Longleftrightarrow\quad
+a\mid n.
+\tag{6}
+\]
+
+We first prove that
+\[
+f(n)=f(1)
+\quad\Longleftrightarrow\quad
+f(n+a)=f(1).
+\tag{7}
+\]
+
+Suppose $f(n)=f(1)$. Applying (1) to the pair $(a,-n)$ gives
+\[
+f(n+a)\mid f(a)-f(-n)=f(a)-f(n)>0.
+\]
+Hence
+\[
+f(n+a)\le f(a)-f(n)<f(a).
+\tag{8}
+\]
+On the other hand, applying (1) to $(n+a,n)$ gives
+\[
+f(a)\mid f(n+a)-f(n).
+\tag{9}
+\]
+The difference in (9) is nonnegative because $f(n)=f(1)$ is the minimum value of $f$, and by (8) it is strictly smaller than $f(a)$. Therefore
+\[
+f(n+a)-f(n)=0,
+\]
+so
+\[
+f(n+a)=f(1).
+\]
+
+Conversely, if $f(n+a)=f(1)$, then by Claim 2,
+\[
+f(-n-a)=f(1).
+\]
+Applying the implication already proved to $-n-a$ gives
+\[
+f(-n)=f(1),
+\]
+and Claim 2 yields $f(n)=f(1)$. Thus (7) holds.
+
+By the definition of $a$,
+\[
+f(1)=f(2)=\cdots=f(a-1)<f(a).
+\]
+Also, $f(0)\ne f(1)$; otherwise (3) and (4) would make $f$ constant. Using the periodicity (7), we conclude that $f(n)=f(1)$ exactly when $a\nmid n$. This proves (6).
+
+Now take arbitrary integers $m,n$ with
+\[
+f(m)\le f(n).
+\]
+
+If $a\nmid m$, then Claim 3 gives
+\[
+f(m)=f(1),
+\]
+and the desired divisibility follows from (4).
+
+Suppose instead that
+\[
+a\mid m.
+\]
+Then $f(m)>f(1)$ by Claim 3, so the inequality $f(m)\le f(n)$ implies
+\[
+f(n)>f(1),
+\]
+and hence
+\[
+a\mid n.
+\]
+
+Define
+\[
+g(x)=f(ax).
+\]
+The function $g$ satisfies the same condition:
+\[
+g(u-v)=f(a(u-v))\mid f(au)-f(av)=g(u)-g(v).
+\]
+By Claim 3, $g$ never takes the value $f(1)$, so
+\[
+N_g<N_f.
+\]
+The induction hypothesis applied to $g$ gives
+\[
+g(m/a)\mid g(n/a).
+\]
+That is,
+\[
+f(m)\mid f(n).
+\]
+
+This completes the induction and the proof.

@@ -1,0 +1,409 @@
+ID: 0058
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Number Theory
+
+SUBTOPICS: Hamiltonian Cycles, Power Residues, Quadratic Residues, Fermat Primes
+
+STATEMENT:
+Let $k$ be a positive integer and put
+\[
+n=2^k+1.
+\]
+Prove that $n$ is prime if and only if there exist
+
+- a permutation
+\[
+a_1,a_2,\ldots,a_{n-1}
+\]
+of $1,2,\ldots,n-1$, and
+
+- integers
+\[
+g_1,g_2,\ldots,g_{n-1},
+\]
+
+such that
+\[
+n\mid g_i^{a_i}-a_{i+1}
+\qquad(i=1,\ldots,n-1),
+\]
+where
+\[
+a_n=a_1.
+\]
+
+SOLUTION 1:
+Let
+\[
+\mathcal N=\{1,2,\ldots,n-1\}.
+\]
+For $a,b\in\mathcal N$, say that $b$ \emph{follows} $a$, and write
+\[
+a\longrightarrow b,
+\]
+if there exists an integer $g$ such that
+\[
+b\equiv g^a\pmod n.
+\]
+The required permutation exists exactly when this directed graph on $\mathcal N$ has a Hamiltonian cycle.
+
+\textbf{Step 1: Composite $n$ admits no Hamiltonian cycle.}
+
+Suppose that $n$ is composite, and write
+\[
+n=p_1^{\alpha_1}\cdots p_s^{\alpha_s}.
+\]
+All the primes $p_i$ are odd.
+
+Assume first that
+\[
+\alpha_i>1
+\]
+for some $i$. For every integer $g$ and every exponent $a\ge2$,
+\[
+g^a\not\equiv p_i\pmod{p_i^2}.
+\]
+Indeed, if $p_i\mid g$, then $p_i^2\mid g^a$; if $p_i\nmid g$, then $p_i\nmid g^a$. Thus, in any Hamiltonian cycle, the vertex $p_i$ must immediately follow the vertex $1$.
+
+The same argument applies to $2p_i$, which is also a vertex of $\mathcal N$, and shows that $2p_i$ must immediately follow $1$. A vertex in a directed cycle has only one successor, so this is impossible.
+
+It remains to consider the case in which $n$ is square-free:
+\[
+n=p_1p_2\cdots p_s,
+\qquad
+s\ge2.
+\]
+Then
+\[
+n>9.
+\]
+There are exactly
+\[
+\frac{n-1}{2}
+\]
+even vertices in $\mathcal N$. If $a$ is even and $a\to b$, then $b$ is a quadratic residue modulo $n$. Since the successors in a Hamiltonian cycle are all distinct, the cycle would require at least $(n-1)/2$ nonzero quadratic residues modulo $n$.
+
+For each prime $p_i$, there are $(p_i+1)/2$ quadratic residues modulo $p_i$, including $0$. By the Chinese remainder theorem, the total number of quadratic residues modulo $n$, again including $0$, is
+\[
+\prod_{i=1}^s\frac{p_i+1}{2}.
+\]
+Since $p_i\ge3$,
+\[
+\frac{p_i+1}{2}\le\frac{2p_i}{3}.
+\]
+Therefore
+\[
+\prod_{i=1}^s\frac{p_i+1}{2}
+\le
+\left(\frac23\right)^s n
+\le
+\frac{4n}{9}
+<
+\frac{n-1}{2},
+\]
+where the last inequality uses $n>9$. This is a contradiction. Hence the required Hamiltonian cycle cannot exist when $n$ is composite.
+
+\textbf{Step 2: Structure of the graph when $n$ is prime.}
+
+Assume now that $n$ is prime. Then
+\[
+|\mathcal N|=n-1=2^k.
+\]
+For $a\in\mathcal N$, let $\nu_2(a)$ be the exponent of $2$ in the prime factorization of $a$, and define
+\[
+\mu(a)=
+\max\left\{t\in\{0,1,\ldots,k\}:2^t\longrightarrow a\right\}.
+\]
+
+We need the following lemma.
+
+\textbf{Lemma.} For $a,b\in\mathcal N$,
+\[
+a\longrightarrow b
+\quad\Longleftrightarrow\quad
+\nu_2(a)\le\mu(b).
+\tag{1}
+\]
+
+Let
+\[
+\ell=\nu_2(a),
+\qquad
+m=\mu(b).
+\]
+
+Suppose first that $\ell\le m$. By the definition of $\mu(b)$, there exists $g_0$ such that
+\[
+b\equiv g_0^{\,2^m}\pmod n.
+\tag{2}
+\]
+Since
+\[
+\gcd(a,n-1)=2^\ell,
+\]
+there are integers $u,v$ satisfying
+\[
+ua-v(n-1)=2^\ell.
+\tag{3}
+\]
+We may choose $u$ nonnegative by replacing $(u,v)$ with another solution if necessary. Put
+\[
+g=g_0^{\,2^{m-\ell}u}.
+\]
+Using (3) and Fermat's little theorem,
+\[
+\begin{aligned}
+g^a
+&=g_0^{\,2^{m-\ell}ua}\\
+&=g_0^{\,2^m+2^{m-\ell}v(n-1)}\\
+&\equiv g_0^{\,2^m}\\
+&\equiv b
+\pmod n.
+\end{aligned}
+\]
+Thus $a\to b$.
+
+Conversely, suppose that $a\to b$. Then
+\[
+b\equiv g^a\pmod n
+\]
+for some integer $g$. Writing
+\[
+a=2^\ell q
+\]
+with $q$ odd, we get
+\[
+b\equiv(g^q)^{2^\ell}\pmod n.
+\]
+Therefore
+\[
+2^\ell\longrightarrow b,
+\]
+so
+\[
+\ell\le\mu(b).
+\]
+The lemma is proved.
+
+For $0\le i\le k$, define
+\[
+A_i=\{a\in\mathcal N:\nu_2(a)=i\},
+\]
+\[
+B_i=\{a\in\mathcal N:\mu(a)=i\},
+\]
+and
+\[
+C_i=\{a\in\mathcal N:\mu(a)\ge i\}
+=B_i\cup B_{i+1}\cup\cdots\cup B_k.
+\]
+
+We claim that
+\[
+|A_i|=|B_i|
+\qquad(0\le i\le k).
+\tag{4}
+\]
+Clearly,
+\[
+|A_i|=2^{k-i-1}
+\qquad(0\le i<k),
+\]
+and
+\[
+|A_k|=1.
+\tag{5}
+\]
+
+Now determine the sizes of the sets $C_i$. We have
+\[
+|C_0|=2^k,
+\qquad
+C_k=\{1\},
+\qquad
+|C_k|=1.
+\tag{6}
+\]
+Moreover,
+\[
+C_{i+1}
+=
+\{x^2\bmod n:x\in C_i\}.
+\tag{7}
+\]
+For every nonzero residue $y$ modulo the prime $n$, the congruence
+\[
+x^2\equiv y\pmod n
+\]
+has at most two solutions. Hence (7) gives
+\[
+|C_i|\le2|C_{i+1}|.
+\tag{8}
+\]
+Applying (8) successively and using (6),
+\[
+2^k=|C_0|
+\le2|C_1|
+\le\cdots\le2^k|C_k|
+=2^k.
+\]
+Thus equality holds at every step, and
+\[
+|C_i|=2^{k-i}
+\qquad(0\le i\le k).
+\tag{9}
+\]
+It follows that
+\[
+|B_i|=|C_i|-|C_{i+1}|=2^{k-i-1}
+\qquad(0\le i<k),
+\]
+and
+\[
+|B_k|=1.
+\]
+Together with (5), this proves (4).
+
+The equality case in (8) also shows that, for every $0\le i<k$ and every $z\in C_i$, both square roots of $z^2$ modulo $n$ belong to $C_i$. These roots are
+\[
+z
+\quad\text{and}\quad
+n-z.
+\]
+Hence
+\[
+z\in C_i\Longrightarrow n-z\in C_i.
+\tag{10}
+\]
+The pair $\{z,n-z\}$ contains one odd and one even integer. Thus exactly half of the elements of $C_i$ are odd for $i<k$. For
+\[
+0\le i\le k-2,
+\]
+both $C_i$ and $C_{i+1}$ are stable under $z\mapsto n-z$, so the same is true of
+\[
+B_i=C_i\setminus C_{i+1}.
+\]
+In particular, every $B_i$ with $0\le i\le k-2$ contains an odd number.
+
+Finally,
+\[
+B_k=C_k=\{1\}.
+\tag{11}
+\]
+Also, $C_{k-1}$ consists of the two square roots of $1$ modulo $n$, namely
+\[
+1
+\quad\text{and}\quad
+n-1=2^k.
+\]
+Therefore
+\[
+B_{k-1}=\{2^k\}.
+\tag{12}
+\]
+
+\textbf{Step 3: Construction of a Hamiltonian cycle.}
+
+For each $i=0,\ldots,k$, choose an arbitrary bijection
+\[
+A_i\longrightarrow B_i.
+\]
+Join every $a\in A_i$ to its assigned element of $B_i$. By the lemma, every chosen edge is allowed. Since the sets $A_i$ partition $\mathcal N$ and the sets $B_i$ also partition $\mathcal N$, every vertex has out-degree $1$ and in-degree $1$. Hence the chosen edges form a disjoint union of directed cycles.
+
+We show how to merge cycles until only one remains. For a cycle $\mathcal C$, define
+\[
+\lambda(\mathcal C)=
+\min_{c\in\mathcal C}\nu_2(c).
+\]
+Choose a cycle $\mathcal C$ for which $\lambda(\mathcal C)$ is maximal.
+
+Suppose first that
+\[
+\lambda(\mathcal C)=0.
+\]
+Then every other cycle also contains an odd vertex. Take odd vertices
+\[
+a\in\mathcal C,
+\qquad
+a'\in\mathcal C'
+\]
+from two different cycles, and let their successors be $b$ and $b'$. Since
+\[
+a,a'\in A_0
+\quad\text{and}\quad
+b,b'\in B_0,
+\]
+we may replace the two edges
+\[
+a\to b,
+\qquad
+a'\to b'
+\]
+by
+\[
+a\to b',
+\qquad
+a'\to b.
+\]
+The new edges are still allowed by the lemma, and this operation merges the two cycles.
+
+Now suppose
+\[
+\lambda=\lambda(\mathcal C)\ge1,
+\]
+and choose
+\[
+a\in\mathcal C\cap A_\lambda.
+\]
+If there is another vertex
+\[
+a'\in A_\lambda\setminus\mathcal C,
+\]
+then $a'$ lies in another cycle, and swapping the successors of $a$ and $a'$ merges those two cycles exactly as above.
+
+We are left with the case
+\[
+A_\lambda\subset\mathcal C.
+\]
+Because the chosen edges give a bijection from $A_\lambda$ to $B_\lambda$, this implies
+\[
+B_\lambda\subset\mathcal C.
+\tag{13}
+\]
+
+If $\lambda\le k-2$, then $B_\lambda$ contains an odd number, contradicting
+\[
+\lambda(\mathcal C)\ge1.
+\]
+
+The case $\lambda=k$ is also impossible, because (11) would place the odd vertex $1$ in $\mathcal C$.
+
+Finally, suppose
+\[
+\lambda=k-1.
+\]
+The unique element of $A_{k-1}$ is $2^{k-1}$. By (12), its successor is $2^k$, the unique element of $A_k$, whose successor is $1$ by (11). Thus $\mathcal C$ contains the path
+\[
+2^{k-1}\longrightarrow2^k\longrightarrow1,
+\]
+again contradicting $\lambda(\mathcal C)\ge1$.
+
+Therefore, whenever more than one cycle is present, two of them can be merged. Repeating the operation finitely many times produces one directed Hamiltonian cycle
+\[
+a_1\to a_2\to\cdots\to a_{n-1}\to a_1.
+\]
+For each edge $a_i\to a_{i+1}$, choose an integer $g_i$ satisfying
+\[
+g_i^{a_i}\equiv a_{i+1}\pmod n.
+\]
+Then
+\[
+n\mid g_i^{a_i}-a_{i+1}
+\]
+for every $i$, as required.
+
+Thus the stated permutation and integers exist exactly when $n$ is prime.

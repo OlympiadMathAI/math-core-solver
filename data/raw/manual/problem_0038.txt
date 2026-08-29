@@ -1,0 +1,33 @@
+ID: 0038
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Invariants, Rotating Lines, Discrete Geometry
+
+STATEMENT:
+Let $S$ be a finite set of at least two points in the plane, with no three collinear. A \emph{windmill} is the following process. Start with a line $\ell$ through a point $P\in S$. Rotate $\ell$ clockwise about the pivot $P$ until it first passes through another point $Q\in S$. The point $Q$ becomes the new pivot, and the process continues indefinitely.
+
+Prove that one can choose the initial point $P$ and the initial line $\ell$ so that every point of $S$ is used as a pivot infinitely often.
+
+SOLUTION 1:
+Orient the rotating line and call its two sides orange and blue. Whenever the pivot changes from a point $T$ to a point $U$, the old pivot $T$ lies, immediately after the change, on the same side on which $U$ lay immediately before the change. Hence the numbers of points of $S$ on the orange and blue sides remain invariant throughout the process, except at the instants when the line contains two points.
+
+First suppose
+\[
+|S|=2n+1.
+\]
+For every $T\in S$, there is a line through $T$ with exactly $n$ points of $S$ on each side. Indeed, begin with an oriented line through $T$ containing no other point of $S$. If it has $n+r$ points on its orange side, then after a rotation of $180^\circ$ about $T$ it has $n-r$ points on that side. The number changes by one whenever a point is crossed, so at some intermediate position it equals $n$.
+
+Choose any initial pivot $P$ and an initial line through it having $n$ points on each side. We show that during every rotation of the windmill line through $180^\circ$, every point of $S$ becomes a pivot. Fix $T\in S$, and choose a line $m$ through $T$, containing no other point of $S$, with $n$ points on each side. Among all oriented lines parallel to $m$, the line $m$ is the unique one that has $n$ points on each side and contains a point of $S$: translating it past $T$ would move $T$ from one side to the other and destroy the balance. When the windmill line reaches the direction of $m$, its invariant side counts force it to coincide with $m$. Thus it passes through $T$, so $T$ is a pivot. Since the process makes infinitely many half-turns, every point is visited infinitely often.
+
+Now suppose
+\[
+|S|=2n.
+\]
+For every $T\in S$, there is an oriented line through $T$ with $n-1$ points on its orange side and $n$ points on its blue side; the same rotating-line argument proves this. Choose such a line through an arbitrary point as the initial state.
+
+During every full rotation of $360^\circ$, every point of $S$ becomes a pivot. Indeed, for any fixed $T\in S$, choose an oriented line $m$ through $T$, containing no other point of $S$, having $n-1$ orange-side points and $n$ blue-side points. For its direction and orientation, this is the unique line through a point of $S$ with those side counts. When the windmill reaches that oriented direction, the invariant forces its line to be $m$, so it passes through $T$. Repeating full turns shows that every point is a pivot infinitely often.

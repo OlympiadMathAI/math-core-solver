@@ -1,0 +1,191 @@
+ID: 0035
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Algebra
+
+SUBTOPICS: Inequalities, Holder Inequality, Schur Inequality, Symmetry
+
+STATEMENT:
+Let $a,b,c$ be positive real numbers satisfying
+\[
+\min\{a+b,b+c,c+a\}>\sqrt2
+\]
+and
+\[
+a^2+b^2+c^2=3.
+\]
+Prove that
+\[
+\frac{a}{(b+c-a)^2}
++
+\frac{b}{(c+a-b)^2}
++
+\frac{c}{(a+b-c)^2}
+\ge
+\frac{3}{(abc)^2}.
+\tag{1}
+\]
+
+SOLUTION 1:
+First, all three denominators are positive. Indeed, from $b+c>\sqrt2$ we get
+\[
+b^2+c^2>1,
+\]
+so
+\[
+a^2=3-b^2-c^2<2,
+\]
+and hence
+\[
+a<\sqrt2<b+c.
+\]
+The other two inequalities follow cyclically.
+
+We use Holder's inequality in the form
+\[
+\sum_{i=1}^n\frac{x_i^{p+1}}{y_i^p}
+\ge
+\frac{(x_1+\cdots+x_n)^{p+1}}
+     {(y_1+\cdots+y_n)^p}
+\]
+for positive $p,x_i,y_i$. Taking $p=2$ and applying it cyclically with
+\[
+x_1=a^2,
+\qquad
+y_1=a^{5/2}(b+c-a),
+\]
+we obtain
+\[
+\begin{aligned}
+\sum_{\rm cyc}\frac{a}{(b+c-a)^2}
+&=
+\sum_{\rm cyc}
+\frac{(a^2)^3}{\bigl(a^{5/2}(b+c-a)\bigr)^2}\\
+&\ge
+\frac{(a^2+b^2+c^2)^3}
+{\left(\sum_{\rm cyc}a^{5/2}(b+c-a)\right)^2}\\
+&=
+\frac{27}
+{\left(\sum_{\rm cyc}a^{5/2}(b+c-a)\right)^2}.
+\end{aligned}
+\tag{2}
+\]
+
+Schur's inequality gives
+\[
+\sum_{\rm cyc}a^{3/2}(a-b)(a-c)\ge0.
+\]
+After expansion, this is equivalent to
+\[
+\sum_{\rm cyc}a^{5/2}(b+c-a)
+\le
+abc(\sqrt a+\sqrt b+\sqrt c).
+\tag{3}
+\]
+By the power-mean inequality,
+\[
+\left(\frac{\sqrt a+\sqrt b+\sqrt c}{3}\right)^4
+\le
+\frac{a^2+b^2+c^2}{3}=1,
+\]
+so
+\[
+\sqrt a+\sqrt b+\sqrt c\le3.
+\tag{4}
+\]
+Combining (2)--(4),
+\[
+\sum_{\rm cyc}\frac{a}{(b+c-a)^2}
+\ge
+\frac{27}{(3abc)^2}
+=
+\frac{3}{(abc)^2}.
+\]
+
+SOLUTION 2:
+As in Solution 1, the three quantities
+\[
+b+c-a,
+\qquad c+a-b,
+\qquad a+b-c
+\]
+are positive. Also, by the power-mean inequality,
+\[
+a^5+b^5+c^5\ge3.
+\tag{2}
+\]
+By symmetry, assume
+\[
+a\ge b\ge c.
+\]
+It is enough to prove
+\[
+\sum_{\rm cyc}
+\frac{a^3b^2c^2}{(b+c-a)^2}
+\ge
+\sum_{\rm cyc}a^5,
+\tag{3}
+\]
+because division by $a^2b^2c^2$ and the use of (2) then give (1).
+
+Subtracting the right side of (3), we need to show
+\[
+\sum_{\rm cyc}
+\frac{a^3}{(b+c-a)^2}
+\left((bc)^2-a^2(b+c-a)^2\right)
+\ge0.
+\tag{4}
+\]
+For positive $x,y,z$ satisfying the triangle inequalities,
+\[
+(yz)^2-x^2(y+z-x)^2
+\]
+has the same sign as
+\[
+yz-x(y+z-x)=(x-y)(x-z),
+\]
+because the other factor is positive. Hence the terms of (4) corresponding to $a$ and $c$ are nonnegative. It remains to show that the $a$-term is at least the absolute value of the possibly negative $b$-term.
+
+Factoring the two relevant terms, it is enough to prove
+\[
+\begin{aligned}
+&\frac{a^3(a-c)}{(b+c-a)^2}
+\bigl(bc+a(b+c-a)\bigr)\\
+&\qquad\ge
+\frac{b^3(b-c)}{(c+a-b)^2}
+\bigl(ac+b(c+a-b)\bigr).
+\end{aligned}
+\tag{5}
+\]
+We have
+\[
+a^3\ge b^3,
+\qquad
+a-c\ge b-c,
+\qquad
+0<b+c-a\le c+a-b.
+\]
+Thus it suffices to show
+\[
+\frac{ab+ac+bc-a^2}{b+c-a}
+\ge
+\frac{ab+ac+bc-b^2}{c+a-b}.
+\tag{6}
+\]
+Since the denominators are positive, the difference after cross-multiplication is
+\[
+(a-b)\left(2ab-a^2-b^2+ac+bc\right)
+=(a-b)\left(c(a+b)-(a-b)^2\right).
+\]
+Now $a\ge b$, and the triangle inequality gives
+\[
+c>a-b.
+\]
+Also $a+b>a-b$, so
+\[
+c(a+b)>(a-b)^2.
+\]
+Therefore the last expression is nonnegative, proving (6), then (5), then (4). Consequently (3) holds, and the desired inequality follows.

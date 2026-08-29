@@ -1,0 +1,155 @@
+ID: 0053
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Number Theory
+
+SUBTOPICS: Functional Equations, Divisibility, Polynomial Powers
+
+STATEMENT:
+Let $n\ge1$ be an odd integer. Determine all functions
+\[
+f:\mathbb Z\to\mathbb Z
+\]
+such that, for all integers $x,y$,
+\[
+f(x)-f(y)\mid x^n-y^n.
+\]
+
+SOLUTION 1:
+The solutions are
+\[
+\boxed{f(x)=\varepsilon x^d+c},
+\]
+where
+\[
+\varepsilon\in\{-1,1\},\qquad d\mid n,\qquad d\ge1,
+\qquad c\in\mathbb Z.
+\]
+
+Every listed function works. Indeed, because $d\mid n$,
+\[
+x^d-y^d\mid x^n-y^n,
+\]
+and neither multiplication by $\varepsilon$ nor addition of the constant $c$ changes the required divisibility.
+
+We now prove that there are no other solutions. Replacing $f(x)$ by
+\[
+f(x)-f(0)
+\]
+does not change any difference $f(x)-f(y)$, so we may assume
+\[
+f(0)=0.
+\tag{1}
+\]
+
+For every prime $p$, the condition with $(x,y)=(p,0)$ gives
+\[
+f(p)\mid p^n.
+\]
+In particular, $f(p)\ne0$, and hence
+\[
+f(p)=\varepsilon_p p^{d_p}
+\]
+for some
+\[
+\varepsilon_p\in\{-1,1\},
+\qquad
+0\le d_p\le n.
+\]
+There are only finitely many possibilities for the pair $(\varepsilon_p,d_p)$. Therefore there exist
+\[
+\varepsilon\in\{-1,1\},
+\qquad
+0\le d\le n,
+\]
+and an infinite set $\mathcal P$ of primes such that
+\[
+f(p)=\varepsilon p^d
+\qquad(p\in\mathcal P).
+\tag{2}
+\]
+
+If $f$ satisfies the condition, then so does $-f$. Thus, after replacing $f$ by $-f$ if necessary, we may assume
+\[
+f(p)=p^d
+\qquad(p\in\mathcal P).
+\tag{3}
+\]
+
+The case $d=0$ is impossible. Indeed, then $f(p)=1$ for every $p\in\mathcal P$. For two distinct primes $p,q\in\mathcal P$, the number
+\[
+f(p)-f(q)=0
+\]
+would have to divide the nonzero integer $p^n-q^n$, a contradiction. Hence
+\[
+d\ge1.
+\tag{4}
+\]
+
+Write
+\[
+n=md+r,
+\qquad
+m\ge1,
+\qquad
+0\le r<d.
+\tag{5}
+\]
+Fix an arbitrary integer $x$. For every $p\in\mathcal P$, the condition gives
+\[
+p^d-f(x)=f(p)-f(x)\mid p^n-x^n.
+\]
+Modulo $p^d-f(x)$, we have $p^d\equiv f(x)$, and therefore
+\[
+p^n-x^n
+=p^r(p^d)^m-x^n
+\equiv p^r f(x)^m-x^n
+\pmod{p^d-f(x)}.
+\]
+Thus
+\[
+p^d-f(x)\mid p^r f(x)^m-x^n.
+\tag{6}
+\]
+
+Because $r<d$, for all sufficiently large $p\in\mathcal P$,
+\[
+\left|p^r f(x)^m-x^n\right|
+<
+\left|p^d-f(x)\right|.
+\]
+Together with (6), this forces
+\[
+p^r f(x)^m=x^n
+\tag{7}
+\]
+for all sufficiently large $p\in\mathcal P$.
+
+Taking $x=1$ in (7), we see that $r$ cannot be positive, since the left-hand side would then vary without bound as $p\to\infty$. Hence
+\[
+r=0,
+\]
+so
+\[
+d\mid n.
+\tag{8}
+\]
+Equation (7) now becomes, for every integer $x$,
+\[
+f(x)^m=x^n=(x^d)^m.
+\tag{9}
+\]
+Since $n$ is odd and $n=md$, the integer $m$ is odd. Therefore the map $t\mapsto t^m$ is injective on $\mathbb Z$, and (9) gives
+\[
+f(x)=x^d
+\qquad(x\in\mathbb Z).
+\]
+
+Finally, restoring the possible sign and the subtracted constant from (1) and (3), we obtain exactly
+\[
+f(x)=\varepsilon x^d+c,
+\]
+with $\varepsilon\in\{-1,1\}$, $d\mid n$, and $c\in\mathbb Z$.

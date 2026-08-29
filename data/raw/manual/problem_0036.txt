@@ -1,0 +1,101 @@
+ID: 0036
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Enumeration, Recurrences, Superincreasing Weights
+
+STATEMENT:
+Let $n$ be a positive integer. We are given a balance and $n$ weights of masses
+\[
+2^0,2^1,\ldots,2^{n-1}.
+\]
+In a sequence of $n$ moves, all weights are placed on the balance. In the first move, one weight is chosen and placed on the left pan. In every subsequent move, one of the remaining weights is placed on either pan.
+
+Compute the number of ways to perform the $n$ moves so that the right pan is never heavier than the left pan.
+
+SOLUTION 1:
+Let $f(n)$ be the required number. We prove that
+\[
+\boxed{f(n)=(2n-1)!!=1\cdot3\cdot5\cdots(2n-1)}.
+\]
+
+For $n\ge2$, we claim that
+\[
+f(n)=(2n-1)f(n-1).
+\tag{1}
+\]
+In any valid process, after the first move the difference
+\[
+\text{(weight on the left)}-\text{(weight on the right)}
+\]
+is a nonnegative integer and is in fact at least $1$. Delete the weight $1$ from the process. If it was on the left, every later difference decreases by $1$; if it was on the right, every later difference increases by $1$. Thus the remaining order is still valid for the weights
+\[
+2,2^2,\ldots,2^{n-1}.
+\]
+After dividing all these masses by $2$, we obtain one of the $f(n-1)$ valid processes for $n-1$ weights.
+
+Conversely, begin with any valid process for the even weights
+\[
+2,2^2,\ldots,2^{n-1}.
+\]
+If the weight $1$ is inserted as the first move, it must be put on the left. If it is inserted after at least one move, it may be put on either pan: after the first move, the left-minus-right difference for the even weights is a positive even integer, hence at least $2$, so adding $1$ to either pan cannot make the right pan heavier.
+
+There is one insertion in the first position and two choices of pan in each of the other $n-1$ positions. Hence there are
+\[
+1+2(n-1)=2n-1
+\]
+insertions for every valid process on the other $n-1$ weights. This proves (1).
+
+Since $f(1)=1$, iterating (1) gives
+\[
+f(n)=(2n-1)(2n-3)\cdots3\cdot1=(2n-1)!!.
+\]
+
+SOLUTION 2:
+Again write $f(n)$ for the required number and set $f(0)=1$. The crucial observation is that, for any collection of weights in which each weight is greater than the sum of all lighter weights, validity is equivalent to the following condition:
+
+\[
+\text{the heaviest weight placed so far is always on the left pan.}
+\tag{1}
+\]
+Indeed, the side containing the heaviest placed weight outweighs all lighter placed weights combined.
+
+Suppose the largest weight $2^{n-1}$ is placed in move $i$, where $1\le i\le n$. It must be placed on the left. Choose the $i-1$ weights used before it in
+\[
+\binom{n-1}{i-1}
+\]
+ways. Validity in (1) depends only on the relative order of the chosen masses. Relabeling the chosen weights increasingly as $2^0,2^1,\ldots,2^{i-2}$ therefore shows that they can be placed in $f(i-1)$ valid ways. After $2^{n-1}$ has been put on the left, there is no further restriction: the remaining $n-i$ weights may be ordered in $(n-i)!$ ways and independently assigned to the two pans in $2^{n-i}$ ways. Therefore
+\[
+\begin{aligned}
+f(n)
+&=\sum_{i=1}^{n}
+\binom{n-1}{i-1}f(i-1)(n-i)!2^{n-i}\\
+&=\sum_{i=1}^{n}
+\frac{(n-1)!}{(i-1)!}f(i-1)2^{n-i}.
+\end{aligned}
+\tag{2}
+\]
+For $n-1$, the same formula gives
+\[
+f(n-1)=\sum_{i=1}^{n-1}
+\frac{(n-2)!}{(i-1)!}f(i-1)2^{n-1-i}.
+\]
+Separating the last term of (2), we obtain
+\[
+\begin{aligned}
+f(n)
+&=2(n-1)\sum_{i=1}^{n-1}
+\frac{(n-2)!}{(i-1)!}f(i-1)2^{n-1-i}
++f(n-1)\\
+&=(2n-2)f(n-1)+f(n-1)\\
+&=(2n-1)f(n-1).
+\end{aligned}
+\]
+Since $f(0)=f(1)=1$, this recurrence yields
+\[
+\boxed{f(n)=(2n-1)!!}.
+\]

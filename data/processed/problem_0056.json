@@ -1,0 +1,15 @@
+{
+  "id": "0056",
+  "source": "IMO Shortlist",
+  "year": "2011",
+  "topic": "Number Theory",
+  "subtopics": [
+    "Polynomial Congruences",
+    "Multiplicative Orders",
+    "Bezout Identity"
+  ],
+  "statement": "Let $P(x),Q(x)\\in\\mathbb Z[x]$ be polynomials such that no nonconstant polynomial with rational coefficients divides both of them. Suppose that, for every positive integer $n$, the integers $P(n)$ and $Q(n)$ are positive and\n\\[\n2^{Q(n)}-1\\mid 3^{P(n)}-1.\n\\]\nProve that $Q(x)$ is constant.",
+  "solutions": [
+    "Because $P$ and $Q$ are relatively prime in $\\mathbb Q[x]$, there exist polynomials\n\\[\nR_0(x),S_0(x)\\in\\mathbb Q[x]\n\\]\nsuch that\n\\[\nP(x)R_0(x)-Q(x)S_0(x)=1.\n\\]\nAfter multiplying by a suitable positive integer $d$, we obtain polynomials\n\\[\nR(x),S(x)\\in\\mathbb Z[x]\n\\]\nsatisfying\n\\[\nP(x)R(x)-Q(x)S(x)=d.\n\\tag{1}\n\\]\nConsequently, for every positive integer $n$,\n\\[\n\\gcd(P(n),Q(n))\\le d.\n\\tag{2}\n\\]\n\nAssume, for a contradiction, that $Q$ is nonconstant. Since $Q(n)>0$ for every positive integer $n$, the sequence $Q(n)$ is unbounded. Choose a positive integer $m$ so large that\n\\[\nM=2^{Q(m)}-1\n\\ge\n3^{\\,\\max\\{P(1),P(2),\\ldots,P(d)\\}}.\n\\tag{3}\n\\]\n\nThe number $M$ is odd. Moreover,\n\\[\nM\\mid3^{P(m)}-1,\n\\]\nso $3\\nmid M$. Hence both $2$ and $3$ are invertible modulo $M$. Let\n\\[\na=\\operatorname{ord}_M(2),\n\\qquad\nb=\\operatorname{ord}_M(3)\n\\]\nbe their multiplicative orders.\n\nWe have\n\\[\na=Q(m).\n\\tag{4}\n\\]\nIndeed,\n\\[\n2^{Q(m)}\\equiv1\\pmod M,\n\\]\nwhile for every $0<r<Q(m)$,\n\\[\n0<2^r-1<M,\n\\]\nso $M\\nmid2^r-1$.\n\nAlso,\n\\[\nb\\mid P(m),\n\\tag{5}\n\\]\nbecause $M\\mid3^{P(m)}-1$. From (2), (4), and (5),\n\\[\n\\gcd(a,b)\\le\\gcd(P(m),Q(m))\\le d.\n\\tag{6}\n\\]\n\nLet\n\\[\ng=\\gcd(a,b).\n\\]\nChoose an integer $r$ with\n\\[\n1\\le r\\le g\n\\qquad\\text{and}\\qquad\nr\\equiv m\\pmod g.\n\\]\nThen $r-m$ is an integer multiple of $g$. Since every multiple of $g$ can be written as\n\\[\nax-by\n\\]\nwith nonnegative integers $x,y$ after adding a sufficiently large common multiple to an integer solution, there exist $x,y\\ge0$ such that\n\\[\nr=m+ax-by.\n\\tag{7}\n\\]\nBy (6),\n\\[\n1\\le r\\le d.\n\\tag{8}\n\\]\n\nBecause\n\\[\nm+ax\\equiv m\\pmod a,\n\\]\ninteger-coefficient polynomial congruences give\n\\[\nQ(m+ax)\\equiv Q(m)\\pmod a.\n\\]\nUsing (4),\n\\[\n2^{Q(m+ax)}\n\\equiv2^{Q(m)}\n\\equiv1\\pmod M.\n\\]\nThus\n\\[\nM\\mid2^{Q(m+ax)}-1.\n\\]\nBy the hypothesis of the problem,\n\\[\n2^{Q(m+ax)}-1\\mid3^{P(m+ax)}-1,\n\\]\nand therefore\n\\[\n3^{P(m+ax)}\\equiv1\\pmod M.\n\\tag{9}\n\\]\n\nNext, (7) gives\n\\[\nr\\equiv m+ax\\pmod b.\n\\]\nHence\n\\[\nP(r)\\equiv P(m+ax)\\pmod b.\n\\]\nSince $b=\\operatorname{ord}_M(3)$, relation (9) implies\n\\[\n3^{P(r)}\n\\equiv3^{P(m+ax)}\n\\equiv1\\pmod M.\n\\]\nAs $P(r)>0$,\n\\[\nM\\le3^{P(r)}-1<3^{P(r)}.\n\\tag{10}\n\\]\n\nBut (8) shows that $P(r)$ is one of\n\\[\nP(1),P(2),\\ldots,P(d).\n\\]\nTherefore, by (10),\n\\[\nM<\n3^{\\,\\max\\{P(1),P(2),\\ldots,P(d)\\}},\n\\]\ncontradicting (3).\n\nHence $Q(x)$ must be a constant polynomial."
+  ]
+}

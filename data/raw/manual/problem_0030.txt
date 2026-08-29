@@ -1,0 +1,122 @@
+ID: 0030
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Algebra
+
+SUBTOPICS: Exponential Sums, Sequences, Linear Independence
+
+STATEMENT:
+Determine all sequences
+\[
+(x_1,x_2,\ldots,x_{2011})
+\]
+of positive integers such that, for every positive integer $n$, there exists an integer $a$ satisfying
+\[
+x_1^n+2x_2^n+\cdots+2011x_{2011}^n=a^{n+1}+1.
+\tag{1}
+\]
+
+SOLUTION 1:
+Put
+\[
+K=2+3+\cdots+2011=2023065.
+\]
+The sequence
+\[
+\boxed{(x_1,x_2,\ldots,x_{2011})=(1,K,K,\ldots,K)}
+\]
+works, because for every $n\ge1$,
+\[
+1^n+\sum_{i=2}^{2011}iK^n
+=1+K\cdot K^n
+=K^{n+1}+1.
+\]
+We prove that there is no other sequence.
+
+For each $n$, choose a positive integer $y_n$ such that
+\[
+\sum_{i=1}^{2011}i x_i^n=y_n^{n+1}+1.
+\tag{2}
+\]
+We may take $y_n>0$, since the left side is greater than $1$. Let
+\[
+C=\sum_{i=1}^{2011}i x_i.
+\]
+Then
+\[
+\sum_{i=1}^{2011}i x_i^n<C^{n+1},
+\]
+so (2) implies
+\[
+y_n<C.
+\]
+Thus the sequence $(y_n)$ is bounded. Consequently, some positive integer $y$ occurs as $y_n$ for infinitely many values of $n$. Clearly $y>1$.
+
+Let
+\[
+m=\max\{x_1,x_2,\ldots,x_{2011}\}.
+\]
+For $1\le j\le m$, define
+\[
+c_j=\sum_{\substack{1\le i\le2011\\x_i=j}}i.
+\]
+Then $c_j\ge0$, $c_m>0$, and
+\[
+\sum_{j=1}^m c_j=1+2+\cdots+2011=1+K.
+\tag{3}
+\]
+For infinitely many $n$, equation (2) becomes
+\[
+c_1+c_2 2^n+\cdots+c_m m^n=1+y\,y^n.
+\tag{4}
+\]
+
+We use the following lemma.
+
+\textbf{Lemma.} Let $b_1,\ldots,b_N$ be integers. If
+\[
+b_1+b_2 2^n+\cdots+b_NN^n=0
+\]
+for arbitrarily large positive integers $n$, then
+\[
+b_1=b_2=\cdots=b_N=0.
+\]
+
+Indeed, otherwise choose the largest $N$ with $b_N\ne0$. If $N=1$, the assertion is immediate. For $N\ge2$, division by $N^n$ gives
+\[
+|b_N|
+\le
+\left(|b_1|+\cdots+|b_{N-1}|\right)
+\left(\frac{N-1}{N}\right)^n,
+\]
+which is impossible for arbitrarily large $n$.
+
+Apply the lemma to (4), after moving the right side to the left and adjoining zero coefficients if necessary. Since $c_m>0$, the largest occurring base must be the same on both sides, so
+\[
+y=m.
+\]
+The lemma then gives
+\[
+c_1=1,
+\qquad
+c_m=m,
+\qquad
+c_j=0\quad(1<j<m).
+\tag{5}
+\]
+Because $c_1=1$, the only index with $x_i=1$ is $i=1$. Hence every $x_i$ with $i\ge2$ equals $m$. Using (3) and (5),
+\[
+1+m=1+K,
+\]
+so
+\[
+m=K.
+\]
+Therefore the unique sequence is
+\[
+(1,K,K,\ldots,K),
+\qquad K=2023065.
+\]

@@ -1,0 +1,15 @@
+{
+  "id": "0031",
+  "source": "IMO Shortlist",
+  "year": "2011",
+  "topic": "Algebra",
+  "subtopics": [
+    "Functional Equations",
+    "Collinearity",
+    "Polynomial Functions"
+  ],
+  "statement": "Determine all pairs of functions\n\\[\nf,g:\\mathbb R\\to\\mathbb R\n\\]\nsatisfying\n\\[\ng(f(x+y))=f(x)+(2x+y)g(y)\n\\tag{1}\n\\]\nfor all real numbers $x,y$.",
+  "solutions": [
+    "The solutions are\n\\[\n\\boxed{f\\equiv0,\\quad g\\equiv0}\n\\]\nand\n\\[\n\\boxed{f(x)=x^2+C,\\quad g(x)=x}\n\\]\nfor an arbitrary constant $C\\in\\mathbb R$.\n\nSet $y=-2x$ in (1). Then\n\\[\ng(f(-x))=f(x).\n\\tag{2}\n\\]\nReplacing $x$ in (2) by $-x-y$ gives\n\\[\ng(f(x+y))=f(-x-y).\n\\]\nTogether with (1), this yields\n\\[\nf(-x-y)=f(x)+(2x+y)g(y).\n\\tag{3}\n\\]\n\nLet $a,b,c$ be arbitrary real numbers. In (3), first set\n\\[\nx=-b,\n\\qquad y=a+b,\n\\]\nto obtain\n\\[\nf(-a)=f(-b)+(a-b)g(a+b).\n\\]\nCyclically,\n\\[\nf(-b)=f(-c)+(b-c)g(b+c),\n\\]\n\\[\nf(-c)=f(-a)+(c-a)g(c+a).\n\\]\nAdding these three equalities and then writing\n\\[\nx=b+c,\n\\qquad y=c+a,\n\\qquad z=a+b,\n\\]\nwe get\n\\[\n(y-x)g(z)+(z-y)g(x)+(x-z)g(y)=0\n\\tag{4}\n\\]\nfor all real $x,y,z$.\n\nEquation (4) says that every three points\n\\[\n(x,g(x)),\\quad(y,g(y)),\\quad(z,g(z))\n\\]\nare collinear. Hence the graph of $g$ is a line, so\n\\[\ng(x)=Ax+B\n\\]\nfor some real constants $A,B$.\n\nSet $x=0$ and replace $y$ by $-y$ in (3). If\n\\[\nC=f(0),\n\\]\nthen\n\\[\nf(y)=Ay^2-By+C.\n\\tag{5}\n\\]\nNow substitute (5) and $g(x)=Ax+B$ into (2). Comparing coefficients gives\n\\[\nA^2=A,\n\\qquad\nAB=-B,\n\\qquad\nAC+B=C.\n\\]\nThus $A\\in\\{0,1\\}$.\n\nIf $A=0$, the last two relations force\n\\[\nB=C=0,\n\\]\nso $f\\equiv g\\equiv0$.\n\nIf $A=1$, then $B=0$, while $C$ is arbitrary. Therefore\n\\[\ng(x)=x,\n\\qquad\nf(x)=x^2+C.\n\\]\nA direct substitution verifies that all the displayed pairs satisfy (1)."
+  ]
+}

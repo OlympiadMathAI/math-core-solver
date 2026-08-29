@@ -1,0 +1,144 @@
+ID: 0037
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Cyclic Sequences, Sliding Sums, Extremal Principle
+
+STATEMENT:
+Suppose that $1000$ students are standing in a circle. Prove that there is an integer $k$ with
+\[
+100\le k\le300
+\]
+and a contiguous group of $2k$ students such that the first $k$ students in the group contain the same number of girls as the last $k$ students.
+
+SOLUTION 1:
+Number the students cyclically and put
+\[
+a_i=
+\begin{cases}
+1,&\text{if student }i\text{ is a girl},\\
+0,&\text{otherwise}.
+\end{cases}
+\]
+Extend the sequence periodically by $a_{i+1000}=a_i$ for every integer $i$. Define
+\[
+S_k(i)=a_i+a_{i+1}+\cdots+a_{i+k-1}.
+\]
+The desired conclusion is equivalent to finding $100\le k\le300$ and $i$ such that
+\[
+S_k(i)=S_k(i+k).
+\tag{1}
+\]
+
+Assume for a contradiction that no such pair exists. Choose $i$ for which $S_{100}(i)$ is maximal. Equality in either
+\[
+S_{100}(i-100)\le S_{100}(i),
+\qquad
+S_{100}(i+100)\le S_{100}(i)
+\]
+would already give (1) with $k=100$. Hence
+\[
+S_{100}(i-100)-S_{100}(i)<0,
+\qquad
+S_{100}(i)-S_{100}(i+100)>0.
+\]
+Let
+\[
+D(j)=S_{100}(j)-S_{100}(j+100).
+\]
+As $j$ runs from $i-100$ to $i$, the integer $D(j)$ changes from negative to positive, and it is never $0$. Thus there is an index
+\[
+j\in[i-100,i-1]
+\]
+such that
+\[
+S_{100}(j)\le S_{100}(j+100)-1,
+\tag{2}
+\]
+while
+\[
+S_{100}(j+1)\ge S_{100}(j+101)+1.
+\tag{3}
+\]
+Now
+\[
+D(j+1)-D(j)
+=2a_{j+100}-a_j-a_{j+200}.
+\]
+From (2)--(3), this difference is at least $2$. Since each $a_r$ is $0$ or $1$, we must have
+\[
+a_j=0,
+\qquad
+a_{j+100}=1,
+\qquad
+a_{j+200}=0.
+\tag{4}
+\]
+Substituting (4) back into (2)--(3) gives
+\[
+S_{99}(j+1)=S_{99}(j+101).
+\tag{5}
+\]
+
+Let $p$ and $\ell$ be the least positive integers for which
+\[
+a_{j-p}=1,
+\qquad
+a_{j+200+\ell}=1.
+\]
+By reversing the circular order if necessary, we may assume
+\[
+p\ge\ell.
+\]
+If $p\ge200$, then
+\[
+a_{j-199}=a_{j-198}=\cdots=a_j=0.
+\]
+Consequently
+\[
+S_{100}(j-199)=S_{100}(j-99)=0,
+\]
+contradicting our assumption for $k=100$. Therefore
+\[
+\ell\le p\le199.
+\tag{6}
+\]
+Put
+\[
+K=100+\ell.
+\]
+By (6),
+\[
+101\le K\le299.
+\]
+The minimality of $p$ and $\ell$, together with (4), gives
+\[
+\begin{aligned}
+S_K(j-\ell+1)
+&=(a_{j-\ell+1}+\cdots+a_j)+S_{99}(j+1)+a_{j+100}\\
+&=S_{99}(j+1)+1,
+\end{aligned}
+\]
+and
+\[
+\begin{aligned}
+S_K(j+101)
+&=S_{99}(j+101)
++(a_{j+200}+\cdots+a_{j+200+\ell-1})
++a_{j+200+\ell}\\
+&=S_{99}(j+101)+1.
+\end{aligned}
+\]
+Using (5),
+\[
+S_K(j-\ell+1)=S_K(j+101).
+\]
+Since
+\[
+(j-\ell+1)+K=j+101,
+\]
+this is precisely an equality of the form (1), with $100\le K\le300$. The contradiction proves the result.

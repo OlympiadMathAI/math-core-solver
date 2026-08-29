@@ -1,0 +1,120 @@
+ID: 0033
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Algebra
+
+SUBTOPICS: Construction, Induction, Obtuse Triangles
+
+STATEMENT:
+Prove that for every positive integer $n$, the set
+\[
+\{2,3,4,\ldots,3n+1\}
+\]
+can be partitioned into $n$ triples such that the three numbers in every triple are the side lengths of an obtuse triangle.
+
+SOLUTION 1:
+For integers $a\le b$, write
+\[
+[a,b]=\{a,a+1,\ldots,b\}.
+\]
+Call a triple $\{a,b,c\}$ with $a<b<c$ an \emph{obtuse triple} if its elements are the side lengths of an obtuse triangle.
+
+We prove by induction on $n$ a slightly stronger assertion: the interval
+\[
+[2,3n+1]
+\]
+can be partitioned into triples
+\[
+A_i=\{i,a_i,b_i\},
+\qquad 2\le i\le n+1,
+\]
+each of which is obtuse.
+
+For $n=1$, take
+\[
+A_2=\{2,3,4\}.
+\]
+Indeed, $2+3>4$ and $4^2>2^2+3^2$.
+
+We need a simple lemma.
+
+\textbf{Lemma.} If $a<b<c$ form an obtuse triple and $x>0$, then
+\[
+\{a,b+x,c+x\}
+\]
+is also an obtuse triple.
+
+Since $c-b<a$, we have
+\[
+(c+x)-(b+x)=c-b<a,
+\]
+so the new numbers satisfy the triangle inequality. Moreover,
+\[
+\begin{aligned}
+(c+x)^2-(b+x)^2
+&=(c-b)(b+c+2x)\\
+&>(c-b)(b+c)>a^2.
+\end{aligned}
+\]
+Thus the new triangle is obtuse.
+
+Now let $n>1$ and put
+\[
+t=\left\lfloor\frac n2\right\rfloor.
+\]
+By the induction hypothesis, $[2,3t+1]$ has a partition
+\[
+A_i'=\{i,a_i',b_i'\},
+\qquad 2\le i\le t+1,
+\]
+into obtuse triples. For these indices define
+\[
+A_i=\{i,a_i'+n-t,b_i'+n-t\}.
+\]
+By the lemma these triples remain obtuse. They are disjoint, and their union is
+\[
+[2,t+1]\cup[n+2,n+2t+1].
+\tag{1}
+\]
+
+For each
+\[
+t+2\le i\le n+1,
+\]
+define
+\[
+A_i=\{i,n+t+i,2n+i\}.
+\tag{2}
+\]
+These triples are disjoint, and their union is
+\[
+[t+2,n+1]
+\cup[n+2t+2,2n+t+1]
+\cup[2n+t+2,3n+1].
+\tag{3}
+\]
+Relations (1) and (3) show that all the triples together partition $[2,3n+1]$.
+
+It remains to verify that every triple in (2) is obtuse. First,
+\[
+(2n+i)-(n+t+i)=n-t<i,
+\]
+because $i\ge t+2$. Thus its elements satisfy the triangle inequality. Next,
+\[
+\begin{aligned}
+(2n+i)^2-(n+t+i)^2
+&=(n-t)(3n+t+2i)\\
+&\ge \frac n2\bigl(3n+3(t+1)+1\bigr)\\
+&>\frac{9n^2}{4}\\
+&\ge(n+1)^2\\
+&\ge i^2.
+\end{aligned}
+\]
+Here $n\ge2$ and $i\le n+1$. Therefore
+\[
+(2n+i)^2>(n+t+i)^2+i^2,
+\]
+so the triangle is obtuse. This completes the induction.

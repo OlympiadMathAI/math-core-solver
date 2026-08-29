@@ -1,0 +1,90 @@
+ID: 0041
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Combinatorics on Words, Periodic Words, Multiplicity
+
+STATEMENT:
+Let
+\[
+W=\cdots x_{-1}x_0x_1x_2\cdots
+\]
+be an infinite periodic word over the alphabet $\{a,b\}$, and suppose its minimal period $N$ satisfies
+\[
+N>2^n,
+\]
+where $n$ is a positive integer.
+
+A finite nonempty word $U$ \emph{appears} in $W$ if it occurs as a consecutive block. Call $U$ \emph{ubiquitous} if all four words
+\[
+Ua,\quad Ub,\quad aU,\quad bU
+\]
+appear in $W$.
+
+Prove that there are at least $n$ ubiquitous finite nonempty words.
+
+SOLUTION 1:
+For a finite word $R$ of length $r$, define its multiplicity $\mu(R)$ to be the number of indices
+\[
+i\in\{1,2,\ldots,N\}
+\]
+for which
+\[
+R=x_{i+1}x_{i+2}\cdots x_{i+r},
+\]
+with indices interpreted periodically. Every occurrence has exactly one following letter and one preceding letter, so
+\[
+\mu(R)=\mu(Ra)+\mu(Rb)=\mu(aR)+\mu(bR).
+\tag{1}
+\]
+
+Every word of length $N$ that appears has multiplicity exactly $1$. Indeed, if two length-$N$ blocks beginning at distinct residues $i<j$ were equal, then
+\[
+x_{i+t}=x_{j+t}
+\]
+for every integer $t$, so $j-i$ would be a positive period smaller than $N$.
+
+Also,
+\[
+\mu(a)+\mu(b)=N>2^n,
+\]
+so one of the one-letter words has multiplicity greater than $2^{n-1}$.
+
+For each
+\[
+k=0,1,\ldots,n-1,
+\]
+choose an appearing word $U_k$ of maximal length subject to
+\[
+\mu(U_k)>2^k.
+\tag{2}
+\]
+Such a word exists by the preceding paragraph, and a maximal length exists because no length-$N$ word has multiplicity greater than $1$.
+
+We show that $U_k$ is ubiquitous. By maximality, both longer words $U_ka$ and $U_kb$ have multiplicity at most $2^k$. If one of them did not appear, then (1) would force the other to have multiplicity
+\[
+\mu(U_k)>2^k,
+\]
+contradicting maximality. Hence both $U_ka$ and $U_kb$ appear. Applying the same argument on the left shows that both $aU_k$ and $bU_k$ appear. Thus $U_k$ is ubiquitous.
+
+Moreover, (1) and maximality imply
+\[
+\mu(U_k)\le2^{k+1}.
+\tag{3}
+\]
+For if $\mu(U_k)>2^{k+1}$, then at least one of $U_ka,U_kb$ would have multiplicity greater than $2^k$, again contradicting the maximality of the length of $U_k$.
+
+Combining (2)--(3) for consecutive values of $k$ gives
+\[
+\mu(U_0)\le2<\mu(U_1)\le4<\cdots
+\le2^{n-1}<\mu(U_{n-1}).
+\]
+Therefore the words
+\[
+U_0,U_1,\ldots,U_{n-1}
+\]
+are distinct. Each is ubiquitous, so there are at least $n$ ubiquitous words.

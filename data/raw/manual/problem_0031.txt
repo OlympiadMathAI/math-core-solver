@@ -1,0 +1,119 @@
+ID: 0031
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Algebra
+
+SUBTOPICS: Functional Equations, Collinearity, Polynomial Functions
+
+STATEMENT:
+Determine all pairs of functions
+\[
+f,g:\mathbb R\to\mathbb R
+\]
+satisfying
+\[
+g(f(x+y))=f(x)+(2x+y)g(y)
+\tag{1}
+\]
+for all real numbers $x,y$.
+
+SOLUTION 1:
+The solutions are
+\[
+\boxed{f\equiv0,\quad g\equiv0}
+\]
+and
+\[
+\boxed{f(x)=x^2+C,\quad g(x)=x}
+\]
+for an arbitrary constant $C\in\mathbb R$.
+
+Set $y=-2x$ in (1). Then
+\[
+g(f(-x))=f(x).
+\tag{2}
+\]
+Replacing $x$ in (2) by $-x-y$ gives
+\[
+g(f(x+y))=f(-x-y).
+\]
+Together with (1), this yields
+\[
+f(-x-y)=f(x)+(2x+y)g(y).
+\tag{3}
+\]
+
+Let $a,b,c$ be arbitrary real numbers. In (3), first set
+\[
+x=-b,
+\qquad y=a+b,
+\]
+to obtain
+\[
+f(-a)=f(-b)+(a-b)g(a+b).
+\]
+Cyclically,
+\[
+f(-b)=f(-c)+(b-c)g(b+c),
+\]
+\[
+f(-c)=f(-a)+(c-a)g(c+a).
+\]
+Adding these three equalities and then writing
+\[
+x=b+c,
+\qquad y=c+a,
+\qquad z=a+b,
+\]
+we get
+\[
+(y-x)g(z)+(z-y)g(x)+(x-z)g(y)=0
+\tag{4}
+\]
+for all real $x,y,z$.
+
+Equation (4) says that every three points
+\[
+(x,g(x)),\quad(y,g(y)),\quad(z,g(z))
+\]
+are collinear. Hence the graph of $g$ is a line, so
+\[
+g(x)=Ax+B
+\]
+for some real constants $A,B$.
+
+Set $x=0$ and replace $y$ by $-y$ in (3). If
+\[
+C=f(0),
+\]
+then
+\[
+f(y)=Ay^2-By+C.
+\tag{5}
+\]
+Now substitute (5) and $g(x)=Ax+B$ into (2). Comparing coefficients gives
+\[
+A^2=A,
+\qquad
+AB=-B,
+\qquad
+AC+B=C.
+\]
+Thus $A\in\{0,1\}$.
+
+If $A=0$, the last two relations force
+\[
+B=C=0,
+\]
+so $f\equiv g\equiv0$.
+
+If $A=1$, then $B=0$, while $C$ is arbitrary. Therefore
+\[
+g(x)=x,
+\qquad
+f(x)=x^2+C.
+\]
+A direct substitution verifies that all the displayed pairs satisfy (1).

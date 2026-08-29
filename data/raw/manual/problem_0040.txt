@@ -1,0 +1,94 @@
+ID: 0040
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Invariants, Particle Motion, Geometric Bounds
+
+STATEMENT:
+Let $m$ be a positive integer and consider an $m\times m$ checkerboard of unit squares. At the centers of some squares there are ants. At time $0$, each ant starts moving with speed $1$ parallel to an edge of the board.
+
+When exactly two ants moving in opposite directions meet, both turn $90^\circ$ clockwise and continue with speed $1$. When more than two ants meet, or when two ants moving in perpendicular directions meet, all involved ants continue in their previous directions. When an ant reaches the boundary of the checkerboard, it falls off and never returns.
+
+Over all possible initial positions and directions, determine the latest possible time at which the last ant falls off.
+
+SOLUTION 1:
+The latest possible time is
+\[
+\boxed{\frac{3m}{2}-1}.
+\]
+
+For $m=1$, a single ant needs exactly $1/2$ unit of time to reach an edge, agreeing with the formula. Assume $m>1$.
+
+For the lower bound, place ants at the centers of the southwest and southeast corner squares, pointing east and west, respectively. Their initial distance is $m-1$, so they meet at time
+\[
+\frac{m-1}{2}
+\]
+at the midpoint of the bottom row. At the collision, the westward-moving ant turns north. Its height is $1/2$, so it needs another
+\[
+m-\frac12
+\]
+time units to reach the top edge. Thus the last ant falls at time
+\[
+\frac{m-1}{2}+m-\frac12
+=\frac{3m}{2}-1.
+\]
+
+We prove that no ant can remain longer. At a collision of two opposite-moving ants, changing both turns from clockwise to anticlockwise leaves the two outgoing geometric trajectories unchanged and merely exchanges the identities of the ants. Hence, for the purpose of bounding the set of trajectories and collision events, we may choose independently at every collision whether both ants turn clockwise or anticlockwise.
+
+Choose these exchanges so that every trajectory is of one of two types:
+
+- an NE-trajectory, moving only north or east;
+- an SW-trajectory, moving only south or west.
+
+Use coordinates in which the board is $[0,m]\times[0,m]$. Every initial ant is at a point whose coordinate sum lies in $[1,2m-1]$. At time $t$, every NE-ant has
+\[
+x+y\ge t+1,
+\]
+while every SW-ant has
+\[
+x+y\le2m-t-1.
+\]
+Therefore any collision at time $t$ and position $(x,y)$ satisfies
+\[
+t+1\le x+y\le2m-t-1.
+\tag{1}
+\]
+
+Apply the same identity-exchange argument in another way, choosing trajectories that move only north and west, or only south and east. This yields the additional necessary condition
+\[
+|x-y|\le m-t-1
+\tag{2}
+\]
+for every collision at $(x,y)$ and time $t$.
+
+Consider an NE-ant whose last collision occurs at $(x,y)$ at time $t$. If an ant has no collision at all, it leaves within at most $m-\tfrac12$ time units, which is already within the claimed bound. From (1) and (2),
+\[
+x+y\ge t+1,
+\qquad
+x-y\ge-(m-t-1).
+\]
+Adding gives
+\[
+x\ge t+1-\frac m2.
+\]
+Similarly,
+\[
+y\ge t+1-\frac m2.
+\]
+After its last collision the ant travels directly north or east to the boundary, requiring at most
+\[
+m-\min\{x,y\}
+\]
+more time. Hence its total lifetime is at most
+\[
+\begin{aligned}
+t+m-\min\{x,y\}
+&\le t+m-\left(t+1-\frac m2\right)\\
+&=\frac{3m}{2}-1.
+\end{aligned}
+\]
+By symmetry the same bound holds for an SW-ant. Thus no ant remains after time $\frac{3m}{2}-1$, and the construction shows that this bound is sharp.

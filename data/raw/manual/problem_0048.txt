@@ -1,0 +1,274 @@
+ID: 0048
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Geometry
+
+SUBTOPICS: Isosceles Triangles, Angle Bisectors, Menelaus Theorem, Radical Center
+
+STATEMENT:
+Let $ABC$ be a triangle with $AB=AC$, and let $D$ be the midpoint of $AC$. The angle bisector of $\angle BAC$ meets the circle through $D,B,C$ at a point $E$ inside triangle $ABC$. The line $BD$ meets the circle through $A,E,B$ again at $F\ne B$. The lines $AF$ and $BE$ meet at $I$, and the lines $CI$ and $BD$ meet at $K$. Prove that $I$ is the incenter of triangle $KAB$.
+
+SOLUTION 1:
+Let $D'$ be the midpoint of $AB$, and let $M$ be the midpoint of $BC$. Since $AB=AC$, the line $AM$ is the symmetry axis of triangle $ABC$. Reflection in $AM$ sends $D$ to $D'$ and preserves the circle through $B,C,D$. Hence
+\[
+D'\text{ also lies on the circle }BCDE.
+\]
+The same symmetry shows that the arcs $D'E$ and $ED$ of this circle are equal. Therefore
+\[
+\angle ABI
+=\angle D'BE
+=\angle EBD
+=\angle IBK.
+\tag{1}
+\]
+Thus $BI$ bisects $\angle ABK$. It remains to show that $AI$ bisects $\angle BAK$.
+
+The quadrilateral $A,B,E,F$ is cyclic. Since $B,F,D$ are collinear and $A,E,M$ are collinear,
+\[
+\begin{aligned}
+\angle DFA
+&=180^\circ-\angle BFA\\
+&=180^\circ-\angle BEA\\
+&=\angle MEB.
+\end{aligned}
+\]
+Because $EB=EC$ and $EM$ is the symmetry axis,
+\[
+\angle MEB=\frac12\angle CEB.
+\]
+Also $B,C,D,E$ are cyclic, so
+\[
+\angle CEB=\angle CDB.
+\]
+Hence
+\[
+\angle DFA=\frac12\angle CDB.
+\tag{2}
+\]
+But $\angle CDB$ is the exterior angle at $D$ of triangle $ADF$, and therefore
+\[
+\angle CDB=\angle DAF+\angle DFA.
+\]
+Together with (2), this yields
+\[
+\angle DAF=\angle DFA,
+\]
+so
+\[
+AD=DF.
+\tag{3}
+\]
+
+Apply Menelaus' theorem to triangle $ADF$ and the transversal $C,I,K$. Using directed ratios and then positive lengths in the present configuration,
+\[
+1=\frac{AC}{CD}\cdot\frac{DK}{KF}\cdot\frac{FI}{IA}.
+\tag{4}
+\]
+Since $D$ is the midpoint of $AC$,
+\[
+\frac{AC}{CD}=2.
+\]
+By (1), $BI$ is the angle bisector in triangle $ABF$, so
+\[
+\frac{FI}{IA}=\frac{BF}{AB}.
+\]
+Also $AB=AC=2AD$. Therefore (4) becomes
+\[
+1=\frac{DK}{KF}\cdot\frac{BF}{AD},
+\]
+and hence
+\[
+\frac{BF}{AD}=\frac{KF}{DK}.
+\tag{5}
+\]
+Using (3),
+\[
+\begin{aligned}
+\frac{BD}{AD}
+&=\frac{BF+FD}{AD}\\
+&=\frac{BF}{AD}+1\\
+&=\frac{KF}{DK}+1\\
+&=\frac{DF}{DK}\\
+&=\frac{AD}{DK}.
+\end{aligned}
+\]
+Thus triangles $BDA$ and $ADK$ are similar, and consequently
+\[
+\angle ABD=\angle DAK.
+\tag{6}
+\]
+Finally,
+\[
+\begin{aligned}
+\angle IAB
+&=\angle AFD-\angle ABD\\
+&=\angle DAF-\angle DAK\\
+&=\angle KAI,
+\end{aligned}
+\]
+where we used (2), (3), and (6). Hence $AI$ bisects $\angle BAK$. Together with (1), this proves that $I$ is the incenter of triangle $KAB$.
+
+SOLUTION 2:
+As in Solution 1, relation
+\[
+\angle ABI=\angle IBK
+\tag{1}
+\]
+holds, so $BI$ bisects $\angle ABK$. We prove that $KI$ bisects $\angle AKB$.
+
+Let $\omega_1$ be the circumcircle of $BCD$, with center $O_1$. Since $A,B,E,F$ are cyclic,
+\[
+\angle DFE=\angle BAE=\angle DAE,
+\]
+and
+\[
+\angle EAF=\angle EBF=\angle ABE=\angle AFE.
+\]
+It follows that
+\[
+\angle DAF=\angle DFA,
+\]
+so
+\[
+DF=DA=DC.
+\tag{2}
+\]
+Thus the circle $\omega_2$ through $A,F,C$ has center $D$.
+
+Let $\omega_3$ be the circumcircle of $ABD$, with center $O_3$. The arcs $BE$ and $EC$ of $\omega_1$ are equal. Together with the congruence of triangles $ADE$ and $FDE$, this gives
+\[
+\angle AO_1B=2\angle BDE=\angle BDA.
+\]
+Therefore
+\[
+O_1\in\omega_3.
+\]
+Since $O_3$ is the center of $\omega_3$, both $O_1$ and $D$ lie on $\omega_3$, and hence
+\[
+O_3O_1=O_3D.
+\]
+Thus
+\[
+\angle O_3O_1D=\angle O_3DO_1.
+\tag{3}
+\]
+
+The line $BD$ is the radical axis of $\omega_1$ and $\omega_3$. The point $C$ lies on both $\omega_1$ and $\omega_2$. Moreover,
+\[
+IA\cdot IF=IB\cdot IE
+\]
+because $A,B,E,F$ are cyclic, so $I$ has equal powers with respect to $\omega_1$ and $\omega_2$. Hence
+\[
+CI
+\]
+is their radical axis. Since
+\[
+K=BD\cap CI,
+\]
+the point $K$ is the radical center of $\omega_1,\omega_2,\omega_3$. Therefore
+\[
+AK
+\]
+is the radical axis of $\omega_2$ and $\omega_3$.
+
+Radical axes are perpendicular to the corresponding lines of centers. Consequently,
+\[
+AK\perp DO_3,
+\qquad
+BK\perp O_1O_3,
+\qquad
+IK\perp DO_1.
+\]
+The equality of the base angles in (3) now implies
+\[
+\angle AKI=\angle IKB.
+\]
+Thus $KI$ bisects $\angle AKB$. Together with (1), this proves that $I$ is the incenter of triangle $KAB$.
+
+SOLUTION 3:
+Again, the symmetry argument from Solution 1 gives
+\[
+\angle ABI=\angle IBK,
+\tag{1}
+\]
+so it remains to show that $AI$ bisects $\angle KAB$.
+
+Let $M$ be the midpoint of $BC$, and let $G\ne C$ be the second intersection of the circles through $A,F,C$ and through $B,C,D$. The lines
+\[
+AF,\qquad BE,\qquad CG
+\]
+are the three radical axes of the circles
+\[
+(AFC),\qquad (BCD),\qquad (ABEF).
+\]
+Since $I=AF\cap BE$, the radical-axis theorem gives
+\[
+C,G,I\text{ are collinear}.
+\tag{2}
+\]
+
+The angle between $DE$ and the tangent to the circle $BCDE$ at $E$ equals
+\[
+\angle EBD=\angle EAF=\angle ABE=\angle AFE.
+\]
+The tangent at $E$ is perpendicular to the symmetry axis $AM$. Hence
+\[
+DE\perp AF.
+\]
+Also triangle $AFE$ is isosceles, so $DE$ is the perpendicular bisector of $AF$. Therefore
+\[
+DA=DF.
+\]
+Since $D$ is the midpoint of $AC$,
+\[
+DA=DC,
+\]
+and hence $D$ is the center of the circle through $A,F,C$. The point $M$ also lies on this circle because
+\[
+\angle AMC=90^\circ.
+\]
+
+Let $B'$ be the reflection of $B$ in the point $D$. Then the diagonals $AC$ and $BB'$ bisect each other, so $ABCB'$ is a parallelogram. Since $D$ is the center of the circle through $A,F,C,G$,
+\[
+DC=DG.
+\]
+Using (2), the cyclicity of $B,C,D,G$, and the parallelogram, we obtain
+\[
+\angle KCA
+=\angle GCD
+=\angle DBC
+=\angle KB'A.
+\]
+Thus $A,K,C,B'$ are cyclic. Therefore
+\[
+\angle CAK
+=\angle CB'K
+=\angle ABD.
+\tag{3}
+\]
+The equal arcs $D'E$ and $ED$ from Solution 1 give
+\[
+\angle ABD=2\angle EBD.
+\]
+Since $A,E,M$ are collinear and $A,B,E,F$ are cyclic,
+\[
+\angle EBD=\angle EAF=\angle MAI.
+\]
+Consequently,
+\[
+\angle CAK=2\angle MAI.
+\tag{4}
+\]
+Finally, $AM$ bisects $\angle CAB$, and (4) gives
+\[
+\begin{aligned}
+\angle IAB
+&=\angle MAB-\angle MAI\\
+&=\frac12\angle CAB-\frac12\angle CAK\\
+&=\frac12\angle KAB.
+\end{aligned}
+\]
+Hence $AI$ bisects $\angle KAB$. Together with (1), this proves that $I$ is the incenter of triangle $KAB$.

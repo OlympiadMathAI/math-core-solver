@@ -1,0 +1,158 @@
+ID: 0047
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Geometry
+
+SUBTOPICS: Radical Axis, Pascal's Theorem, Homothety, Incenter
+
+STATEMENT:
+Let $ABC$ be a triangle with incenter $I$ and circumcircle $\omega$. Let $D$ and $E$ be the second intersection points of $\omega$ with the lines $AI$ and $BI$, respectively. The chord $DE$ meets $AC$ at $F$ and $BC$ at $G$. Let $P$ be the intersection of the line through $F$ parallel to $AD$ and the line through $G$ parallel to $BE$. The tangents to $\omega$ at $A$ and $B$ meet at $K$. Prove that the three lines $AE,BD,KP$ are either parallel or concurrent.
+
+SOLUTION 1:
+We use oriented angles modulo $180^\circ$. Since $A,I,D$ are collinear, $B,I,E$ are collinear, and $D,E,F,G$ are collinear,
+\[
+\angle IAF
+=\angle DAC
+=\angle BAD
+=\angle BED
+=\angle IEF.
+\]
+Hence $A,I,F,E$ are cyclic; denote their circle by $\omega_1$. Similarly, $B,D,G,I$ are cyclic; denote their circle by $\omega_2$.
+
+The line $AE$ is the radical axis of $\omega$ and $\omega_1$, while $BD$ is the radical axis of $\omega$ and $\omega_2$. Let $t$ be the radical axis of $\omega_1$ and $\omega_2$. By the radical-axis theorem, the three lines
+\[
+AE,\quad BD,\quad t
+\]
+are concurrent, or all three are parallel. It remains to prove that
+\[
+t=KP.
+\tag{1}
+\]
+
+Let $L$ be the second common point of $\omega_1$ and $\omega_2$, so $t=IL$. If the two circles are tangent at $I$, interpret $L=I$ and $t$ as their common tangent. Let $K'\ne L$ be the second intersection of $t$ with the circumcircle of $ABL$, and let $P'\ne L$ be the second intersection of $t$ with the circumcircle of $FGL$.
+
+We first prove $K'=K$. Since $A,B,K',L$ are cyclic and $A,E,I,L$ are cyclic,
+\[
+\begin{aligned}
+\angle(AB,BK')
+&=\angle(AL,LK')\\
+&=\angle(AL,LI)\\
+&=\angle(AE,EI)\\
+&=\angle(AE,EB).
+\end{aligned}
+\]
+By the tangent-chord theorem at $B$ for the circumcircle $\omega$,
+\[
+\angle(AE,EB)=\angle(AB,BK).
+\]
+Thus
+\[
+BK'\parallel BK.
+\]
+The same argument at $A$ gives
+\[
+AK'\parallel AK.
+\]
+Therefore $K'=K$.
+
+We next prove $P'=P$. Since $F,G,P',L$ are cyclic and $B,D,G,I,L$ lie on the relevant circles and lines,
+\[
+\begin{aligned}
+\angle(P'F,FG)
+&=\angle(P'L,LG)\\
+&=\angle(IL,LG)\\
+&=\angle(ID,DG)\\
+&=\angle(AD,DE)\\
+&=\angle(PF,FG),
+\end{aligned}
+\]
+because $PF\parallel AD$ and $FG$ lies on $DE$. Hence
+\[
+P'F\parallel PF.
+\]
+Analogously,
+\[
+P'G\parallel PG,
+\]
+because $PG\parallel BE$. Thus $P'=P$.
+
+We have shown that both $K$ and $P$ lie on $t$, proving (1). Therefore $KP$ is the third radical axis, and the lines $AE,BD,KP$ are concurrent or parallel.
+
+SOLUTION 2:
+Let $M$ be the intersection of the tangents to $\omega$ at $D$ and $E$, and let
+\[
+T=AE\cap BD.
+\]
+If $AE\parallel BD$, regard $T$ as their common point at infinity. Pascal's theorem applied to the degenerate inscribed hexagons
+\[
+A,A,D,B,B,E
+\quad\text{and}\quad
+A,D,D,B,E,E
+\]
+shows that
+\[
+T,I,K,M\text{ are collinear}.
+\tag{1}
+\]
+
+Since $AD$ and $BE$ are angle bisectors, $D$ and $E$ are the midpoints of the arcs $BC$ and $CA$, respectively. Consequently, the tangent at $D$ is parallel to $BC$, and the tangent at $E$ is parallel to $AC$:
+\[
+DM\parallel BC,
+\qquad
+EM\parallel AC.
+\tag{2}
+\]
+Apply Pascal's theorem to the degenerate hexagon
+\[
+C,A,D,D,E,B.
+\]
+The three intersections of opposite sides are
+\[
+CA\cap DE=F,
+\qquad
+AD\cap EB=I,
+\]
+and the point at infinity common to the parallel lines $DM$ and $BC$. Hence
+\[
+FI\parallel BC\parallel DM.
+\tag{3}
+\]
+Analogously,
+\[
+GI\parallel AC\parallel EM.
+\tag{4}
+\]
+
+Now consider the homothety that sends
+\[
+E\mapsto G,
+\qquad
+D\mapsto F.
+\]
+Its ratio is
+\[
+-\frac{FG}{ED}.
+\]
+By (2)--(4), the triangles $EDM$ and $GFI$ have pairwise parallel sides, so this homothety sends
+\[
+M\mapsto I.
+\]
+Also, by the definition of $P$,
+\[
+FP\parallel AD=DI,
+\qquad
+GP\parallel BE=EI.
+\]
+Thus the triangles $DEI$ and $FGP$ have pairwise parallel sides, and the same homothety sends
+\[
+I\mapsto P.
+\]
+The homothety center therefore lies on both $MI$ and $IP$, so
+\[
+M,I,P\text{ are collinear}.
+\tag{5}
+\]
+Combining (1) and (5), the point $P$ lies on the line $TK$. Hence $KP$ passes through $T=AE\cap BD$. In the case when $T$ is an ideal point, the same statement means that all three lines are parallel. This proves the result.

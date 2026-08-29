@@ -1,0 +1,198 @@
+ID: 0034
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Algebra
+
+SUBTOPICS: Functional Inequalities, Sign Analysis, Iteration
+
+STATEMENT:
+Let
+\[
+f:\mathbb R\to\mathbb R
+\]
+satisfy
+\[
+f(x+y)\le y f(x)+f(f(x))
+\tag{1}
+\]
+for all real numbers $x,y$. Prove that
+\[
+f(x)=0
+\]
+for every $x\le0$.
+
+SOLUTION 1:
+Writing $t=x+y$, inequality (1) becomes
+\[
+f(t)\le t f(x)-x f(x)+f(f(x))
+\tag{2}
+\]
+for all real $t,x$.
+
+Take arbitrary real numbers $a,b$. Apply (2) first with $(t,x)=(f(a),b)$ and then with $(t,x)=(f(b),a)$. We obtain
+\[
+f(f(a))-f(f(b))
+\le f(a)f(b)-b f(b),
+\]
+\[
+f(f(b))-f(f(a))
+\le f(a)f(b)-a f(a).
+\]
+Adding,
+\[
+2f(a)f(b)\ge a f(a)+b f(b).
+\tag{3}
+\]
+Set
+\[
+b=2f(a).
+\]
+The terms involving $f(b)$ cancel in (3), leaving
+\[
+a f(a)\le0.
+\]
+Hence
+\[
+f(a)\ge0
+\qquad(a<0).
+\tag{4}
+\]
+
+Suppose now that $f(x)>0$ for some real $x$. In (2), the right side is an affine function of $t$ with positive slope $f(x)$. For all sufficiently negative $t$, it is negative, so
+\[
+f(t)<0.
+\]
+This contradicts (4). Therefore
+\[
+f(x)\le0
+\qquad\text{for every real }x.
+\tag{5}
+\]
+Combining (4) and (5),
+\[
+f(x)=0
+\qquad(x<0).
+\tag{6}
+\]
+
+Finally, in (2) choose the same negative number for $t$ and $x$. By (6),
+\[
+0=f(x)\le f(f(x))=f(0),
+\]
+so $f(0)\ge0$. Relation (5) gives $f(0)\le0$, and hence
+\[
+f(0)=0.
+\]
+Thus $f(x)=0$ for all $x\le0$.
+
+SOLUTION 2:
+We again use the equivalent form
+\[
+f(t)\le t f(x)-x f(x)+f(f(x)).
+\tag{2}
+\]
+
+\textbf{Step 1: $f$ is nonpositive everywhere.}
+Assume that $f(z)>0$ for some $z$. Put
+\[
+A=f(z)>0,
+\qquad
+B=-z f(z)+f(f(z)).
+\]
+Then (2) with $x=z$ gives
+\[
+f(t)\le At+B
+\tag{3}
+\]
+for all $t$.
+
+For a positive real number $u$, use (1) with $x=-u$ and $y=u$. Applying (3) first to $-u$ and then to $f(-u)$, we get
+\[
+\begin{aligned}
+f(0)
+&\le u f(-u)+f(f(-u))\\
+&\le u(-Au+B)+A(-Au+B)+B\\
+&=-Au^2-(A^2-B)u+(A+1)B.
+\end{aligned}
+\]
+The right side tends to $-\infty$ as $u\to\infty$, a contradiction. Hence
+\[
+f(x)\le0
+\tag{4}
+\]
+for all real $x$.
+
+Since $f(f(x))\le0$, inequality (1) now implies
+\[
+f(x+y)\le y f(x)
+\tag{5}
+\]
+for all real $x,y$.
+
+\textbf{Step 2: $f$ has a zero.}
+If $f(0)=0$, there is nothing to prove. Otherwise $f(0)<0$. Taking $x=0$ in (5),
+\[
+f(y)\le y f(0).
+\]
+Choose $a>0$ so large that
+\[
+f(a)^2>-f(0),
+\]
+and put
+\[
+b=f(a).
+\]
+Then $b<0$. Applying (5) with $x=b$ and $y=-b$,
+\[
+f(0)\le -b f(b).
+\]
+Since $-b^2<f(0)$, it follows that
+\[
+b<f(b).
+\tag{6}
+\]
+Now use (2) with $x=b$ and $t=f(b)$:
+\[
+f(f(b))
+\le (f(b)-b)f(b)+f(f(b)).
+\]
+By (6), the factor $f(b)-b$ is positive, so
+\[
+f(b)\ge0.
+\]
+Together with (4), this gives
+\[
+f(b)=0.
+\]
+Thus $f$ has at least one zero.
+
+\textbf{Step 3: zeros propagate to the left.}
+If $f(a)=0$ and $b<a$, apply (5) with $x=b$ and $y=a-b>0$:
+\[
+0=f(a)\le(a-b)f(b).
+\]
+Hence $f(b)\ge0$, and (4) yields
+\[
+f(b)=0.
+\tag{7}
+\]
+
+\textbf{Step 4: $0$ is a zero.}
+Choose any $r$ with $f(r)=0$. By (7),
+\[
+f(r-1)=0.
+\]
+Using (1) with $x=r$ and $y=-1$,
+\[
+0=f(r-1)
+\le -f(r)+f(f(r))
+=f(0).
+\]
+Together with (4), this gives $f(0)=0$. Applying (7) with $a=0$, we obtain
+\[
+f(x)=0
+\]
+for every $x<0$ as well. Therefore $f(x)=0$ for all $x\le0$.

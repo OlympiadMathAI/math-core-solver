@@ -1,0 +1,279 @@
+ID: 0042
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Double Counting, Residue Classes, Extremal Configurations
+
+STATEMENT:
+On a square table of $2011\times2011$ cells, place finitely many napkins, each covering a square of $52\times52$ cells. In each cell write the number of napkins covering it. For a fixed configuration, let $k$ be the greatest number of cells that all contain the same nonzero integer.
+
+Over all possible napkin configurations, determine the largest possible value of $k$.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{3986729}.
+\]
+Indeed,
+\[
+2011^2=4044121
+\]
+and
+\[
+(52^2-35^2)\cdot39-17^2=57392,
+\]
+so the claimed answer is
+\[
+2011^2-57392=3986729.
+\]
+
+We first give a construction. Put
+\[
+m=39,
+\qquad
+2011=52m-17.
+\]
+Number rows from bottom to top and columns from left to right by $1,2,\ldots,2011$. Denote a napkin by the coordinates of its lower-left cell. Use the following napkins:
+
+\[
+(52i+36,52j+1)
+\qquad(0\le j\le i\le m-2),
+\]
+\[
+(52i+1,52j+36)
+\qquad(0\le i\le j\le m-2),
+\]
+\[
+(52i+36,52i+36)
+\qquad(0\le i\le m-2),
+\]
+and the single napkin
+\[
+(1,1).
+\]
+Inspect the board in $52\times52$ residue blocks. The construction covers every cell. A direct block count gives the following distribution:
+\[
+2SHm=2\cdot35\cdot17\cdot39=46410
+\]
+cells are covered twice,
+\[
+H^2(m-2)=17^2\cdot37=10693
+\]
+cells are covered three times, and
+\[
+H^2=17^2=289
+\]
+cells are covered four times, where $S=35$ and $H=17$. All remaining cells are covered exactly once. Thus the number not covered exactly once is
+\[
+2SHm+H^2(m-1)
+=(52^2-35^2)m-17^2
+=57392.
+\]
+Hence $3986729$ cells contain the same positive number, namely $1$.
+
+It remains to prove the upper bound. Fix any configuration and any positive integer $M$. Let $g$ be the number of cells whose entry is different from $M$. We prove
+\[
+g\ge57392.
+\tag{1}
+\]
+A \emph{line} means a row or a column.
+
+Consider a line $\ell$, and let
+\[
+a_1,a_2,\ldots,a_{52m-17}
+\]
+be its consecutive entries. For each residue $r\in\{1,\ldots,52\}$, set
+\[
+s_r=\sum_{t\equiv r\pmod{52}}a_t.
+\]
+Every napkin meeting $\ell$ contributes exactly $1$ to each of the $52$ sums, so
+\[
+s_1=s_2=\cdots=s_{52}=s,
+\tag{2}
+\]
+where $s$ is the number of napkins meeting $\ell$.
+
+The sums $s_1,\ldots,s_{35}$ have $m$ terms each, whereas $s_{36},\ldots,s_{52}$ have $m-1$ terms each. Call $\ell$ \emph{rich} if
+\[
+s>(m-1)M
+\]
+and \emph{poor} otherwise.
+
+If $\ell$ is rich, then each of the $17$ short sums contains a term greater than $M$; mark one such cell for each short residue. Thus a rich line has at least $17$ marked bad cells. If $\ell$ is poor, then $s<mM$, so each of the $35$ long sums contains a term smaller than $M$; mark one such cell for each long residue. Thus a poor line has at least $35$ marked bad cells. Every marked cell has entry different from $M$.
+
+Call an index \emph{small} if it is congruent modulo $52$ to one of
+\[
+1,2,\ldots,35,
+\]
+and \emph{big} otherwise. A line is small or big according to its index. A rich line has its marked cells in big perpendicular lines, while a poor line has its marked cells in small perpendicular lines.
+
+Put one strawberry on every cell marked for each of its two lines. In addition, on every small rich line put one extra strawberry on each of its marked cells. A cell receiving an extra strawberry has entry greater than $M$ and lies at the intersection of a small rich line and a big perpendicular line. It is not marked by the perpendicular line: if that perpendicular line is poor, it marks only entries smaller than $M$, and if it is rich, it marks only cells on big parallel indices. Thus every cell receives at most two strawberries. Since only cells counted by $g$ receive strawberries, the total number $N$ of strawberries satisfies
+\[
+N\le2g.
+\tag{3}
+\]
+
+There are $35m$ small rows and $35m$ small columns. Every small line receives at least $34$ strawberries: a rich one has at least $17$ marked cells, each counted twice, and a poor one has at least $35$. There are $17(m-1)$ big rows and the same number of big columns, and every big line receives at least $17$ strawberries. Hence
+\[
+\begin{aligned}
+N
+&\ge2\bigl(35m\cdot34+17(m-1)\cdot17\bigr)\\
+&=2(1479m-289)\\
+&=2\cdot57392.
+\end{aligned}
+\]
+Together with (3), this proves (1). Thus at most
+\[
+2011^2-57392=3986729
+\]
+cells can contain any fixed nonzero number, and the construction attains this bound.
+
+SOLUTION 2:
+We retain the construction from Solution 1 and give another proof of the upper bound. Put
+\[
+S=35,
+\qquad
+H=17,
+\qquad
+m=39.
+\]
+Then
+\[
+52=S+H,
+\qquad
+2011=Sm+H(m-1).
+\]
+Fix a positive integer $M$ and call a cell \emph{vicious} if its entry differs from $M$. We prove that the total number $g$ of vicious cells satisfies
+\[
+g\ge H^2(m-1)+2SHm=57392.
+\tag{1}
+\]
+
+Call the residues $1,\ldots,S$ modulo $S+H$ small and the remaining $H$ residues big. For residues $i,j$, let $v_{ij}$ be the number of vicious cells whose row has residue $i$ and whose column has residue $j$. Let
+\[
+a=\sum_{s,s'\text{ small}}v_{ss'},
+\qquad
+b=\sum_{s\text{ small},\,h\text{ big}}v_{sh},
+\]
+\[
+c=\sum_{h\text{ big},\,s\text{ small}}v_{hs},
+\qquad
+d=\sum_{h,h'\text{ big}}v_{hh'}.
+\]
+Thus
+\[
+g=a+b+c+d.
+\]
+
+\textbf{Claim 1.}
+\[
+m\le\frac{a}{S^2}+\frac{b+c}{2SH}.
+\tag{2}
+\]
+Consider a small row. Let $\alpha$ and $\beta$ be the numbers of vicious cells in that row lying in small and big columns, respectively. The residue-sum argument from Solution 1 shows that either there is a vicious cell in every small column residue, giving $\alpha\ge S$, or there is one in every big column residue, giving $\beta\ge H$. Hence
+\[
+\frac{\alpha}{S}+\frac{\beta}{H}\ge1.
+\]
+Summing over the $mS$ small rows gives
+\[
+\frac{a}{S}+\frac{b}{H}\ge mS.
+\]
+Interchanging rows and columns gives
+\[
+\frac{a}{S}+\frac{c}{H}\ge mS.
+\]
+Adding and dividing by $2S$ proves (2).
+
+\textbf{Claim 2.} For any small residues $s,s'$ and big residues $h,h'$,
+\[
+2m-1\le v_{ss'}+v_{sh'}+v_{hh'}.
+\tag{3}
+\]
+Every $52\times52$ napkin contains exactly one cell of each ordered residue type modulo $52$. Remove all napkins that cover a vicious cell of type $(s,s')$. Among the $m^2$ cells of this type, the remaining $m^2-v_{ss'}$ cells each had entry $M$. Thus exactly
+\[
+(m^2-v_{ss'})M
+\]
+napkins remain. Write in red, in every cell, the number of remaining napkins covering it.
+
+In one dimension, a fixed coordinate with a big residue can belong to a length-$52$ interval together with at most two coordinates having any prescribed small residue: one may lie in the adjacent residue block on either side. Therefore, in two dimensions, an $(h,h')$-cell can share a napkin with at most $2\cdot2=4$ cells of type $(s,s')$. For an $(s,h')$-cell, one coordinate residue is already fixed in the same class, so it can share a napkin with at most two cells of type $(s,s')$ and at most two cells of type $(h,h')$. Consequently, every red number in an $(h,h')$-cell is at most $4M$, and every red number in an $(s,h')$-cell is at most $2M$.
+
+Let $x,y,z$ be the numbers of $(h,h')$-cells whose red entries lie in
+\[
+(M,2M],
+\qquad
+(2M,3M],
+\qquad
+(3M,4M],
+\]
+respectively. All these cells are vicious, so
+\[
+x+y+z\le v_{hh'}.
+\tag{4}
+\]
+There are $(m-1)^2$ cells of type $(h,h')$, and every remaining napkin covers exactly one of them. Therefore
+\[
+\begin{aligned}
+(m^2-v_{ss'})M
+&\le\bigl((m-1)^2-x-y-z\bigr)M\\
+&\quad+2xM+3yM+4zM.
+\end{aligned}
+\]
+After simplification,
+\[
+2m-1\le v_{ss'}+x+2y+3z.
+\tag{5}
+\]
+
+Say that an $(h,h')$-cell $\delta$ \emph{forces} an $(s,h')$-cell $\beta$ if more than $M$ remaining napkins cover both. Each $(s,h')$-cell is forced by at most one $(h,h')$-cell, because its red entry is at most $2M$ and the sets of napkins associated with distinct $(h,h')$-cells are disjoint.
+
+An $(h,h')$-cell with red entry greater than $2M$ forces at least one of its at most two $(s,h')$ neighbors. If its red entry is greater than $3M$, it forces both: otherwise the two overlap counts would sum to at most $M+2M=3M$. Hence the $y$ cells of the second kind and the $z$ cells of the third kind force at least
+\[
+y+2z
+\]
+distinct vicious $(s,h')$-cells. Therefore
+\[
+y+2z\le v_{sh'}.
+\tag{6}
+\]
+Combining (4)--(6) yields (3).
+
+\textbf{Claim 3.}
+\[
+2m-1
+\le
+\frac{a}{S^2}
++\frac{b+c}{2SH}
++\frac{d}{H^2}.
+\tag{7}
+\]
+Average (3) over all $S^2H^2$ choices of $(s,s',h,h')$. This gives
+\[
+2m-1\le\frac{a}{S^2}+\frac{b}{SH}+\frac{d}{H^2}.
+\]
+Interchanging rows and columns gives the same inequality with $b$ replaced by $c$. Averaging the two proves (7).
+
+Multiply (7) by $H^2$, multiply (2) by $2SH-H^2$, and add. The left side becomes
+\[
+H^2(2m-1)+(2SH-H^2)m
+=H^2(m-1)+2SHm.
+\]
+The right side is
+\[
+\frac{2H}{S}a+b+c+d.
+\]
+Since
+\[
+2H=34\le35=S,
+\]
+this is at most
+\[
+a+b+c+d=g.
+\]
+Thus (1) follows, proving the same upper bound as in Solution 1. Therefore the largest possible value is
+\[
+\boxed{3986729}.
+\]

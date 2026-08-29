@@ -1,0 +1,122 @@
+ID: 0032
+
+SOURCE: IMO Shortlist
+
+YEAR: 2011
+
+TOPIC: Algebra
+
+SUBTOPICS: Functional Equations, Function Iteration, Induction
+
+STATEMENT:
+Determine all pairs of functions
+\[
+f,g:\mathbb N\to\mathbb N,
+\]
+where $\mathbb N$ is the set of positive integers, such that
+\[
+f^{\,g(n)+1}(n)+g^{\,f(n)}(n)
+=f(n+1)-g(n+1)+1
+\tag{1}
+\]
+for every positive integer $n$. Here $h^k$ denotes the $k$-fold iterate of a function $h$.
+
+SOLUTION 1:
+The unique solution is
+\[
+\boxed{f(n)=n,\qquad g(n)=1}
+\]
+for every $n\in\mathbb N$.
+
+Because all values of $f$ and $g$ are positive, equation (1) implies
+\[
+f^{\,g(n)+1}(n)<f(n+1)
+\tag{2}
+\]
+for every $n$.
+
+List the distinct values attained by $f$ in increasing order:
+\[
+y_1<y_2<\cdots.
+\]
+We prove successively that
+\[
+\text{(i)}_n:\quad f(x)=y_n\Longleftrightarrow x=n,
+\]
+and
+\[
+\text{(ii)}_n:\quad y_n=n.
+\]
+
+To begin, let $f(x)=y_1$. If $x>1$, then applying (2) to $x-1$ gives
+\[
+f^{\,g(x-1)+1}(x-1)<f(x)=y_1,
+\]
+contradicting the minimality of $y_1$. Hence $x=1$, so $\text{(i)}_1$ holds.
+
+Assume now that $\text{(i)}_n$ and all preceding assertions have been established. In particular, for every $j<n$,
+\[
+y_j=j
+\qquad\text{and}\qquad
+f^{-1}(j)=\{j\}.
+\tag{3}
+\]
+The value $y_{n+1}$ exists: otherwise the image of $f$ would consist of $y_1,\ldots,y_n$, each already having its unique preimage $1,\ldots,n$, which is impossible because the domain is infinite.
+
+Choose $x$ with
+\[
+f(x)=y_{n+1}.
+\]
+Then $x>n$. Applying (2) to $x-1$ gives
+\[
+f\left(f^{\,g(x-1)}(x-1)\right)<y_{n+1}.
+\]
+Set
+\[
+b=f^{\,g(x-1)}(x-1).
+\]
+The number $f(b)$ is one of $y_1,\ldots,y_n$. By the already proved uniqueness assertions, this implies
+\[
+b\in\{1,2,\ldots,n\}.
+\tag{4}
+\]
+If $b<n$, then repeatedly using (3) to cancel the iterates of $f$ gives
+\[
+x-1=b<n,
+\]
+contradicting $x>n$. Therefore
+\[
+b=n.
+\tag{5}
+\]
+Since $b$ itself is a value of $f$ and the preceding values are $1,\ldots,n-1$, relation (5) gives
+\[
+y_n=n.
+\]
+This proves $\text{(ii)}_n$.
+
+Now $\text{(i)}_n$ says that $n$ has the unique preimage $n$. Repeatedly cancelling $f$ in (5) yields
+\[
+x-1=n,
+\]
+so $x=n+1$. Thus $y_{n+1}$ is attained only at $n+1$, proving $\text{(i)}_{n+1}$.
+
+The induction shows that
+\[
+f(n)=n
+\]
+for every $n$. Substituting this into (1),
+\[
+n+g^n(n)=n+1-g(n+1)+1,
+\]
+so
+\[
+g^n(n)+g(n+1)=2.
+\]
+Both terms are positive integers, hence both equal $1$. Taking $n=1$ gives $g(1)=1$, and the relation $g(n+1)=1$ gives the same for every larger argument. Therefore
+\[
+g(n)=1
+\]
+for all $n$.
+
+Finally, the pair $f(n)=n$, $g(n)=1$ satisfies (1), so it is the unique solution.

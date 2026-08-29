@@ -1,0 +1,15 @@
+{
+  "id": "0029",
+  "source": "IMO Shortlist",
+  "year": "2011",
+  "topic": "Algebra",
+  "subtopics": [
+    "Divisibility",
+    "Extremal Sets",
+    "Diophantine Systems"
+  ],
+  "statement": "For a set\n\\[\nA=\\{a_1,a_2,a_3,a_4\\}\n\\]\nof four distinct positive integers, let\n\\[\ns_A=a_1+a_2+a_3+a_4,\n\\]\nand let $p_A$ be the number of pairs $(i,j)$ with $1\\le i<j\\le4$ for which\n\\[\na_i+a_j\\mid s_A.\n\\]\nAmong all such sets $A$, determine those for which $p_A$ is maximal.",
+  "solutions": [
+    "The maximal value is\n\\[\n\\boxed{4}.\n\\]\nIt is attained exactly by the sets\n\\[\n\\boxed{\\{d,5d,7d,11d\\}}\n\\qquad\\text{and}\\qquad\n\\boxed{\\{d,11d,19d,29d\\}},\n\\]\nwhere $d$ is any positive integer.\n\nOrder the elements as\n\\[\na_1<a_2<a_3<a_4.\n\\]\nFor any pair of indices $\\{i,j\\}$, let $\\{k,\\ell\\}$ be the complementary pair. Then\n\\[\na_i+a_j\\mid s_A\n\\quad\\Longleftrightarrow\\quad\n a_i+a_j\\mid a_k+a_\\ell.\n\\tag{1}\n\\]\nNow\n\\[\na_2+a_4>a_1+a_3\n\\qquad\\text{and}\\qquad\n a_3+a_4>a_1+a_2.\n\\]\nHence neither $a_2+a_4$ nor $a_3+a_4$ can divide its positive complementary sum. Thus at least two of the six pairs fail, and\n\\[\np_A\\le4.\n\\tag{2}\n\\]\n\nAssume that equality holds. Then the four remaining pairs all work. In particular,\n\\[\na_1+a_4=a_2+a_3,\n\\tag{3}\n\\]\nbecause each of these two equal-sum candidates divides the other. Moreover, there are integers $m,n\\ge2$ such that\n\\[\nm(a_1+a_2)=a_3+a_4,\n\\qquad\nn(a_1+a_3)=a_2+a_4.\n\\tag{4}\n\\]\nUsing (3), a direct comparison gives\n\\[\n\\begin{aligned}\n&(a_3+a_4)(a_1+a_3)-(a_2+a_4)(a_1+a_2)\\\\\n&\\qquad=2(a_3-a_2)(a_2+a_3)>0,\n\\end{aligned}\n\\]\nso\n\\[\nm>n.\n\\tag{5}\n\\]\n\nFrom (3),\n\\[\na_4=a_2+a_3-a_1.\n\\]\nSubstituting this into the second equation of (4),\n\\[\nn(a_1+a_3)=2a_2+a_3-a_1.\n\\tag{6}\n\\]\nIf $n\\ge3$, then\n\\[\nn(a_1+a_3)>3a_3>2a_2+a_3>2a_2+a_3-a_1,\n\\]\ncontradicting (6). Therefore\n\\[\nn=2.\n\\tag{7}\n\\]\nEquation (6) now becomes\n\\[\n3a_1+a_3=2a_2.\n\\tag{8}\n\\]\nOn the other hand, substituting (3) into the first equation of (4) gives\n\\[\n(m+1)a_1+(m-1)a_2=2a_3.\n\\tag{9}\n\\]\nTwice (8), together with (9), yields\n\\[\n(m+7)a_1=(5-m)a_2.\n\\tag{10}\n\\]\nSince $a_1,a_2>0$ and $m>n=2$, relation (10) forces\n\\[\nm\\in\\{3,4\\}.\n\\]\n\nIf $m=3$, then (10) gives $a_2=5a_1$. Equations (8) and (3) then give\n\\[\na_3=7a_1,\n\\qquad\na_4=11a_1.\n\\]\nThus\n\\[\nA=\\{d,5d,7d,11d\\}.\n\\]\n\nIf $m=4$, then (10) gives $a_2=11a_1$, and similarly\n\\[\na_3=19a_1,\n\\qquad\na_4=29a_1.\n\\]\nThus\n\\[\nA=\\{d,11d,19d,29d\\}.\n\\]\n\nFinally, the pair sums in the first family are\n\\[\n6d,8d,12d,12d,16d,18d\n\\]\nand $s_A=24d$, while those in the second family are\n\\[\n12d,20d,30d,30d,40d,48d\n\\]\nand $s_A=60d$. In each case exactly four pair sums divide $s_A$. Hence these and only these sets maximize $p_A$."
+  ]
+}
