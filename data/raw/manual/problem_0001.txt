@@ -9,48 +9,128 @@ TOPIC: Algebra
 SUBTOPICS: Functional Equations
 
 STATEMENT:
-Find all function $f:\mathbb{R}\rightarrow\mathbb{R}$ such that for all $x,y\in\mathbb{R}$ the following equality holds\[f(\left\lfloor x\right\rfloor y)=f(x)\left\lfloor f(y)\right\rfloor \]where $\left\lfloor a\right\rfloor $ is greatest integer not greater than $a.$
+Determine all functions $f:\mathbb{R}\to\mathbb{R}$ such that
+\[
+f(\lfloor x\rfloor y)=f(x)\lfloor f(y)\rfloor
+\tag{1}
+\]
+holds for all $x,y\in\mathbb{R}$. Here, $\lfloor x\rfloor$ denotes the greatest integer not exceeding $x$.
 
 SOLUTION 1:
-Put $x=y=0$. Then $f(0)=0$ or $\lfloor f(0) \rfloor=1$.
+The answer is
+\[
+f(x)=C,
+\]
+where either $C=0$ or $1\le C<2$.
 
-$\bullet$ If $\lfloor f(0) \rfloor=1$, putting $y=0$ we get $f(x)=f(0)$, that is f is constant.
-Substituing in the original equation we find $f(x)=0, \ \forall x \in \mathbb{R}$ or $f(x)=a, \ \forall x \in \mathbb{R}$, where $a \in [1,2)$.
+First, setting $x=0$ in (1), we get
+\[
+f(0)=f(0)\lfloor f(y)\rfloor
+\tag{2}
+\]
+for all $y\in\mathbb{R}$. Now two cases are possible.
 
-$\bullet$ If $f(0)=0$, putting $x=y=1$ we get $f(1)=0$ or $\lfloor f(1) \rfloor=1$.
+\textbf{Case 1.} Assume that $f(0)\ne 0$. Then from (2) we conclude that
+\[
+\lfloor f(y)\rfloor=1
+\]
+for all $y\in\mathbb{R}$. Therefore, equation (1) becomes
+\[
+f(\lfloor x\rfloor y)=f(x),
+\]
+and substituting $y=0$ gives
+\[
+f(x)=f(0)=C\ne 0.
+\]
+Finally, from $\lfloor f(y)\rfloor=1=\lfloor C\rfloor$, we obtain
+\[
+1\le C<2.
+\]
 
-For $f(1)=0$, we set $x=1$ to find $f(y)=0 \ \forall y$, which is a solution.
+\textbf{Case 2.} Now suppose that $f(0)=0$. We consider two subcases.
 
+\textbf{Subcase 2a.} Suppose that there exists $0<\alpha<1$ such that $f(\alpha)\ne 0$. Setting $x=\alpha$ in (1), we obtain
+\[
+0=f(0)=f(\alpha)\lfloor f(y)\rfloor
+\]
+for all $y\in\mathbb{R}$. Hence,
+\[
+\lfloor f(y)\rfloor=0
+\]
+for all $y\in\mathbb{R}$. Substituting $x=1$ in (1) then gives
+\[
+f(y)=0
+\]
+for all $y\in\mathbb{R}$, contradicting $f(\alpha)\ne 0$.
 
-For $\lfloor f(1) \rfloor=1$, setting $y=1$ yields $f(\lfloor x \rfloor)=f(x), \ (*)$.
+\textbf{Subcase 2b.} Consequently,
+\[
+f(\alpha)=0
+\]
+for all $0\le \alpha<1$. Consider any real number $z$. There exists an integer $N$ such that
+\[
+\alpha=\frac{z}{N}\in[0,1).
+\]
+For example, one may take $N=\lfloor z\rfloor+1$ if $z\ge 0$, and $N=\lfloor z\rfloor-1$ otherwise. Now, from (1),
+\[
+f(z)=f(\lfloor N\rfloor\alpha)=f(N)\lfloor f(\alpha)\rfloor=0.
+\]
+Thus $f(z)=0$ for all $z\in\mathbb{R}$.
 
-Putting $x=2, y=\frac{1}{2}$ to the original we get $f(1)=f(2)\lfloor f(\frac{1}{2}) \rfloor$.
-However, from $(*)$ we have $f(\frac{1}{2})=f(0)=0$, so $f(1)=0$ which contradicts the fact $\lfloor f(1) \rfloor=1$.
-
-So, $f(x)=0, \ \forall x$ or $f(x)=a, \ \forall x, \ a \in [1,2)$.
+A straightforward check shows that all the obtained functions satisfy (1).
 
 SOLUTION 2:
-Let $P(x,y)$ be the assertation of $f([x]y)=f(x)[f(y)]$
-$P(0,0): f(0)=f(0)[f(0)]$
-There are 2 cases:
-1. $[f(0)]=1$. Then,
-$P(x,0): f(0)=f(x)$
-Making $f(x)=c$ for some constant $c$. Substituting back to $P(x,y)$, we get:
-$c=c[c]$
-or $[c]=1$.
-Then, $1\leq c<2$.
-2. $f(0)=0$.
-$P(1,1): f(1)=f(1)[f(1)]$
-Again, there are 2 subcases:
-a. $f(1)=0$.
-$P(1,y): f(y)=0$.
-After checking back to the f.q., we get $f(x)=0$ is also a solution.
-b. $[f(1)]=1$.
-$P(x,1): f(x)=f([x])$.
-Consider:
-$P(2010,\frac1{2010}): f(1)=f(2010)[f(\frac{1}{2010})]=f(2010)[f(0)]=0$.
-Contradiction, because $1=[f(1)]=[0]=0$.
+Assume that
+\[
+\lfloor f(y)\rfloor=0
+\]
+for some $y$. Then substituting $x=1$ into (1) gives
+\[
+f(y)=f(1)\lfloor f(y)\rfloor=0.
+\]
+Hence, if $\lfloor f(y)\rfloor=0$ for every $y$, then $f(y)=0$ for every $y$. This function clearly satisfies the condition.
 
-Then the function which satisfies $P(x,y)$ is:
-$f(x)=0\forall x\in\mathbb{R}$
-$f(x)=c\forall x\in\mathbb{R}, 1\leq c<2$.
+We are therefore left with the case in which
+\[
+\lfloor f(a)\rfloor\ne 0
+\]
+for some $a$. Then
+\[
+f(\lfloor x\rfloor a)=f(x)\lfloor f(a)\rfloor,
+\]
+so
+\[
+f(x)=\frac{f(\lfloor x\rfloor a)}{\lfloor f(a)\rfloor}.
+\tag{3}
+\]
+This means that $f(x_1)=f(x_2)$ whenever $\lfloor x_1\rfloor=\lfloor x_2\rfloor$. Hence,
+\[
+f(x)=f(\lfloor x\rfloor),
+\]
+and we may assume that $a$ is an integer.
+
+Now,
+\[
+f(a)
+=f\left(2a\cdot\frac12\right)
+=f(2a)\left\lfloor f\left(\frac12\right)\right\rfloor
+=f(2a)\lfloor f(0)\rfloor.
+\]
+This implies that $\lfloor f(0)\rfloor\ne 0$, so we may take $a=0$. Equation (3) then gives
+\[
+f(x)=\frac{f(0)}{\lfloor f(0)\rfloor}=C\ne 0
+\]
+for every $x$. The original condition becomes
+\[
+C=C\lfloor C\rfloor,
+\]
+which holds exactly when
+\[
+\lfloor C\rfloor=1,
+\]
+i.e.
+\[
+1\le C<2.
+\]
+
+Together with the zero function, these are all the solutions.

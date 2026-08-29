@@ -6,71 +6,299 @@ YEAR: 2010
 
 TOPIC: Combinatorics
 
-SUBTOPICS: 
+SUBTOPICS: Covering Systems, Hall's Marriage Theorem, Arithmetic Progressions
 
-STATEMENT: Let $P_1, \ldots , P_s$ be arithmetic progressions of integers, the following conditions being satisfied:
+STATEMENT:
+Let $P_1,\ldots,P_s$ be arithmetic progressions of integers such that
 
-(i) each integer belongs to at least one of them;
-(ii) each progression contains a number which does not belong to other progressions.
+(i) every integer belongs to at least one of them;
 
-Denote by $n$ the least common multiple of the ratios of these progressions; let $n=p_1^{\alpha_1} \cdots p_k^{\alpha_k}$ its prime factorization.
+(ii) every progression contains an integer that belongs to none of the other progressions.
 
-Prove that\[s \geq 1 + \sum^k_{i=1} \alpha_i (p_i - 1).\]
+Let $n$ be the least common multiple of their steps, and write
+\[
+n=p_1^{\alpha_1}\cdots p_k^{\alpha_k}
+\]
+for its prime factorization. Prove that
+\[
+s\ge 1+\sum_{i=1}^k\alpha_i(p_i-1).
+\]
 
-SOLUTION 1: First, we prove the key lemma, and then we show how to apply it to finish the solution.
+SOLUTION 1:
+We first prove a grid lemma.
 
-Let $n_1, \dots, n_k$ be positive integers. By an $n_1 \times n_2 \times \dots \times n_k$ \textit{grid} we mean the set $N = \{(a_1, \dots, a_k) : a_i \in \mathbb{Z},\ 0 \le a_i \le n_i - 1\}$; the elements of $N$ will be referred to as \textit{points}. In this grid, we define a \textit{subgrid} as a subset of the form
-\begin{equation}
-L = \{(b_1, \dots, b_k) \in N : b_{i_1} = x_{i_1}, \dots, b_{i_t} = x_{i_t}\},
-\end{equation}
-where $I = \{i_1, \dots, i_t\}$ is an arbitrary nonempty set of indices, and $x_{i_j} \in [0, n_{i_j} - 1]$ ($1 \le j \le t$) are fixed integer numbers. Further, we say that a subgrid (1) is \textit{orthogonal to the $i$th coordinate axis} if $i \in I$, and that it is \textit{parallel to the $i$th coordinate axis} otherwise.
+Let $n_1,\ldots,n_k$ be positive integers and define the grid
+\[
+\mathcal{N}=\{(a_1,\ldots,a_k):0\le a_i\le n_i-1\}.
+\]
+A \emph{subgrid} is a set obtained by fixing a nonempty collection of coordinates. A subgrid is called orthogonal to the $i$th coordinate axis if its $i$th coordinate is fixed.
 
-\textit{Lemma.} Assume that the grid $N$ is covered by subgrids $L_1, L_2, \dots, L_s$ (this means $N = \bigcup_{i=1}^s L_i$) so that
-\begin{itemize}
-    \item[(ii')] each subgrid contains a point which is not covered by other subgrids;
-    \item[(iii)] for each coordinate axis, there exists a subgrid $L_i$ orthogonal to this axis.
-\end{itemize}
+\textbf{Grid Lemma.} Suppose subgrids $L_1,\ldots,L_s$ cover $\mathcal{N}$ and satisfy:
+
+1. every $L_j$ contains a point belonging to no other $L_m$;
+
+2. for every coordinate axis, at least one $L_j$ is orthogonal to that axis.
+
 Then
 \[
-s \ge 1 + \sum_{i=1}^k (n_i - 1).
+s\ge1+\sum_{i=1}^k(n_i-1).
+\tag{1}
 \]
 
-\textit{Proof.} Assume to the contrary that $s \le \sum_{i} (n_i - 1) = s'$. Our aim is to find a point that is not covered by $L_1, \dots, L_s$.
-
-The idea of the proof is the following. Imagine that we expand each subgrid to some maximal subgrid so that for the $i$th axis, there will be at most $n_i - 1$ maximal subgrids orthogonal to this axis. Then the desired point can be found easily: its $i$th coordinate should be that not covered by the maximal subgrids orthogonal to the $i$th axis. Surely, the conditions for existence of such expansion are provided by Hall's lemma on matchings. So, we will follow this direction, although we will apply Hall's lemma to some subgraph instead of the whole graph.
-
-Construct a bipartite graph $G = (V \cup V', E)$ as follows. Let $V = \{L_1, \dots, L_s\}$, and let $V' = \{v_{ij} : 1 \le i \le s,\ 1 \le j \le n_i - 1\}$ be some set of $s'$ elements. Further, let the edge $(L_m, v_{ij})$ appear iff $L_m$ is orthogonal to the $i$th axis.
-
-For each subset $W \subset V$, denote
+Assume otherwise that
 \[
-f(W) = \{v \in V' : (L, v) \in E \text{ for some } L \in W\}.
+s\le s':=\sum_{i=1}^k(n_i-1).
 \]
-Notice that $f(V) = V'$ by (iii).
-
-Now, consider the set $W \subset V$ containing the maximal number of elements such that $|W| > |f(W)|$; if there is no such set then we set $W = \varnothing$. Denote $W' = f(W)$, $U = V \setminus W$, $U' = V' \setminus W'$.
-
-By our assumption and the Lemma condition, $|f(V)| = |V'| \ge |V|$, hence $W \neq V$ and $U \neq \varnothing$. Permuting the coordinates, we can assume that $U' = \{v_{ij} : 1 \le i \le \ell\}$, $W' = \{v_{ij} : \ell + 1 \le i \le k\}$.
-
-Consider the induced subgraph $G'$ of $G$ on the vertices $U \cup U'$. We claim that for every $X \subset U$, we get $|f(X) \cap U'| \ge |X|$ (so $G'$ satisfies the conditions of Hall's lemma). Actually, we have $|W| \ge |f(W)|$, so if $|X| > |f(X) \cap U'|$ for some $X \subset U$, then we have
+Construct a bipartite graph with left vertex set
 \[
-|W \cup X| = |W| + |X| > |f(W)| + |f(X) \cap U'| = |f(W) \cup (f(X) \cap U')| = |f(W \cup X)|.
+V=\{L_1,\ldots,L_s\}
 \]
-This contradicts the maximality of $|W|$.
-
-Thus, applying Hall's lemma, we can assign to each $L \in U$ some vertex $v_{ij} \in U'$ so that to distinct elements of $U$, distinct vertices of $U'$ are assigned. In this situation, we say that $L \in U$ corresponds to the $i$th axis, and write $g(L) = i$. Since there are $n_i - 1$ vertices of the form $v_{ij}$, we get that for each $1 \le i \le \ell$, not more than $n_i - 1$ subgrids correspond to the $i$th axis.
-
-Finally, we are ready to present the desired point. Since $W \neq V$, there exists a point $b = (b_1, b_2, \dots, b_k) \in N \setminus (\bigcup_{L \in W} L)$. On the other hand, for every $1 \le i \le \ell$, consider any subgrid $L \in U$ with $g(L) = i$. This means exactly that $L$ is orthogonal to the $i$th axis, and hence all its elements have the same $i$th coordinate $c_L$. Since there are at most $n_i - 1$ such subgrids, there exists a number $0 \le a_i \le n_i - 1$ which is not contained in a set $\{c_L : g(L) = i\}$. Choose such number for every $1 \le i \le \ell$. Now we claim that point $a = (a_1, \dots, a_\ell, b_{\ell+1}, \dots, b_k)$ is not covered, hence contradicting the Lemma condition.
-
-Surely, point $a$ cannot lie in some $L \in U$, since all the points in $L$ have $g(L)$th coordinate $c_L \neq a_{g(L)}$. On the other hand, suppose that $a \in L$ for some $L \in W$; recall that $b \notin L$. But the points $a$ and $b$ differ only at first $\ell$ coordinates, so $L$ should be orthogonal to at least one of the first $\ell$ axes, and hence our graph contains some edge $(L, v_{ij})$ for $i \le \ell$. It contradicts the definition of $W'$. The Lemma is proved. \hfill $\square$
-
-Now we turn to the problem. Let $d_j$ be the step of the progression $P_j$. Note that since $n = \text{l.c.m.}(d_1, \dots, d_s)$, for each $1 \le i \le k$ there exists an index $j(i)$ such that $p_i^{\alpha_i} \mid d_{j(i)}$. We assume that $n > 1$; otherwise the problem statement is trivial.
-
-For each $0 \le m \le n - 1$ and $1 \le i \le k$, let $m_i$ be the residue of $m$ modulo $p_i^{\alpha_i}$, and let $m_i = \overline{r_{i\alpha_i} \dots r_{i1}}$ be the base $p_i$ representation of $m_i$ (possibly, with some leading zeroes). Now, we put into correspondence to $m$ the sequence $r(m) = (r_{11}, \dots, r_{1\alpha_1}, r_{21}, \dots, r_{k\alpha_k})$. Hence $r(m)$ lies in a $\underbrace{p_1 \times \dots \times p_1}_{\alpha_1 \text{ times}} \times \dots \times \underbrace{p_k \times \dots \times p_k}_{\alpha_k \text{ times}}$ grid $N$.
-
-Surely, if $r(m) = r(m')$ then $p_i^{\alpha_i} \mid m_i - m'_i$, which follows $p_i^{\alpha_i} \mid m - m'$ for all $1 \le i \le k$; consequently, $n \mid m - m'$. So, when $m$ runs over the set $\{0, \dots, n - 1\}$, the sequences $r(m)$ do not repeat; since $|N| = n$, this means that $r$ is a bijection between $\{0, \dots, n - 1\}$ and $N$. Now we will show that for each $1 \le i \le s$, the set $L_i = \{r(m) : m \in P_i\}$ is a subgrid, and that for each axis there exists a subgrid orthogonal to this axis. Obviously, these subgrids cover $N$, and the condition (ii') follows directly from (ii). Hence the Lemma provides exactly the estimate we need.
-
-Consider some $1 \le j \le s$ and let $d_j = p_1^{\gamma_1} \dots p_k^{\gamma_k}$. Consider some $q \in P_j$ and let $r(q) = (r_{11}, \dots, r_{k\alpha_k})$. Then for an arbitrary $q'$, setting $r(q') = (r'_{11}, \dots, r'_{k\alpha_k})$ we have
+and right vertex set
 \[
-q' \in P_j \iff p_i^{\gamma_i} \mid q - q' \text{ for each } 1 \le i \le k \iff r_{i,t} = r'_{i,t} \text{ for all } t \le \gamma_i.
+V'=\{v_{ij}:1\le i\le k,\ 1\le j\le n_i-1\}.
 \]
-Hence $L_j = \{(r'_{11}, \dots, r'_{k\alpha_k}) \in N : r_{i,t} = r'_{i,t} \text{ for all } t \le \gamma_i\}$ which means that $L_j$ is a subgrid containing $r(q)$. Moreover, in $L_{j(i)}$, all the coordinates corresponding to $p_i$ are fixed, so it is orthogonal to all of their axes, as desired.
+Join $L_m$ to every $v_{ij}$ belonging to an axis to which $L_m$ is orthogonal. For $W\subseteq V$, let $F(W)$ be its neighborhood. By condition 2,
+\[
+F(V)=V'.
+\]
+Choose a set $W\subseteq V$ of maximum cardinality subject to
+\[
+|W|>|F(W)|;
+\]
+if no such set exists, let $W=\varnothing$. Put
+\[
+W'=F(W),
+\qquad
+U=V\setminus W,
+\qquad
+U'=V'\setminus W'.
+\]
+Since $|V'|\ge|V|$ and $F(V)=V'$, we have $W\ne V$, so $U\ne\varnothing$.
+
+Each group $\{v_{ij}:1\le j\le n_i-1\}$ is either entirely contained in $W'$ or entirely outside it. After permuting coordinates, suppose $U'$ consists of the groups corresponding to axes $1,\ldots,\ell$.
+
+Consider the induced bipartite graph on $U\cup U'$. For every $X\subseteq U$,
+\[
+|F(X)\cap U'|\ge|X|.
+\]
+Otherwise,
+\[
+|W\cup X|=|W|+|X|>|F(W)|+|F(X)\cap U'|=|F(W\cup X)|,
+\]
+contradicting the maximality of $W$. Hence Hall's theorem gives an injection assigning to each $L\in U$ one axis $g(L)\in\{1,\ldots,\ell\}$ to which $L$ is orthogonal, with at most $n_i-1$ subgrids assigned to axis $i$.
+
+Because $W\ne V$, choose $L_0\in U$. By condition 1, $L_0$ has a private point
+\[
+b=(b_1,\ldots,b_k)
+\]
+that lies in no member of $W$. For each $i\le\ell$, all subgrids $L\in U$ assigned to axis $i$ fix that coordinate to some value $c_L$. There are at most $n_i-1$ such values, so choose
+\[
+a_i\in\{0,\ldots,n_i-1\}
+\]
+different from every $c_L$ assigned to axis $i$. Define
+\[
+a=(a_1,\ldots,a_\ell,b_{\ell+1},\ldots,b_k).
+\]
+The point $a$ lies in no $L\in U$ by its chosen coordinate. It also lies in no $L\in W$: if $a\in L\in W$ while $b\notin L$, then $L$ must fix one of the first $\ell$ coordinates, which would place a corresponding vertex of $U'$ inside $F(W)=W'$, a contradiction. Thus $a$ is uncovered, contradicting the covering assumption. The Grid Lemma is proved.
+
+We now apply it to the arithmetic progressions. Let $d_j$ be the step of $P_j$. Assume $n>1$, since $n=1$ is trivial. For each residue $m\pmod n$ and each $i$, write the residue of $m$ modulo $p_i^{\alpha_i}$ in base $p_i$:
+\[
+m_i=\overline{r_{i,\alpha_i}\cdots r_{i,1}}_{p_i}.
+\]
+Map $m$ to the tuple of all these digits:
+\[
+r(m)=(r_{1,1},\ldots,r_{1,\alpha_1},r_{2,1},\ldots,r_{k,\alpha_k}).
+\]
+By the Chinese remainder theorem, this is a bijection from the residues modulo $n$ to the grid
+\[
+\underbrace{[0,p_1-1]\times\cdots\times[0,p_1-1]}_{\alpha_1\text{ factors}}
+\times\cdots\times
+\underbrace{[0,p_k-1]\times\cdots\times[0,p_k-1]}_{\alpha_k\text{ factors}}.
+\tag{2}
+\]
+
+Write
+\[
+d_j=p_1^{\gamma_1}\cdots p_k^{\gamma_k}.
+\]
+Membership in $P_j$ fixes the residue modulo $d_j$, and therefore fixes exactly the first $\gamma_i$ base-$p_i$ digits for each $i$. Hence the image of $P_j$ under $r$ is a subgrid of (2).
+
+These subgrids cover the grid because the progressions cover all integers. Condition (ii) gives each subgrid a private point. Finally, for every prime $p_i$, some step $d_j$ is divisible by $p_i^{\alpha_i}$ because $n$ is the least common multiple of the steps. The corresponding subgrid fixes all $\alpha_i$ coordinates associated with $p_i$, so every coordinate axis is orthogonal to some subgrid.
+
+Applying the Grid Lemma with $\alpha_i$ copies of $n_j=p_i$ yields
+\[
+s\ge1+\sum_{i=1}^k\alpha_i(p_i-1),
+\]
+as required.
+
+SOLUTION 2:
+We prove a stronger statement by minimal-counterexample induction.
+
+For a positive integer $r$, write
+\[
+[r]=\{1,2,\ldots,r\}.
+\]
+Condition (ii) implies that the given covering
+\[
+\mathcal{P}=\{P_1,\ldots,P_s\}
+\]
+is minimal: removing $P_j$ leaves its private integer uncovered. Let $d_j$ be the step of $P_j$, and choose a private integer $h_j\in P_j$ for each $j$. Assume $n>1$. Then every $d_j>1$; indeed, a progression of step $1$ is all of $\mathbb{Z}$, which together with condition (ii) would force the covering to consist of that single progression and hence give $n=1$.
+
+\textbf{Claim.} Let $I\subseteq[k]$ be nonempty, and choose integers
+\[
+1\le\beta_i\le\alpha_i
+\qquad(i\in I).
+\]
+Define
+\[
+T=\left\{j\in[s]:p_i^{\alpha_i-\beta_i+1}\mid d_j
+\text{ for some }i\in I\right\}.
+\]
+Then
+\[
+|T|\ge1+\sum_{i\in I}\beta_i(p_i-1).
+\tag{1}
+\]
+Taking $I=[k]$ and $\beta_i=\alpha_i$ gives the problem, because every $d_j>1$ is divisible by at least one $p_i$.
+
+First suppose all steps $d_j$ are prime. If there are at least $p_i$ progressions of step $p_i$ for some $i$, then those $p_i$ residue classes are disjoint and cover all integers; minimality forces these to be the whole covering and $n=p_i$, so (1) is immediate. Otherwise, for every $i$ at most $p_i-1$ residue classes modulo $p_i$ occur. Choose a residue $q_i\pmod{p_i}$ missed by them. The Chinese remainder theorem supplies an integer $q$ with
+\[
+q\equiv q_i\pmod{p_i}
+\]
+for every $i$, and $q$ lies in no progression, a contradiction. Thus the Claim holds when all steps are prime.
+
+Assume now that the Claim fails. Choose a counterexample for which $n$ is minimal, and subject to this, for which
+\[
+\sum_j d_j
+\]
+is minimal. Some step is composite; relabel so that $p_1\mid d_1$ and
+\[
+d'_1=\frac{d_1}{p_1}>1.
+\]
+Let $P'_1$ be the arithmetic progression of step $d'_1$ containing $P_1$.
+
+Replace $P_1$ by $P'_1$ and retain $P_2,\ldots,P_s$. This still covers $\mathbb{Z}$. Choose a minimal subcovering
+\[
+\mathcal{P}'=\{P'_1,P_2,\ldots,P_{s'}\}
+\]
+after relabeling. The progression $P'_1$ must occur because $h_1$ belongs to none of $P_2,\ldots,P_s$. Write the period of $\mathcal{P}'$ as
+\[
+n'=p_1^{\alpha_1-\sigma_1}\cdots p_k^{\alpha_k-\sigma_k}
+=\operatorname{lcm}(d'_1,d_2,\ldots,d_{s'}).
+\tag{2}
+\]
+For every $j>s'$, the private point $h_j$ must lie in $P'_1$; otherwise it would not be covered after the replacement.
+
+Next, the nonempty intersections
+\[
+R_j=P_j\cap P'_1
+\]
+cover $P'_1$ and have steps
+\[
+r_j=\operatorname{lcm}(d_j,d'_1).
+\]
+After translating and scaling $P'_1$ by the factor $1/d'_1$, these intersections become progressions $Q_j$ of steps
+\[
+q_j=\frac{r_j}{d'_1}
+\]
+covering $\mathbb{Z}$. Choose a minimal subcovering $\mathcal{Q}$; it contains $Q_1$. Let
+\[
+n''=\operatorname{lcm}\{q_j:Q_j\in\mathcal{Q}\}
+=\frac{p_1^{\gamma_1}\cdots p_k^{\gamma_k}}{d'_1}.
+\tag{3}
+\]
+If $h_j\in P'_1$, then its image after scaling belongs only to $Q_j$, so $Q_j\in\mathcal{Q}$.
+
+Apply the Claim to $\mathcal{P}'$. This is allowed because either its period is smaller than $n$, or its period is $n$ and the sum of its steps is smaller. Let
+\[
+I'=\{i\in I:\beta_i>\sigma_i\},
+\qquad
+\beta'_i=\beta_i-\sigma_i.
+\]
+The relevant divisibility threshold in $\mathcal{P}'$ is still
+\[
+p_i^{(\alpha_i-\sigma_i)-\beta'_i+1}
+=p_i^{\alpha_i-\beta_i+1}.
+\]
+Hence
+\[
+|T\cap[s']|
+\ge1+\sum_{i\in I}(\beta_i-\sigma_i)_+(p_i-1),
+\tag{4}
+\]
+where $(x)_+=\max\{x,0\}$.
+
+Set
+\[
+G=\sum_{i\in I}\min\{\beta_i,\sigma_i\}(p_i-1).
+\tag{5}
+\]
+Since
+\[
+\beta_i=(\beta_i-\sigma_i)_++\min\{\beta_i,\sigma_i\},
+\]
+it remains to find at least $G$ members of $T$ among the indices $s'+1,\ldots,s$.
+
+Let
+\[
+I''=\{i\in I:\sigma_i>0\}.
+\]
+For each $i\in I''$, the full power $p_i^{\alpha_i}$ does not divide $n'$. Yet, because $n$ is the least common multiple of the original steps, there is an index $j(i)$ with
+\[
+p_i^{\alpha_i}\mid d_{j(i)}.
+\]
+Such a progression cannot belong to $\mathcal{P}'$, so $j(i)>s'$. Its private point lies in $P'_1$, hence $Q_{j(i)}\in\mathcal{Q}$. It follows from (3) that
+\[
+\gamma_i=\alpha_i
+\qquad(i\in I'').
+\tag{6}
+\]
+Write
+\[
+d'_1=p_1^{\tau_1}\cdots p_k^{\tau_k}.
+\]
+Then
+\[
+n''=p_1^{\gamma_1-\tau_1}\cdots p_k^{\gamma_k-\tau_k}<n.
+\]
+We may therefore apply the Claim to $\mathcal{Q}$ with the index set $I''$ and exponents
+\[
+\beta''_i=\min\{\beta_i,\sigma_i\}.
+\]
+Define
+\[
+T''=\left\{j:Q_j\in\mathcal{Q},\quad
+p_i^{(\gamma_i-\tau_i)-\beta''_i+1}\mid q_j
+\text{ for some }i\in I''\right\}.
+\]
+By the Claim and (5),
+\[
+|T''|\ge1+G.
+\tag{7}
+\]
+Using (6) and $q_j=r_j/d'_1$, membership in $T''$ means that, for some $i\in I''$,
+\[
+p_i^{\alpha_i-\min\{\beta_i,\sigma_i\}+1}\mid r_j.
+\tag{8}
+\]
+The exponent in (8) is greater than $\alpha_i-\sigma_i$, which is at least the exponent $\tau_i$ of $p_i$ in $d'_1$. Therefore the divisibility in (8) must come from $d_j$, not merely from $d'_1$. Since
+\[
+\alpha_i-\min\{\beta_i,\sigma_i\}+1
+\ge\alpha_i-\beta_i+1,
+\]
+we get $j\in T$.
+
+Moreover, the exponent in (8) is greater than the exponent of $p_i$ in $n'$, so $P_j$ cannot belong to $\mathcal{P}'$. Thus
+\[
+T''\subseteq T\cap\bigl(\{1\}\cup\{s'+1,\ldots,s\}\bigr).
+\]
+By (7), at least $G$ of these indices lie in $\{s'+1,\ldots,s\}$. Combining this with (4) gives
+\[
+\begin{aligned}
+|T|
+&\ge1+\sum_{i\in I}(\beta_i-\sigma_i)_+(p_i-1)
+ +\sum_{i\in I}\min\{\beta_i,\sigma_i\}(p_i-1)\\
+&=1+\sum_{i\in I}\beta_i(p_i-1),
+\end{aligned}
+\]
+contradicting the choice of the counterexample. The Claim, and therefore the problem, is proved.

@@ -6,62 +6,194 @@ YEAR: 2010
 
 TOPIC: Algebra
 
-SUBTOPICS: Functional Equations
+SUBTOPICS: Functional Equations, Positive Integers
 
-STATEMENT: Suppose that $f$ and $g$ are two functions defined on the set of positive integers and taking positive integer values. Suppose also that the equations $f(g(n)) = f(n) + 1$ and $g(f(n)) = g(n) + 1$ hold for all positive integers. Prove that $f(n) = g(n)$ for all positive integer $n.$
+STATEMENT:
+Let $f,g:\mathbb{N}\to\mathbb{N}$, where $\mathbb{N}$ is the set of positive integers. Suppose that
+\[
+f(g(n))=f(n)+1,
+\qquad
+g(f(n))=g(n)+1
+\]
+for every positive integer $n$. Prove that
+\[
+f(n)=g(n)
+\]
+for every positive integer $n$.
 
-SOLUTION 1: Step 1: $f(m) = f(n) \Leftrightarrow g(m) = g(n)$.
-If $f(m) = f(n)$, then $g(m) = g(f(m)) - 1 = g(f(n)) - 1 = g(n)$ from the second equation. The exact same argument shows the converse.
+SOLUTION 1:
+For a map $h:\mathbb{N}\to\mathbb{N}$, write $h^k$ for its $k$-fold iterate, with $h^0(x)=x$. Repeated use of the hypotheses gives
+\[
+f(g^k(x))=f(x)+k,
+\qquad
+g(f^k(x))=g(x)+k.
+\tag{1}
+\]
+Let $a$ and $b$ be the least values attained by $f$ and $g$, respectively, and choose $n_f,n_g$ such that
+\[
+f(n_f)=a,
+\qquad
+g(n_g)=b.
+\]
+By (1), the images of the two functions are
+\[
+N_f=\{a,a+1,a+2,\ldots\},
+\qquad
+N_g=\{b,b+1,b+2,\ldots\}.
+\tag{2}
+\]
 
-Step 2: $f(f(m)) = f(f(n)) \Rightarrow f(m) = f(n)$, and a similar fact holds for $g$.
-If $f(f(m)) = f(f(n))$, then by step 1 applied to $f(m), f(n)$, we get $g(f(m)) = g(f(n))$, or $g(m)+1 = g(n)+1$. By step 1 again this implies $f(m) = f(n)$.
+We have
+\[
+f(x)=f(y)\quad\Longleftrightarrow\quad g(x)=g(y).
+\tag{3}
+\]
+Indeed, the forward implication follows from
+\[
+g(x)=g(f(x))-1=g(f(y))-1=g(y),
+\]
+and the converse is analogous. Define $x\sim y$ when these equivalent equalities hold, and let $[x]$ be the equivalence class of $x$.
 
-Step 3: $f(n) \neq n$ and $g(n) \neq n$ for all $n$.
-If $f(n) = n$, then putting that into the second equation gives $0 = 1$, a contradiction. Use the first equation to prove the same thing for $g$.
+\textbf{Claim 1.} If $f(x)\sim f(y)$, then $x\sim y$. Consequently, each equivalence class contains at most one element of $N_f$ and at most one element of $N_g$.
 
-Step 4: There exist $a,b$ such that $\text{Im}\ f = \{a, a+1, \ldots \}$ and similarly $\text{Im}\ g = \{b, b+1, \ldots \}$.
-Notice that if $f(x) = y$ for any $x,y$, then $n = x$ in the first equation gives that $y+1$ is in the range of $f$. Hence $y$ being in the range implies $y+1$ is; the existence of $a$ follows immediately. The exact same argument on the second equation gives the same thing for $g$.
+If $f(x)\sim f(y)$, then
+\[
+g(x)=g(f(x))-1=g(f(y))-1=g(y),
+\]
+so $x\sim y$. For the consequence, if two values $f(x),f(y)\in N_f$ lie in the same class, then Claim 1 gives $x\sim y$, hence $f(x)=f(y)$. The argument for $N_g$ is the same.
 
-Step 5: With the same $a,b$ as in step 4, $f(a) \geq a+1$ and $g(b) \geq b+1$.
-Step 4 gives $f(a) \geq a$ and $g(b) \geq b$. Step 3 gives $f(a) \neq a$ and $g(b) \neq b$. The conclusion follows.
+\textbf{Claim 2.} For every $x\in\mathbb{N}$,
+\[
+[x]\subseteq\{1,\ldots,b-1\}
+\quad\Longleftrightarrow\quad
+f(x)=a.
+\tag{4}
+\]
+Similarly,
+\[
+[x]\subseteq\{1,\ldots,a-1\}
+\quad\Longleftrightarrow\quad
+g(x)=b.
+\tag{5}
+\]
 
-Step 6: $a = b$.
-Without loss of generality, $a \geq b$. Because $g(b) \geq b+1$ from step 5, $g(b) - 1$ is in the range of $g$. Hence there exists a $c$ with $g(c)+1 = g(b)$. Plug $n = c$ into the second equation to get $g(f(c)) = g(b)$. Because $f(c) \geq a \geq b$ and all numbers at least $b$ are in the range of $g$, step 2 allows us to cancel the $g$'s and conclude that $f(c) = b$. This implies $b \geq a$, and since we assumed WLOG earlier that $a \geq b$ we have $a = b$ as desired.
+We prove (4) by proving its complementary form. If $f(x)>a$, then by (2) there is $y$ with $f(y)=f(x)-1$. Hence
+\[
+f(g(y))=f(y)+1=f(x),
+\]
+so $x\sim g(y)$, and $g(y)\ge b$. Conversely, if $x\sim c$ for some $c\ge b$, then $c=g(y)$ for some $y$, and
+\[
+f(x)=f(c)=f(g(y))=f(y)+1\ge a+1.
+\]
+This proves (4), and (5) follows symmetrically.
 
-Step 7: $g(b) = b+1$, and similarly $f(a) = a+1$.
-Suppose $g(b) \neq b+1$. Combined with step 5 we can say $g(b) \geq b+2$. Then $g(b) - 2$ is in the range of $g$, so there exists a $c$ with $g(c) + 2 = g(b)$. Notice that $g(f(f(c))) = g(f(c)) + 1 = g(c) + 2 = g(b)$. The same trick with step 2 allows us to cancel the $g$'s and conclude $f(f(c)) = b$. Since $f$ and $g$ have the same range by step 6, we can find a $d$ with $f(c) = g(d)$. Then $b = f(g(d)) = f(d) + 1 \geq b+1$, a contradiction. Proving $f(a) = a+1$ is exactly the same.
+Assume first that $a\le b$. By Claim 2, there is exactly one class contained in $\{1,\ldots,a-1\}$, namely $[n_g]$, and exactly one class contained in $\{1,\ldots,b-1\}$, namely $[n_f]$. Since the first set is contained in the second, these classes coincide. Thus
+\[
+f(x)=a
+\quad\Longleftrightarrow\quad
+g(x)=b
+\quad\Longleftrightarrow\quad
+x\sim n_f\sim n_g.
+\tag{6}
+\]
 
-Step 8: $f(x) = g(x) = x+1$ for $x \geq a$.
-By induction, with the base case $x = a$ already proven in step 7. Given it's true for $x$, plug $n = x$ into the first equation to get $f(g(x)) = f(x)+1$, or $f(x+1) = x+2$. Use the second equation similarly to get $g(x+1) = x+2$, completing the induction.
+\textbf{Claim 3.} We have $a=b$.
 
-Step 9: $f(n) = g(n)$ for all $n$.
-From the first equation we have $f(g(n)) = f(n)+1$. Because $g(n) \geq a$, step 8 allows us to say that $f(g(n)) = g(n)+1$. Thus $f(n) = g(n)$ as wanted.
+First note that $f(a)\ne a$, for otherwise
+\[
+g(a)=g(f(a))=g(a)+1,
+\]
+a contradiction. Hence $[a]\ne[n_f]$. By Claim 2, the class $[a]$ contains some $a'\ge b$. Since both $a$ and $a'$ belong to $N_f$, Claim 1 forces $a=a'$. Therefore $a\ge b$. Together with $a\le b$, this gives $a=b$. The other possible initial ordering is handled symmetrically.
 
-SOLUTION 2: Let $P(n)$ and $Q(n)$ denote the two given assertions, respectively.
+\textbf{Claim 4.} For every integer $d\ge 0$,
+\[
+f^{d+1}(n_f)=g^{d+1}(n_f)=a+d.
+\tag{7}
+\]
+For $d=0$, this follows from (6) and Claim 3. Suppose it holds up to $d-1$. Then
+\[
+\begin{aligned}
+f^{d+1}(n_f)
+&=f(f^d(n_f))
+=f(g^d(n_f))\\
+&=f(n_f)+d=a+d,
+\end{aligned}
+\]
+where the last equality follows from (1). The formula for $g^{d+1}(n_f)$ is analogous.
 
-Claim: [Contiguous images] The images of $f$ and $g$ are of the form\begin{align*} 		f({\mathbb N}) &= \left\{ A, A+1, \dots \right\} \\ 		g({\mathbb N}) &= \left\{ B, B+1, \dots \right\} 	\end{align*}for some $A$ and $B$.
+Finally, take any $x\in\mathbb{N}$. By (2), $f(x)=a+d$ for some $d\ge 0$. From (1) and (7),
+\[
+f(x)=f(g^d(n_f)),
+\]
+so $x\sim g^d(n_f)$. Therefore
+\[
+g(x)=g(g^d(n_f))=g^{d+1}(n_f)=a+d=f(x).
+\]
 
-Proof. If $f(n) \in f({\mathbb N})$, then $f(n)+1 = fg(n) \in f({\mathbb N})$, by $P(n)$. Similarly for $g$. $\blacksquare$
+SOLUTION 2:
+Use the equivalence relation $x\sim y$ defined by
+\[
+f(x)=f(y)
+\quad\Longleftrightarrow\quad
+g(x)=g(y),
+\]
+and retain Claim 1 from Solution 1: if $f(x)\sim f(y)$, then $x\sim y$.
 
-Let us assume WLOG that $A \le B$. 
+Let $a$ and $b$ be the minimum values of $f$ and $g$. We have $f(a)>a$; otherwise $f(a)=a$ and
+\[
+g(a)=g(f(a))=g(a)+1,
+\]
+which is impossible.
 
-Lemma: [Main estimate] We have $g(n) \ge f(n) + (B-A)$ for every $n \ge 1$.
+\textbf{Claim 1.} We have $a=b$.
 
-Proof. We prove the sentence\[ S(k) \colon \quad \text{If } n \ge A+k \text{ then } g(n) \ge B+k+1 \]by induction on $k$. For $k = 0$ this follows by varying $n$ in assertion $Q$. Now note that\begin{align*} 		g(n) &\ge B \\ 		\implies gg(n) &\ge B+1 &\text{by $S(0)$} \\ 		\implies ggg(n) &\ge B+2 &\text{by $S(1)$} \\ 		& \vdotswithin\ge \\ 		\implies g^{k}(n) &\ge B+(k-1) &\text{ by $S(k-2)$} \\ 		\implies g^{k+1}(n) &\ge B+k &\text{ by $S(k-1)$}. 	\end{align*}But\[ g(f(n)+k) = (g \circ f \circ g^k)(n) 		= g^{k+1}(n) + 1 \ge (B+k)+1. \]which implies $S(k)$.
+Assume without loss of generality that $a\le b$. Since $f(a)\ge a+1$ and every integer at least $a$ lies in the image of $f$, there is $x$ such that
+\[
+f(a)=f(x)+1=f(g(x)).
+\]
+Thus $a\sim g(x)$. Since $g(x)\ge b\ge a$, Claim 1 from Solution 1 shows that the two image values $a$ and $g(x)$ in the same class must be equal. Hence
+\[
+a=g(x)\ge b.
+\]
+Together with $a\le b$, this gives $a=b$.
 
-Now for any particular $m$, we have $g(m) \ge m+(B-A+1)$. Replacing $m$ with $f(n)$ gives $1 + g(n) = g(f(n)) \ge f(n) + (B-A+1)$ as needed. $\blacksquare$
+\textbf{Claim 2.} We have
+\[
+f(a)=g(a)=a+1.
+\tag{1}
+\]
+Suppose $f(a)\ge a+2$. Choose $x,y\in\mathbb{N}$ such that
+\[
+f(x)=f(a)-2,
+\qquad
+f(y)=g(x),
+\]
+which is possible because $g(x)\ge a=b$ and all integers at least $a$ are values of $f$. Then
+\[
+f(a)=f(x)+2=f(g^2(x)),
+\]
+so $a\sim g^2(x)$. But $g^2(x)\ge a$, and Claim 1 from Solution 1 gives
+\[
+a=g^2(x)=g(f(y))=g(y)+1\ge a+1,
+\]
+a contradiction. Hence $f(a)=a+1$. The proof that $g(a)=a+1$ is symmetric.
 
+\textbf{Claim 3.} For every integer $x\ge a$,
+\[
+f(x)=g(x)=x+1.
+\tag{2}
+\]
+This follows by induction. The base case is (1). If (2) holds at $x$, then
+\[
+f(x+1)=f(g(x))=f(x)+1=x+2,
+\]
+and similarly
+\[
+g(x+1)=g(f(x))=g(x)+1=x+2.
+\]
 
-
-Claim: [$f$ has no eventual cycles] For any $k > 0$ and $n \ge 1$, we have $f^k(n) \neq n$.
-
-Proof. Otherwise, $g(n) + k = (g \circ f^k)(n) = g(n) \implies k = 0$, contradiction. $\blacksquare$
-
-
-
-Claim: [We found all functions!] For $n \ge A$, we have\[ f(n) = n+1 \qquad g(n) = n+(B-A+1). \]
-Proof. By induction on $n \ge A$. For the base step, pick $x_0$ such that $g(x_0) = B$. By the main lemma, we have $B = g(x_0) \ge f(x_0) + (B-A) \implies f(x_0) = A$. Hence, $Q(x_0) \implies g(A) = B+1$. Finally,\[ B+1 = g(A) \ge f(A) + (B-A) \implies f(A) \le A+1. \]Since $f(A) \neq A$, but also $f(A) \ge A$ from the range of $f$, it follows $f(A) = A+1$.
-
-The inductive step is almost the same: assume we know $f$ and $g$ up to $n-1$. Then\[ g(n) = g(f(n-1)) = g(n-1) + 1 = n + (B-A+1). \]Now by the main lemma,\[ n + (B-A+1) = g(n) \ge f(n) + (B-A) \implies f(n) \le n+1. \]But since $f$ has no eventual cycles, and we already have a chain\[ A \xmapsto{f} (A+1) \xmapsto{f} (A+2) 		\xmapsto{f} \dots \xmapsto{f} (n-1) \xmapsto{f} n \]we must have $f(n) = n+1$ since it can't map to any values in $\{A , \dots, n\}$. $\blacksquare$
-
-Now $P(n)$ reads $f(n)+1 = f(g(n)) = g(n)+1$ since $g(n) \ge A$. Thus $f = g$.
+For arbitrary $n\in\mathbb{N}$, we have $g(n)\ge a$. Hence Claim 3 gives
+\[
+f(n)+1=f(g(n))=g(n)+1,
+\]
+and therefore $f(n)=g(n)$.

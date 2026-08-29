@@ -6,14 +6,134 @@ YEAR: 2010
 
 TOPIC: Combinatorics
 
-SUBTOPICS:  
+SUBTOPICS: Hall's Marriage Theorem, Induction, Binary Strings
 
-STATEMENT: On some planet, there are $2^N$ countries $(N \geq 4).$ Each country has a flag $N$ units wide and one unit high composed of $N$ fields of size $1 \times 1,$ each field being either yellow or blue. No two countries have the same flag. We say that a set of $N$ flags is diverse if these flags can be arranged into an $N \times N$ square so that all $N$ fields on its main diagonal will have the same color. Determine the smallest positive integer $M$ such that among any $M$ distinct flags, there exist $N$ flags forming a diverse set.
+STATEMENT:
+On some planet there are $2^N$ countries, where $N\ge 4$. Each country has a flag consisting of $N$ unit fields in a row, each field being yellow or blue, and no two flags are identical.
 
-SOLUTION 1: The answer is $M = 2^{N-2}+1$; interpret as binary strings. To show $M > 2^{N-2}$, we simply take a set of flags with all $0$ in first column and all $1$ in second column (thus using the fact that $N \ge 4$).
+A set of $N$ flags is called \emph{diverse} if the flags can be arranged as the rows of an $N\times N$ square so that all fields on the main diagonal have the same color. Determine the least positive integer $M$ such that every collection of $M$ distinct flags contains a diverse set of $N$ flags.
 
-Now, we show that any bad sets of $m$ flags satisfies $m \le 2^{N-2}$.
-Since it's impossible to align $0$'s on the diagonal, by Hall's Marriage Theorem there is a set of $1 \le a < N$ indices so that almost all (i.e. all but $a-1$) strings have all $1$'s in these positions; call these strings $0$-deficient. Define the $1$-deficient strings over a set of $1 \le b < N$ indices similarly.
-If the two sets of indices overlap, then no string can be both $0$ and $1$ deficient, so $m \le (a-1) + (b-1) \le 2N-4 \le 2^{N-2}$.
-Otherwise, there can be up to $2^{N-(a+b)}$ strings which are both $0$ and $1$-deficient, so we deduce $m \le (a-1) + (b-1) + 2^{N-(a+b)} \le 2^{N-2}$ with equality when $a+b=2$.
-In both cases we're done. $\blacksquare$
+SOLUTION 1:
+The answer is
+\[
+\boxed{M=2^{N-2}+1}.
+\]
+
+For the lower bound, take all $2^{N-2}$ flags whose first field is yellow and whose second field is blue. Any $N\times N$ square formed from these flags has one diagonal entry from the first column and one from the second column, so its diagonal contains both colors. Thus
+\[
+M>2^{N-2}.
+\]
+
+It remains to prove that $2^{N-2}+1$ flags always suffice. We first establish the case $N=4$.
+
+Write each flag of length $4$ as $LR$, where $L$ and $R$ are its two-field left and right parts. Let
+\[
+\mathcal{S}=\{BB,BY,YB,YY\}.
+\]
+We use two elementary facts about pairs of elements of $\mathcal{S}$:
+
+1. For each $A\in\mathcal{S}$, there is exactly one $C\in\mathcal{S}$ such that $A$ and $C$ cannot be arranged as two rows of a $2\times2$ square with a monochromatic diagonal.
+
+2. Among any three distinct elements of $\mathcal{S}$, some pair can form a $2\times2$ square with a yellow diagonal, and some pair can form one with a blue diagonal.
+
+Now take five distinct flags of length $4$. Let $\ell$ and $r$ be the numbers of distinct left and right parts. Since
+\[
+5\le \ell r,
+\qquad
+\ell,r\le 4,
+\]
+one of $\ell,r$ is at least $3$; assume $r\ge 3$. Since there are only four possible right parts, two flags share a right part; write them as
+\[
+L_1R_1,
+\qquad
+L_2R_1,
+\qquad
+L_1\ne L_2.
+\]
+Choose two more flags $L_3R_3,L_4R_4$ so that $R_1,R_3,R_4$ are distinct, and denote the remaining flag by $L'R'$.
+
+By fact 1, at least one of the pairs $(L',L_1)$ and $(L',L_2)$ can form a monochromatic $2\times2$ diagonal. Suppose its color is blue; the yellow case is identical. Relabeling $L_1,L_2$ if necessary, assume $(L',L_2)$ is such a pair. By fact 2, two of $R_1,R_3,R_4$ can also form a blue diagonal. These two $2\times2$ arrangements can be placed along the diagonal of a $4\times4$ square, producing four flags with a monochromatic diagonal. Thus the case $N=4$ holds.
+
+We now proceed by induction on $N$. Let $N>4$, and take
+\[
+2^{N-2}+1
+\]
+distinct flags of length $N$. Since the flags are distinct, some column contains both colors. Choose such a column and call it the first column. At least
+\[
+\left\lceil\frac{2^{N-2}+1}{2}\right\rceil=2^{N-3}+1
+\]
+flags have the same color in that column; suppose it is blue, and call those flags good.
+
+Delete the first field from every good flag. By the induction hypothesis, among the resulting flags of length $N-1$ there are $N-1$ whose rows can be arranged with a monochromatic diagonal.
+
+Restore the deleted blue fields. If the smaller diagonal is yellow, add any flag having a yellow first field; such a flag exists and was not used among the good flags. If the smaller diagonal is blue, add an unused good flag. Such a flag exists because
+\[
+2^{N-3}+1-(N-1)>0
+\]
+for $N>4$. In either case, the resulting $N\times N$ square has a monochromatic diagonal. Hence
+\[
+M=2^{N-2}+1.
+\]
+
+SOLUTION 2:
+We again prove that every collection of
+\[
+2^{N-2}+1
+\]
+flags contains a diverse set, this time by Hall's marriage theorem.
+
+Let $V$ be the set of the $N$ columns and let $V'$ be the given set of flags. Construct two bipartite graphs $G_Y$ and $G_B$ on $V\cup V'$. Join a column $c$ to a flag $F$ in $G_Y$ when the field of $F$ in column $c$ is yellow, and join them in $G_B$ when that field is blue.
+
+A matching covering all vertices of $V$ in $G_Y$ gives $N$ distinct flags that can be arranged with a yellow diagonal. Likewise, such a matching in $G_B$ gives a blue diagonal. Suppose, for a contradiction, that neither graph has such a matching.
+
+By Hall's theorem, there are sets of columns $S_Y,S_B\subset V$ such that
+\[
+|N_Y(S_Y)|\le |S_Y|-1,
+\qquad
+|N_B(S_B)|\le |S_B|-1,
+\tag{1}
+\]
+where $N_Y$ and $N_B$ denote neighborhoods in the two graphs. Both sets are proper subsets of $V$. Indeed, if for example $S_Y=V$, then at most $N-1$ flags contain any yellow field. Hence at least
+\[
+2^{N-2}+1-(N-1)\ge2
+\]
+distinct flags would have to be entirely blue, which is impossible because there is only one all-blue flag. The argument for $S_B$ is identical.
+
+First suppose $S_Y\cap S_B\ne\varnothing$. A flag is joined to every fixed column in exactly one of the two color graphs, so any column in the intersection shows that
+\[
+N_Y(S_Y)\cup N_B(S_B)=V'.
+\]
+Therefore, by (1),
+\[
+2^{N-2}+1=|V'|
+\le |S_Y|+|S_B|-2
+\le 2N-4,
+\]
+which is impossible for $N\ge 4$.
+
+Thus $S_Y\cap S_B=\varnothing$. Put
+\[
+y=|S_Y|,
+\qquad
+b=|S_B|,
+\qquad
+c=y+b.
+\]
+Every flag outside
+\[
+N_Y(S_Y)\cup N_B(S_B)
+\]
+has blue fields in all columns of $S_Y$ and yellow fields in all columns of $S_B$. Only the remaining $N-c$ fields are free, so there are at most $2^{N-c}$ such flags. On the other hand, (1) shows that there are at least
+\[
+2^{N-2}+1-(y-1)-(b-1)=2^{N-2}+3-c
+\]
+of them. Hence
+\[
+2^{N-c}+c\ge 2^{N-2}+3.
+\tag{2}
+\]
+But for $2\le c\le N$,
+\[
+2^{N-c}+c\le 2^{N-2}+2.
+\]
+Indeed, the left-hand side is maximal at $c=2$. This contradicts (2), completing the proof.

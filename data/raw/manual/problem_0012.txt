@@ -6,22 +6,130 @@ YEAR: 2010
 
 TOPIC: Combinatorics
 
-SUBTOPICS:  
+SUBTOPICS: Constructive Processes, Recursion
 
-STATEMENT: Each of the six boxes $B_1$, $B_2$, $B_3$, $B_4$, $B_5$, $B_6$ initially contains one coin. The following operations are allowed
+STATEMENT:
+Six stacks $S_1,\ldots,S_6$ of coins stand in a row, initially with one coin in each stack. The following moves are allowed:
 
-Type 1) Choose a non-empty box $B_j$, $1\leq j \leq 5$, remove one coin from $B_j$ and add two coins to $B_{j+1}$;
+1. If $S_k$ is nonempty for some $1\le k\le5$, remove one coin from $S_k$ and add two coins to $S_{k+1}$.
 
-Type 2) Choose a non-empty box $B_k$, $1\leq k \leq 4$, remove one coin from $B_k$ and swap the contents (maybe empty) of the boxes $B_{k+1}$ and $B_{k+2}$.
+2. If $S_k$ is nonempty for some $1\le k\le4$, remove one coin from $S_k$ and exchange the contents of $S_{k+1}$ and $S_{k+2}$.
 
-Determine if there exists a finite sequence of operations of the allowed types, such that the five boxes $B_1$, $B_2$, $B_3$, $B_4$, $B_5$ become empty, while box $B_6$ contains exactly $2010^{2010^{2010}}$ coins.
+Is it possible to reach a position in which $S_1,\ldots,S_5$ are empty and
+\[
+S_6=2010^{2010^{2010}}?
+\]
 
-SOLUTION 1: First,\begin{align*} 	(1,1,1,1,1,1) &\to (0,3,1,0,3,1) \to (0,0,7,0,0,7) \\ 	&\to (0,0,6,2,0,7) \to (0,0,6,1,2,7) \to (0,0,6,1,0,11) \\ 	&\to (0,0,6,0,11,0) \to (0,0,5,11,0,0). \end{align*}and henceforth we ignore boxes $B_1$ and $B_2$, looking at just the last four boxes; so we write the current position as $(5,11,0,0)$.
+SOLUTION 1:
+Yes, it is possible.
 
-We prove a lemma:
+For consecutive stacks, write
+\[
+(a_1,\ldots,a_m)\longrightarrow(a'_1,\ldots,a'_m)
+\]
+when a finite sequence of allowed moves changes those stack sizes as indicated while leaving all other stacks unchanged.
 
-Claim: Let $k \ge 0$ and $n > 0$. From $(k,n,0,0)$ we may reach $(k-1,2^n,0,0)$.
+Let
+\[
+A=2010^{2010^{2010}}.
+\]
+We will reach
+\[
+(1,1,1,1,1,1)\longrightarrow(0,0,0,0,0,A).
+\]
 
-Proof. Working with only the last three boxes for now,\begin{align*} 		(n,0,0) &\to (n-1, 2, 0) \to (n-1, 0, 4) \\ 		&\to (n-2, 4, 0) \to (n-2, 0, 8) \\ 		&\to (n-3, 8, 0) \to (n-3, 0, 16) \\ 		&\to \dots \to (1, 2^{n-1}, 0) \to (1, 0, 2^n) \to (0, 2^n, 0). 	\end{align*}Finally we have $(k,n,0,0) \to (k,0,2^n,0) \to (k-1,2^n, 0,0)$. $\blacksquare$
+\textbf{Lemma 1.} For every integer $a\ge1$,
+\[
+(a,0,0)\longrightarrow(0,2^a,0).
+\]
+More generally, by induction on $k$,
+\[
+(a,0,0)\longrightarrow(a-k,2^k,0)
+\qquad(1\le k\le a).
+\]
+For $k=1$, use Move 1:
+\[
+(a,0,0)\longrightarrow(a-1,2,0).
+\]
+If $(a-k,2^k,0)$ has been reached, apply Move 1 to the middle stack $2^k$ times, obtaining
+\[
+(a-k,0,2^{k+1}),
+\]
+and then apply Move 2 to the first stack:
+\[
+(a-k,0,2^{k+1})\longrightarrow(a-k-1,2^{k+1},0).
+\]
+Taking $k=a$ proves the lemma.
 
-Now from $(5,11,0,0)$ we go as follows:\begin{align*} (5,11,0,0) &\to (4, 2^{11}, 0, 0) 	\to \left(3, 2^{2^{11}}, 0, 0\right) 	\to \left(2, 2^{2^{2^{11}}}, 0, 0\right) \\ 	&\to \left( 1, 2^{2^{2^{2^{11}}}}, 0, 0\right) 	\to \left(0, 2^{2^{2^{2^{2^{11}}}}}, 0, 0\right). \end{align*}Let $A = 2^{2^{2^{2^{2^{11}}}}} > 2010^{2010^{2010}} = B$. Then by using move 2 repeatedly on $k = 4$ (throwing away several coins by swapping the empty $B_5$ and $B_6$), we go from $(0,A,0,0)$ to $(0,B/4,0,0)$. From there we reach $(0,0,0,B)$.
+For $n\ge1$, define the tower
+\[
+P_1=2,
+\qquad
+P_{n+1}=2^{P_n}.
+\]
+Thus, for example, $P_3=2^{2^2}=16$.
+
+\textbf{Lemma 2.} For every integer $a\ge1$,
+\[
+(a,0,0,0)\longrightarrow(0,P_a,0,0).
+\]
+We prove more generally that
+\[
+(a,0,0,0)\longrightarrow(a-k,P_k,0,0)
+\qquad(1\le k\le a).
+\]
+The case $k=1$ follows from Move 1. If $(a-k,P_k,0,0)$ has been reached, apply Lemma 1 to the final three stacks:
+\[
+(a-k,P_k,0,0)
+\longrightarrow(a-k,0,2^{P_k},0)
+=(a-k,0,P_{k+1},0).
+\]
+Then apply Move 2 to the first stack to get
+\[
+(a-k-1,P_{k+1},0,0).
+\]
+This proves Lemma 2.
+
+We now begin from the initial position. Apply Move 1 to $S_5$, and then Move 2 at $S_4,S_3,S_2,S_1$ in that order:
+\[
+\begin{aligned}
+(1,1,1,1,1,1)
+&\longrightarrow(1,1,1,1,0,3)\\
+&\longrightarrow(1,1,1,0,3,0)\\
+&\longrightarrow(1,1,0,3,0,0)\\
+&\longrightarrow(1,0,3,0,0,0)\\
+&\longrightarrow(0,3,0,0,0,0).
+\end{aligned}
+\]
+Apply Lemma 2 twice:
+\[
+(0,3,0,0,0,0)
+\longrightarrow(0,0,P_3,0,0,0)
+=(0,0,16,0,0,0)
+\longrightarrow(0,0,0,P_{16},0,0).
+\]
+The number $P_{16}$ exceeds $A$. One convenient chain of estimates is
+\[
+\begin{aligned}
+A
+&< (2^{11})^{2010^{2010}}
+=2^{11\cdot2010^{2010}}\\
+&<2^{2010^{2011}}
+<2^{(2^{11})^{2011}}\\
+&=2^{2^{11\cdot2011}}
+<2^{2^{2^{15}}}
+<P_{16}.
+\end{aligned}
+\]
+Since $A$ is divisible by $4$, repeatedly apply Move 2 at $S_4$. At each application one coin is removed from $S_4$, while the two empty stacks $S_5,S_6$ are merely exchanged. Thus
+\[
+(0,0,0,P_{16},0,0)
+\longrightarrow(0,0,0,A/4,0,0).
+\]
+Finally, repeatedly use Move 1 first at $S_4$ and then at $S_5$:
+\[
+(0,0,0,A/4,0,0)
+\longrightarrow(0,0,0,0,A/2,0)
+\longrightarrow(0,0,0,0,0,A).
+\]
+Hence the required position is reachable.

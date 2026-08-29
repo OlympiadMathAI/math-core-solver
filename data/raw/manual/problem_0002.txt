@@ -6,18 +6,155 @@ YEAR: 2010
 
 TOPIC: Algebra
 
-SUBTOPICS: Inequalities 
+SUBTOPICS: Inequalities
 
 STATEMENT:
-Let the real numbers $a,b,c,d$ satisfy the relations $a+b+c+d=6$ and $a^2+b^2+c^2+d^2=12.$ Prove that
-\[36 \leq 4 \left(a^3+b^3+c^3+d^3\right) - \left(a^4+b^4+c^4+d^4 \right) \leq 48.\]
+Let the real numbers $a,b,c,d$ satisfy
+\[
+a+b+c+d=6,\qquad a^2+b^2+c^2+d^2=12.
+\]
+Prove that
+\[
+36\le 4(a^3+b^3+c^3+d^3)-(a^4+b^4+c^4+d^4)\le 48.
+\]
 
 SOLUTION 1:
-Let $S = \sum_{\text{cyc}} (4a^3-a^4)$. The upper bound on $S$ is proved by noting that\begin{align*} 	0 &\le \sum_{\text{cyc}} a^2(a-2)^2 	= \sum_{\text{cyc}} \left( a^4-4a^3+4a^2 \right) \\ 	&= -S + 4(a^2+b^2+c^2+d^2) = 48-S. \end{align*}
-For the lower bound, we need an additional estimate.
+Set
+\[
+E=4(a^3+b^3+c^3+d^3)-(a^4+b^4+c^4+d^4).
+\]
+Expanding $(u-1)^4$ and using the two given relations, we obtain
+\[
+\begin{aligned}
+E
+&=-\sum_{u\in\{a,b,c,d\}}(u-1)^4
+  +6\sum_{u\in\{a,b,c,d\}}u^2
+  -4\sum_{u\in\{a,b,c,d\}}u+4\\
+&=52-\sum_{u\in\{a,b,c,d\}}(u-1)^4.
+\end{aligned}
+\]
+Put
+\[
+x=a-1,\qquad y=b-1,\qquad z=c-1,\qquad t=d-1.
+\]
+Then
+\[
+x^2+y^2+z^2+t^2
+=(a^2+b^2+c^2+d^2)-2(a+b+c+d)+4=4.
+\]
+Thus it is enough to prove
+\[
+4\le x^4+y^4+z^4+t^4\le 16.
+\]
+The lower bound follows from Cauchy-Schwarz:
+\[
+(x^2+y^2+z^2+t^2)^2\le 4(x^4+y^4+z^4+t^4),
+\]
+so
+\[
+x^4+y^4+z^4+t^4\ge \frac{4^2}{4}=4.
+\]
+For the upper bound, all cross terms in the square are nonnegative, hence
+\[
+x^4+y^4+z^4+t^4
+\le (x^2+y^2+z^2+t^2)^2=16.
+\]
+Consequently,
+\[
+36=52-16\le E\le 52-4=48.
+\]
 
-Claim: We have $a,b,c,d \in [0,3]$.
-Proof. As $3(b^2+c^2+d^2) \ge (b+c+d)^2$, we get $3(12-a^2) \ge (6-a)^2 \implies 0 \le a \le 3$. $\blacksquare$
+SOLUTION 2:
+We first prove that
+\[
+0\le a,b,c,d\le 3.
+\]
+Indeed, by symmetry it suffices to treat $d$. Since
+\[
+a+b+c=6-d,\qquad a^2+b^2+c^2=12-d^2,
+\]
+Cauchy-Schwarz gives
+\[
+12-d^2\ge \frac{(6-d)^2}{3}.
+\]
+This is equivalent to
+\[
+2d(d-3)\le 0,
+\]
+and therefore $0\le d\le 3$. The same argument works for the other variables.
 
-With this, we may now write\begin{align*} 	0 &\ge \sum_{\text{cyc}} (a+1)(a-1)^2(a-3) 	= \sum_{\text{cyc}} \left( a^4-4a^3+2a^2+4a-3 \right) \\ 	&= -S + 2(a^2+b^2+c^2+d^2) + 4(a+b+c+d) - 12 \\ 	&= -S + 2 \cdot 12 + 4 \cdot 6 - 12 = 36 - S \end{align*}as desired.
+For every real $x$,
+\[
+x^2(x-2)^2\ge 0,
+\]
+which is equivalent to
+\[
+4x^3-x^4\le 4x^2.
+\]
+Summing this inequality for $x=a,b,c,d$ yields
+\[
+4\sum a^3-\sum a^4\le 4\sum a^2=48.
+\]
 
+For the other direction, if $0\le x\le 3$, then
+\[
+(x+1)(x-1)^2(x-3)\le 0.
+\]
+After expansion this becomes
+\[
+4x^3-x^4\ge 2x^2+4x-3.
+\]
+Again summing for $a,b,c,d$, we obtain
+\[
+\begin{aligned}
+4\sum a^3-\sum a^4
+&\ge 2\sum a^2+4\sum a-12\\
+&=2\cdot 12+4\cdot 6-12=36.
+\end{aligned}
+\]
+This proves both required inequalities.
+
+SOLUTION 3:
+For the upper bound, apply AM-GM to each pair $u^4$ and $4u^2$:
+\[
+u^4+4u^2\ge 2\sqrt{u^4\cdot 4u^2}=4|u^3|\ge 4u^3.
+\]
+Summing over $u=a,b,c,d$ gives
+\[
+(a^4+b^4+c^4+d^4)+48\ge 4(a^3+b^3+c^3+d^3),
+\]
+which is precisely the upper bound.
+
+For the lower bound, as in Solution 2 we have $a,b,c,d\in[0,3]$. Reorder them so that
+\[
+0\le a\le b\le c\le d.
+\]
+Then
+\[
+a+b\le b+c\le \frac{2}{3}(b+c+d)\le 4.
+\]
+Therefore $ab\le 4$ and $bc\le 4$, so
+\[
+4a-a^2\le 4b-b^2\le 4c-c^2.
+\]
+Since also $a^2\le b^2\le c^2$, Chebyshev's inequality gives
+\[
+\begin{aligned}
+&a^2(4a-a^2)+b^2(4b-b^2)+c^2(4c-c^2)\\
+&\qquad\ge \frac{1}{3}(a^2+b^2+c^2)
+\bigl(4(a+b+c)-(a^2+b^2+c^2)\bigr).
+\end{aligned}
+\]
+Using
+\[
+a+b+c=6-d,\qquad a^2+b^2+c^2=12-d^2,
+\]
+and then adding $4d^3-d^4$, we get
+\[
+\begin{aligned}
+4\sum a^3-\sum a^4
+&\ge \frac{(12-d^2)(d^2-4d+12)}{3}+4d^3-d^4\\
+&=36+\frac{4}{3}(3-d)(d-1)(d^2-3).
+\end{aligned}
+\]
+Now $d^2\ge \frac{a^2+b^2+c^2+d^2}{4}=3$, while $d>1$ and $d\le 3$. Hence the final product is nonnegative, and the lower bound follows.

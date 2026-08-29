@@ -6,23 +6,48 @@ YEAR: 2010
 
 TOPIC: Combinatorics
 
-SUBTOPICS:  
+SUBTOPICS: Chessboard, Structural Counting
 
-STATEMENT: 2500 chess kings have to be placed on a $100 \times 100$ chessboard so that
+STATEMENT:
+Place $2500$ kings on a $100\times100$ chessboard so that
 
-(i) no king can capture any other one (i.e. no two kings are placed in two squares sharing a common vertex);
-(ii) each row and each column contains exactly 25 kings.
+(i) no king attacks another king, meaning that no two occupied squares share a vertex;
 
-Find the number of such arrangements. (Two arrangements differing by rotation or symmetry are supposed to be different.)
+(ii) every row and every column contains exactly $25$ kings.
 
-SOLUTION 1: The answer is $2.$ Divide the chessboard into 2500 $2\times 2$ subgrids. Note that each box can have at most one king, implying each box must in fact have exactly one king. Refer to the king in the box of the $i$th row and $j$th column as $B_{i,j}$ where $1\le i,j\le 50.$
+Find the number of such arrangements. Arrangements related by rotation or reflection are counted as different.
 
-Refer to a layer as a row of $n$ of these $2\times 2$ boxes and a wall as a column of these $2\times 2$ boxes. For each box $b_1, b_2,\dots, b_{50}$ of the leftmost wall, we can label it as either $L$ or $R$ to indicate which of the two cell columns each king of the given box $b_i$ lies on (left or right). Similarly, for each box of the topmost layer, we can label each box as either $T$ or $B$ to indicate whether the king lies in the top or bottom cell row of the layer. Consequently, for a given box, we can uniquely determine which of the 4 cell positions the king lies as either $(L,T), (L,B), (R,T), (R,B).$
+SOLUTION 1:
+There are exactly
+\[
+\boxed{2}
+\]
+such arrangements.
 
-Claim: If the topmost layer has labelling $a_1, a_2,\dots, a_{50}$ where $a_i\in \{T,B\},$ then every subsequent layer must follow the same labelling. Similarly for leftmost wall and subsequent walls.
+Divide the board into $2500$ disjoint $2\times2$ blocks. A block contains at most one king, because any two squares in the same block share a vertex. Since there are exactly $2500$ kings, every block contains exactly one king.
 
-Proof. Note that for the topmost layer, 25 of them must have $T$ and 25 must have $B.$ Let $a_{r,i}$ denote the label of the $i$th box of the $r$ layer. Then, if $a_{r,i} = B$ then $a_{r+1,i} =B$ lest the two kings then attack one another. As a result, 25 of the subsequent layer is fixed as $B$, leaving the remaining $25$ to be fixed as $T$ as well. The proof for the wall is analogous. $\blacksquare$
+For each block, record whether its king lies in the top or bottom row of the block, writing $T$ or $B$, and whether it lies in the left or right column, writing $L$ or $R$. Thus every block has one of the four types
+\[
+TL,TR,BL,BR.
+\]
+We now work with the resulting $50\times50$ array of blocks.
 
-Claim: $a_1 = a_2 = \cdots = a_{25}$ and $a_{26} = a_{27} = \cdots = a_{50}.$ Similarly for the walls.
+Two propagation rules follow from the nonattacking condition:
 
-Proof. Note that if there exists $a_j = T$ and $a_{j+1} = B,$ then there can be no $b_i =L, b_{i+1} = R$ otherwise box $B_{i, j+1}$ and $B_{i+1,j}$ attack one another. Similarly, if $a_j = B$ and $a_{j+1} = T$ then there can be no $b_i = R, b_{i+1} = L.$ As a result, if there ever exists a sequence of $a_i \ne a_{i+1} = a_{i+2} \cdots = a_j \ne a_{j+1},$ then the corresponding labelling of the wall must be $b_1 = b_2 = \cdots = b_{50}.$ Contradiction. Hence, it must be that $a_i\ne a_{i+1}$ occurs only once, proving the claim. Same goes for $b_i.$
+- if block $(i,j)$ is a $B$-block, then $(i+1,j)$ is also a $B$-block; similarly, a $T$-block forces the block above it to be a $T$-block;
+
+- if block $(i,j)$ is an $L$-block, then $(i,j-1)$ is also an $L$-block; similarly, an $R$-block forces the block to its right to be an $R$-block.
+
+Every block-column contains exactly $25$ $L$-blocks and $25$ $R$-blocks, because the two original columns represented by it each contain $25$ kings. Similarly, every block-row contains exactly $25$ $T$-blocks and $25$ $B$-blocks.
+
+Look at the top block-row. Its $25$ $B$-blocks propagate downward, so they determine $25$ entire $B$-columns. Since the total number of $B$-blocks is $25\cdot50$, all remaining columns are entirely $T$-columns. Thus there are exactly $25$ $T$-columns and $25$ $B$-columns. In the same way, there are exactly $25$ $L$-rows and $25$ $R$-rows.
+
+Because both kinds of columns occur, somewhere two neighboring columns have different types.
+
+\textbf{Case 1.} Suppose column $j$ is a $T$-column and column $j+1$ is a $B$-column. If row $i$ is an $L$-row, then block $(i,j+1)$ is of type $BL$. To avoid a diagonal attack, block $(i+1,j)$ cannot be $TR$. Since column $j$ is a $T$-column, block $(i+1,j)$ must therefore be $TL$, so row $i+1$ is also an $L$-row.
+
+Starting from the topmost $L$-row, all rows below it are $L$-rows. There are exactly $25$ such rows, hence rows $1,\ldots,25$ are $R$-rows and rows $26,\ldots,50$ are $L$-rows. Applying the same argument with rows and columns interchanged to the boundary between rows $25$ and $26$, we conclude that columns $1,\ldots,25$ are $T$-columns and columns $26,\ldots,50$ are $B$-columns. This determines one arrangement uniquely.
+
+\textbf{Case 2.} Suppose instead that column $j$ is a $B$-column and column $j+1$ is a $T$-column. The symmetric argument gives rows $1,\ldots,25$ as $L$-rows and the remaining rows as $R$-rows, while columns $1,\ldots,25$ are $B$-columns and the remaining columns are $T$-columns. This determines exactly one further arrangement.
+
+Both arrangements satisfy the conditions, and no other pattern is possible. Hence the answer is $2$.

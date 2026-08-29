@@ -1,4 +1,4 @@
-ID: 0003 
+ID: 0003
 
 SOURCE: IMO Shortlist
 
@@ -6,16 +6,79 @@ YEAR: 2010
 
 TOPIC: Algebra
 
-SUBTOPICS: Inequalities
+SUBTOPICS: Inequalities, Cyclic Sequences
 
-STATEMENT: Let $x_1, \ldots , x_{100}$ be nonnegative real numbers such that $x_i + x_{i+1} + x_{i+2} \leq 1$ for all $i = 1, \ldots , 100$ (we put $x_{101 } = x_1, x_{102} = x_2).$ Find the maximal possible value of the sum $S = \sum^{100}_{i=1} x_i x_{i+2}.$
+STATEMENT:
+Let $x_1,\ldots,x_{100}$ be nonnegative real numbers such that
+\[
+x_i+x_{i+1}+x_{i+2}\le 1
+\]
+for every $i=1,\ldots,100$, where $x_{101}=x_1$ and $x_{102}=x_2$. Find the maximal possible value of
+\[
+S=\sum_{i=1}^{100}x_i x_{i+2}.
+\]
 
-SOLUTION 1: Answer: $\frac{50}{4}$, and the example is when $x_{2k}=1/2$ otherwise $x_i=0$
-Claim:For any $i=1,2,\dots,100$: $x_ix_{i+2}+x_{i+1}x_{i+3} \leq \frac{1}{4}$
-Proof:$$x_ix_{i+2}+x_{i+1}x_{i+3} \leq x_{i+2}(1-x_{i+2}-x_{i+1})+x_{i+1}(1-x_{i+2}-x_{i+1})$$$$x_ix_{i+2}+x_{i+1}x_{i+3} \leq (1-x_{i+2}-x_{i+1})(x_{i+2}+x_{i+1})\leq \frac{1}{4}$$The last part is by AM-AG. $\square$
-Finally: $S = \sum^{100}_{i=1} x_i x_{i+2} \implies 2S = \sum^{100}_{i=1} x_i x_{i+2}+x_{i+1} x_{i+3} \leq \frac{100}{4} \implies S\leq \frac{50}{4}  $
-So we are done.
+SOLUTION 1:
+The maximum is
+\[
+\boxed{\frac{25}{2}}.
+\]
+It is attained, for example, by
+\[
+x_{2i}=0,\qquad x_{2i-1}=\frac12
+\]
+for $i=1,\ldots,50$.
 
-SOLUTION 2: Lemma: $x_ix_{i+2}+x_{i+1}x_{i+3}\le \frac{1}{4}$.
-Proof: by AM-GM$$x_ix_{i+2}+x_{i+1}x_{i+3} \le \max\{x_i, x_{i+3}\}(x_{i+1}+x_{i+2}) \le \left(\frac{\max\{x_i, x_{i+3}\}+x_{i+1}+x_{i+2}}{2}\right)^2 \le \frac{1}{4}.$$
-Summing the lemma for $i=1, 3, \ldots, 99$ gives the maximum as $S = \boxed{\frac{25}{2}}$ with equality case when $x_1=x_3=\cdots =x_{99} = \frac{1}{2}$ and everything else is $0$.
+It remains to prove the upper bound. For each $i=1,\ldots,50$, the conditions imply
+\[
+x_{2i-1}\le 1-x_{2i}-x_{2i+1},
+\qquad
+x_{2i+2}\le 1-x_{2i}-x_{2i+1}.
+\]
+Consequently,
+\[
+\begin{aligned}
+&x_{2i-1}x_{2i+1}+x_{2i}x_{2i+2}\\
+&\qquad\le (1-x_{2i}-x_{2i+1})x_{2i+1}
++x_{2i}(1-x_{2i}-x_{2i+1})\\
+&\qquad=(x_{2i}+x_{2i+1})(1-x_{2i}-x_{2i+1})\\
+&\qquad\le \frac14.
+\end{aligned}
+\]
+Summing these $50$ inequalities gives
+\[
+S=\sum_{i=1}^{50}
+\bigl(x_{2i-1}x_{2i+1}+x_{2i}x_{2i+2}\bigr)
+\le 50\cdot\frac14=\frac{25}{2}.
+\]
+
+SOLUTION 2:
+Let
+\[
+X=\sum_{i=1}^{100}x_i.
+\]
+By the given inequalities,
+\[
+\begin{aligned}
+S
+&=\sum_{i=1}^{100}x_i x_{i+2}\\
+&\le \sum_{i=1}^{100}x_i(1-x_i-x_{i+1})\\
+&=X-\sum_{i=1}^{100}x_i^2-\sum_{i=1}^{100}x_ix_{i+1}\\
+&=X-\frac12\sum_{i=1}^{100}(x_i+x_{i+1})^2.
+\end{aligned}
+\]
+By the quadratic-mean inequality,
+\[
+\sum_{i=1}^{100}(x_i+x_{i+1})^2
+\ge \frac1{100}
+\left(\sum_{i=1}^{100}(x_i+x_{i+1})\right)^2
+=\frac{(2X)^2}{100}.
+\]
+Hence
+\[
+S\le X-\frac{X^2}{50}
+=\frac{2}{100}X(50-X)
+\le \frac{2}{100}\left(\frac{50}{2}\right)^2
+=\frac{25}{2}.
+\]
+The construction in Solution 1 shows that equality is attainable.

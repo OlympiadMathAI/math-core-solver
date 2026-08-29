@@ -6,21 +6,295 @@ YEAR: 2010
 
 TOPIC: Algebra
 
-SUBTOPICS: Inequalities
+SUBTOPICS: Inequalities, Polynomials
 
-STATEMENT: Given six positive numbers $a,b,c,d,e,f$ such that $a < b < c < d < e < f.$ Let $a+c+e=S$ and $b+d+f=T.$ Prove that
-\[2ST > \sqrt{3(S+T)\left(S(bd + bf + df) + T(ac + ae + ce) \right)}.\]
+STATEMENT:
+Let $a,b,c,d,e,f$ be positive real numbers satisfying
+\[
+a<b<c<d<e<f.
+\]
+Set
+\[
+S=a+c+e,
+\qquad
+T=b+d+f.
+\]
+Prove that
+\[
+2ST>
+\sqrt{3(S+T)\left(S(bd+bf+df)+T(ac+ae+ce)\right)}.
+\tag{1}
+\]
 
-SOLUTION 1: Let $\sqrt{a^2+c^2+e^2}:=S'$ and $\sqrt{b^2+d^2+f^2}:=T'$. Furthermore, define $x:=b-a$, $y:=d-c$, $z:=f-e$ and $v:=c-b$, $w:=e-d$.
-Then $2(ac+ce+ea)=(a+c+e)^2-(a^2+c^2+e^2)=S^2-S'^2$; likewise, $2(bd+df+fb)=T^2-T'^2$. Squaring the initial inequality and then multiplying by $2$ yields
-\[8S^2T^2>3(S+T)(S(T^2-T'^2)+T(S^2-S'^2))\]\[\iff 3S'^2(S+T)T+3T'^2(S+T)S>3(S+T)^2ST-8S^2T^2\]\[\iff (S+T)\left(T(3S'^2-S^2)+S(3T'^2-T^2)\right)\\>3(S+T)^2ST-8S^2T^2-(S+T)^2ST=2ST(S-T)^2.\quad (1)\]We have\[3S'^2-S^2=3(a^2+c^2+e^2)-(a+c+e)^2= (a-c)^2+(c-e)^2+(e-a)^2\\\quad \quad =(x+v)^2+(y+w)^2+(x+y+v+w)^2.\]Thus, $3S'^2-S^2>x^2+y^2+(x+y)^2=2(x^2+y^2+xy)$. A similar estimation can be obtained for $3T'^2-T^2$. Taking into account these two estimations and $T-S=x+y+z$, (1) can be sharpened as follows:
-\[\frac{S+T}{S}(x^2+y^2+xy)+\frac{S+T}{T}(y^2+z^2+yz)>(x+y+z)^2\]\[\iff T^2(x^2+y^2+xy)+S^2(y^2+z^2+yz)>ST(xy+yz+2xz-y^2). \quad (2)\]
-Now,
-\[T^2x^2+S^2z^2-2STxz=(xT-zS)^2, \\
-T^2xy+S^2yz-ST(xy+yz)=y(T-S)(xT-zS).\]
-Hence (2) is equivalent to
-\[ (xT-zS)^2+y(T-S)(xT-zS)+y^2(T^2+S^2+TS)>0 \\
-\iff \left( (xT-zS)+y\frac{T-S}{2}\right)^2+y^2\left(T^2+S^2+TS-\frac{(T-S)^2}{4}\right)>0,\]
-which is clearly true.
+SOLUTION 1:
+Put
+\[
+\sigma=ac+ce+ae,
+\qquad
+\tau=bd+bf+df.
+\]
+Consider the cubic polynomial
+\[
+\begin{aligned}
+P(x)
+&=T(x-a)(x-c)(x-e)+S(x-b)(x-d)(x-f)\\
+&=T(x^3-Sx^2+\sigma x-ace)
+ +S(x^3-Tx^2+\tau x-bdf).
+\end{aligned}
+\tag{2}
+\]
+Its leading coefficient is $S+T>0$. Moreover,
+\[
+\begin{aligned}
+P(a)&=S(a-b)(a-d)(a-f)<0,\\
+P(c)&=S(c-b)(c-d)(c-f)>0,\\
+P(e)&=S(e-b)(e-d)(e-f)<0,\\
+P(f)&=T(f-a)(f-c)(f-e)>0.
+\end{aligned}
+\]
+Thus $P$ has one root in each of the disjoint intervals $(a,c)$, $(c,e)$ and $(e,f)$. Denote them by $\alpha,\beta,\gamma$. They are distinct, and
+\[
+P(x)=(S+T)(x-\alpha)(x-\beta)(x-\gamma).
+\tag{3}
+\]
+Comparing coefficients in (2) and (3), we find
+\[
+\alpha+\beta+\gamma=\frac{2ST}{S+T},
+\qquad
+\alpha\beta+\alpha\gamma+\beta\gamma
+=\frac{S\tau+T\sigma}{S+T}.
+\]
+Since the roots are distinct,
+\[
+0<(\alpha-\beta)^2+(\alpha-\gamma)^2+(\beta-\gamma)^2,
+\]
+so
+\[
+(\alpha+\beta+\gamma)^2
+>3(\alpha\beta+\alpha\gamma+\beta\gamma).
+\]
+Substitution gives
+\[
+\frac{4S^2T^2}{(S+T)^2}
+>\frac{3(S\tau+T\sigma)}{S+T},
+\]
+or
+\[
+4S^2T^2>3(S+T)(S\tau+T\sigma).
+\]
+Taking positive square roots yields (1).
 
-SOLUTION 2: Let $P(x) = T(x-a)(x-c)(x-e) + S(x-b)(x-d)(x-f)$. We see that $T > S$. Therefore, we see that due to Intermediate Value Theorem, there exists roots of $P$ in the intervals $(a, b), (c, d)$ and $(e, f)$, let these roots be $x, y, z$. We see that $P(x) = x^3(S +T) - 2x^2ST + x(T(ac + ce + ea) + S(bd + df + fb)) - (Tace + Sbdf)$. We see that since $x, y, z$ are roots of the polynomial $P$, we have $x + y + z = \dfrac{2ST}{S + T}$ and $xy + yz + zx = \dfrac{T(ac + ce + ea) + S(bd + df + fb)}{S + T}$ due to Vieta's relations. We see that since $x, y$ and $z$ are all distinct, $(x+y+z)^2 \geq 3(xy+yz+zx)$ (equality happens only at $x = y = z$). This means that $\dfrac{(2ST)^2}{(S+T)^2} = (x+y+z)^2 > 3(xy+yz+zx) = \dfrac{3T(ac + ce + ea) + 3S(bd + df + fb)}{S + T}$. This means that $(2ST)^2 > 3(S+T)(T(ac + ce + ea) + S(bd + df + fb)) \implies 2ST > \sqrt{3(S+T)(T(ac + ce + ea) + S(bd + df + fb)) }$.
+SOLUTION 2:
+Define
+\[
+U=\frac12\left((e-a)^2+(c-a)^2+(e-c)^2\right)
+=S^2-3(ac+ae+ce)
+\]
+and
+\[
+V=\frac12\left((f-b)^2+(f-d)^2+(d-b)^2\right)
+=T^2-3(bd+bf+df).
+\]
+A direct calculation gives
+\[
+\begin{aligned}
+&(2ST)^2
+-3(S+T)\left(S(bd+bf+df)+T(ac+ae+ce)\right)\\
+&\qquad=(S+T)(SV+TU)-ST(T-S)^2.
+\end{aligned}
+\]
+Therefore it is enough to prove
+\[
+(S+T)(SV+TU)>ST(T-S)^2.
+\tag{2}
+\]
+By Cauchy-Schwarz,
+\[
+(S+T)(TU+SV)
+\ge \left(\sqrt{S\cdot TU}+\sqrt{T\cdot SV}\right)^2
+=ST(\sqrt U+\sqrt V)^2.
+\tag{3}
+\]
+We now estimate $\sqrt U+\sqrt V$. Omitting the positive terms $(e-c)^2$ and $(d-b)^2$ and then using the quadratic-mean inequality,
+\[
+\begin{aligned}
+\sqrt U+\sqrt V
+&>\sqrt{\frac{(e-a)^2+(c-a)^2}{2}}
+ +\sqrt{\frac{(f-b)^2+(f-d)^2}{2}}\\
+&\ge \frac{(e-a)+(c-a)}{2}
+ +\frac{(f-b)+(f-d)}{2}\\
+&=(T-S)+\frac32(e-d)+\frac32(c-b)\\
+&>T-S.
+\end{aligned}
+\tag{4}
+\]
+Combining (3) and (4) proves (2), and hence the desired inequality.
+
+SOLUTION 3:
+Keep the notation
+\[
+\sigma=ac+ce+ae,
+\qquad
+\tau=bd+bf+df,
+\]
+and put
+\[
+s=c+e.
+\]
+Each term in
+\[
+(c-b)(c-d)+(e-f)(e-d)+(e-f)(c-b)
+\]
+is negative. Expanding therefore gives
+\[
+\tau-\sigma<s(T-S).
+\tag{2}
+\]
+Using (2),
+\[
+\begin{aligned}
+S\tau+T\sigma
+&=S(\tau-\sigma)+(S+T)\sigma\\
+&<Ss(T-S)+(S+T)(ce+as).
+\end{aligned}
+\]
+Since $c+e=s$, we have $ce\le s^2/4$, and since $a=S-s$,
+\[
+\begin{aligned}
+S\tau+T\sigma
+&\le Ss(T-S)+(S+T)
+\left(\frac{s^2}{4}+(S-s)s\right)\\
+&=s\left(2ST-\frac34(S+T)s\right).
+\end{aligned}
+\tag{3}
+\]
+Consequently, by AM-GM,
+\[
+\begin{aligned}
+\sqrt{\frac34(S+T)(S\tau+T\sigma)}
+&<\sqrt{\frac34(S+T)s
+\left(2ST-\frac34(S+T)s\right)}\\
+&\le \frac{\frac34(S+T)s+
+2ST-\frac34(S+T)s}{2}\\
+&=ST.
+\end{aligned}
+\]
+Multiplying the expression under the square root by $4$ gives exactly (1).
+
+SOLUTION 4:
+Again write
+\[
+\sigma=ac+ce+ae,
+\qquad
+\tau=bd+bf+df.
+\]
+We will modify the variables while preserving the order
+\[
+a\le b\le c\le d\le e\le f
+\]
+and the sums $S,T$, but increasing $\sigma$ and $\tau$. Since the left-hand side of (1) then stays fixed while the right-hand side increases, it is enough to prove the non-strict inequality for the final modified variables.
+
+We use the following elementary smoothing lemma. For positive $x,y,z$, set
+\[
+U(x,y,z)=x+y+z,
+\qquad
+v(x,y,z)=xy+xz+yz.
+\]
+If
+\[
+x'+y'=x+y
+\quad\text{and}\quad
+|x-y|\ge |x'-y'|,
+\]
+then
+\[
+U(x',y',z)=U(x,y,z),
+\qquad
+v(x',y',z)\ge v(x,y,z).
+\]
+Indeed,
+\[
+\begin{aligned}
+v(x',y',z)
+&=z(x'+y')+x'y'\\
+&=z(x+y)+\frac{(x+y)^2-(x'-y')^2}{4}\\
+&\ge z(x+y)+\frac{(x+y)^2-(x-y)^2}{4}\\
+&=v(x,y,z).
+\end{aligned}
+\]
+
+Apply this lemma in three stages, writing the new variables with the same letters.
+
+First, let
+\[
+k=\frac{d-c}{2}
+\]
+and replace
+\[
+(b,c,d,e)
+\quad\text{by}\quad
+(b+k,c+k,d-k,e-k).
+\]
+Then $c=d$, while $S,T$ are unchanged and both $\sigma,\tau$ increase.
+
+Second, let
+\[
+\lambda=\frac{e-d}{2}
+\]
+and replace
+\[
+(c,d,e,f)
+\quad\text{by}\quad
+(c+\lambda,d+\lambda,e-\lambda,f-\lambda).
+\]
+Now $c=d=e$, again with $S,T$ fixed and $\sigma,\tau$ increased.
+
+Finally, let
+\[
+m=\frac{c-b}{3}
+\]
+and replace
+\[
+(a,b,c,d,e,f)
+\]
+by
+\[
+(a+2m,b+2m,c-m,d-m,e-m,f-m).
+\]
+This last transformation is the composition of two applications of the lemma, and it leads to
+\[
+a<b=c=d=e<f.
+\]
+
+Thus it remains to prove the inequality when $b=c=d=e$. In this case
+\[
+S=a+2b,
+\qquad
+T=2b+f,
+\]
+and the desired non-strict inequality becomes
+\[
+\begin{aligned}
+2(a+2b)(2b+f)
+\ge\sqrt{3b(a+4b+f)
+\left((a+2b)(b+2f)+(2b+f)(2a+b)\right)}.
+\end{aligned}
+\tag{2}
+\]
+But
+\[
+\begin{aligned}
+2\cdot 2(a+2b)(2b+f)
+&=3b(a+4b+f)\\
+&\quad +(a+2b)(b+2f)+(2a+b)(2b+f).
+\end{aligned}
+\]
+Applying AM-GM to the two positive quantities
+\[
+3b(a+4b+f)
+\]
+and
+\[
+(a+2b)(b+2f)+(2a+b)(2b+f)
+\]
+gives (2). Since at least one of the smoothing steps is strict for the original strict ordering, the original inequality is strict as required.
