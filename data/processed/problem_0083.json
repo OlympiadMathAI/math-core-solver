@@ -1,0 +1,16 @@
+{
+  "id": "0083",
+  "source": "IMO Shortlist",
+  "year": "2012",
+  "topic": "Number Theory",
+  "subtopics": [
+    "Binomial Coefficients",
+    "Prime Characterization",
+    "Divisibility",
+    "p-adic Valuation"
+  ],
+  "statement": "Determine all integers $m\\ge2$ such that every integer $n$ satisfying\n\\[\n\\frac m3\\le n\\le\\frac m2\n\\]\ndivides the binomial coefficient\n\\[\n\\binom{n}{m-2n}.\n\\]",
+  "solutions": [
+    "The required integers are exactly the primes.\n\nFirst let $m=p$ be prime. For $p=2$, the only integer in the required interval is $n=1$, and\n\\[\n1\\mid\\binom10.\n\\]\nNow suppose that $p$ is odd and\n\\[\n\\frac p3\\le n\\le\\frac p2.\n\\]\nPut $r=p-2n$. Then\n\\[\n1\\le r\\le n,\n\\]\nso the standard binomial identity\n\\[\nr\\binom nr=n\\binom{n-1}{r-1}\n\\tag{1}\n\\]\napplies. Moreover,\n\\[\n\\gcd(r,n)=\\gcd(p-2n,n)=\\gcd(p,n)=1,\n\\]\nbecause $1\\le n<p$. Equation (1) shows that $n$ divides $r\\binom nr$; coprimality therefore gives\n\\[\nn\\mid\\binom nr=\\binom{n}{p-2n}.\n\\]\nThus every prime has the required property.\n\nWe next show that no composite $m$ works.\n\nIf $m=2k$ is even and composite, then $k>1$. Choose $n=k$. It lies in the required interval, but\n\\[\n\\binom{n}{m-2n}=\\binom{k}{0}=1,\n\\]\nwhich is not divisible by $k$.\n\nNow let $m$ be odd and composite. Choose a proper prime divisor $p$ of $m$. Since both $m$ and $p$ are odd, we may write\n\\[\nm=p(2k+1)\n\\]\nwith an integer $k\\ge1$. Put\n\\[\nn=pk.\n\\]\nThen\n\\[\n\\frac m3\\le n\\le\\frac m2\n\\]\nand\n\\[\nm-2n=p.\n\\]\nIf $n$ divided $\\binom np$, then\n\\[\n\\frac1n\\binom np\n=\\frac1{pk}\\binom{pk}{p}\n=\\frac{(pk-1)(pk-2)\\cdots(pk-p+1)}{p!}\n\\tag{2}\n\\]\nwould be an integer. However, the denominator in (2) is divisible by $p$, while none of the factors\n\\[\npk-1,pk-2,\\ldots,pk-(p-1)\n\\]\nis divisible by $p$. Thus the right-hand side of (2) has $p$-adic valuation $-1$ and is not an integer. Hence $n\\nmid\\binom np$.\n\nTherefore no composite integer works, and the answer is\n\\[\n\\boxed{m\\text{ is prime}}.\n\\]"
+  ]
+}

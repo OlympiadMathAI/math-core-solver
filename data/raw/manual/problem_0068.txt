@@ -1,0 +1,69 @@
+ID: 0068
+
+SOURCE: IMO Shortlist
+
+YEAR: 2012
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Extremal Combinatorics, Double Counting, AM-GM Inequality, Grid Colorings
+
+STATEMENT:
+In a $999\times 999$ square table, some cells are white and the remaining cells are red. Let $T$ be the number of triples $(C_1,C_2,C_3)$ of cells such that the first two cells are in the same row, the last two cells are in the same column, $C_1$ and $C_3$ are white, and $C_2$ is red. Find the maximum value that $T$ can attain.
+
+SOLUTION 1:
+We prove the corresponding upper bound for an $n\times n$ table.
+
+Let row $i$ contain $a_i$ white cells, let column $j$ contain $b_j$ white cells, and let $R$ be the set of red cells. If the red cell $(i,j)$ is chosen as $C_2$, then there are $a_i$ choices for $C_1$ and $b_j$ choices for $C_3$. Therefore
+\[
+T=\sum_{(i,j)\in R}a_i b_j.
+\tag{1}
+\]
+Using $2ab\le a^2+b^2$, we obtain
+\[
+\begin{aligned}
+T
+&\le \frac12\sum_{(i,j)\in R}\left(a_i^2+b_j^2\right)\\
+&=\frac12\sum_{i=1}^n(n-a_i)a_i^2
++\frac12\sum_{j=1}^n(n-b_j)b_j^2.
+\end{aligned}
+\tag{2}
+\]
+Indeed, row $i$ contains $n-a_i$ red cells and column $j$ contains $n-b_j$ red cells.
+
+For every $0\le x\le n$, AM-GM gives
+\[
+(n-x)x^2
+=\frac12(2n-2x)\cdot x\cdot x
+\le \frac12\left(\frac{2n}{3}\right)^3
+=\frac{4n^3}{27},
+\tag{3}
+\]
+with equality if and only if
+\[
+x=\frac{2n}{3}.
+\]
+Applying (3) to every term in (2), we find
+\[
+T\le
+\frac12\cdot n\cdot\frac{4n^3}{27}
++
+\frac12\cdot n\cdot\frac{4n^3}{27}
+=\frac{4n^4}{27}.
+\tag{4}
+\]
+
+Now take $n=999$. Color the cell $(i,j)$ white when
+\[
+i-j\equiv 1,2,\ldots,666\pmod{999},
+\]
+and red otherwise. Every row and every column then contains exactly $666=2n/3$ white cells. Thus, for every red cell, $a_i=b_j=666$, and equality holds in both inequalities used above. Hence the bound in (4) is attained.
+
+Therefore
+\[
+\boxed{T_{\max}=\frac{4\cdot 999^4}{27}}
+\]
+which is
+\[
+\boxed{147556443852}.
+\]

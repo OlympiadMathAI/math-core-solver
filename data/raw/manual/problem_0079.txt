@@ -1,0 +1,190 @@
+ID: 0079
+
+SOURCE: IMO Shortlist
+
+YEAR: 2012
+
+TOPIC: Geometry
+
+SUBTOPICS: Tangential Quadrilaterals, Incircles and Excircles, Tangent Lines, Angle Bisectors, Similarity
+
+STATEMENT:
+Let $ABCD$ be a convex quadrilateral with non-parallel sides $BC$ and $AD$. Assume that there is a point $E$ on the side $BC$ such that the quadrilaterals $ABED$ and $AECD$ are circumscribed. Prove that there is a point $F$ on the side $AD$ such that the quadrilaterals $ABCF$ and $BCDF$ are circumscribed if and only if
+\[
+AB\parallel CD.
+\]
+
+SOLUTION 1:
+Let $\omega_1$ and $\omega_2$ be the incircles of the tangential quadrilaterals $ABED$ and $AECD$, and let their centers be $O_1$ and $O_2$, respectively.
+
+Let the tangent from $B$ to $\omega_2$ other than $BC$ meet $AD$ at $F_1$, and let the tangent from $C$ to $\omega_1$ other than $BC$ meet $AD$ at $F_2$.
+
+If a point $F$ has the required property, then $\omega_1$ must also be the incircle of $ABCF$, so $CF$ is the second tangent from $C$ to $\omega_1$ and therefore $F=F_2$. Similarly, $\omega_2$ must be the incircle of $BCDF$, so $BF$ is the second tangent from $B$ to $\omega_2$ and $F=F_1$. Conversely, if $F_1=F_2$, the two circles are incircles of the required quadrilaterals. Hence it is enough to prove
+\[
+F_1=F_2
+\quad\Longleftrightarrow\quad
+AB\parallel CD.
+\tag{1}
+\]
+
+Let
+\[
+O=AD\cap BC.
+\]
+The circles $\omega_1$ and $\omega_2$ are tangent to both sides of the angle formed by the lines $AD$ and $BC$. Put
+\[
+p=OO_1\cdot OO_2.
+\]
+We use the following lemma.
+
+\textbf{Lemma.} Two circles $\omega_1,\omega_2$, with centers $O_1,O_2$, are inscribed in an angle with vertex $O$. Points $P,S$ lie on one side of the angle and $Q,R$ on the other. Suppose that $\omega_1$ is the incircle of triangle $PQO$, while $\omega_2$ is the excircle of triangle $RSO$ opposite $O$. Then exactly one of the following holds:
+\[
+OP\cdot OR<p<OQ\cdot OS,
+\]
+\[
+OP\cdot OR>p>OQ\cdot OS,
+\]
+or
+\[
+OP\cdot OR=p=OQ\cdot OS.
+\tag{2}
+\]
+
+\textbf{Proof of the lemma.} Let
+\[
+\angle OPO_1=u,
+\quad
+\angle OQO_1=v,
+\quad
+\angle OO_2R=x,
+\quad
+\angle OO_2S=y,
+\quad
+\angle POQ=2\varphi.
+\]
+Because the indicated lines are internal or external angle bisectors in triangles $PQO$ and $RSO$,
+\[
+u+v=x+y=90^\circ-\varphi.
+\tag{3}
+\]
+By the sine rule,
+\[
+\frac{OP}{OO_1}=\frac{\sin(u+\varphi)}{\sin u},
+\qquad
+\frac{OO_2}{OR}=\frac{\sin(x+\varphi)}{\sin x}.
+\]
+Since $u,x,\varphi$ are acute,
+\[
+\begin{aligned}
+OP\cdot OR\ge p
+&\Longleftrightarrow
+\frac{OP}{OO_1}\ge\frac{OO_2}{OR}\\
+&\Longleftrightarrow
+\sin x\sin(u+\varphi)\ge \sin u\sin(x+\varphi)\\
+&\Longleftrightarrow
+\sin(x-u)\ge 0\\
+&\Longleftrightarrow x\ge u.
+\end{aligned}
+\tag{4}
+\]
+Equality holds exactly when $x=u$.
+
+Analogously,
+\[
+p\ge OQ\cdot OS
+\quad\Longleftrightarrow\quad
+v\ge y,
+\tag{5}
+\]
+with equality exactly when $v=y$. By (3), the inequalities $x\ge u$ and $v\ge y$ are equivalent, and equality in one is equivalent to equality in the other. This proves (2). \hfill$\square$
+
+We now apply the lemma three times.
+
+First use the tangent lines $ED$ to $\omega_1$ and $BF_1$ to $\omega_2$. The lemma compares the products
+\[
+OB\cdot OD
+\qquad\text{and}\qquad
+OE\cdot OF_1.
+\]
+Thus
+\[
+OE\cdot OF_1>p
+\quad\Longrightarrow\quad
+OB\cdot OD<p,
+\tag{6}
+\]
+and the analogous reversed implication and equality statement also hold.
+
+Second, use the tangent lines $AB$ to $\omega_1$ and $CD$ to $\omega_2$. The lemma compares
+\[
+OA\cdot OC
+\qquad\text{and}\qquad
+OB\cdot OD.
+\]
+Therefore (6) implies
+\[
+OA\cdot OC>p.
+\tag{7}
+\]
+
+Third, interchange the roles of the two circles and use the tangent lines $AE$ and $CF_2$. The lemma compares
+\[
+OA\cdot OC
+\qquad\text{and}\qquad
+OE\cdot OF_2.
+\]
+Thus (7) implies
+\[
+OE\cdot OF_2<p.
+\tag{8}
+\]
+Combining (6)--(8),
+\[
+OE\cdot OF_1>p>OE\cdot OF_2,
+\]
+so $F_1\ne F_2$. The same reasoning with every inequality reversed shows that
+\[
+OE\cdot OF_1<p
+\quad\Longrightarrow\quad
+F_1\ne F_2.
+\]
+Hence
+\[
+F_1=F_2
+\quad\Longleftrightarrow\quad
+OE\cdot OF_1=p.
+\tag{9}
+\]
+The same two strict-inequality chains also show that
+\[
+OA\cdot OC=OB\cdot OD
+\quad\Longleftrightarrow\quad
+OE\cdot OF_1=p.
+\tag{10}
+\]
+Indeed, in the equality case the three applications of the lemma give
+\[
+OB\cdot OD=p=OA\cdot OC
+\]
+and
+\[
+OE\cdot OF_1=p=OE\cdot OF_2,
+\]
+whereas in either strict case the products $OB\cdot OD$ and $OA\cdot OC$ lie on opposite sides of $p$.
+
+Finally, because $A,D$ lie on one ray from $O$ and $B,C$ lie on the other, the lines $AB$ and $CD$ are parallel exactly when triangles $OAB$ and $ODC$ are similar. This is equivalent to
+\[
+\frac{OA}{OD}=\frac{OB}{OC},
+\]
+or, equivalently,
+\[
+OA\cdot OC=OB\cdot OD.
+\tag{11}
+\]
+By (9), (10), and (11),
+\[
+F_1=F_2
+\quad\Longleftrightarrow\quad
+AB\parallel CD.
+\]
+Together with (1), this completes the proof.

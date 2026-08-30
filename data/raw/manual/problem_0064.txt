@@ -1,0 +1,121 @@
+ID: 0064
+
+SOURCE: IMO Shortlist
+
+YEAR: 2012
+
+TOPIC: Algebra
+
+SUBTOPICS: Iterated Functions, Functional Graphs, Injectivity, Infinite Chains
+
+STATEMENT:
+Let $f:\mathbb{N}\to\mathbb{N}$ be a function, where $\mathbb{N}=\{1,2,3,\ldots\}$, and let $f^m$ denote $f$ applied $m$ times. Suppose that for every $n\in\mathbb{N}$ there exists $k\in\mathbb{N}$ such that
+\[
+f^{2k}(n)=n+k.
+\]
+For each $n$, let $k_n$ be the smallest such $k$. Prove that the sequence
+\[
+k_1,k_2,\ldots
+\]
+is unbounded.
+
+SOLUTION 1:
+Consider the forward orbit of $1$:
+\[
+S=\{1,f(1),f^2(1),\ldots\}.
+\]
+The set $S$ is unbounded. Indeed, for every $n\in S$, the hypothesis gives some $k>0$ such that
+\[
+f^{2k}(n)=n+k\in S,
+\]
+and this new element is larger than $n$.
+
+The function $f$ maps $S$ into itself and is injective on $S$. If
+\[
+f^i(1)=f^j(1)
+\]
+for some $i<j$, then the forward orbit would be eventually periodic and $S$ would be finite, contradicting its unboundedness.
+
+Define
+\[
+g:S\to S,
+\qquad
+g(n)=f^{2k_n}(n)=n+k_n.
+\]
+We claim that $g$ is injective. Suppose that $g(a)=g(b)$ with $a<b$. Then
+\[
+a+k_a=b+k_b,
+\]
+so $k_a>k_b$. Since $f$ is injective on $S$, so is every iterate of $f$, and from
+\[
+f^{2k_a}(a)=f^{2k_b}(b)
+\]
+we may cancel $f^{2k_b}$ to obtain
+\[
+f^{2(k_a-k_b)}(a)=b=a+(k_a-k_b).
+\]
+But
+\[
+0<k_a-k_b<k_a,
+\]
+contradicting the minimality of $k_a$. Thus $g$ is injective.
+
+Let
+\[
+T=S\setminus g(S).
+\]
+Since $g(n)>n$ for every $n\in S$, we have $1\in T$, so $T$ is nonempty. For each $t\in T$, define the chain
+\[
+C_t=\{t,g(t),g^2(t),\ldots\}.
+\]
+Distinct chains are disjoint because $g$ is injective. Moreover, every $n\in S\setminus T$ has the form $n=g(n')$ with $n'<n$. Repeating this descent eventually reaches an element of $T$. Hence $S$ is the disjoint union of the chains $C_t$.
+
+Suppose that
+\[
+t=f^{n_t}(1)
+\]
+and that $f^n(1)$ lies in the chain $C_t$. If the successive applications of $g$ use the integers $a_1,\ldots,a_j$, then
+\[
+n=n_t+2a_1+\cdots+2a_j
+\]
+and
+\[
+f^n(1)=t+a_1+\cdots+a_j.
+\]
+Therefore
+\[
+f^n(1)=t+\frac{n-n_t}{2}.
+\tag{1}
+\]
+
+We now prove that $T$ is infinite. Suppose, to the contrary, that there are only finitely many chains, starting at
+\[
+t_1<t_2<\cdots<t_r.
+\]
+For every $0\le n\le N$, formula (1) gives
+\[
+f^n(1)\le t_r+\frac{N}{2}.
+\]
+But the $N+1$ numbers
+\[
+1,f(1),\ldots,f^N(1)
+\]
+are distinct positive integers. Hence
+\[
+N+1\le t_r+\frac{N}{2},
+\]
+which is impossible for sufficiently large $N$. Thus $T$ is infinite.
+
+Finally, fix any positive integer $k$ and take the first $k+1$ elements of $T$. Let $t$ be the largest of them. The corresponding $k+1$ chains are disjoint, while the interval
+\[
+\{t+1,t+2,\ldots,t+k\}
+\]
+contains only $k$ integers. Therefore at least one of these chains contains none of those $k$ integers. That chain starts at a number at most $t$ and is infinite and strictly increasing. Let $n$ be the last element of the chain not exceeding $t$. Its successor satisfies
+\[
+g(n)\ge t+k+1,
+\]
+so
+\[
+k_n=g(n)-n>k.
+\]
+Since this holds for every $k$, the sequence $(k_n)$ is unbounded.

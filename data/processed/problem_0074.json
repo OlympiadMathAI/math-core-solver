@@ -1,0 +1,17 @@
+{
+  "id": "0074",
+  "source": "IMO Shortlist",
+  "year": "2012",
+  "topic": "Geometry",
+  "subtopics": [
+    "Cyclic Quadrilaterals",
+    "Similar Triangles",
+    "Parallelograms",
+    "Reflections",
+    "Directed Angles"
+  ],
+  "statement": "Let $ABCD$ be a cyclic quadrilateral whose diagonals $AC$ and $BD$ meet at $E$. The extensions of the sides $AD$ and $BC$ beyond $A$ and $B$, respectively, meet at $F$. Let $G$ be the point such that $ECGD$ is a parallelogram, and let $H$ be the reflection of $E$ in the line $AD$. Prove that $D,H,F,G$ are concyclic.",
+  "solutions": [
+    "We first prove that triangles $FDG$ and $FBE$ are similar.\n\nSince $ABCD$ is cyclic, triangles $EAB$ and $EDC$ are similar. Hence\n\\[\n\\frac{CE}{EB}=\\frac{CD}{AB}.\n\\tag{1}\n\\]\nAlso, triangles $FAB$ and $FCD$ are similar, which gives\n\\[\n\\frac{FD}{FB}=\\frac{CD}{AB}.\n\\tag{2}\n\\]\nBecause $ECGD$ is a parallelogram,\n\\[\nGD=EC\n\\]\nand\n\\[\n\\angle CDG=\\angle DCE.\n\\]\nMoreover, by the cyclicity of $ABCD$,\n\\[\n\\angle DCE=\\angle DCA=\\angle DBA.\n\\]\nTherefore\n\\[\n\\begin{aligned}\n\\angle FDG\n&=\\angle FDC+\\angle CDG\\\\\n&=\\angle FBA+\\angle ABD\\\\\n&=\\angle FBE.\n\\end{aligned}\n\\tag{3}\n\\]\nFrom (1) and (2),\n\\[\n\\frac{GD}{EB}=\\frac{CE}{EB}=\\frac{CD}{AB}=\\frac{FD}{FB}.\n\\tag{4}\n\\]\nThus (3) and (4) give the similarity\n\\[\n\\triangle FDG\\sim\\triangle FBE.\n\\]\nIn particular,\n\\[\n\\angle FGD=\\angle FEB.\n\\tag{5}\n\\]\n\nThe line $FD$ is the same line as $AD$. Since $H$ is the reflection of $E$ in $FD$, the reflection fixes $F$ and $D$, and hence\n\\[\n\\angle FHD=\\angle FED.\n\\tag{6}\n\\]\nBecause $D,E,B$ are collinear, the rays $ED$ and $EB$ are opposite, so\n\\[\n\\angle FED=180^\\circ-\\angle FEB.\n\\tag{7}\n\\]\nCombining (5), (6), and (7), we obtain\n\\[\n\\angle FHD+\\angle FGD=180^\\circ.\n\\]\nTherefore the quadrilateral $DHFG$ is cyclic, as required."
+  ]
+}

@@ -1,0 +1,117 @@
+ID: 0067
+
+SOURCE: IMO Shortlist
+
+YEAR: 2012
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Extremal Combinatorics, Pairings, Constructive Combinatorics, Double Counting
+
+STATEMENT:
+Let $n\ge 1$ be an integer. What is the maximum number of disjoint pairs of elements of the set
+\[
+\{1,2,\ldots,n\}
+\]
+such that the sums of the different pairs are different integers not exceeding $n$?
+
+SOLUTION 1:
+The maximum is
+\[
+\boxed{\left\lfloor\frac{2n-1}{5}\right\rfloor}.
+\]
+
+Suppose that $x$ disjoint pairs satisfy the conditions. Let $S$ be the sum of all $2x$ elements used in the pairs. Since these elements are distinct,
+\[
+S\ge 1+2+\cdots+2x=\frac{2x(2x+1)}2.
+\tag{1}
+\]
+On the other hand, $S$ is also the sum of the $x$ pair-sums. Those sums are distinct positive integers not exceeding $n$, so
+\[
+S\le n+(n-1)+\cdots+(n-x+1)
+=nx-\frac{x(x-1)}2.
+\tag{2}
+\]
+Combining (1) and (2) gives
+\[
+\frac{2x(2x+1)}2\le nx-\frac{x(x-1)}2.
+\]
+For $x>0$, division by $x$ and simplification yield
+\[
+5x\le 2n-1.
+\]
+The same conclusion is trivial for $x=0$. Therefore
+\[
+x\le \left\lfloor\frac{2n-1}{5}\right\rfloor.
+\tag{3}
+\]
+
+It remains to attain this bound. First let
+\[
+n=5k+3
+\qquad(k\ge 0).
+\]
+For $j=1,2,\ldots,k$, take the pairs
+\[
+P_j=(3k+2-j,\,2j)
+\]
+and
+\[
+Q_j=(4k+3-j,\,2j-1),
+\]
+and also take
+\[
+R=(3k+2,\,2k+1).
+\]
+The sums are
+\[
+\sum P_j=3k+2+j
+\qquad(j=1,\ldots,k),
+\]
+\[
+\sum Q_j=4k+2+j
+\qquad(j=1,\ldots,k),
+\]
+and
+\[
+\sum R=5k+3.
+\]
+Thus the pair-sums are exactly
+\[
+3k+3,3k+4,\ldots,5k+3,
+\]
+so they are distinct and do not exceed $n$. Moreover, the $2k+1$ pairs use every integer from $1$ to $4k+2$ exactly once. Hence this is a valid construction of $2k+1$ pairs.
+
+The same construction works without change for
+\[
+n=5k+4\quad\text{and}\quad n=5k+5,
+\]
+because all elements and all sums are at most $5k+3$. In each of these three cases,
+\[
+\left\lfloor\frac{2n-1}{5}\right\rfloor=2k+1.
+\]
+
+For
+\[
+n=5k+2,
+\]
+omit the last pair $R$. This gives $2k$ valid pairs, which equals the value in (3).
+
+Finally, for
+\[
+n=5k+1,
+\]
+omit $R$ and subtract $1$ from the first entry of every remaining pair. The first entries then lie in
+\[
+\{2k+1,\ldots,3k\}\cup\{3k+2,\ldots,4k+1\},
+\]
+while the second entries are $1,2,\ldots,2k$, so all used elements are distinct and belong to $\{1,\ldots,n\}$. The pair-sums become the distinct integers
+\[
+3k+2,3k+3,\ldots,5k+1.
+\]
+Thus we again obtain $2k$ valid pairs, equal to the upper bound.
+
+The constructions also cover $k=0$, with the indicated families of pairs empty when appropriate. Hence the maximum is exactly
+\[
+\left\lfloor\frac{2n-1}{5}\right\rfloor.
+\]

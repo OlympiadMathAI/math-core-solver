@@ -1,0 +1,207 @@
+ID: 0085
+
+SOURCE: IMO Shortlist
+
+YEAR: 2012
+
+TOPIC: Number Theory
+
+SUBTOPICS: Polynomial Values, Radicals, Schur's Theorem, Roots of Unity, Divisibility
+
+STATEMENT:
+For a nonnegative integer $n$, define $\operatorname{rad}(n)=1$ if $n=0$ or $n=1$, and otherwise define
+\[
+\operatorname{rad}(n)=p_1p_2\cdots p_k,
+\]
+where $p_1<p_2<\cdots<p_k$ are all the prime divisors of $n$.
+
+Find all polynomials $f(x)$ with nonnegative integer coefficients such that
+\[
+\operatorname{rad}(f(n))
+\mid
+\operatorname{rad}\!\left(f\!\left(n^{\operatorname{rad}(n)}\right)\right)
+\]
+for every nonnegative integer $n$.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{f(x)=ax^m}
+\]
+for arbitrary nonnegative integers $a,m$.
+
+The zero polynomial is included by taking $a=0$. Now assume that $f$ is nonzero. Because its coefficients are nonnegative, $f(n)>0$ for every positive integer $n$; in particular, $f(1)>0$.
+
+For any prime $q$ and any positive integer $n$, the given condition implies
+\[
+q\mid f(n)
+\quad\Longrightarrow\quad
+q\mid f\!\left(n^{\operatorname{rad}(n)}\right).
+\tag{1}
+\]
+Because
+\[
+\operatorname{rad}\!\left(n^{\operatorname{rad}(n)^j}\right)=\operatorname{rad}(n),
+\]
+iteration of (1) gives
+\[
+q\mid f(n)
+\quad\Longrightarrow\quad
+q\mid f\!\left(n^{\operatorname{rad}(n)^j}\right)
+\quad\text{for every }j\ge1.
+\tag{2}
+\]
+
+Factor out the largest power of $x$ dividing $f$:
+\[
+f(x)=x^m g(x),
+\qquad
+g(0)>0.
+\]
+We prove that $g$ is constant.
+
+Let $t$ be a positive integer for which $g(-t)\ne0$, and let $q$ be any prime divisor of $g(-t)$. Set
+\[
+n=(q-1)t.
+\]
+Then $n\equiv-t\pmod q$, so
+\[
+f(n)\equiv f(-t)=(-t)^m g(-t)\equiv0\pmod q.
+\]
+Every prime divisor of $q-1$ divides $n$. Hence, for sufficiently large $j$,
+\[
+q-1\mid\operatorname{rad}(n)^j.
+\]
+
+If $\gcd(q,n)=1$, Fermat's little theorem and (2) give
+\[
+n^{\operatorname{rad}(n)^j}\equiv1\pmod q
+\]
+and therefore
+\[
+q\mid f(1).
+\]
+If $\gcd(q,n)>1$, then $q\mid t$, because $q\nmid q-1$. In that case
+\[
+g(-t)\equiv g(0)\pmod q,
+\]
+so $q\mid g(0)$.
+
+Thus every prime divisor of every nonzero value $g(-t)$, $t\ge1$, belongs to the finite set of prime divisors of
+\[
+g(0)f(1).
+\tag{3}
+\]
+We now use the following elementary form of Schur's theorem.
+
+\textbf{Lemma.} If $h\in\mathbb Z[x]$ is nonconstant and $h(0)\ne0$, then infinitely many primes divide the nonzero values $h(t)$ with $t$ a positive integer.
+
+\textbf{Proof.} Suppose that all such prime divisors lie in a finite set $\{p_1,\ldots,p_s\}$, and put
+\[
+P=p_1p_2\cdots p_s
+\]
+(with $P=1$ if the set is empty). Replacing $h$ by $-h$ if necessary, we may assume $h(0)>0$. For every positive integer $u$,
+\[
+\frac{h(h(0)Pu)}{h(0)}
+\]
+is an integer congruent to $1$ modulo every $p_i$. For every $u$ for which this integer is nonzero, all of its prime divisors belong to $\{p_1,\ldots,p_s\}$, so none of the $p_i$ can actually divide it; its absolute value must therefore be $1$. But the displayed expression is a nonconstant polynomial in $u$, hence is nonzero and has absolute value greater than $1$ for all sufficiently large $u$, a contradiction. \hfill$\square$
+
+Apply the lemma to $h(t)=g(-t)$. Relation (3) forces $g$ to be constant. Hence
+\[
+f(x)=ax^m
+\]
+with $a,m\ge0$.
+
+Finally, every such polynomial works. For $n>0$, the numbers
+\[
+f(n)=an^m
+\quad\text{and}\quad
+f\!\left(n^{\operatorname{rad}(n)}\right)=a n^{m\operatorname{rad}(n)}
+\]
+have exactly the same prime divisors. The cases $n=0$ and constant polynomials are immediate from the definition of $\operatorname{rad}(0)$.
+
+SOLUTION 2:
+We give a second proof based on the complex roots of $f$.
+
+The zero polynomial and nonzero constant polynomials already have the required form, so suppose that $f$ has positive degree. We claim that if $\xi$ is a complex root of $f$, then
+\[
+\xi^d
+\]
+is also a root of $f$ for every positive integer $d$.
+
+Let $g\in\mathbb Z[x]$ be the primitive irreducible polynomial of $\xi$ over $\mathbb Q$. Since $g$ divides $f$ in $\mathbb Q[x]$, Gauss's lemma gives
+\[
+f(x)=g(x)h(x)
+\]
+for some $h\in\mathbb Z[x]$ after replacing $g$ by its associate if necessary. If $g(0)=0$, then $g=x$ up to sign, so $\xi=0$ and the claim is immediate. If $g(1)=0$, then $g=x-1$ up to sign, so $\xi=1$ and the claim is again immediate. We may therefore assume
+\[
+g(0)g(1)\ne0.
+\]
+It is enough to prove the claim when $d=\ell$ is prime, because the general case follows by repeated application.
+
+We show that
+\[
+g(x)\mid f(x^\ell).
+\tag{4}
+\]
+Suppose otherwise. Since $g$ is irreducible, $g(x)$ and $f(x^\ell)$ are coprime over $\mathbb Q[x]$. Clearing denominators in Bezout's identity, there exist polynomials $A,B\in\mathbb Z[x]$ and a nonzero integer $N$ such that
+\[
+A(x)g(x)+B(x)f(x^\ell)=N.
+\tag{5}
+\]
+
+For every $k\ge0$, we have $\operatorname{rad}(\ell^k)=\ell$ when $k\ge1$, and the original condition gives
+\[
+\operatorname{rad}(f(\ell^k))
+\mid
+\operatorname{rad}(f(\ell^{\ell k})).
+\]
+Hence every prime divisor of a nonzero value $g(\ell^k)$ divides both $f(\ell^k)$ and $f(\ell^{\ell k})$. Substituting $x=\ell^k$ into (5), we conclude that every such prime divides $N$.
+
+Let $q_1,\ldots,q_s$ be the prime divisors of $N$ different from $\ell$, and write
+\[
+\alpha_i=v_{q_i}(g(1)),
+\qquad
+\beta=v_\ell(g(0)).
+\]
+Let
+\[
+L=
+\begin{cases}
+\operatorname{lcm}\bigl(\varphi(q_1^{\alpha_1+1}),\ldots,\varphi(q_s^{\alpha_s+1})\bigr),&s\ge1,\\
+1,&s=0.
+\end{cases}
+\]
+Choose arbitrarily large positive multiples $k$ of $L$. Then
+\[
+\ell^k\equiv1\pmod{q_i^{\alpha_i+1}},
+\]
+so
+\[
+v_{q_i}(g(\ell^k))=\alpha_i
+\]
+for every $i$. Also, for $k>\beta$,
+\[
+g(\ell^k)\equiv g(0)\pmod{\ell^k},
+\]
+which gives
+\[
+v_\ell(g(\ell^k))=\beta.
+\]
+All prime divisors of $g(\ell^k)$ divide $N$, and their exponents are now bounded independently of $k$. Consequently $|g(\ell^k)|$ is bounded for these arbitrarily large values of $k$. This is impossible because $g$ is nonconstant. Thus (4) holds.
+
+Since $g(\xi)=0$, divisibility (4) gives
+\[
+f(\xi^\ell)=0.
+\]
+This proves the claim for prime $\ell$, and therefore for every positive integer $d$.
+
+The polynomial $f$ has only finitely many roots. If $\xi\ne0$ is a root, then the infinitely indexed family $\xi,\xi^2,\xi^3,\ldots$ contains two equal terms, so $\xi$ is a root of unity. Some positive power of $\xi$ is then $1$, and the claim implies that $1$ is a root of $f$. But a nonzero polynomial with nonnegative coefficients satisfies
+\[
+f(1)>0,
+\]
+a contradiction. Hence every root of $f$ is $0$, and therefore
+\[
+f(x)=ax^m
+\]
+for nonnegative integers $a,m$.

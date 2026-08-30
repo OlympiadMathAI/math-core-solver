@@ -1,0 +1,119 @@
+ID: 0072
+
+SOURCE: IMO Shortlist
+
+YEAR: 2012
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Graph Theory, Independent Sets, Caro-Wei Bound, Double Counting, Harmonic Series
+
+STATEMENT:
+There are $2^{500}$ points on a circle, labeled
+\[
+1,2,\ldots,2^{500}
+\]
+in some order. Prove that one can choose $100$ pairwise disjoint chords joining some of these points such that the sums of the labels at the endpoints of all $100$ chords are equal.
+
+SOLUTION 1:
+We begin with an independent-set lemma.
+
+\textbf{Lemma.}
+Let $G$ be a finite graph, and let $d_v$ be the degree of a vertex $v$. Then $G$ contains an independent set of size at least
+\[
+F(G)=\sum_{v\in V(G)}\frac{1}{d_v+1}.
+\tag{1}
+\]
+
+\textbf{Proof of the lemma.}
+We use induction on $|V(G)|$. Choose a vertex $v_0$ of minimum degree $d$, delete $v_0$ and all its neighbors $v_1,\ldots,v_d$, and call the remaining graph $G'$. By induction, $G'$ has an independent set $S'$ with
+\[
+|S'|\ge F(G').
+\]
+Then
+\[
+S=S'\cup\{v_0\}
+\]
+is independent in $G$.
+
+For every vertex remaining in $G'$, its new degree is at most its old degree. Also every deleted vertex has degree at least $d$. Hence
+\[
+\begin{aligned}
+F(G')
+&\ge F(G)-\sum_{i=0}^d\frac{1}{d_{v_i}+1}\\
+&\ge F(G)-\frac{d+1}{d+1}\\
+&=F(G)-1.
+\end{aligned}
+\]
+Therefore
+\[
+|S|=|S'|+1\ge F(G')+1\ge F(G),
+\]
+proving the lemma.
+
+Now set
+\[
+n=2^{499},
+\]
+so there are $2n$ labeled points. Draw every chord determined by two of the points, and color a chord by the sum of the labels at its endpoints. The possible colors are
+\[
+3,4,\ldots,4n-1,
+\]
+so there are $4n-3$ colors. Two chords of the same color cannot share an endpoint, because their other endpoint labels would then have to be equal.
+
+For each color $c$, form a graph $G_c$ whose vertices are the chords of color $c$, with two vertices adjacent when the corresponding chords intersect.
+
+For a chord $\ell$, let $m(\ell)$ be the smaller of the numbers of given points lying in the two open arcs cut off by $\ell$. Thus
+\[
+m(\ell)\le n-1.
+\]
+For each
+\[
+i=0,1,\ldots,n-2,
+\]
+there are exactly $2n$ chords with $m(\ell)=i$: from each starting point, move clockwise and join it to the point having exactly $i$ intervening points. Since $i<n-1$, this clockwise arc is the uniquely shorter arc, so each such chord is counted exactly once.
+
+A chord $\ell$ with $m(\ell)=i$ has degree at most $i$ in its graph $G_c$. Indeed, choose the open arc containing $i$ points. Every chord crossing $\ell$ has an endpoint among those $i$ points, and each such point is the endpoint of at most one chord of color $c$, because the other endpoint label is determined by the required sum $c$.
+
+Consequently, the $2n$ chords with $m(\ell)=i$ contribute at least
+\[
+\frac{2n}{i+1}
+\]
+to the total sum of the quantities in (1) over all color graphs. Summing over $i=0,1,\ldots,n-2$, we get
+\[
+\sum_c F(G_c)
+\ge 2n\sum_{i=1}^{n-1}\frac1i.
+\tag{2}
+\]
+Since there are $4n-3$ colors, some color $c$ satisfies
+\[
+F(G_c)
+\ge \frac{2n}{4n-3}\sum_{i=1}^{n-1}\frac1i
+>\frac12\sum_{i=1}^{n-1}\frac1i.
+\tag{3}
+\]
+By the lemma, $G_c$ has an independent set at least this large. Such an independent set consists of pairwise nonintersecting chords of the same color; and, as noted above, chords of the same color do not share endpoints. Hence these chords are pairwise disjoint and have equal endpoint sums.
+
+It remains to show that the right-hand side of (3) exceeds $100$. Since
+\[
+n-1=2^{499}-1>2^{400},
+\]
+we have
+\[
+\begin{aligned}
+\sum_{i=1}^{n-1}\frac1i
+&>\sum_{i=1}^{2^{400}}\frac1i\\
+&=1+\sum_{k=1}^{400}\ \sum_{i=2^{k-1}+1}^{2^k}\frac1i.
+\end{aligned}
+\]
+Each block contains $2^{k-1}$ terms, each at least $1/2^k$, and the inequality is strict in every block with $k\ge 2$. Therefore
+\[
+\sum_{i=1}^{n-1}\frac1i
+>1+\sum_{k=1}^{400}\frac{2^{k-1}}{2^k}
+=201>200.
+\]
+Thus (3) gives
+\[
+F(G_c)>100.
+\]
+The independent set has an integer number of vertices, so it contains at least $101$ chords. Choosing any $100$ of them completes the proof.

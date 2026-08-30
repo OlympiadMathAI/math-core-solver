@@ -1,0 +1,111 @@
+ID: 0061
+
+SOURCE: IMO Shortlist
+
+YEAR: 2012
+
+TOPIC: Algebra
+
+SUBTOPICS: Inequalities, Weighted AM-GM, Product Constraints
+
+STATEMENT:
+Let $a_2,\ldots,a_n$ be $n-1$ positive real numbers, where $n\ge 3$, such that
+\[
+a_2a_3\cdots a_n=1.
+\]
+Prove that
+\[
+(1+a_2)^2(1+a_3)^3\cdots(1+a_n)^n>n^n.
+\]
+
+SOLUTION 1:
+Choose positive real numbers $x_1,\ldots,x_{n-1}$ such that
+\[
+a_2=\frac{x_2}{x_1},\qquad
+a_3=\frac{x_3}{x_2},\qquad
+\ldots,\qquad
+a_n=\frac{x_1}{x_{n-1}}.
+\]
+Such a choice is possible because $a_2a_3\cdots a_n=1$. The desired inequality becomes
+\[
+(x_1+x_2)^2(x_2+x_3)^3\cdots(x_{n-1}+x_1)^n
+>n^n x_1^2x_2^3\cdots x_{n-1}^n.
+\tag{1}
+\]
+
+Apply AM-GM to each factor:
+\[
+(x_1+x_2)^2\ge 2^2x_1x_2,
+\]
+\[
+(x_2+x_3)^3
+=\left(2\cdot\frac{x_2}{2}+x_3\right)^3
+\ge 3^3\left(\frac{x_2}{2}\right)^2x_3,
+\]
+\[
+(x_3+x_4)^4
+=\left(3\cdot\frac{x_3}{3}+x_4\right)^4
+\ge 4^4\left(\frac{x_3}{3}\right)^3x_4,
+\]
+and similarly, ending with
+\[
+(x_{n-1}+x_1)^n
+=\left((n-1)\frac{x_{n-1}}{n-1}+x_1\right)^n
+\ge n^n\left(\frac{x_{n-1}}{n-1}\right)^{n-1}x_1.
+\]
+Multiplying these inequalities gives (1) with $\ge$ in place of $>$. Indeed, all intermediate constants telescope, leaving $n^n$, and the powers of the variables become
+\[
+x_1^2x_2^3\cdots x_{n-1}^n.
+\]
+
+It remains to rule out equality. Equality in all the AM-GM inequalities would require
+\[
+x_1=x_2,
+\qquad
+x_2=2x_3,
+\qquad
+x_3=3x_4,
+\qquad
+\ldots,
+\qquad
+x_{n-1}=(n-1)x_1.
+\]
+Combining these relations yields
+\[
+x_1=(n-1)!\,x_1,
+\]
+which is impossible because $x_1>0$ and $n\ge 3$. Therefore the inequality is strict.
+
+SOLUTION 2:
+For each $k=2,3,\ldots,n$, apply AM-GM to the $k$ positive numbers consisting of $k-1$ copies of $1/(k-1)$ and one copy of $a_k$:
+\[
+1+a_k=(k-1)\frac{1}{k-1}+a_k.
+\]
+This gives
+\[
+(1+a_k)^k
+\ge
+k^k\left(\frac{1}{k-1}\right)^{k-1}a_k
+=
+\frac{k^k}{(k-1)^{k-1}}a_k.
+\]
+Multiplying for $k=2,3,\ldots,n$, we obtain
+\[
+\begin{aligned}
+(1+a_2)^2(1+a_3)^3\cdots(1+a_n)^n
+&\ge
+\left(\prod_{k=2}^n\frac{k^k}{(k-1)^{k-1}}\right)
+\left(\prod_{k=2}^n a_k\right)\\
+&=n^n.
+\end{aligned}
+\]
+Equality would require
+\[
+a_k=\frac{1}{k-1}
+\qquad\text{for every }k=2,\ldots,n.
+\]
+But then
+\[
+a_2a_3\cdots a_n=\frac{1}{(n-1)!}\ne 1
+\]
+for $n\ge 3$. Hence equality is impossible, and the desired inequality is strict.

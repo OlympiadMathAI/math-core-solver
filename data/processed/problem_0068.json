@@ -1,0 +1,16 @@
+{
+  "id": "0068",
+  "source": "IMO Shortlist",
+  "year": "2012",
+  "topic": "Combinatorics",
+  "subtopics": [
+    "Extremal Combinatorics",
+    "Double Counting",
+    "AM-GM Inequality",
+    "Grid Colorings"
+  ],
+  "statement": "In a $999\\times 999$ square table, some cells are white and the remaining cells are red. Let $T$ be the number of triples $(C_1,C_2,C_3)$ of cells such that the first two cells are in the same row, the last two cells are in the same column, $C_1$ and $C_3$ are white, and $C_2$ is red. Find the maximum value that $T$ can attain.",
+  "solutions": [
+    "We prove the corresponding upper bound for an $n\\times n$ table.\n\nLet row $i$ contain $a_i$ white cells, let column $j$ contain $b_j$ white cells, and let $R$ be the set of red cells. If the red cell $(i,j)$ is chosen as $C_2$, then there are $a_i$ choices for $C_1$ and $b_j$ choices for $C_3$. Therefore\n\\[\nT=\\sum_{(i,j)\\in R}a_i b_j.\n\\tag{1}\n\\]\nUsing $2ab\\le a^2+b^2$, we obtain\n\\[\n\\begin{aligned}\nT\n&\\le \\frac12\\sum_{(i,j)\\in R}\\left(a_i^2+b_j^2\\right)\\\\\n&=\\frac12\\sum_{i=1}^n(n-a_i)a_i^2\n+\\frac12\\sum_{j=1}^n(n-b_j)b_j^2.\n\\end{aligned}\n\\tag{2}\n\\]\nIndeed, row $i$ contains $n-a_i$ red cells and column $j$ contains $n-b_j$ red cells.\n\nFor every $0\\le x\\le n$, AM-GM gives\n\\[\n(n-x)x^2\n=\\frac12(2n-2x)\\cdot x\\cdot x\n\\le \\frac12\\left(\\frac{2n}{3}\\right)^3\n=\\frac{4n^3}{27},\n\\tag{3}\n\\]\nwith equality if and only if\n\\[\nx=\\frac{2n}{3}.\n\\]\nApplying (3) to every term in (2), we find\n\\[\nT\\le\n\\frac12\\cdot n\\cdot\\frac{4n^3}{27}\n+\n\\frac12\\cdot n\\cdot\\frac{4n^3}{27}\n=\\frac{4n^4}{27}.\n\\tag{4}\n\\]\n\nNow take $n=999$. Color the cell $(i,j)$ white when\n\\[\ni-j\\equiv 1,2,\\ldots,666\\pmod{999},\n\\]\nand red otherwise. Every row and every column then contains exactly $666=2n/3$ white cells. Thus, for every red cell, $a_i=b_j=666$, and equality holds in both inequalities used above. Hence the bound in (4) is attained.\n\nTherefore\n\\[\n\\boxed{T_{\\max}=\\frac{4\\cdot 999^4}{27}}\n\\]\nwhich is\n\\[\n\\boxed{147556443852}.\n\\]"
+  ]
+}

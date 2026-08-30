@@ -1,0 +1,191 @@
+ID: 0063
+
+SOURCE: IMO Shortlist
+
+YEAR: 2012
+
+TOPIC: Algebra
+
+SUBTOPICS: Functional Equations, Additive Functions, Multiplicative Functions
+
+STATEMENT:
+Find all functions $f:\mathbb{R}\to\mathbb{R}$ such that
+\[
+f(1+xy)-f(x+y)=f(x)f(y)
+\]
+for all $x,y\in\mathbb{R}$, and
+\[
+f(-1)\ne 0.
+\]
+
+SOLUTION 1:
+The only solution is
+\[
+f(x)=x-1
+\qquad\text{for all }x\in\mathbb{R}.
+\]
+
+Set
+\[
+g(x)=f(x)+1.
+\]
+Then the equation becomes
+\[
+g(1+xy)-g(x+y)=\bigl(g(x)-1\bigr)\bigl(g(y)-1\bigr)
+\tag{1}
+\]
+for all real $x,y$, and $g(-1)\ne1$.
+
+Let
+\[
+C=g(-1)-1\ne0.
+\]
+Setting $y=-1$ in (1) gives
+\[
+g(1-x)-g(x-1)=C\bigl(g(x)-1\bigr).
+\tag{2}
+\]
+Taking $x=1$ in (2), we get $C(g(1)-1)=0$, hence
+\[
+g(1)=1.
+\]
+Then $x=0$ and $x=2$ in (2) give
+\[
+g(0)=0,
+\qquad
+g(2)=2.
+\]
+
+We next prove
+\[
+g(x)+g(2-x)=2
+\qquad\text{for all }x\in\mathbb{R}.
+\tag{3}
+\]
+Replace $x$ by $1-x$ in (2):
+\[
+g(x)-g(-x)=C\bigl(g(1-x)-1\bigr).
+\]
+Now replace $x$ by $-x$ in this relation:
+\[
+g(-x)-g(x)=C\bigl(g(1+x)-1\bigr).
+\]
+Adding and using $C\ne0$ gives
+\[
+g(1-x)+g(1+x)=2,
+\]
+which is equivalent to (3).
+
+We also prove
+\[
+g(x+2)-g(x)=2
+\qquad\text{for all }x\in\mathbb{R}.
+\tag{4}
+\]
+Let $u+v=1$. Applying (1) to $(u,v)$ and to $(2-u,2-v)$ gives
+\[
+g(1+uv)-g(1)=\bigl(g(u)-1\bigr)\bigl(g(v)-1\bigr),
+\]
+\[
+g(3+uv)-g(3)=\bigl(g(2-u)-1\bigr)\bigl(g(2-v)-1\bigr).
+\]
+By (3), the right-hand sides are equal. Hence
+\[
+g(uv+3)-g(uv+1)=g(3)-g(1).
+\tag{5}
+\]
+Every real number $x\le 5/4$ can be written as
+\[
+x=uv+1
+\qquad\text{with }u+v=1,
+\]
+because $uv$ ranges over $(-\infty,1/4]$. Therefore (5) gives
+\[
+g(x+2)-g(x)=g(3)-g(1)
+\qquad\text{for }x\le 5/4.
+\]
+Taking $x=0$ and using $g(0)=0$, $g(1)=1$, and $g(2)=2$, we obtain $g(3)=3$, so (4) holds for $x\le5/4$.
+
+If $x>5/4$, then $-x<5/4$, so the already proved case gives
+\[
+g(2-x)-g(-x)=2.
+\]
+By (3),
+\[
+g(x)=2-g(2-x),
+\qquad
+g(x+2)=2-g(-x).
+\]
+Thus
+\[
+g(x+2)-g(x)=g(2-x)-g(-x)=2,
+\]
+and (4) is proved for all real $x$.
+
+Replacing $x$ by $-x$ in (3) gives
+\[
+g(-x)+g(2+x)=2.
+\]
+Using (4), $g(2+x)=g(x)+2$, so
+\[
+g(-x)=-g(x)
+\qquad\text{for all }x\in\mathbb{R}.
+\tag{6}
+\]
+
+Apply (1) to $(-x,y)$ and $(x,-y)$. Using (6), we obtain
+\[
+g(1-xy)-g(-x+y)=\bigl(g(x)+1\bigr)\bigl(1-g(y)\bigr),
+\]
+\[
+g(1-xy)-g(x-y)=\bigl(1-g(x)\bigr)\bigl(g(y)+1\bigr).
+\]
+Since $g(-x+y)=-g(x-y)$, adding the two equations gives
+\[
+g(1-xy)=1-g(x)g(y).
+\tag{7}
+\]
+By (3), applied to $1+xy$,
+\[
+g(1+xy)=1+g(x)g(y).
+\tag{8}
+\]
+Substituting (8) into (1), we find
+\[
+g(x+y)=g(x)+g(y).
+\tag{9}
+\]
+Thus $g$ is additive. Combining (8) with additivity gives
+\[
+1+g(xy)=g(1+xy)=1+g(x)g(y),
+\]
+so
+\[
+g(xy)=g(x)g(y).
+\tag{10}
+\]
+In particular,
+\[
+g(x^2)=g(x)^2\ge0.
+\]
+Hence $g(t)\ge0$ for every $t\ge0$. By additivity, this makes $g$ nondecreasing: if $y>x$, then
+\[
+g(y)-g(x)=g(y-x)\ge0.
+\]
+For every rational number $q$, additivity and $g(1)=1$ give $g(q)=q$. If $x\in\mathbb{R}$ and $q<x<r$ are rational, monotonicity gives
+\[
+q=g(q)\le g(x)\le g(r)=r.
+\]
+Letting $q$ and $r$ approach $x$, we obtain
+\[
+g(x)=x
+\qquad\text{for all }x\in\mathbb{R}.
+\]
+Therefore
+\[
+f(x)=g(x)-1=x-1.
+\]
+A direct substitution verifies that this function satisfies the equation and that $f(-1)=-2\ne0$.
+
+\textbf{Comment.}
+If the condition $f(-1)\ne0$ is removed, there are other solutions, including $f\equiv0$ and $f(x)=x^2-1$.

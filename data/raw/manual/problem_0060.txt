@@ -1,0 +1,168 @@
+ID: 0060
+
+SOURCE: IMO Shortlist
+
+YEAR: 2012
+
+TOPIC: Algebra
+
+SUBTOPICS: Set Partitions, Sumsets, Modular Arithmetic, Additive Combinatorics
+
+STATEMENT:
+Let $\mathbb{Z}$ and $\mathbb{Q}$ be the sets of integers and rational numbers, respectively.
+
+(a) Does there exist a partition of $\mathbb{Z}$ into three nonempty subsets $A,B,C$ such that the sets
+$A+B$, $B+C$, and $C+A$ are pairwise disjoint?
+
+(b) Does there exist a partition of $\mathbb{Q}$ into three nonempty subsets $A,B,C$ such that the sets
+$A+B$, $B+C$, and $C+A$ are pairwise disjoint?
+
+Here
+\[
+X+Y=\{x+y:x\in X,\ y\in Y\}.
+\]
+
+SOLUTION 1:
+For part (a), the answer is yes. Take the three residue classes modulo $3$:
+\[
+A=\{3k:k\in\mathbb{Z}\},\qquad
+B=\{3k+1:k\in\mathbb{Z}\},\qquad
+C=\{3k+2:k\in\mathbb{Z}\}.
+\]
+Then $A+B$, $B+C$, and $C+A$ consist of integers congruent to $1,0,2\pmod 3$, respectively, so they are pairwise disjoint.
+
+For part (b), the answer is no. Suppose, for contradiction, that
+\[
+\mathbb{Q}=A\sqcup B\sqcup C
+\]
+is such a partition. For arbitrary $a\in A$, $b\in B$, and $c\in C$, we have
+\[
+a+b-c\in C,\qquad b+c-a\in A,\qquad c+a-b\in B.
+\tag{1}
+\]
+Indeed, $a+b-c$ cannot belong to $A$, because then
+\[
+a+b=(a+b-c)+c\in(A+B)\cap(A+C),
+\]
+and it cannot belong to $B$, because then
+\[
+a+b=(a+b-c)+c\in(A+B)\cap(B+C).
+\]
+Thus $a+b-c\in C$, and the other two relations follow symmetrically.
+
+From (1),
+\[
+A+B\subseteq C+C,\qquad
+B+C\subseteq A+A,\qquad
+C+A\subseteq B+B.
+\tag{2}
+\]
+The reverse inclusions also hold. For example, let $a,a'\in A$, $b\in B$, and $c\in C$. By (1),
+\[
+a'+c-b\in B,
+\]
+and another application of (1) gives
+\[
+a+a'-b=a+(a'+c-b)-c\in C.
+\]
+Therefore
+\[
+a+a'=b+(a+a'-b)\in B+C,
+\]
+so $A+A\subseteq B+C$. By symmetry,
+\[
+B+B\subseteq C+A,
+\qquad
+C+C\subseteq A+B.
+\]
+Together with (2), this yields
+\[
+B+C=A+A,
+\qquad
+C+A=B+B,
+\qquad
+A+B=C+C.
+\tag{3}
+\]
+
+Without loss of generality, assume $0\in A$. Then
+\[
+B=\{0\}+B\subseteq A+B,
+\qquad
+C=\{0\}+C\subseteq A+C.
+\]
+Since $B+C$ is disjoint from both $A+B$ and $A+C$, it is disjoint from $B\cup C$. Hence
+\[
+B+C\subseteq \mathbb{Q}\setminus(B\cup C)=A.
+\]
+Using (3), we get $A+A\subseteq A$. Conversely, $A=\{0\}+A\subseteq A+A$, so
+\[
+A=A+A=B+C.
+\tag{4}
+\]
+Consequently,
+\[
+A+B+C=A,
+\]
+and (3) gives
+\[
+B+B+B=A,
+\qquad
+C+C+C=A.
+\]
+Thus, for every $r\in\mathbb{Q}$, regardless of which one of $A,B,C$ contains $r$, we have
+\[
+3r\in A.
+\]
+Choose any $b\in B$ and put $r=b/3$. Then $b=3r\in A$, contradicting the disjointness of the partition. Therefore no such partition of $\mathbb{Q}$ exists.
+
+SOLUTION 2:
+We first prove that, up to permuting the three sets, the construction in part (a) is the only possible partition of $\mathbb{Z}$.
+
+Let
+\[
+\mathbb{Z}=A\sqcup B\sqcup C
+\]
+be a partition into nonempty sets such that $A+B$, $B+C$, and $C+A$ are pairwise disjoint. The relations (1) from Solution 1 remain valid over $\mathbb{Z}$.
+
+There must be two consecutive integers lying in different sets. Relabeling the sets if necessary, choose
+\[
+b\in B,
+\qquad
+c=b+1\in C.
+\]
+For every $a\in A$, relation (1) gives
+\[
+a-1=a+b-c\in C,
+\qquad
+a+1=a+c-b\in B.
+\]
+Thus every element of $A$ is preceded by an element of $C$ and followed by an element of $B$.
+
+In particular, there is a consecutive pair $c,c+1$ with $c\in C$ and $c+1\in A$. Applying the same argument to this pair shows that every element of $B$ is preceded by an element of $A$ and followed by an element of $C$. Hence there is also a consecutive pair $a,a+1$ with $a\in A$ and $a+1\in B$; applying the argument once more shows that every element of $C$ is preceded by an element of $B$ and followed by an element of $A$.
+
+Therefore the membership pattern repeats every three integers, so $A,B,C$ are exactly the three congruence classes modulo $3$, in some order. In particular, all multiples of $3$ lie in the member of the partition that contains $0$.
+
+Now suppose that a partition of $\mathbb{Q}$ as in part (b) exists. Choose
+\[
+r_i=\frac{p_i}{q_i}
+\]
+from the three different sets, where $q_i>0$, for $i=1,2,3$, and set
+\[
+N=3q_1q_2q_3.
+\]
+Let
+\[
+S=\left\{\frac{k}{N}:k\in\mathbb{Z}\right\}.
+\]
+Under addition, $S$ is isomorphic to $\mathbb{Z}$. Intersecting the three sets of the partition with $S$ gives a partition
+\[
+S=A'\sqcup B'\sqcup C'
+\]
+with the same disjoint-sumset property. Moreover, each $r_i$ belongs to $S$, since
+\[
+r_1=\frac{3p_1q_2q_3}{N},\qquad
+r_2=\frac{3p_2q_3q_1}{N},\qquad
+r_3=\frac{3p_3q_1q_2}{N}.
+\]
+By the uniqueness just proved for $\mathbb{Z}$, the sets $A',B',C'$ are the three congruence classes modulo $3$, scaled by $1/N$. Hence all multiples of $3/N$ belong to the same one of $A',B',C'$. But $r_1,r_2,r_3$ are all multiples of $3/N$ and were chosen from three different sets. This contradiction proves that the answer to part (b) is no.

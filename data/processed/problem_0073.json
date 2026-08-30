@@ -1,0 +1,17 @@
+{
+  "id": "0073",
+  "source": "IMO Shortlist",
+  "year": "2012",
+  "topic": "Geometry",
+  "subtopics": [
+    "Excircles",
+    "Angle Chasing",
+    "Cyclic Quadrilaterals",
+    "Reflections",
+    "Tangent Lengths"
+  ],
+  "statement": "In triangle $ABC$, the point $J$ is the center of the excircle opposite to $A$. This excircle is tangent to the side $BC$ at $M$, and to the lines $AB$ and $AC$ at $K$ and $L$, respectively. The lines $LM$ and $BJ$ meet at $F$, and the lines $KM$ and $CJ$ meet at $G$. Let $S$ be the intersection of $AF$ and $BC$, and let $T$ be the intersection of $AG$ and $BC$. Prove that $M$ is the midpoint of $ST$.",
+  "solutions": [
+    "Let\n\\[\n\\alpha=\\angle BAC,\\qquad \\beta=\\angle ABC,\\qquad \\gamma=\\angle BCA.\n\\]\nSince $AJ$ bisects $\\angle BAC$ and $JK\\perp AB$, $JL\\perp AC$, we have\n\\[\n\\angle JAK=\\angle JAL=\\frac{\\alpha}{2},\n\\qquad\n\\angle AKJ=\\angle ALJ=90^\\circ.\n\\]\nHence $A,K,J,L$ lie on the circle $\\omega$ with diameter $AJ$.\n\nThe segments $BK$ and $BM$ are tangents from $B$ to the excircle, so\n\\[\nBK=BM.\n\\]\nMoreover, $BJ$ is the external angle bisector at $B$, and it is also the symmetry axis of the isosceles triangle $KBM$. Therefore\n\\[\n\\angle MBJ=90^\\circ-\\frac{\\beta}{2},\n\\qquad\n\\angle BMK=\\frac{\\beta}{2}.\n\\tag{1}\n\\]\nSimilarly,\n\\[\n\\angle MCJ=90^\\circ-\\frac{\\gamma}{2},\n\\qquad\n\\angle CML=\\frac{\\gamma}{2}.\n\\tag{2}\n\\]\n\nBecause $F$ lies on both $LM$ and $BJ$, and because $B,M,C$ are collinear, the angle between $MF$ and $MB$ equals the angle between $ML$ and $MC$. Thus, using (1) and (2),\n\\[\n\\begin{aligned}\n\\angle LFJ\n&=\\angle MBJ-\\angle BMF\\\\\n&=\\left(90^\\circ-\\frac{\\beta}{2}\\right)-\\frac{\\gamma}{2}\\\\\n&=\\frac{\\alpha}{2}\\\\\n&=\\angle LAJ.\n\\end{aligned}\n\\]\nConsequently $A,L,F,J$ are concyclic, so $F\\in\\omega$. By the same argument, $G\\in\\omega$.\n\nSince $AJ$ is a diameter of $\\omega$,\n\\[\nAF\\perp FJ,\n\\qquad\nAG\\perp GJ.\n\\]\nBecause $B,F,J$ are collinear and $C,G,J$ are collinear, this gives\n\\[\nAF\\perp BF,\n\\qquad\nAG\\perp CG.\n\\tag{3}\n\\]\nAlso, in the isosceles triangle $KBM$, the line $BF$ (the same line as $BJ$) is perpendicular to $KM$. Hence both $AF$ and $KM$ are perpendicular to the reflection axis $BF$.\n\nReflection in $BF$ interchanges the lines $AB$ and $BC$. The line $AF$ is invariant under this reflection, so the point\n\\[\nA=AB\\cap AF\n\\]\nis sent to\n\\[\nS=BC\\cap AF.\n\\]\nLikewise, the line $KM$ is invariant, so $K=AB\\cap KM$ is sent to $M=BC\\cap KM$. Therefore\n\\[\nSM=AK.\n\\tag{4}\n\\]\n\nApplying the analogous reflection in the line $CG$ (the same line as $CJ$), using (3), gives\n\\[\nTM=AL.\n\\tag{5}\n\\]\nFinally, $AK$ and $AL$ are tangent segments from $A$ to the same excircle, so $AK=AL$. Equations (4) and (5) yield\n\\[\nSM=TM.\n\\]\nThus $M$ is the midpoint of $ST$."
+  ]
+}

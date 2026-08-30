@@ -1,0 +1,91 @@
+ID: 0083
+
+SOURCE: IMO Shortlist
+
+YEAR: 2012
+
+TOPIC: Number Theory
+
+SUBTOPICS: Binomial Coefficients, Prime Characterization, Divisibility, p-adic Valuation
+
+STATEMENT:
+Determine all integers $m\ge2$ such that every integer $n$ satisfying
+\[
+\frac m3\le n\le\frac m2
+\]
+divides the binomial coefficient
+\[
+\binom{n}{m-2n}.
+\]
+
+SOLUTION 1:
+The required integers are exactly the primes.
+
+First let $m=p$ be prime. For $p=2$, the only integer in the required interval is $n=1$, and
+\[
+1\mid\binom10.
+\]
+Now suppose that $p$ is odd and
+\[
+\frac p3\le n\le\frac p2.
+\]
+Put $r=p-2n$. Then
+\[
+1\le r\le n,
+\]
+so the standard binomial identity
+\[
+r\binom nr=n\binom{n-1}{r-1}
+\tag{1}
+\]
+applies. Moreover,
+\[
+\gcd(r,n)=\gcd(p-2n,n)=\gcd(p,n)=1,
+\]
+because $1\le n<p$. Equation (1) shows that $n$ divides $r\binom nr$; coprimality therefore gives
+\[
+n\mid\binom nr=\binom{n}{p-2n}.
+\]
+Thus every prime has the required property.
+
+We next show that no composite $m$ works.
+
+If $m=2k$ is even and composite, then $k>1$. Choose $n=k$. It lies in the required interval, but
+\[
+\binom{n}{m-2n}=\binom{k}{0}=1,
+\]
+which is not divisible by $k$.
+
+Now let $m$ be odd and composite. Choose a proper prime divisor $p$ of $m$. Since both $m$ and $p$ are odd, we may write
+\[
+m=p(2k+1)
+\]
+with an integer $k\ge1$. Put
+\[
+n=pk.
+\]
+Then
+\[
+\frac m3\le n\le\frac m2
+\]
+and
+\[
+m-2n=p.
+\]
+If $n$ divided $\binom np$, then
+\[
+\frac1n\binom np
+=\frac1{pk}\binom{pk}{p}
+=\frac{(pk-1)(pk-2)\cdots(pk-p+1)}{p!}
+\tag{2}
+\]
+would be an integer. However, the denominator in (2) is divisible by $p$, while none of the factors
+\[
+pk-1,pk-2,\ldots,pk-(p-1)
+\]
+is divisible by $p$. Thus the right-hand side of (2) has $p$-adic valuation $-1$ and is not an integer. Hence $n\nmid\binom np$.
+
+Therefore no composite integer works, and the answer is
+\[
+\boxed{m\text{ is prime}}.
+\]

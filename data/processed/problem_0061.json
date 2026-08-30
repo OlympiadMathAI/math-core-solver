@@ -1,0 +1,16 @@
+{
+  "id": "0061",
+  "source": "IMO Shortlist",
+  "year": "2012",
+  "topic": "Algebra",
+  "subtopics": [
+    "Inequalities",
+    "Weighted AM-GM",
+    "Product Constraints"
+  ],
+  "statement": "Let $a_2,\\ldots,a_n$ be $n-1$ positive real numbers, where $n\\ge 3$, such that\n\\[\na_2a_3\\cdots a_n=1.\n\\]\nProve that\n\\[\n(1+a_2)^2(1+a_3)^3\\cdots(1+a_n)^n>n^n.\n\\]",
+  "solutions": [
+    "Choose positive real numbers $x_1,\\ldots,x_{n-1}$ such that\n\\[\na_2=\\frac{x_2}{x_1},\\qquad\na_3=\\frac{x_3}{x_2},\\qquad\n\\ldots,\\qquad\na_n=\\frac{x_1}{x_{n-1}}.\n\\]\nSuch a choice is possible because $a_2a_3\\cdots a_n=1$. The desired inequality becomes\n\\[\n(x_1+x_2)^2(x_2+x_3)^3\\cdots(x_{n-1}+x_1)^n\n>n^n x_1^2x_2^3\\cdots x_{n-1}^n.\n\\tag{1}\n\\]\n\nApply AM-GM to each factor:\n\\[\n(x_1+x_2)^2\\ge 2^2x_1x_2,\n\\]\n\\[\n(x_2+x_3)^3\n=\\left(2\\cdot\\frac{x_2}{2}+x_3\\right)^3\n\\ge 3^3\\left(\\frac{x_2}{2}\\right)^2x_3,\n\\]\n\\[\n(x_3+x_4)^4\n=\\left(3\\cdot\\frac{x_3}{3}+x_4\\right)^4\n\\ge 4^4\\left(\\frac{x_3}{3}\\right)^3x_4,\n\\]\nand similarly, ending with\n\\[\n(x_{n-1}+x_1)^n\n=\\left((n-1)\\frac{x_{n-1}}{n-1}+x_1\\right)^n\n\\ge n^n\\left(\\frac{x_{n-1}}{n-1}\\right)^{n-1}x_1.\n\\]\nMultiplying these inequalities gives (1) with $\\ge$ in place of $>$. Indeed, all intermediate constants telescope, leaving $n^n$, and the powers of the variables become\n\\[\nx_1^2x_2^3\\cdots x_{n-1}^n.\n\\]\n\nIt remains to rule out equality. Equality in all the AM-GM inequalities would require\n\\[\nx_1=x_2,\n\\qquad\nx_2=2x_3,\n\\qquad\nx_3=3x_4,\n\\qquad\n\\ldots,\n\\qquad\nx_{n-1}=(n-1)x_1.\n\\]\nCombining these relations yields\n\\[\nx_1=(n-1)!\\,x_1,\n\\]\nwhich is impossible because $x_1>0$ and $n\\ge 3$. Therefore the inequality is strict.",
+    "For each $k=2,3,\\ldots,n$, apply AM-GM to the $k$ positive numbers consisting of $k-1$ copies of $1/(k-1)$ and one copy of $a_k$:\n\\[\n1+a_k=(k-1)\\frac{1}{k-1}+a_k.\n\\]\nThis gives\n\\[\n(1+a_k)^k\n\\ge\nk^k\\left(\\frac{1}{k-1}\\right)^{k-1}a_k\n=\n\\frac{k^k}{(k-1)^{k-1}}a_k.\n\\]\nMultiplying for $k=2,3,\\ldots,n$, we obtain\n\\[\n\\begin{aligned}\n(1+a_2)^2(1+a_3)^3\\cdots(1+a_n)^n\n&\\ge\n\\left(\\prod_{k=2}^n\\frac{k^k}{(k-1)^{k-1}}\\right)\n\\left(\\prod_{k=2}^n a_k\\right)\\\\\n&=n^n.\n\\end{aligned}\n\\]\nEquality would require\n\\[\na_k=\\frac{1}{k-1}\n\\qquad\\text{for every }k=2,\\ldots,n.\n\\]\nBut then\n\\[\na_2a_3\\cdots a_n=\\frac{1}{(n-1)!}\\ne 1\n\\]\nfor $n\\ge 3$. Hence equality is impossible, and the desired inequality is strict."
+  ]
+}

@@ -1,0 +1,136 @@
+ID: 0071
+
+SOURCE: IMO Shortlist
+
+YEAR: 2012
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Adversarial Games, Potential Functions, Binary Coding, Information Theory
+
+STATEMENT:
+Let $k$ and $n$ be fixed positive integers. In the liar's guessing game, Amy chooses integers $x$ and $N$ with
+\[
+1\le x\le N.
+\]
+She tells Ben the value of $N$, but not the value of $x$. Ben may repeatedly ask Amy whether $x\in S$ for arbitrary sets $S$ of integers. Amy always answers yes or no, but she may lie. Her only restriction is that she may lie at most $k$ times in a row. After asking as many questions as he wishes, Ben must specify a set of at most $n$ positive integers. He wins if $x$ belongs to this set and loses otherwise.
+
+Prove that:
+
+(a) if $n\ge 2^k$, then Ben can always win;
+
+(b) for all sufficiently large $k$, there exists an integer $n\ge 1.99^k$ for which Ben cannot guarantee a win.
+
+SOLUTION 1:
+Call an answer inconsistent with an integer $i$ if the answer would be false under the assumption $x=i$. Thus an answer inconsistent with the actual target $x$ is a lie.
+
+\textbf{Part (a).}
+
+Suppose Ben has a set $T$ of $m$ candidates known to contain $x$. Initially he may take
+\[
+T=\{1,2,\ldots,N\}.
+\]
+We show that whenever $m>2^k$, Ben can identify one candidate that is certainly not $x$ and delete it from $T$. Repeating this step reduces $T$ to size $2^k\le n$.
+
+Relabel the elements of $T$ as
+\[
+0,1,\ldots,m-1.
+\]
+Ben first repeatedly asks whether
+\[
+x=2^k.
+\]
+If Amy answers no $k+1$ times in succession, at least one of these answers is truthful, so
+\[
+x\ne 2^k,
+\]
+and Ben deletes $2^k$.
+
+Otherwise, Ben stops at the first answer yes. He then asks $k$ questions, one for each of the $k$ binary digits: for digit $i$, he asks whether the $i$th digit of the label assigned to $x$ is $0$. Each such question is simply a question about an appropriate subset of the original candidate set.
+
+Whatever the $k$ answers are, there is a unique number
+\[
+y\in\{0,1,\ldots,2^k-1\}
+\]
+with which all of them are inconsistent: choose each binary digit of $y$ opposite to the answer Amy gave. The immediately preceding answer yes to the question $x=2^k$ is also inconsistent with $y$, because $y\ne 2^k$. If $y=x$, the last $k+1$ answers would all be lies, which is forbidden. Hence $y\ne x$, and Ben deletes $y$.
+
+Thus Ben can repeatedly remove a false candidate until only $2^k$ candidates remain. He names all of them and wins whenever $n\ge 2^k$.
+
+\textbf{Part (b).}
+
+Fix a real number $\lambda$ with
+\[
+1<\lambda<2,
+\]
+and set
+\[
+n=\left\lfloor(2-\lambda)\lambda^{k+1}\right\rfloor-1.
+\tag{1}
+\]
+We show that Ben cannot guarantee a win for this value of $n$.
+
+Amy takes
+\[
+N=n+1.
+\]
+After each answer, and for every candidate $i\in\{1,2,\ldots,n+1\}$, let $m_i$ be the number of consecutive most recent answers that are inconsistent with $i$. Amy uses the potential
+\[
+\Phi=\sum_{i=1}^{n+1}\lambda^{m_i}.
+\]
+For each question, she chooses whichever of yes and no gives the smaller new value of $\Phi$; ties are resolved by a fixed rule independent of $x$.
+
+We prove inductively that
+\[
+\Phi<\lambda^{k+1}
+\tag{2}
+\]
+at all times. Initially every $m_i=0$, so
+\[
+\Phi=n+1
+=\left\lfloor(2-\lambda)\lambda^{k+1}\right\rfloor
+<\lambda^{k+1},
+\]
+because $0<2-\lambda<1$.
+
+Suppose Ben asks whether $x\in S$. If Amy answers yes, the new potential is
+\[
+\Phi_1=\sum_{i\in S}1+\sum_{i\notin S}\lambda^{m_i+1};
+\]
+if she answers no, it is
+\[
+\Phi_2=\sum_{i\in S}\lambda^{m_i+1}+\sum_{i\notin S}1.
+\]
+Therefore Amy can make the new potential at most
+\[
+\begin{aligned}
+\min(\Phi_1,\Phi_2)
+&\le \frac{\Phi_1+\Phi_2}{2}\\
+&=\frac{\lambda\Phi+n+1}{2}.
+\end{aligned}
+\]
+Using (1), (2), and $n+1\le(2-\lambda)\lambda^{k+1}$, we obtain
+\[
+\min(\Phi_1,\Phi_2)
+<\frac{\lambda^{k+2}+(2-\lambda)\lambda^{k+1}}2
+=\lambda^{k+1}.
+\]
+This proves the induction.
+
+No exponent $m_i$ can reach $k+1$, because then the corresponding term of $\Phi$ would be at least $\lambda^{k+1}$. Hence, for every possible target $i$, Amy's answers contain no run of more than $k$ answers inconsistent with $i$. In particular, her strategy is legal for the actual target.
+
+Moreover, Amy's answers depend only on Ben's questions and the potential, not on which candidate is the actual target. Fix any strategy of Ben. The resulting transcript, Ben's stopping time, and his final set are therefore determined independently of $x$, and the transcript is compatible with all $n+1$ candidates. Since Ben names at most $n$ integers, at least one candidate is omitted. Amy may choose that omitted candidate as $x$ at the start of the game; the entire answer sequence is legal for it, and Ben loses. Consequently Ben cannot guarantee a win.
+
+Finally choose a fixed $\lambda$ satisfying
+\[
+1.99<\lambda<2.
+\]
+Then
+\[
+\frac{(2-\lambda)\lambda^{k+1}}{1.99^k}
+=(2-\lambda)\lambda\left(\frac{\lambda}{1.99}\right)^k\longrightarrow\infty.
+\]
+Therefore, for all sufficiently large $k$, the integer in (1) satisfies
+\[
+n\ge 1.99^k.
+\]
+This proves part (b).

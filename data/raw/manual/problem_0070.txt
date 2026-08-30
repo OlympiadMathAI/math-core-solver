@@ -1,0 +1,57 @@
+ID: 0070
+
+SOURCE: IMO Shortlist
+
+YEAR: 2012
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Graph Theory, Hall's Marriage Theorem, Bipartite Matchings, Regular Bipartite Graphs
+
+STATEMENT:
+The rows and columns of a $3n\times 3n$ square board are numbered $1,2,\ldots,3n$. Every square $(x,y)$ is colored asparagus, byzantium, or citrine according as the remainder of $x+y$ modulo $3$ is $0$, $1$, or $2$, respectively. One token colored asparagus, byzantium, or citrine is placed on each square, with $3n^2$ tokens of each color.
+
+Suppose that the tokens can be permuted so that every token moves a distance of at most $d$ from its original position, every asparagus token replaces a byzantium token, every byzantium token replaces a citrine token, and every citrine token replaces an asparagus token.
+
+Prove that the tokens can be permuted so that every token moves a distance of at most $d+2$ from its original position and every square contains a token of the same color as the square.
+
+SOLUTION 1:
+Write $A,B,C$ for asparagus, byzantium, and citrine. It is enough to match the $A$-tokens to the $A$-squares with displacement at most $d+2$; the same argument can then be repeated independently for the other two colors, and the three matchings together give the required permutation.
+
+View the given permutation as a permutation $\pi$ of the tokens: token $T$ moves to the original square occupied by $\pi(T)$. Thus
+\[
+A\xrightarrow{\pi}B,
+\qquad
+B\xrightarrow{\pi}C,
+\qquad
+C\xrightarrow{\pi}A,
+\]
+and the distance between the original positions of $T$ and $\pi(T)$ is at most $d$.
+
+Split each row into horizontal $3\times 1$ triminoes. Since the board colors cycle with period $3$ along a row, every trimino contains exactly one $A$-square.
+
+Construct a bipartite multigraph. One vertex class consists of the $3n^2$ $A$-squares, and the other consists of the $3n^2$ $A$-tokens. For every $A$-token $T$, add one edge from $T$ to the $A$-square in the trimino containing the original position of each of
+\[
+T,\qquad \pi(T),\qquad \pi^{-1}(T).
+\]
+If two or three of these positions lie in the same trimino, parallel edges are allowed.
+
+Every such edge joins an $A$-token to an $A$-square at distance at most $d+2$. Indeed, the diameter of a horizontal trimino is $2$. For the trimino containing $T$ the distance is at most $2$; for the trimino containing $\pi(T)$, use the given move from $T$ to $\pi(T)$ and then move at most $2$ within the trimino; and for the trimino containing $\pi^{-1}(T)$, use the given move from $\pi^{-1}(T)$ to $T$ in the reverse direction and again add at most $2$.
+
+Every $A$-token has degree $3$ by construction. We now show that every $A$-square also has degree $3$. Let a trimino contain tokens $T_1,T_2,T_3$, and let $S$ be its unique $A$-square. Each token in the trimino contributes one incident edge to $S$:
+
+if $T_i$ is an $A$-token, the edge comes from $T_i$ itself;
+
+if $T_i$ is a $B$-token, the edge comes from the $A$-token $\pi^{-1}(T_i)$;
+
+if $T_i$ is a $C$-token, the edge comes from the $A$-token $\pi(T_i)$.
+
+Thus the bipartite multigraph is $3$-regular on both sides.
+
+Let $X$ be any set of $A$-squares. Exactly $3|X|$ edges leave $X$. Since every neighboring $A$-token has total degree $3$, these edges must end at at least $|X|$ distinct $A$-tokens. Hence
+\[
+|N(X)|\ge |X|.
+\]
+By Hall's marriage theorem, the graph has a perfect matching. Every matched edge has length at most $d+2$, so all $A$-tokens can be moved to distinct $A$-squares within that distance.
+
+Applying the same construction to the $B$-tokens and then to the $C$-tokens gives perfect matchings to the $B$-squares and $C$-squares. Since the three token classes and the three square classes are disjoint, the union of these matchings is a permutation of all tokens satisfying the required conditions.

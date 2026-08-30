@@ -1,0 +1,85 @@
+ID: 0066
+
+SOURCE: IMO Shortlist
+
+YEAR: 2012
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Monovariants, Termination, Lexicographic Order, Extremal Processes
+
+STATEMENT:
+Several positive integers are written in a row. Iteratively, Alice chooses two adjacent numbers $x$ and $y$ such that $x>y$ and $x$ is to the left of $y$, and replaces the pair $(x,y)$ by either $(y+1,x)$ or $(x-1,x)$. Prove that she can perform only finitely many such iterations.
+
+SOLUTION 1:
+Let the current row be
+\[
+a_1,a_2,\ldots,a_n,
+\]
+and let $M$ be the maximum of the initial row. Every operation preserves the maximum: the old entry $x$ remains as the second entry of the new pair, while the other new entry is at most $x$. Hence every entry remains a positive integer not exceeding $M$.
+
+Consider the weighted sum
+\[
+S=a_1+2a_2+\cdots+na_n.
+\]
+Suppose the pair in positions $i,i+1$ is $(x,y)$, where $x>y$, and it is replaced by $(c,x)$, where
+\[
+c=y+1\quad\text{or}\quad c=x-1.
+\]
+The change in $S$ is
+\[
+\begin{aligned}
+\Delta S
+&=ic+(i+1)x-\bigl(ix+(i+1)y\bigr)\\
+&=x-y+i(c-y).
+\end{aligned}
+\]
+Because $x$ and $y$ are integers with $x>y$, we have $x-y\ge 1$. Also $c\ge y$: this is clear when $c=y+1$, and when $c=x-1$ it follows from $x\ge y+1$. Therefore
+\[
+\Delta S\ge 1.
+\]
+Thus $S$ increases by at least $1$ after every operation. On the other hand,
+\[
+S\le (1+2+\cdots+n)M=\frac{n(n+1)}2M.
+\]
+So $S$ cannot increase indefinitely, and only finitely many operations are possible.
+
+SOLUTION 2:
+Again let $M$ be the maximum of the initial row. Every row that occurs consists of positive integers not exceeding $M$, so only finitely many rows are possible.
+
+Order integer $n$-tuples reverse lexicographically: we say
+\[
+(x_1,\ldots,x_n)<(y_1,\ldots,y_n)
+\]
+if, at the largest index $j$ for which $x_j\ne y_j$, one has $x_j<y_j$.
+
+Suppose an operation is performed in positions $i,i+1$. All entries to the right of position $i+1$ remain unchanged, while the entry in position $i+1$ changes from $y$ to $x>y$. Therefore the new row is strictly larger than the old row in reverse lexicographic order.
+
+Consequently no row can occur twice. Since only finitely many rows are possible, the process must terminate.
+
+SOLUTION 3:
+For a row
+\[
+a_1,a_2,\ldots,a_n,
+\]
+define the score $s_i$ of $a_i$ to be the number of entries $a_j$ that are strictly smaller than $a_i$. The score sequence is
+\[
+(s_1,s_2,\ldots,s_n).
+\]
+Each score belongs to $\{0,1,\ldots,n-1\}$, so there are at most $n^n$ possible score sequences.
+
+Compare score sequences lexicographically, but regard a decrease at the first differing position as an improvement: a sequence $(u_1,\ldots,u_n)$ dominates $(v_1,\ldots,v_n)$ if, at the first index $j$ for which $u_j\ne v_j$, one has $u_j<v_j$.
+
+Suppose an operation replaces $(x,y)$ in positions $i,i+1$ by $(a,x)$, where
+\[
+a=y+1\quad\text{or}\quad a=x-1.
+\]
+In either case
+\[
+y\le a\le x.
+\]
+For every $j<i$, the value in position $j$ is unchanged, while one of the other entries changes from $y$ to $a\ge y$. Hence its score cannot increase. If one of these earlier scores decreases, the new score sequence dominates the old one.
+
+Assume therefore that all scores before position $i$ remain unchanged. At position $i$, the old value is $x$ and the new value is $a\le x$. Every entry counted in the new score of $a$ was counted in the old score of $x$, while the old entry $y<x$ was counted before but is not counted after the operation: it is either removed or becomes the entry $a$ itself. Thus the score in position $i$ decreases by at least $1$.
+
+So after every operation the new score sequence dominates the old one. Score sequences never repeat, and there are only finitely many of them. Therefore the process terminates.

@@ -1,0 +1,217 @@
+ID: 0062
+
+SOURCE: IMO Shortlist
+
+YEAR: 2012
+
+TOPIC: Algebra
+
+SUBTOPICS: Polynomials, Rational Roots, Gauss's Lemma, Vieta's Formulas
+
+STATEMENT:
+Let $f$ and $g$ be two nonzero polynomials with integer coefficients and
+\[
+\deg f>\deg g.
+\]
+Suppose that for infinitely many primes $p$, the polynomial $pf+g$ has a rational root. Prove that $f$ has a rational root.
+
+SOLUTION 1:
+Because $\deg f>\deg g$, there exists $R>0$ such that
+\[
+\left|\frac{g(x)}{f(x)}\right|<1
+\qquad\text{whenever }|x|>R.
+\]
+Therefore, for every prime $p$ and every $|x|>R$,
+\[
+|pf(x)+g(x)|
+\ge |f(x)|\left(p-\frac{|g(x)|}{|f(x)|}\right)>0.
+\]
+Thus every real root of every polynomial $pf+g$ lies in the fixed interval $[-R,R]$.
+
+Write
+\[
+f(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots+a_0,
+\qquad
+g(x)=b_mx^m+b_{m-1}x^{m-1}+\cdots+b_0,
+\]
+where $n>m$. Replacing $f(x)$ and $g(x)$ by
+\[
+a_n^{n-1}f\left(\frac{x}{a_n}\right)
+\quad\text{and}\quad
+a_n^{n-1}g\left(\frac{x}{a_n}\right),
+\]
+respectively, preserves integer coefficients and reduces the problem to the case in which $f$ is monic. Renaming the transformed polynomials as $f,g$ and choosing a corresponding uniform root bound again denoted by $R$, we therefore assume from now on that $a_n=1$.
+
+For a prime $p$ under consideration, let
+\[
+r=\frac{u}{v}
+\]
+be a rational root of $pf+g$, written in lowest terms with $v>0$. Since the leading coefficient of $pf+g$ is $p$, the rational root theorem gives
+\[
+v=1
+\quad\text{or}\quad
+v=p.
+\]
+At least one of these two cases occurs for infinitely many primes.
+
+\textbf{Case 1: $v=1$ infinitely often.}
+Then $r=u$ is an integer and $|u|\le R$, so only finitely many values of $u$ are possible. Hence there are distinct primes $p$ and $q$ for which the same integer $u$ is a root of both $pf+g$ and $qf+g$. Subtracting the two equations gives
+\[
+(p-q)f(u)=0,
+\]
+so $f(u)=0$. Thus $f$ has an integer root.
+
+\textbf{Case 2: $v=p$ infinitely often.}
+For such a prime, write $r=u/p$ with $p\nmid u$. Comparing the powers of $p$ in the denominators of
+\[
+pf\left(\frac{u}{p}\right)+g\left(\frac{u}{p}\right)=0
+\]
+shows that $m=n-1$: if $m<n-1$, multiplying by $p^{n-1}$ and reducing modulo $p$ would give $u^n\equiv 0\pmod p$, impossible.
+
+Thus the equation becomes
+\[
+\begin{aligned}
+&\left(u^n+a_{n-1}pu^{n-1}+\cdots+a_0p^n\right)\\
+&\qquad+
+\left(b_{n-1}u^{n-1}+b_{n-2}pu^{n-2}+\cdots+b_0p^{n-1}\right)=0.
+\end{aligned}
+\]
+Reducing modulo $p$ gives
+\[
+u^{n-1}(u+b_{n-1})\equiv 0\pmod p.
+\]
+Since $p\nmid u$, there is an integer $k$ such that
+\[
+u+b_{n-1}=pk.
+\]
+Because $|u/p|\le R$,
+\[
+|k|
+\le R+\frac{|b_{n-1}|}{p}
+\le R+|b_{n-1}|.
+\]
+Hence only finitely many integers $k$ are possible. Passing to an infinite subsequence, we may assume that the same $k$ occurs for infinitely many primes $p$. For those primes,
+\[
+r=k-\frac{b_{n-1}}{p}
+\]
+and
+\[
+f\left(k-\frac{b_{n-1}}{p}\right)
++\frac1p g\left(k-\frac{b_{n-1}}{p}\right)=0.
+\]
+Consequently, the polynomial
+\[
+F(x)=f(k-b_{n-1}x)+xg(k-b_{n-1}x)
+\]
+has infinitely many roots of the form $x=1/p$. Hence $F$ is identically zero. Substituting $x=0$ gives
+\[
+f(k)=0.
+\]
+Thus $f$ has an integer root in the normalized problem, and therefore the original polynomial $f$ has a rational root.
+
+SOLUTION 2:
+If $\deg f=1$, the conclusion is immediate, so assume $\deg f=n\ge 2$. After discarding finitely many primes, we may also assume that no prime under consideration divides the leading coefficient of $f$.
+
+There is a constant $R$ such that every complex root of every polynomial $pf+g$ lies in the disk
+\[
+|z|\le R.
+\]
+For instance, divide $pf+g$ by $p$ and apply a uniform Cauchy root bound to the family $f+p^{-1}g$.
+
+For each prime $p$ for which $pf+g$ has a rational root, Gauss's lemma gives a factorization in $\mathbb{Z}[x]$ into a linear factor and a factor of degree $n-1$. The product of their leading coefficients is $p$ times the leading coefficient of $f$. Since $p$ does not divide that fixed leading coefficient, one of the two factors has leading coefficient dividing the leading coefficient of $f$. Denote that factor by $h_p$.
+
+There are only two possibilities for $\deg h_p$, namely $1$ and $n-1$, and only finitely many possibilities for its leading coefficient. Restricting to an infinite set of primes, we may assume that all $h_p$ have the same degree and the same leading coefficient.
+
+Every root of $h_p$ is a root of $pf+g$, so all roots of $h_p$ lie in $|z|\le R$. By Vieta's formulas, the coefficients of the polynomials $h_p$ are then uniformly bounded. Since these coefficients are integers, only finitely many such polynomials are possible. Hence one polynomial $h$ occurs as $h_p$ for infinitely many primes $p$.
+
+Choose distinct such primes $p$ and $q$. Then
+\[
+h\mid pf+g
+\quad\text{and}\quad
+h\mid qf+g,
+\]
+so, over $\mathbb{Q}[x]$,
+\[
+h\mid (p-q)f,
+\]
+and therefore $h\mid f$. If $\deg h=1$, then $f$ has a rational root. If $\deg h=n-1$, then the quotient $f/h$ is linear over $\mathbb{Q}$, so again $f$ has a rational root.
+
+SOLUTION 3:
+As in Solution 1, there exists $R>0$ such that all real roots of all polynomials $pf+g$ lie in $[-R,R]$.
+
+Let
+\[
+p_1<p_2<\cdots
+\]
+be infinitely many primes for which $p_kf+g$ has a rational root $r_k$. The sequence $(r_k)$ is bounded, so after passing to a subsequence we may assume that it converges:
+\[
+r_k\to\alpha.
+\]
+On $[-R,R]$, the polynomial $g$ is bounded, say $|g(x)|\le M$. Since
+\[
+p_kf(r_k)+g(r_k)=0,
+\]
+we have
+\[
+|f(r_k)|=\frac{|g(r_k)|}{p_k}\le\frac{M}{p_k}\to 0.
+\]
+By continuity,
+\[
+f(\alpha)=0.
+\]
+It remains to prove that $\alpha$ is rational.
+
+Write
+\[
+r_k=\frac{u_k}{v_k}
+\]
+in lowest terms, with $v_k>0$. Let $a$ be the leading coefficient of $f$, and let
+\[
+b=f(0),\qquad c=g(0).
+\]
+The rational root theorem gives
+\[
+v_k\mid p_ka,
+\qquad
+u_k\mid p_kb+c.
+\tag{1}
+\]
+Discarding finitely many terms, assume $p_k\nmid a$. Then (1) implies that either
+\[
+v_k\mid a
+\]
+or
+\[
+v_k=p_kd_k
+\quad\text{for some positive divisor }d_k\text{ of }|a|.
+\]
+
+If the first alternative occurs infinitely often, then the denominators $v_k$ are bounded. Passing to a further subsequence, one denominator is fixed; since the corresponding rational numbers converge, their integer numerators are eventually constant. Hence $\alpha$ is rational.
+
+We may therefore assume that
+\[
+v_k=p_kd_k
+\]
+for all $k$ in the remaining subsequence. If $u_k=0$ infinitely often, then $\alpha=0$ and we are done. Also, if $b=c=0$, then $f(0)=0$ and the conclusion is immediate. Thus, after discarding at most one further term, we may assume that $u_k\ne0$ and $p_kb+c\ne0$.
+
+Define the nonzero integer $e_k$ by
+\[
+p_kb+c=u_ke_k.
+\]
+Then
+\[
+\frac{u_k}{v_k}
+=
+\frac{p_kb+c}{p_kd_ke_k}
+=
+\frac{b}{d_ke_k}
++
+\frac{c}{p_kd_ke_k}.
+\]
+The second term tends to $0$, so
+\[
+\frac{b}{d_ke_k}\to\alpha.
+\]
+If $b=0$, this already gives $\alpha=0$. If $b\ne0$, a convergent sequence of numbers of the form $b/q_k$ with nonzero integers $q_k$ has a rational limit: either the integers $q_k$ are bounded, in which case one value occurs infinitely often, or $|q_k|\to\infty$ along a subsequence, in which case the limit is $0$. Thus $\alpha\in\mathbb{Q}$.
+
+We have shown that $\alpha$ is a rational root of $f$.

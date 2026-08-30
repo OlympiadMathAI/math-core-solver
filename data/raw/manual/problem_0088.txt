@@ -1,0 +1,247 @@
+ID: 0088
+
+SOURCE: IMO Shortlist
+
+YEAR: 2012
+
+TOPIC: Number Theory
+
+SUBTOPICS: Finite Fields, Additive Energy, Cauchy-Schwarz Inequality, Primitive Roots, Euler's Criterion
+
+STATEMENT:
+Prove that for every prime $p>100$ and every integer $r$, there exist integers $a,b$ such that
+\[
+p\mid a^2+b^5-r.
+\]
+
+SOLUTION 1:
+All congruences in this solution are taken modulo $p$. Let
+\[
+\mathcal P=\{0,1,\ldots,p-1\}
+\]
+be a complete set of residue classes. For each $r\in\mathcal P$, define
+\[
+S_r=\{(a,b)\in\mathcal P^2:a^2+b^5\equiv r\},
+\qquad
+s_r=|S_r|.
+\]
+We must prove that $s_r>0$ for every $r$.
+
+We shall use the elementary fact that, for any positive integer $d$ and any residue $c$, the congruence
+\[
+x^d\equiv c
+\]
+has at most $d$ solutions modulo $p$.
+
+Let $N$ be the number of quadruples $(a,b,c,d)\in\mathcal P^4$ satisfying
+\[
+a^2+b^5\equiv c^2+d^5.
+\]
+Counting by the common value gives
+\[
+N=\sum_{r\in\mathcal P}s_r^2.
+\tag{1}
+\]
+We now prove the upper bound
+\[
+N\le p(p^2+4p-4).
+\tag{2}
+\]
+
+Fix a pair $(b,d)\in\mathcal P^2$.
+
+If $b^5\equiv d^5$, then $a^2\equiv c^2$, so $a\equiv\pm c$. There are exactly
+\[
+2p-1
+\]
+such ordered pairs $(a,c)$: the $p$ pairs with $a=c$ and the $p$ pairs with $a=-c$, with $(0,0)$ counted twice.
+
+Let $K$ be the number of pairs $(b,d)$ satisfying $b^5\equiv d^5$. For $b=0$, only $d=0$ works; for each nonzero $b$, there are at most five possible values of $d$. Hence
+\[
+K\le1+5(p-1)=5p-4.
+\tag{3}
+\]
+
+If $b^5\not\equiv d^5$, then
+\[
+(a-c)(a+c)=d^5-b^5\ne0.
+\]
+The nonzero value of $a-c$ can be chosen in $p-1$ ways, and it then uniquely determines $a+c$, hence uniquely determines $a$ and $c$ because $p$ is odd. Thus there are exactly $p-1$ suitable pairs $(a,c)$.
+
+Consequently,
+\[
+\begin{aligned}
+N
+&=K(2p-1)+(p^2-K)(p-1)\\
+&=p^2(p-1)+Kp\\
+&\le p^2(p-1)+(5p-4)p\\
+&=p(p^2+4p-4),
+\end{aligned}
+\]
+which proves (2).
+
+Suppose now, for a contradiction, that
+\[
+S_r=\varnothing
+\]
+for some $r\in\mathcal P$. Clearly $r\ne0$. Let
+\[
+T=\{z^{10}:z\in\mathcal P\setminus\{0\}\}
+\]
+be the set of nonzero tenth powers. Since every residue has at most ten tenth roots,
+\[
+|T|\ge\frac{p-1}{10}\ge4.
+\tag{4}
+\]
+
+For every $t\in T$, we also have
+\[
+S_{tr}=\varnothing.
+\tag{5}
+\]
+Indeed, write $t=z^{10}$ with $z\ne0$. If $(x,y)\in S_{tr}$, then
+\[
+(z^{-5}x)^2+(z^{-2}y)^5
+\equiv
+z^{-10}(x^2+y^5)
+\equiv
+t^{-1}(tr)
+\equiv r,
+\]
+contradicting $S_r=\varnothing$.
+
+Because multiplication by the nonzero residue $r$ is injective, (4) and (5) show that at least four of the numbers $s_u$ are zero. Therefore at most $p-4$ of them are nonzero. Since
+\[
+\sum_{u\in\mathcal P}s_u=p^2,
+\]
+the Cauchy-Schwarz inequality and (1) give
+\[
+N=\sum_{u\in\mathcal P}s_u^2
+\ge
+\frac{p^4}{p-4}.
+\tag{6}
+\]
+But
+\[
+\frac{p^4}{p-4}>p(p^2+4p-4),
+\]
+because their difference is
+\[
+\frac{4p(5p-4)}{p-4}>0.
+\]
+This contradicts (2). Hence every $S_r$ is nonempty, proving the result.
+
+SOLUTION 2:
+Again, all congruences are modulo $p$.
+
+If $5\nmid p-1$, then the map
+\[
+b\longmapsto b^5
+\]
+is a bijection of the residue classes modulo $p$. Thus every $r$ is itself a fifth power, and the result follows by taking $a=0$.
+
+We may therefore assume that $5\mid p-1$. Since $p$ is odd,
+\[
+p=10k+1
+\]
+for some integer $k\ge10$. Let $g$ be a primitive root modulo $p$.
+
+We use the following two facts.
+
+\textbf{(F1)} If a nonzero residue $x$ is not a quadratic residue, then Euler's criterion gives
+\[
+x^{(p-1)/2}=x^{5k}\equiv-1.
+\]
+
+\textbf{(F2)} For every integer $d$,
+\[
+\sum_{i=0}^{2k-1}g^{5di}
+\equiv
+\begin{cases}
+2k,&2k\mid d,\\
+0,&2k\nmid d.
+\end{cases}
+\tag{1}
+\]
+Indeed, $g^5$ has order $2k$, so this is the usual geometric-series sum.
+
+Assume, for a contradiction, that some residue $r$ cannot be represented as
+\[
+a^2+b^5.
+\]
+Then $r\ne0$. For every residue $b$, the number $r-b^5$ is nonzero and is not a square; otherwise $r$ would have the required representation. Hence, by (F1),
+\[
+(r-b^5)^{5k}\equiv-1.
+\tag{2}
+\]
+
+For $t=1,2,\ldots,k-1$, define
+\[
+S(t)=\sum_{i=0}^{2k-1}(r-g^{5i})^{5k}g^{5ti}.
+\]
+Using (2) with $b=g^i$ and then (F2),
+\[
+S(t)
+\equiv
+-\sum_{i=0}^{2k-1}g^{5ti}
+\equiv0,
+\tag{3}
+\]
+because $2k\nmid t$.
+
+On the other hand, expanding by the binomial theorem and applying (F2),
+\[
+\begin{aligned}
+S(t)
+&=\sum_{i=0}^{2k-1}\sum_{j=0}^{5k}
+(-1)^j\binom{5k}{j}r^{5k-j}g^{5(j+t)i}\\
+&\equiv
+\sum_{j=0}^{5k}(-1)^j\binom{5k}{j}r^{5k-j}
+\begin{cases}
+2k,&2k\mid j+t,\\
+0,&2k\nmid j+t.
+\end{cases}
+\end{aligned}
+\tag{4}
+\]
+Since
+\[
+1\le j+t<6k,
+\]
+the condition $2k\mid j+t$ occurs only for
+\[
+j=2k-t
+\qquad\text{or}\qquad
+j=4k-t.
+\]
+Combining (3) and (4), and then dividing by the nonzero factor $(-1)^t2k r^{k+t}$, gives
+\[
+\binom{5k}{2k-t}r^{2k}+\binom{5k}{4k-t}\equiv0.
+\tag{5}
+\]
+
+Use (5) first with $t=1$ and then with $t=2$. Eliminating $r^{2k}$ yields
+\[
+\begin{aligned}
+0
+&\equiv
+\binom{5k}{2k-2}\binom{5k}{4k-1}
+-
+\binom{5k}{2k-1}\binom{5k}{4k-2}\\
+&=
+\frac{(5k)!^2}{(2k-1)!(3k+2)!(4k-1)!(k+2)!}
+\Bigl((2k-1)(k+2)-(3k+2)(4k-1)\Bigr)\\
+&=
+-\frac{(5k)!^2\,2k(5k+1)}
+{(2k-1)!(3k+2)!(4k-1)!(k+2)!}
+\pmod p.
+\end{aligned}
+\tag{6}
+\]
+Every factorial argument in (6), as well as the factors $2k$ and $5k+1$, is strictly less than
+\[
+p=10k+1.
+\]
+Therefore none of the factors occurring in the numerator or denominator is divisible by $p$. The denominator is invertible modulo $p$, while the numerator is nonzero modulo $p$. This contradicts (6).
+
+Therefore every residue $r$ can be written as $a^2+b^5$ modulo $p$, which is equivalent to the required divisibility statement.

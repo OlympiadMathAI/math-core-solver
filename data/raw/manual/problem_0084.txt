@@ -1,0 +1,110 @@
+ID: 0084
+
+SOURCE: IMO Shortlist
+
+YEAR: 2012
+
+TOPIC: Number Theory
+
+SUBTOPICS: Diophantine Equations, Parametric Constructions, Perfect Squares, Inequalities
+
+STATEMENT:
+An integer $a$ is called friendly if the equation
+\[
+(m^2+n)(n^2+m)=a(m-n)^3
+\]
+has a solution in positive integers $m,n$.
+
+(a) Prove that there are at least $500$ friendly integers in the set $\{1,2,\ldots,2012\}$.
+
+(b) Decide whether $a=2$ is friendly.
+
+SOLUTION 1:
+For part (a), every integer of the form
+\[
+a=4k-3,
+\qquad k\ge2,
+\]
+is friendly. Indeed, take
+\[
+m=2k-1,
+\qquad
+n=k-1.
+\]
+Then $m-n=k$, and
+\[
+\begin{aligned}
+(m^2+n)(n^2+m)
+&=\bigl((2k-1)^2+k-1\bigr)\bigl((k-1)^2+2k-1\bigr)\\
+&=k(4k-3)\cdot k^2\\
+&=(4k-3)(m-n)^3.
+\end{aligned}
+\]
+For $k=2,3,\ldots,503$, this gives the $502$ distinct friendly integers
+\[
+5,9,13,\ldots,2009.
+\]
+Thus there are at least $500$ friendly integers in the required set.
+
+For part (b), we prove that $2$ is not friendly. Suppose, for a contradiction, that positive integers $m,n$ satisfy
+\[
+(m^2+n)(n^2+m)=2(m-n)^3.
+\tag{1}
+\]
+The left-hand side is positive, so $m>n$.
+
+Using the difference-of-squares identity, equation (1) gives
+\[
+\frac14\left((m^2+n+n^2+m)^2-(m^2+n-n^2-m)^2\right)=2(m-n)^3.
+\]
+Since
+\[
+m^2+n-n^2-m=(m-n)(m+n-1),
+\]
+we obtain
+\[
+(m^2+n+n^2+m)^2
+=(m-n)^2\left((m+n-1)^2+8(m-n)\right).
+\tag{2}
+\]
+It follows that
+\[
+Q=(m+n-1)^2+8(m-n)
+\]
+is a perfect square. Indeed, (2) says that $Q$ is the square of a rational number; an integer that is a rational square is an integer square.
+
+Since $Q>(m+n-1)^2$ and the two squares have the same parity, there is an integer $s\ge1$ such that
+\[
+Q=(m+n-1+2s)^2.
+\]
+Subtracting $(m+n-1)^2$ and dividing by $4$ gives
+\[
+s(m+n-1+s)=2(m-n).
+\tag{3}
+\]
+But
+\[
+m+n-1+s>m-n.
+\]
+If $s\ge2$, the left-hand side of (3) would be greater than $2(m-n)$. Hence $s=1$. Equation (3) then becomes
+\[
+m+n=2(m-n),
+\]
+so
+\[
+m=3n.
+\]
+Substituting this into (1), its right-hand side is
+\[
+2(2n)^3=16n^3.
+\]
+On the other hand,
+\[
+(m^2+n)(n^2+m)>m^2\cdot m=m^3=27n^3,
+\]
+a contradiction.
+
+Therefore
+\[
+\boxed{a=2\text{ is not friendly}}.
+\]

@@ -1,0 +1,189 @@
+ID: 0065
+
+SOURCE: IMO Shortlist
+
+YEAR: 2012
+
+TOPIC: Algebra
+
+SUBTOPICS: Max-Min Algebra, Lattice Polynomials, Closure Properties, Piecewise Polynomial Functions
+
+STATEMENT:
+A function $f:\mathbb{R}^k\to\mathbb{R}$ is called a metapolynomial if, for some positive integers $m$ and $n$, it can be represented in the form
+\[
+f(x_1,\ldots,x_k)
+=
+\max_{1\le i\le m}\ \min_{1\le j\le n} P_{i,j}(x_1,\ldots,x_k),
+\]
+where all $P_{i,j}$ are multivariate polynomials. Prove that the product of two metapolynomials is also a metapolynomial.
+
+SOLUTION 1:
+Let $\mathcal{M}$ denote the family of metapolynomials. Write $x=(x_1,\ldots,x_k)$ and $[m]=\{1,2,\ldots,m\}$.
+
+If a metapolynomial has a representation with some $m,n$, then either index range may be enlarged by repeating rows or entries. Thus, when comparing finitely many metapolynomials, we may assume that their representations use common values of $m$ and $n$.
+
+We first record a finite max-min identity.
+
+\textbf{Lemma.}
+For real numbers $a_{i,j}$, where $i\in[m]$ and $j\in[n]$,
+\[
+\min_{i\in[m]}\max_{j\in[n]}a_{i,j}
+=
+\max_{j_1,\ldots,j_m\in[n]}\min_{i\in[m]}a_{i,j_i}.
+\tag{1}
+\]
+
+\textbf{Proof.}
+For each row $i$, relabel its entries so that $a_{i,n}=\max_j a_{i,j}$, and relabel the rows so that
+\[
+a_{m,n}=\min_i a_{i,n}.
+\]
+Then the left-hand side of (1) equals $a_{m,n}$. Choosing
+\[
+(j_1,\ldots,j_m)=(n,\ldots,n)
+\]
+shows that the right-hand side is at least $a_{m,n}$. Conversely, for every choice of $(j_1,\ldots,j_m)$,
+\[
+\min_i a_{i,j_i}\le a_{m,j_m}\le a_{m,n}.
+\]
+Thus equality holds. $\square$
+
+We next prove several closure properties of $\mathcal{M}$.
+
+\textbf{Maxima and minima.}
+A finite maximum of metapolynomials is a metapolynomial, since all the outer maxima can be merged. A finite minimum is also a metapolynomial: after writing each function in max-min form, apply the lemma to interchange the outer minimum and maximum, and then merge the remaining minima.
+
+More explicitly, if
+\[
+f_s=\max_{i_s}\min_{j_s}P^{(s)}_{i_s,j_s}
+\qquad(s=1,\ldots,r),
+\]
+then the lemma gives
+\[
+\min_s f_s
+=
+\max_{i_1,\ldots,i_r}
+\min_{s,j_s}P^{(s)}_{i_s,j_s},
+\]
+which is again of max-min form.
+
+\textbf{Negation.}
+If
+\[
+f=\max_i\min_j P_{i,j},
+\]
+then
+\[
+-f=\min_i\max_j(-P_{i,j}),
+\]
+and the lemma converts this expression to max-min form. Hence $-f\in\mathcal{M}$.
+
+\textbf{Addition.}
+If
+\[
+f=\max_{i_1}\min_{j_1}P_{i_1,j_1},
+\qquad
+g=\max_{i_2}\min_{j_2}Q_{i_2,j_2},
+\]
+then
+\[
+\begin{aligned}
+f+g
+&=
+\max_{i_1,i_2}
+\left(
+\min_{j_1}P_{i_1,j_1}
++
+\min_{j_2}Q_{i_2,j_2}
+\right)\\
+&=
+\max_{i_1,i_2}\min_{j_1,j_2}
+\bigl(P_{i_1,j_1}+Q_{i_2,j_2}\bigr).
+\end{aligned}
+\]
+Thus $f+g\in\mathcal{M}$. Together with negation, this also gives closure under subtraction.
+
+It remains to prove closure under multiplication. First consider nonnegative metapolynomials $f,g$. For a real-valued function $h$, write
+\[
+h^+=\max\{h,0\}.
+\]
+Suppose
+\[
+f=\max_i\min_jP_{i,j}\ge0,
+\qquad
+g=\max_i\min_jQ_{i,j}\ge0.
+\]
+Since
+\[
+\min_j P_{i,j}^+=\left(\min_j P_{i,j}\right)^+,
+\]
+we may write
+\[
+f=\max_i\min_jP_{i,j}^+,
+\qquad
+g=\max_i\min_jQ_{i,j}^+.
+\]
+All the displayed quantities are nonnegative, so multiplication preserves maxima and minima:
+\[
+fg
+=
+\max_{i_1,i_2}\min_{j_1,j_2}
+\left(P_{i_1,j_1}^+Q_{i_2,j_2}^+\right).
+\tag{2}
+\]
+Therefore it is enough to prove that $P^+Q^+$ is a metapolynomial whenever $P$ and $Q$ are polynomials.
+
+For real numbers $u,v$, the following identity holds:
+\[
+\begin{aligned}
+u^+v^+
+=
+\max\bigl\{&0,
+\min\{uv,u,v\},
+\min\{uv,uv^2,u^2v\},\\
+&\min\{uv,u,u^2v\},
+\min\{uv,uv^2,v\}
+\bigr\}.
+\end{aligned}
+\tag{3}
+\]
+If $u\le0$ or $v\le0$, both sides of (3) are $0$. If $u,v\ge0$, every term inside the outer maximum is at most $uv$, and one of the four inner minima equals $uv$ according as
+\[
+0\le u,v\le1,
+\qquad
+1\le u,v,
+\qquad
+0\le v\le1\le u,
+\qquad
+0\le u\le1\le v.
+\]
+Thus (3) is valid. Replacing $u$ by $P(x)$ and $v$ by $Q(x)$ expresses $P^+Q^+$ using only maxima, minima, and polynomials, so $P^+Q^+\in\mathcal{M}$. By (2), the product of two nonnegative metapolynomials belongs to $\mathcal{M}$.
+
+Finally, for arbitrary $f,g\in\mathcal{M}$, define
+\[
+f^+=\max\{f,0\},
+\qquad
+f^-=\max\{-f,0\},
+\]
+and similarly for $g$. All four functions belong to $\mathcal{M}$ and are nonnegative, while
+\[
+f=f^+-f^-,
+\qquad
+g=g^+-g^-.
+\]
+Hence
+\[
+fg=f^+g^+-f^+g^--f^-g^++f^-g^-.
+\]
+Each product on the right belongs to $\mathcal{M}$ by the nonnegative case, and $\mathcal{M}$ is closed under addition and subtraction. Therefore $fg\in\mathcal{M}$.
+
+\textbf{Comment.}
+When $k=1$, metapolynomials are exactly the continuous piecewise-polynomial functions. A useful special case is that, for every positive integer $n$,
+\[
+(x^+)^n
+=
+\max\left\{0,
+\min\{x^{n-1},x^n\},
+\min\{x^n,x^{n+1}\}
+\right\}.
+\]

@@ -1,0 +1,183 @@
+ID: 0059
+
+SOURCE: IMO Shortlist
+
+YEAR: 2012
+
+TOPIC: Algebra
+
+SUBTOPICS: Functional Equations, Integer-Valued Functions, Parity, Periodicity
+
+STATEMENT:
+Find all functions $f:\mathbb{Z}\to\mathbb{Z}$ such that
+\[
+f(a)^2+f(b)^2+f(c)^2
+=2f(a)f(b)+2f(b)f(c)+2f(c)f(a)
+\]
+for all integers $a,b,c$ satisfying $a+b+c=0$.
+
+SOLUTION 1:
+Setting $a=b=c=0$ gives
+\[
+3f(0)^2=6f(0)^2,
+\]
+hence
+\[
+f(0)=0.
+\tag{1}
+\]
+
+Setting $b=-a$ and $c=0$ gives
+\[
+\bigl(f(a)-f(-a)\bigr)^2=0.
+\]
+Thus $f$ is even:
+\[
+f(a)=f(-a)
+\qquad\text{for all }a\in\mathbb{Z}.
+\tag{2}
+\]
+
+Now set $b=a$ and $c=-2a$. By (2),
+\[
+2f(a)^2+f(2a)^2=2f(a)^2+4f(a)f(2a),
+\]
+so
+\[
+f(2a)=0
+\quad\text{or}\quad
+f(2a)=4f(a)
+\qquad\text{for all }a\in\mathbb{Z}.
+\tag{3}
+\]
+
+Suppose that $f(r)=0$ for some integer $r\ge 1$. Substituting $b=r$ and $c=-a-r$ gives
+\[
+\bigl(f(a+r)-f(a)\bigr)^2=0,
+\]
+so $f$ is periodic with period $r$:
+\[
+f(a+r)=f(a)
+\qquad\text{for all }a\in\mathbb{Z}.
+\tag{4}
+\]
+
+If $f(1)=0$, then (4) shows that $f$ is constant; together with (1), this gives $f\equiv 0$.
+For the rest of the proof, assume
+\[
+f(1)=k\ne 0.
+\]
+
+By (3), either $f(2)=0$ or $f(2)=4k$.
+If $f(2)=0$, then $f$ has period $2$, so
+\[
+f(x)=
+\begin{cases}
+0,&x\text{ even},\\
+k,&x\text{ odd}.
+\end{cases}
+\tag{5}
+\]
+
+Now suppose that $f(2)=4k$. Applying (3) once more, either $f(4)=0$ or $f(4)=16k$.
+If $f(4)=0$, then $f$ has period $4$. Since $f$ is even,
+\[
+f(x)=
+\begin{cases}
+0,&x\equiv 0\pmod 4,\\
+k,&x\equiv 1\pmod 2,\\
+4k,&x\equiv 2\pmod 4.
+\end{cases}
+\tag{6}
+\]
+
+It remains to consider the case $f(4)=16k$. We first determine $f(3)$. The substitutions
+$(a,b,c)=(1,2,-3)$ and $(a,b,c)=(1,3,-4)$ give, respectively,
+\[
+f(3)^2-10k f(3)+9k^2=0,
+\]
+and
+\[
+f(3)^2-34k f(3)+225k^2=0.
+\]
+Therefore
+\[
+f(3)\in\{k,9k\}
+\quad\text{and}\quad
+f(3)\in\{9k,25k\},
+\]
+so
+\[
+f(3)=9k.
+\]
+
+We now prove by induction that
+\[
+f(x)=kx^2
+\qquad\text{for all }x\in\mathbb{Z}.
+\tag{7}
+\]
+This is already known for $x=0,1,2,3,4$. Assume that $n\ge 4$ and that (7) holds for all integers
+$x$ with $0\le x\le n$. Substituting $(a,b,c)=(n,1,-n-1)$ gives
+\[
+f(n+1)\in\bigl\{k(n+1)^2,k(n-1)^2\bigr\}.
+\]
+Substituting $(a,b,c)=(n-1,2,-n-1)$ gives
+\[
+f(n+1)\in\bigl\{k(n+1)^2,k(n-3)^2\bigr\}.
+\]
+Because $k\ne 0$ and $(n-1)^2\ne(n-3)^2$ for $n\ge 4$, the only common possibility is
+\[
+f(n+1)=k(n+1)^2.
+\]
+This completes the induction for nonnegative integers, and (2) extends it to all integers.
+
+We have therefore obtained the following functions:
+\[
+f_1(x)=0,
+\qquad
+f_2(x)=kx^2,
+\]
+\[
+f_3(x)=
+\begin{cases}
+0,&x\text{ even},\\
+k,&x\text{ odd},
+\end{cases}
+\]
+and
+\[
+f_4(x)=
+\begin{cases}
+0,&x\equiv 0\pmod 4,\\
+k,&x\equiv 1\pmod 2,\\
+4k,&x\equiv 2\pmod 4,
+\end{cases}
+\]
+where in the last three families $k$ is any nonzero integer.
+
+It remains to verify them. The zero function is immediate. For $f_2$, after writing $c=-a-b$, the required identity becomes
+\[
+a^4+b^4+(a+b)^4
+=2a^2b^2+2a^2(a+b)^2+2b^2(a+b)^2,
+\]
+which follows by expansion. For $f_3$, either $a,b,c$ are all even, or exactly one is even and the other two are odd; the equation is then immediate. For $f_4$, the possible triples of values, up to permutation, reduce to
+\[
+(0,0,0),\qquad (0,k,k),\qquad (0,4k,4k),\qquad (4k,k,k),
+\]
+and each satisfies the equation.
+
+\textbf{Comment.}
+For any $a,b\in\mathbb{Z}$, the original equation may be viewed as a quadratic equation in $f(a+b)$:
+\[
+f(a+b)^2-2\bigl(f(a)+f(b)\bigr)f(a+b)+\bigl(f(a)-f(b)\bigr)^2=0.
+\]
+Its discriminant is $16f(a)f(b)$. Hence all nonzero values of $f$ have the same sign. Since $-f$ is a solution whenever $f$ is, one may assume $f\ge 0$, in which case
+\[
+f(a+b)\in
+\left\{
+\bigl(\sqrt{f(a)}+\sqrt{f(b)}\bigr)^2,
+\bigl(\sqrt{f(a)}-\sqrt{f(b)}\bigr)^2
+\right\}.
+\]
+This gives another way to organize the computations above.

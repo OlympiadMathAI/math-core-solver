@@ -1,0 +1,117 @@
+ID: 0075
+
+SOURCE: IMO Shortlist
+
+YEAR: 2012
+
+TOPIC: Geometry
+
+SUBTOPICS: Orthic Triangle, Incenters, Circumcenters, Radical Axis, Cyclic Quadrilaterals, Similarity
+
+STATEMENT:
+In an acute triangle $ABC$, the points $D,E,F$ are the feet of the altitudes through $A,B,C$, respectively. The incenters of triangles $AEF$ and $BDF$ are $I_1$ and $I_2$, respectively. The circumcenters of triangles $ACI_1$ and $BCI_2$ are $O_1$ and $O_2$, respectively. Prove that $I_1I_2$ is parallel to $O_1O_2$.
+
+SOLUTION 1:
+Let
+\[
+\alpha=\angle BAC,\qquad \beta=\angle ABC,\qquad \gamma=\angle BCA,
+\]
+and let $I$ be the incenter of $ABC$.
+
+The line $AI_1$ is the bisector of $\angle EAF=\angle BAC$, so $A,I_1,I$ are collinear. Similarly, $B,I_2,I$ are collinear.
+
+Because $BE\perp AC$ and $CF\perp AB$, the points $B,C,E,F$ lie on the circle with diameter $BC$. Hence
+\[
+\angle AEF=\angle ABC,
+\qquad
+\angle AFE=\angle ACB.
+\]
+Thus triangles $AEF$ and $ABC$ are similar. Their similarity ratio is
+\[
+\frac{AE}{AB}=\cos\alpha.
+\]
+The similarity sends the incenter $I$ of $ABC$ to the incenter $I_1$ of $AEF$, and therefore
+\[
+AI_1=AI\cos\alpha.
+\]
+Since the triangle is acute, $I_1$ lies between $A$ and $I$, so
+\[
+II_1=AI-AI_1=AI(1-\cos\alpha)=2AI\sin^2\frac{\alpha}{2}.
+\tag{1}
+\]
+By symmetry,
+\[
+II_2=2BI\sin^2\frac{\beta}{2}.
+\tag{2}
+\]
+
+Applying the sine rule in triangle $ABI$ gives
+\[
+AI\sin\frac{\alpha}{2}=BI\sin\frac{\beta}{2}.
+\tag{3}
+\]
+Using (1), (2), and (3),
+\[
+II_1\cdot IA
+=2\left(AI\sin\frac{\alpha}{2}\right)^2
+=2\left(BI\sin\frac{\beta}{2}\right)^2
+=II_2\cdot IB.
+\tag{4}
+\]
+Since $A,I_1,I$ are collinear and $B,I_2,I$ are collinear, equation (4) is the converse of the intersecting-chords theorem. Hence
+\[
+A,B,I_1,I_2
+\]
+are concyclic.
+
+Now consider the circles
+\[
+\Gamma_1=(ACI_1),
+\qquad
+\Gamma_2=(BCI_2).
+\]
+The power of $I$ with respect to $\Gamma_1$ is
+\[
+IA\cdot II_1,
+\]
+while its power with respect to $\Gamma_2$ is
+\[
+IB\cdot II_2.
+\]
+These are equal by (4). Since both circles pass through $C$, their radical axis is the line $CI$. Therefore
+\[
+O_1O_2\perp CI.
+\tag{5}
+\]
+
+It remains to prove that $I_1I_2\perp CI$. Let
+\[
+Q=I_1I_2\cap CI.
+\]
+From the cyclic quadrilateral $ABI_1I_2$ and the collinearity of $A,I_1,I$, we get
+\[
+\angle II_1I_2=\frac{\beta}{2}.
+\tag{6}
+\]
+In the configuration, $\angle I_1IQ$ is the exterior angle at $I$ of triangle $ACI$, so
+\[
+\angle I_1IQ
+=\angle CAI+\angle ACI
+=\frac{\alpha}{2}+\frac{\gamma}{2}.
+\tag{7}
+\]
+Using (6) and (7),
+\[
+\angle II_1Q+\angle I_1IQ
+=\frac{\beta}{2}+\frac{\alpha}{2}+\frac{\gamma}{2}
+=90^\circ.
+\]
+Thus $\angle I_1QI=90^\circ$, and hence
+\[
+I_1I_2\perp CI.
+\tag{8}
+\]
+From (5) and (8), both $I_1I_2$ and $O_1O_2$ are perpendicular to $CI$. Therefore
+\[
+I_1I_2\parallel O_1O_2.
+\]

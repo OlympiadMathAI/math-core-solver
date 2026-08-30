@@ -1,0 +1,211 @@
+ID: 0087
+
+SOURCE: IMO Shortlist
+
+YEAR: 2012
+
+TOPIC: Number Theory
+
+SUBTOPICS: Parity, Egyptian Fractions, Recursive Constructions, Invariants, Powers of 2 and 3
+
+STATEMENT:
+Find all positive integers $n$ for which there exist nonnegative integers $a_1,a_2,\ldots,a_n$ satisfying
+\[
+\frac1{2^{a_1}}+\frac1{2^{a_2}}+\cdots+\frac1{2^{a_n}}
+=
+\frac1{3^{a_1}}+\frac2{3^{a_2}}+\cdots+\frac n{3^{a_n}}
+=1.
+\]
+
+SOLUTION 1:
+The answer is
+\[
+n\equiv1\pmod4
+\qquad\text{or}\qquad
+n\equiv2\pmod4.
+\]
+
+We first prove necessity. Suppose that
+\[
+\sum_{k=1}^n\frac{k}{3^{a_k}}=1.
+\]
+Let
+\[
+A=\max_{1\le k\le n}a_k.
+\]
+Multiplying by $3^A$ gives
+\[
+1\cdot x_1+2\cdot x_2+\cdots+n\cdot x_n=3^A,
+\]
+where
+\[
+x_k=3^{A-a_k}
+\]
+is an odd integer for every $k$. Reducing modulo $2$, we obtain
+\[
+1+2+\cdots+n\equiv1\pmod2.
+\]
+The triangular number $n(n+1)/2$ is odd exactly when
+\[
+n\equiv1,2\pmod4.
+\]
+Thus the stated congruence condition is necessary.
+
+We now prove sufficiency. Call a finite sequence of nonnegative integers
+\[
+(b_1,b_2,\ldots,b_s)
+\]
+\emph{feasible} if there exist nonnegative integers $c_1,c_2,\ldots,c_s$ such that
+\[
+\sum_{i=1}^s\frac1{2^{c_i}}
+=
+\sum_{i=1}^s\frac{b_i}{3^{c_i}}
+=1.
+\tag{1}
+\]
+
+Suppose that $b_k$ is a term of a feasible sequence, with exponent $c_k$, and that $u,v$ are nonnegative integers satisfying
+\[
+u+v=3b_k.
+\]
+Replacing $b_k$ by the two terms $u,v$ and assigning both new terms the exponent $c_k+1$ preserves both sums in (1), because
+\[
+\frac1{2^{c_k+1}}+\frac1{2^{c_k+1}}=\frac1{2^{c_k}}
+\]
+and
+\[
+\frac{u}{3^{c_k+1}}+\frac{v}{3^{c_k+1}}=\frac{b_k}{3^{c_k}}.
+\]
+We shall use this operation in reverse:
+
+\[
+\boxed{\text{If replacing two terms }u,v\text{ by }\frac{u+v}{3}\text{ gives a feasible sequence, then the original sequence is feasible.}}
+\tag{2}
+\]
+
+Let
+\[
+\alpha_n=(1,2,\ldots,n).
+\]
+Our goal is to reduce $\alpha_n$ to $\alpha_1=(1)$ by operations of the form in (2). The sequence $\alpha_1$ is feasible, with exponent $0$.
+
+A useful special case is
+\[
+\{m,2m\}\longmapsto m.
+\tag{3}
+\]
+Thus, whenever both $m$ and $2m$ occur, the term $2m$ may be deleted; the term $m$ remains available and may be used again.
+
+We next prove that, for every $n\ge16$,
+\[
+\alpha_n\longmapsto\alpha_{n-12}.
+\tag{4}
+\]
+Write
+\[
+n=12k+r,
+\qquad 0\le r\le11.
+\]
+
+\textbf{Case 1: $0\le r\le5$.}
+The last $12$ terms of $\alpha_n$ can be partitioned into the two singletons
+\[
+\{12k-6\},
+\qquad
+\{12k\},
+\]
+and the following five pairs in total:
+\[
+\{12k-6-i,12k-6+i\},
+\qquad i=1,\ldots,5-r,
+\]
+\[
+\{12k-j,12k+j\},
+\qquad j=1,\ldots,r.
+\]
+Using (3), delete $12k-6$ and $12k$, with the aid of $6k-3$ and $6k$, respectively. In the boundary cases $k=1$ (which here means $r=4$ or $r=5$), delete $12k$ first; operation (3) leaves the helper term $6k=12k-6$ available for the second deletion. Each pair of the first kind is replaced by
+\[
+\frac{(12k-6-i)+(12k-6+i)}3=8k-4,
+\]
+and each pair of the second kind is replaced by
+\[
+\frac{(12k-j)+(12k+j)}3=8k.
+\]
+The five new terms are therefore all equal to $8k-4$ or $8k$. They can be deleted by (3), using the still-present terms $4k-2$ and $4k$.
+
+It remains only to check that these smaller terms are available. It is enough that
+\[
+4k\le n-12,
+\]
+which is equivalent to
+\[
+8k\ge12-r.
+\]
+This holds for $r=4,5$ because $k\ge1$, and for $r=0,1,2,3$ because $n\ge16$ forces $k\ge2$. Hence the reduction in (4) is valid in this case.
+
+\textbf{Case 2: $6\le r\le11$.}
+The last $12$ terms can be partitioned into the two singletons
+\[
+\{12k\},
+\qquad
+\{12k+6\},
+\]
+and the following five pairs in total:
+\[
+\{12k-i,12k+i\},
+\qquad i=1,\ldots,11-r,
+\]
+\[
+\{12k+6-j,12k+6+j\},
+\qquad j=1,\ldots,r-6.
+\]
+Delete the two singletons using $6k$ and $6k+3$. If $k=1$ and the helper $6k+3=9$ lies in one of the displayed pairs, delete $12k+6$ first; operation (3) leaves the $9$ available for that pair. The pairs are replaced by $8k$ and $8k+4$, respectively. These new terms can be deleted using $4k$ and $4k+2$. The needed inequality
+\[
+4k+2\le n-12
+\]
+is equivalent to
+\[
+8k+r\ge14,
+\]
+which follows from $k\ge1$ and $r\ge6$. Thus (4) also holds in this case.
+
+Repeatedly applying (4), it remains to handle the values
+\[
+n\in\{1,2,5,6,9,10,13,14\}.
+\]
+The even cases reduce immediately by deleting their last term:
+\[
+\alpha_2\to\alpha_1,
+\qquad
+\alpha_6\to\alpha_5,
+\qquad
+\alpha_{10}\to\alpha_9,
+\qquad
+\alpha_{14}\to\alpha_{13}.
+\]
+
+For $n=5$, use
+\[
+\{4,5\}\to3,
+\qquad
+\{3,3\}\to2,
+\]
+and then delete the two occurrences of $2$ using the term $1$.
+
+For $n=9$, first delete $6$ using $3$, and then use
+\[
+\{5,7\}\to4,
+\qquad
+\{4,8\}\to4,
+\qquad
+\{3,9\}\to4.
+\]
+This leaves three occurrences of $4$ in addition to $1,2$; delete the three $4$'s using $2$, and then delete $2$ using $1$.
+
+For $n=13$, use
+\[
+\{11,13\}\to8,
+\]
+then delete the newly created $8$ using $4$, and delete $12$ using $6$. This reduces $\alpha_{13}$ to $\alpha_{10}$.
+
+Thus $\alpha_n$ is feasible whenever $n\equiv1$ or $2\pmod4$. By the definition of feasibility, this is exactly the required existence of $a_1,\ldots,a_n$.

@@ -1,0 +1,16 @@
+{
+  "id": "0084",
+  "source": "IMO Shortlist",
+  "year": "2012",
+  "topic": "Number Theory",
+  "subtopics": [
+    "Diophantine Equations",
+    "Parametric Constructions",
+    "Perfect Squares",
+    "Inequalities"
+  ],
+  "statement": "An integer $a$ is called friendly if the equation\n\\[\n(m^2+n)(n^2+m)=a(m-n)^3\n\\]\nhas a solution in positive integers $m,n$.\n\n(a) Prove that there are at least $500$ friendly integers in the set $\\{1,2,\\ldots,2012\\}$.\n\n(b) Decide whether $a=2$ is friendly.",
+  "solutions": [
+    "For part (a), every integer of the form\n\\[\na=4k-3,\n\\qquad k\\ge2,\n\\]\nis friendly. Indeed, take\n\\[\nm=2k-1,\n\\qquad\nn=k-1.\n\\]\nThen $m-n=k$, and\n\\[\n\\begin{aligned}\n(m^2+n)(n^2+m)\n&=\\bigl((2k-1)^2+k-1\\bigr)\\bigl((k-1)^2+2k-1\\bigr)\\\\\n&=k(4k-3)\\cdot k^2\\\\\n&=(4k-3)(m-n)^3.\n\\end{aligned}\n\\]\nFor $k=2,3,\\ldots,503$, this gives the $502$ distinct friendly integers\n\\[\n5,9,13,\\ldots,2009.\n\\]\nThus there are at least $500$ friendly integers in the required set.\n\nFor part (b), we prove that $2$ is not friendly. Suppose, for a contradiction, that positive integers $m,n$ satisfy\n\\[\n(m^2+n)(n^2+m)=2(m-n)^3.\n\\tag{1}\n\\]\nThe left-hand side is positive, so $m>n$.\n\nUsing the difference-of-squares identity, equation (1) gives\n\\[\n\\frac14\\left((m^2+n+n^2+m)^2-(m^2+n-n^2-m)^2\\right)=2(m-n)^3.\n\\]\nSince\n\\[\nm^2+n-n^2-m=(m-n)(m+n-1),\n\\]\nwe obtain\n\\[\n(m^2+n+n^2+m)^2\n=(m-n)^2\\left((m+n-1)^2+8(m-n)\\right).\n\\tag{2}\n\\]\nIt follows that\n\\[\nQ=(m+n-1)^2+8(m-n)\n\\]\nis a perfect square. Indeed, (2) says that $Q$ is the square of a rational number; an integer that is a rational square is an integer square.\n\nSince $Q>(m+n-1)^2$ and the two squares have the same parity, there is an integer $s\\ge1$ such that\n\\[\nQ=(m+n-1+2s)^2.\n\\]\nSubtracting $(m+n-1)^2$ and dividing by $4$ gives\n\\[\ns(m+n-1+s)=2(m-n).\n\\tag{3}\n\\]\nBut\n\\[\nm+n-1+s>m-n.\n\\]\nIf $s\\ge2$, the left-hand side of (3) would be greater than $2(m-n)$. Hence $s=1$. Equation (3) then becomes\n\\[\nm+n=2(m-n),\n\\]\nso\n\\[\nm=3n.\n\\]\nSubstituting this into (1), its right-hand side is\n\\[\n2(2n)^3=16n^3.\n\\]\nOn the other hand,\n\\[\n(m^2+n)(n^2+m)>m^2\\cdot m=m^3=27n^3,\n\\]\na contradiction.\n\nTherefore\n\\[\n\\boxed{a=2\\text{ is not friendly}}.\n\\]"
+  ]
+}

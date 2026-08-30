@@ -1,0 +1,138 @@
+ID: 0082
+
+SOURCE: IMO Shortlist
+
+YEAR: 2012
+
+TOPIC: Number Theory
+
+SUBTOPICS: Diophantine Equations, Modular Arithmetic, 2-adic Valuation, Fermat's Little Theorem, Factorization
+
+STATEMENT:
+Find all triples $(x,y,z)$ of positive integers such that $x\le y\le z$ and
+\[
+x^3(y^3+z^3)=2012(xyz+2).
+\]
+
+SOLUTION 1:
+We prove that the only solution is
+\[
+\boxed{(x,y,z)=(2,251,252)}.
+\]
+
+Reducing the equation modulo $x$ gives
+\[
+x\mid 2\cdot 2012=2^3\cdot 503.
+\tag{1}
+\]
+If $503\mid x$, then the left-hand side is divisible by $503^3$. Since $2012=4\cdot503$, this would imply
+\[
+503^2\mid xyz+2,
+\]
+which is impossible because $503\mid x$ gives $xyz+2\equiv2\pmod{503}$. Thus $503\nmid x$, and (1) yields
+\[
+x=2^m\qquad\text{for some }m\in\{0,1,2,3\}.
+\]
+
+If $m\ge2$, then the left-hand side is divisible by $2^{3m}$ and hence by $2^6$. On the other hand,
+\[
+v_2(2012)=2
+\]
+and
+\[
+xyz+2=2^m yz+2=2\bigl(2^{m-1}yz+1\bigr),
+\]
+where the factor in parentheses is odd. Hence the right-hand side has 2-adic valuation exactly $3$, a contradiction. Therefore
+\[
+x\in\{1,2\}.
+\]
+The original equation becomes, respectively,
+\[
+y^3+z^3=2012(yz+2)
+\tag{2}
+\]
+or
+\[
+y^3+z^3=503(yz+1).
+\tag{3}
+\]
+
+In either case,
+\[
+y^3+z^3\equiv0\pmod{503}.
+\]
+Since $\gcd(3,502)=1$, the map $u\mapsto u^3$ is a bijection on $\mathbb F_{503}$. Thus
+\[
+y^3\equiv(-z)^3\pmod{503}
+\]
+implies
+\[
+y\equiv-z\pmod{503}.
+\]
+Consequently,
+\[
+y+z=503k
+\tag{4}
+\]
+for some positive integer $k$.
+
+Using
+\[
+y^3+z^3=(y+z)\bigl((y-z)^2+yz\bigr),
+\]
+equations (2) and (3), together with (4), become
+\[
+k(y-z)^2+(k-4)yz=8
+\tag{5}
+\]
+and
+\[
+k(y-z)^2+(k-1)yz=1,
+\tag{6}
+\]
+respectively.
+
+We first rule out (5), which corresponds to $x=1$. Since the first term in (5) is nonnegative,
+\[
+(k-4)yz\le8.
+\]
+If $k>4$, then $1\le(k-4)yz\le8$, so $yz\le8$, hence $y,z\le8$. This contradicts $y+z=503k$. Thus $k\le4$.
+
+Moreover, the right-hand side of (2) is even, so $y^3+z^3$, and hence $y+z$, is even. Since $503$ is odd, $k$ is even. Therefore $k=2$ or $k=4$.
+
+For $k=4$, equation (5) gives
+\[
+4(y-z)^2=8,
+\]
+which is impossible. For $k=2$, equation (5) is equivalent to
+\[
+(y+z)^2-5yz=4.
+\]
+Since $y+z=1006$, this gives
+\[
+5yz=1006^2-4,
+\]
+but the right-hand side is congruent to $1-4\equiv2\pmod5$. This is again impossible. Hence $x\ne1$.
+
+We now solve (6), corresponding to $x=2$. Both terms on the left are nonnegative, so
+\[
+0\le(k-1)yz\le1.
+\]
+Thus $k=1$ or $k=2$. Also,
+\[
+0\le k(y-z)^2\le1.
+\]
+If $k=2$, then $y=z$, and (6) gives $yz=1$, contradicting $y+z=1006$. Hence $k=1$. Equation (6) then gives
+\[
+(y-z)^2=1.
+\]
+Because $y\le z$ and $y+z=503$, we obtain
+\[
+z-y=1,
+\qquad
+(y,z)=(251,252).
+\]
+This pair satisfies (3), so the unique triple is
+\[
+\boxed{(2,251,252)}.
+\]

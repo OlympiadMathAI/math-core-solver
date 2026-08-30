@@ -1,0 +1,16 @@
+{
+  "id": "0067",
+  "source": "IMO Shortlist",
+  "year": "2012",
+  "topic": "Combinatorics",
+  "subtopics": [
+    "Extremal Combinatorics",
+    "Pairings",
+    "Constructive Combinatorics",
+    "Double Counting"
+  ],
+  "statement": "Let $n\\ge 1$ be an integer. What is the maximum number of disjoint pairs of elements of the set\n\\[\n\\{1,2,\\ldots,n\\}\n\\]\nsuch that the sums of the different pairs are different integers not exceeding $n$?",
+  "solutions": [
+    "The maximum is\n\\[\n\\boxed{\\left\\lfloor\\frac{2n-1}{5}\\right\\rfloor}.\n\\]\n\nSuppose that $x$ disjoint pairs satisfy the conditions. Let $S$ be the sum of all $2x$ elements used in the pairs. Since these elements are distinct,\n\\[\nS\\ge 1+2+\\cdots+2x=\\frac{2x(2x+1)}2.\n\\tag{1}\n\\]\nOn the other hand, $S$ is also the sum of the $x$ pair-sums. Those sums are distinct positive integers not exceeding $n$, so\n\\[\nS\\le n+(n-1)+\\cdots+(n-x+1)\n=nx-\\frac{x(x-1)}2.\n\\tag{2}\n\\]\nCombining (1) and (2) gives\n\\[\n\\frac{2x(2x+1)}2\\le nx-\\frac{x(x-1)}2.\n\\]\nFor $x>0$, division by $x$ and simplification yield\n\\[\n5x\\le 2n-1.\n\\]\nThe same conclusion is trivial for $x=0$. Therefore\n\\[\nx\\le \\left\\lfloor\\frac{2n-1}{5}\\right\\rfloor.\n\\tag{3}\n\\]\n\nIt remains to attain this bound. First let\n\\[\nn=5k+3\n\\qquad(k\\ge 0).\n\\]\nFor $j=1,2,\\ldots,k$, take the pairs\n\\[\nP_j=(3k+2-j,\\,2j)\n\\]\nand\n\\[\nQ_j=(4k+3-j,\\,2j-1),\n\\]\nand also take\n\\[\nR=(3k+2,\\,2k+1).\n\\]\nThe sums are\n\\[\n\\sum P_j=3k+2+j\n\\qquad(j=1,\\ldots,k),\n\\]\n\\[\n\\sum Q_j=4k+2+j\n\\qquad(j=1,\\ldots,k),\n\\]\nand\n\\[\n\\sum R=5k+3.\n\\]\nThus the pair-sums are exactly\n\\[\n3k+3,3k+4,\\ldots,5k+3,\n\\]\nso they are distinct and do not exceed $n$. Moreover, the $2k+1$ pairs use every integer from $1$ to $4k+2$ exactly once. Hence this is a valid construction of $2k+1$ pairs.\n\nThe same construction works without change for\n\\[\nn=5k+4\\quad\\text{and}\\quad n=5k+5,\n\\]\nbecause all elements and all sums are at most $5k+3$. In each of these three cases,\n\\[\n\\left\\lfloor\\frac{2n-1}{5}\\right\\rfloor=2k+1.\n\\]\n\nFor\n\\[\nn=5k+2,\n\\]\nomit the last pair $R$. This gives $2k$ valid pairs, which equals the value in (3).\n\nFinally, for\n\\[\nn=5k+1,\n\\]\nomit $R$ and subtract $1$ from the first entry of every remaining pair. The first entries then lie in\n\\[\n\\{2k+1,\\ldots,3k\\}\\cup\\{3k+2,\\ldots,4k+1\\},\n\\]\nwhile the second entries are $1,2,\\ldots,2k$, so all used elements are distinct and belong to $\\{1,\\ldots,n\\}$. The pair-sums become the distinct integers\n\\[\n3k+2,3k+3,\\ldots,5k+1.\n\\]\nThus we again obtain $2k$ valid pairs, equal to the upper bound.\n\nThe constructions also cover $k=0$, with the indicated families of pairs empty when appropriate. Hence the maximum is exactly\n\\[\n\\left\\lfloor\\frac{2n-1}{5}\\right\\rfloor.\n\\]"
+  ]
+}

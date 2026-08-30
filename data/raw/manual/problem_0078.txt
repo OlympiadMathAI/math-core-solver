@@ -1,0 +1,189 @@
+ID: 0078
+
+SOURCE: IMO Shortlist
+
+YEAR: 2012
+
+TOPIC: Geometry
+
+SUBTOPICS: Miquel Point, Incenter, Oriented Angles, Cyclic Quadrilaterals, Power of a Point, Locus
+
+STATEMENT:
+Let $ABC$ be a triangle with circumcenter $O$ and incenter $I$. Points $D,E,F$ lie on the sides $BC,CA,AB$, respectively, and satisfy
+\[
+BD+BF=CA,
+\qquad
+CD+CE=AB.
+\]
+The circumcircles of triangles $BFD$ and $CDE$ meet at $P\ne D$. Prove that
+\[
+OP=OI.
+\]
+
+SOLUTION 1:
+Denote
+\[
+\omega_A=(AEF),\qquad \omega_B=(BFD),\qquad \omega_C=(CDE).
+\]
+By Miquel's theorem, the three circles $\omega_A,\omega_B,\omega_C$ have a common point. Since $P\ne D$ is the second common point of $\omega_B$ and $\omega_C$, we have
+\[
+P\in\omega_A.
+\tag{1}
+\]
+
+The two given equalities imply a third one. Indeed,
+\[
+BD+CD=BC,
+\qquad
+BF+AF=AB,
+\qquad
+CE+AE=AC.
+\]
+Adding the two given conditions and substituting these identities gives
+\[
+AE+AF=BC.
+\tag{2}
+\]
+
+Let the circles $\omega_A,\omega_B,\omega_C$ meet the angle bisectors $AI,BI,CI$ again at $A',B',C'$, respectively. We shall prove that
+\[
+OI=OA'=OB'=OC'.
+\tag{3}
+\]
+
+We first establish a lemma.
+
+\textbf{Lemma.} Let a circle through the vertex $A$ of an angle of measure $\alpha$ meet the two sides at $X,Y$ and the internal angle bisector again at $L$. Then
+\[
+AX+AY=2AL\cos\frac{\alpha}{2}.
+\tag{4}
+\]
+
+\textbf{Proof of the lemma.} Since $AL$ bisects $\angle XAY$, the chords $LX$ and $LY$ are equal. Put
+\[
+LX=LY=u,
+\qquad
+XY=v.
+\]
+Ptolemy's theorem in the cyclic quadrilateral $AXLY$ gives
+\[
+AX\cdot LY+AY\cdot LX=AL\cdot XY,
+\]
+so
+\[
+(AX+AY)u=AL\,v.
+\tag{5}
+\]
+In triangle $XLY$,
+\[
+\angle LXY=\frac{\alpha}{2},
+\qquad
+\angle XLY=180^\circ-\alpha.
+\]
+The sine rule yields
+\[
+\frac{v}{u}
+=\frac{\sin\alpha}{\sin(\alpha/2)}
+=2\cos\frac{\alpha}{2}.
+\]
+Substituting this into (5) proves (4). \hfill$\square$
+
+Apply the lemma to the angle $BAC$, whose measure is $\alpha$, and to the circle $\omega_A$. Using (2),
+\[
+2AA'\cos\frac{\alpha}{2}=AE+AF=BC.
+\tag{6}
+\]
+Similarly,
+\[
+2BB'\cos\frac{\beta}{2}=CA,
+\qquad
+2CC'\cos\frac{\gamma}{2}=AB.
+\tag{7}
+\]
+Thus $A',B',C'$ depend only on triangle $ABC$, not on the particular points $D,E,F$.
+
+Apply the lemma again to angle $BAC$ and to the circle with diameter $AI$. Its intersections with $AB$ and $AC$ are the two touchpoints of the incircle. Their distances from $A$ both equal
+\[
+\frac{AB+AC-BC}{2}.
+\]
+Hence
+\[
+2AI\cos\frac{\alpha}{2}=AB+AC-BC.
+\tag{8}
+\]
+Finally, let $M\ne A$ be the second intersection of $AI$ with the circumcircle of $ABC$. Applying the lemma to that circumcircle gives
+\[
+2AM\cos\frac{\alpha}{2}=AB+AC.
+\tag{9}
+\]
+Equations (6), (8), and (9) imply
+\[
+AA'+AI=AM.
+\tag{10}
+\]
+The four points $A,I,A',M$ are collinear, and (10) says that the segments $AM$ and $IA'$ have the same midpoint. Since $A$ and $M$ lie on the circumcircle centered at $O$, the point $O$ lies on the perpendicular bisector of $AM$, and therefore also on the perpendicular bisector of $IA'$. Thus
+\[
+OI=OA'.
+\]
+By symmetry, (3) follows. Hence the points
+\[
+I,A',B',C'
+\]
+lie on the circle $\Gamma$ centered at $O$ with radius $OI$.
+
+It remains to prove that $P\in\Gamma$. We use directed angles modulo $180^\circ$. Assume first that $P\ne F$ and that the points used below are distinct. Since $A,F,P,A'$ lie on $\omega_A$,
+\[
+\measuredangle(A'P,FP)
+=\measuredangle(A'A,FA)
+=\measuredangle(A'I,AB).
+\tag{11}
+\]
+Since $B,F,P,B'$ lie on $\omega_B$,
+\[
+\measuredangle(B'P,FP)
+=\measuredangle(B'B,FB)
+=\measuredangle(B'I,AB).
+\tag{12}
+\]
+Subtracting (12) from (11),
+\[
+\begin{aligned}
+\measuredangle(A'P,B'P)
+&=\measuredangle(A'P,FP)+\measuredangle(FP,B'P)\\
+&=\measuredangle(A'I,AB)-\measuredangle(B'I,AB)\\
+&=\measuredangle(A'I,B'I).
+\end{aligned}
+\]
+Therefore $A',B',P,I$ are concyclic, and hence $P\in\Gamma$.
+
+If $P=F$, use the three circles $\omega_A,\omega_B,\omega_C$ as follows:
+\[
+\begin{aligned}
+\measuredangle(A'F,B'F)
+&=\measuredangle(A'F,EF)
+ +\measuredangle(EF,DF)
+ +\measuredangle(DF,B'F)\\
+&=\measuredangle(A'I,AC)
+ +\measuredangle(AC,BC)
+ +\measuredangle(BC,B'I)\\
+&=\measuredangle(A'I,B'I).
+\end{aligned}
+\]
+Thus the same cyclicity conclusion holds.
+
+Degenerate coincidences cause no difficulty. If $P$ already equals one of $I,A',B',C'$, the conclusion is immediate. If $ABC$ is equilateral, then (6)--(9) give
+\[
+A'=B'=C'=I=O,
+\]
+and the Miquel point $P$ is also $O$.
+
+Assume now that $ABC$ is not equilateral. At most one of $A',B',C'$ can coincide with $I$. To see how the only possible degeneracy is handled, suppose for instance that $C'=I$. Let $N\ne C$ be the second intersection of $CI$ with the circumcircle of $ABC$. The analogue of (10) at $C$ gives
+\[
+CC'+CI=CN.
+\]
+Thus $2CI=CN$, so $I$ is the midpoint of $CN$ and consequently $OI\perp CI$. If $A'=I$ as well, the analogous argument would give $OI\perp AI$, which is impossible in a non-equilateral triangle; similarly $B'\ne I$. Hence $A',B'\ne I$, and since $A'$ lies on $AI$ while $B'$ lies on $BI$, we also have $A'\ne B'$. Finally, $A',B',I$ are noncollinear because they are three distinct points of the nondegenerate circle $\Gamma$. Therefore the preceding directed-angle argument applies to $A'$ and $B'$ and proves again that $P\in\Gamma$. The other possible coincidences are symmetric.
+
+Consequently $P$ lies on the circle centered at $O$ with radius $OI$. Therefore
+\[
+OP=OI.
+\]

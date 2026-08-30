@@ -1,0 +1,17 @@
+{
+  "id": "0077",
+  "source": "IMO Shortlist",
+  "year": "2012",
+  "topic": "Geometry",
+  "subtopics": [
+    "Right Triangles",
+    "Reflections",
+    "Power of a Point",
+    "Tangent Circles",
+    "Equal Tangents"
+  ],
+  "statement": "Let $ABC$ be a triangle with $\\angle BCA=90^\\circ$, and let $C_0$ be the foot of the altitude from $C$ to $AB$. Choose a point $X$ in the interior of the segment $CC_0$. Let $K$ and $L$ be the points on the segments $AX$ and $BX$, respectively, such that\n\\[\nBK=BC\n\\qquad\\text{and}\\qquad\nAL=AC.\n\\]\nLet $M=AL\\cap BK$. Prove that $MK=ML$.",
+  "solutions": [
+    "Let $C'$ be the reflection of $C$ in the line $AB$. Since $CC_0\\perp AB$, the points\n\\[\nC,X,C_0,C'\n\\]\nare collinear.\n\nLet $\\omega_1$ be the circle centered at $A$ through $L$, and let $\\omega_2$ be the circle centered at $B$ through $K$. Since\n\\[\nAL=AC=AC'\n\\]\nand\n\\[\nBK=BC=BC',\n\\]\nwe have\n\\[\nC,C',L\\in\\omega_1,\n\\qquad\nC,C',K\\in\\omega_2.\n\\]\nBecause $AC\\perp BC$, the line $AC$ is tangent to $\\omega_2$ at $C$, and the line $BC$ is tangent to $\\omega_1$ at $C$.\n\nLet $K_1\\ne K$ be the second intersection of the line $AX$ with $\\omega_2$, and let $L_1\\ne L$ be the second intersection of the line $BX$ with $\\omega_1$.\n\nBy the power of $X$ with respect to $\\omega_2$,\n\\[\nXK\\cdot XK_1=XC\\cdot XC'.\n\\tag{1}\n\\]\nBy the power of $X$ with respect to $\\omega_1$,\n\\[\nXL\\cdot XL_1=XC\\cdot XC'.\n\\tag{2}\n\\]\nHence\n\\[\nXK\\cdot XK_1=XL\\cdot XL_1.\n\\]\nTherefore the four points\n\\[\nK,K_1,L,L_1\n\\]\nare concyclic; denote their circle by $\\omega_3$.\n\nNow use the power of $A$ with respect to $\\omega_2$. Since $AC$ is tangent to $\\omega_2$ and the line $AKK_1$ is a secant,\n\\[\nAK\\cdot AK_1=AC^2=AL^2.\n\\tag{3}\n\\]\nBut $AK\\cdot AK_1$ is also the power of $A$ with respect to $\\omega_3$. Equation (3) therefore shows that the line $AL$ is tangent to $\\omega_3$ at $L$.\n\nSimilarly, the line $BLL_1$ is a secant of $\\omega_1$, while $BC$ is tangent to $\\omega_1$ at $C$. Hence\n\\[\nBL\\cdot BL_1=BC^2=BK^2.\n\\tag{4}\n\\]\nThe left-hand side of (4) is the power of $B$ with respect to $\\omega_3$. Therefore the line $BK$ is tangent to $\\omega_3$ at $K$.\n\nSince $M=AL\\cap BK$, the segments $ML$ and $MK$ are tangent segments from the same point $M$ to the circle $\\omega_3$. Therefore\n\\[\nMK=ML.\n\\]"
+  ]
+}

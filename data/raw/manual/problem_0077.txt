@@ -1,0 +1,82 @@
+ID: 0077
+
+SOURCE: IMO Shortlist
+
+YEAR: 2012
+
+TOPIC: Geometry
+
+SUBTOPICS: Right Triangles, Reflections, Power of a Point, Tangent Circles, Equal Tangents
+
+STATEMENT:
+Let $ABC$ be a triangle with $\angle BCA=90^\circ$, and let $C_0$ be the foot of the altitude from $C$ to $AB$. Choose a point $X$ in the interior of the segment $CC_0$. Let $K$ and $L$ be the points on the segments $AX$ and $BX$, respectively, such that
+\[
+BK=BC
+\qquad\text{and}\qquad
+AL=AC.
+\]
+Let $M=AL\cap BK$. Prove that $MK=ML$.
+
+SOLUTION 1:
+Let $C'$ be the reflection of $C$ in the line $AB$. Since $CC_0\perp AB$, the points
+\[
+C,X,C_0,C'
+\]
+are collinear.
+
+Let $\omega_1$ be the circle centered at $A$ through $L$, and let $\omega_2$ be the circle centered at $B$ through $K$. Since
+\[
+AL=AC=AC'
+\]
+and
+\[
+BK=BC=BC',
+\]
+we have
+\[
+C,C',L\in\omega_1,
+\qquad
+C,C',K\in\omega_2.
+\]
+Because $AC\perp BC$, the line $AC$ is tangent to $\omega_2$ at $C$, and the line $BC$ is tangent to $\omega_1$ at $C$.
+
+Let $K_1\ne K$ be the second intersection of the line $AX$ with $\omega_2$, and let $L_1\ne L$ be the second intersection of the line $BX$ with $\omega_1$.
+
+By the power of $X$ with respect to $\omega_2$,
+\[
+XK\cdot XK_1=XC\cdot XC'.
+\tag{1}
+\]
+By the power of $X$ with respect to $\omega_1$,
+\[
+XL\cdot XL_1=XC\cdot XC'.
+\tag{2}
+\]
+Hence
+\[
+XK\cdot XK_1=XL\cdot XL_1.
+\]
+Therefore the four points
+\[
+K,K_1,L,L_1
+\]
+are concyclic; denote their circle by $\omega_3$.
+
+Now use the power of $A$ with respect to $\omega_2$. Since $AC$ is tangent to $\omega_2$ and the line $AKK_1$ is a secant,
+\[
+AK\cdot AK_1=AC^2=AL^2.
+\tag{3}
+\]
+But $AK\cdot AK_1$ is also the power of $A$ with respect to $\omega_3$. Equation (3) therefore shows that the line $AL$ is tangent to $\omega_3$ at $L$.
+
+Similarly, the line $BLL_1$ is a secant of $\omega_1$, while $BC$ is tangent to $\omega_1$ at $C$. Hence
+\[
+BL\cdot BL_1=BC^2=BK^2.
+\tag{4}
+\]
+The left-hand side of (4) is the power of $B$ with respect to $\omega_3$. Therefore the line $BK$ is tangent to $\omega_3$ at $K$.
+
+Since $M=AL\cap BK$, the segments $ML$ and $MK$ are tangent segments from the same point $M$ to the circle $\omega_3$. Therefore
+\[
+MK=ML.
+\]
