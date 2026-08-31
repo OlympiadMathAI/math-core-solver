@@ -1,0 +1,262 @@
+ID: 0191
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Geometry
+
+SUBTOPICS: Similar Triangles, Isosceles Triangles, Cyclic Quadrilaterals, Radical Axis, Desargues' Theorem
+
+STATEMENT:
+In a convex pentagon $ABCDE$, let $F$ be a point on $AC$ such that
+\[
+\angle FBC=90^\circ.
+\]
+Suppose that the triangles $ABF$, $ACD$, and $ADE$ are similar isosceles triangles and
+\[
+\angle FAB=\angle FBA=\angle DAC=\angle DCA=\angle EAD=\angle EDA.
+\]
+Let $M$ be the midpoint of $CF$. Choose $X$ so that $AMXE$ is a parallelogram. Prove that the lines $BD$, $EM$, and $FX$ are concurrent.
+
+SOLUTION 1:
+Let the common angle in the statement be $\theta$.
+
+From
+\[
+\triangle ABF\sim\triangle ACD
+\]
+we have
+\[
+\frac{AB}{AC}=\frac{AF}{AD}.
+\]
+Since the included angles at $A$ are equal, this gives
+\[
+\triangle ABC\sim\triangle AFD.
+\]
+Consequently,
+\[
+\angle AFD=\angle ABC=90^\circ+\theta.
+\]
+Because $EA=ED$,
+\[
+90^\circ+\theta
+=180^\circ-\frac12\angle AED.
+\]
+Hence $F$ lies on the circle with centre $E$ and radius $EA$, so
+\[
+EF=EA=ED.
+\tag{1}
+\]
+
+Moreover,
+\[
+\angle EFA=\angle EAF=2\theta=\angle BFC,
+\]
+and since $A,F,C$ are collinear, the points $B,F,E$ are collinear.
+
+The equality
+\[
+\angle EDA=\angle MAD
+\]
+implies
+\[
+ED\parallel AM.
+\]
+As $AM\parallel EX$, we obtain that $E,D,X$ are collinear.
+
+Since $M$ is the midpoint of the hypotenuse $CF$ of the right triangle $CBF$,
+\[
+MF=MB.
+\tag{2}
+\]
+The triangles $EFA$ and $MFB$ are isosceles, and
+\[
+\angle EFA=\angle MFB,
+\qquad
+AF=BF.
+\]
+Thus they are congruent. In particular,
+\[
+BM=AE=XM
+\]
+and
+\[
+BE=BF+FE=AF+FM=AM=EX.
+\]
+Therefore
+\[
+\triangle EMB\cong\triangle EMX.
+\]
+Reflection in $EM$ interchanges $B$ and $X$. By (1), it also interchanges the points $F\in EB$ and $D\in EX$. Hence the reflected images of the lines $BD$ and $XF$ are one another. Their intersection must lie on the axis of reflection $EM$, proving the desired concurrency.
+
+SOLUTION 2:
+Let the common angle be $\theta$. From
+\[
+\angle CAD=\angle EDA
+\]
+we have
+\[
+AC\parallel ED.
+\]
+Also, $AM\parallel EX$ and $A,M,C$ are collinear, so
+\[
+E,D,X\ \text{are collinear}.
+\tag{1}
+\]
+
+As in Solution 1,
+\[
+\triangle ABC\sim\triangle AFD.
+\]
+Thus
+\[
+\angle AFD=\angle ABC=90^\circ+\theta,
+\]
+and therefore
+\[
+\angle FDC=90^\circ.
+\]
+Hence $B,C,D,F$ are concyclic. Let their circle be $\Gamma_1$. Since
+\[
+\angle CBF=90^\circ,
+\]
+the segment $CF$ is a diameter of $\Gamma_1$, and $M$, the midpoint of $CF$, is its centre.
+
+Similarly,
+\[
+\triangle ABF\sim\triangle ADE
+\]
+gives
+\[
+\triangle ABD\sim\triangle AFE.
+\]
+Therefore
+\[
+\angle AFE
+=\angle ABD
+=\theta+\angle FBD
+=\theta+\angle FCD
+=2\theta
+=180^\circ-\angle BFA.
+\]
+Thus $B,F,E$ are collinear. In fact $F$ is the incentre of $\triangle DAB$. The point $E$ lies both on the internal bisector of $\angle DBA$ and on the perpendicular bisector of $AD$, so $E$ lies on the circumcircle $\Gamma_2$ of $\triangle ABD$, and
+\[
+EA=EF=ED.
+\tag{2}
+\]
+
+Since $M$ is the centre of $\Gamma_1$,
+\[
+\angle AMD=2\theta=\angle ABD,
+\]
+so $M\in\Gamma_2$. Furthermore,
+\[
+\angle MDX=\angle MAE=\angle DXM
+\]
+by the parallelogram $AMXE$. Hence
+\[
+MD=MX,
+\]
+and therefore $X\in\Gamma_1$.
+
+We now finish in either of two equivalent ways.
+
+First, (2), $XM=EA$, and $EX\parallel FM$ show that $EFMX$ is an isosceles trapezoid, hence cyclic; call its circle $\Gamma_3$. The lines
+\[
+BD,\qquad EM,\qquad FX
+\]
+are the three pairwise radical axes of $\Gamma_1,\Gamma_2,\Gamma_3$, respectively. The radical-axis theorem says that they are concurrent or parallel. The lines $BD$ and $EM$ plainly meet in the given configuration, so the parallel case is impossible. Hence the three lines are concurrent.
+
+Alternatively,
+\[
+\angle DMF=2\theta=\angle BFM
+\]
+gives $DM\parallel EB$. A direct angle calculation gives
+\[
+\angle BFD+\angle XBF=180^\circ,
+\]
+so $DF\parallel XB$. Thus the corresponding sides of the triangles $DMF$ and $BEX$ are pairwise parallel. By the converse of Desargues' theorem, the lines joining corresponding vertices,
+\[
+DB,\qquad ME,\qquad FX,
+\]
+are concurrent or parallel. Again $DB$ and $ME$ meet, so they are concurrent.
+
+SOLUTION 3:
+Let the common angle be $\theta$. As before,
+\[
+\triangle ABC\sim\triangle AFD.
+\]
+Hence
+\[
+\angle ADF=\angle ACB=90^\circ-2\theta
+=90^\circ-\angle BAD,
+\]
+so
+\[
+DF\perp AB.
+\]
+Since $FA=FB$, the line through $F$ perpendicular to $AB$ is the perpendicular bisector of $AB$. Therefore $D$ lies on this perpendicular bisector and
+\[
+DA=DB.
+\]
+The point $F$ is consequently the incentre of the isosceles triangle $DAB$.
+
+Also,
+\[
+\angle AED=180^\circ-2\theta
+=180^\circ-\angle DBA,
+\]
+so $A,B,D,E$ are concyclic. Since $EA=ED$, it follows that $B,E,F$ are collinear and
+\[
+EA=EF=ED.
+\tag{1}
+\]
+
+The point $C$ lies on the internal angle bisector of $\angle DAB$ and on the external angle bisector of $\angle DBA$; hence it is the $A$-excentre of $\triangle DAB$. Since $M$ is the midpoint of $CF$, the standard incenter-excenter symmetry in an isosceles triangle shows that $M$ lies on the circumcircle of $\triangle DAB$ and is the centre of the circle through $D,F,B,C$. It follows, by the symmetry of the configuration, that $DEFM$ is a rhombus.
+
+The midpoints of the three segments $AX$, $EM$, and $DF$ coincide; hence $DAFX$ is a parallelogram.
+
+Let
+\[
+P=BD\cap EM,
+\qquad
+Q=AD\cap BE.
+\]
+Because
+\[
+DC\parallel AB\parallel EM,
+\]
+we obtain
+\[
+\frac{DP}{PB}=\frac{CM}{MA}.
+\]
+Using the rhombus and (1),
+\[
+CM=DM=DE=AE,
+\qquad
+MA=BE,
+\]
+and therefore
+\[
+\frac{DP}{PB}=\frac{AE}{BE}.
+\tag{2}
+\]
+
+The triangles $AEQ$ and $BEA$ are similar, so
+\[
+\frac{AE}{BE}=\frac{AQ}{BA}.
+\]
+Since $F$ is the incentre of $\triangle DAB$, the angle-bisector theorem gives
+\[
+\frac{AQ}{BA}=\frac{QF}{FB}.
+\]
+Together with (2),
+\[
+\frac{DP}{PB}=\frac{QF}{FB},
+\]
+which implies
+\[
+QD\parallel FP.
+\]
+But $DAFX$ is a parallelogram, so $QD$ is parallel to $FX$. Hence $F,P,X$ are collinear. Since $P$ also lies on $BD$ and $EM$, the three required lines are concurrent.

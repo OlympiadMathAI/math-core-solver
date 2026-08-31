@@ -1,0 +1,419 @@
+ID: 0181
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Algebra
+
+SUBTOPICS: Functional Equations, Cauchy Equation, Growth Estimates, Symmetry
+
+STATEMENT:
+Find all functions $f:\mathbb R\to\mathbb R$ such that $f(0)\ne0$ and
+\[
+f(x+y)^2
+=
+2f(x)f(y)
++
+\max\bigl\{f(x^2)+f(y^2),\ f(x^2+y^2)\bigr\}
+\tag{1}
+\]
+for all real numbers $x,y$.
+
+SOLUTION 1:
+The solutions are
+\[
+\boxed{f(x)=-1\quad\text{for all }x}
+\]
+and
+\[
+\boxed{f(x)=x-1\quad\text{for all }x}.
+\]
+
+Putting $x=y=0$ in (1), and using $f(0)\ne0$, gives
+\[
+f(0)=-1.
+\]
+Putting $y=0$ then yields
+\[
+(f(x)+1)^2=f(x^2)+1.
+\]
+Define
+\[
+g(x)=f(x)+1.
+\]
+Then
+\[
+g(x^2)=g(x)^2\ge0.
+\tag{2}
+\]
+Since the maximum in (1) is at least its first entry, (1) and (2) imply
+\[
+(g(x+y)-1)^2
+\ge
+(g(x)+g(y)-1)^2-1.
+\tag{3}
+\]
+From (2), $g(1)$ is either $0$ or $1$.
+
+\textbf{Case 1: $g(1)=0$.}
+Then $f(1)=-1$. Substituting $(-1,0)$ and then $(-1,1)$ into (1) gives
+\[
+f(-1)=-1,
+\qquad
+f(2)=-1,
+\]
+so
+\[
+g(-1)=g(2)=0.
+\]
+By (2),
+\[
+g\left(2^{2^m}\right)=0
+\qquad(m\ge0).
+\]
+Put $y=2^{2^m}-x$ in (3). For any fixed $x\ge0$ and all sufficiently large $m$, both $x$ and $2^{2^m}-x$ are nonnegative, so (2) gives
+\[
+0\le g(x)\le1+\sqrt2.
+\]
+Applying (2) repeatedly,
+\[
+g(x)^{2^m}=g(x^{2^m})\le1+\sqrt2,
+\]
+and therefore
+\[
+0\le g(x)\le1
+\qquad(x\ge0).
+\tag{4}
+\]
+Also, (2) gives
+\[
+|g(-x)|=g(x)
+\qquad(x\ge0).
+\tag{5}
+\]
+
+Suppose $g(a)\ne0$ for some real $a$. Then $g(a^2)=g(a)^2>0$. For sufficiently large $m$, with
+\[
+t=(a^2)^{1/2^m}>0,
+\]
+we have
+\[
+u=g(t)=g(a^2)^{1/2^m}>\frac1{\sqrt2}.
+\]
+By (4), $u\le1$, and by (5), $g(-t)=u$ or $g(-t)=-u$. In the first case,
+\[
+2f(t)f(-t)=2(u-1)^2<1;
+\]
+in the second,
+\[
+2f(t)f(-t)=2(1-u^2)<1.
+\]
+Moreover, by (4),
+\[
+\max\{2f(t^2),f(2t^2)\}\le0.
+\]
+Putting $x=t$, $y=-t$ in (1) would therefore make its right-hand side strictly smaller than its left-hand side $f(0)^2=1$, a contradiction. Hence $g\equiv0$, and
+\[
+f\equiv-1.
+\]
+
+\textbf{Case 2: $g(1)=1$.}
+Then $f(1)=0$. Substituting $(-1,1)$ into (1) gives $f(2)=1$, so
+\[
+g(2)=2.
+\]
+Using (3) with $x=2m$, $y=2$, we prove inductively that
+\[
+g(2m)\ge m+1
+\qquad(m\ge1).
+\tag{6}
+\]
+The base case is $g(2)=2$. If $g(2m)\ge m+1$, then
+\[
+(g(2m+2)-1)^2
+\ge(g(2m)+1)^2-1>(m+1)^2.
+\]
+Since $g(2m+2)\ge0$, the negative square-root alternative would make $g(2m+2)<0$; hence $g(2m+2)>m+2$.
+
+Fix $a>1$. We first prove $g(a)\ge a$. Choose a large integer $m$ and an integer $k$ such that
+\[
+2k\le a^{2^m}<2k+2.
+\]
+Since $g$ is nonnegative on nonnegative arguments, (2), (3), and (6) give
+\[
+\begin{aligned}
+(g(a)^{2^m}-1)^2+1
+&=(g(a^{2^m})-1)^2+1\\
+&\ge
+\bigl(g(2k)+g(a^{2^m}-2k)-1\bigr)^2\\
+&\ge k^2\\
+&>\frac14(a^{2^m}-2)^2.
+\end{aligned}
+\]
+For large $m$ this implies $g(a)^{2^m}>1$, and consequently
+\[
+g(a)^{2^m}>\frac12(a^{2^m}-2).
+\]
+Taking $2^m$-th roots and letting $m\to\infty$ gives
+\[
+g(a)\ge a.
+\tag{7}
+\]
+
+Next we prove $g(a)\le a+1$. From (3) and (7), an induction on $r$ gives
+\[
+g(ra)\ge(r-1)(g(a)-1)+a
+\qquad(r\ge1).
+\tag{8}
+\]
+Indeed, the case $r=1$ is (7). If (8) holds for $r$, then $g(ra),g(a)>1$, and (3) gives
+\[
+g((r+1)a)-1
+\ge\sqrt{(g(ra)+g(a)-1)^2-1}
+\ge g(ra)+g(a)-2,
+\]
+which is the next case of (8).
+Choose a large $m$ and $k$ such that
+\[
+ka\le2^{2^m}<(k+1)a.
+\]
+Since $g(2^{2^m})=2^{2^m}$, inequalities (3) and (8) yield
+\[
+2^{2^m}>(k-1)(g(a)-1)+a-1.
+\]
+Also $k>2^{2^m}/a-1$. Hence
+\[
+2^{2^m}>
+\left(\frac{2^{2^m}}a-2\right)(g(a)-1)+a-1.
+\]
+Divide by $2^{2^m}$ and let $m\to\infty$. We get
+\[
+\frac{g(a)-1}{a}\le1,
+\]
+so
+\[
+g(a)\le a+1.
+\tag{9}
+\]
+
+Finally put $z=a^{2^m}$. From (9),
+\[
+|g(2z)-1|\le2z.
+\]
+Using (3) with $x=y=z$ gives
+\[
+(2g(z)-1)^2\le4z^2+1.
+\]
+Thus
+\[
+g(a)^{2^m}=g(z)
+\le\frac{1+\sqrt{4z^2+1}}2<2z
+\]
+after $m$ is large. Taking $2^m$-th roots and letting $m\to\infty$ gives $g(a)\le a$. Together with (7),
+\[
+g(a)=a
+\qquad(a>1).
+\]
+Therefore
+\[
+f(a)=a-1
+\qquad(a>1).
+\]
+
+For an arbitrary real $x$, choose $y$ so large that both $y$ and $x+y$ exceed $1$. Substituting the known formulas for these arguments into (1) gives
+\[
+2(x-1-f(x))y
+=
+-x^2+2x-2-2f(x)+\max\{f(x^2),x^2\}.
+\]
+The right side is independent of $y$. Since the identity holds for all sufficiently large $y$, its coefficient of $y$ must vanish. Hence
+\[
+f(x)=x-1
+\]
+for every real $x$.
+
+Both obtained functions are readily checked in (1).
+
+SOLUTION 2:
+As in Solution 1,
+\[
+f(0)=-1
+\tag{1}
+\]
+and
+\[
+f(x)^2=-2f(x)+f(x^2).
+\tag{2}
+\]
+Replacing $x$ by $-x$ in (2) and comparing gives
+\[
+\bigl(f(x)-f(-x)\bigr)\bigl(f(x)+f(-x)+2\bigr)=0.
+\]
+Thus, for every $x$,
+\[
+f(x)=f(-x)
+\quad\text{or}\quad
+f(x)+f(-x)=-2.
+\tag{3}
+\]
+
+Compare the original functional equation for the pairs $(x,x)$ and $(x,-x)$. The maximum terms are identical, and we obtain
+\[
+f(2x)^2-2f(x)^2=1-2f(x)f(-x).
+\tag{4}
+\]
+Consequently,
+\[
+\begin{cases}
+f(2x)=\pm1,&\text{if }f(x)=f(-x),\\
+f(2x)=\pm(2f(x)+1),&\text{if }f(x)+f(-x)=-2.
+\end{cases}
+\tag{5}
+\]
+
+We claim that the second alternative in (3) always holds. Suppose instead that for some $a$,
+\[
+f(a)=f(-a)\ne-1.
+\]
+We may take $a>0$. First, $f(a)\ne1$: otherwise (4) gives $f(2a)^2=1$, while (2) gives $f(a^2)=3$, and substituting $(a,a)$ into the original equation makes its right side at least $8$.
+Thus $f(a)\notin\{-1,1\}$.
+
+Apply (3) and (5) to $a/2$. If $f(a/2)=f(-a/2)$, then (5) would give $f(a)^2=1$, impossible. Hence
+\[
+f(a/2)+f(-a/2)=-2.
+\]
+Write $u=f(a/2)$. Then $f(-a/2)=-2-u$, and (5) gives signs $\varepsilon,\delta\in\{-1,1\}$ such that
+\[
+f(a)=\varepsilon(2u+1),
+\qquad
+f(-a)=\delta(-2u-3).
+\]
+Since $f(a)=f(-a)$, either the two signs are equal, which forces $u=-1$ and then $f(a)=\pm1$, or the signs are opposite, which gives the impossible equation $2u+1=2u+3$. This proves the claim:
+\[
+f(x)+f(-x)=-2
+\qquad(x\in\mathbb R).
+\tag{6}
+\]
+
+Replace $(x,y)$ by $(-x,-y)$ in the original equation and compare the result with the original one. Using (6), a direct simplification gives
+\[
+f(x+y)=f(x)+f(y)+1.
+\tag{7}
+\]
+Define
+\[
+g(x)=f(x)+1.
+\]
+Then (7) says that $g$ is additive. Equation (2) becomes
+\[
+g(x^2)=g(x)^2.
+\tag{8}
+\]
+In particular, $g(t)\ge0$ for every $t\ge0$. An additive function nonnegative on the positive reals is increasing, hence linear:
+\[
+g(x)=cx.
+\]
+Substituting this into (8) gives $c^2=c$, so $c=0$ or $c=1$. Therefore
+\[
+f(x)=-1
+\quad\text{or}\quad
+f(x)=x-1.
+\]
+Both functions satisfy the equation.
+
+SOLUTION 3:
+We again have
+\[
+f(0)=-1,
+\qquad
+(f(x)+1)^2=f(x^2)+1,
+\tag{1}
+\]
+and, for every $x$,
+\[
+f(x)=f(-x)
+\quad\text{or}\quad
+f(x)+f(-x)=-2.
+\tag{2}
+\]
+We show first that the same alternative in (2) must hold for every real $x$.
+
+Suppose, to the contrary, that there are nonzero $a,b$ such that
+\[
+f(a)=f(-a)\ne-1,
+\]
+while
+\[
+f(b)\ne f(-b),
+\qquad
+f(b)+f(-b)=-2.
+\]
+Replace $a$ by $-a$ if necessary so that $a>0$.
+
+Comparing the original equation for $(x,a)$ and $(x,-a)$ gives
+\[
+f(x+a)^2=f(x-a)^2.
+\]
+Hence
+\[
+f(x+2a)=\pm f(x)
+\qquad(x\in\mathbb R).
+\tag{3}
+\]
+Taking $x=b$ and $x=-2a-b$ in (3) shows that
+\[
+|f(2a+b)|=|f(b)|,
+\qquad
+|f(-2a-b)|=|f(-b)|.
+\]
+The two absolute values on the right are different: otherwise $f(b)=\pm f(-b)$, and together with $f(b)+f(-b)=-2$ this would force either equality or the impossible sum $0$. Hence $f(2a+b)\ne f(-2a-b)$, so the second alternative of (2) applies to this pair. The only choices of signs compatible with a sum of $-2$ are
+\[
+f(2a+b)=f(b),
+\qquad
+f(-2a-b)=f(-b).
+\]
+Repeating the argument with $a$ and $-a$ gives, for every integer $k$,
+\[
+f(2ka+b)=f(b),
+\qquad
+f(2ka-b)=f(-b).
+\tag{4}
+\]
+Since the two numbers $f(b),f(-b)$ are unequal and have sum $-2$, one of them is less than $-1$. Without loss of generality, suppose $f(b)<-1$. Choose $k$ so large that
+\[
+2ka+b>0
+\]
+and set $x=\sqrt{2ka+b}$. By (1) and (4),
+\[
+(f(x)+1)^2=f(x^2)+1=f(b)+1<0,
+\]
+a contradiction.
+
+Thus one alternative in (2) holds globally.
+
+If
+\[
+f(x)=f(-x)
+\qquad\text{for all }x,
+\]
+compare the equation for $(a/2,a/2)$ and $(a/2,-a/2)$. This gives
+\[
+f(a)^2=f(0)^2=1
+\]
+for every $a$. If $f(a)=1$ for some $a$, we may take $a>0$ and substitute $x=y=\sqrt a$; the right side is then at least $4$, while the left side equals $1$. Hence
+\[
+f(x)=-1
+\]
+for all $x$.
+
+If instead
+\[
+f(x)+f(-x)=-2
+\qquad\text{for all }x,
+\]
+the additive argument from Solution 2 applies and yields
+\[
+f(x)=x-1.
+\]
+Thus the two stated functions are the only solutions.

@@ -1,0 +1,188 @@
+ID: 0195
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Geometry
+
+SUBTOPICS: Euler Line, Nine-Point Circle, Spiral Similarity, Power of a Point, Circumcentres
+
+STATEMENT:
+Let $D$ be the foot of the perpendicular from $A$ to the Euler line of an acute scalene triangle $ABC$. A circle $\omega$ with centre $S$ passes through $A$ and $D$, and it meets the sides $AB$ and $AC$ again at $X$ and $Y$, respectively. Let $P$ be the foot of the altitude from $A$ to $BC$, and let $M$ be the midpoint of $BC$. Prove that the circumcentre of triangle $XSY$ is equidistant from $P$ and $M$.
+
+SOLUTION 1:
+Let $H$ and $O$ be the orthocentre and circumcentre of $\triangle ABC$. Let $Q$ be the midpoint of $AH$, and let $N$ be the nine-point centre. Then $Q$ lies on the nine-point circle,
+\[
+N\ \text{is the midpoint of }QM,
+\qquad
+QM\parallel AO.
+\tag{1}
+\]
+
+Let the perpendicular from $S$ to $XY$ meet $QM$ at $S_0$. Let $E$ be the foot of the altitude from $B$ to $AC$. Since both $Q$ and $S$ lie on the perpendicular bisector of $AD$, directed-angle calculations give
+\[
+\begin{aligned}
+\angle SDQ
+&=\angle QAS\\
+&=\angle XAS-\angle XAQ\\
+&=\left(\frac\pi2-\angle AYX\right)-\angle BAP\\
+&=\angle CBA-\angle AYX\\
+&=(\angle CBA-\angle ACB)-\angle BCA-\angle AYX\\
+&=\angle PEM-(\angle BCA+\angle AYX)\\
+&=\angle PQM-\angle(BC,XY)\\
+&=\frac\pi2-\angle(S_0Q,BC)-\angle(BC,XY)\\
+&=\angle SS_0Q.
+\end{aligned}
+\]
+Hence
+\[
+D,S_0,S,Q\ \text{are concyclic}.
+\tag{2}
+\]
+
+Let the line through $N$ perpendicular to $BC$ meet $SS_0$ at $O_1$. In the special case in which these two lines coincide, $S$ is the midpoint of $AO$ and the desired assertion is immediate. We therefore assume that $O_1$ is defined as an ordinary intersection.
+
+Because
+\[
+SQ\parallel OD
+\qquad\text{and}\qquad
+QA\parallel O_1N,
+\]
+we have
+\[
+\angle DS_0O_1
+=\angle DQS
+=\angle SQA
+=\angle(OD,O_1N)
+=\angle DNO_1.
+\]
+Thus
+\[
+D,O_1,S_0,N
+\]
+are concyclic. Combining this circle with (2),
+\[
+\begin{aligned}
+\angle SDS_0
+&=\angle SQS_0\\
+&=\angle(SQ,QS_0)\\
+&=\angle(ND,NS_0)\\
+&=\angle DNS_0.
+\end{aligned}
+\]
+Therefore $SD$ is tangent at $D$ to the circle through $D,O_1,S_0,N$. It follows that
+\[
+SS_0\cdot SO_1=SD^2=SX^2.
+\tag{3}
+\]
+
+We next show that $S$ and $S_0$ are reflections in $XY$. The sine rule in the two cyclic configurations yields
+\[
+\frac{SS_0}{\sin\angle SQS_0}
+=\frac{SQ}{\sin\angle SS_0Q}
+=\frac{SQ}{\sin\angle SDQ}
+=\frac{SQ}{\sin\angle SAQ}
+=\frac{SA}{\sin\angle SQA}.
+\]
+Consequently,
+\[
+\begin{aligned}
+SS_0
+&=SA\cdot
+\frac{\sin\angle SQS_0}{\sin\angle SQA}\\
+&=SA\cdot
+\frac{\sin\angle HOA}{\sin\angle OHA}\\
+&=SA\cdot\frac{AH}{AO}\\
+&=2SA\cos A.
+\end{aligned}
+\tag{4}
+\]
+The last quantity is twice the distance from $S$ to $XY$.
+
+It remains only to identify on which side of $XY$ the point $S_0$ lies. The points $S$ and $C$ lie on the same side of the perpendicular bisector of $PM$ exactly when
+\[
+\angle SAC<\angle OAC,
+\]
+which is equivalent to
+\[
+\angle YXA>\angle CBA.
+\]
+This shows that $S$ and $O_1$ lie on opposite sides of $XY$. Since $S_0$ lies on the ray $SO_1$, the points $S$ and $S_0$ cannot lie on the same side of $XY$. Together with (4), they are reflections in $XY$.
+
+Let $d$ be the diameter of the circumcircle of $\triangle XSY$. Since $SX=SY$ and $SS_0$ is twice the altitude from $S$ to $XY$,
+\[
+SS_0=\frac{2SX^2}{d}.
+\tag{5}
+\]
+Equations (3) and (5) give
+\[
+d=2SO_1.
+\]
+The line $SO_1$ is the perpendicular bisector of $XY$, so $O_1$ is the circumcentre of $\triangle XSY$.
+
+Finally, $N$ lies on the perpendicular bisector of $PM$, because $P$ and $M$ lie on the nine-point circle. By construction $NO_1\perp BC$, and hence $NO_1$ is that same perpendicular bisector. Therefore
+\[
+O_1P=O_1M,
+\]
+as required.
+
+SOLUTION 2:
+Let $H$ and $O$ be the orthocentre and circumcentre of $\triangle ABC$, and let $O_1$ be the circumcentre of $\triangle XSY$.
+
+The centre $S$ of any circle through $A$ and $D$ lies on the fixed perpendicular bisector of $AD$. Choose two other possible centres $S'$ and $S''$ on this line, and denote the corresponding intersection points and circumcentres by
+\[
+X',Y',O_1'
+\qquad\text{and}\qquad
+X'',Y'',O_1''.
+\]
+
+The lines $XX'$ and $YY'$ meet at $A$, while the circumcircles of $AXY$ and $AX'Y'$ meet at $A$ and $D$. Therefore there is a spiral similarity centred at $D$ taking $XY$ to $X'Y'$. Moreover,
+\[
+\angle SXY
+=\frac\pi2-\angle YAX
+=\frac\pi2-\angle Y'AX'
+=\angle S'X'Y',
+\]
+and similarly
+\[
+\angle SYX=\angle S'Y'X'.
+\]
+Thus
+\[
+\triangle SXY\sim\triangle S'X'Y'
+\]
+directly. The same spiral similarity centred at $D$ maps
+\[
+S,X,Y,O_1
+\quad\text{to}\quad
+S',X',Y',O_1'.
+\]
+The analogous statement holds for $S''$. Hence there is a spiral similarity taking the collinear points
+\[
+S,S',S''
+\]
+to
+\[
+O_1,O_1',O_1''.
+\]
+Therefore the circumcentre $O_1$ always lies on a fixed straight line as $S$ varies.
+
+We identify this line by considering two special choices.
+
+First, take $S$ to be the midpoint of $AH$. Then $X$ and $Y$ are the feet of the altitudes from $C$ and $B$, and the circumcircle of $\triangle XSY$ is the nine-point circle of $\triangle ABC$. Thus $O_1$ is the nine-point centre, and
+\[
+O_1P=O_1M
+\]
+because $P$ and $M$ both lie on the nine-point circle.
+
+Second, take $S'$ to be the midpoint of $AO$. Then $X'$ and $Y'$ are the midpoints of $AB$ and $AC$, so
+\[
+X'Y'\parallel BC.
+\]
+The point $S'$ lies on the perpendicular bisector of $PM$. Since the perpendicular bisectors of $X'Y'$ and $PM$ are parallel and both pass through $S'$, they coincide. Hence
+\[
+O_1'P=O_1'M.
+\]
+
+The fixed line containing all possible positions of $O_1$ contains these two distinct points $O_1$ and $O_1'$, both of which lie on the perpendicular bisector of $PM$. It is therefore exactly that perpendicular bisector. Thus every possible circumcentre of $\triangle XSY$ is equidistant from $P$ and $M$.

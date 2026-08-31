@@ -1,0 +1,465 @@
+ID: 0203
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Number Theory
+
+SUBTOPICS: Pell-Type Equations, Vieta Jumping, Descent, Diophantine Transformations
+
+STATEMENT:
+Let $a$ be a positive integer that is not a perfect square. Let $A$ be the set of positive integers $k$ for which
+\[
+k=\frac{x^2-a}{x^2-y^2}
+\tag{1}
+\]
+for some integers $x,y$ with
+\[
+x>\sqrt a.
+\]
+Let $B$ be the set of positive integers $k$ for which (1) holds for some integers $x,y$ with
+\[
+0\le x<\sqrt a.
+\]
+Prove that
+\[
+A=B.
+\]
+
+SOLUTION 1:
+We first establish a transformation of solutions.
+
+\textbf{Claim.}
+Fix $k$, and suppose that integers $x,y$ satisfy (1). Define
+\[
+X=\frac12\left(
+x-y+\frac{(x-y)^2-4a}{x+y}
+\right),
+\]
+\[
+Y=\frac12\left(
+x-y-\frac{(x-y)^2-4a}{x+y}
+\right).
+\tag{2}
+\]
+Then $X,Y$ are integers and satisfy (1).
+
+\textit{Proof.}
+The denominator $x+y$ is nonzero, since otherwise $x^2-y^2=0$. We have
+\[
+X+Y=x-y
+\]
+and
+\[
+\begin{aligned}
+X
+&=\frac{x^2-xy-2a}{x+y}\\
+&=-x+\frac{2(x^2-a)}{x+y}\\
+&=-x+2k(x-y).
+\end{aligned}
+\]
+Thus $X$ and $Y$ are integers.
+
+Put
+\[
+u=x+y,
+\qquad
+v=x-y.
+\]
+Equation (1) is equivalent to
+\[
+u^2-(4k-2)uv+v^2-4a=0.
+\tag{3}
+\]
+Regarding this as a quadratic equation in $u$, its other root is
+\[
+z=\frac{v^2-4a}{u}.
+\]
+By Vieta's theorem,
+\[
+v^2-(4k-2)vz+z^2-4a=0.
+\]
+Since
+\[
+v=X+Y,
+\qquad
+z=X-Y,
+\]
+this is exactly equation (1) for $X,Y$. $\square$
+
+We first prove
+\[
+B\subseteq A.
+\]
+Take $k\in B$, represented by integers $x,y$ with
+\[
+0\le x<\sqrt a.
+\]
+Replacing $y$ by $|y|$, assume $y>0$. The case $k=1$ would give $y^2=a$, impossible because $a$ is not a square. Hence $k>1$.
+
+Since the numerator and denominator in (1) are both negative,
+\[
+0\le x<y.
+\]
+The equivalent equation
+\[
+ky^2-(k-1)x^2=a
+\tag{4}
+\]
+gives
+\[
+a-y^2=(k-1)(y^2-x^2)>0.
+\]
+Thus
+\[
+0\le x<y<\sqrt a.
+\]
+
+Let $X,Y$ be given by (2), and replace $X$ by $|X|$, which does not affect equation (1). Then
+\[
+\begin{aligned}
+|X|
+&\ge -X\\
+&=\frac{2a+x(y-x)}{x+y}\\
+&\ge\frac{2a}{x+y}\\
+&>\sqrt a.
+\end{aligned}
+\]
+Therefore the same $k$ has a representation with first coordinate greater than $\sqrt a$, and hence
+\[
+k\in A.
+\]
+
+We now prove
+\[
+A\subseteq B.
+\]
+Take $k\in A$. Choose a representation with $x>\sqrt a$, replace $y$ by $|y|$, and among all such representations choose one for which
+\[
+x+y
+\]
+is minimal. Again $k>1$. The numerator and denominator in (1) are positive, so $x>y\ge0$. From (4),
+\[
+y^2-a=(k-1)(x^2-y^2)>0,
+\]
+and hence
+\[
+x>y>\sqrt a.
+\tag{5}
+\]
+
+Let $X,Y$ be as in (2), and put
+\[
+x_1=|X|,
+\qquad
+y_1=Y.
+\]
+The claim shows that $x_1,y_1$ still satisfy (1). Moreover,
+\[
+Y=\frac{y(x-y)+2a}{x+y}>0.
+\]
+Writing
+\[
+v=x-y,
+\qquad
+z=\frac{v^2-4a}{x+y},
+\]
+we obtain
+\[
+x_1+y_1
+=
+\begin{cases}
+v,&X\ge0,\\[2mm]
+-z=\dfrac{4a-v^2}{x+y},&X<0.
+\end{cases}
+\]
+Thus
+\[
+x_1+y_1
+\le
+\max\left\{
+x-y,\,
+\frac{4a-(x-y)^2}{x+y}
+\right\}.
+\tag{6}
+\]
+The first quantity in (6) is smaller than $x+y$. The second one is also smaller, because (5) gives
+\[
+4a<(x+y)^2+(x-y)^2.
+\]
+Hence
+\[
+x_1+y_1<x+y.
+\]
+
+If $x_1>\sqrt a$, this contradicts the minimality of $x+y$. Therefore
+\[
+0\le x_1\le\sqrt a.
+\]
+Since $a$ is not a square and $x_1$ is an integer,
+\[
+0\le x_1<\sqrt a.
+\]
+Thus $k\in B$, proving $A\subseteq B$.
+
+The two inclusions give
+\[
+A=B.
+\]
+
+SOLUTION 2:
+Equation (1) is equivalent to
+\[
+ky^2-(k-1)x^2=a.
+\tag{2}
+\]
+Again, $k=1$ is impossible because it would imply that $a$ is a square, so throughout we have $k>1$.
+
+We use the following Pell-type transformation.
+
+\textbf{Claim.}
+If $(x_0,y_0)$ satisfies (2), then both pairs
+\[
+\left(
+(2k-1)x_0\pm2ky_0,\,
+(2k-1)y_0\pm2(k-1)x_0
+\right)
+\tag{3}
+\]
+also satisfy (2).
+
+\textit{Proof.}
+A direct expansion gives
+\[
+\begin{aligned}
+&k\bigl((2k-1)y_0\pm2(k-1)x_0\bigr)^2\\
+&\qquad -(k-1)\bigl((2k-1)x_0\pm2ky_0\bigr)^2\\
+&=
+\bigl(k(2k-1)^2-(k-1)(2k)^2\bigr)y_0^2\\
+&\qquad+
+\bigl(k(2k-2)^2-(k-1)(2k-1)^2\bigr)x_0^2\\
+&=ky_0^2-(k-1)x_0^2\\
+&=a.
+\end{aligned}
+\]
+$\square$
+
+Take first a solution with
+\[
+0\le x<\sqrt a
+\]
+and $y\ge0$. Equation (2) gives
+\[
+a-x^2=k(y^2-x^2)>0,
+\]
+so
+\[
+y>x.
+\]
+Since $x,y$ are integers,
+\[
+y\ge x+1.
+\]
+Using the plus signs in (3), define
+\[
+x_1=(2k-1)x+2ky.
+\]
+Then
+\[
+x_1
+\ge
+(2k-1)x+2k(x+1)
+=(4k-1)x+2k>x.
+\]
+Repeatedly applying this transformation produces solutions with arbitrarily large first coordinate. In particular, eventually
+\[
+x>\sqrt a.
+\]
+Thus
+\[
+B\subseteq A.
+\]
+
+Conversely, take a solution with
+\[
+x>\sqrt a,
+\qquad y\ge0.
+\]
+Then (1) gives
+\[
+x>y.
+\tag{4}
+\]
+From (2),
+\[
+\sqrt{k}\,y>\sqrt{k-1}\,x.
+\]
+In particular,
+\[
+ky>(k-1)x.
+\tag{5}
+\]
+Using the minus signs in (3), put
+\[
+t=(2k-1)x-2ky
+\]
+and
+\[
+y_1=(2k-1)y-2(k-1)x.
+\]
+The inequality
+\[
+\sqrt{\frac{k-1}{k}}
+>
+\frac{2(k-1)}{2k-1}
+\]
+shows that $y_1>0$.
+
+By (5),
+\[
+t<x,
+\]
+while (4) gives
+\[
+t>-x.
+\]
+Hence
+\[
+|t|<x.
+\]
+The pair
+\[
+(|t|,y_1)
+\]
+still satisfies (2). Repeating the transformation decreases the nonnegative integer first coordinate until it is no longer greater than $\sqrt a$. Because $a$ is not a square, the final value satisfies
+\[
+0\le x<\sqrt a.
+\]
+Thus
+\[
+A\subseteq B.
+\]
+
+Therefore
+\[
+A=B.
+\]
+
+SOLUTION 3:
+It is enough to prove that every $k\in A\cup B$ has both a representation with first coordinate greater than $\sqrt a$ and one with first coordinate between $0$ and $\sqrt a$.
+
+Take $k\in A\cup B$, and choose integers $x,y$ satisfying (1). Replacing signs if necessary, assume
+\[
+x,y\ge0.
+\]
+As before, $k\ne1$, so
+\[
+k\ge2.
+\]
+
+Put
+\[
+u=x+y,
+\qquad
+v=x-y.
+\]
+Then
+\[
+k=\frac{(u+v)^2-4a}{4uv},
+\tag{2}
+\]
+or equivalently,
+\[
+v^2+(2u-4ku)v+u^2-4a=0.
+\tag{3}
+\]
+
+Let
+\[
+v_1=4ku-2u-v.
+\]
+By Vieta's theorem, $v_1$ is the other root of (3). Furthermore,
+\[
+u+v_1=4ku-u-v>u+v.
+\]
+The numbers $u$ and $v_1$ have the same parity, so
+\[
+x_1=\frac{u+v_1}{2},
+\qquad
+y_1=\frac{v_1-u}{2}
+\]
+are integers. Reversing the substitution shows that $(x_1,y_1)$ satisfies (1), and
+\[
+x_1>x.
+\]
+Repeating this construction gives a representation with
+\[
+x>\sqrt a.
+\]
+
+Now suppose that the current representation already satisfies
+\[
+x>\sqrt a.
+\]
+Then the numerator and denominator of (1) are positive, so
+\[
+x>y\ge0.
+\]
+Thus
+\[
+u>v>0.
+\]
+Regard (2) instead as a quadratic equation in $u$:
+\[
+u^2+(2v-4kv)u+v^2-4a=0.
+\]
+Let
+\[
+u_2=4kv-2v-u
+\]
+be its other root. By Vieta's theorem,
+\[
+uu_2=v^2-4a.
+\tag{4}
+\]
+
+If $u_2\ge0$, then
+\[
+vu_2\le uu_2=v^2-4a<v^2,
+\]
+so
+\[
+0<u_2+v<u+v.
+\]
+If $u_2<0$, then
+\[
+(u_2+v)+(u+v)=4kv>0
+\]
+and
+\[
+u_2+v<u+v,
+\]
+which together imply
+\[
+|u_2+v|<u+v.
+\]
+The number $u_2+v$ is even, and therefore
+\[
+x_2=\frac{u_2+v}{2},
+\qquad
+y_2=\frac{u_2-v}{2}
+\]
+are integers satisfying (1). Replacing $x_2$ by $|x_2|$ if necessary,
+\[
+|x_2|<x.
+\]
+
+Repeated descent eventually produces a representation with
+\[
+0\le x<\sqrt a,
+\]
+because $a$ is not a square. Thus every $k\in A\cup B$ lies in both $A$ and $B$, and hence
+\[
+A=B.
+\]

@@ -1,0 +1,146 @@
+ID: 0175
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Algebra
+
+SUBTOPICS: Inequalities, Mixing Variables, Concavity, Jensen's Inequality
+
+STATEMENT:
+Let $a,b,c$ be positive real numbers such that
+\[
+\min\{ab,bc,ca\}\ge 1.
+\]
+Prove that
+\[
+\sqrt[3]{(a^2+1)(b^2+1)(c^2+1)}
+\le
+\left(\frac{a+b+c}{3}\right)^2+1.
+\]
+
+SOLUTION 1:
+We first prove the following two-variable inequality.
+
+\textbf{Claim.} If $x,y>0$ and $xy\ge1$, then
+\[
+(x^2+1)(y^2+1)
+\le
+\left(\left(\frac{x+y}{2}\right)^2+1\right)^2.
+\tag{1}
+\]
+
+Indeed,
+\[
+\left(\frac{x+y}{2}\right)^2-1\ge xy-1\ge0.
+\]
+Therefore
+\[
+\begin{aligned}
+(x^2+1)(y^2+1)
+&=(xy-1)^2+(x+y)^2\\
+&\le
+\left(\left(\frac{x+y}{2}\right)^2-1\right)^2+(x+y)^2\\
+&=
+\left(\left(\frac{x+y}{2}\right)^2+1\right)^2,
+\end{aligned}
+\]
+proving the claim.
+
+Without loss of generality, assume
+\[
+a\ge b\ge c.
+\]
+Then $a\ge1$. Put
+\[
+d=\frac{a+b+c}{3}.
+\]
+Since $a^2,ab,ac\ge1$,
+\[
+ad=\frac{a(a+b+c)}3\ge1.
+\]
+We may therefore apply (1) to the pairs $(a,d)$ and $(b,c)$:
+\[
+(a^2+1)(d^2+1)(b^2+1)(c^2+1)
+\le
+\left(\left(\frac{a+d}{2}\right)^2+1\right)^2
+\left(\left(\frac{b+c}{2}\right)^2+1\right)^2.
+\tag{2}
+\]
+Moreover,
+\[
+\frac{a+d}{2}\cdot\frac{b+c}{2}
+\ge \sqrt{ad}\sqrt{bc}\ge1.
+\]
+Applying (1) once more, now to
+\[
+\frac{a+d}{2}
+\quad\text{and}\quad
+\frac{b+c}{2},
+\]
+and using $a+b+c=3d$, we obtain from (2)
+\[
+\begin{aligned}
+&(a^2+1)(d^2+1)(b^2+1)(c^2+1)\\
+&\qquad\le
+\left(\left(\frac{a+b+c+d}{4}\right)^2+1\right)^4
+=(d^2+1)^4.
+\end{aligned}
+\]
+After cancelling $d^2+1>0$,
+\[
+(a^2+1)(b^2+1)(c^2+1)\le(d^2+1)^3.
+\]
+Taking cube roots gives the desired inequality.
+
+SOLUTION 2:
+Define
+\[
+F(x)=\ln(1+x^2)
+\qquad(x>0).
+\]
+The required inequality is equivalent to
+\[
+\frac{F(a)+F(b)+F(c)}3
+\le
+F\left(\frac{a+b+c}{3}\right).
+\tag{1}
+\]
+
+The two-variable claim from Solution 1 says that whenever $xy\ge1$,
+\[
+\frac{F(x)+F(y)}2
+\le
+F\left(\frac{x+y}{2}\right).
+\tag{2}
+\]
+Assume without loss of generality that $a\ge b\ge c$. Then
+\[
+a\ge1,
+\qquad
+\frac{b+c}{2}\ge\sqrt{bc}\ge1.
+\]
+Applying (2) to $b,c$, we get
+\[
+\frac{F(a)+F(b)+F(c)}3
+\le
+\frac{F(a)+2F\left(\frac{b+c}{2}\right)}3.
+\tag{3}
+\]
+
+Now
+\[
+F''(x)=\frac{2(1-x^2)}{(1+x^2)^2},
+\]
+so $F$ is concave on $[1,\infty)$. Jensen's inequality applied to the three numbers
+\[
+a,\quad \frac{b+c}{2},\quad \frac{b+c}{2}
+\]
+gives
+\[
+\frac{F(a)+2F\left(\frac{b+c}{2}\right)}3
+\le
+F\left(\frac{a+b+c}{3}\right).
+\]
+Together with (3), this proves (1).

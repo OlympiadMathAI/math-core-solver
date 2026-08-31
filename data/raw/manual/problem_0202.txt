@@ -1,0 +1,248 @@
+ID: 0202
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Number Theory
+
+SUBTOPICS: Divisibility, Exponential Diophantine Equations, Cyclotomic Divisibility, Inequalities
+
+STATEMENT:
+Let $n,m,k,\ell$ be positive integers with $n\ne1$, and suppose that
+\[
+n^k+mn^\ell+1\mid n^{k+\ell}-1.
+\]
+Prove that one of the following holds:
+
+\begin{itemize}
+\item $m=1$ and $\ell=2k$;
+\item $\ell\mid k$ and
+\[
+m=\frac{n^{k-\ell}-1}{n^\ell-1}.
+\]
+\end{itemize}
+
+SOLUTION 1:
+Set
+\[
+D=n^k+mn^\ell+1.
+\]
+The hypothesis is
+\[
+D\mid n^{k+\ell}-1.
+\tag{1}
+\]
+Adding $D$ to the number on the right gives
+\[
+D\mid n^{k+\ell}+n^k+mn^\ell.
+\tag{2}
+\]
+Also,
+\[
+\gcd(D,n)=1.
+\]
+
+\textbf{Case 1: $\ell\ge k$.}
+
+Factoring $n^k$ from the number in (2) and cancelling it modulo $D$, we get
+\[
+D\mid n^\ell+mn^{\ell-k}+1.
+\tag{3}
+\]
+In particular,
+\[
+n^k+mn^\ell+1
+\le
+n^\ell+mn^{\ell-k}+1.
+\tag{4}
+\]
+
+If $m\ge2$, then
+\[
+(m-1)n^\ell
+\ge2(m-1)n^{\ell-k}
+\ge mn^{\ell-k}.
+\]
+After adding the positive term $n^k$, this contradicts (4). Hence
+\[
+m=1.
+\]
+
+Now (3) becomes
+\[
+n^k+n^\ell+1\mid n^\ell+n^{\ell-k}+1.
+\]
+Moreover,
+\[
+0<n^\ell+n^{\ell-k}+1
+<2(n^k+n^\ell+1).
+\]
+Therefore the two positive numbers must be equal:
+\[
+n^\ell+n^{\ell-k}+1=n^k+n^\ell+1.
+\]
+Thus
+\[
+n^{\ell-k}=n^k,
+\]
+and hence
+\[
+\ell=2k.
+\]
+
+\textbf{Case 2: $\ell<k$.}
+
+Factoring $n^\ell$ from (2) gives
+\[
+D\mid n^k+n^{k-\ell}+m.
+\tag{5}
+\]
+Hence
+\[
+n^k+mn^\ell+1
+\le
+n^k+n^{k-\ell}+m,
+\]
+which is equivalent to
+\[
+m\le
+\frac{n^{k-\ell}-1}{n^\ell-1}.
+\tag{6}
+\]
+
+Write
+\[
+n^{k+\ell}-1=Dt
+\]
+with $t$ a positive integer. Since $D>n^k$,
+\[
+t<n^\ell,
+\]
+so
+\[
+t\le n^\ell-1.
+\]
+Consequently,
+\[
+n^{k+\ell}-1
+\le
+(n^k+mn^\ell+1)(n^\ell-1).
+\]
+After simplification, this gives
+\[
+m\ge
+\frac{n^{k-\ell}-1}{n^\ell-1}.
+\tag{7}
+\]
+Combining (6) and (7),
+\[
+m=
+\frac{n^{k-\ell}-1}{n^\ell-1}.
+\]
+
+Because this quotient is an integer,
+\[
+n^\ell-1\mid n^{k-\ell}-1.
+\]
+For $n>1$, the standard divisibility criterion
+\[
+n^u-1\mid n^v-1
+\quad\Longleftrightarrow\quad
+u\mid v
+\]
+gives
+\[
+\ell\mid k-\ell,
+\]
+and hence
+\[
+\ell\mid k.
+\]
+
+This proves the stated alternatives.
+
+SOLUTION 2:
+Again put
+\[
+D=n^k+mn^\ell+1.
+\]
+As in Solution 1,
+\[
+D\mid n^{k+\ell}+n^k+mn^\ell.
+\tag{1}
+\]
+
+\textbf{Case 1: $\ell\ge k$.}
+
+Cancelling the factor $n^k$, which is coprime to $D$, gives
+\[
+D\mid R,
+\qquad
+R=n^\ell+mn^{\ell-k}+1.
+\]
+We have
+\[
+2D>2mn^\ell+1>R.
+\]
+Thus the positive multiple $R$ of $D$ must equal $D$. Hence
+\[
+n^k+mn^\ell+1
+=
+n^\ell+mn^{\ell-k}+1,
+\]
+or
+\[
+m(n^\ell-n^{\ell-k})=n^\ell-n^k.
+\tag{2}
+\]
+
+If $m\ge2$, then
+\[
+m(n^\ell-n^{\ell-k})
+\ge
+2n^\ell-2n^{\ell-k}
+\ge
+2n^\ell-n^\ell
+>
+n^\ell-n^k,
+\]
+contradicting (2). Therefore $m=1$, and (2) yields
+\[
+\ell-k=k.
+\]
+Thus
+\[
+m=1,\qquad \ell=2k.
+\]
+
+\textbf{Case 2: $\ell<k$.}
+
+Cancelling $n^\ell$ in (1) gives
+\[
+D\mid R,
+\qquad
+R=n^k+n^{k-\ell}+m.
+\]
+Also,
+\[
+2D>2n^k+m>R.
+\]
+Therefore $R=D$, so
+\[
+n^k+mn^\ell+1=n^k+n^{k-\ell}+m.
+\]
+This gives
+\[
+m=
+\frac{n^{k-\ell}-1}{n^\ell-1}.
+\]
+The integrality of this quotient implies
+\[
+n^\ell-1\mid n^{k-\ell}-1,
+\]
+and hence
+\[
+\ell\mid k-\ell.
+\]
+Therefore $\ell\mid k$, completing the proof.

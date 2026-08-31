@@ -1,0 +1,188 @@
+ID: 0205
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Number Theory
+
+SUBTOPICS: Lattice Polygons, P-adic Valuations, Ptolemy's Theorem, Heron's Formula
+
+STATEMENT:
+Let $n$ be an odd positive integer. A cyclic polygon $\mathcal P$ of area $S$ is chosen in the Cartesian plane. All its vertices have integer coordinates, and the squares of all its side lengths are divisible by $n$. Prove that $2S$ is an integer divisible by $n$.
+
+SOLUTION 1:
+Let
+\[
+\mathcal P=A_1A_2\cdots A_k,
+\qquad
+A_{k+i}=A_i.
+\]
+By the shoelace formula,
+\[
+2S\in\mathbb Z.
+\]
+
+It is enough to prove divisibility by every prime power dividing $n$. Thus fix an odd prime $p$ and a positive integer $t$ such that
+\[
+p^t\mid n,
+\]
+and prove
+\[
+p^t\mid2S.
+\]
+All squared side lengths are divisible by $p^t$.
+
+We use induction on the number $k\ge3$ of vertices.
+
+\textbf{Base case: $k=3$.}
+
+Write the three squared side lengths as
+\[
+p^t a,\qquad p^t b,\qquad p^t c
+\]
+for positive integers $a,b,c$. Heron's identity gives
+\[
+16S^2
+=
+p^{2t}
+\left(
+2ab+2bc+2ca-a^2-b^2-c^2
+\right).
+\]
+Thus
+\[
+p^{2t}\mid16S^2.
+\]
+Since $p$ is odd and $2S$ is an integer,
+\[
+p^t\mid2S.
+\]
+
+\textbf{Induction step.}
+
+Suppose $k\ge4$. If some diagonal has squared length divisible by $p^t$, that diagonal divides $\mathcal P$ into two smaller cyclic polygons satisfying the same condition. By the induction hypothesis, the doubled area of each is divisible by $p^t$, and hence so is $2S$.
+
+We may therefore assume that
+\[
+p^t\nmid A_iA_j^2
+\]
+for every diagonal $A_iA_j$.
+
+For any segment $UV$ joining two lattice points, define
+\[
+w(UV)=v_p(UV^2),
+\]
+where $UV^2$ denotes the squared length and $v_p$ is the usual $p$-adic valuation.
+
+We claim that
+\[
+w(A_1A_m)>w(A_1A_{m+1})
+\qquad(2\le m\le k-1).
+\tag{1}
+\]
+
+For $m=2$, the segment $A_1A_2$ is a side while $A_1A_3$ is a diagonal, so
+\[
+w(A_1A_2)\ge t>w(A_1A_3).
+\]
+
+Assume now that
+\[
+w(A_1A_{m-1})>w(A_1A_m)
+\]
+for some $3\le m\le k-1$. Apply Ptolemy's theorem to the cyclic quadrilateral
+\[
+A_1A_{m-1}A_mA_{m+1}:
+\]
+\[
+A_1A_{m+1}\cdot A_{m-1}A_m
++
+A_1A_{m-1}\cdot A_mA_{m+1}
+=
+A_1A_m\cdot A_{m-1}A_{m+1}.
+\]
+After squaring and rearranging,
+\[
+\begin{aligned}
+&A_1A_{m+1}^2\,A_{m-1}A_m^2\\
+&\quad=
+A_1A_{m-1}^2\,A_mA_{m+1}^2
++
+A_1A_m^2\,A_{m-1}A_{m+1}^2\\
+&\qquad
+-
+2A_1A_{m-1}\,A_mA_{m+1}\,A_1A_m\,A_{m-1}A_{m+1}.
+\end{aligned}
+\tag{2}
+\]
+The first three terms in (2) are integers, so the final cross term is an integer as well.
+
+Put
+\[
+U=A_1A_{m-1}^2\,A_mA_{m+1}^2,
+\qquad
+V=A_1A_m^2\,A_{m-1}A_{m+1}^2.
+\]
+The inductive hypothesis and the facts that $A_mA_{m+1}$ is a side while $A_{m-1}A_{m+1}$ is a diagonal give
+\[
+v_p(U)>v_p(V).
+\tag{3}
+\]
+If $C$ denotes the cross term in (2), then
+\[
+C^2=4UV.
+\]
+Since $p$ is odd, (3) yields
+\[
+v_p(C)
+=
+\frac{v_p(U)+v_p(V)}2
+>
+v_p(V).
+\tag{4}
+\]
+Therefore $V$ is the unique term of least $p$-adic valuation on the right side of (2). Hence
+\[
+\begin{aligned}
+&w(A_1A_{m+1})+w(A_{m-1}A_m)\\
+&\qquad=
+w(A_1A_m)+w(A_{m-1}A_{m+1}).
+\end{aligned}
+\]
+Now
+\[
+w(A_{m-1}A_m)\ge t
+>
+w(A_{m-1}A_{m+1}),
+\]
+so
+\[
+w(A_1A_{m+1})<w(A_1A_m).
+\]
+This proves the claim.
+
+Applying (1) successively gives
+\[
+t
+\le
+w(A_1A_2)
+>
+w(A_1A_3)
+>
+\cdots
+>
+w(A_1A_k)
+\ge
+t,
+\]
+because both $A_1A_2$ and $A_1A_k$ are sides. This is impossible.
+
+Thus our assumption that no diagonal square is divisible by $p^t$ was false. The induction step follows, and therefore
+\[
+p^t\mid2S
+\]
+for every prime power $p^t$ dividing $n$. Hence
+\[
+n\mid2S.
+\]

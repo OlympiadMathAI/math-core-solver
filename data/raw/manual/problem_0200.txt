@@ -1,0 +1,140 @@
+ID: 0200
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Number Theory
+
+SUBTOPICS: Divisor Functions, Congruences, Prime Factorization, Parity Counting
+
+STATEMENT:
+Let $\tau(n)$ denote the number of positive divisors of $n$, and let $\tau_1(n)$ denote the number of positive divisors of $n$ that are congruent to $1$ modulo $3$. Determine all possible integer values of
+\[
+\frac{\tau(10n)}{\tau_1(10n)}
+\]
+as $n$ ranges over the positive integers.
+
+SOLUTION 1:
+The possible values are
+\[
+\boxed{2\ \text{and all composite positive integers}.}
+\]
+
+We first compute $\tau_1(m)$. Write
+\[
+m
+=
+3^x
+\prod_{i=1}^{s}p_i^{a_i}
+\prod_{j=1}^{t}q_j^{b_j},
+\]
+where
+\[
+p_i\equiv1\pmod3,
+\qquad
+q_j\equiv2\pmod3.
+\]
+Empty products are allowed.
+
+A divisor of $m$ that is congruent to $1$ modulo $3$ cannot contain the prime $3$. The exponents of the primes $p_i$ may be chosen arbitrarily. For the primes $q_j$, the sum of the chosen exponents must be even. The number of exponent choices of even total parity is
+\[
+\left\lceil
+\frac12\prod_{j=1}^{t}(b_j+1)
+\right\rceil.
+\]
+Indeed, if one of the numbers $b_j+1$ is even, exactly half of all choices have even total parity. If all $b_j$ are even, an elementary parity count gives one more even choice than odd choices.
+
+Consequently,
+\[
+\tau_1(m)
+=
+\prod_{i=1}^{s}(a_i+1)
+\left\lceil
+\frac12\prod_{j=1}^{t}(b_j+1)
+\right\rceil.
+\tag{1}
+\]
+
+Now write
+\[
+n
+=
+3^x2^y5^z
+\prod_{i=1}^{s}p_i^{a_i}
+\prod_{j=1}^{t}q_j^{b_j},
+\]
+where the primes $q_j\equiv2\pmod3$ are taken different from $2$ and $5$. Put
+\[
+A=\prod_{i=1}^{s}(a_i+1),
+\qquad
+B=\prod_{j=1}^{t}(b_j+1),
+\qquad
+C=(y+2)(z+2)B.
+\]
+Then
+\[
+\tau(10n)
+=(x+1)AC
+\tag{2}
+\]
+and, by (1),
+\[
+\tau_1(10n)
+=A\left\lceil\frac C2\right\rceil.
+\tag{3}
+\]
+
+If $C$ is even, equations (2) and (3) give
+\[
+\frac{\tau(10n)}{\tau_1(10n)}
+=2(x+1).
+\]
+As $x$ ranges over the nonnegative integers, this gives every positive even integer.
+
+Suppose now that $C$ is odd. Then $y,z$ are odd and every $b_j$ is even. In particular,
+\[
+C\ge3\cdot3=9.
+\]
+Equations (2) and (3) give
+\[
+\frac{\tau(10n)}{\tau_1(10n)}
+=
+\frac{2(x+1)C}{C+1}.
+\tag{4}
+\]
+Since $\gcd(C,C+1)=1$, expression (4) is an integer exactly when
+\[
+C+1\mid2(x+1).
+\]
+Write
+\[
+2(x+1)=h(C+1).
+\]
+Then the value in (4) is
+\[
+hC.
+\]
+Because $C\ge9$ is itself composite, every integer obtained in this odd case is composite.
+
+Conversely, let $N$ be any odd composite positive integer. Write
+\[
+N=uv
+\]
+with odd integers $u,v\ge3$. Choose
+\[
+n
+=
+3^{(N-1)/2}\,2^{u-2}\,5^{v-2}.
+\]
+Here
+\[
+C=(u-2+2)(v-2+2)=uv=N
+\]
+and
+\[
+2(x+1)=N+1.
+\]
+Thus (4) equals $N$.
+
+We have therefore obtained every positive even integer and every odd composite integer. Equivalently, the possible values are $2$ and all composite positive integers.

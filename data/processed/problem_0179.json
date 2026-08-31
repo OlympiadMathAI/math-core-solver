@@ -1,0 +1,16 @@
+{
+  "id": "0179",
+  "source": "IMO Shortlist",
+  "year": "2016",
+  "topic": "Algebra",
+  "subtopics": [
+    "Rational Approximation",
+    "Squares",
+    "Parity",
+    "Diophantine Inequalities"
+  ],
+  "statement": "\\begin{enumerate}\n\\item[(a)] Prove that for every positive integer $n$, there exists a fraction $a/b$, where $a,b$ are integers, satisfying\n\\[\n0<b\\le\\sqrt{n}+1\n\\qquad\\text{and}\\qquad\n\\sqrt{n}\\le\\frac ab\\le\\sqrt{n+1}.\n\\]\n\\item[(b)] Prove that there are infinitely many positive integers $n$ for which there is no fraction $a/b$, where $a,b$ are integers, satisfying\n\\[\n0<b\\le\\sqrt{n}\n\\qquad\\text{and}\\qquad\n\\sqrt{n}\\le\\frac ab\\le\\sqrt{n+1}.\n\\]\n\\end{enumerate}",
+  "solutions": [
+    "\\textbf{Part (a).}\nLet $r$ be the unique positive integer satisfying\n\\[\nr^2\\le n<(r+1)^2.\n\\]\nWrite\n\\[\nn=r^2+s,\n\\qquad\n0\\le s\\le2r.\n\\]\n\nIf $s$ is even, consider\n\\[\nr+\\frac{s}{2r}=\\frac{r^2+s/2}{r}.\n\\]\nIts denominator is $r\\le\\sqrt{n}$, and\n\\[\n\\left(r+\\frac{s}{2r}\\right)^2\n=r^2+s+\\left(\\frac{s}{2r}\\right)^2.\n\\]\nBecause $0\\le s/(2r)\\le1$,\n\\[\nn\\le\\left(r+\\frac{s}{2r}\\right)^2\\le n+1.\n\\]\nThus this fraction has the required properties.\n\nIf $s$ is odd, put\n\\[\nt=2r+1-s\n\\]\nand consider\n\\[\nr+1-\\frac{t}{2(r+1)}\n=\n\\frac{(r+1)^2-r+(s-1)/2}{r+1}.\n\\]\nThis is a fraction with integer numerator and denominator $r+1\\le\\sqrt{n}+1$. Moreover,\n\\[\n\\begin{aligned}\n\\left(r+1-\\frac{t}{2(r+1)}\\right)^2\n&=(r+1)^2-t+\\left(\\frac{t}{2(r+1)}\\right)^2\\\\\n&=n+\\left(\\frac{t}{2(r+1)}\\right)^2.\n\\end{aligned}\n\\]\nHere $0<t<2(r+1)$, so the last square is at most $1$. Hence this fraction also lies between $\\sqrt{n}$ and $\\sqrt{n+1}$.\n\n\\textbf{Part (b).}\nWe show that every integer\n\\[\nn=r^2+1\n\\qquad(r\\ge1)\n\\]\nhas the required nonexistence property. Suppose, to the contrary, that integers $a,b$ satisfy\n\\[\n0<b\\le\\sqrt{r^2+1}\n\\]\nand\n\\[\n\\sqrt{r^2+1}\\le\\frac ab\\le\\sqrt{r^2+2}.\n\\]\nSince $b<r+1$ and $b$ is an integer, $b\\le r$. Squaring gives\n\\[\n(br)^2<b^2(r^2+1)\\le a^2\\le b^2(r^2+2).\n\\]\nUsing $b\\le r$,\n\\[\nb^2(r^2+2)=b^2r^2+2b^2\n\\le b^2r^2+2br\n<(br+1)^2.\n\\]\nThus the square $a^2$ lies strictly between the consecutive squares $(br)^2$ and $(br+1)^2$, an impossibility. Since there are infinitely many choices of $r$, part (b) follows."
+  ]
+}

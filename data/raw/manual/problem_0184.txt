@@ -1,0 +1,149 @@
+ID: 0184
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Divisors, Double Counting, Extremal Arguments, Divisor Functions
+
+STATEMENT:
+Find all positive integers $n$ for which all positive divisors of $n$ can be placed into the cells of a rectangular table so that:
+
+\begin{itemize}
+\item each cell contains a distinct divisor of $n$;
+\item all row sums are equal; and
+\item all column sums are equal.
+\end{itemize}
+
+SOLUTION 1:
+The only possible value is
+\[
+\boxed{n=1}.
+\]
+
+Clearly $n=1$ works. Suppose now that $n>1$, and assume that its divisors are arranged in a $k\times \ell$ table. Interchanging rows and columns if necessary, we may suppose
+\[
+k\le\ell.
+\]
+The case $k=1$ is impossible, since then the columns contain single, distinct divisors but are required to have equal sums. Thus $k\ge2$.
+
+Let the common column sum be $s$. The column containing $n$ contains at least one other positive divisor, so
+\[
+s>n.
+\tag{1}
+\]
+
+For each column, let its largest entry be $d_j$, and order the columns so that
+\[
+d_1>d_2>\cdots>d_\ell.
+\]
+The numbers
+\[
+\frac n{d_1},\frac n{d_2},\ldots,\frac n{d_\ell}
+\]
+are distinct positive integers in increasing order. Hence
+\[
+\frac n{d_\ell}\ge\ell,
+\qquad\text{so}\qquad
+d_\ell\le\frac n\ell.
+\tag{2}
+\]
+
+On the other hand, $d_\ell$ is at least the average entry in its column, and therefore
+\[
+d_\ell\ge\frac sk>\frac nk
+\tag{3}
+\]
+by (1). Combining (2) and (3) gives
+\[
+\frac n\ell>\frac nk,
+\]
+hence $k>\ell$, contradicting $k\le\ell$.
+
+Therefore no $n>1$ works, and the answer is $n=1$.
+
+SOLUTION 2:
+Again, $n=1$ clearly works. Suppose that $n>1$, with prime factorization
+\[
+n=p_1^{r_1}p_2^{r_2}\cdots p_t^{r_t},
+\]
+and suppose its divisors fill a $k\times\ell$ table with
+\[
+1<k\le\ell.
+\]
+
+Let $\tau(n)$ and $\sigma(n)$ denote the number and the sum of the positive divisors of $n$, respectively. Then
+\[
+k\ell=\tau(n)
+=(r_1+1)(r_2+1)\cdots(r_t+1).
+\]
+Every column has sum $\sigma(n)/\ell$. Since the column containing $n$ has at least two positive entries,
+\[
+\frac{\sigma(n)}{\ell}>n,
+\qquad\text{so}\qquad
+\ell<\frac{\sigma(n)}n.
+\]
+Consequently,
+\[
+\tau(n)=k\ell\le\ell^2<
+\left(\frac{\sigma(n)}n\right)^2.
+\tag{1}
+\]
+
+For a prime $p$ and a positive integer $r$, define
+\[
+F(p,r)
+=
+\frac{r+1}
+{\left(1+\frac1p+\cdots+\frac1{p^r}\right)^2}
+=
+\frac{(r+1)\left(1-\frac1p\right)^2}
+{\left(1-\frac1{p^{r+1}}\right)^2}.
+\]
+Inequality (1) is equivalent to
+\[
+\prod_{i=1}^t F(p_i,r_i)<1.
+\tag{2}
+\]
+
+We have
+\[
+F(2,1)=\frac89,
+\qquad
+F(2,2)=\frac{48}{49},
+\qquad
+F(3,1)=\frac98.
+\]
+Also,
+\[
+F(2,r)>1\quad(r\ge3),
+\]
+because $(r+1)/4\ge1$ and the denominator
+\[
+\left(1-\frac1{2^{r+1}}\right)^2
+\]
+is less than $1$. Similarly,
+\[
+F(3,r)>\frac43>\frac98
+\quad(r\ge2),
+\]
+and
+\[
+F(p,r)>\frac{32}{25}>\frac98
+\quad(p\ge5,\ r\ge1).
+\]
+
+Thus every factor in (2) exceeds $1$, except possibly $F(2,1)$ and $F(2,2)$. Moreover, multiplying either exceptional factor by any other possible factor gives a number at least $1$. Hence (2) can hold only when
+\[
+n=2
+\quad\text{or}\quad
+n=4.
+\]
+For these values, the numbers of divisors are $2$ and $3$, respectively, so any rectangular table has only one row or one column; its distinct entries cannot have equal sums in the other direction. Thus neither value works.
+
+Therefore the unique answer is
+\[
+\boxed{1}.
+\]

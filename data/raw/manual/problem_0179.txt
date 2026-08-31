@@ -1,0 +1,99 @@
+ID: 0179
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Algebra
+
+SUBTOPICS: Rational Approximation, Squares, Parity, Diophantine Inequalities
+
+STATEMENT:
+\begin{enumerate}
+\item[(a)] Prove that for every positive integer $n$, there exists a fraction $a/b$, where $a,b$ are integers, satisfying
+\[
+0<b\le\sqrt{n}+1
+\qquad\text{and}\qquad
+\sqrt{n}\le\frac ab\le\sqrt{n+1}.
+\]
+\item[(b)] Prove that there are infinitely many positive integers $n$ for which there is no fraction $a/b$, where $a,b$ are integers, satisfying
+\[
+0<b\le\sqrt{n}
+\qquad\text{and}\qquad
+\sqrt{n}\le\frac ab\le\sqrt{n+1}.
+\]
+\end{enumerate}
+
+SOLUTION 1:
+\textbf{Part (a).}
+Let $r$ be the unique positive integer satisfying
+\[
+r^2\le n<(r+1)^2.
+\]
+Write
+\[
+n=r^2+s,
+\qquad
+0\le s\le2r.
+\]
+
+If $s$ is even, consider
+\[
+r+\frac{s}{2r}=\frac{r^2+s/2}{r}.
+\]
+Its denominator is $r\le\sqrt{n}$, and
+\[
+\left(r+\frac{s}{2r}\right)^2
+=r^2+s+\left(\frac{s}{2r}\right)^2.
+\]
+Because $0\le s/(2r)\le1$,
+\[
+n\le\left(r+\frac{s}{2r}\right)^2\le n+1.
+\]
+Thus this fraction has the required properties.
+
+If $s$ is odd, put
+\[
+t=2r+1-s
+\]
+and consider
+\[
+r+1-\frac{t}{2(r+1)}
+=
+\frac{(r+1)^2-r+(s-1)/2}{r+1}.
+\]
+This is a fraction with integer numerator and denominator $r+1\le\sqrt{n}+1$. Moreover,
+\[
+\begin{aligned}
+\left(r+1-\frac{t}{2(r+1)}\right)^2
+&=(r+1)^2-t+\left(\frac{t}{2(r+1)}\right)^2\\
+&=n+\left(\frac{t}{2(r+1)}\right)^2.
+\end{aligned}
+\]
+Here $0<t<2(r+1)$, so the last square is at most $1$. Hence this fraction also lies between $\sqrt{n}$ and $\sqrt{n+1}$.
+
+\textbf{Part (b).}
+We show that every integer
+\[
+n=r^2+1
+\qquad(r\ge1)
+\]
+has the required nonexistence property. Suppose, to the contrary, that integers $a,b$ satisfy
+\[
+0<b\le\sqrt{r^2+1}
+\]
+and
+\[
+\sqrt{r^2+1}\le\frac ab\le\sqrt{r^2+2}.
+\]
+Since $b<r+1$ and $b$ is an integer, $b\le r$. Squaring gives
+\[
+(br)^2<b^2(r^2+1)\le a^2\le b^2(r^2+2).
+\]
+Using $b\le r$,
+\[
+b^2(r^2+2)=b^2r^2+2b^2
+\le b^2r^2+2br
+<(br+1)^2.
+\]
+Thus the square $a^2$ lies strictly between the consecutive squares $(br)^2$ and $(br+1)^2$, an impossibility. Since there are infinitely many choices of $r$, part (b) follows.

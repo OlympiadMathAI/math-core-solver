@@ -1,0 +1,84 @@
+ID: 0188
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Graph Processes, Complete Bipartite Graphs, Invariants, Connectivity
+
+STATEMENT:
+There are $n\ge3$ islands in a city. Initially, the ferry company offers routes between some pairs of islands, and the resulting network is connected.
+
+After each year, the company closes one route between two islands $X$ and $Y$. At the same time, for every island connected by a route to exactly one of $X$ and $Y$, the company opens a route from that island to the other one.
+
+Suppose that at every moment, for every partition of the islands into two nonempty groups, some route joining the two groups is known to be closed after finitely many more years. Prove that after finitely many years there is an island connected by routes to all the other islands.
+
+SOLUTION 1:
+Call two disjoint nonempty sets of islands $\mathcal A,\mathcal B$ a \emph{network} if every island of $\mathcal A$ is connected to every island of $\mathcal B$.
+
+Because the initial graph is connected and has at least three vertices, choose an edge $AB$ and a third island $C$ adjacent to one of its endpoints, say $A$. Then
+\[
+\mathcal A=\{A\},
+\qquad
+\mathcal B=\{B,C\}
+\]
+form a network.
+
+We first show that a fixed set of at least three islands can always be repartitioned into two sets forming a network. The only event that can destroy the network property is the closure of a route
+\[
+AB
+\qquad
+(A\in\mathcal A,\ B\in\mathcal B).
+\]
+When this happens, replace the partition by
+\[
+\mathcal A'=\{A,B\},
+\qquad
+\mathcal B'=(\mathcal A\cup\mathcal B)\setminus\{A,B\}.
+\]
+The set $\mathcal B'$ is nonempty.
+
+Take $C\in\mathcal A\setminus\{A\}$. Before the closure, $C$ is connected to $B$. If it is not already connected to $A$, then at the closure of $AB$ it is connected to exactly one of $A,B$, so the rule creates the route $AC$. Thus afterward $C$ is connected to both $A$ and $B$. The same argument applies to every island of $\mathcal B\setminus\{B\}$. Hence $\mathcal A'$ and $\mathcal B'$ again form a network.
+
+Now suppose that
+\[
+3\le|\mathcal A\cup\mathcal B|<n.
+\]
+Apply the hypothesis to the partition
+\[
+\mathcal A\cup\mathcal B
+\quad\text{and}\quad
+V\setminus(\mathcal A\cup\mathcal B).
+\]
+After finitely many years, a route $XD$ crossing this partition is closed. Suppose
+\[
+X\in\mathcal A
+\]
+and $D$ is outside the current network. Every island of $\mathcal B$ is connected to $X$. When $XD$ is closed, the rule ensures that $D$ becomes connected to every island of $\mathcal B$. We may therefore add $D$ to $\mathcal A$, increasing the network by one island.
+
+Repeating this procedure, after finitely many stages all islands belong to a network
+\[
+\mathcal A\cup\mathcal B=V.
+\]
+
+By the hypothesis, some route
+\[
+AB
+\qquad
+(A\in\mathcal A,\ B\in\mathcal B)
+\]
+is eventually closed. Repartition the islands as
+\[
+\mathcal A'=\{A,B\},
+\qquad
+\mathcal B'=V\setminus\{A,B\}.
+\]
+As proved above, these two sets form a network.
+
+Again apply the hypothesis to this partition. If the route $AB$ is reopened before the next route joining $\mathcal A'$ to $\mathcal B'$ is closed, then both $A$ and $B$ are already connected to every other island, and we are done.
+
+Otherwise, eventually a route between $\mathcal A'$ and $\mathcal B'$ is closed while $AB$ is still absent. Suppose it is $AC$ with $C\in\mathcal B'$. Before this closure, $B$ is connected to $C$ but not to $A$, so the rule creates the route $AB$. Island $B$ was already connected to every island of $\mathcal B'$, and it is now connected to $A$ as well. Therefore $B$ is connected to every other island. The case in which the closed route is incident with $B$ is symmetric.
+
+This proves the assertion.

@@ -1,0 +1,16 @@
+{
+  "id": "0185",
+  "source": "IMO Shortlist",
+  "year": "2016",
+  "topic": "Combinatorics",
+  "subtopics": [
+    "Double Counting",
+    "Regular Polygons",
+    "Parity",
+    "Isosceles Triangles"
+  ],
+  "statement": "Let $n$ be a positive integer relatively prime to $6$. The vertices of a regular $n$-gon are coloured with three colours so that an odd number of vertices has each colour. Prove that there exists an isosceles triangle whose three vertices have three different colours.",
+  "solutions": [
+    "For $j=1,2,3$, let $a_j$ denote the number of isosceles triangles whose vertices use exactly $j$ colours. Suppose, for contradiction, that\n\\[\na_3=0.\n\\]\nLet the three colour classes have odd sizes\n\\[\nb,\\qquad c,\\qquad d.\n\\]\n\nCount pairs $(\\Delta,E)$ in which $\\Delta$ is an isosceles triangle and $E$ is a side of $\\Delta$ whose endpoints have different colours.\n\nBecause no isosceles triangle uses all three colours, every triangle contributing to this count uses exactly two colours. Such a triangle has exactly two bichromatic sides. Hence the number of pairs is\n\\[\n2a_2.\n\\tag{1}\n\\]\n\nNow choose any two vertices $A,B$ of different colours. There are exactly three isosceles triangles having $AB$ as one of their sides:\n\n\\begin{itemize}\n\\item one in which $AB$ is the base; and\n\\item two in which $AB$ is one of the equal sides, one with apex at $A$ and one with apex at $B$.\n\\end{itemize}\n\nThe first triangle is unique because $n$ is odd. The three triangles are distinct because $3\\nmid n$; otherwise a coincidence would produce an equilateral triangle whose vertices are vertices of the regular $n$-gon.\n\nThere are\n\\[\nbc+cd+db\n\\]\nunordered pairs of differently coloured vertices. Thus the same number of pairs $(\\Delta,E)$ equals\n\\[\n3(bc+cd+db).\n\\tag{2}\n\\]\n\nThe quantity in (1) is even. But $b,c,d$ are odd, so\n\\[\nbc+cd+db\n\\]\nis odd, and therefore the quantity in (2) is odd. This contradiction proves that\n\\[\na_3>0.\n\\]\nHence an isosceles triangle with three differently coloured vertices exists."
+  ]
+}

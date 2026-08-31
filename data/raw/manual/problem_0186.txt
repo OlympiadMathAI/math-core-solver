@@ -1,0 +1,105 @@
+ID: 0186
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Colourings, Double Counting, Modular Arithmetic, Diagonals
+
+STATEMENT:
+Find all positive integers $n$ for which it is possible to fill an $n\times n$ table with the letters $\mathrm I$, $\mathrm M$, and $\mathrm O$ so that:
+
+\begin{itemize}
+\item in every row and every column, the three letters occur equally often; and
+\item in every diagonal whose number of entries is divisible by $3$, the three letters occur equally often.
+\end{itemize}
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{9\mid n}.
+\]
+
+We first construct a table when $n$ is divisible by $9$. Consider the following $9\times9$ block:
+\[
+\begin{array}{ccccccccc}
+\mathrm I&\mathrm I&\mathrm I&\mathrm M&\mathrm M&\mathrm M&\mathrm O&\mathrm O&\mathrm O\\
+\mathrm M&\mathrm M&\mathrm M&\mathrm O&\mathrm O&\mathrm O&\mathrm I&\mathrm I&\mathrm I\\
+\mathrm O&\mathrm O&\mathrm O&\mathrm I&\mathrm I&\mathrm I&\mathrm M&\mathrm M&\mathrm M\\
+\mathrm I&\mathrm I&\mathrm I&\mathrm M&\mathrm M&\mathrm M&\mathrm O&\mathrm O&\mathrm O\\
+\mathrm M&\mathrm M&\mathrm M&\mathrm O&\mathrm O&\mathrm O&\mathrm I&\mathrm I&\mathrm I\\
+\mathrm O&\mathrm O&\mathrm O&\mathrm I&\mathrm I&\mathrm I&\mathrm M&\mathrm M&\mathrm M\\
+\mathrm I&\mathrm I&\mathrm I&\mathrm M&\mathrm M&\mathrm M&\mathrm O&\mathrm O&\mathrm O\\
+\mathrm M&\mathrm M&\mathrm M&\mathrm O&\mathrm O&\mathrm O&\mathrm I&\mathrm I&\mathrm I\\
+\mathrm O&\mathrm O&\mathrm O&\mathrm I&\mathrm I&\mathrm I&\mathrm M&\mathrm M&\mathrm M
+\end{array}
+\tag{1}
+\]
+A direct inspection shows that every row and column contains three copies of each letter, and every diagonal of length divisible by $3$ does as well.
+
+If
+\[
+n=9q,
+\]
+tile the large table with a $q\times q$ array of copies of (1). Every row and column is a concatenation of $9$-entry pieces containing three of each letter. A diagonal of the large table whose length is divisible by $3$ meets each $9\times9$ block in a diagonal segment whose length is divisible by $3$, possibly zero. Hence it also contains the three letters equally often. Thus every multiple of $9$ works.
+
+We now prove necessity. Every row contains the three letters equally often, so
+\[
+n=3k
+\]
+for some positive integer $k$. Divide the table into $k^2$ blocks of size $3\times3$. Call the centre cell of each such block a \emph{vital cell}. A row, column, or diagonal is called \emph{vital} if it contains a vital cell.
+
+Let $N$ be the number of pairs $(L,C)$ such that $L$ is a vital line and $C$ is a cell on $L$ containing the letter $\mathrm M$.
+
+There are $k$ vital rows, each containing $k$ copies of $\mathrm M$, and likewise $k$ vital columns. Thus vital rows and columns contribute
+\[
+2k^2.
+\]
+In either diagonal direction, the vital diagonals have lengths
+\[
+3,6,\ldots,3(k-1),3k,3(k-1),\ldots,6,3.
+\]
+Each contains one third as many $\mathrm M$'s as cells, so one diagonal direction contributes
+\[
+1+2+\cdots+(k-1)+k+(k-1)+\cdots+2+1=k^2.
+\]
+Both directions contribute $2k^2$. Therefore
+\[
+N=4k^2.
+\tag{2}
+\]
+
+The whole table contains
+\[
+\frac{n^2}{3}=3k^2
+\]
+copies of $\mathrm M$. Every cell belongs to either one or four vital lines. Indeed, reducing its row and column indices modulo $3$, the four possible vital-line conditions are
+\[
+r\equiv2,\qquad
+c\equiv2,\qquad
+r-c\equiv0,\qquad
+r+c\equiv1
+\pmod3,
+\]
+and a direct check of the nine residue pairs shows that either exactly one or all four hold.
+
+Consequently, every $\mathrm M$-cell contributes either $1$ or $4$ to $N$, and hence contributes $1$ modulo $3$. Thus
+\[
+N\equiv3k^2\pmod3.
+\]
+Using (2),
+\[
+4k^2\equiv3k^2\pmod3,
+\]
+so
+\[
+k^2\equiv0\pmod3.
+\]
+Therefore $3\mid k$, and hence
+\[
+9\mid n.
+\]
+
+The possible values are exactly the positive multiples of $9$.

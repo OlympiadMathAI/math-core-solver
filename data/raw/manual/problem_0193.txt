@@ -1,0 +1,148 @@
+ID: 0193
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Geometry
+
+SUBTOPICS: Coordinate Geometry, Similarity Classes, Convex Sets, Star-Shaped Sets
+
+STATEMENT:
+Let
+\[
+B=(-1,0),\qquad C=(1,0).
+\]
+A nonempty bounded subset $S$ of the plane is called \emph{nice} if:
+
+\begin{enumerate}
+\item[(i)] there is a point $T\in S$ such that for every $Q\in S$, the whole segment $TQ$ lies in $S$;
+\item[(ii)] for every triangle $P_1P_2P_3$, there is a unique point $A\in S$ and a permutation $\sigma$ of $\{1,2,3\}$ such that the triangles $ABC$ and
+\[
+P_{\sigma(1)}P_{\sigma(2)}P_{\sigma(3)}
+\]
+are similar.
+\end{enumerate}
+
+Prove that there are two distinct nice subsets $S,S'$ of
+\[
+\{(x,y):x\ge0,\ y\ge0\}
+\]
+such that, if $A\in S$ and $A'\in S'$ are the unique points corresponding to a given triangle in condition (ii), then
+\[
+BA\cdot BA'
+\]
+is a constant independent of the triangle.
+
+SOLUTION 1:
+For a point $A=(x,y)$ in the first quadrant,
+\[
+AB^2=(x+1)^2+y^2,
+\qquad
+AC^2=(x-1)^2+y^2,
+\qquad
+BC=2.
+\]
+Since $x\ge0$, we always have
+\[
+AB\ge AC.
+\tag{1}
+\]
+
+First suppose that, in the similarity with the given triangle, the side $BC$ corresponds to its longest side. Then the required ordering is
+\[
+BC\ge AB\ge AC.
+\]
+By (1), the only nonautomatic condition is
+\[
+AB\le2,
+\]
+or
+\[
+(x+1)^2+y^2\le4.
+\]
+Define
+\[
+S=\{(x,y):(x+1)^2+y^2\le4,\ x\ge0,\ y\ge0\}.
+\tag{2}
+\]
+This is the intersection of a disk and the first quadrant, hence it is bounded and convex; therefore it satisfies condition (i). The ordered ratios of the three side lengths determine the point $A$ uniquely in the upper half-plane. Indeed, after scaling so that $BC=2$, the prescribed values of $AB$ and $AC$ give
+\[
+x=\frac{AB^2-AC^2}{4},
+\qquad
+y=\sqrt{AB^2-(x+1)^2},
+\]
+with the nonnegative square root. Thus condition (ii) also holds.
+
+Next require $BC$ to correspond to the second longest side. Then
+\[
+AB\ge BC\ge AC.
+\]
+These inequalities are equivalent to
+\[
+(x+1)^2+y^2\ge4
+\]
+and
+\[
+(x-1)^2+y^2\le4.
+\]
+Define
+\[
+S'=\{(x,y):(x+1)^2+y^2\ge4,\ (x-1)^2+y^2\le4,\ x\ge0,\ y\ge0\}.
+\tag{3}
+\]
+This set is bounded. The same side-length argument proves condition (ii).
+
+We verify condition (i) directly. Take
+\[
+T'=(1,2),
+\]
+the highest point of the circle $(x-1)^2+y^2=4$. Let $Q=(x,y)\in S'$, and let $R$ be any point of the segment $T'Q$. The first quadrant and the disk
+\[
+(x-1)^2+y^2\le4
+\]
+are convex, so $R$ remains in both. It remains to prove that $R$ stays outside the disk centred at $B=(-1,0)$ with radius $2$.
+
+Put
+\[
+u=T'-B=(2,2),
+\qquad
+v=Q-B=(x+1,y).
+\]
+The condition $Q\in S'$ gives $|v|\ge2$. It also implies $x+y\ge1$: otherwise
+\[
+(x+1)^2+y^2<4.
+\]
+Hence
+\[
+u\cdot v=2(x+y+1)\ge4.
+\]
+Writing $R-B=(1-t)u+tv$ with $0\le t\le1$, we get
+\[
+\begin{aligned}
+|R-B|^2
+&=(1-t)^2|u|^2+t^2|v|^2+2t(1-t)u\cdot v\\
+&\ge4\bigl((1-t)^2+t^2+2t(1-t)\bigr)=4.
+\end{aligned}
+\]
+Thus $R\in S'$, proving that $S'$ is star-shaped with respect to $T'$. Clearly $S$ and $S'$ are distinct.
+
+Finally, let the side lengths of the given triangle satisfy
+\[
+P_1P_2\ge P_2P_3\ge P_3P_1.
+\]
+For the point $A\in S$, the longest side $P_1P_2$ corresponds to $BC$, while $P_2P_3$ corresponds to $BA$. Therefore
+\[
+BA
+=BC\cdot\frac{P_2P_3}{P_1P_2}.
+\]
+For the point $A'\in S'$, the second longest side $P_2P_3$ corresponds to $BC$, while $P_1P_2$ corresponds to $BA'$. Hence
+\[
+BA'
+=BC\cdot\frac{P_1P_2}{P_2P_3}.
+\]
+Multiplying,
+\[
+BA\cdot BA'=BC^2=4.
+\]
+Thus the required product is the constant $4$.

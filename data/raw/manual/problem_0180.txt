@@ -1,0 +1,102 @@
+ID: 0180
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Algebra
+
+SUBTOPICS: Polynomials, Real Roots, Sign Analysis, Modular Classes
+
+STATEMENT:
+The equation
+\[
+(x-1)(x-2)\cdots(x-2016)
+=
+(x-1)(x-2)\cdots(x-2016)
+\]
+is written on a board. One tries to erase some linear factors from both sides so that each side still has at least one factor and the resulting equation has no real roots.
+
+Find the least number of linear factors that must be erased.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{2016}.
+\]
+
+For every $k\in\{1,2,\ldots,2016\}$, at least one of the two copies of the factor $x-k$ must be erased. Otherwise $x=k$ remains a root of the resulting equation. Hence at least $2016$ factors must be erased.
+
+We now show that $2016$ erasures suffice. On the left erase all factors $x-k$ with
+\[
+k\equiv2,3\pmod4,
+\]
+and on the right erase all factors $x-k$ with
+\[
+k\equiv0,1\pmod4.
+\]
+The remaining equation is
+\[
+\prod_{j=0}^{503}(x-4j-1)(x-4j-4)
+=
+\prod_{j=0}^{503}(x-4j-2)(x-4j-3).
+\tag{1}
+\]
+Exactly $2016$ factors have been erased. We prove that (1) has no real solution.
+
+If $x$ is one of the integers $1,2,\ldots,2016$, exactly one side of (1) is zero.
+
+Suppose next that, for some $0\le k\le503$,
+\[
+4k+1<x<4k+2
+\quad\text{or}\quad
+4k+3<x<4k+4.
+\]
+On the left, the factor pair corresponding to $j=k$ is negative, while every other pair is positive. Every pair on the right is positive. Thus the two sides have opposite signs.
+
+Now suppose that
+\[
+x<1,
+\quad x>2016,
+\quad\text{or}\quad
+4k<x<4k+1
+\]
+for some $1\le k\le503$. Dividing the two sides of (1) gives
+\[
+1=
+\prod_{j=0}^{503}
+\left(
+1-
+\frac{2}{(x-4j-2)(x-4j-3)}
+\right).
+\tag{2}
+\]
+In these ranges,
+\[
+(x-4j-2)(x-4j-3)>2
+\]
+for every $j$, so every factor on the right of (2) lies strictly between $0$ and $1$. Their product cannot equal $1$.
+
+The only remaining possibility is
+\[
+4k+2<x<4k+3
+\qquad(0\le k\le503).
+\]
+Equation (1) may then be rearranged as
+\[
+\begin{aligned}
+1={}&
+\frac{x-1}{x-2}\cdot
+\frac{x-2016}{x-2015}\\
+&\cdot
+\prod_{j=1}^{503}
+\left(
+1+
+\frac{2}{(x-4j+1)(x-4j-2)}
+\right).
+\end{aligned}
+\tag{3}
+\]
+Both initial fractions and every factor in the product are greater than $1$, so the right side of (3) is greater than $1$, again impossible.
+
+All real numbers have been covered. Hence the constructed equation has no real roots, and the minimum number of erasures is $2016$.

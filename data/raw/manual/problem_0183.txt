@@ -1,0 +1,110 @@
+ID: 0183
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Binary Strings, Hamming Distance, Pigeonhole Principle, Counting
+
+STATEMENT:
+The leader of an IMO team chooses positive integers $n$ and $k$ with $n>k$, and announces them to the deputy leader and a contestant. The leader then secretly tells the deputy leader an $n$-digit binary string, and the deputy leader writes down all $n$-digit binary strings that differ from the leader's string in exactly $k$ positions. The contestant may look at the strings written by the deputy leader and then guess the leader's string.
+
+What is the minimum number of guesses, in terms of $n$ and $k$, needed to guarantee the correct answer?
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{
+\begin{cases}
+2,&n=2k,\\
+1,&n\ne2k.
+\end{cases}}
+\]
+
+For binary strings $U,V$, let $d(U,V)$ denote their Hamming distance. Let $X$ be the leader's string, and let $\overline X$ be its bitwise complement. The family of strings at distance $k$ from $X$ is exactly the family of strings at distance $n-k$ from $\overline X$. Thus the cases $k$ and $n-k$ are equivalent, and we may assume
+\[
+k\ge\frac n2.
+\]
+
+If $n=2k$, then the information written by the deputy leader is identical for $X$ and $\overline X$, because
+\[
+d(Z,X)=k\iff d(Z,\overline X)=n-k=k.
+\]
+Therefore at least two guesses are necessary.
+
+We now show that no other ambiguity is possible. Let $Y\ne X$, and put
+\[
+m=d(X,Y).
+\]
+Assume that
+\[
+0<m<2k.
+\]
+After relabelling the coordinates, suppose that $X$ and $Y$ differ in their first $m$ positions. Form a string $Z$ by changing the first $k$ digits of $X$. Then
+\[
+d(Z,X)=k,
+\]
+so $Z$ appears on the deputy leader's list. On the other hand,
+\[
+d(Z,Y)=|m-k|<k.
+\]
+Hence $Z$ would not appear if $Y$ were the leader's string. The contestant can therefore rule out $Y$.
+
+If $k>n/2$, then every $Y\ne X$ satisfies
+\[
+d(X,Y)\le n<2k,
+\]
+so every false candidate is ruled out and one guess suffices.
+
+If $n=2k$, every string other than $X$ and $\overline X$ has distance strictly between $0$ and $2k$ from $X$, and is therefore ruled out. Thus only $X$ and $\overline X$ remain, so two guesses suffice.
+
+SOLUTION 2:
+Suppose first that
+\[
+n\ne2k.
+\]
+Fix one coordinate. If the leader's digit in that coordinate is $1$, then among the
+\[
+\binom nk
+\]
+listed strings, exactly
+\[
+\binom{n-1}{k}
+\]
+have digit $1$ there, while exactly
+\[
+\binom{n-1}{k-1}
+\]
+have digit $0$ there. If the leader's digit is $0$, these two counts are interchanged.
+
+Since
+\[
+\binom{n-1}{k}\ne\binom{n-1}{k-1}
+\]
+when $n\ne2k$, the contestant can determine the leader's digit in that coordinate. Repeating this for every coordinate recovers the entire string, so one guess suffices.
+
+Now suppose
+\[
+n=2k.
+\]
+The strings $X$ and $\overline X$ give the same list, so at least two guesses are needed. We prove that the contestant can determine $X$ up to complementation.
+
+Take any two coordinates. Suppose first that the two corresponding digits of $X$ are equal. Among the listed strings, each of the two unequal two-digit patterns occurs
+\[
+\binom{2k-2}{k-1}
+\]
+times, while each of the two equal patterns occurs
+\[
+\binom{2k-2}{k}
+=
+\binom{2k-2}{k-2}
+\]
+times. If the two digits of $X$ are different, these two frequencies are interchanged. For $k>1$,
+\[
+\binom{2k-2}{k-1}\ne\binom{2k-2}{k},
+\]
+so the contestant can determine whether the two hidden digits are equal.
+
+Comparing every digit with the first one determines all digits relative to the first. Hence the only two possible strings are $X$ and $\overline X$. The exceptional case $n=2$, $k=1$ is immediate. Therefore exactly two guesses are sufficient when $n=2k$.

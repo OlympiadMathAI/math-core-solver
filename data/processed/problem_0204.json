@@ -1,0 +1,16 @@
+{
+  "id": "0204",
+  "source": "IMO Shortlist",
+  "year": "2016",
+  "topic": "Number Theory",
+  "subtopics": [
+    "Functional Equations",
+    "Divisibility",
+    "Prime Powers",
+    "Bounding Divisors"
+  ],
+  "statement": "Let $\\mathbb N$ denote the set of positive integers. Determine all functions\n\\[\nf:\\mathbb N\\to\\mathbb N\n\\]\nsuch that, for all positive integers $m,n$, the nonzero integer\n\\[\nf(m)+f(n)-mn\n\\]\ndivides\n\\[\nmf(m)+nf(n).\n\\]",
+  "solutions": [
+    "The unique solution is\n\\[\n\\boxed{f(n)=n^2\\quad(n\\in\\mathbb N).}\n\\]\n\nThe condition is\n\\[\nf(m)+f(n)-mn\\mid mf(m)+nf(n).\n\\tag{1}\n\\]\n\nTaking $m=n=1$,\n\\[\n2f(1)-1\\mid2f(1).\n\\]\nTherefore\n\\[\n2f(1)-1\\mid1,\n\\]\nand since $f(1)$ is positive,\n\\[\nf(1)=1.\n\\tag{2}\n\\]\n\nLet $p\\ge7$ be a prime. Setting $m=p$ and $n=1$ in (1), and using (2), we obtain\n\\[\nf(p)-p+1\\mid pf(p)+1.\n\\]\nSubtracting $p$ times the divisor,\n\\[\nf(p)-p+1\\mid p^2-p+1.\n\\tag{3}\n\\]\n\nWe first show that\n\\[\nf(p)-p+1>0.\n\\]\nIf it were negative, then\n\\[\nf(p)\\le p-2.\n\\]\nUsing $m=n=p$ in (1),\n\\[\n2f(p)-p^2\\mid2pf(p),\n\\]\nand subtracting $p(2f(p)-p^2)$ gives\n\\[\n2f(p)-p^2\\mid p^3.\n\\tag{4}\n\\]\nBut in the present case,\n\\[\n-p^2<2f(p)-p^2\\le2p-4-p^2<-p.\n\\]\nIts absolute value lies strictly between $p$ and $p^2$, so it cannot divide $p^3$. This contradiction proves the claim.\n\nIf the positive divisor in (3) equals $p^2-p+1$, then\n\\[\nf(p)=p^2.\n\\]\nSuppose it is a proper divisor. Since $p^2-p+1$ is odd, the quotient is at least $3$, and hence\n\\[\np^2-p+1\\ge3(f(p)-p+1).\n\\]\nThus\n\\[\nf(p)\\le\\frac{p^2+2p-2}{3}.\n\\tag{5}\n\\]\nAgain use (4). From $f(p)\\ge1$ and (5),\n\\[\n-p^2<2f(p)-p^2\n\\le\n\\frac{2(p^2+2p-2)}3-p^2\n<-p\n\\]\nfor $p\\ge7$. This again gives a divisor of $p^3$ whose absolute value lies strictly between $p$ and $p^2$, impossible.\n\nTherefore\n\\[\nf(p)=p^2\n\\qquad\\text{for every prime }p\\ge7.\n\\tag{6}\n\\]\n\nNow fix any positive integer $n$, and choose a sufficiently large prime $p$. Taking $m=p$ in (1) and subtracting $n$ times the divisor from the dividend gives\n\\[\nf(p)+f(n)-pn\n\\mid\n(p-n)f(p)+pn^2.\n\\]\nUsing (6),\n\\[\np^2-pn+f(n)\n\\mid\np(p^2-pn+n^2).\n\\tag{7}\n\\]\n\nChoose $p>f(n)$. Then\n\\[\n\\gcd(p,p^2-pn+f(n))\n=\\gcd(p,f(n))\n=1.\n\\]\nEquation (7) therefore implies\n\\[\np^2-pn+f(n)\\mid p^2-pn+n^2.\n\\]\nSubtracting,\n\\[\np^2-pn+f(n)\\mid n^2-f(n).\n\\tag{8}\n\\]\n\nThe number on the right of (8) is fixed, while the positive divisor on the left tends to infinity with $p$. Hence\n\\[\nn^2-f(n)=0.\n\\]\nSince $n$ was arbitrary,\n\\[\nf(n)=n^2\n\\qquad(n\\in\\mathbb N).\n\\]\n\nFinally, this function works because\n\\[\nf(m)+f(n)-mn=m^2+n^2-mn>0\n\\]\nand\n\\[\nmf(m)+nf(n)\n=m^3+n^3\n=(m+n)(m^2+n^2-mn).\n\\]"
+  ]
+}

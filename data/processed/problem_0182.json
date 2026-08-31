@@ -1,0 +1,16 @@
+{
+  "id": "0182",
+  "source": "IMO Shortlist",
+  "year": "2016",
+  "topic": "Algebra",
+  "subtopics": [
+    "Best Constants",
+    "Cauchy-Schwarz Inequality",
+    "Telescoping Sums"
+  ],
+  "statement": "Determine the largest real number $a$ such that, for every integer $n\\ge1$ and all real numbers\n\\[\n0=x_0<x_1<x_2<\\cdots<x_n,\n\\]\none has\n\\[\n\\frac1{x_1-x_0}\n+\n\\frac1{x_2-x_1}\n+\n\\cdots\n+\n\\frac1{x_n-x_{n-1}}\n\\ge\na\\left(\n\\frac2{x_1}+\n\\frac3{x_2}+\n\\cdots+\n\\frac{n+1}{x_n}\n\\right).\n\\]",
+  "solutions": [
+    "The largest constant is\n\\[\n\\boxed{a=\\frac49}.\n\\]\n\nFor $2\\le k\\le n$, the Cauchy-Schwarz inequality gives\n\\[\n\\left(x_{k-1}+x_k-x_{k-1}\\right)\n\\left(\n\\frac{(k-1)^2}{x_{k-1}}\n+\n\\frac{3^2}{x_k-x_{k-1}}\n\\right)\n\\ge(k+2)^2.\n\\]\nSince the first factor is $x_k$, this is equivalent to\n\\[\n\\frac9{x_k-x_{k-1}}\n\\ge\n\\frac{(k+2)^2}{x_k}\n-\n\\frac{(k-1)^2}{x_{k-1}}.\n\\tag{1}\n\\]\nSum (1) for $k=2,3,\\ldots,n$ and add $9/x_1$. The terms telescope to give\n\\[\n9\\sum_{k=1}^n\\frac1{x_k-x_{k-1}}\n\\ge\n4\\sum_{k=1}^n\\frac{k+1}{x_k}\n+\n\\frac{n^2}{x_n}\n\\ge\n4\\sum_{k=1}^n\\frac{k+1}{x_k}.\n\\]\nThus $a=4/9$ is admissible.\n\nTo prove optimality, take\n\\[\nx_0=0,\n\\qquad\nx_k-x_{k-1}=k(k+1).\n\\]\nThen\n\\[\nx_k=\\frac{k(k+1)(k+2)}3.\n\\]\nFor this sequence,\n\\[\n\\sum_{k=1}^n\\frac1{x_k-x_{k-1}}\n=\n\\sum_{k=1}^n\\frac1{k(k+1)}\n=\n1-\\frac1{n+1},\n\\]\nwhereas\n\\[\n\\begin{aligned}\n\\sum_{k=1}^n\\frac{k+1}{x_k}\n&=3\\sum_{k=1}^n\\frac1{k(k+2)}\\\\\n&=\\frac32\\left(1+\\frac12-\\frac1{n+1}-\\frac1{n+2}\\right).\n\\end{aligned}\n\\]\nAs $n\\to\\infty$, these two expressions tend to $1$ and $9/4$, respectively. Therefore every admissible $a$ satisfies\n\\[\n1\\ge\\frac94a,\n\\]\nso $a\\le4/9$.",
+    "Put\n\\[\ny_k=x_k-x_{k-1}>0,\n\\qquad\nx_k=y_1+y_2+\\cdots+y_k.\n\\]\nFor each $1\\le k\\le n$, Cauchy-Schwarz gives\n\\[\n\\left(\\sum_{j=1}^k y_j\\right)\n\\left(\n\\sum_{j=1}^k\n\\frac1{y_j}\\binom{j+1}{2}^2\n\\right)\n\\ge\n\\left(\n\\sum_{j=1}^k\\binom{j+1}{2}\n\\right)^2\n=\n\\binom{k+2}{3}^2.\n\\]\nTherefore\n\\[\n\\frac{k+1}{x_k}\n\\le\n\\frac{36}{k^2(k+1)(k+2)^2}\n\\sum_{j=1}^k\n\\frac1{y_j}\\binom{j+1}{2}^2.\n\\tag{1}\n\\]\nSumming (1) over $k=1,\\ldots,n$ and interchanging the order of summation, we obtain\n\\[\n\\sum_{k=1}^n\\frac{k+1}{x_k}\n\\le\n\\sum_{m=1}^n\\frac{c_m}{y_m},\n\\tag{2}\n\\]\nwhere\n\\[\n\\begin{aligned}\nc_m\n&=36\\binom{m+1}{2}^2\n\\sum_{k=m}^n\\frac1{k^2(k+1)(k+2)^2}\\\\\n&=\\frac{9m^2(m+1)^2}{4}\n\\sum_{k=m}^n\n\\left(\n\\frac1{k^2(k+1)^2}\n-\n\\frac1{(k+1)^2(k+2)^2}\n\\right)\\\\\n&=\\frac{9m^2(m+1)^2}{4}\n\\left(\n\\frac1{m^2(m+1)^2}\n-\n\\frac1{(n+1)^2(n+2)^2}\n\\right)\\\\\n&<\\frac94.\n\\end{aligned}\n\\]\nIt follows from (2) that\n\\[\n\\sum_{k=1}^n\\frac{k+1}{x_k}\n<\n\\frac94\\sum_{m=1}^n\\frac1{y_m}.\n\\]\nThus the desired inequality holds with $a=4/9$. The example from Solution 1 shows that no larger constant is possible."
+  ]
+}

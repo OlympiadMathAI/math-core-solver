@@ -1,0 +1,117 @@
+ID: 0187
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Regular Polygons, Noncrossing Diagonals, Perpendicular Chords, Induction
+
+STATEMENT:
+Let $n>3$ be a positive integer. Determine the maximum number of diagonals of a regular $n$-gon that can be selected so that any two selected diagonals either do not intersect in the interior or are perpendicular.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{
+\begin{cases}
+n-2,&n\text{ is even},\\
+n-3,&n\text{ is odd}.
+\end{cases}}
+\]
+
+\textbf{The odd case.}
+No two diagonals of a regular odd-sided polygon can be perpendicular. Indeed, suppose $AB\perp CD$. Let $E$ be the vertex lying on the perpendicular bisector of $AB$, and let $E'$ be the point antipodal to $E$ on the circumcircle. Since $CD$ is parallel to the diameter $EE'$, elementary symmetry in the circle gives
+\[
+EC=E'D.
+\]
+The points $E,C,D$ are vertices of the regular polygon, so equality of these chord lengths forces $E'$ to be a vertex as well. This is impossible in a regular polygon with an odd number of vertices.
+
+Thus all selected diagonals must be pairwise noncrossing. A triangulation contains $n-3$ diagonals, and no larger noncrossing family is possible. Hence the maximum is $n-3$.
+
+\textbf{The even case: upper bound.}
+Suppose that some selected diagonals intersect, and choose a perpendicular pair. Let $\mathcal S$ be the set of selected diagonals parallel to one of these two directions and intersecting at least one selected diagonal. Write
+\[
+|\mathcal S|=q,
+\]
+and let these diagonals have altogether $r$ distinct endpoints.
+
+In each of the two directions, choose a longest diagonal of $\mathcal S$. A longest one cannot share an endpoint with any other diagonal of $\mathcal S$; otherwise the geometry of parallel chords would produce a still longer selected diagonal in the opposite direction. After removing the two longest diagonals and their four endpoints, every remaining endpoint belongs to at most two diagonals of $\mathcal S$, one in each direction. Hence
+\[
+2(q-2)\le2(r-4),
+\]
+so
+\[
+q\le r-2.
+\tag{1}
+\]
+
+List the $r$ endpoint vertices cyclically. Between every two consecutive listed endpoints, take the group consisting of those two endpoints and all polygon vertices between them. Call these groups
+\[
+P_1,P_2,\ldots,P_r.
+\]
+Each endpoint occurs in two neighbouring groups, so
+\[
+\sum_{i=1}^r |P_i|=n+r.
+\tag{2}
+\]
+
+Every selected diagonal outside $\mathcal S$ has both endpoints in one group $P_i$. Otherwise it crosses a diagonal of $\mathcal S$, and the required perpendicularity would force it to be parallel to the other direction and hence to belong to $\mathcal S$.
+
+The vertices of a single group lie in a semicircle, so two intersecting diagonals inside that group cannot be perpendicular. Thus the selected diagonals inside $P_i$ are noncrossing. Including, when applicable, the chord joining the two outer endpoints, there are at most
+\[
+|P_i|-2
+\]
+such diagonals.
+
+Using (1) and (2), the total number of selected diagonals is at most
+\[
+\sum_{i=1}^r(|P_i|-2)+q
+=(n+r)-2r+q
+=n-r+q
+\le n-2.
+\]
+
+\textbf{Construction for even $n$.}
+Choose a vertex $A$, and let $A'$ be its antipodal vertex. Select all $n-3$ diagonals from $A$. In addition, select the diagonal joining the two neighbours of $A'$. This extra diagonal meets only the diameter $AA'$, and the two are perpendicular. Thus
+\[
+n-2
+\]
+diagonals can be selected.
+
+This proves the claimed maximum in both parity cases.
+
+SOLUTION 2:
+The constructions and the odd case are as in Solution 1. We give a different proof that no cyclic $n$-gon admits more than $n-2$ selected diagonals satisfying the condition.
+
+We proceed by induction on $n$. The case $n=3$ is immediate.
+
+Suppose first that some selected diagonal $d$ meets no other selected diagonal. It divides the polygon into an $r$-gon and an $s$-gon, where
+\[
+r+s=n+2.
+\]
+Choose the side for which all vertices lie in a semicircle. In that subpolygon no two intersecting diagonals can be perpendicular, so its selected diagonals are noncrossing and number at most
+\[
+r-3.
+\]
+By the induction hypothesis, the other subpolygon contains at most
+\[
+s-2
+\]
+selected diagonals. Including $d$, the total is at most
+\[
+(r-3)+(s-2)+1=n-2.
+\]
+
+It remains to consider the case in which every selected diagonal intersects another selected diagonal. Choose two intersecting selected diagonals $d_1,d_2$; they are perpendicular. Their endpoints divide the circumcircle into four arcs, each lying in a semicircle.
+
+If two selected diagonals intersect and neither is parallel to $d_1$ or $d_2$, their endpoints must lie within one of these four arcs. They then lie in a semicircle and cannot be perpendicular, a contradiction. Hence every selected diagonal is parallel to either $d_1$ or $d_2$.
+
+Choose a longest selected diagonal in each of these two directions. As in Solution 1, none of their four endpoints belongs to another selected diagonal. Every other vertex is an endpoint of at most two selected diagonals, one in each direction. Counting incidences between vertices and selected diagonals gives at most
+\[
+\frac{4+2(n-4)}2=n-2
+\]
+selected diagonals.
+
+The induction is complete.

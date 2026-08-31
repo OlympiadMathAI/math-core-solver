@@ -1,0 +1,256 @@
+ID: 0197
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Geometry
+
+SUBTOPICS: Incenter and Excenter Geometry, Inversion, Poncelet Porism, Euler's Formula, Tangential Triangles
+
+STATEMENT:
+Let $I$ be the incentre of a non-equilateral triangle $ABC$. Let $I_A$ be the $A$-excentre, let $I_A'$ be the reflection of $I_A$ in $BC$, and let $\ell_A$ be the reflection of the line $AI_A'$ in $AI$. Define $I_B,I_B'$, and $\ell_B$ analogously. Let
+\[
+P=\ell_A\cap\ell_B.
+\]
+
+\begin{enumerate}
+\item[(a)] Prove that $P$ lies on the line $OI$, where $O$ is the circumcentre of $\triangle ABC$.
+\item[(b)] One of the tangents from $P$ to the incircle meets the circumcircle of $\triangle ABC$ at $X$ and $Y$. Prove that
+\[
+\angle XIY=120^\circ.
+\]
+\end{enumerate}
+
+SOLUTION 1:
+\textbf{Part (a).}
+Let $A'$ be the reflection of $A$ in $BC$, and let $M$ be the second intersection of $AI$ with the circumcircle $\Gamma$ of $\triangle ABC$.
+
+The isosceles triangles $ABA'$ and $AOC$ satisfy
+\[
+\angle ABA'=2\angle ABC=\angle AOC,
+\]
+so they are similar. Also,
+\[
+\triangle ABI_A\sim\triangle AIC.
+\]
+Consequently,
+\[
+\frac{AA'}{AI_A}
+=
+\frac{AA'}{AB}\cdot\frac{AB}{AI_A}
+=
+\frac{AC}{AO}\cdot\frac{AI}{AC}
+=
+\frac{AI}{AO}.
+\]
+Together with
+\[
+\angle A'AI_A=\angle IAO,
+\]
+this gives
+\[
+\triangle AA'I_A\sim\triangle AIO.
+\tag{1}
+\]
+
+Let
+\[
+P'=AP\cap OI.
+\]
+Because $AP=\ell_A$ is the reflection of $AI_A'$ in $AI$, directed angles and (1) give
+\[
+\begin{aligned}
+\angle MAP'
+&=\angle I_A'AI_A\\
+&=\angle I_A'AA'-\angle I_AAA'\\
+&=\angle AA'I_A-\angle(AM,OM)\\
+&=\angle AIO-\angle AMO\\
+&=\angle MOP'.
+\end{aligned}
+\]
+Thus
+\[
+M,O,A,P'
+\]
+are concyclic.
+
+Let $R$ and $r$ be the circumradius and inradius of $\triangle ABC$. Using a directed coordinate on the line $OI$,
+\[
+\overline{IP'}
+=\frac{IA\cdot IM}{IO}
+=\frac{IO^2-R^2}{IO}.
+\tag{2}
+\]
+The right-hand side is independent of the chosen vertex $A$. Repeating the same argument with $B$ shows that the line $BP$ meets $OI$ at the same point $P'$. Therefore
+\[
+P=P'\in OI.
+\]
+
+\textbf{Part (b).}
+By Poncelet's porism, the other tangents from $X$ and $Y$ to the incircle meet at a point
+\[
+Z\in\Gamma.
+\]
+Thus the triangle $XYZ$ is circumscribed about the incircle and has incentre $I$.
+
+Let $T$ be the point where $XY$ touches the incircle, and let $D$ be the midpoint of $XY$. Taking ordinary positive lengths in part (b), equation (2) gives
+\[
+OI\cdot IP=R^2-OI^2=2Rr,
+\tag{3}
+\]
+where we used Euler's formula
+\[
+OI^2=R^2-2Rr.
+\]
+The right triangles $POD$ and $PIT$ are similar, because $OD\perp XY$, $IT\perp XY$, and $O,I,P$ are collinear. In the configuration the order on the line is $P,I,O$, so, using ordinary lengths,
+\[
+OP=OI+IP.
+\]
+Therefore
+\[
+\begin{aligned}
+OD
+&=IT\cdot\frac{OP}{IP}\\
+&=r\left(1+\frac{OI}{IP}\right)\\
+&=r\left(1+\frac{OI^2}{OI\cdot IP}\right)\\
+&=r\left(1+\frac{R^2-2Rr}{2Rr}\right)\\
+&=\frac R2.
+\end{aligned}
+\]
+Since $OX=R$ and $D$ is the midpoint of the chord $XY$,
+\[
+\angle XZY=60^\circ.
+\]
+The point $I$ is the incentre of $\triangle XYZ$, so
+\[
+\angle XIY
+=90^\circ+\frac12\angle XZY
+=120^\circ.
+\]
+
+SOLUTION 2:
+\textbf{Part (a).}
+The triangles $\triangle AI_BC$ and $\triangle I_ABC$ are similar because their corresponding angles are equal. After reflecting the excentres in the opposite sides, the four triangles
+\[
+\triangle AI_B'C,\qquad
+\triangle AI_BC,\qquad
+\triangle I_ABC,\qquad
+\triangle I_A'BC
+\]
+are all similar.
+
+In particular,
+\[
+\triangle AI_B'C\sim\triangle I_A'BC,
+\]
+which yields
+\[
+\triangle AI_A'C\sim\triangle I_B'BC.
+\]
+By the definitions of $\ell_A$ and $\ell_B$,
+\[
+\angle ABP=\angle I_B'BC=\angle AI_A'C
+\]
+and
+\[
+\angle BAP=\angle I_A'AC.
+\]
+Thus
+\[
+\triangle ABP\sim\triangle AI_A'C.
+\]
+In particular,
+\[
+AP\cdot AI_A'=AB\cdot AC.
+\tag{1}
+\]
+
+Consider the composition of the inversion centred at $A$ with radius
+\[
+\sqrt{AB\cdot AC}
+\]
+and the reflection in $AI$. Under this transformation,
+\[
+B\leftrightarrow C,
+\qquad
+I\leftrightarrow I_A,
+\qquad
+P\leftrightarrow I_A'
+\]
+by (1).
+
+The line $AO$ is mapped to the altitude from $A$. Hence $O$ is mapped to the reflection $A'$ of $A$ in $BC$. The quadrilateral
+\[
+AA'I_AI_A'
+\]
+is an isosceles trapezoid and therefore cyclic. Its inverse image is a straight line, and this line contains the inverse images
+\[
+O,\ I,\ P.
+\]
+Thus
+\[
+O,I,P
+\]
+are collinear.
+
+\textbf{Part (b).}
+Let $R$ and $r$ again denote the circumradius and inradius. The transformation above gives
+\[
+\triangle APO\sim\triangle AA'I_A'
+\]
+and
+\[
+\triangle AA'I_A\sim\triangle AIO.
+\]
+Therefore
+\[
+PO
+=A'I_A'\cdot\frac{AO}{AI_A'}
+=AI_A\cdot\frac{AO}{A'I_A}
+=\frac{AO}{IO}\cdot AO.
+\]
+Hence
+\[
+PO\cdot IO=R^2.
+\tag{2}
+\]
+Thus $P$ and $I$ are inverse points with respect to $\Gamma$.
+
+Since
+\[
+PX\cdot PY
+\]
+is the power of $P$ with respect to $\Gamma$, equation (2) gives
+\[
+PX\cdot PY=PI\cdot PO.
+\]
+Therefore
+\[
+X,I,O,Y
+\]
+are concyclic.
+
+Let $T$ be the point where $XY$ touches the incircle, and let $D$ be the midpoint of $XY$. Then
+\[
+\begin{aligned}
+OD
+&=IT\cdot\frac{PO}{PI}\\
+&=r\cdot\frac{PO}{PO-IO}\\
+&=r\cdot\frac{R^2}{R^2-IO^2}\\
+&=r\cdot\frac{R^2}{2Rr}\\
+&=\frac R2.
+\end{aligned}
+\]
+Therefore
+\[
+\angle DOX=60^\circ,
+\]
+and hence
+\[
+\angle XOY=120^\circ.
+\]
+Since $X,I,O,Y$ are concyclic,
+\[
+\angle XIY=\angle XOY=120^\circ.
+\]

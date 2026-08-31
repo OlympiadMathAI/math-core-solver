@@ -1,0 +1,16 @@
+{
+  "id": "0180",
+  "source": "IMO Shortlist",
+  "year": "2016",
+  "topic": "Algebra",
+  "subtopics": [
+    "Polynomials",
+    "Real Roots",
+    "Sign Analysis",
+    "Modular Classes"
+  ],
+  "statement": "The equation\n\\[\n(x-1)(x-2)\\cdots(x-2016)\n=\n(x-1)(x-2)\\cdots(x-2016)\n\\]\nis written on a board. One tries to erase some linear factors from both sides so that each side still has at least one factor and the resulting equation has no real roots.\n\nFind the least number of linear factors that must be erased.",
+  "solutions": [
+    "The answer is\n\\[\n\\boxed{2016}.\n\\]\n\nFor every $k\\in\\{1,2,\\ldots,2016\\}$, at least one of the two copies of the factor $x-k$ must be erased. Otherwise $x=k$ remains a root of the resulting equation. Hence at least $2016$ factors must be erased.\n\nWe now show that $2016$ erasures suffice. On the left erase all factors $x-k$ with\n\\[\nk\\equiv2,3\\pmod4,\n\\]\nand on the right erase all factors $x-k$ with\n\\[\nk\\equiv0,1\\pmod4.\n\\]\nThe remaining equation is\n\\[\n\\prod_{j=0}^{503}(x-4j-1)(x-4j-4)\n=\n\\prod_{j=0}^{503}(x-4j-2)(x-4j-3).\n\\tag{1}\n\\]\nExactly $2016$ factors have been erased. We prove that (1) has no real solution.\n\nIf $x$ is one of the integers $1,2,\\ldots,2016$, exactly one side of (1) is zero.\n\nSuppose next that, for some $0\\le k\\le503$,\n\\[\n4k+1<x<4k+2\n\\quad\\text{or}\\quad\n4k+3<x<4k+4.\n\\]\nOn the left, the factor pair corresponding to $j=k$ is negative, while every other pair is positive. Every pair on the right is positive. Thus the two sides have opposite signs.\n\nNow suppose that\n\\[\nx<1,\n\\quad x>2016,\n\\quad\\text{or}\\quad\n4k<x<4k+1\n\\]\nfor some $1\\le k\\le503$. Dividing the two sides of (1) gives\n\\[\n1=\n\\prod_{j=0}^{503}\n\\left(\n1-\n\\frac{2}{(x-4j-2)(x-4j-3)}\n\\right).\n\\tag{2}\n\\]\nIn these ranges,\n\\[\n(x-4j-2)(x-4j-3)>2\n\\]\nfor every $j$, so every factor on the right of (2) lies strictly between $0$ and $1$. Their product cannot equal $1$.\n\nThe only remaining possibility is\n\\[\n4k+2<x<4k+3\n\\qquad(0\\le k\\le503).\n\\]\nEquation (1) may then be rearranged as\n\\[\n\\begin{aligned}\n1={}&\n\\frac{x-1}{x-2}\\cdot\n\\frac{x-2016}{x-2015}\\\\\n&\\cdot\n\\prod_{j=1}^{503}\n\\left(\n1+\n\\frac{2}{(x-4j+1)(x-4j-2)}\n\\right).\n\\end{aligned}\n\\tag{3}\n\\]\nBoth initial fractions and every factor in the product are greater than $1$, so the right side of (3) is greater than $1$, again impossible.\n\nAll real numbers have been covered. Hence the constructed equation has no real roots, and the minimum number of erasures is $2016$."
+  ]
+}

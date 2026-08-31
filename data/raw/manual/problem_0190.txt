@@ -1,0 +1,108 @@
+ID: 0190
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Domino Tilings, Alternating Cycles, Symmetry, Pigeonhole Principle
+
+STATEMENT:
+Let $n$ be a positive integer. Determine the smallest positive integer $k$ for which it is possible to mark $k$ cells of a $2n\times2n$ board so that there is a unique tiling of the board by $1\times2$ and $2\times1$ dominoes in which no domino contains two marked cells.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{2n}.
+\]
+
+\textbf{Construction.}
+Number the rows and columns
+\[
+1,2,\ldots,2n.
+\]
+For every
+\[
+i=1,2,\ldots,n,
+\]
+mark the two cells
+\[
+(i,i)
+\qquad\text{and}\qquad
+(i,i+1).
+\tag{1}
+\]
+
+We first describe an admissible tiling. The following four families of cell intervals partition the board:
+
+\begin{itemize}
+\item for $1\le c\le n$, the cells in column $c$ from row $c$ through row $2n+1-c$;
+\item for $1\le r<n$, the cells in row $r$ from column $r+1$ through column $2n-r$;
+\item for $n+1\le c\le2n$, the cells in column $c$ from row $2n+1-c$ through row $c$;
+\item for $n+2\le r\le2n$, the cells in row $r$ from column $2n+2-r$ through column $r-1$.
+\end{itemize}
+
+Each interval has even length. Tile the first and third families vertically and the second and fourth families horizontally. This tiles the whole board. The marked cell $(i,i)$ is paired vertically with $(i+1,i)$, the marked cell $(i,i+1)$ is paired horizontally to the right when $i<n$, and $(n,n+1)$ is paired vertically downward. Thus no domino contains two marked cells.
+
+We now prove uniqueness. The domino covering $(1,1)$ cannot be horizontal because $(1,2)$ is also marked, so it is forced downward. Inductively, once the dominoes covering
+\[
+(1,1),(2,2),\ldots,(i-1,i-1)
+\]
+have been fixed, the cell $(i,i)$ cannot be paired left, up, or right: the left cell is already occupied, the upper cell is the marked cell $(i-1,i)$, and the right cell $(i,i+1)$ is marked. Hence every $(i,i)$ is paired downward.
+
+Next, for $1\le i<n$, the cell $(i,i+1)$ cannot be paired left or down because those cells belong to the already forced diagonal dominoes. It cannot be paired up either: for $i=1$ there is no upper cell, and for $i>1$ that cell is already occupied by the domino starting at $(i-1,i)$. Hence $(i,i+1)$ is forced to the right.
+
+We now force the rest of the four regions. In the left region, the intended vertical dominoes are
+\[
+\{(c+2j,c),(c+2j+1,c)\},
+\qquad
+1\le c\le n,\quad 0\le j\le n-c.
+\tag{2}
+\]
+The case $j=0$ has already been forced. For $j\ge1$, proceed by increasing $j$ and, for fixed $j$, by increasing $c$. At the upper cell $(c+2j,c)$, the cell above belongs to the preceding domino in the same column, the cell to the right belongs to the already forced domino with parameters $(c+1,j-1)$, and the cell to the left is either outside the board or belongs to the already forced domino with parameters $(c-1,j)$. Thus the downward partner is forced. Hence the whole left region is vertical.
+
+Similarly, the intended horizontal dominoes in the top region are
+\[
+\{(r,r+1+2j),(r,r+2+2j)\},
+\qquad
+1\le r<n,\quad 0\le j\le n-r-1.
+\tag{3}
+\]
+The case $j=0$ was forced above. Increasing first $j$ and then $r$, the left cell of every remaining pair has its left, upper, and lower neighbours already occupied, so its right partner is forced. Thus the whole top region is horizontal.
+
+For the right region, start with the outermost column $2n$ and move leftward. The top cell of each column has its upper and left neighbours occupied by the top region and its right neighbour occupied by the preceding right-region column, or outside the board. It is therefore forced downward. Repeating the same layer induction as in (2), now with columns taken in decreasing order, forces the whole right region vertically.
+
+Finally, begin at the bottom row and move upward. The leftmost unfilled cell of each bottom-region row has its left and upper neighbours occupied by the left region and its lower neighbour occupied by the preceding bottom-region row, or outside the board. The analogue of the induction in (3) forces the whole bottom region horizontally.
+
+Thus every admissible tiling is exactly the one described above, and
+\[
+k\le2n.
+\]
+
+\textbf{Lower bound.}
+Suppose fewer than $2n$ cells are marked and that $P$ is an admissible tiling. Let $d$ be the main diagonal of the board.
+
+Construct a graph whose vertices are the cells of the board. Join two cells by a red edge if they form a domino of $P$. Join two cells by a blue edge if their reflections across $d$ form a domino of $P$. Reflection preserves adjacency, so every blue edge also represents a possible domino.
+
+Every cell has red degree $1$ and blue degree $1$. Therefore the graph is a disjoint union of cycles with alternating red and blue edges; a cycle of length $2$ is allowed.
+
+Let $c$ be a cell on $d$. Its red and blue neighbours are reflections of one another and are distinct, so $c$ lies in an alternating cycle of length at least $4$. Follow this cycle from $c$ until it first returns to the diagonal, at a cell $c'\ne c$. Reflection in $d$ gives the other half of the same cycle. Hence this cycle contains exactly the two diagonal cells $c,c'$.
+
+The $2n$ cells of $d$ therefore lie in
+\[
+n
+\]
+distinct alternating cycles. If fewer than $2n$ cells are marked, the pigeonhole principle gives one of these cycles containing at most one marked cell.
+
+On that cycle, replace all red edges by the blue edges. Outside the cycle, keep the original red edges. Because the colours alternate, this produces another domino tiling $P'$. The cycle has length at least $4$, so $P'\ne P$. No new domino contains two marked cells, because the modified cycle contains at most one marked cell.
+
+Thus $P$ was not unique. Therefore
+\[
+k\ge2n.
+\]
+
+Combining the construction and the lower bound, the minimum is
+\[
+\boxed{2n}.
+\]

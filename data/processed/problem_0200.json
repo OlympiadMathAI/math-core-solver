@@ -1,0 +1,16 @@
+{
+  "id": "0200",
+  "source": "IMO Shortlist",
+  "year": "2016",
+  "topic": "Number Theory",
+  "subtopics": [
+    "Divisor Functions",
+    "Congruences",
+    "Prime Factorization",
+    "Parity Counting"
+  ],
+  "statement": "Let $\\tau(n)$ denote the number of positive divisors of $n$, and let $\\tau_1(n)$ denote the number of positive divisors of $n$ that are congruent to $1$ modulo $3$. Determine all possible integer values of\n\\[\n\\frac{\\tau(10n)}{\\tau_1(10n)}\n\\]\nas $n$ ranges over the positive integers.",
+  "solutions": [
+    "The possible values are\n\\[\n\\boxed{2\\ \\text{and all composite positive integers}.}\n\\]\n\nWe first compute $\\tau_1(m)$. Write\n\\[\nm\n=\n3^x\n\\prod_{i=1}^{s}p_i^{a_i}\n\\prod_{j=1}^{t}q_j^{b_j},\n\\]\nwhere\n\\[\np_i\\equiv1\\pmod3,\n\\qquad\nq_j\\equiv2\\pmod3.\n\\]\nEmpty products are allowed.\n\nA divisor of $m$ that is congruent to $1$ modulo $3$ cannot contain the prime $3$. The exponents of the primes $p_i$ may be chosen arbitrarily. For the primes $q_j$, the sum of the chosen exponents must be even. The number of exponent choices of even total parity is\n\\[\n\\left\\lceil\n\\frac12\\prod_{j=1}^{t}(b_j+1)\n\\right\\rceil.\n\\]\nIndeed, if one of the numbers $b_j+1$ is even, exactly half of all choices have even total parity. If all $b_j$ are even, an elementary parity count gives one more even choice than odd choices.\n\nConsequently,\n\\[\n\\tau_1(m)\n=\n\\prod_{i=1}^{s}(a_i+1)\n\\left\\lceil\n\\frac12\\prod_{j=1}^{t}(b_j+1)\n\\right\\rceil.\n\\tag{1}\n\\]\n\nNow write\n\\[\nn\n=\n3^x2^y5^z\n\\prod_{i=1}^{s}p_i^{a_i}\n\\prod_{j=1}^{t}q_j^{b_j},\n\\]\nwhere the primes $q_j\\equiv2\\pmod3$ are taken different from $2$ and $5$. Put\n\\[\nA=\\prod_{i=1}^{s}(a_i+1),\n\\qquad\nB=\\prod_{j=1}^{t}(b_j+1),\n\\qquad\nC=(y+2)(z+2)B.\n\\]\nThen\n\\[\n\\tau(10n)\n=(x+1)AC\n\\tag{2}\n\\]\nand, by (1),\n\\[\n\\tau_1(10n)\n=A\\left\\lceil\\frac C2\\right\\rceil.\n\\tag{3}\n\\]\n\nIf $C$ is even, equations (2) and (3) give\n\\[\n\\frac{\\tau(10n)}{\\tau_1(10n)}\n=2(x+1).\n\\]\nAs $x$ ranges over the nonnegative integers, this gives every positive even integer.\n\nSuppose now that $C$ is odd. Then $y,z$ are odd and every $b_j$ is even. In particular,\n\\[\nC\\ge3\\cdot3=9.\n\\]\nEquations (2) and (3) give\n\\[\n\\frac{\\tau(10n)}{\\tau_1(10n)}\n=\n\\frac{2(x+1)C}{C+1}.\n\\tag{4}\n\\]\nSince $\\gcd(C,C+1)=1$, expression (4) is an integer exactly when\n\\[\nC+1\\mid2(x+1).\n\\]\nWrite\n\\[\n2(x+1)=h(C+1).\n\\]\nThen the value in (4) is\n\\[\nhC.\n\\]\nBecause $C\\ge9$ is itself composite, every integer obtained in this odd case is composite.\n\nConversely, let $N$ be any odd composite positive integer. Write\n\\[\nN=uv\n\\]\nwith odd integers $u,v\\ge3$. Choose\n\\[\nn\n=\n3^{(N-1)/2}\\,2^{u-2}\\,5^{v-2}.\n\\]\nHere\n\\[\nC=(u-2+2)(v-2+2)=uv=N\n\\]\nand\n\\[\n2(x+1)=N+1.\n\\]\nThus (4) equals $N$.\n\nWe have therefore obtained every positive even integer and every odd composite integer. Equivalently, the possible values are $2$ and all composite positive integers."
+  ]
+}

@@ -1,0 +1,60 @@
+ID: 0189
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Arrangements of Lines, Parity, Circular Order, Moving Tokens
+
+STATEMENT:
+Let $n\ge2$. In the plane, $n$ segments are given so that every two segments intersect at an interior point, and no three segments pass through one point. Jeff places a snail at one endpoint of each segment. Whenever he claps, every snail moves along its segment to the next intersection point and waits there. After $n-1$ claps, every snail reaches the intersection point farthest from its starting endpoint.
+
+\begin{enumerate}
+\item[(a)] Prove that if $n$ is odd, Jeff can always choose the starting endpoints so that no two snails ever occupy the same intersection point.
+\item[(b)] Prove that if $n$ is even, then for every choice of starting endpoints there is a moment when two snails occupy the same intersection point.
+\end{enumerate}
+
+SOLUTION 1:
+Choose a disk containing all the segments and all their intersection points. Extend each segment to a line $\ell_i$ meeting the boundary circle at two points $A_i,B_i$.
+
+Every other line has one endpoint on each of the two boundary arcs between $A_i$ and $B_i$. Hence each such arc contains exactly
+\[
+n-1
+\]
+of the other $2n-2$ boundary points.
+
+\textbf{Part (a).}
+Assume that $n$ is odd. Label the $2n$ boundary points alternately
+\[
+\text{in},\ \text{out},\ \text{in},\ \text{out},\ldots
+\]
+around the circle. Since there are $n-1$ points between $A_i$ and $B_i$, and $n-1$ is even, the two endpoints $A_i,B_i$ receive opposite labels. Jeff places the snail on the endpoint of the original segment lying nearer the endpoint labelled \emph{in}.
+
+We show that two snails cannot meet. Suppose the snails on $\ell_i$ and $\ell_j$ start toward the interior from $A_i$ and $A_j$, and let
+\[
+P=\ell_i\cap\ell_j.
+\]
+Because $A_i$ and $A_j$ have the same alternating label, either boundary arc between them contains an odd number of boundary points.
+
+Consider one such arc. Every third line contributes either zero, one, or two endpoints to this arc. It intersects exactly one of the two segments $A_iP$ and $A_jP$ precisely when it contributes one endpoint to the arc; if it contributes zero or two, it intersects either neither or both. Since the arc contains an odd number of endpoints, the total number of intersection points on
+\[
+A_iP\quad\text{and}\quad A_jP
+\]
+excluding $P$ is odd.
+
+If the two snails reached $P$ after the same number of claps, the two segments would contain the same number of preceding intersection points, making their total even. This is impossible. Thus no two snails ever meet.
+
+\textbf{Part (b).}
+Assume that $n$ is even, and fix any placement of the snails. Mark the boundary endpoint toward which each snail travels as \emph{in}, and the other endpoint of the same line as \emph{out}.
+
+There must be two neighbouring boundary points both marked \emph{in}. Otherwise the $n$ in-points and $n$ out-points would alternate around the circle. But $A_i$ and $B_i$ are separated by $n$ positions in the circular order, and $n$ is even, so alternating labels would give them the same label, whereas the two endpoints of one line must have opposite labels. This contradiction proves the claim.
+
+Let the neighbouring in-points be $A_i,A_j$, and put
+\[
+P=\ell_i\cap\ell_j.
+\]
+There is no boundary endpoint on the short arc $A_iA_j$. Therefore every other line intersects either both of the segments $A_iP,A_jP$ or neither of them. Consequently these two segments contain the same number of intersection points before $P$.
+
+The snails starting from $A_i$ and $A_j$ therefore arrive at $P$ after the same number of claps. Hence two snails must meet.

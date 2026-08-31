@@ -1,0 +1,275 @@
+ID: 0199
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Number Theory
+
+SUBTOPICS: Digit Sums, Integer Polynomials, Decimal Expansions, Asymptotic Growth
+
+STATEMENT:
+For a positive integer $k$, let $S(k)$ denote the sum of the digits in its decimal representation. Find all polynomials $P(x)$ with integer coefficients such that, for every positive integer $n\ge2016$, the integer $P(n)$ is positive and
+\[
+S(P(n))=P(S(n)).
+\]
+
+SOLUTION 1:
+The complete list is
+\[
+\boxed{P(x)=x}
+\]
+and
+\[
+\boxed{P(x)=c\quad\text{for an integer }1\le c\le9.}
+\]
+
+We consider three cases.
+
+\textbf{Case 1: $P$ is constant.}
+
+Write $P(x)=c$. Since $P(n)>0$, we have $c>0$, and the equation becomes
+\[
+S(c)=c.
+\]
+This holds exactly for
+\[
+1\le c\le9.
+\]
+
+\textbf{Case 2: $\deg P=1$.}
+
+Write
+\[
+P(x)=ax+b,
+\qquad a,b\in\mathbb Z,\quad a\ne0.
+\]
+Since $P(n)>0$ for all sufficiently large $n$, we have $a\ge1$.
+
+For positive integers $u,v$,
+\[
+S(u+v)\le S(u)+S(v).
+\tag{1}
+\]
+Using $n=2025$ and $n=2020$ in the required identity gives
+\[
+S(2025a+b)-S(2020a+b)=5a.
+\tag{2}
+\]
+On the other hand, by (1),
+\[
+S(2025a+b)
+=S((2020a+b)+5a)
+\le S(2020a+b)+S(5a).
+\]
+Together with (2), this yields
+\[
+5a\le S(5a)\le5a.
+\]
+Equality $S(5a)=5a$ is possible only when $5a$ is a one-digit positive integer. Hence
+\[
+a=1.
+\]
+
+We are left with
+\[
+S(n+b)=S(n)+b
+\qquad(n\ge2016).
+\tag{3}
+\]
+Applying (3) to $n$ and $n+1$ and subtracting,
+\[
+S(n+1+b)-S(n+b)=S(n+1)-S(n).
+\tag{4}
+\]
+
+Suppose first that $b>0$. Choose a sufficiently large $k$ and put
+\[
+n=10^k-b-1.
+\]
+Then
+\[
+n+b=10^k-1,
+\qquad
+n+1+b=10^k,
+\]
+so the left side of (4) is
+\[
+1-9k.
+\]
+But $n<10^k-1$, and therefore
+\[
+S(n)\le9k-1,
+\qquad
+S(n+1)\ge1.
+\]
+Thus the right side of (4) is at least
+\[
+2-9k,
+\]
+a contradiction.
+
+Now suppose that $b<0$, say $b=-c$ with $c>0$. Choose a sufficiently large $k$ and put
+\[
+n=10^k-1.
+\]
+The right side of (4) is
+\[
+1-9k.
+\]
+Meanwhile,
+\[
+n+b=10^k-c-1<10^k-1,
+\]
+so
+\[
+S(n+b)\le9k-1,
+\qquad
+S(n+1+b)\ge1.
+\]
+The left side is therefore at least $2-9k$, again a contradiction.
+
+Hence $b=0$, and the only linear solution is
+\[
+P(x)=x.
+\]
+
+\textbf{Case 3: $\deg P=d\ge2$.}
+
+Let the leading coefficient be $a_d>0$. Take
+\[
+n=10^k-1.
+\]
+Then
+\[
+S(n)=9k,
+\]
+and hence
+\[
+S(P(10^k-1))=P(9k).
+\tag{5}
+\]
+Since
+\[
+P(10^k-1)=O(10^{dk}),
+\]
+the number of its decimal digits is $O(k)$, and consequently
+\[
+S(P(10^k-1))=O(k).
+\]
+However,
+\[
+P(9k)=\Theta(k^d),
+\]
+which cannot equal $O(k)$ for $d\ge2$ and large $k$. Thus this case is impossible.
+
+All listed polynomials are readily checked to satisfy the condition.
+
+SOLUTION 2:
+Write
+\[
+P(x)=a_dx^d+a_{d-1}x^{d-1}+\cdots+a_0,
+\qquad a_d>0.
+\]
+Choose an integer $m\ge1$ such that
+\[
+|a_i|9^i<10^m
+\qquad(0\le i\le d).
+\]
+For sufficiently large $k$, put
+\[
+n=9\cdot10^k.
+\]
+Then
+\[
+S(n)=9
+\]
+and
+\[
+P(n)=\sum_{i=0}^d a_i9^i10^{ik}.
+\tag{1}
+\]
+
+We first show that
+\[
+a_i\ge0
+\qquad(0\le i<d).
+\tag{2}
+\]
+Suppose otherwise, and choose the largest index $i<d$ with $a_i<0$. In the decimal expansion of the sum in (1), the subtraction contributed by the block
+\[
+a_i9^i10^{ik}
+\]
+forces a borrow from a higher block. Because the blocks are separated by $k$ positions and each fixed coefficient block has fewer than $m+1$ digits, this produces at least
+\[
+k-m-1
+\]
+consecutive digits equal to $9$. Therefore
+\[
+S(P(n))\ge9(k-m-1).
+\]
+But the required identity gives
+\[
+S(P(n))=P(S(n))=P(9),
+\]
+which is independent of $k$. This contradiction proves (2).
+
+For large $k$, the nonnegative blocks in (1) are separated far enough that there are no carries between them. Hence
+\[
+S(P(n))
+=
+\sum_{i=0}^d S(a_i9^i).
+\]
+Since $S(n)=9$, we obtain
+\[
+\sum_{i=0}^d S(a_i9^i)
+=P(9)
+=\sum_{i=0}^d a_i9^i.
+\tag{3}
+\]
+For every nonnegative integer $u$,
+\[
+S(u)\le u,
+\]
+with equality only for $u=0$ or $1\le u\le9$. Thus equality in (3) forces every nonzero number $a_i9^i$ to lie between $1$ and $9$.
+
+It follows immediately that
+\[
+a_i=0\qquad(i\ge2).
+\]
+If $a_1\ne0$, then $a_1=1$. Hence the only remaining possibilities are
+\[
+P(x)=a_0
+\quad\text{or}\quad
+P(x)=x+a_0,
+\qquad 0\le a_0\le9.
+\]
+
+The zero polynomial is excluded by positivity. A constant works exactly when
+\[
+1\le a_0\le9.
+\]
+If
+\[
+P(x)=x+a_0
+\]
+with $1\le a_0\le9$, choose a sufficiently large $k$ and set
+\[
+n=10^k+(10-a_0).
+\]
+Then
+\[
+S(P(n))
+=S(10^k+10)=2,
+\]
+whereas
+\[
+P(S(n))
+=P(11-a_0)=11.
+\]
+This is impossible. Therefore $a_0=0$, giving
+\[
+P(x)=x.
+\]
+
+Thus the solutions are precisely the identity polynomial and the constants $1,2,\ldots,9$.

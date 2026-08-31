@@ -1,0 +1,351 @@
+ID: 0194
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Geometry
+
+SUBTOPICS: Isosceles Triangles, Incenter and Excenter Geometry, Reflections, Cyclic Quadrilaterals, Similar Triangles
+
+STATEMENT:
+Let $ABC$ be a triangle with
+\[
+AB=AC\ne BC,
+\]
+and let $I$ be its incentre. The line $BI$ meets $AC$ at $D$, and the line through $D$ perpendicular to $AC$ meets $AI$ at $E$. Prove that the reflection $I'$ of $I$ in $AC$ lies on the circumcircle of triangle $BDE$.
+
+SOLUTION 1:
+Let $\Gamma$ be the circle with centre $E$ through $B$ and $C$. Since $AB=AC$, the line $AI$ is the perpendicular bisector of $BC$, so indeed
+\[
+EB=EC.
+\]
+
+Let $F$ be the reflection of $C$ in $D$. Because
+\[
+ED\perp AC
+\]
+and $D$ is the midpoint of $CF$, we have
+\[
+EF=EC,
+\]
+so $F\in\Gamma$.
+
+Now
+\[
+\angle DCI=\angle ICB=\angle CBI,
+\]
+so $DC$ is tangent to the circumcircle of $\triangle IBC$ at $C$. Let $J$ be the reflection of $I$ in $D$. In directed lengths,
+\[
+DC\cdot DF=-DC^2=-DI\cdot DB=DJ\cdot DB.
+\]
+Since $B,C,F\in\Gamma$, this equality of powers shows that
+\[
+J\in\Gamma.
+\]
+
+The diagonals $IJ$ and $CF$ bisect one another at $D$, so $CJFI$ is a parallelogram. Reflecting $I$ in $AC$ gives $I'$, and
+\[
+\angle FI'C=\angle CIF=\angle FJC.
+\]
+Thus $I'\in\Gamma$, and hence
+\[
+EI'=EB.
+\tag{1}
+\]
+
+The line $AC$ is the internal angle bisector of $\angle BDI'$, because $I'$ is the reflection of $I$ in $AC$. Since $DE\perp AC$, the line $DE$ is the external angle bisector of $\angle BDI'$. Together with (1), the standard external-angle-bisector criterion for a cyclic quadrilateral gives
+\[
+B,D,E,I'\ \text{concyclic}.
+\]
+
+SOLUTION 2:
+Let
+\[
+S=I'C\cap AI
+\]
+and put
+\[
+\theta=\angle ACI=\angle ICB=\angle CBI.
+\]
+All angles below are directed modulo $\pi$.
+
+We have
+\[
+\angle I'SE
+=\angle I'CA+\angle CAI
+=\theta+\left(\frac\pi2+2\theta\right)
+=3\theta+\frac\pi2.
+\]
+Also,
+\[
+\begin{aligned}
+\angle I'DE
+&=\angle I'DC+\frac\pi2\\
+&=\angle CDI+\frac\pi2\\
+&=\angle DCB+\angle CBD+\frac\pi2\\
+&=3\theta+\frac\pi2.
+\end{aligned}
+\]
+Hence
+\[
+I',D,E,S
+\]
+are concyclic.
+
+Furthermore,
+\[
+\angle I'SB=2\angle I'SE=6\theta,
+\]
+while
+\[
+\angle I'DB=2\angle CDI=6\theta.
+\]
+Therefore
+\[
+I',D,B,S
+\]
+are concyclic as well. The two circles share the three points $I',D,S$, so they coincide, and consequently
+\[
+B,D,E,I'
+\]
+are concyclic.
+
+SOLUTION 3:
+Let $D'$ be the second intersection of $AI$ with the circumcircle of $\triangle ABD$. Since $AD'$ bisects $\angle BAD$, the point $D'$ is the midpoint of the arc $BD$ not containing $A$. Thus
+\[
+DD'=BD'=CD'.
+\tag{1}
+\]
+The points $A,E,D'$ lie on $AI$ in this order.
+
+We have
+\[
+\angle ED'D=\angle AD'D=\angle ABD=\angle IBC=\angle ICB.
+\]
+Since $D'$ is the circumcentre of $\triangle BCD$ by (1),
+\[
+\angle EDD'
+=90^\circ-\angle D'DC
+=\angle CBD
+=\angle IBC.
+\]
+Hence
+\[
+\triangle ED'D\sim\triangle ICB.
+\]
+Therefore
+\[
+\frac{BC}{CI'}
+=\frac{BC}{CI}
+=\frac{DD'}{D'E}
+=\frac{BD'}{D'E}.
+\tag{2}
+\]
+
+Also,
+\[
+\begin{aligned}
+\angle BCI'
+&=\angle BCA+\angle ACI'\\
+&=\angle BCA+\angle ICA\\
+&=\angle BCA+\angle DBC\\
+&=\angle BDA\\
+&=\angle BD'E.
+\end{aligned}
+\]
+Together with (2), this proves
+\[
+\triangle BCI'\sim\triangle BD'E.
+\]
+It follows that
+\[
+\triangle BCD'\sim\triangle BI'E.
+\]
+Since $BCD'$ is isosceles,
+\[
+BE=EI'.
+\tag{3}
+\]
+
+As in Solution 1, $DE$ is the external angle bisector of $\angle BDI'$. The equality (3) therefore implies that
+\[
+B,D,E,I'
+\]
+are concyclic.
+
+SOLUTION 4:
+Let $AI$ and $BI$ meet the circumcircle of $\triangle ABC$ again at $A'$ and $B'$, respectively. Let $E'$ be the reflection of $E$ in $AC$.
+
+A directed-angle calculation gives
+\[
+\begin{aligned}
+\angle B'AE'
+&=\angle B'AD-\angle E'AD\\
+&=\frac12\angle ABC-\frac12\angle BAC\\
+&=90^\circ-\angle BAC-\frac12\angle ABC\\
+&=90^\circ-\angle B'DA\\
+&=\angle B'DE'.
+\end{aligned}
+\]
+Thus $B',A,D,E'$ are concyclic.
+
+Then
+\[
+\angle DB'E'
+=\angle DAE'
+=\frac12\angle BAC
+=\angle BAA'
+=\angle DB'A',
+\]
+so
+\[
+B',E',A'\ \text{are collinear}.
+\]
+
+It is a standard fact that $A'B'$ is the perpendicular bisector of $CI$. Therefore
+\[
+CE'=IE'.
+\]
+Reflecting in $AC$ gives
+\[
+BE=CE=I'E.
+\]
+Since $DE$ is the external angle bisector of $\angle BDI'$, it follows that
+\[
+B,D,E,I'
+\]
+are concyclic.
+
+SOLUTION 5:
+Let
+\[
+F=CI\cap AB,
+\]
+and let $O_1$ be the circumcentre of $\triangle BIF$. The points $F$ and $D$ are symmetric with respect to $AI$. Let $I'$ be the reflection of $I$ in $AC$.
+
+From
+\[
+\angle BFO_1=90^\circ-\angle FIB
+=\frac12\angle BAC
+=\angle BAI,
+\]
+we obtain
+\[
+EI\parallel FO_1.
+\tag{1}
+\]
+Also,
+\[
+\angle O_1IB
+=90^\circ-\angle BFI
+=90^\circ-\angle CDI
+=\angle I'ID,
+\]
+so
+\[
+O_1,I,I'\ \text{are collinear}.
+\tag{2}
+\]
+
+Both $ED$ and $O_1I$ are perpendicular to $AC$, hence
+\[
+ED\parallel O_1I.
+\]
+Using (1),
+\[
+\angle FEI=\angle DEI=\angle O_1IE,
+\]
+so $EFO_1I$ is an isosceles trapezoid. Therefore
+\[
+\angle DIE=\angle FIE=\angle O_1EI,
+\]
+and consequently
+\[
+EO_1\parallel ID.
+\]
+Thus $DEO_1I$ is a parallelogram.
+
+Hence
+\[
+DI'=DI=EO_1,
+\]
+so $DEO_1I'$ is an isosceles trapezoid and therefore cyclic. Moreover,
+\[
+ED=O_1I=O_1B
+\]
+and $EO_1\parallel BD$, so $EO_1BD$ is another isosceles trapezoid and is cyclic. These two cyclic quadrilaterals share $D,E,O_1$, so
+\[
+B,D,E,I'
+\]
+lie on one circle.
+
+SOLUTION 6:
+Let $T$ and $M$ be the feet of the perpendiculars from $I$ to $AB$ and $BC$, respectively. Since $BI$ is the perpendicular bisector of $TM$,
+\[
+DT=DM.
+\tag{1}
+\]
+
+Because
+\[
+\angle ADE=\angle ATI=90^\circ
+\]
+and
+\[
+\angle DAE=\angle TAI,
+\]
+we have
+\[
+\triangle ADE\sim\triangle ATI.
+\]
+Thus
+\[
+\frac{AD}{AE}=\frac{AT}{AI}=\frac{AT}{AI'}.
+\]
+Moreover,
+\[
+\angle DAT=2\angle DAE=\angle EAI',
+\]
+so
+\[
+\triangle DAT\sim\triangle EAI'.
+\]
+Consequently,
+\[
+\frac{DT}{EI'}=\frac{AT}{AI}.
+\tag{2}
+\]
+
+The right triangles $AMB$ and $ATI$ are similar, hence
+\[
+\frac{AM}{AB}=\frac{AT}{AI}.
+\tag{3}
+\]
+Also,
+\[
+\triangle AMB\sim\triangle ATI\sim\triangle ADE,
+\]
+so
+\[
+\frac{AM}{AB}=\frac{AD}{AE}.
+\]
+It follows that
+\[
+\triangle ADM\sim\triangle AEB,
+\]
+and therefore
+\[
+\frac{DM}{EB}=\frac{AM}{AB}.
+\tag{4}
+\]
+
+Combining (1)--(4),
+\[
+EB=EI'.
+\]
+As $DE$ is the external angle bisector of $\angle BDI'$, the points
+\[
+B,D,E,I'
+\]
+are concyclic.

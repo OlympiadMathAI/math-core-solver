@@ -1,0 +1,188 @@
+ID: 0198
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Geometry
+
+SUBTOPICS: Angle Bisectors, Orthocentres, Rotations, Convexity, Perimeter Comparison
+
+STATEMENT:
+Let $A_1,B_1,C_1$ lie on the sides $BC,CA,AB$, respectively, of an acute triangle $ABC$, and suppose that
+\[
+AA_1,\qquad BB_1,\qquad CC_1
+\]
+are the internal angle bisectors of $\triangle ABC$. Let $I$ be the incentre of $\triangle ABC$, and let $H$ be the orthocentre of $\triangle A_1B_1C_1$. Prove that
+\[
+AH+BH+CH\ge AI+BI+CI.
+\]
+
+SOLUTION 1:
+Write
+\[
+\alpha=\angle BAC,\qquad
+\beta=\angle CBA,\qquad
+\gamma=\angle ACB,
+\]
+and assume without loss of generality that
+\[
+\alpha\le\beta\le\gamma.
+\tag{1}
+\]
+Let
+\[
+a=BC,\qquad b=CA,\qquad c=AB.
+\]
+
+We first prove that $\triangle A_1B_1C_1$ is acute. Choose $D,E\in BC$ so that
+\[
+B_1D\parallel AB
+\]
+and $B_1E$ bisects $\angle BB_1C$. Since
+\[
+\angle B_1DB=180^\circ-\beta
+\]
+is obtuse,
+\[
+BB_1>B_1D.
+\]
+The angle-bisector theorem gives
+\[
+\frac{BE}{EC}
+=\frac{BB_1}{B_1C}
+>
+\frac{DB_1}{B_1C}
+=
+\frac{BA}{AC}
+=
+\frac{BA_1}{A_1C}.
+\]
+Hence
+\[
+BE>BA_1,
+\]
+and therefore
+\[
+\frac12\angle BB_1C
+=\angle BB_1E
+>\angle BB_1A_1.
+\]
+Similarly,
+\[
+\frac12\angle BB_1A>\angle BB_1C_1.
+\]
+Thus
+\[
+\begin{aligned}
+\angle A_1B_1C_1
+&=\angle BB_1A_1+\angle BB_1C_1\\
+&<\frac12\left(\angle BB_1C+\angle BB_1A\right)\\
+&=90^\circ.
+\end{aligned}
+\]
+By symmetry, $\triangle A_1B_1C_1$ is acute.
+
+Let
+\[
+F=BB_1\cap A_1C_1.
+\]
+From $\alpha\le\gamma$ we get $a\le c$, and the angle-bisector theorem gives
+\[
+BA_1=\frac{ca}{b+c}
+\le
+\frac{ac}{a+b}
+=BC_1.
+\]
+Hence
+\[
+\angle BC_1A_1\le\angle BA_1C_1.
+\]
+Since $BF$ bisects $\angle A_1BC_1$,
+\[
+\angle B_1FC_1=\angle BFA_1\le90^\circ.
+\]
+Therefore $H$ lies on the same side of $BB_1$ as $C_1$, so $H$ lies inside $\triangle BB_1C_1$. In the same way, using $\alpha\le\beta$ and $\beta\le\gamma$, we find that $H$ lies inside
+\[
+\triangle CC_1B_1
+\qquad\text{and}\qquad
+\triangle AA_1C_1.
+\tag{2}
+\]
+
+We record two consequences that will be used below. Since $B_1$ lies on $CA$, the triangle $CC_1B_1$ is contained in $\triangle ACC_1$; hence
+\[
+H\in\triangle ACC_1.
+\tag{3}
+\]
+Moreover, $H$ lies inside the acute triangle $A_1B_1C_1$, and thus inside $ABC$. The inclusion $H\in\triangle AA_1C_1$ places $H$ on the same side of $AI=AA_1$ as $B$, while $H\in\triangle BB_1C_1$ places it on the same side of $BI=BB_1$ as $A$. Together with the side $AB$, these are exactly the three half-plane conditions defining $\triangle ABI$. Therefore
+\[
+H\in\triangle ABI.
+\tag{4}
+\]
+
+From (1),
+\[
+\alpha\le60^\circ\le\gamma.
+\]
+Hence
+\[
+\angle BIC\le120^\circ\le\angle AIB.
+\tag{5}
+\]
+
+First suppose
+\[
+\angle AIC\ge120^\circ.
+\tag{6}
+\]
+Rotate the points $B,I,H$ through $60^\circ$ about $A$, obtaining $B',I',H'$, with $B'$ and $C$ on opposite sides of $AB$. Since $\triangle AII'$ is equilateral,
+\[
+\begin{aligned}
+AI+BI+CI
+&=I'I+B'I'+IC,\\
+AH+BH+CH
+&=H'H+B'H'+HC.
+\end{aligned}
+\tag{7}
+\]
+
+Because
+\[
+\angle AII'=\angle AI'I=60^\circ,
+\]
+while
+\[
+\angle AI'B'=\angle AIB\ge120^\circ
+\]
+and (6) holds, the quadrilateral
+\[
+B'I'IC
+\]
+is convex and lies on the same side of $B'C$ as $A$.
+
+By (3), $H$ lies inside $\triangle ACC_1$, so it lies outside $B'I'IC$. Also, by (4), $H$ lies inside $\triangle ABI$, and therefore its rotated image $H'$ lies inside $\triangle AB'I'$. Hence $H'$ also lies outside $B'I'IC$. It follows that the convex quadrilateral $B'I'IC$ is contained in the convex quadrilateral
+\[
+B'H'HC.
+\]
+The perimeter of a convex set cannot decrease when the set is enlarged. Adding the common side $B'C$ to the two path lengths in (7), we obtain
+\[
+I'I+B'I'+IC
+\le
+H'H+B'H'+HC.
+\]
+Thus
+\[
+AI+BI+CI\le AH+BH+CH.
+\]
+
+If instead
+\[
+\angle AIC<120^\circ,
+\]
+rotate $B,I,H$ through $60^\circ$ about $C$, choosing the orientation so that the image of $B$ and $A$ lie on opposite sides of $BC$. The same containment and perimeter argument, with the roles of $A$ and $C$ interchanged, gives the same inequality.
+
+Therefore
+\[
+AH+BH+CH\ge AI+BI+CI.
+\]

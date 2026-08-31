@@ -1,0 +1,170 @@
+ID: 0201
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Number Theory
+
+SUBTOPICS: Polynomial GCDs, Chinese Remainder Theorem, Consecutive Values, Modular Arithmetic
+
+STATEMENT:
+Define
+\[
+P(n)=n^2+n+1.
+\]
+For positive integers $a$ and $b$, call the set
+\[
+\{P(a),P(a+1),P(a+2),\ldots,P(a+b)\}
+\]
+\emph{fragrant} if none of its elements is relatively prime to the product of all the other elements. Determine the smallest possible size of a fragrant set.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{6}.
+\]
+
+We begin with three gcd observations.
+
+\textbf{Observation 1.}
+For every integer $n$,
+\[
+\gcd(P(n),P(n+1))=1.
+\tag{1}
+\]
+Indeed,
+\[
+P(n+1)-P(n)=2n+2.
+\]
+The number $P(n)$ is odd, and
+\[
+\gcd(P(n),n+1)=\gcd(1,n+1)=1,
+\]
+which proves (1).
+
+\textbf{Observation 2.}
+\[
+\gcd(P(n),P(n+2))
+=
+\begin{cases}
+7,&n\equiv2\pmod7,\\
+1,&n\not\equiv2\pmod7.
+\end{cases}
+\tag{2}
+\]
+The identity
+\[
+(2n+7)P(n)-(2n-1)P(n+2)=14
+\]
+shows that the gcd divides $14$. Since both polynomial values are odd, the gcd divides $7$. Checking the seven residue classes modulo $7$ gives (2).
+
+\textbf{Observation 3.}
+\[
+\gcd(P(n),P(n+3))>1
+\quad\Longleftrightarrow\quad
+n\equiv1\pmod3.
+\tag{3}
+\]
+Indeed,
+\[
+(n+5)P(n)-(n-1)P(n+3)=18.
+\]
+Thus the gcd is an odd divisor of $18$, and a direct check modulo $3$ gives (3).
+
+We now show that no fragrant set has at most five elements.
+
+A set of one or two consecutive values is plainly impossible by (1). In a set of three consecutive values, the middle term is coprime to both others by (1), so such a set is not fragrant.
+
+For four consecutive values
+\[
+P(a),P(a+1),P(a+2),P(a+3),
+\]
+the term $P(a+1)$ can share a factor only with $P(a+3)$, which by (2) would require
+\[
+a+1\equiv2\pmod7.
+\]
+Similarly, $P(a+2)$ can share a factor only with $P(a)$, requiring
+\[
+a\equiv2\pmod7.
+\]
+These conditions are incompatible.
+
+Finally, suppose that
+\[
+P(a),P(a+1),\ldots,P(a+4)
+\]
+were fragrant. The middle term $P(a+2)$ is coprime to its two neighbours by (1), so it must share a factor with $P(a)$ or $P(a+4)$.
+
+If
+\[
+\gcd(P(a),P(a+2))>1,
+\]
+then $a\equiv2\pmod7$ by (2). Hence
+\[
+\gcd(P(a+1),P(a+3))=1.
+\]
+The term $P(a+1)$ must therefore share a factor with $P(a+4)$, while $P(a+3)$ must share a factor with $P(a)$. By (3), this requires simultaneously
+\[
+a+1\equiv1\pmod3
+\qquad\text{and}\qquad
+a\equiv1\pmod3,
+\]
+a contradiction.
+
+If instead
+\[
+\gcd(P(a+2),P(a+4))>1,
+\]
+then $a+2\equiv2\pmod7$, and again
+\[
+\gcd(P(a+1),P(a+3))=1.
+\]
+The same fragrance requirements force the same two incompatible congruences modulo $3$.
+
+Thus every fragrant set has at least six elements.
+
+It remains to construct one of size six. By the Chinese Remainder Theorem, choose $a$ satisfying
+\[
+a\equiv7\pmod{19},
+\qquad
+a+1\equiv2\pmod7,
+\qquad
+a+2\equiv1\pmod3.
+\]
+For example,
+\[
+a=197
+\]
+works.
+
+By (2), both
+\[
+P(a+1)\quad\text{and}\quad P(a+3)
+\]
+are divisible by $7$. By (3), both
+\[
+P(a+2)\quad\text{and}\quad P(a+5)
+\]
+are divisible by $3$. Finally,
+\[
+19\mid P(7)=57
+\qquad\text{and}\qquad
+19\mid P(11)=133,
+\]
+while
+\[
+a\equiv7\pmod{19},
+\qquad
+a+4\equiv11\pmod{19}.
+\]
+Hence
+\[
+19\mid P(a),P(a+4).
+\]
+
+Every one of the six values shares a nontrivial common factor with another one, so
+\[
+\{P(a),P(a+1),\ldots,P(a+5)\}
+\]
+is fragrant. The minimum size is therefore $6$.

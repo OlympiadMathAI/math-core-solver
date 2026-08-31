@@ -1,0 +1,405 @@
+ID: 0196
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Geometry
+
+SUBTOPICS: Angle Bisectors, Cyclic Quadrilaterals, Harmonic Division, Power of a Point, Directed Angles
+
+STATEMENT:
+Let $ABCD$ be a convex quadrilateral with
+\[
+\angle ABC=\angle ADC<90^\circ.
+\]
+The internal angle bisectors of $\angle ABC$ and $\angle ADC$ meet $AC$ at $E$ and $F$, respectively, and meet one another at $P$. Let $M$ be the midpoint of $AC$, and let $\omega$ be the circumcircle of triangle $BPD$. The segments $BM$ and $DM$ meet $\omega$ again at $X$ and $Y$, respectively. Let
+\[
+Q=XE\cap YF.
+\]
+Prove that
+\[
+PQ\perp AC.
+\]
+
+SOLUTION 1:
+Let $\omega_1$ be the circumcircle of $\triangle ABC$.
+
+We first prove that
+\[
+Y\in\omega_1.
+\tag{1}
+\]
+Choose $Y'$ on the ray $MD$ so that
+\[
+MY'\cdot MD=MA^2.
+\tag{2}
+\]
+The triangles $MAY'$ and $MDA$ are oppositely similar. Since
+\[
+MC^2=MA^2=MY'\cdot MD,
+\]
+the triangles $MCY'$ and $MDC$ are also oppositely similar. Thus, in directed angles,
+\[
+\begin{aligned}
+\angle AY'C
+&=\angle AY'M+\angle MY'C\\
+&=\angle MAD+\angle DCM\\
+&=\angle CDA\\
+&=\angle ABC.
+\end{aligned}
+\]
+Hence $Y'\in\omega_1$.
+
+Let
+\[
+Z=AD\cap BC.
+\]
+Since
+\[
+\angle PDZ=\angle PBC=\angle PBZ,
+\]
+we have $Z\in\omega$. Also,
+\[
+\angle Y'BZ
+=\angle Y'BC
+=\angle Y'AC
+=\angle Y'AM
+=\angle Y'DZ,
+\]
+so $Y'\in\omega$ as well. The hypothesis $\angle ADC<90^\circ$ implies $MA\ne MD$, and hence $Y'\ne D$. Therefore $Y'$ is the second intersection of $DM$ with $\omega$, so
+\[
+Y'=Y.
+\]
+This proves (1).
+
+Using the angle-bisector theorem and the two opposite similarities above,
+\[
+\frac{FA}{FC}
+=\frac{AD}{CD}
+=\frac{AD}{AM}\cdot\frac{CM}{CD}
+=\frac{YA}{YM}\cdot\frac{YM}{YC}
+=\frac{YA}{YC}.
+\]
+Therefore $FY$ is the internal angle bisector of $\angle AYC$.
+
+Let $B'$ be the second intersection of the internal angle bisector of $\angle CBA$ with $\omega_1$. Then $B'$ is the midpoint of the arc $AC$ not containing $B$, so $YB'$ is the external angle bisector of $\angle AYC$. Consequently,
+\[
+YB'\perp YF.
+\tag{3}
+\]
+
+Let $\ell$ be the line through $P$ parallel to $AC$, and let
+\[
+S=\ell\cap B'Y.
+\]
+Then
+\[
+\begin{aligned}
+\angle PSY
+&=\angle(AC,B'Y)\\
+&=\angle ACY+\angle CYB'\\
+&=\angle ACY+\angle CAB'\\
+&=\angle ACY+\angle B'CA\\
+&=\angle B'CY\\
+&=\angle B'BY\\
+&=\angle PBY.
+\end{aligned}
+\]
+Hence $S\in\omega$.
+
+The symmetric argument, starting from the line $XE$, shows that the line through $X$ perpendicular to $XE$ also passes through the second intersection of $\ell$ with $\omega$, namely $S$. Thus
+\[
+XS\perp XE
+\qquad\text{and}\qquad
+YS\perp YF.
+\]
+Since $Q=XE\cap YF$, the angles $QXS$ and $QYS$ are right angles, so $Q\in\omega$ and $QS$ is a diameter of $\omega$.
+
+Because $P,S\in\omega$,
+\[
+PQ\perp PS.
+\]
+Finally,
+\[
+PS\parallel AC,
+\]
+and therefore
+\[
+PQ\perp AC.
+\]
+
+SOLUTION 2:
+Let $\omega_1$ and $\omega_2$ be the circumcircles of $\triangle ABC$ and $\triangle ADC$, respectively. Since
+\[
+\angle ABC=\angle ADC,
+\]
+the two circles are reflections of one another in the midpoint $M$ of $AC$.
+
+We first show that
+\[
+X\in\omega_2.
+\tag{1}
+\]
+Let $X_1$ be the second intersection of the ray $MB$ with $\omega_2$, and let $X_0$ be its reflection in $M$. Then $X_0\in\omega_1$, and $X_0AX_1C$ is a parallelogram. Hence
+\[
+\begin{aligned}
+\angle DX_1B
+&=\angle DX_1A+\angle AX_1B\\
+&=\angle DCA+\angle AX_1X_0\\
+&=\angle DCA+\angle CX_0X_1\\
+&=\angle DCA+\angle CAB\\
+&=\angle(CD,AB).
+\end{aligned}
+\]
+On the other hand,
+\[
+\angle DPB
+=\angle PDC+\angle(CD,AB)+\angle ABP
+=\angle(CD,AB).
+\]
+Thus $X_1\in\omega$. Since $X_1$ is the second intersection of $BM$ with $\omega$,
+\[
+X_1=X.
+\]
+This proves (1). By symmetry,
+\[
+Y\in\omega_1.
+\tag{2}
+\]
+
+Let the perpendicular bisector of $AC$ meet $\omega_1$ at $B'$ and $M_1$, and meet $\omega_2$ at $D'$ and $M_2$, with $B,M_1,D'$ on the same side of $AC$. The point $B'$ lies on the angle bisector of $\angle ABC$, and $D'$ lies on $DP$.
+
+We show that $XE$ is the angle bisector of $\angle AXC$. Since $X_0$ is the reflection of $X$ in $M$,
+\[
+\frac{BA\cdot X_0A}{BC\cdot X_0C}
+=
+\frac{[BAX_0]}{[BCX_0]}
+=
+\frac{MA}{MC}
+=1.
+\]
+Therefore
+\[
+\frac{EA}{EC}
+=\frac{BA}{BC}
+=\frac{X_0C}{X_0A}
+=\frac{XA}{XC}.
+\]
+The angle-bisector theorem gives that $XE$ bisects $\angle AXC$. Hence
+\[
+X,E,M_2\ \text{are collinear}.
+\tag{3}
+\]
+Similarly,
+\[
+Y,F,M_1\ \text{are collinear}.
+\tag{4}
+\]
+
+Using (3) and (4),
+\[
+\begin{aligned}
+\angle XQY
+&=\angle M_2QM_1\\
+&=\angle QM_2M_1+\angle M_2M_1Q\\
+&=\angle XM_2D'+\angle B'M_1Y\\
+&=\angle XDD'+\angle B'BY\\
+&=\angle XDP+\angle PBY\\
+&=\angle XBP+\angle PBY\\
+&=\angle XBY.
+\end{aligned}
+\]
+Thus
+\[
+Q\in\omega.
+\tag{5}
+\]
+
+The quadrilateral $X_0M_2XM_1$ is a parallelogram, because $M_1$ and $M_2$ are reflections in $M$. Therefore
+\[
+\begin{aligned}
+\angle XQP
+&=\angle XBP\\
+&=\angle X_0BB'\\
+&=\angle X_0M_1B'\\
+&=\angle XM_2M_1.
+\end{aligned}
+\]
+Hence
+\[
+QP\parallel M_2M_1.
+\]
+Since the line $M_1M_2$ is the perpendicular bisector of $AC$,
+\[
+PQ\perp AC.
+\]
+
+SOLUTION 3:
+We use two lemmas.
+
+\textbf{Lemma 1.}
+In a triangle $X_0Y_0Z_0$ with $X_0Y_0\ne X_0Z_0$, let $N_0$ be the midpoint of $Y_0Z_0$, and let $W_0$ be the foot of the internal angle bisector from $X_0$. Then, with directed angles,
+\[
+\tan^2\angle W_0X_0Z_0
+=
+\tan\angle N_0X_0W_0\,
+\tan\angle Z_0W_0X_0.
+\tag{1}
+\]
+
+To prove this, assume $X_0Y_0>X_0Z_0$, so $W_0$ lies between $N_0$ and $Z_0$. Set
+\[
+\alpha=\angle W_0X_0Z_0,\qquad
+\beta=\angle N_0X_0W_0,\qquad
+\gamma=\angle Z_0W_0X_0.
+\]
+The sine rule in the two triangles around $N_0$ gives
+\[
+\frac{\sin(\gamma-\alpha)}{\sin(\alpha-\beta)}
+=
+\frac{N_0X_0}{N_0Y_0}
+=
+\frac{N_0X_0}{N_0Z_0}
+=
+\frac{\sin(\gamma+\alpha)}{\sin(\alpha+\beta)}.
+\]
+Rewriting in tangent form,
+\[
+\frac{\tan\gamma-\tan\alpha}{\tan\gamma+\tan\alpha}
+=
+\frac{\tan\alpha-\tan\beta}{\tan\alpha+\tan\beta},
+\]
+which simplifies to (1).
+
+\textbf{Lemma 2.}
+Let $A_0B_0C_0D_0$ be cyclic. Suppose its diagonals $A_0C_0$ and $B_0D_0$ meet at $E_0$, while the lines $A_0B_0$ and $C_0D_0$ meet at $F_0$. If $M_0$ is the midpoint of $E_0F_0$, then
+\[
+\operatorname{Pow}_\Gamma(M_0)=M_0E_0^2,
+\tag{2}
+\]
+where $\Gamma$ is the circumcircle.
+
+Let $O_0$ and $R_0$ be the centre and radius of $\Gamma$. A standard complete-quadrilateral theorem says that $E_0$ and $F_0$ are conjugate with respect to $\Gamma$; in vector form,
+\[
+\overrightarrow{O_0E_0}\cdot\overrightarrow{O_0F_0}=R_0^2.
+\tag{3}
+\]
+Put
+\[
+e=\overrightarrow{O_0E_0},
+\qquad
+f=\overrightarrow{O_0F_0}.
+\]
+Since $M_0$ is the midpoint of $E_0F_0$,
+\[
+\overrightarrow{O_0M_0}=\frac{e+f}{2}.
+\]
+Using (3),
+\[
+\begin{aligned}
+\operatorname{Pow}_\Gamma(M_0)
+&=\left|\frac{e+f}{2}\right|^2-R_0^2\\
+&=\frac{|e|^2+|f|^2-2R_0^2}{4}\\
+&=\left|\frac{f-e}{2}\right|^2\\
+&=M_0E_0^2.
+\end{aligned}
+\]
+This proves the lemma.
+
+We now return to the problem. Let
+\[
+Z=AD\cap BC,
+\qquad
+W=AB\cap CD.
+\]
+As in Solution 1,
+\[
+Z,W\in\omega.
+\]
+Apply Lemma 2 to the cyclic quadrilateral $ZBDW$. Its diagonal intersection is $A$, the intersection of the opposite side lines is $C$, and $M$ is the midpoint of $AC$. Therefore
+\[
+\operatorname{Pow}_\omega(M)=MA^2.
+\]
+Since $B,M,X$ are collinear,
+\[
+MX\cdot MB=MA^2.
+\tag{3}
+\]
+
+Let the line through $B$ perpendicular to $BE$ meet $AC$ at $T$. The lines $BE$ and $BT$ are the internal and external angle bisectors of $\angle CBA$, so
+\[
+(T,E;A,C)
+\]
+is harmonic. Since $M$ is the midpoint of $AC$,
+\[
+ME\cdot MT=MA^2.
+\tag{4}
+\]
+Combining (3) and (4), the points
+\[
+E,T,B,X
+\]
+are concyclic.
+
+If $AD=CD$, then $P$ and $Q$ both lie on the perpendicular bisector of $AC$, and the result is immediate. The case $AB=CB$ is analogous. We now assume neither equality.
+
+Let $P_0,Q_0$ be the orthogonal projections of $P,Q$ onto $AC$. Then
+\[
+PQ\perp AC
+\]
+is equivalent to
+\[
+P_0=Q_0,
+\]
+which in directed lengths is equivalent to
+\[
+\frac{EP_0}{FP_0}
+=
+\frac{EQ_0}{FQ_0}.
+\tag{5}
+\]
+
+We have
+\[
+\frac{EP_0}{FP_0}
+=
+\frac{\tan\angle EFP}{\tan\angle FEP}
+=
+\frac{\tan\angle AFD}{\tan\angle AEB}.
+\tag{6}
+\]
+Also,
+\[
+\frac{EQ_0}{FQ_0}
+=
+\frac{\tan\angle EFQ}{\tan\angle FEQ}.
+\]
+Because $E,T,B,X$ are cyclic,
+\[
+\angle FEQ=\angle TEX=\angle TBX
+=\frac\pi2+\angle EBM.
+\]
+By symmetry,
+\[
+\angle EFQ=\frac\pi2+\angle FDM.
+\]
+Thus (5) reduces to
+\[
+\frac{\tan\angle AFD}{\tan\angle AEB}
+=
+\frac{\tan\angle MBE}{\tan\angle MDF}.
+\tag{7}
+\]
+
+Applying Lemma 1 in the two relevant angle-bisector configurations,
+\[
+\tan\angle AFD\,\tan\angle MDF
+=
+\tan^2\angle FDC
+=
+\tan^2\angle EBA
+=
+\tan\angle MBE\,\tan\angle AEB.
+\]
+This is precisely (7), and therefore $PQ\perp AC$.

@@ -1,0 +1,206 @@
+ID: 0192
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Geometry
+
+SUBTOPICS: Incenter Geometry, Directed Angles, Cyclic Quadrilaterals, Mixtilinear Incircle, Butterfly Theorem
+
+STATEMENT:
+Let $ABC$ be a triangle with circumcircle $\Gamma$ and incentre $I$. Let $M$ be the midpoint of $BC$, and let $D$ be the foot of the perpendicular from $I$ to $BC$. The line through $I$ perpendicular to $AI$ meets $AB$ and $AC$ at $F$ and $E$, respectively. Suppose that the circumcircle of $AEF$ meets $\Gamma$ again at $X\ne A$. Prove that the lines $XD$ and $AM$ meet on $\Gamma$.
+
+SOLUTION 1:
+Let $AM$ meet $\Gamma$ again at $Y$, and put
+\[
+D'=XY\cap BC.
+\]
+It is enough to prove that $D'=D$. All ratios on the line $BC$ below are directed.
+
+We first use the following lemma.
+
+\textbf{Lemma.}
+If $PQRS$ is cyclic and its diagonals meet at $T$, then
+\[
+\frac{QT}{TS}=\frac{PQ\cdot QR}{PS\cdot SR}.
+\tag{1}
+\]
+
+Indeed,
+\[
+\frac{QT}{TS}
+=\frac{[PQR]}{[PSR]}
+=\frac{PQ\cdot QR\sin\angle PQR}
+       {PS\cdot SR\sin\angle PSR},
+\]
+and the two sines are equal because $PQRS$ is cyclic.
+
+Applying (1) to the cyclic quadrilaterals $ABYC$ and $XBYC$ gives
+\[
+1=\frac{BM}{MC}
+=\frac{AB\cdot BY}{AC\cdot CY}
+\]
+and
+\[
+\frac{BD'}{D'C}
+=\frac{XB\cdot BY}{XC\cdot CY}.
+\]
+Consequently,
+\[
+\frac{BD'}{D'C}
+=\frac{XB}{XC}\cdot\frac{AC}{AB}.
+\tag{2}
+\]
+
+Using directed angles,
+\[
+\angle XBF=\angle XBA=\angle XCA=\angle XCE
+\]
+and
+\[
+\angle XFB=\angle XFA=\angle XEA=\angle XEC.
+\]
+Thus
+\[
+\triangle XBF\sim\triangle XCE,
+\]
+so
+\[
+\frac{XB}{XC}=\frac{BF}{CE}.
+\tag{3}
+\]
+
+We now calculate the last ratio. Since
+\[
+\angle FIB=\angle AIB-90^\circ=\frac12\angle ACB=\angle ICB
+\]
+and
+\[
+\angle FBI=\angle IBC,
+\]
+the triangles $FBI$ and $IBC$ are similar. Analogously, $EIC\sim IBC$. Hence
+\[
+\frac{BF}{IB}=\frac{IB}{BC},
+\qquad
+\frac{CE}{IC}=\frac{IC}{BC},
+\]
+and therefore
+\[
+\frac{BF}{CE}=\frac{IB^2}{IC^2}.
+\tag{4}
+\]
+
+Draw the other common internal tangent to the incircle parallel to $BC$, meeting $AB$ and $AC$ at $B_1$ and $C_1$. Let the incircle touch $AB$ and $AC$ at $B_2$ and $C_2$. By homothety,
+\[
+B_1I
+\]
+is parallel to the external angle bisector at $B$, so
+\[
+\angle B_1IB=90^\circ.
+\]
+Together with $\angle BB_2I=90^\circ$, this gives
+\[
+BB_2\cdot BB_1=BI^2.
+\]
+Similarly,
+\[
+CC_2\cdot CC_1=CI^2.
+\]
+Therefore
+\[
+\frac{BI^2}{CI^2}
+=\frac{BB_2\cdot BB_1}{CC_2\cdot CC_1}
+=\frac{AB}{AC}\cdot\frac{BD}{CD}.
+\tag{5}
+\]
+
+Combining (2), (3), (4), and (5),
+\[
+\frac{BD'}{D'C}
+=\frac{BF}{CE}\cdot\frac{AC}{AB}
+=\frac{BI^2}{CI^2}\cdot\frac{AC}{AB}
+=\frac{BD}{DC}.
+\]
+Thus $D'=D$. Hence $X,D,Y$ are collinear, and the lines $XD$ and $AM$ meet at the point $Y\in\Gamma$.
+
+For completeness, the ratio in (4) may also be obtained trigonometrically. If
+\[
+\beta=\frac12\angle ABC,
+\qquad
+\gamma=\frac12\angle ACB,
+\]
+then
+\[
+\frac{BF}{CE}
+=\left(\frac{\sin\gamma}{\sin\beta}\right)^2.
+\]
+Using the sine law in $\triangle ABC$,
+\[
+\frac{AC}{AB}=\frac{\sin2\beta}{\sin2\gamma},
+\]
+so (2) becomes
+\[
+\frac{BD'}{D'C}
+=\frac{\tan\gamma}{\tan\beta}
+=\frac{BD}{DC}.
+\]
+
+SOLUTION 2:
+Let $\omega_A$ be the $A$-mixtilinear incircle of $\triangle ABC$. Its points of tangency with $AB$ and $AC$ are precisely $F$ and $E$. Let $\omega_A$ touch $\Gamma$ at $T$.
+
+Let $AM$ meet $\Gamma$ again at $Y$. Reflect $D$ and $T$ in the perpendicular bisector of $BC$, obtaining $D_1$ and $T_1$. A standard property of the $A$-mixtilinear incircle gives
+\[
+\angle BAT=\angle D_1AC,
+\]
+hence
+\[
+A,D_1,T_1\ \text{are collinear}.
+\tag{1}
+\]
+
+We prove that $X,M,T_1$ are collinear. Let $R$ be the radical centre of $\omega_A$, $\Gamma$, and the circumcircle of $AEF$. Then
+\[
+R\in AX,\qquad R\in EF,
+\]
+and $R$ also lies on the tangent to $\Gamma$ at $T$.
+
+Let $AT$ meet $\omega_A$ again at $S$ and meet $EF$ at $P$. The quadrilateral $SFTE$ is harmonic. Projecting from $T$, the pencil
+\[
+(R,P;F,E)
+\]
+is harmonic. Projecting this pencil from $A$ onto $\Gamma$ shows that
+\[
+(X,B;T,C)
+\]
+is harmonic.
+
+Since
+\[
+TT_1\parallel BC,
+\]
+projection from $T_1$ to $BC$ sends $T$ to the point at infinity. It therefore sends $X$ to the midpoint $M$ of $BC$. Hence
+\[
+X,M,T_1\ \text{are collinear}.
+\tag{2}
+\]
+
+Now both chords $AY$ and $XT_1$ of $\Gamma$ pass through the midpoint $M$ of the chord $BC$. By the butterfly theorem, the intersections of $XY$ and $AT_1$ with $BC$ are symmetric about $M$. In view of (1), the latter intersection is $D_1$, whose reflection about $M$ is $D$. Thus
+\[
+X,D,Y\ \text{are collinear}.
+\]
+Since $Y=AM\cap\Gamma$, the conclusion follows.
+
+One can avoid the butterfly theorem as follows. The quadrilateral $DTT_1D_1$ is an isosceles trapezoid, and directed-angle calculations give
+\[
+\angle YTD=\angle YMD,
+\]
+so $D,T,Y,M$ are concyclic. Using (2),
+\[
+\angle AYD
+=\angle MTD
+=\angle D_1T_1M
+=\angle AT_1X
+=\angle AYX.
+\]
+Therefore $X,D,Y$ are collinear.

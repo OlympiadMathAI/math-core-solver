@@ -1,0 +1,321 @@
+ID: 0206
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Number Theory
+
+SUBTOPICS: Integer Polynomials, Rational Perfect Powers, Dirichlet's Theorem, Pigeonhole Principle
+
+STATEMENT:
+Find all polynomials $P(x)$ of odd degree $d$ with integer coefficients having the following property: for every positive integer $n$, there exist $n$ pairwise distinct positive integers
+\[
+x_1,x_2,\ldots,x_n
+\]
+such that, for every pair of indices $i,j$,
+\[
+\frac12<\frac{P(x_i)}{P(x_j)}<2
+\]
+and
+\[
+\frac{P(x_i)}{P(x_j)}
+\]
+is the $d$-th power of a rational number.
+
+The pairwise distinctness is the intended condition used by the official solution; it is written explicitly here because without it repetitions would make the problem degenerate.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{P(x)=a(rx+s)^d},
+\]
+where
+\[
+a,r,s\in\mathbb Z,
+\qquad
+a\ne0,
+\qquad
+r\ge1,
+\qquad
+\gcd(r,s)=1.
+\]
+
+We first prove necessity.
+
+Write
+\[
+P(x)=a_dx^d+a_{d-1}x^{d-1}+\cdots+a_0,
+\qquad a_d\ne0.
+\]
+Make the affine substitution
+\[
+y=da_dx+a_{d-1}
+\]
+and define
+\[
+Q(y)=P\left(\frac{y-a_{d-1}}{da_d}\right).
+\]
+Then $Q$ has rational coefficients and no $y^{d-1}$ term:
+\[
+Q(y)=b_dy^d+b_{d-2}y^{d-2}+\cdots+b_0,
+\qquad b_d\ne0.
+\tag{1}
+\]
+
+If $d=1$, equation (1) already says that $Q$ is a monomial, and the conclusion follows immediately. We therefore assume
+\[
+d\ge3.
+\]
+
+The given condition transfers from the $x_i$ to the corresponding distinct integers
+\[
+y_i=da_dx_i+a_{d-1}.
+\]
+Because arbitrarily many distinct positive $x_i$ are available, after discarding finitely many small values we may take all $|y_i|$ arbitrarily large. Replacing $y$ by $-y$ if necessary, assume below that all selected $y_i$ are large and positive.
+
+Let $c$ be a positive common denominator of the coefficients of $Q$, so
+\[
+cQ(t)\in\mathbb Z
+\qquad(t\in\mathbb Z).
+\]
+Choose, by Dirichlet's theorem, a sufficiently large prime
+\[
+p\equiv2\pmod d
+\]
+with
+\[
+p\nmid c.
+\]
+Since $d$ is odd,
+\[
+\gcd(p-1,d)=1.
+\tag{2}
+\]
+
+Choose sufficiently many of the integers $y_i$. By the pigeonhole principle, some
+\[
+d+1
+\]
+of them are congruent modulo $p$. Relabel them as
+\[
+y_1,y_2,\ldots,y_{d+1}.
+\]
+
+We prove the following claim.
+
+\textbf{Claim.}
+For every $2\le i\le d+1$,
+\[
+\frac{Q(y_i)}{Q(y_1)}
+=
+\frac{y_i^d}{y_1^d}.
+\tag{3}
+\]
+
+\textit{Proof.}
+Write
+\[
+\frac{Q(y_i)}{Q(y_1)}
+=
+\frac{\ell^d}{m^d},
+\qquad
+\ell,m\in\mathbb Z_{>0},
+\qquad
+\gcd(\ell,m)=1.
+\tag{4}
+\]
+Using (1), equation (4) becomes
+\[
+b_d(m^dy_i^d-\ell^dy_1^d)
+=
+-\sum_{j=0}^{d-2}
+b_j(m^dy_i^j-\ell^dy_1^j).
+\tag{5}
+\]
+
+For all sufficiently large selected $y_i,y_1$, the bounds on the ratios of $Q$ imply that there is a constant $C$, depending only on $Q$, such that
+\[
+C^{-1}\le\frac{y_i}{y_1}\le C,
+\qquad
+C^{-1}\le\frac{\ell}{m}\le C.
+\tag{6}
+\]
+Moreover, because the reduced denominator $m^d$ divides
+\[
+|cQ(y_1)|,
+\]
+we have
+\[
+m\le Cy_1\le C^2y_i.
+\tag{7}
+\]
+
+Put
+\[
+\Delta=my_i-\ell y_1.
+\]
+Factoring the left side of (5) and using (6), while bounding the lower-degree right side, gives
+\[
+|\Delta|
+\le C\frac{m}{y_i},
+\tag{8}
+\]
+after increasing $C$ if necessary. Indeed, the factor multiplying $\Delta$ on the left is at least
+\[
+|b_d|m^{d-1}y_i^{d-1},
+\]
+whereas the absolute value of the right side is at most
+\[
+Cm^dy_i^{d-2}.
+\]
+
+We distinguish two cases.
+
+\textbf{Case 1:}
+\[
+p\mid cQ(y_1).
+\]
+Since
+\[
+y_i\equiv y_1\pmod p,
+\]
+we also have
+\[
+cQ(y_i)\equiv cQ(y_1)\equiv0\pmod p.
+\]
+At least one factor $p$ is therefore cancelled when the fraction
+\[
+\frac{cQ(y_i)}{cQ(y_1)}
+\]
+is reduced to $\ell^d/m^d$. Hence
+\[
+m^d\le\frac{|cQ(y_1)|}{p},
+\]
+and consequently
+\[
+m\le Cp^{-1/d}y_i.
+\]
+If $\Delta\ne0$, then $|\Delta|\ge1$, while (8) gives
+\[
+1\le Cp^{-1/d},
+\]
+impossible for sufficiently large $p$. Thus
+\[
+\Delta=0.
+\]
+
+\textbf{Case 2:}
+\[
+p\nmid cQ(y_1).
+\]
+Modulo $p$, we have
+\[
+cQ(y_i)\equiv cQ(y_1)\ne0.
+\]
+Using (4),
+\[
+\ell^d\equiv m^d\pmod p.
+\]
+By (2), the map $z\mapsto z^d$ is a bijection on the nonzero residues modulo $p$, so
+\[
+\ell\equiv m\pmod p.
+\]
+Together with
+\[
+y_i\equiv y_1\pmod p,
+\]
+this gives
+\[
+p\mid\Delta.
+\]
+If $\Delta\ne0$, then $|\Delta|\ge p$. But (7) and (8) give
+\[
+|\Delta|\le C,
+\]
+which is impossible for sufficiently large $p$. Hence again
+\[
+\Delta=0.
+\]
+
+Thus
+\[
+my_i=\ell y_1,
+\]
+and (4) gives exactly (3). This proves the claim. $\square$
+
+Consider the polynomial
+\[
+F(y)=Q(y_1)y^d-y_1^dQ(y).
+\]
+By the claim, its $d+1$ distinct roots include
+\[
+y_1,y_2,\ldots,y_{d+1}.
+\]
+Since $\deg F\le d$, we must have
+\[
+F\equiv0.
+\]
+Therefore
+\[
+Q(y)=b_dy^d.
+\]
+Undoing the substitution,
+\[
+P(x)
+=
+a_d\left(
+x+\frac{a_{d-1}}{da_d}
+\right)^d.
+\tag{9}
+\]
+
+Write the rational number in (9) in lowest terms:
+\[
+\frac{a_{d-1}}{da_d}=\frac sr,
+\qquad
+r\ge1,
+\qquad
+\gcd(r,s)=1.
+\]
+Then
+\[
+P(x)=\frac{a_d}{r^d}(rx+s)^d.
+\]
+Because $P$ has integer coefficients and $\gcd(r,s)=1$, we have
+\[
+r^d\mid a_d.
+\]
+Writing
+\[
+a_d=ar^d
+\]
+gives
+\[
+P(x)=a(rx+s)^d.
+\]
+
+It remains to prove sufficiency. Let
+\[
+P(x)=a(rx+s)^d
+\]
+with the stated conditions. For a given $n$, choose a sufficiently large positive integer $X$ and set
+\[
+x_i=X+i
+\qquad(1\le i\le n).
+\]
+Choose $X$ so large that all $rx_i+s$ are positive and
+\[
+\left(
+\frac{r(X+n)+s}{r(X+1)+s}
+\right)^d<2.
+\]
+Then, for every $i,j$,
+\[
+\frac{P(x_i)}{P(x_j)}
+=
+\left(
+\frac{rx_i+s}{rx_j+s}
+\right)^d
+\]
+is the $d$-th power of a rational number, and its value lies strictly between $1/2$ and $2$. Thus every polynomial in the displayed family satisfies the condition.

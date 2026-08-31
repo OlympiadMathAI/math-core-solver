@@ -1,0 +1,162 @@
+ID: 0204
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Number Theory
+
+SUBTOPICS: Functional Equations, Divisibility, Prime Powers, Bounding Divisors
+
+STATEMENT:
+Let $\mathbb N$ denote the set of positive integers. Determine all functions
+\[
+f:\mathbb N\to\mathbb N
+\]
+such that, for all positive integers $m,n$, the nonzero integer
+\[
+f(m)+f(n)-mn
+\]
+divides
+\[
+mf(m)+nf(n).
+\]
+
+SOLUTION 1:
+The unique solution is
+\[
+\boxed{f(n)=n^2\quad(n\in\mathbb N).}
+\]
+
+The condition is
+\[
+f(m)+f(n)-mn\mid mf(m)+nf(n).
+\tag{1}
+\]
+
+Taking $m=n=1$,
+\[
+2f(1)-1\mid2f(1).
+\]
+Therefore
+\[
+2f(1)-1\mid1,
+\]
+and since $f(1)$ is positive,
+\[
+f(1)=1.
+\tag{2}
+\]
+
+Let $p\ge7$ be a prime. Setting $m=p$ and $n=1$ in (1), and using (2), we obtain
+\[
+f(p)-p+1\mid pf(p)+1.
+\]
+Subtracting $p$ times the divisor,
+\[
+f(p)-p+1\mid p^2-p+1.
+\tag{3}
+\]
+
+We first show that
+\[
+f(p)-p+1>0.
+\]
+If it were negative, then
+\[
+f(p)\le p-2.
+\]
+Using $m=n=p$ in (1),
+\[
+2f(p)-p^2\mid2pf(p),
+\]
+and subtracting $p(2f(p)-p^2)$ gives
+\[
+2f(p)-p^2\mid p^3.
+\tag{4}
+\]
+But in the present case,
+\[
+-p^2<2f(p)-p^2\le2p-4-p^2<-p.
+\]
+Its absolute value lies strictly between $p$ and $p^2$, so it cannot divide $p^3$. This contradiction proves the claim.
+
+If the positive divisor in (3) equals $p^2-p+1$, then
+\[
+f(p)=p^2.
+\]
+Suppose it is a proper divisor. Since $p^2-p+1$ is odd, the quotient is at least $3$, and hence
+\[
+p^2-p+1\ge3(f(p)-p+1).
+\]
+Thus
+\[
+f(p)\le\frac{p^2+2p-2}{3}.
+\tag{5}
+\]
+Again use (4). From $f(p)\ge1$ and (5),
+\[
+-p^2<2f(p)-p^2
+\le
+\frac{2(p^2+2p-2)}3-p^2
+<-p
+\]
+for $p\ge7$. This again gives a divisor of $p^3$ whose absolute value lies strictly between $p$ and $p^2$, impossible.
+
+Therefore
+\[
+f(p)=p^2
+\qquad\text{for every prime }p\ge7.
+\tag{6}
+\]
+
+Now fix any positive integer $n$, and choose a sufficiently large prime $p$. Taking $m=p$ in (1) and subtracting $n$ times the divisor from the dividend gives
+\[
+f(p)+f(n)-pn
+\mid
+(p-n)f(p)+pn^2.
+\]
+Using (6),
+\[
+p^2-pn+f(n)
+\mid
+p(p^2-pn+n^2).
+\tag{7}
+\]
+
+Choose $p>f(n)$. Then
+\[
+\gcd(p,p^2-pn+f(n))
+=\gcd(p,f(n))
+=1.
+\]
+Equation (7) therefore implies
+\[
+p^2-pn+f(n)\mid p^2-pn+n^2.
+\]
+Subtracting,
+\[
+p^2-pn+f(n)\mid n^2-f(n).
+\tag{8}
+\]
+
+The number on the right of (8) is fixed, while the positive divisor on the left tends to infinity with $p$. Hence
+\[
+n^2-f(n)=0.
+\]
+Since $n$ was arbitrary,
+\[
+f(n)=n^2
+\qquad(n\in\mathbb N).
+\]
+
+Finally, this function works because
+\[
+f(m)+f(n)-mn=m^2+n^2-mn>0
+\]
+and
+\[
+mf(m)+nf(n)
+=m^3+n^3
+=(m+n)(m^2+n^2-mn).
+\]

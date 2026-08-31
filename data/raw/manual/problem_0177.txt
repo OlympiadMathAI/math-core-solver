@@ -1,0 +1,202 @@
+ID: 0177
+
+SOURCE: IMO Shortlist
+
+YEAR: 2016
+
+TOPIC: Algebra
+
+SUBTOPICS: Signed Sums, Induction, Pigeonhole Principle, Absolute Values
+
+STATEMENT:
+Find all integers $n\ge3$ with the following property: for all real numbers
+\[
+a_1,a_2,\ldots,a_n
+\quad\text{and}\quad
+b_1,b_2,\ldots,b_n
+\]
+satisfying
+\[
+|a_k|+|b_k|=1
+\qquad(1\le k\le n),
+\]
+there exist $x_1,x_2,\ldots,x_n\in\{-1,1\}$ such that
+\[
+\left|\sum_{k=1}^n x_ka_k\right|
++
+\left|\sum_{k=1}^n x_kb_k\right|
+\le1.
+\]
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{\text{all odd integers }n\ge3}.
+\]
+
+Suppose first that $n\ge4$ is even. Take
+\[
+a_1=\cdots=a_{n-1}=b_n=0,
+\qquad
+b_1=\cdots=b_{n-1}=a_n=1.
+\]
+For every choice of the signs $x_k$, both
+\[
+\sum_{k=1}^n x_ka_k=x_n
+\quad\text{and}\quad
+\sum_{k=1}^n x_kb_k=\sum_{k=1}^{n-1}x_k
+\]
+are odd integers. Hence both have absolute value at least $1$, and their absolute values have sum at least $2$. Thus no even $n$ has the required property.
+
+Now let $n$ be odd. By replacing a pair $(a_k,b_k)$ with $(-a_k,-b_k)$ when necessary, we may suppose that
+\[
+b_k\ge0
+\qquad(1\le k\le n).
+\]
+We may also reorder the pairs. Arrange them so that, for some $m$,
+\[
+a_1\ge a_2\ge\cdots\ge a_m\ge0>a_{m+1}\ge\cdots\ge a_n.
+\]
+Choose
+\[
+x_k=(-1)^{k+1}.
+\]
+Set
+\[
+s=\sum_{k=1}^m x_ka_k,
+\qquad
+t=-\sum_{k=m+1}^n x_ka_k.
+\]
+The alternating-sum estimates for a decreasing sequence give
+\[
+0\le s\le a_1\le1,
+\qquad
+0\le t\le -a_n\le1.
+\tag{1}
+\]
+Because $b_k=1-a_k$ for $k\le m$ and $b_k=1+a_k$ for $k>m$, and because
+\[
+\sum_{k=1}^n x_k=1
+\]
+when $n$ is odd, we have
+\[
+\sum_{k=1}^n x_ka_k=s-t,
+\qquad
+\sum_{k=1}^n x_kb_k=1-s-t.
+\]
+It remains to note that for every $s,t\in[0,1]$,
+\[
+|s-t|+|1-s-t|\le1.
+\tag{2}
+\]
+Indeed, by symmetry assume $s\ge t$. If $s+t\le1$, the left side of (2) equals $1-2t$; if $s+t\ge1$, it equals $2s-1$. Both quantities are at most $1$.
+
+Thus every odd $n\ge3$ has the desired property.
+
+SOLUTION 2:
+The same example as in Solution 1 excludes every even $n$. We prove the assertion for odd $n$ by induction.
+
+First let $n=3$. By changing the sign of each pair when necessary and reordering, assume
+\[
+1\ge a_1\ge a_2\ge a_3\ge0.
+\]
+For every $k$, we have $b_k=a_k-1$ or $b_k=1-a_k$. Replacing all $b_k$ by $-b_k$ if necessary, we may suppose
+\[
+b_1=a_1-1.
+\]
+There are four cases.
+
+\textbf{Case 1.} If $b_2=a_2-1$ and $b_3=a_3-1$, take
+\[
+(x_1,x_2,x_3)=(1,-1,1).
+\]
+With $c=a_1-a_2+a_3\in[0,1]$, the two signed sums are $c$ and $c-1$, so their absolute values sum to $1$.
+
+\textbf{Case 2.} If $b_2=1-a_2$ and $b_3=1-a_3$, use the same signs. Again put $c=a_1-a_2+a_3\in[0,1]$. The second signed sum is
+\[
+a_1+a_2-a_3-1.
+\]
+The inequalities $a_3\le a_2$ and $a_1\le1$ give
+\[
+c-1\le a_1+a_2-a_3-1\le1-c.
+\]
+Hence its absolute value is at most $1-c$.
+
+\textbf{Case 3.} If $b_2=a_2-1$ and $b_3=1-a_3$, take
+\[
+(x_1,x_2,x_3)=(-1,1,1)
+\]
+and put $c=-a_1+a_2+a_3$. The second signed sum is
+\[
+-a_1+a_2-a_3+1.
+\]
+If $c\ge0$, it lies between $c-1$ and $1-c$; if $c\le0$, it lies between $-c-1$ and $1+c$. In either case, its absolute value is at most $1-|c|$.
+
+\textbf{Case 4.} If $b_2=1-a_2$ and $b_3=a_3-1$, use the same signs as in Case 3. The second signed sum is
+\[
+-a_1-a_2+a_3+1.
+\]
+The same two estimates, now using $a_2\le1$ and $a_3\le a_1$, show that its absolute value is at most $1-|c|$.
+
+Thus the result holds for $n=3$.
+
+Now let $n\ge5$ be odd, and assume the result for $n-2$. By changing signs of individual pairs, suppose
+\[
+0\le a_k\le1
+\qquad(1\le k\le n).
+\]
+Then each $b_k$ equals either $a_k-1$ or $1-a_k$. At least three of the $b_k$ have the same one of these two forms. Among the corresponding three values of $a_k$, two differ by at most $1/2$. After relabelling and, if necessary, replacing every $b_k$ by $-b_k$, assume
+\[
+b_1=a_1-1,
+\qquad
+b_2=a_2-1,
+\qquad
+0\le d=a_1-a_2\le\frac12.
+\tag{1}
+\]
+
+By the induction hypothesis, choose $x_3,\ldots,x_n$ so that
+\[
+A=\sum_{k=3}^n x_ka_k,
+\qquad
+B=\sum_{k=3}^n x_kb_k
+\]
+satisfy
+\[
+|A|+|B|\le1.
+\]
+Reversing all these signs if necessary, suppose $A\ge0$.
+
+If $B\ge0$, choose $(x_1,x_2)=(-1,1)$. The required sum becomes
+\[
+|A-d|+|B-d|.
+\]
+According to the signs of $A-d$ and $B-d$, this equals one of
+\[
+A+B-2d,
+\quad A-B,
+\quad B-A,
+\quad 2d-A-B,
+\]
+each of which is at most $1$ by $A+B\le1$ and $2d\le1$.
+
+If $0\ge B\ge-A$, again choose $(x_1,x_2)=(-1,1)$. If $A\ge d$, then
+\[
+|A-d|+|B-d|=A-B=|A|+|B|\le1.
+\]
+If $A<d$, then
+\[
+|A-d|+|B-d|=2d-A-B\le2d\le1,
+\]
+because $A+B\ge0$.
+
+Finally, if $B\le-A$, choose $(x_1,x_2)=(1,-1)$. If $d+B\ge0$, then
+\[
+|d+A|+|d+B|=2d+A+B\le2d\le1.
+\]
+If $d+B<0$, then
+\[
+|d+A|+|d+B|=A-B=|A|+|B|\le1.
+\]
+
+The induction is complete, so precisely the odd integers $n\ge3$ work.
