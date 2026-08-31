@@ -1,0 +1,16 @@
+{
+  "id": "0159",
+  "source": "IMO Shortlist",
+  "year": "2015",
+  "topic": "Geometry",
+  "subtopics": [
+    "Orthocenter",
+    "Cyclic Quadrilaterals",
+    "Isosceles Triangles",
+    "Congruence"
+  ],
+  "statement": "Let $ABC$ be an acute triangle with orthocenter $H$. Let $G$ be the point such that the quadrilateral $ABGH$ is a parallelogram. Let $I$ be the point on the line $GH$ such that $AC$ bisects the segment $HI$. Suppose that the line $AC$ intersects the circumcircle of triangle $GCI$ at $C$ and $J$. Prove that\n\\[\nIJ=AH.\n\\]",
+  "solutions": [
+    "Let\n\\[\nM=AC\\cap GH.\n\\]\nSince $ABGH$ is a parallelogram,\n\\[\nHG\\parallel AB\n\\qquad\\text{and}\\qquad\nBG\\parallel AH.\n\\]\nBecause $H$ is the orthocenter of $ABC$, we have $AH\\perp BC$ and $CH\\perp AB$. Hence\n\\[\nBG\\perp BC\n\\qquad\\text{and}\\qquad\nCH\\perp GH.\n\\]\nTherefore\n\\[\n\\angle GBC=\\angle GHC=90^\\circ,\n\\]\nso $B,G,C,H$ are concyclic.\n\nAlso,\n\\[\n\\angle HAC=90^\\circ-\\angle ACB=\\angle CBH.\n\\]\nUsing the cyclic quadrilaterals $BGCH$ and $CGJI$, we obtain, with directed angles modulo $180^\\circ$,\n\\[\n\\angle CJI=\\angle CGI=\\angle CGH=\\angle CBH=\\angle HAC.\n\\tag{1}\n\\]\n\nLet $D\\ne A$ be the second point on the line $AC$ satisfying\n\\[\nHD=HA.\n\\]\nThen triangle $AHD$ is isosceles, and since $A,M,D$ are collinear,\n\\[\n\\angle MDH=\\angle HAD=\\angle HAC.\n\\tag{2}\n\\]\nThe line $AC$ bisects the segment $HI$, so $M$ is the midpoint of $HI$ and\n\\[\nIM=MH.\n\\tag{3}\n\\]\nMoreover, because $I,M,H$ are collinear and $J,M,D$ are collinear,\n\\[\n\\angle IMJ=\\angle HMD.\n\\tag{4}\n\\]\nEquations (1), (2), (3), and (4) show that triangles $IMJ$ and $HMD$ are congruent. Consequently,\n\\[\nIJ=HD=AH.\n\\]"
+  ]
+}

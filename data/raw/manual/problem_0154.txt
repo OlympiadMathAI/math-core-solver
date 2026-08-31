@@ -1,0 +1,149 @@
+ID: 0154
+
+SOURCE: IMO Shortlist
+
+YEAR: 2015
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Least Common Multiples, Greatest Common Divisors, Extremal Counting, Constructions
+
+STATEMENT:
+For a finite set $A$ of positive integers, call a partition of $A$ into two disjoint nonempty subsets $A_1,A_2$ \emph{good} if
+\[
+\operatorname{lcm}(A_1)=\gcd(A_2).
+\]
+Determine the minimum integer $n$ for which there exists a set of $n$ positive integers having exactly $2015$ good partitions.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{3024}.
+\]
+
+Let
+\[
+A=\{a_1,a_2,\ldots,a_n\},
+\qquad
+1\le a_1<a_2<\cdots<a_n.
+\]
+Consider a good partition $(A_1,A_2)$ and write
+\[
+\operatorname{lcm}(A_1)=d=\gcd(A_2).
+\]
+Every element of $A_1$ divides $d$, while $d$ divides every element of $A_2$. Hence
+\[
+a_i\le d\le a_j
+\qquad
+(a_i\in A_1,\ a_j\in A_2).
+\]
+It follows that for some $k$ with $1\le k<n$,
+\[
+A_1=\{a_1,\ldots,a_k\},
+\qquad
+A_2=\{a_{k+1},\ldots,a_n\}.
+\]
+Thus every good partition is determined by its final element $a_k$ in the first part. Call $a_k$ \emph{partitioning} when this prefix-suffix partition is good.
+
+For $1\le k<n$, define
+\[
+L_k=\operatorname{lcm}(a_1,\ldots,a_k),
+\qquad
+G_k=\gcd(a_{k+1},\ldots,a_n).
+\]
+Then $a_k$ is partitioning exactly when $L_k=G_k$.
+
+\textbf{Claim.}
+If both $a_{k-1}$ and $a_k$ are partitioning, where $2\le k\le n-1$, then
+\[
+G_{k-1}=G_k=a_k.
+\]
+
+\textit{Proof.}
+Since $L_{k-1}=G_{k-1}$ and $a_k$ is one of the numbers whose gcd is $G_{k-1}$, we have
+\[
+L_{k-1}\mid a_k.
+\]
+Therefore
+\[
+G_k=L_k=\operatorname{lcm}(L_{k-1},a_k)=a_k,
+\]
+and then
+\[
+G_{k-1}=\gcd(a_k,G_k)=a_k.
+\]
+This proves the claim. $\square$
+
+Two consequences follow.
+
+\begin{enumerate}
+\item For every $2\le k\le n-2$, at least one of
+\[
+a_{k-1},a_k,a_{k+1}
+\]
+is not partitioning. Otherwise the claim, applied to the last two, would give
+\[
+a_{k+1}=G_k=a_k,
+\]
+a contradiction.
+
+\item The pair $a_1,a_2$ cannot consist entirely of partitioning elements. Indeed, the claim would give
+\[
+a_2=G_1=L_1=a_1.
+\]
+Similarly, $a_{n-2},a_{n-1}$ cannot both be partitioning, since the claim would give
+\[
+a_{n-1}=G_{n-1}=a_n.
+\]
+\end{enumerate}
+
+Now suppose $A$ has exactly $2015$ good partitions. Certainly $n\ge5$. Among $a_1,a_2$ at least one is non-partitioning, and among $a_{n-2},a_{n-1}$ at least one is non-partitioning. In the interior list
+\[
+a_3,a_4,\ldots,a_{n-3},
+\]
+we may form $\left\lfloor (n-5)/3\right\rfloor$ disjoint blocks of three consecutive elements; each block contains a non-partitioning element. Hence the number of partitioning elements is at most
+\[
+(n-1)-2-\left\lfloor\frac{n-5}{3}\right\rfloor
+=
+\left\lceil\frac{2(n-2)}{3}\right\rceil.
+\]
+Therefore
+\[
+\left\lceil\frac{2(n-2)}{3}\right\rceil\ge2015,
+\]
+which implies
+\[
+n\ge3024.
+\]
+
+It remains to construct a $3024$-element set with exactly $2015$ good partitions. Let
+\[
+A=\left\{2\cdot6^i,\ 3\cdot6^i,\ 6^{i+1}\ \middle|\ 0\le i\le1007\right\}.
+\]
+All these numbers are distinct, and their increasing order consists of the consecutive blocks
+\[
+2\cdot6^i<3\cdot6^i<6^{i+1}<2\cdot6^{i+1}.
+\]
+Thus $|A|=3\cdot1008=3024$.
+
+For each $0\le i\le1007$, immediately after the element $3\cdot6^i$ we have
+\[
+\operatorname{lcm}(\text{prefix})=6^{i+1}
+=
+\gcd(\text{suffix}),
+\]
+so all $1008$ elements $3\cdot6^i$ are partitioning.
+
+For each $0\le i\le1006$, immediately after the element $6^{i+1}$ we likewise have
+\[
+\operatorname{lcm}(\text{prefix})=6^{i+1}
+=
+\gcd(\text{suffix}),
+\]
+so these $1007$ elements are partitioning. The final element $6^{1008}$ does not determine a partition because the second part would be empty.
+
+Finally, immediately after $2\cdot6^i$ the prefix lcm is $2\cdot6^i$, whereas the suffix gcd is $3\cdot6^i$, so none of these elements is partitioning. Consequently the number of good partitions is exactly
+\[
+1008+1007=2015.
+\]
+The lower bound is attained, and the minimum is $3024$.

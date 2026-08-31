@@ -1,0 +1,57 @@
+ID: 0160
+
+SOURCE: IMO Shortlist
+
+YEAR: 2015
+
+TOPIC: Geometry
+
+SUBTOPICS: Directed Angles, Circles, Reflection Symmetry, Collinearity
+
+STATEMENT:
+Let $ABC$ be a triangle inscribed in a circle $\Omega$ with center $O$. A circle $\Gamma$ with center $A$ meets the side $BC$ at points $D$ and $E$ such that $D$ lies between $B$ and $E$. Let $F$ and $G$ be the common points of $\Gamma$ and $\Omega$. Assume that $F$ lies on the arc $AB$ of $\Omega$ not containing $C$, and $G$ lies on the arc $AC$ of $\Omega$ not containing $B$. The circumcircles of triangles $BDF$ and $CEG$ meet the sides $AB$ and $AC$ again at $K$ and $L$, respectively. Suppose that the distinct lines $FK$ and $GL$ intersect at $X$. Prove that $A,X,O$ are collinear.
+
+SOLUTION 1:
+All angles in this solution are directed modulo $180^\circ$.
+
+Since $A$ is the center of $\Gamma$,
+\[
+AF=AG.
+\]
+Thus the two common points $F$ and $G$ of $\Gamma$ and $\Omega$ are symmetric with respect to the line of centers $AO$. It is therefore enough to prove
+\[
+\angle KFA=\angle AGL.
+\tag{1}
+\]
+Indeed, this will show that the lines $FK$ and $GL$ are symmetric about $AO$, so their intersection $X$ lies on $AO$.
+
+Let $\omega_B$ and $\omega_C$ be the circumcircles of $BDF$ and $CEG$, respectively. We have
+\[
+\angle KFA
+=
+\angle DFG+\angle GFA-\angle DFK.
+\]
+Because $D,E,F,G$ lie on $\Gamma$, because $A,B,F,G$ lie on $\Omega$, and because $B,D,F,K$ lie on $\omega_B$, this becomes
+\[
+\angle KFA
+=
+\angle CEG+\angle GBA-\angle DBK
+=
+\angle CEG-\angle CBG.
+\tag{2}
+\]
+Now $C,E,G,L$ lie on $\omega_C$, while $A,B,C,G$ lie on $\Omega$. Hence
+\[
+\angle CEG=\angle CLG
+\qquad\text{and}\qquad
+\angle CBG=\angle CAG.
+\]
+Substituting these relations into (2), we get
+\[
+\angle KFA
+=
+\angle CLG-\angle CAG
+=
+\angle AGL.
+\]
+Thus (1) holds. Therefore $FK$ and $GL$ are symmetric about $AO$, and since they meet at $X$, the points $A,X,O$ are collinear.

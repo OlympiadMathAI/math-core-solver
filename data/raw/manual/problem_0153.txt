@@ -1,0 +1,98 @@
+ID: 0153
+
+SOURCE: IMO Shortlist
+
+YEAR: 2015
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Euclidean Combinatorics, Regular Polygons, Pigeonhole Principle, Double Counting
+
+STATEMENT:
+Let $V$ be a finite set of points in the plane. We say that $V$ is \emph{balanced} if, for every two distinct points $A,B\in V$, there exists a point $C\in V$ such that
+\[
+AC=BC.
+\]
+We say that $V$ is \emph{center-free} if there do not exist four points $A,B,C,P\in V$, with $A,B,C$ distinct, such that
+\[
+PA=PB=PC.
+\]
+
+\begin{enumerate}
+\item[(a)] Show that for every integer $n\ge3$, there exists a balanced set consisting of $n$ points.
+\item[(b)] Determine all integers $n\ge3$ for which there exists a balanced, center-free set consisting of $n$ points.
+\end{enumerate}
+
+SOLUTION 1:
+For part (b), the answer is
+\[
+\boxed{\text{all odd integers }n\ge3}.
+\]
+
+\textbf{Part (a): construction of balanced sets.}
+
+First suppose that $n$ is odd. Take the vertices
+\[
+A_1,A_2,\ldots,A_n
+\]
+of a regular $n$-gon, with indices considered modulo $n$. For distinct $i,j$, the congruence
+\[
+2k\equiv i+j\pmod n
+\]
+has a unique solution because $n$ is odd. Then the arcs from $A_i$ to $A_k$ and from $A_k$ to $A_j$ contain the same number of sides, so
+\[
+A_iA_k=A_jA_k.
+\]
+Thus the vertex set is balanced.
+
+Now suppose that $n$ is even. Put
+\[
+N=3n-6=3(n-2),
+\]
+and take a regular $N$-gon with center $O$ and consecutive vertices
+\[
+A_1,A_2,\ldots,A_N.
+\]
+Set
+\[
+V=\{O,A_1,A_2,\ldots,A_{n-1}\}.
+\]
+Any two points $A_i,A_j$ are equidistant from $O$, so only pairs of the form $O,A_i$ need consideration.
+
+Let
+\[
+d=\frac n2-1=\frac{n-2}{2}.
+\]
+Vertices whose indices differ by $d$ subtend a central angle
+\[
+\frac{360^\circ d}{N}=60^\circ,
+\]
+so together with $O$ they form an equilateral triangle. If $i\le n/2$, use $A_{i+d}$; if $i>n/2$, use $A_{i-d}$. In both cases this auxiliary vertex belongs to $\{A_1,\ldots,A_{n-1}\}$ and is equidistant from $O$ and $A_i$. Hence $V$ is balanced.
+
+\textbf{Part (b): the center-free condition.}
+
+If $n$ is odd, use the vertices of a regular $n$-gon. We already know that this set is balanced. If a point $P$ were equidistant from three distinct vertices, then $P$ would be the circumcenter of the circle through those vertices, hence the center of the regular polygon. That center is not one of the vertices, so the set is center-free.
+
+It remains to prove that no balanced, center-free set can have even cardinality. Suppose that $|V|=n$ is even. For each unordered pair $\{A,B\}$ of distinct points, choose one point $C\in V$ satisfying $AC=BC$, and say that $C$ is associated with the pair $\{A,B\}$.
+
+There are
+\[
+\binom n2
+\]
+pairs. By the pigeonhole principle, some point $P\in V$ is associated with at least
+\[
+\left\lceil\frac{\binom n2}{n}\right\rceil
+=\left\lceil\frac{n-1}{2}\right\rceil
+=\frac n2
+\]
+pairs. None of these pairs contains $P$. If the $n/2$ pairs were pairwise disjoint, their union would contain $n$ points, but only $n-1$ points are available outside $P$. Hence two associated pairs share a point; write them as
+\[
+\{A,B\},\qquad \{A,C\},
+\]
+with $B\ne C$. Since both are associated with $P$,
+\[
+PA=PB=PC,
+\]
+contradicting center-freeness.
+
+Thus a balanced, center-free set exists exactly for odd $n\ge3$.

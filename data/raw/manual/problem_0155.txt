@@ -1,0 +1,79 @@
+ID: 0155
+
+SOURCE: IMO Shortlist
+
+YEAR: 2015
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Combinatorial Games, Winning Strategies, Path Graphs, Pigeonhole Principle
+
+STATEMENT:
+Let $n$ be a positive integer. Two players $A$ and $B$ alternately choose positive integers not exceeding $n$, with $A$ moving first. The rules are:
+
+\begin{enumerate}
+\item[(i)] A number already chosen by either player cannot be chosen again.
+\item[(ii)] A player cannot choose a number consecutive to any number previously chosen by that same player.
+\item[(iii)] If all numbers have been chosen, the game is a draw. Otherwise, the first player who has no legal move loses.
+\end{enumerate}
+
+Determine the outcome of the game under optimal play.
+
+SOLUTION 1:
+The game is a draw for
+\[
+\boxed{n=1,2,4,6},
+\]
+and player $B$ wins for every other positive integer $n$.
+
+Write
+\[
+[n]=\{1,2,\ldots,n\}.
+\]
+We first establish a lemma.
+
+\textbf{Lemma.}
+Suppose that $B$ chooses $n$ on the first move. If $A$ has completed a $k$th move with $k\ge2$, then $B$ has a legal $k$th move.
+
+\textit{Proof.}
+Let $S$ be the set of the $k$ numbers chosen by $A$. No two elements of $S$ are consecutive. Since $n$ was chosen by $B$, we have $n\notin S$. The complement $[n]\setminus S$ is split into $k$ contiguous components if $1\in S$, and into $k+1$ components otherwise.
+
+Before $B$'s $k$th move, player $B$ has chosen only $k-1$ numbers. Hence at least one component of $[n]\setminus S$ contains no number previously chosen by $B$. Any number in that component is unchosen. It is also not consecutive to a previous choice of $B$: distinct components are separated by a number chosen by $A$. Thus $B$ has a legal move. $\square$
+
+We now prove that $B$ wins whenever $n\notin\{1,2,4,6\}$. Reflecting the interval $[n]$ if necessary, we may assume that $A$'s first choice is at most
+\[
+\frac{n+1}{2}.
+\]
+Player $B$ chooses $n$.
+
+\textbf{Case 1: $n$ is odd and $n\ge3$.}
+If every number were eventually chosen, then the two players' chosen sets would form the two color classes of the path
+\[
+1-2-\cdots-n.
+\]
+Since $A$ makes one more move than $B$, $A$ would have to own all odd numbers. But $B$ has already chosen the odd number $n$. Hence a draw is impossible. By the lemma, $B$ can respond after every move of $A$, so eventually $A$ is the first player without a legal move. Thus $B$ wins.
+
+\textbf{Case 2: $n$ is even and $n\ge8$.}
+After $A$ makes a second move, player $B$ chooses an unchosen number from
+\[
+\{1,3,5,\ldots,n-3\}.
+\]
+This set has $n/2-1\ge3$ elements, while $A$ has chosen only two numbers, so such a choice exists. It is legal for $B$, because it is not consecutive to $B$'s first choice $n$.
+
+If the game were a draw, then, as above, one player would own all odd numbers and the other all even numbers. Since $B$ owns the even number $n$, $A$ would have to own every odd number. But $B$ has now chosen an odd number as well, so a draw is impossible. The lemma again guarantees that $B$ can answer every move of $A$, and therefore $A$ eventually loses.
+
+It remains to examine $n=1,2,4,6$.
+
+For $n=1$ and $n=2$, all numbers can plainly be chosen, so the result is a draw.
+
+For $n=4$, player $A$ can ensure a draw by choosing $1$. If $B$ wishes to avoid losing, $B$ must choose $4$: choosing $2$ allows $A$ to choose $4$, and choosing $3$ allows $A$ to choose $4$, after which $B$ has no move while an unchosen number remains. After the choices $1$ and $4$, player $A$ chooses $3$ and player $B$ chooses $2$, producing a draw. Conversely, if $A$ begins with $2$ or $3$, player $B$ wins by choosing the opposite endpoint. Hence optimal play gives a draw.
+
+For $n=6$, player $B$ can guarantee at least a draw by choosing $6$ after reflecting the board if necessary and then using the lemma. We show that $A$ can also guarantee at least a draw. Player $A$ first chooses $1$. Suppose $B$ responds with $b$. Choose a neighbor $c$ of $b$ such that $c\notin\{1,2\}$; such a neighbor always exists. Because $c$ is consecutive to $b$, player $B$ can never choose $c$.
+
+For $A$'s second move, choose a number outside
+\[
+\{1,2,c-1,c,c+1\}.
+\]
+At most five of the six numbers are excluded, so this is possible. The choice is legal for $A$, and it leaves $c$ legal for $A$'s third move. Thus $A$ can make three moves. After $A$'s third move, five numbers have been chosen; either $B$ chooses the last number and the game is a draw, or $B$ has no move and loses. Therefore $A$ cannot lose.
+
+Hence the stated outcomes are correct.

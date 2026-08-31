@@ -1,0 +1,198 @@
+ID: 0148
+
+SOURCE: IMO Shortlist
+
+YEAR: 2015
+
+TOPIC: Algebra
+
+SUBTOPICS: Optimization, Quadratic Forms, Inequalities, Rearrangement Inequality
+
+STATEMENT:
+Let $n$ be a fixed positive integer. Find the maximum possible value of
+\[
+\sum_{1\le r<s\le 2n}(s-r-n)x_rx_s,
+\tag{1}
+\]
+where
+\[
+-1\le x_i\le1
+\]
+for every $i=1,2,\ldots,2n$.
+
+SOLUTION 1:
+The maximum is
+\[
+\boxed{n(n-1)}.
+\]
+
+Let $Z$ denote the expression in (1). Since $Z$ is linear in each variable separately, its maximum on the cube $[-1,1]^{2n}$ is attained at a vertex. Thus it is enough to consider
+\[
+x_i\in\{-1,1\}
+\]
+for every $i$.
+
+For $i=1,2,\ldots,2n$, define
+\[
+y_i=\sum_{r=1}^{i}x_r-\sum_{r=i+1}^{2n}x_r.
+\]
+Because $x_r^2=1$, expansion gives
+\[
+y_i^2
+=2n
++2\sum_{r<s\le i}x_rx_s
++2\sum_{i<r<s}x_rx_s
+-2\sum_{r\le i<s}x_rx_s.
+\tag{2}
+\]
+For fixed $r<s$, the coefficient of $x_rx_s$ in
+\[
+\sum_{i=1}^{2n}y_i^2
+\]
+is
+\[
+2(2n-s+r)-2(s-r)=4(n-s+r).
+\]
+Therefore
+\[
+\sum_{i=1}^{2n}y_i^2
+=4n^2+4\sum_{1\le r<s\le2n}(n-s+r)x_rx_s
+=4n^2-4Z.
+\tag{3}
+\]
+
+Each $y_i$ is an even integer, and
+\[
+y_i-y_{i-1}=2x_i\in\{-2,2\}
+\]
+for $i\ge2$. Hence two consecutive $y$'s are distinct even integers, so
+\[
+y_{i-1}^2+y_i^2\ge4.
+\]
+Pairing consecutive terms yields
+\[
+\sum_{i=1}^{2n}y_i^2
+=\sum_{j=1}^{n}\left(y_{2j-1}^2+y_{2j}^2\right)
+\ge4n.
+\tag{4}
+\]
+Combining (3) and (4),
+\[
+4n\le4n^2-4Z,
+\]
+so
+\[
+Z\le n(n-1).
+\]
+
+Equality is attained by taking
+\[
+x_i=
+\begin{cases}
+1,&i\text{ odd},\\
+-1,&i\text{ even}.
+\end{cases}
+\]
+For this choice, the pairs $(y_{2j-1},y_{2j})$ are $(2,0)$, so equality holds in (4). Thus the maximum is $n(n-1)$.
+
+SOLUTION 2:
+Again, because the expression is linear in each variable, it is enough to consider
+\[
+x_i\in\{-1,1\}.
+\]
+Let
+\[
+A=\{i:x_i=1\},
+\qquad
+B=\{i:x_i=-1\}.
+\]
+For subsets $X,Y\subseteq\{1,2,\ldots,2n\}$, define
+\[
+e(X,Y)=\sum_{\substack{r<s\\r\in X,\ s\in Y}}(s-r-n).
+\]
+Then
+\[
+Z=e(A,A)-e(A,B)-e(B,A)+e(B,B).
+\tag{2}
+\]
+Also,
+\[
+e(A,A)+e(A,B)+e(B,A)+e(B,B)
+=\sum_{1\le r<s\le2n}(s-r-n)
+=-\frac{(n-1)n(2n-1)}3.
+\]
+Hence
+\[
+Z=2\bigl(e(A,A)+e(B,B)\bigr)
++\frac{(n-1)n(2n-1)}3.
+\tag{3}
+\]
+
+Interchanging $A$ and $B$ does not change $Z$, so write
+\[
+|A|=n-p,
+\qquad
+|B|=n+p
+\]
+with $0\le p\le n$. List the elements as
+\[
+a_1<a_2<\cdots<a_{n-p},
+\qquad
+b_1<b_2<\cdots<b_{n+p}.
+\]
+A direct collection of coefficients gives
+\[
+e(A,A)
+=\sum_{i=1}^{n-p}(2i-1-n+p)a_i
+-n\binom{n-p}{2},
+\tag{4}
+\]
+and
+\[
+e(B,B)
+=\sum_{i=1}^{n+p}(2i-1-n-p)b_i
+-n\binom{n+p}{2}.
+\tag{5}
+\]
+Thus we have to maximize
+\[
+M=
+\sum_{i=1}^{n-p}(2i-1-n+p)a_i
++
+\sum_{i=1}^{n+p}(2i-1-n-p)b_i,
+\tag{6}
+\]
+where the numbers $a_i,b_i$ together form a permutation of $1,2,\ldots,2n$.
+
+In descending order, the coefficients in (6) are
+\[
+n+p+1-2i\quad (i=1,\ldots,p),
+\]
+then
+\[
+n-p+1-2i\quad (i=1,\ldots,n-p),
+\]
+each occurring twice, and finally the negatives of the first $p$ coefficients. By the rearrangement inequality,
+\[
+\begin{aligned}
+M\le{}&
+\sum_{i=1}^{p}(n+p+1-2i)(2n+1-i)\\
+&+\sum_{i=1}^{n-p}(n-p+1-2i)
+\bigl((2n+2-p-2i)+(2n+1-p-2i)\bigr)\\
+&-\sum_{i=1}^{p}(n+p+1-2i)i.
+\end{aligned}
+\tag{7}
+\]
+Substituting (4), (5), and (7) into (3), and simplifying, gives
+\[
+Z\le n(n-1)-\frac23p(p-1)(p+1).
+\]
+Since $p$ is a nonnegative integer,
+\[
+p(p-1)(p+1)\ge0,
+\]
+and therefore
+\[
+Z\le n(n-1).
+\]
+The alternating choice from Solution 1 attains this value, so the maximum is $n(n-1)$.

@@ -1,0 +1,227 @@
+ID: 0147
+
+SOURCE: IMO Shortlist
+
+YEAR: 2015
+
+TOPIC: Algebra
+
+SUBTOPICS: Functional Equations, Integer-Valued Functions, Periodicity, Additive Structure
+
+STATEMENT:
+Determine all functions $f:\mathbb Z\to\mathbb Z$ such that
+\[
+f\bigl(x-f(y)\bigr)=f\bigl(f(x)\bigr)-f(y)-1
+\tag{1}
+\]
+for all integers $x,y$.
+
+SOLUTION 1:
+The solutions are
+\[
+\boxed{f(x)=-1\quad\text{for all }x\in\mathbb Z}
+\]
+and
+\[
+\boxed{f(x)=x+1\quad\text{for all }x\in\mathbb Z}.
+\]
+Both are readily checked.
+
+Let $f$ be any solution. Put $x=0$ and $y=f(0)$ in (1). Then the integer
+\[
+z=-f(f(0))
+\]
+satisfies $f(z)=-1$. Substituting $y=z$ into (1) gives
+\[
+f(x+1)=f(f(x))
+\tag{2}
+\]
+for every $x\in\mathbb Z$. Hence (1) becomes
+\[
+f\bigl(x-f(y)\bigr)=f(x+1)-f(y)-1.
+\tag{3}
+\]
+
+Using (3) with $(x,y)=(x,x)$, followed by (2), we obtain
+\[
+\begin{aligned}
+f(x+1)-f(x)
+&=f\bigl(x-f(x)\bigr)+1\\
+&=f\bigl(f(x-1-f(x))\bigr)+1.
+\end{aligned}
+\]
+But (3), with $(x,y)=(x-1,x)$, gives
+\[
+f(x-1-f(x))=f(x)-f(x)-1=-1.
+\]
+Consequently
+\[
+f(x+1)-f(x)=f(-1)+1=:A
+\]
+is independent of $x$. Thus, by induction in both directions,
+\[
+f(x)=Ax+B
+\]
+for all integers $x$, where $B=f(0)$.
+
+Substituting this expression into (2) gives
+\[
+Ax+(A+B)=A^2x+(AB+B)
+\]
+for every integer $x$. Hence
+\[
+A^2=A,
+\qquad
+A+B=AB+B.
+\]
+Thus $A=0$ or $A=1$. If $A=1$, then $B=1$, so $f(x)=x+1$. If $A=0$, then $f$ is constant, and (1) forces its constant value to be $-1$. These are exactly the two stated solutions.
+
+SOLUTION 2:
+As in Solution 1, we first derive
+\[
+f(x+1)=f(f(x))
+\tag{2}
+\]
+and
+\[
+f\bigl(x-f(y)\bigr)=f(x+1)-f(y)-1.
+\tag{3}
+\]
+
+If $f$ is injective, then (2) immediately implies
+\[
+f(x)=x+1
+\]
+for every integer $x$.
+
+Suppose now that $f$ is not injective. Choose integers $a>b$ such that
+\[
+f(a)=f(b).
+\]
+Using (2) inductively, we get
+\[
+f(a+n)=f(b+n)
+\]
+for every $n\ge0$. Thus the sequence
+\[
+\gamma_n=f(b+n),\qquad n\ge0,
+\]
+is periodic and bounded. Let
+\[
+\varphi=\min_{n\ge0}\gamma_n,
+\qquad
+\psi=\max_{n\ge0}\gamma_n.
+\]
+
+Choose $y$ with $f(y)=\varphi$. By periodicity, we may choose an integer $x\ge a$ such that
+\[
+f(x-f(y))=\varphi.
+\]
+Since $x+1\ge a$, the value $f(x+1)$ lies between $\varphi$ and $\psi$. Equation (3) gives
+\[
+\varphi\le f(x+1)=\varphi+\varphi+1=2\varphi+1,
+\]
+so $\varphi\ge-1$.
+
+Applying the same argument to the maximum $\psi$, we obtain
+\[
+f(x+1)=2\psi+1\le\psi,
+\]
+and hence $\psi\le-1$. Therefore
+\[
+\varphi=\psi=-1.
+\]
+It follows that
+\[
+f(t)=-1
+\]
+for every sufficiently large integer $t$.
+
+Finally, fix any $y\in\mathbb Z$ and choose $x$ so large that both $x+1$ and $x-f(y)$ lie in this constant tail. Then (3) yields
+\[
+f(y)=f(x+1)-f(x-f(y))-1=(-1)-(-1)-1=-1.
+\]
+Thus $f$ is the constant function $-1$. Together with the injective case, this gives precisely the two solutions.
+
+SOLUTION 3:
+Let
+\[
+d=f(0).
+\]
+Putting $x=f(y)$ in (1), we obtain
+\[
+f^3(y)=f(y)+d+1,
+\tag{2}
+\]
+where $f^3=f\circ f\circ f$. Replacing $x$ by $f(x)$ in (1) and then using (2), we get
+\[
+f\bigl(f(x)-f(y)\bigr)=f(x)-f(y)+d.
+\tag{3}
+\]
+
+Consider the set
+\[
+E=\{f(x)-d:x\in\mathbb Z\}.
+\]
+If $a,b\in E$, choose $x,y$ such that $f(x)=a+d$ and $f(y)=b+d$. Equation (3) gives
+\[
+f(a-b)=a-b+d,
+\]
+so $a-b\in E$. Hence $E$ is closed under taking differences.
+
+If $E=\{0\}$, then $f$ is constant, and (1) shows that $f\equiv-1$. Assume henceforth that $E\ne\{0\}$. Since $E$ is a nonzero additive subgroup of $\mathbb Z$, there is a positive integer $k$ such that
+\[
+E=k\mathbb Z.
+\]
+Consequently the range of $f$ is
+\[
+\{kt+d:t\in\mathbb Z\},
+\tag{4}
+\]
+and, because every $kt\in E$,
+\[
+f(kt)=kt+d
+\tag{5}
+\]
+for every $t\in\mathbb Z$.
+
+In particular, $f(k)=k+d$. Comparing equation (1) with $y=0$ and with $y=k$, and using $f(0)=d$, gives
+\[
+f(z+k)=f(z)+k
+\tag{6}
+\]
+for every integer $z$. Thus on every residue class modulo $k$, the function $f$ has slope $1$.
+
+All values of $f$ belong to the single residue class $d\pmod k$ by (4). Hence there is a constant $c$ such that
+\[
+f(f(x))=f(x)+c
+\]
+for every $x$. Equation (1) therefore becomes
+\[
+f\bigl(x-f(y)\bigr)=f(x)-f(y)+c-1.
+\tag{7}
+\]
+
+Reducing (1) modulo $k$ and using (4), we get
+\[
+d\equiv d-d-1\pmod k,
+\]
+so
+\[
+d\equiv-1\pmod k.
+\]
+Thus $-1$ occurs as a value of $f$. Choose $y$ with $f(y)=-1$ in (7). Then
+\[
+f(x+1)=f(x)+c
+\]
+for every integer $x$, so $f$ is linear with slope $c$. Comparing with (6) gives $c=1$. Therefore
+\[
+f(x)=x+d
+\]
+for all integers $x$. Finally, substituting this into (2) gives
+\[
+y+3d=y+2d+1,
+\]
+so $d=1$. Hence $f(x)=x+1$.
+
+Together with the constant solution $f\equiv-1$, this completes the classification.

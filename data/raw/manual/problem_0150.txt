@@ -1,0 +1,237 @@
+ID: 0150
+
+SOURCE: IMO Shortlist
+
+YEAR: 2015
+
+TOPIC: Algebra
+
+SUBTOPICS: Functional Equations, Finite Differences, Quasi-Periodicity, Integer-Valued Functions
+
+STATEMENT:
+Let $2\mathbb Z+1$ denote the set of odd integers. Find all functions
+\[
+f:\mathbb Z\to 2\mathbb Z+1
+\]
+satisfying
+\[
+f\bigl(x+f(x)+y\bigr)+f\bigl(x-f(x)-y\bigr)
+=f(x+y)+f(x-y)
+\tag{1}
+\]
+for every pair of integers $x,y$.
+
+SOLUTION 1:
+The complete family of solutions is as follows. Choose an odd positive integer $d$, an integer $k$, and odd integers
+\[
+\ell_0,\ell_1,\ldots,\ell_{d-1}.
+\]
+Then define
+\[
+\boxed{
+f(md+i)=2kmd+\ell_i d
+}
+\tag{2}
+\]
+for all $m\in\mathbb Z$ and $i\in\{0,1,\ldots,d-1\}$. Every such function satisfies (1), and there are no other solutions.
+
+For a function $g:\mathbb Z\to\mathbb Z$ and a nonzero integer $t$, write
+\[
+\Delta_tg(x)=g(x+t)-g(x).
+\]
+Difference operators commute:
+\[
+\Delta_a\Delta_bg=\Delta_b\Delta_ag.
+\]
+We call $t$ a \emph{quasi-period} of $g$ if $\Delta_tg$ is constant. Equivalently, $t$ is a period of $\Delta_1g$. Consequently, if a function is quasi-periodic, then its least positive quasi-period divides all of its quasi-periods.
+
+Put
+\[
+a=x+y
+\]
+in (1). Then (1) is equivalent to
+\[
+\Delta_{f(x)}f(a)
+=
+\Delta_{f(x)}f\bigl(2x-a-f(x)\bigr)
+\tag{3}
+\]
+for all integers $x,a$.
+
+Let $b\in\mathbb Z$, and let $q$ be a positive integer. Apply (3) successively with
+\[
+a=b,b+f(x),\ldots,b+(q-1)f(x)
+\]
+and add the resulting equations. Both sides telescope, giving
+\[
+\Delta_{qf(x)}f(b)
+=
+\Delta_{qf(x)}f\bigl(2x-b-qf(x)\bigr).
+\]
+The same identity holds for negative $q$. Thus
+\[
+\Delta_Mf(b)=\Delta_Mf(2x-b-M)
+\tag{4}
+\]
+whenever $M\ne0$ is divisible by $f(x)$.
+
+\textbf{Lemma 1.}
+For distinct integers $x,y$, the function
+\[
+\Delta_Lf,
+\qquad
+L=\operatorname{lcm}(|f(x)|,|f(y)|),
+\]
+is $2(y-x)$-periodic.
+
+\textit{Proof.}
+Applying (4) first with $x$ and then with $y$, we obtain
+\[
+\begin{aligned}
+\Delta_Lf(b)
+&=\Delta_Lf(2x-b-L)\\
+&=\Delta_Lf\bigl(2y-(2x-b-L)-L\bigr)\\
+&=\Delta_Lf\bigl(b+2(y-x)\bigr).
+\end{aligned}
+\]
+This proves the lemma. $\square$
+
+\textbf{Lemma 2.}
+Let $g:\mathbb Z\to\mathbb Z$, and let $t,s$ be nonzero integers. If
+\[
+\Delta_{ts}g=0
+\qquad\text{and}\qquad
+\Delta_t\Delta_tg=0,
+\]
+then
+\[
+\Delta_tg=0.
+\]
+
+\textit{Proof.}
+We may assume $s>0$. Since $\Delta_t\Delta_tg=0$, the values
+\[
+\Delta_tg(a),\Delta_tg(a+t),\ldots,\Delta_tg(a+(s-1)t)
+\]
+are equal. Their sum is
+\[
+\Delta_{ts}g(a)=0,
+\]
+so each of them is zero. $\square$
+
+\textbf{Step 1: $f$ is quasi-periodic.}
+Let
+\[
+Q=\operatorname{lcm}(|f(0)|,|f(1)|).
+\]
+By Lemma 1, the function
+\[
+g=\Delta_Qf
+\]
+is $2$-periodic. Setting $M=Q$ and $x=b=0$ in (4) gives
+\[
+g(0)=g(-Q).
+\]
+Because $Q$ is odd, $0$ and $-Q$ have opposite parity. A $2$-periodic function is constant separately on the even and odd integers, so the last equality shows that these two constants coincide. Hence $g$ is constant, and $Q$ is a quasi-period of $f$.
+
+\textbf{Step 2: the least positive quasi-period divides every value of $f$.}
+Let $T$ be the least positive quasi-period of $f$. Since the odd number $Q$ is a quasi-period, $T$ is odd.
+
+Suppose, for a contradiction, that there are an odd prime $p$, an integer $\alpha\ge1$, and $u\in\mathbb Z$ such that
+\[
+p^\alpha\mid T
+\qquad\text{but}\qquad
+p^\alpha\nmid f(u).
+\tag{5}
+\]
+Putting $x=u$ and $y=0$ in (1), we get
+\[
+f(u+f(u))+f(u-f(u))=2f(u).
+\]
+Since $p$ is odd, (5) implies that at least one of the two values on the left is not divisible by $p^\alpha$. Let $v$ be the corresponding argument, so
+\[
+v\in\{u+f(u),u-f(u)\}
+\qquad\text{and}\qquad
+p^\alpha\nmid f(v).
+\]
+Set
+\[
+L=\operatorname{lcm}(|f(u)|,|f(v)|).
+\]
+Then $p^\alpha\nmid L$.
+
+By Lemma 1, $\Delta_Lf$ has period $2f(u)$. Since $T$ is a quasi-period of $f$, the function $\Delta_Lf$ also has period $T$. Therefore it has period
+\[
+A=\gcd(T,2f(u)),
+\]
+so
+\[
+\Delta_A\Delta_Lf=0.
+\tag{6}
+\]
+Similarly, $\Delta_Af$ has periods $L$ and $T$, hence it has period
+\[
+B=\gcd(T,L),
+\]
+and therefore
+\[
+\Delta_B\Delta_Af=0.
+\tag{7}
+\]
+Both $A$ and $B$ divide $T/p$. Put $q=T/p$, and write $q=rA=sB$ with positive integers $r,s$. By (7), the function $\Delta_Af$ is $B$-periodic, hence also $q$-periodic. Therefore
+\[
+\Delta_q\Delta_Af=0.
+\]
+Moreover,
+\[
+\Delta_qf(x)=\sum_{j=0}^{r-1}\Delta_Af(x+jA).
+\]
+Applying $\Delta_q$ to this identity shows that
+\[
+\Delta_q\Delta_qf=0,
+\]
+i.e.
+\[
+\Delta_{T/p}\Delta_{T/p}f=0.
+\]
+Taking one more first difference,
+\[
+\Delta_{T/p}\Delta_{T/p}\Delta_1f=0.
+\tag{8}
+\]
+On the other hand, because $T$ is a quasi-period,
+\[
+\Delta_T\Delta_1f=0.
+\tag{9}
+\]
+Apply Lemma 2 to $g=\Delta_1f$, with $t=T/p$ and $s=p$. From (8) and (9), we obtain
+\[
+\Delta_{T/p}\Delta_1f=0.
+\]
+Thus $T/p$ is a positive quasi-period of $f$, contradicting the minimality of $T$. Hence
+\[
+T\mid f(x)
+\]
+for every integer $x$.
+
+\textbf{Step 3: description of all solutions.}
+Let $d$ be the positive greatest common divisor of all values of $f$. Since all values are odd, $d$ is odd. From Step 2, $T\mid d$; therefore $d$ is also a quasi-period. Hence
+\[
+\Delta_df
+\]
+is constant. This constant is divisible by $d$, and it is even because it is a difference of two odd integers. Thus there is an integer $k$ such that
+\[
+\Delta_df=2dk.
+\]
+For $i=0,1,\ldots,d-1$, set
+\[
+\ell_i=\frac{f(i)}d.
+\]
+Each $\ell_i$ is odd. Therefore, for every $m\in\mathbb Z$,
+\[
+f(md+i)=f(i)+m\Delta_df
+=\ell_i d+2kmd,
+\]
+which is exactly (2).
+
+It remains to verify the construction. For a function of the form (2), every value $f(x)$ is divisible by $d$, and $\Delta_{qd}f$ is constant for every integer $q$. In particular, $\Delta_{f(x)}f$ is constant, so the two sides of (3) are equal. Hence (1) holds. This completes the classification.

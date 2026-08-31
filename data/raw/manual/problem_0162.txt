@@ -1,0 +1,82 @@
+ID: 0162
+
+SOURCE: IMO Shortlist
+
+YEAR: 2015
+
+TOPIC: Geometry
+
+SUBTOPICS: Cyclic Quadrilaterals, Parallelograms, Similar Triangles, Midpoints
+
+STATEMENT:
+Let $ABC$ be an acute triangle, and let $M$ be the midpoint of $AC$. A circle $\omega$ passing through $B$ and $M$ meets the sides $AB$ and $BC$ again at $P$ and $Q$, respectively. Let $T$ be the point such that $BPTQ$ is a parallelogram. Suppose that $T$ lies on the circumcircle of triangle $ABC$. Determine all possible values of
+\[
+\frac{BT}{BM}.
+\]
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{\sqrt2}.
+\]
+
+We first prove a lemma.
+
+\textbf{Lemma.} Let $ABCT$ be a cyclic quadrilateral. Let $U$ and $V$ lie on the lines $BA$ and $BC$, respectively, and suppose that $BUTV$ is a parallelogram. Then
+\[
+BU\cdot BA+BV\cdot BC=BT^2,
+\tag{1}
+\]
+where directed lengths may be used if necessary.
+
+\textit{Proof.}
+Let the circumcircle of triangle $VTC$ meet the line $BT$ again at $J$. By the power of $B$ with respect to this circle,
+\[
+BV\cdot BC=BJ\cdot BT.
+\tag{2}
+\]
+Moreover,
+\[
+\angle TJV=180^\circ-\angle VCT=\angle TAB
+\]
+and, because $TV\parallel BA$,
+\[
+\angle VTJ=\angle ABT.
+\]
+Thus triangles $TJV$ and $BAT$ are similar, so
+\[
+\frac{TJ}{TV}=\frac{BA}{BT}.
+\]
+Since $TV=BU$, we get
+\[
+TJ\cdot BT=BU\cdot BA.
+\tag{3}
+\]
+Adding (2) and (3), and using $BJ+JT=BT$ on the line $BT$, gives (1). $\square$
+
+Let $X$ and $Y$ be the midpoints of $BA$ and $BC$, respectively. Since $M$ is the midpoint of $AC$, the quadrilateral $BXMY$ is a parallelogram.
+
+The points $P,B,Q,M$ lie on $\omega$. Applying the lemma to the cyclic quadrilateral $PBQM$ and the parallelogram $BXMY$, we obtain
+\[
+BX\cdot BP+BY\cdot BQ=BM^2.
+\tag{4}
+\]
+The points $A,B,C,T$ are cyclic, and $BPTQ$ is a parallelogram. Applying the lemma again gives
+\[
+BP\cdot BA+BQ\cdot BC=BT^2.
+\tag{5}
+\]
+Since
+\[
+BA=2BX
+\qquad\text{and}\qquad
+BC=2BY,
+\]
+equations (4) and (5) yield
+\[
+BT^2=2BM^2.
+\]
+All lengths are positive, so
+\[
+\frac{BT}{BM}=\sqrt2.
+\]

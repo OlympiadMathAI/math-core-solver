@@ -1,0 +1,251 @@
+ID: 0157
+
+SOURCE: IMO Shortlist
+
+YEAR: 2015
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Additive Combinatorics, Subset Sums, Parity, Uniqueness Arguments
+
+STATEMENT:
+Let $S$ be a nonempty set of positive integers. A positive integer $n$ is called \emph{clean} if it has exactly one representation as a sum of an odd number of distinct elements of $S$.
+
+Prove that infinitely many positive integers are not clean.
+
+SOLUTION 1:
+Call a representation \emph{odd} or \emph{even} according to the parity of its number of summands. Suppose, for contradiction, that only finitely many positive integers are not clean. Then there exists $N$ such that every integer greater than $N$ has exactly one odd representation.
+
+The set $S$ must be infinite, since otherwise all sufficiently large integers would have no representation at all.
+
+\textbf{Property 1.} Every positive integer has at most one odd representation and at most one even representation.
+
+\textit{Proof.}
+Fix $n$. Choose $x\in S$ with $x>\max\{n,N\}$. No representation of $n$ can contain $x$. If $n$ had two even representations, adjoining $x$ to each would give two distinct odd representations of the clean integer $n+x$, impossible.
+
+Similarly, choose distinct $y,z\in S$ with $y,z>\max\{n,N\}$. If $n$ had two odd representations, adjoining both $y$ and $z$ to each would produce two distinct odd representations of the clean integer $n+y+z$. $\square$
+
+\textbf{Property 2.} Fix $s\in S$. If $n>N$ has no even representation, then for every integer $a\ge1$, the number $n+2as$ has an even representation containing $s$.
+
+\textit{Proof.}
+It is enough to show the following iterative step: if $n$ has no even representation avoiding $s$, then $n+2s$ has an even representation containing $s$.
+
+The clean integer $n+s$ has an odd representation. That representation cannot contain $s$, because removing $s$ would give an even representation of $n$ avoiding $s$. Adding $s$ to it gives an even representation of $n+2s$ containing $s$. By Property 1 this is its only even representation, so in particular there is no even representation avoiding $s$. The argument may now be repeated. $\square$
+
+\textbf{Property 3.} Every sufficiently large positive integer has an even representation.
+
+\textit{Proof.}
+Fix $s\in S$. For each residue representative $r\in\{1,2,\ldots,2s\}$, consider
+\[
+Z_r=\{r+2as:a\ge0\}.
+\]
+By Property 2, each progression $Z_r$ contains at most one integer greater than $N$ having no even representation. Hence only finitely many positive integers have no even representation. $\square$
+
+Increasing $N$ if necessary, we may therefore assume that every integer greater than $N$ has exactly one odd and exactly one even representation.
+
+\textbf{Property 4.} If $s,t\in S$ and $N<s<t$, then the even representation of $t$ contains $s$.
+
+\textit{Proof.}
+Suppose it does not. Adjoining $s$ to the even representation of $t$ gives an odd representation of $s+t$. Adjoining $t$ to the even representation of $s$ gives another odd representation of $s+t$. These are distinct: an even representation of $t$ cannot contain $t$, and an even representation of $s$ cannot contain $s$ or $t$. This contradicts the cleanliness of $s+t$. $\square$
+
+List the elements of $S$ increasingly:
+\[
+s_1<s_2<s_3<\cdots,
+\]
+and put
+\[
+\sigma_i=s_1+s_2+\cdots+s_i,
+\qquad
+\sigma_0=0.
+\]
+Choose $k$ with $s_k>N$. For every $i>k$, Property 4 says that the even representation of $s_i$ contains
+\[
+s_k,s_{k+1},\ldots,s_{i-1}.
+\]
+All its remaining terms belong to $\{s_1,\ldots,s_{k-1}\}$. Thus
+\[
+s_i=\sigma_{i-1}-\sigma_{k-1}+R_i,
+\tag{1}
+\]
+where $R_i$ is a subset sum of $s_1,\ldots,s_{k-1}$ and therefore
+\[
+0\le R_i\le\sigma_{k-1}.
+\]
+
+Choose $j_0>k$ so that
+\[
+\sigma_{j_0}>2\sigma_{k-1}.
+\]
+Then for every $j\ge j_0$, equation (1) gives
+\[
+s_{j+1}\ge\sigma_j-\sigma_{k-1}>\frac{\sigma_j}{2}.
+\tag{2}
+\]
+Choose an index $p>j_0$ for which $R_p$ is minimal among all $R_i$ with $i>j_0$. Using (1) twice,
+\[
+\begin{aligned}
+s_{p+1}
+&=s_k+s_{k+1}+\cdots+s_p+R_{p+1}\\
+&=(s_p-R_p)+s_p+R_{p+1}\\
+&\ge2s_p.
+\end{aligned}
+\]
+Hence no element of $S$ lies strictly between $s_p$ and $2s_p$.
+
+The integer $2s_p$ is greater than $N$, so it has an even representation. That representation cannot contain an element of $S$ larger than $s_p$. On the other hand, applying (2) with $j=p-1$ gives
+\[
+2s_p>\sigma_{p-1},
+\]
+so the representation cannot use only $s_1,\ldots,s_{p-1}$. It must therefore contain $s_p$. Removing $s_p$ leaves an odd representation of $s_p$ not containing $s_p$. This is different from the one-term representation $s_p$, contradicting Property 1.
+
+The contradiction proves that infinitely many positive integers are not clean.
+
+SOLUTION 2:
+We retain Property 1 from Solution 1: every positive integer has at most one odd and at most one even representation.
+
+Assume again, for contradiction, that only finitely many positive integers are not clean. Let their number be $m-1$. List the elements of $S$ as
+\[
+s_1<s_2<\cdots
+\]
+and define
+\[
+\sigma_n=s_1+s_2+\cdots+s_n.
+\]
+Let $O_n$ and $E_n$ be the sets of integers representable as odd and even sums, respectively, of distinct elements of $\{s_1,\ldots,s_n\}$. We include the empty sum, so $0\in E_n$. Put
+\[
+O=\bigcup_{n\ge1}O_n,
+\qquad
+E=\bigcup_{n\ge1}E_n.
+\]
+
+\textbf{Step 1: estimates for $s_{n+1}$ and $\sigma_{n+1}$.}
+
+Property 1 gives
+\[
+|O_n|=|E_n|=2^{n-1}.
+\]
+Among the $2^{n-1}+m$ integers in
+\[
+[1,2^{n-1}+m],
+\]
+at least $m$ do not belong to $O_n$. Since only $m-1$ positive integers are non-clean, one of them, say $x_n$, is clean. Its unique odd representation uses an element larger than $s_n$, so
+\[
+s_{n+1}\le x_n\le2^{n-1}+m.
+\tag{3}
+\]
+The integer $s_1$ is clean, and all positive integers below $s_1$ are non-clean, so $s_1\le m$. Summing (3) gives
+\[
+\sigma_{n+1}\le2^n-1+(n+1)m.
+\tag{4}
+\]
+
+Since $O_{n+1}\subseteq[1,\sigma_{n+1}]$ and $|O_{n+1}|=2^n$, we also have
+\[
+\sigma_{n+1}\ge2^n.
+\tag{5}
+\]
+Subtracting the upper estimate for $\sigma_n$ from (5), we obtain
+\[
+s_{n+1}\ge2^{n-1}+1-nm.
+\tag{6}
+\]
+Thus, for every $n\ge1$,
+\[
+2^{n-1}+1-nm\le s_{n+1}\le2^{n-1}+m,
+\]
+and
+\[
+2^n\le\sigma_{n+1}\le2^n-1+(n+1)m.
+\tag{7}
+\]
+
+\textbf{Step 2: sufficiently large integers have even representations.}
+
+Because representations of a fixed parity are unique, we have disjoint unions
+\[
+E_{n+1}=E_n\sqcup(s_{n+1}+O_n),
+\qquad
+O_{n+1}=O_n\sqcup(s_{n+1}+E_n).
+\tag{8}
+\]
+For sufficiently large $n$, estimates (6) and (7) give
+\[
+s_{n+2}>\sigma_n.
+\]
+
+We claim that, for all sufficiently large $n$,
+\[
+(\sigma_n-s_{n+1},\ s_{n+2}-s_{n+1})\subseteq E_n,
+\tag{9}
+\]
+where intervals contain the integers lying strictly between their endpoints. Indeed, every integer in $(\sigma_n,s_{n+2})$ is then clean. It is too large to lie in $O_n$, and too small for an odd representation using $s_{n+2}$ or a later element. Hence it belongs to
+\[
+O_{n+1}\setminus O_n=s_{n+1}+E_n.
+\]
+Subtracting $s_{n+1}$ proves (9).
+
+Using (7), the interval in (9) contains
+\[
+(2nm,\ 2^{n-1}-(n+2)m)
+\]
+for all sufficiently large $n$. These intervals eventually overlap and cover all sufficiently large integers. Therefore $\mathbb Z_{\ge0}\setminus E$ is finite. Since all sufficiently large integers are clean, $\mathbb Z_{\ge0}\setminus O$ is finite as well. We may henceforth choose $N$ such that every integer greater than $N$ has exactly one odd and exactly one even representation.
+
+\textbf{Step 3: the finite subset-sum sets are almost intervals.}
+
+Taking complements of subsets of $\{s_1,\ldots,s_n\}$ gives
+\[
+\begin{aligned}
+E_{2n}&=\sigma_{2n}-E_{2n},
+& O_{2n}&=\sigma_{2n}-O_{2n},\\
+E_{2n+1}&=\sigma_{2n+1}-O_{2n+1},
+& O_{2n+1}&=\sigma_{2n+1}-E_{2n+1}.
+\end{aligned}
+\tag{10}
+\]
+We claim that for every sufficiently large $n$,
+\[
+(N,\sigma_n-N)\subseteq O_n\cap E_n.
+\tag{11}
+\]
+Indeed, by (6) and (7), for sufficiently large $n$,
+\[
+s_{n+1}>\frac{\sigma_n}{2}.
+\]
+Thus the odd representation of an integer in $(N,\sigma_n/2]$ cannot use any element beyond $s_n$, so that interval lies in $O_n$. An even representation using an element beyond $s_n$ would contain at least $s_{n+1}+s_1>\sigma_n/2$, so the same interval lies in $E_n$. The complement relations (10) extend this conclusion to the upper half, proving (11).
+
+\textbf{Step 4: the contradiction.}
+
+The sets $\mathbb Z_{\ge0}\setminus O$ and $\mathbb Z_{\ge0}\setminus E$ are finite and nonempty: $0\notin O$, and $1\notin E$. Let
+\[
+o=\max(\mathbb Z_{\ge0}\setminus O),
+\qquad
+e=\max(\mathbb Z_{\ge0}\setminus E).
+\]
+Take $k$ so large that $e,o\le N$, $\sigma_{2k}>2N$, and (11) holds for all indices at least $2k$.
+
+For $2k$ elements, the complement relations preserve parity. Hence the least integer greater than $N$ which is absent from $E_{2k}$ is $\sigma_{2k}-e$, while the least new even sum requiring an element beyond $s_{2k}$ is $s_{2k+1}+s_1$. Likewise, the least integer greater than $N$ absent from $O_{2k}$ is $\sigma_{2k}-o$, and the least new odd sum is $s_{2k+1}$. Therefore
+\[
+\sigma_{2k}-e=s_{2k+1}+s_1,
+\qquad
+\sigma_{2k}-o=s_{2k+1}.
+\tag{12}
+\]
+
+For $2k+1$ elements, taking complements reverses parity. The analogous comparison gives
+\[
+\sigma_{2k+1}-e=s_{2k+2},
+\qquad
+\sigma_{2k+1}-o=s_{2k+2}+s_1.
+\tag{13}
+\]
+Subtracting the two equations in (12) gives
+\[
+s_1=o-e,
+\]
+whereas subtracting the two equations in (13) gives
+\[
+-s_1=o-e.
+\]
+Thus $s_1=-s_1$, impossible because $s_1>0$.
+
+This final contradiction completes the proof.

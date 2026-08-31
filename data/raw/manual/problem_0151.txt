@@ -1,0 +1,344 @@
+ID: 0151
+
+SOURCE: IMO Shortlist
+
+YEAR: 2015
+
+TOPIC: Algebra
+
+SUBTOPICS: Polynomials, Finite Differences, Root Counting, Rearrangement of Values
+
+STATEMENT:
+Let $n\ge2$ be fixed. Two polynomials $P,Q$ with real coefficients are called \emph{block-similar} if, for every $i\in\{1,2,\ldots,n\}$, the two sequences
+\[
+P(2015i),P(2015i-1),\ldots,P(2015i-2014)
+\]
+and
+\[
+Q(2015i),Q(2015i-1),\ldots,Q(2015i-2014)
+\]
+are permutations of each other.
+
+\textbf{(a)} Prove that there exist distinct block-similar polynomials of degree $n+1$.
+
+\textbf{(b)} Prove that there do not exist distinct block-similar polynomials of degree $n$.
+
+SOLUTION 1:
+Put
+\[
+k=2015=2\ell+1,
+\qquad \ell=1007.
+\]
+
+\textbf{Part (a).}
+Define
+\[
+P(x)=\prod_{j=0}^{n}(x-jk),
+\qquad
+Q(x)=\prod_{j=0}^{n}(x-jk-1)=P(x-1).
+\]
+Both polynomials have degree $n+1$ and are distinct.
+
+For a fixed $i\in\{1,\ldots,n\}$, the values of $Q$ on the $i$th block are
+\[
+P(ik-1),P(ik-2),\ldots,P((i-1)k).
+\]
+The values of $P$ on that block are
+\[
+P(ik),P(ik-1),\ldots,P((i-1)k+1).
+\]
+Since
+\[
+P(ik)=P((i-1)k)=0,
+\]
+these two lists are permutations of each other. Thus $P$ and $Q$ are block-similar.
+
+\textbf{Part (b).}
+For a polynomial $F$ and a nonnegative integer $m$, define
+\[
+\Sigma F(m)=\sum_{j=1}^{m}F(j),
+\qquad
+\Sigma F(0)=0.
+\]
+By the standard formulas for sums of powers, $\Sigma F(m)$ extends uniquely to a polynomial in $m$ of degree $\deg F+1$ when $F\ne0$.
+
+Assume, for a contradiction, that distinct block-similar polynomials $P,Q$ of degree at most $n$ exist. Since corresponding blocks are permutations, their sums and sums of squares agree. Consequently both
+\[
+\Sigma(P-Q)
+\qquad\text{and}\qquad
+\Sigma(P^2-Q^2)
+\]
+vanish at
+\[
+0,k,2k,\ldots,nk.
+\tag{1}
+\]
+Set
+\[
+T(x)=\prod_{j=0}^{n}(x-jk).
+\]
+
+\textbf{Lemma.}
+Let $F$ be a nonzero polynomial such that $\Sigma F$ vanishes at all the points in (1). Then
+\[
+\deg F\ge n,
+\]
+and there exists a polynomial $G$ with
+\[
+\deg G=\deg F-n
+\]
+such that
+\[
+F(x)=T(x)G(x)-T(x-1)G(x-1).
+\tag{2}
+\]
+
+\textit{Proof.}
+If $\deg F<n$, then $\deg\Sigma F<n+1$, while $\Sigma F$ has at least $n+1$ distinct roots. Hence $\Sigma F=0$, which would imply $F=0$, a contradiction. Thus $\deg F\ge n$.
+
+Because of the roots in (1),
+\[
+\Sigma F(x)=T(x)G(x)
+\]
+for some polynomial $G$ of degree $\deg F-n$. Define
+\[
+F_1(x)=T(x)G(x)-T(x-1)G(x-1).
+\]
+For every positive integer $m$,
+\[
+\begin{aligned}
+\Sigma F_1(m)
+&=\sum_{j=1}^{m}\bigl(T(j)G(j)-T(j-1)G(j-1)\bigr)\\
+&=T(m)G(m)-T(0)G(0)\\
+&=T(m)G(m)=\Sigma F(m).
+\end{aligned}
+\]
+Thus the polynomial $\Sigma(F-F_1)$ has infinitely many zeros, so it is identically zero. Hence $F=F_1$, proving (2). $\square$
+
+Apply the lemma to
+\[
+R_1=P-Q.
+\]
+This polynomial is nonzero and has degree at most $n$, so
+\[
+\deg R_1=n
+\]
+and
+\[
+R_1(x)=\alpha\bigl(T(x)-T(x-1)\bigr)
+\tag{3}
+\]
+for some nonzero constant $\alpha$.
+
+We next prove that
+\[
+S=P+Q
+\]
+is constant. Suppose not. Then
+\[
+R_2=P^2-Q^2=R_1S
+\]
+is nonzero, satisfies the lemma, and has degree strictly between $n$ and $2n$. Therefore
+\[
+R_2(x)=T(x)G(x)-T(x-1)G(x-1)
+\tag{4}
+\]
+for some polynomial $G$ with
+\[
+1\le\deg G\le n.
+\]
+Rewrite (4) as
+\[
+R_2(x)
+=T(x)\bigl(G(x)-G(x-1)\bigr)
++G(x-1)\bigl(T(x)-T(x-1)\bigr).
+\]
+By (3), the polynomial $T(x)-T(x-1)$ divides $R_2(x)$, hence it divides
+\[
+T(x)\bigl(G(x)-G(x-1)\bigr).
+\]
+But
+\[
+\gcd\bigl(T(x),T(x)-T(x-1)\bigr)
+=\gcd\bigl(T(x),T(x-1)\bigr)=1,
+\]
+because the roots $0,k,\ldots,nk$ of $T(x)$ are disjoint from the roots $1,k+1,\ldots,nk+1$ of $T(x-1)$. Thus
+\[
+T(x)-T(x-1)\mid G(x)-G(x-1).
+\]
+This is impossible: the divisor has degree $n$, whereas the nonzero polynomial $G(x)-G(x-1)$ has degree at most $n-1$. Hence $S$ is constant, say
+\[
+P+Q=\beta.
+\]
+
+Replacing $P,Q$ by
+\[
+\frac{2P-\beta}{\alpha},
+\qquad
+\frac{2Q-\beta}{\alpha},
+\]
+we may assume, without loss of generality, that
+\[
+P=-Q=T(x)-T(x-1).
+\tag{5}
+\]
+
+For every $i=1,\ldots,n$, the values
+\[
+T((i-1)k+1)
+\quad\text{and}\quad
+T(ik-1)
+\]
+have the same sign, since both arguments lie strictly between the consecutive roots $(i-1)k$ and $ik$ of $T$. By (5),
+\[
+P((i-1)k+1)=T((i-1)k+1)
+\]
+and
+\[
+P(ik)=-T(ik-1)
+\]
+have opposite signs. Hence $P$ has a root in each of the $n$ disjoint intervals
+\[
+[(i-1)k+1,ik].
+\]
+Since $\deg P=n$, it has exactly one root in each such interval.
+
+In the first block, the list
+\[
+P(1),P(2),\ldots,P(k)
+\]
+changes sign exactly once. Since $P$ and $-P$ are block-similar, this list contains equally many positive and negative terms. As $k=2\ell+1$ is odd, its middle term must be zero:
+\[
+P(\ell+1)=0.
+\]
+By (5), this means
+\[
+T(\ell+1)=T(\ell).
+\tag{6}
+\]
+However,
+\[
+\begin{aligned}
+|T(\ell+1)|
+&=|\ell+1|\,|\ell|\prod_{j=2}^{n}|\ell+1-jk|\\
+&<|\ell|\,|\ell+1|\prod_{j=2}^{n}|\ell-jk|\\
+&=|T(\ell)|,
+\end{aligned}
+\]
+because $n\ge2$. This contradicts (6). Therefore no two distinct block-similar polynomials of degree at most $n$ exist, proving part (b).
+
+SOLUTION 2:
+Part (a) is proved by the same construction as in Solution 1. We give a different proof of part (b).
+
+Suppose that distinct block-similar polynomials $P,Q$ of degree at most $n$ exist. Put
+\[
+R=P-Q,
+\qquad
+S=P+Q,
+\qquad
+k=2015=2\ell+1.
+\]
+For $i=1,2,\ldots,n$, define
+\[
+I_i=[(i-1)k+1,ik]
+\]
+and let
+\[
+Z_i=\{(i-1)k+1,(i-1)k+2,\ldots,ik\}
+\]
+be its set of integer points.
+
+\textbf{Step 1: $R$ has exactly one simple root in each $I_i$.}
+Choose $p^-,p^+\in Z_i$ such that
+\[
+P(p^-)=\min_{x\in Z_i}P(x),
+\qquad
+P(p^+)=\max_{x\in Z_i}P(x).
+\]
+Since the values of $P$ and $Q$ on $Z_i$ are permutations of each other,
+\[
+R(p^-)=P(p^-)-Q(p^-)\le0,
+\]
+and
+\[
+R(p^+)=P(p^+)-Q(p^+)\ge0.
+\]
+Thus $R$ has a root in $I_i$. This holds for each of the $n$ pairwise disjoint intervals. Since $R$ is nonzero and $\deg R\le n$, it has exactly one root in each $I_i$, and every one of these roots is simple.
+
+\textbf{Step 2: $S$ is constant.}
+We first show that, for each $i$, the sequence
+\[
+S((i-1)k+1),S((i-1)k+2),\ldots,S(ik)
+\]
+cannot be strictly increasing.
+
+By interchanging $P$ and $Q$ if necessary, assume
+\[
+P(ik)\le Q(ik).
+\tag{7}
+\]
+Choose $p^-,p^+$ as above. If $P(p^-)=P(p^+)$, then $P$ is constant on $Z_i$; because the $Q$-values are a permutation of the $P$-values, $Q$ is constant there as well, giving more than one zero of $R$ in $I_i$, impossible. Hence $p^-\ne p^+$.
+
+If $p^->p^+$, then
+\[
+S(p^-)=P(p^-)+Q(p^-)
+\le Q(p^+)+P(p^+)=S(p^+),
+\]
+so the sequence is not strictly increasing.
+
+It remains to consider $p^-<p^+$. If
+\[
+P(p^+)>Q(p^+),
+\]
+then
+\[
+R(p^-)\le0<R(p^+)
+\quad\text{and}\quad
+R(ik)\le0
+\]
+by (7). Thus $R$ has roots on both sides of $p^+$ inside $I_i$, contradicting Step 1.
+
+Hence
+\[
+P(p^+)=Q(p^+),
+\]
+so $p^+$ is the unique root of $R$ in $I_i$. If $p^+=ik$, then all the other values of $R$ on $Z_i$ have the same sign. Their sum cannot be zero, contradicting the equality of the sums of the two block permutations. If $p^+<ik$, then $R(p^-)$ and $R(ik)$ are both negative. A polynomial having the same sign at these endpoints must have an even number of simple sign-changing roots between them, contradicting the fact that $p^+$ is the unique simple root. Therefore the sequence of $S$-values is not strictly increasing.
+
+By the symmetric argument, it is not strictly decreasing either. Hence the polynomial
+\[
+\Delta S(x)=S(x)-S(x-1)
+\]
+takes both a nonnegative and a nonpositive value in every interval $I_i$, and therefore has a root in each $I_i$. But
+\[
+\deg\Delta S<n,
+\]
+so $\Delta S$ must be identically zero. Thus $S$ is constant.
+
+\textbf{Step 3: final contradiction.}
+Subtracting half of this constant from both $P$ and $Q$, we may assume
+\[
+P=-Q.
+\]
+Then $R=2P$, so $P$ has exactly one simple root in every $I_i$.
+
+Because the values of $P$ and $-P$ on each $Z_i$ are permutations, there are equally many positive and negative values. Since $|Z_i|=k$ is odd, exactly one value is zero, and the unique root must be the middle point of $Z_i$. Therefore the roots of $P$ are
+\[
+ik-\ell,
+\qquad i=1,2,\ldots,n.
+\]
+Thus
+\[
+P(x)=c\prod_{i=1}^{n}(x-ik+\ell)
+\]
+for some nonzero real constant $c$.
+
+For every $t\in Z_1\setminus\{1\}$,
+\[
+\begin{aligned}
+|P(t)|
+&=|c|\,|t-\ell-1|\prod_{i=2}^{n}|t-ik+\ell|\\
+&<|c|\,\ell\prod_{i=2}^{n}|1-ik+\ell|\\
+&=|P(1)|.
+\end{aligned}
+\]
+Therefore no value $P(t)$ in the first block equals $-P(1)$. This contradicts the fact that the first-block values of $P$ and $-P$ are permutations of each other. Hence distinct block-similar polynomials of degree at most $n$ do not exist.

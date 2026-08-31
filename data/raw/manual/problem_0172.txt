@@ -1,0 +1,180 @@
+ID: 0172
+
+SOURCE: IMO Shortlist
+
+YEAR: 2015
+
+TOPIC: Number Theory
+
+SUBTOPICS: Iterated Functions, Divisibility, Arithmetic Progressions, Periodicity
+
+STATEMENT:
+Let $\mathbb Z_{>0}$ denote the set of positive integers, and let
+\[
+f:\mathbb Z_{>0}\to\mathbb Z_{>0}.
+\]
+For positive integers $m,n$, write $f^n(m)$ for the $n$-fold iterate of $f$ at $m$. Suppose that:
+
+\begin{enumerate}
+\item[(i)] For every $m,n\in\mathbb Z_{>0}$,
+\[
+\frac{f^n(m)-m}{n}\in\mathbb Z_{>0}.
+\]
+\item[(ii)] The set
+\[
+\mathbb Z_{>0}\setminus\{f(n):n\in\mathbb Z_{>0}\}
+\]
+is finite.
+\end{enumerate}
+
+Prove that the sequence
+\[
+f(1)-1,\ f(2)-2,\ f(3)-3,\ldots
+\]
+is periodic.
+
+SOLUTION 1:
+We divide the proof into three steps.
+
+\textbf{Step 1: decomposition into finitely many forward orbits.}
+
+First, $f$ is injective. Suppose
+\[
+f(m)=f(k).
+\]
+Then $f^n(m)=f^n(k)$ for every $n\ge1$, and condition (i) gives
+\[
+\frac{k-m}{n}
+=
+\frac{f^n(m)-m}{n}
+-
+\frac{f^n(k)-k}{n}
+\in\mathbb Z.
+\]
+Taking $n=|k-m|+1$ forces $k=m$.
+
+By condition (ii), there are finitely many positive integers
+\[
+a_1,a_2,\ldots,a_r
+\]
+which are not in the image of $f$. Also, condition (i) with $n=1$ gives
+\[
+f(m)>m
+\qquad(m\ge1).
+\tag{1}
+\]
+
+Every positive integer belongs to exactly one of the forward orbits
+\[
+a_i,\ f(a_i),\ f^2(a_i),\ldots.
+\]
+Uniqueness follows from injectivity. For existence, use induction on the integer in question: an integer not among the $a_i$ has a preimage, and by (1) that preimage is smaller.
+
+Thus the positive integers occur exactly once in the following table:
+\[
+\begin{array}{ccccc}
+a_1&f(a_1)&f^2(a_1)&f^3(a_1)&\cdots\\
+a_2&f(a_2)&f^2(a_2)&f^3(a_2)&\cdots\\
+\vdots&\vdots&\vdots&\vdots&\\
+a_r&f(a_r)&f^2(a_r)&f^3(a_r)&\cdots
+\end{array}
+\tag{2}
+\]
+
+\textbf{Step 2: every row of the table is an arithmetic progression.}
+
+Suppose, for contradiction, that not every row is an arithmetic progression. Relabel the rows so that exactly the first $t<r$ rows are arithmetic progressions, with respective common differences
+\[
+T_1,T_2,\ldots,T_t.
+\]
+If $t>0$, put
+\[
+T=\operatorname{lcm}(T_1,\ldots,T_t),
+\qquad
+A=\max(a_1,\ldots,a_t).
+\]
+If $t=0$, put $T=1$ and $A=0$.
+
+For every $n\ge A$, each interval of $T$ consecutive integers
+\[
+[n+1,n+T]
+\]
+contains exactly $T/T_i$ terms from the $i$th arithmetic row. Hence the number of terms in this interval belonging to the remaining $r-t$ rows is independent of $n$. It cannot be zero, because those rows contain infinitely many integers. Therefore every such interval contains at least one term from the last $r-t$ rows.
+
+Fix a positive integer $d$. The interval
+\[
+[A+1,\ A+(d+1)(r-t)T]
+\]
+contains at least $(d+1)(r-t)$ terms from the last $r-t$ rows. Hence one of those rows, say row $x$, contributes at least $d+1$ terms, and therefore
+\[
+f^d(a_x)\le A+(d+1)(r-t)T.
+\tag{3}
+\]
+There are only finitely many possible rows $x$, so some fixed $x>t$ satisfies (3) for infinitely many $d$. Let $X$ be the infinite set of such $d$.
+
+For $d\in X$, condition (i) shows that
+\[
+\beta_d=\frac{f^d(a_x)-a_x}{d}
+\]
+is a positive integer. By (3), the numbers $\beta_d$ are bounded independently of $d$. Thus there is a positive integer $T_x$ and an infinite subset $Y\subseteq X$ such that
+\[
+f^d(a_x)=a_x+dT_x
+\qquad(d\in Y).
+\tag{4}
+\]
+
+We now prove that (4) holds for every positive integer $d$. Fix $j\ge1$. Choose $y\in Y$ with $y>j$ and
+\[
+y-j>
+\left|f^j(a_x)-(a_x+jT_x)\right|.
+\tag{5}
+\]
+Condition (i), applied with initial value $f^j(a_x)$ and exponent $y-j$, gives
+\[
+y-j\mid f^y(a_x)-f^j(a_x).
+\]
+By (4),
+\[
+f^y(a_x)-(a_x+jT_x)=(y-j)T_x,
+\]
+which is also divisible by $y-j$. Hence
+\[
+y-j\mid f^j(a_x)-(a_x+jT_x).
+\]
+Together with (5), this forces
+\[
+f^j(a_x)=a_x+jT_x.
+\]
+Thus row $x$ is an arithmetic progression, contradicting the definition of $t$.
+
+Therefore every row in (2) is an arithmetic progression. Let its common differences be
+\[
+T_1,T_2,\ldots,T_r.
+\]
+
+\textbf{Step 3: periodicity.}
+
+Put
+\[
+T=\operatorname{lcm}(T_1,T_2,\ldots,T_r).
+\]
+Take any positive integer $n$, and suppose it lies in row $i$. Then
+\[
+f^j(n)=n+jT_i
+\qquad(j\ge0).
+\]
+In particular,
+\[
+n+T=f^{T/T_i}(n),
+\]
+and therefore
+\[
+\begin{aligned}
+f(n+T)-(n+T)
+&=f^{1+T/T_i}(n)-(n+T)\\
+&=(n+T+T_i)-(n+T)\\
+&=T_i\\
+&=f(n)-n.
+\end{aligned}
+\]
+Thus the sequence $f(n)-n$ has period $T$, as required.

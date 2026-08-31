@@ -1,0 +1,16 @@
+{
+  "id": "0160",
+  "source": "IMO Shortlist",
+  "year": "2015",
+  "topic": "Geometry",
+  "subtopics": [
+    "Directed Angles",
+    "Circles",
+    "Reflection Symmetry",
+    "Collinearity"
+  ],
+  "statement": "Let $ABC$ be a triangle inscribed in a circle $\\Omega$ with center $O$. A circle $\\Gamma$ with center $A$ meets the side $BC$ at points $D$ and $E$ such that $D$ lies between $B$ and $E$. Let $F$ and $G$ be the common points of $\\Gamma$ and $\\Omega$. Assume that $F$ lies on the arc $AB$ of $\\Omega$ not containing $C$, and $G$ lies on the arc $AC$ of $\\Omega$ not containing $B$. The circumcircles of triangles $BDF$ and $CEG$ meet the sides $AB$ and $AC$ again at $K$ and $L$, respectively. Suppose that the distinct lines $FK$ and $GL$ intersect at $X$. Prove that $A,X,O$ are collinear.",
+  "solutions": [
+    "All angles in this solution are directed modulo $180^\\circ$.\n\nSince $A$ is the center of $\\Gamma$,\n\\[\nAF=AG.\n\\]\nThus the two common points $F$ and $G$ of $\\Gamma$ and $\\Omega$ are symmetric with respect to the line of centers $AO$. It is therefore enough to prove\n\\[\n\\angle KFA=\\angle AGL.\n\\tag{1}\n\\]\nIndeed, this will show that the lines $FK$ and $GL$ are symmetric about $AO$, so their intersection $X$ lies on $AO$.\n\nLet $\\omega_B$ and $\\omega_C$ be the circumcircles of $BDF$ and $CEG$, respectively. We have\n\\[\n\\angle KFA\n=\n\\angle DFG+\\angle GFA-\\angle DFK.\n\\]\nBecause $D,E,F,G$ lie on $\\Gamma$, because $A,B,F,G$ lie on $\\Omega$, and because $B,D,F,K$ lie on $\\omega_B$, this becomes\n\\[\n\\angle KFA\n=\n\\angle CEG+\\angle GBA-\\angle DBK\n=\n\\angle CEG-\\angle CBG.\n\\tag{2}\n\\]\nNow $C,E,G,L$ lie on $\\omega_C$, while $A,B,C,G$ lie on $\\Omega$. Hence\n\\[\n\\angle CEG=\\angle CLG\n\\qquad\\text{and}\\qquad\n\\angle CBG=\\angle CAG.\n\\]\nSubstituting these relations into (2), we get\n\\[\n\\angle KFA\n=\n\\angle CLG-\\angle CAG\n=\n\\angle AGL.\n\\]\nThus (1) holds. Therefore $FK$ and $GL$ are symmetric about $AO$, and since they meet at $X$, the points $A,X,O$ are collinear."
+  ]
+}

@@ -1,0 +1,191 @@
+ID: 0156
+
+SOURCE: IMO Shortlist
+
+YEAR: 2015
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Injective Sequences, Directed Graphs, Pigeonhole Principle, Bounded Discrepancy
+
+STATEMENT:
+Let $a_1,a_2,\ldots$ be an infinite sequence of positive integers satisfying
+\[
+a_i\le2015
+\]
+for every $i\ge1$. Suppose that
+\[
+i+a_i\ne j+a_j
+\]
+whenever $i\ne j$.
+
+Prove that there exist positive integers $b$ and $N$ such that
+\[
+\left|\sum_{i=m+1}^{n}(a_i-b)\right|\le1007^2
+\]
+whenever $n>m\ge N$.
+
+SOLUTION 1:
+Draw a directed arrow from each positive integer $i$ to $i+a_i$. Every arrow points to the right and has length at most $2015$. The hypothesis says that every positive integer receives at most one arrow, while every positive integer emits exactly one arrow.
+
+Call a positive integer a \emph{starting point} if it receives no arrow. Following arrows from a starting point produces an infinite strictly increasing path, which we call a ray. Every positive integer belongs to exactly one ray: tracing predecessors must terminate because all arrows point from a smaller positive integer to a larger one.
+
+A ray whose starting point is at most $x$ meets every interval
+\[
+[x,x+2014].
+\]
+Indeed, take the first point of the ray not smaller than $x$; its predecessor is less than $x$, and the intervening arrow has length at most $2015$.
+
+There are at most $2015$ starting points. Otherwise, choose $x$ larger than $2016$ starting points. The interval $[x,x+2014]$ contains only $2015$ integers but would have to meet the corresponding $2016$ disjoint rays, a contradiction. Let
+\[
+b=\text{the number of starting points},
+\]
+so
+\[
+1\le b\le2015,
+\]
+and choose $N$ larger than every starting point.
+
+Fix $n>m\ge N$. On each of the $b$ rays, let $x_j$ be the first point greater than $m$, and let $y_j$ be the first point greater than $n$, with the same ray indexed by $j$. The arrows with tails in
+\[
+\{m+1,m+2,\ldots,n\}
+\]
+form, on each ray, the path from $x_j$ to $y_j$; this path may be empty, in which case $x_j=y_j$. Therefore
+\[
+\sum_{i=m+1}^{n}a_i
+=
+\sum_{j=1}^{b}(y_j-x_j).
+\]
+Consequently,
+\[
+\sum_{i=m+1}^{n}(a_i-b)
+=
+\sum_{j=1}^{b}(y_j-n)
+-
+\sum_{j=1}^{b}(x_j-m).
+\tag{1}
+\]
+
+The numbers
+\[
+x_1-m,x_2-m,\ldots,x_b-m
+\]
+are distinct members of $\{1,2,\ldots,2015\}$. Moreover, $m+1$ is not a starting point, so it belongs to one of the rays and the offset $1$ occurs. Thus their sum lies between
+\[
+1+2+\cdots+b
+\]
+and
+\[
+1+(2017-b)+(2018-b)+\cdots+2015.
+\]
+The same bounds hold for the sum of the offsets $y_j-n$. The difference between the upper and lower bounds is
+\[
+(b-1)(2015-b).
+\]
+Using (1), we obtain
+\[
+\left|\sum_{i=m+1}^{n}(a_i-b)\right|
+\le(b-1)(2015-b).
+\]
+Finally,
+\[
+(b-1)(2015-b)
+\le
+\left(\frac{(b-1)+(2015-b)}2\right)^2
+=1007^2.
+\]
+This proves the assertion.
+
+SOLUTION 2:
+Set
+\[
+s_i=i+a_i.
+\]
+Then
+\[
+i+1\le s_i\le i+2015,
+\]
+and the numbers $s_1,s_2,\ldots$ are distinct. Let
+\[
+M=\mathbb Z_{>0}\setminus\{s_1,s_2,\ldots\}
+\]
+be the set of positive integers omitted by the sequence $(s_i)$.
+
+\textbf{Claim.} The set $M$ has at most $2015$ elements.
+
+\textit{Proof.}
+If $m_1<\cdots<m_{2016}$ were elements of $M$, put $r=m_{2016}$. Then
+\[
+\{s_1,\ldots,s_r\}\sqcup\{m_1,\ldots,m_{2016}\}
+\subseteq
+\{1,2,\ldots,r+2015\}.
+\]
+The left side has $r+2016$ elements, whereas the right side has only $r+2015$, a contradiction. $\square$
+
+The set $M$ is nonempty because $1\notin\{s_i\}$. Put
+\[
+b=|M|,
+\qquad
+N=\max M.
+\]
+Then $1\le b\le2015$.
+
+For an integer $r\ge N$, define
+\[
+B_r=M\cup\{s_1,s_2,\ldots,s_r\}.
+\]
+This is a set of $b+r$ integers contained in $\{1,2,\ldots,r+2015\}$. Moreover,
+\[
+\{1,2,\ldots,r+1\}\subseteq B_r.
+\]
+Indeed, if $t\le r+1$ is not in $M$, then $t=s_i$ for some $i$, and $s_i\ge i+1$ gives $i\le r$.
+
+Hence there is a set
+\[
+C_r\subseteq\{1,2,\ldots,2014\},
+\qquad
+|C_r|=b-1,
+\]
+such that
+\[
+B_r=
+\{1,2,\ldots,r+1\}
+\cup
+\{r+1+x:x\in C_r\}.
+\tag{2}
+\]
+For a finite set $X$ of integers, write $\sum X$ for the sum of its elements. Computing $\sum B_r$ from its two descriptions gives
+\[
+\sum M+\sum_{i=1}^{r}(i+a_i)
+=
+\sum_{i=1}^{r}i+b(r+1)+\sum C_r.
+\]
+Therefore
+\[
+\sum M+\sum_{i=1}^{r}(a_i-b)
+=b+\sum C_r.
+\tag{3}
+\]
+
+Take $n>m\ge N$ and subtract (3) for $r=m$ from (3) for $r=n$. We obtain
+\[
+\sum_{i=m+1}^{n}(a_i-b)
+=
+\sum C_n-
+\sum C_m.
+\tag{4}
+\]
+Both $C_n$ and $C_m$ are $(b-1)$-element subsets of $\{1,2,\ldots,2014\}$. The greatest possible difference between their sums is attained by taking one to be
+\[
+\{1,2,\ldots,b-1\}
+\]
+and the other to be
+\[
+\{2016-b,2017-b,\ldots,2014\}.
+\]
+Thus (4) yields
+\[
+\left|\sum_{i=m+1}^{n}(a_i-b)\right|
+\le(b-1)(2015-b)
+\le1007^2.
+\]

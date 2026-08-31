@@ -1,0 +1,16 @@
+{
+  "id": "0146",
+  "source": "IMO Shortlist",
+  "year": "2015",
+  "topic": "Algebra",
+  "subtopics": [
+    "Inequalities",
+    "Sequences",
+    "Telescoping Sums",
+    "Induction"
+  ],
+  "statement": "Suppose that a sequence $a_1,a_2,\\ldots$ of positive real numbers satisfies\n\\[\na_{k+1}\\ge \\frac{k a_k}{a_k^2+(k-1)}\n\\tag{1}\n\\]\nfor every positive integer $k$. Prove that\n\\[\na_1+a_2+\\cdots+a_n\\ge n\n\\]\nfor every integer $n\\ge2$.",
+  "solutions": [
+    "From (1),\n\\[\n\\frac{k}{a_{k+1}}\n\\le \\frac{a_k^2+(k-1)}{a_k}\n=a_k+\\frac{k-1}{a_k},\n\\]\nand therefore\n\\[\na_k\\ge \\frac{k}{a_{k+1}}-\\frac{k-1}{a_k}.\n\\tag{2}\n\\]\nSumming (2) for $k=1,2,\\ldots,m$ gives the telescoping estimate\n\\[\n\\begin{aligned}\na_1+a_2+\\cdots+a_m\n&\\ge \\left(\\frac1{a_2}-\\frac0{a_1}\\right)\n +\\left(\\frac2{a_3}-\\frac1{a_2}\\right)\n +\\cdots\n +\\left(\\frac m{a_{m+1}}-\\frac{m-1}{a_m}\\right)\\\\\n&=\\frac m{a_{m+1}}.\n\\end{aligned}\n\\tag{3}\n\\]\n\nWe now use induction on $n$. For $n=2$, condition (1) with $k=1$ gives\n\\[\na_2\\ge \\frac1{a_1},\n\\]\nso\n\\[\na_1+a_2\\ge a_1+\\frac1{a_1}\\ge2.\n\\]\n\nAssume that the assertion is true for some $n\\ge2$. If $a_{n+1}\\ge1$, then\n\\[\na_1+\\cdots+a_n+a_{n+1}\\ge n+1.\n\\]\nIf $a_{n+1}<1$, then (3), with $m=n$, yields\n\\[\n\\begin{aligned}\na_1+\\cdots+a_n+a_{n+1}\n&\\ge \\frac n{a_{n+1}}+a_{n+1}\\\\\n&=\\frac{n-1}{a_{n+1}}\n +\\left(\\frac1{a_{n+1}}+a_{n+1}\\right)\\\\\n&>(n-1)+2=n+1.\n\\end{aligned}\n\\]\nThus the induction closes, proving the result for every $n\\ge2$."
+  ]
+}

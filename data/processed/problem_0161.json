@@ -1,0 +1,16 @@
+{
+  "id": "0161",
+  "source": "IMO Shortlist",
+  "year": "2015",
+  "topic": "Geometry",
+  "subtopics": [
+    "Spiral Similarity",
+    "Tangent-Chord Theorem",
+    "Angle Bisectors",
+    "Semicircles"
+  ],
+  "statement": "Let $ABC$ be a triangle with $\\angle C=90^\\circ$, and let $H$ be the foot of the altitude from $C$. A point $D$ is chosen inside triangle $CBH$ so that the line $CH$ bisects the segment $AD$. Let $P=BD\\cap CH$. Let $\\omega$ be the semicircle with diameter $BD$ that meets the segment $CB$ at an interior point. A line through $P$ is tangent to $\\omega$ at $Q$. Prove that the lines $CQ$ and $AD$ meet on $\\omega$.",
+  "solutions": [
+    "Let $K$ be the projection of $D$ onto $AB$. Since $CH$ passes through the midpoint of $AD$, orthogonal projection onto $AB$ shows that $H$ is the midpoint of $AK$. Hence\n\\[\nAH=HK.\n\\tag{1}\n\\]\nBecause $PH\\parallel DK$, triangles $BPH$ and $BDK$ are similar. The points occur in the orders $B,D,P$ and $B,K,H$, so\n\\[\n\\frac{PD}{PB}\n=\n1-\\frac{BD}{BP}\n=\n1-\\frac{BK}{BH}\n=\n\\frac{HK}{HB}\n=\n\\frac{AH}{HB}.\n\\tag{2}\n\\]\n\nLet $L$ be the projection of $Q$ onto $DB$. Since $PQ$ is tangent to $\\omega$ at $Q$, the tangent-chord theorem gives\n\\[\n\\angle PQD=\\angle QBD=\\angle QBP.\n\\]\nAlso, $\\angle DQB=\\angle BLQ=90^\\circ$, so\n\\[\n\\angle DQL=\\angle QBD.\n\\]\nThus $QD$ and $QB$ are respectively the internal and external angle bisectors of $\\angle PQL$. The internal and external angle-bisector theorems yield\n\\[\n\\frac{PD}{DL}\n=\n\\frac{PQ}{QL}\n=\n\\frac{PB}{BL}.\n\\tag{3}\n\\]\nCombining (2) and (3), we obtain\n\\[\n\\frac{AH}{HB}\n=\n\\frac{PD}{PB}\n=\n\\frac{DL}{LB}.\n\\tag{4}\n\\]\nConsequently,\n\\[\n\\frac{BD}{BA}\n=\n\\frac{BL}{BH}.\n\\]\nTherefore the direct spiral similarity centered at $B$ that sends $A$ to $D$ also sends $H$ to $L$.\n\nThis similarity sends the semicircle with diameter $AB$ through $C$ to the semicircle $\\omega$ with diameter $DB$. Since $CH\\perp AB$ and $QL\\perp DB$, it sends $C$ to $Q$. Hence it sends the rays $BA,BC$ to $BD,BQ$, respectively. It follows that\n\\[\n\\angle ABD=\\angle CBQ\n\\qquad\\text{and}\\qquad\n\\frac{BA}{BD}=\\frac{BC}{BQ}.\n\\]\nThus\n\\[\n\\triangle ABD\\sim\\triangle CBQ,\n\\]\nand in particular\n\\[\n\\angle ADB=\\angle CQB.\n\\tag{5}\n\\]\n\nLet\n\\[\nT=AD\\cap CQ.\n\\]\nBy (5),\n\\[\n\\angle BDT=\\angle BQT.\n\\]\nTherefore $B,D,Q,T$ are concyclic. Since $B,D,Q$ lie on $\\omega$, the point $T$ also lies on $\\omega$. Hence the lines $AD$ and $CQ$ meet on $\\omega$."
+  ]
+}

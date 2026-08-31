@@ -1,0 +1,95 @@
+ID: 0152
+
+SOURCE: IMO Shortlist
+
+YEAR: 2015
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Combinatorial Processes, Induction, Extremal Principle, Ordered Structures
+
+STATEMENT:
+In Lineland there are $n\ge 1$ towns arranged along a road from left to right. Each town has a left bulldozer, placed to the left of the town and facing left, and a right bulldozer, placed to the right of the town and facing right. The sizes of all $2n$ bulldozers are distinct.
+
+Whenever a right bulldozer and a left bulldozer meet head-on, the larger one pushes the smaller one off the road. If a bulldozer reaches another bulldozer from behind, however, the first bulldozer pushes the second one off the road regardless of their sizes.
+
+Let $A$ and $B$ be towns, with $B$ to the right of $A$. We say that $A$ can sweep $B$ away if the right bulldozer of $A$ can move to $B$, pushing off every bulldozer it meets. Similarly, $B$ can sweep $A$ away if the left bulldozer of $B$ can move to $A$, pushing off every bulldozer on its way.
+
+Prove that there is exactly one town which cannot be swept away by any other town.
+
+SOLUTION 1:
+Let the towns, from left to right, be
+\[
+T_1,T_2,\ldots,T_n.
+\]
+We shall repeatedly use the following simple observation: if $T_i$ can sweep $T_j$ away, then it can also sweep every town lying between $T_i$ and $T_j$.
+
+We prove the assertion by strong induction on $n$. The case $n=1$ is immediate.
+
+Assume $n>1$. The left bulldozer of $T_1$ and the right bulldozer of $T_n$ cannot be used to sweep any other town, so they may be ignored. Among the remaining $2n-2$ bulldozers, choose the largest one. By symmetry, suppose it is the right bulldozer of $T_k$, where $k<n$.
+
+Because this bulldozer is larger than every left bulldozer that it can meet head-on, $T_k$ can sweep away every town to its right. Conversely, no town to the right of $T_k$ can sweep $T_k$ away, because its left bulldozer would have to defeat this largest right bulldozer. Such a town therefore cannot sweep any town to the left of $T_k$ either.
+
+Remove the towns
+\[
+T_{k+1},T_{k+2},\ldots,T_n.
+\]
+For the remaining towns $T_1,\ldots,T_k$, whether a town can be swept away by another remaining town is unchanged, and none of the removed towns can sweep any of them away. By the induction hypothesis, among $T_1,\ldots,T_k$ there is exactly one town which cannot be swept away. The preceding paragraph shows that it is also the unique such town in the original configuration.
+
+SOLUTION 2:
+Again enumerate the towns as $T_1,T_2,\ldots,T_n$ from left to right. Let $\ell_i$ and $r_i$ denote the sizes of the left and right bulldozers of $T_i$, respectively.
+
+First note that two towns cannot sweep each other away. Indeed, if $i<j$ and $T_i$ can sweep $T_j$ away, then
+\[
+r_i>\ell_j.
+\]
+If $T_j$ could also sweep $T_i$ away, then we would have $\ell_j>r_i$, a contradiction.
+
+Call a town swept from the right if it can be swept away by a town lying to its right. The rightmost town $T_n$ is not swept from the right, so there exists a leftmost town $T_k$ which is not swept from the right.
+
+We first observe that no town $T_i$ with $i>k$ can sweep a town $T_j$ with $j<k$. Otherwise, in moving left from $T_i$ to $T_j$, it would also pass through and sweep $T_k$, contradicting the definition of $T_k$.
+
+We now prove two claims.
+
+\textbf{Claim 1.} The town $T_k$ cannot be swept from the left.
+
+\textit{Proof.}
+Take any $T_m$ with $m<k$. By the minimal choice of $k$, the town $T_m$ is swept from the right by some $T_p$, where $m<p\le k$. Hence $T_m$ cannot sweep $T_p$ away, because mutual sweeping is impossible. If $T_m$ could sweep $T_k$ away, then it would also sweep the intermediate town $T_p$, a contradiction. Thus no town to the left of $T_k$ sweeps $T_k$. $\square$
+
+\textbf{Claim 2.} Every town $T_m$ with $m\ne k$ can be swept away.
+
+\textit{Proof.}
+If $m<k$, this follows directly from the choice of $T_k$. Now suppose $m>k$. Among
+\[
+T_k,T_{k+1},\ldots,T_{m-1},
+\]
+choose a town $T_p$ whose right bulldozer is largest. We claim that $T_p$ can sweep $T_m$ away.
+
+If not, then for some $q$ with $p<q\le m$ we would have
+\[
+r_p<\ell_q.
+\]
+By the choice of $p$, this gives
+\[
+\ell_q>r_i
+\qquad	ext{for every }k\le i\le m-1.
+\]
+Consequently the left bulldozer of $T_q$ can pass every right bulldozer between $T_q$ and $T_k$, so $T_q$ can sweep $T_k$ away. This contradicts the choice of $T_k$. Therefore $T_p$ sweeps $T_m$ away. $\square$
+
+Claims 1 and 2 show that $T_k$ is the unique town which cannot be swept away.
+
+SOLUTION 3:
+We use two observations already implicit above:
+
+\begin{itemize}
+\item if one town can sweep another, it can sweep every intermediate town;
+\item two towns cannot sweep each other.
+\end{itemize}
+
+We first prove existence. Suppose, for contradiction, that every town can be swept away. Let $t_1$ be the leftmost town, and after choosing $t_i$, choose a town $t_{i+1}$ which can sweep $t_i$ away.
+
+We claim inductively that $t_{i+1}$ always lies to the right of $t_i$. This is clear for $i=1$. Assume it is true up to $i=k-1$, but that $t_{k+1}$ lies to the left of $t_k$. Then $t_{k+1}$ lies between two consecutive towns $t_j,t_{j+1}$ in the already constructed right-moving chain, possibly with $t_{k+1}=t_j$. Since $t_{j+1}$ can sweep $t_j$, it can also sweep $t_{k+1}$. Hence $t_{k+1}$ cannot sweep $t_{j+1}$, and therefore cannot sweep the farther town $t_k$, a contradiction. Thus the chain moves strictly to the right forever, impossible because there are finitely many towns. Hence at least one town cannot be swept away.
+
+For uniqueness, suppose that two towns $A$ and $B$, with $A$ to the left of $B$, cannot be swept away. Consider all bulldozers lying between them, including the right bulldozer of $A$ and the left bulldozer of $B$, and choose the largest one. If it is a left bulldozer, it belongs to a town to the right of $A$ and can sweep $A$ away, since every opposing right bulldozer on the way is smaller. If it is a right bulldozer, the analogous argument shows that its town can sweep $B$ away. Either possibility is a contradiction.
+
+Therefore exactly one town cannot be swept away.

@@ -1,0 +1,182 @@
+ID: 0168
+
+SOURCE: IMO Shortlist
+
+YEAR: 2015
+
+TOPIC: Number Theory
+
+SUBTOPICS: Factorials, Divisibility, Prime Factorization, Inequalities
+
+STATEMENT:
+Let $a$ and $b$ be positive integers such that
+\[
+a!+b!\mid a!b!.
+\]
+Prove that
+\[
+3a\ge 2b+2.
+\]
+
+SOLUTION 1:
+If $a>b$, then $a\ge b+1$, and hence
+\[
+3a\ge3b+3>2b+2.
+\]
+If $a=b$, the hypothesis excludes $a=b=1$, so $a\ge2$ and
+\[
+3a\ge2a+2.
+\]
+
+It remains to consider $a<b$. Put
+\[
+c=b-a.
+\]
+The desired inequality is equivalent to
+\[
+a\ge2c+2.
+\tag{1}
+\]
+Assume, for contradiction, that
+\[
+a\le2c+1.
+\tag{2}
+\]
+
+Define
+\[
+M=\frac{b!}{a!}=(a+1)(a+2)\cdots(a+c).
+\]
+Since
+\[
+a!+b!=a!(1+M)
+\]
+and $a!+b!\mid a!b!$, we obtain
+\[
+1+M\mid a!M.
+\]
+Because $\gcd(1+M,M)=1$,
+\[
+1+M\mid a!.
+\tag{3}
+\]
+
+We must have $c<a$. Indeed, if $c\ge a$, then the first $a$ factors of $M$ are respectively larger than $1,2,\ldots,a$, so $M>a!$, contradicting (3).
+
+The product of any $c$ consecutive integers is divisible by $c!$, so $c!\mid M$. Therefore
+\[
+\gcd(1+M,c!)=1,
+\]
+and (3) yields
+\[
+1+M\mid\frac{a!}{c!}
+=(c+1)(c+2)\cdots a.
+\tag{4}
+\]
+
+If $a\le2c$, then the number on the right of (4) is a product of at most $c$ positive integers, all at most $a$, while $M$ is a product of exactly $c$ integers, all greater than $a$. Thus
+\[
+\frac{a!}{c!}<M<1+M,
+\]
+contradicting (4).
+
+The only remaining possibility under (2) is
+\[
+a=2c+1.
+\]
+Now $c+1$ divides $a+1=2(c+1)$, hence $c+1\mid M$. Consequently
+\[
+\gcd(1+M,c+1)=1.
+\]
+Dividing the right side of (4) by $c+1$, we get
+\[
+1+M\mid(c+2)(c+3)\cdots a.
+\]
+This is again a product of $c$ integers not exceeding $a$, whereas $M$ is a product of $c$ integers greater than $a$. The right-hand side is therefore smaller than $1+M$, a contradiction.
+
+Thus (2) is impossible, so $a\ge2c+2$. Since $c=b-a$, this is precisely
+\[
+3a\ge2b+2.
+\]
+
+SOLUTION 2:
+As above, only the case $a<b$ needs proof. Put
+\[
+c=b-a
+\]
+and suppose, for contradiction, that
+\[
+a\le2c+1.
+\tag{1}
+\]
+Set
+\[
+N=1+(a+1)(a+2)\cdots(a+c).
+\]
+The original divisibility implies
+\[
+N\mid(a+c)!.
+\tag{2}
+\]
+
+Let $p$ be any prime divisor of $N$. Since $N$ is coprime to
+\[
+(a+1)(a+2)\cdots(a+c),
+\]
+we cannot have $p\le c$, because $c!$ divides that product. We also cannot have
+\[
+a+1\le p\le a+c,
+\]
+because then $p$ itself is one of its factors. Thus
+\[
+c+1\le p\le a.
+\tag{3}
+\]
+
+We claim that
+\[
+2p>a+c.
+\tag{4}
+\]
+Otherwise, using (1) and (3),
+\[
+a+1\le2c+2\le2p\le a+c,
+\]
+so the factor $2p$ occurs among $a+1,\ldots,a+c$. This would give $p\mid N-1$, contradicting $p\mid N$.
+
+By (4), the exponent of $p$ in $(a+c)!$ is exactly $1$. Hence, from (2), every prime factor of $N$ occurs in $N$ with exponent $1$.
+
+If $a\le c+2$, the interval
+\[
+\left(\frac{a+c}{2},a\right]
+\]
+contains at most one integer, namely possibly $a$. By (3) and (4), every prime factor of $N$ lies in this interval. Since $N$ is squarefree, this would force $N=a$, but clearly
+\[
+N>1+(a+1)>a,
+\]
+a contradiction.
+
+Therefore
+\[
+a\ge c+3.
+\]
+Now every prime factor $p$ of $N$ lies in
+\[
+[c+2,a],
+\]
+and occurs only once. Consequently
+\[
+N\mid(c+2)(c+3)\cdots a.
+\tag{5}
+\]
+The product on the right has
+\[
+a-c-1\le c
+\]
+factors by (1), all at most $a$. On the other hand, $N-1$ is a product of $c$ factors all greater than $a$. Hence
+\[
+(c+2)(c+3)\cdots a<N,
+\]
+contradicting (5).
+
+Thus the assumption (1) is false, and the desired inequality follows.

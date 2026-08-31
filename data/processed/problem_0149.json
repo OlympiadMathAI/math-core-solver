@@ -1,0 +1,16 @@
+{
+  "id": "0149",
+  "source": "IMO Shortlist",
+  "year": "2015",
+  "topic": "Algebra",
+  "subtopics": [
+    "Functional Equations",
+    "Fixed Points",
+    "Symmetry",
+    "Odd Functions"
+  ],
+  "statement": "Find all functions $f:\\mathbb R\\to\\mathbb R$ satisfying\n\\[\nf\\bigl(x+f(x+y)\\bigr)+f(xy)\n=x+f(x+y)+yf(x)\n\\tag{1}\n\\]\nfor all real numbers $x,y$.",
+  "solutions": [
+    "The solutions are\n\\[\n\\boxed{f(x)=x}\n\\qquad\\text{and}\\qquad\n\\boxed{f(x)=2-x}\n\\]\nfor all real $x$. Both are easily verified.\n\nLet $f$ satisfy (1). Setting $y=1$, we obtain\n\\[\nf\\bigl(x+f(x+1)\\bigr)=x+f(x+1).\n\\tag{2}\n\\]\nThus $x+f(x+1)$ is a fixed point of $f$ for every real $x$.\n\nWe distinguish two cases.\n\n\\textbf{Case 1: $f(0)\\ne0$.}\nPutting $x=0$ in (1) gives\n\\[\nf(f(y))+f(0)=f(y)+yf(0).\n\\tag{3}\n\\]\nIf $y_0$ is a fixed point of $f$, then (3) with $y=y_0$ yields\n\\[\nf(0)=y_0f(0),\n\\]\nso $y_0=1$. By (2),\n\\[\nx+f(x+1)=1\n\\]\nfor every $x$, and hence\n\\[\nf(t)=2-t\n\\]\nfor every real $t$.\n\n\\textbf{Case 2: $f(0)=0$.}\nPutting $y=0$ in (1), and then replacing $x$ by $x+1$, gives\n\\[\nf\\bigl(x+f(x+1)+1\\bigr)=x+f(x+1)+1.\n\\tag{4}\n\\]\nPutting $x=1$ in (1) gives\n\\[\nf\\bigl(1+f(y+1)\\bigr)+f(y)\n=1+f(y+1)+yf(1).\n\\tag{5}\n\\]\nEquation (2) with $x=-1$ gives $f(-1)=-1$. Substituting $y=-1$ into (5), we obtain $f(1)=1$. Therefore (5) becomes\n\\[\nf\\bigl(1+f(y+1)\\bigr)+f(y)\n=1+f(y+1)+y.\n\\tag{6}\n\\]\n\nIf both $y_0$ and $y_0+1$ are fixed points, then (6) shows that $y_0+2$ is also fixed. Equations (2) and (4) show that\n\\[\nx+f(x+1)\n\\quad\\text{and}\\quad\nx+f(x+1)+1\n\\]\nare consecutive fixed points. Hence\n\\[\nx+f(x+1)+2\n\\]\nis fixed as well. Replacing $x$ by $x-2$, we get\n\\[\nf\\bigl(x+f(x-1)\\bigr)=x+f(x-1).\n\\tag{7}\n\\]\nOn the other hand, setting $y=-1$ in (1) gives\n\\[\nf\\bigl(x+f(x-1)\\bigr)+f(-x)\n=x+f(x-1)-f(x).\n\\]\nComparing with (7), we obtain\n\\[\nf(-x)=-f(x)\n\\tag{8}\n\\]\nfor every real $x$.\n\nFinally, substitute $(x,y)=(-1,-y)$ into (1). Using $f(-1)=-1$ and the oddness (8), we get\n\\[\n-f\\bigl(1+f(y+1)\\bigr)+f(y)\n=-1-f(y+1)+y.\n\\tag{9}\n\\]\nAdding (9) to (6) gives\n\\[\n2f(y)=2y.\n\\]\nThus $f(y)=y$ for every real $y$.\n\nThe two cases yield exactly the two stated solutions."
+  ]
+}

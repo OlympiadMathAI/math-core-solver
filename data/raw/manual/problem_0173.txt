@@ -1,0 +1,202 @@
+ID: 0173
+
+SOURCE: IMO Shortlist
+
+YEAR: 2015
+
+TOPIC: Number Theory
+
+SUBTOPICS: GCD Bounds, Chinese Remainder Theorem, Recursive Constructions, Parity
+
+STATEMENT:
+For a positive integer $k$, call a function
+\[
+f:\mathbb Z_{>0}\to\mathbb Z_{>0}
+\]
+\emph{$k$-good} if
+\[
+\gcd(f(m)+n,\ f(n)+m)\le k
+\]
+for all distinct positive integers $m,n$.
+
+Determine all positive integers $k$ for which a $k$-good function exists.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{k\ge2}.
+\]
+
+A $k$-good function is automatically $(k+1)$-good, so it is enough to prove that no $1$-good function exists and that a $2$-good function does exist.
+
+Suppose first that $f$ were $1$-good. There cannot be two distinct even integers $m,n$ for which both $f(m)$ and $f(n)$ are even, because then both
+\[
+f(m)+n
+\qquad\text{and}\qquad
+f(n)+m
+\]
+would be even. Similarly, there cannot be two distinct odd integers $m,n$ for which both $f(m)$ and $f(n)$ are odd.
+
+Hence we may choose an even $m$ with $f(m)$ odd and an odd $n$ with $f(n)$ even. Then both $f(m)+n$ and $f(n)+m$ are even, again a contradiction. Therefore no $1$-good function exists.
+
+We now construct a $2$-good function. Define
+\[
+g(1)=1,
+\qquad
+g(n+1)=\left(2^{g(n)+1}\right)!
+\]
+and
+\[
+f(n)=2^{g(n)+1}-n-1.
+\]
+Clearly $f(n)$ is a positive integer.
+
+Take $m>n$ and set
+\[
+A=f(m)+n
+=2^{g(m)+1}-m+n-1,
+\]
+\[
+B=f(n)+m
+=2^{g(n)+1}-n+m-1.
+\]
+We prove that
+\[
+\gcd(A,B)\le2.
+\]
+
+First,
+\[
+A+B=2^{g(m)+1}+2^{g(n)+1}-2
+\]
+is divisible by $2$ but not by $4$. Hence $\gcd(A,B)$ is not divisible by $4$.
+
+Suppose that an odd prime $p$ divides both $A$ and $B$. We claim that
+\[
+B\le2^{g(m-1)+1}.
+\tag{1}
+\]
+Indeed, $g(k+1)>g(k)$, so
+\[
+2^{g(k+1)+1}\ge2^{g(k)+1}+1.
+\]
+Repeatedly applying this from $k=n$ to $k=m-2$ gives (1).
+
+Since $p\mid B$,
+\[
+p-1<B\le2^{g(m-1)+1}.
+\]
+Therefore
+\[
+p-1\mid\left(2^{g(m-1)+1}\right)!=g(m).
+\]
+By Fermat's little theorem,
+\[
+2^{g(m)}\equiv1\pmod p.
+\]
+Consequently,
+\[
+A+B
+\equiv 2^{g(n)+1}\pmod p.
+\]
+But $p\mid A+B$, so the odd prime $p$ would divide a power of $2$, impossible.
+
+Thus $\gcd(A,B)$ has no odd prime factor and is not divisible by $4$. Hence
+\[
+\gcd(A,B)\le2,
+\]
+and $f$ is $2$-good.
+
+SOLUTION 2:
+We give a recursive construction of another $2$-good function.
+
+Let
+\[
+\mathcal P=\{4\}\cup\{\text{odd primes}\}.
+\]
+For $p\in\mathcal P$, call a residue $a_p\pmod p$ \emph{$p$-useful} if
+\[
+a_p\not\equiv-a_p\pmod p.
+\]
+For an odd prime this means $a_p\not\equiv0\pmod p$, while for $p=4$ it means $a_p\not\equiv0,2\pmod4$.
+
+We construct $f(1),f(2),\ldots$ recursively, together with useful residues $a_p$. After step $m$, we require:
+
+\begin{enumerate}
+\item[(i)] $f(n)$ is defined for every $n\le m$, and $a_p$ is defined for every $p\in\mathcal P$ with $p\le m+2$;
+\item[(ii)] for $n\le m$ and $p\le m+2$,
+\[
+f(n)+n\not\equiv a_p\pmod p;
+\]
+\item[(iii)] for $n_1<n_2\le m$,
+\[
+\gcd(f(n_1)+n_2,\ f(n_2)+n_1)\le2.
+\]
+\end{enumerate}
+
+Start with
+\[
+f(1)=1,\qquad a_3=1.
+\]
+
+Suppose the construction has been completed through step $m-1$, where $m\ge2$. Let
+\[
+X_m=\left\{p\in\mathcal P:
+p\mid f(n)+m\text{ for some }n<m\right\}.
+\]
+This is finite. We impose the following congruences on $f(m)$:
+
+\[
+f(m)\equiv-a_p-m\pmod p
+\]
+for every already defined $p\in\mathcal P$ with $p\le m+1$, and
+\[
+f(m)\equiv0\pmod p
+\]
+for every $p\in X_m$ with $p\ge m+2$.
+
+The moduli involved are pairwise coprime, so the Chinese Remainder Theorem supplies a positive integer $f(m)$ satisfying all these congruences.
+
+If $p=m+2$ belongs to $\mathcal P$, choose $a_p$ to avoid the residues
+\[
+0,\quad 2,\quad f(1)+1,\quad f(2)+2,\quad\ldots,\quad f(m)+m
+\pmod p.
+\]
+Since $f(1)+1=2$, at most $m+1<p=m+2$ residues are excluded, so such an $a_p$ exists. It is automatically $p$-useful.
+
+Condition (ii) is preserved: for an old modulus $p\le m+1$,
+\[
+f(m)+m\equiv-a_p\not\equiv a_p\pmod p,
+\]
+and for the new modulus $p=m+2$ it holds by the choice of $a_p$.
+
+It remains to verify condition (iii). Suppose that for some $n<m$ the number
+\[
+D=\gcd(f(n)+m,\ f(m)+n)
+\]
+were greater than $2$. Then either $4\mid D$ or an odd prime divides $D$. In either case, some $p\in\mathcal P$ divides $D$. Since $p\mid f(n)+m$, we have $p\in X_m$.
+
+If $p\ge m+2$, then $f(m)\equiv0\pmod p$, and
+\[
+0\equiv f(m)+n\equiv n\pmod p,
+\]
+impossible because $0<n<m<p$.
+
+If $p\le m+1$, then
+\[
+f(m)+m\equiv-a_p\pmod p.
+\]
+Since $p$ divides both $f(n)+m$ and $f(m)+n$,
+\[
+0\equiv(f(n)+m)+(f(m)+n)
+=(f(n)+n)+(f(m)+m)
+\equiv f(n)+n-a_p\pmod p.
+\]
+This contradicts condition (ii).
+
+Thus no element of $\mathcal P$ divides $D$, so $D$ has no odd prime divisor and is not divisible by $4$. Therefore $D\le2$.
+
+The recursion continues indefinitely and produces a $2$-good function. Hence the admissible values are exactly
+\[
+\boxed{k\ge2}.
+\]

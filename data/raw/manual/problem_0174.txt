@@ -1,0 +1,293 @@
+ID: 0174
+
+SOURCE: IMO Shortlist
+
+YEAR: 2015
+
+TOPIC: Number Theory
+
+SUBTOPICS: Prime Factorization, Divisibility Preservation, Increasing Functions, Modular Arithmetic
+
+STATEMENT:
+For every positive integer
+\[
+n=\prod_{i=1}^{r}p_i^{\alpha_i},
+\]
+define
+\[
+\Omega(n)=\sum_{i:\,p_i>10^{100}}\alpha_i.
+\]
+Thus $\Omega(n)$ is the number of prime factors of $n$ greater than $10^{100}$, counted with multiplicity.
+
+Find all strictly increasing functions
+\[
+f:\mathbb Z\to\mathbb Z
+\]
+such that
+\[
+\Omega\bigl(f(a)-f(b)\bigr)\le\Omega(a-b)
+\]
+for all integers $a>b$.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{f(x)=ux+v},
+\]
+where $v$ is any integer and $u$ is any positive integer satisfying
+\[
+\Omega(u)=0.
+\]
+Equivalently, every prime factor of $u$ is at most $10^{100}$.
+
+Every such function works, because
+\[
+f(a)-f(b)=u(a-b)
+\]
+and $\Omega(u)=0$.
+
+We prove that there are no other functions. Subtracting the constant $f(0)$ does not change any difference, so we may assume
+\[
+f(0)=0.
+\tag{1}
+\]
+Let
+\[
+N=10^{100}.
+\]
+Call a prime \emph{large} if it is greater than $N$, and \emph{small} otherwise. Call a positive integer large if all its prime factors are large, and small if all its prime factors are small. The number $1$ is both.
+
+For a positive integer $q$, let $L(q)$ be its greatest large divisor and $S(q)$ its greatest small divisor. Then
+\[
+q=L(q)S(q).
+\]
+
+\textbf{Step 1: preservation of divisibility by large integers.}
+
+We prove that for every large positive integer $k$ and all distinct integers $a,b$,
+\[
+k\mid f(a)-f(b)
+\quad\Longleftrightarrow\quad
+k\mid a-b.
+\tag{2}
+\]
+We use induction on $k$. The case $k=1$ is trivial.
+
+Assume the statement is known for all large integers smaller than a fixed large integer $k_0$.
+
+First, if
+\[
+0<|x-y|<k_0,
+\]
+then
+\[
+k_0\nmid f(x)-f(y).
+\tag{3}
+\]
+Indeed, suppose the contrary and put
+\[
+\ell=L(|x-y|).
+\]
+Then $\ell<k_0$, so the induction hypothesis gives
+\[
+\ell\mid f(x)-f(y).
+\]
+Consequently
+\[
+\operatorname{lcm}(k_0,\ell)\mid f(x)-f(y).
+\]
+This least common multiple is a large proper multiple of $\ell$, so
+\[
+\Omega\bigl(f(x)-f(y)\bigr)
+\ge
+\Omega\bigl(\operatorname{lcm}(k_0,\ell)\bigr)
+>
+\Omega(\ell)
+=
+\Omega(|x-y|),
+\]
+contrary to the hypothesis.
+
+For any integer $a$, the $k_0$ numbers
+\[
+f(a),f(a+1),\ldots,f(a+k_0-1)
+\]
+are pairwise distinct modulo $k_0$ by (3), so they form a complete residue system modulo $k_0$. The same is true of
+\[
+f(a+1),f(a+2),\ldots,f(a+k_0).
+\]
+These two complete residue systems have $k_0-1$ common terms, hence
+\[
+f(a+k_0)\equiv f(a)\pmod{k_0}.
+\tag{4}
+\]
+Thus
+\[
+a\equiv b\pmod{k_0}
+\quad\Longrightarrow\quad
+f(a)\equiv f(b)\pmod{k_0}.
+\]
+
+Conversely, suppose $a\not\equiv b\pmod{k_0}$. Choose $b'\equiv b\pmod{k_0}$ with
+\[
+0<|a-b'|<k_0.
+\]
+By (4),
+\[
+f(b')\equiv f(b)\pmod{k_0},
+\]
+while (3) gives
+\[
+f(a)\not\equiv f(b')\pmod{k_0}.
+\]
+Hence $f(a)\not\equiv f(b)\pmod{k_0}$. This proves (2).
+
+In particular,
+\[
+L\bigl(|f(a)-f(b)|\bigr)=L(|a-b|)
+\tag{5}
+\]
+for all distinct integers $a,b$.
+
+\textbf{Step 2: linearity on an infinite set.}
+
+Let $\mathcal S$ be the finite set of small primes, and let
+\[
+d=\prod_{p\in\mathcal S}p.
+\]
+Choose $\alpha$ so large that
+\[
+2^\alpha>f(N).
+\]
+Because $f$ is strictly increasing and $f(0)=0$, for each small prime $p$ the numbers
+\[
+f(0),f(1),\ldots,f(N)
+\]
+are distinct modulo $p^\alpha$.
+
+Set
+\[
+P=d^\alpha,
+\qquad
+C=P+f(N).
+\]
+We claim that
+\[
+f(t)<Ct
+\qquad(t>N).
+\tag{6}
+\]
+
+Fix $t>N$. For each small prime $p$, at most one index $i\in\{0,1,\ldots,N\}$ satisfies
+\[
+p^\alpha\mid f(t)-f(i).
+\]
+There are fewer than $N$ small primes, so some
+\[
+j\in\{0,1,\ldots,N\}
+\]
+works for none of them. Hence
+\[
+S\bigl(f(t)-f(j)\bigr)<P.
+\]
+By (5),
+\[
+L\bigl(f(t)-f(j)\bigr)=L(t-j)\le t-j.
+\]
+Therefore
+\[
+\begin{aligned}
+f(t)
+&=f(j)+L\bigl(f(t)-f(j)\bigr)S\bigl(f(t)-f(j)\bigr)\\
+&<f(N)+(t-j)P\\
+&\le Ct,
+\end{aligned}
+\]
+proving (6).
+
+Now let $t$ range over the large primes. From (5) with $b=0$,
+\[
+L(f(t))=L(t)=t,
+\]
+so $f(t)/t$ is a positive integer. By (6), this ratio has only finitely many possible values. Hence there exist a positive integer $u$ and infinitely many large primes $t$ such that
+\[
+f(t)=ut.
+\tag{7}
+\]
+For these primes,
+\[
+t=L(f(t))=L(ut)=L(u)t,
+\]
+so
+\[
+L(u)=1.
+\]
+Thus $u$ is small, or equivalently
+\[
+\Omega(u)=0.
+\tag{8}
+\]
+
+\textbf{Step 3: propagation to every integer.}
+
+For an integer $r$, let
+\[
+R_r=\{x\in\mathbb Z:x\equiv r\pmod{N!}\}.
+\]
+
+We use the following claim.
+
+\textbf{Claim.}
+Suppose that for some $r$ there are infinitely many $n\in R_r$ satisfying
+\[
+f(n)=un.
+\]
+Then
+\[
+f(x)=ux
+\]
+for every $x\in R_{r+1}$.
+
+\textit{Proof.}
+Fix $x\in R_{r+1}$. Choose one of the infinitely many suitable $n\in R_r$ so that
+\[
+|n-x|>|f(x)-ux|.
+\tag{9}
+\]
+Since
+\[
+n-x\equiv-1\pmod{N!},
+\]
+no small prime divides $|n-x|$. Thus $|n-x|$ is a large integer. By (2),
+\[
+|n-x|\mid f(n)-f(x).
+\]
+Using $f(n)=un$ and $n\equiv x\pmod{|n-x|}$, we obtain
+\[
+f(x)\equiv un\equiv ux\pmod{|n-x|}.
+\]
+Hence
+\[
+|n-x|\mid f(x)-ux.
+\]
+Together with (9), this gives $f(x)=ux$. $\square$
+
+The infinite set in (7) contains infinitely many elements of some residue class $R_r$. Applying the claim successively gives
+\[
+f(x)=ux
+\]
+on
+\[
+R_{r+1},R_{r+2},\ldots,R_{r+N!}=R_r.
+\]
+These are all residue classes modulo $N!$, so
+\[
+f(x)=ux
+\qquad\text{for every }x\in\mathbb Z.
+\]
+
+Restoring the subtracted constant $f(0)$ gives
+\[
+f(x)=ux+v,
+\]
+where $u>0$, $v\in\mathbb Z$, and $\Omega(u)=0$. This completes the proof.

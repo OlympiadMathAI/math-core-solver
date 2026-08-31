@@ -1,0 +1,16 @@
+{
+  "id": "0169",
+  "source": "IMO Shortlist",
+  "year": "2015",
+  "topic": "Number Theory",
+  "subtopics": [
+    "2-adic Valuations",
+    "Products",
+    "Divisibility",
+    "Powers of Two"
+  ],
+  "statement": "Let $m$ and $n$ be positive integers with $m>n$. For\n\\[\nk=1,2,\\ldots,n+1,\n\\]\ndefine\n\\[\nx_k=\\frac{m+k}{n+k}.\n\\]\nProve that if all the numbers $x_1,x_2,\\ldots,x_{n+1}$ are integers, then\n\\[\nx_1x_2\\cdots x_{n+1}-1\n\\]\nis divisible by an odd prime.",
+  "solutions": [
+    "For each $k$, put\n\\[\na_k=x_k-1=\\frac{m-n}{n+k}.\n\\]\nBy hypothesis, every $a_k$ is a positive integer. Let\n\\[\nP=x_1x_2\\cdots x_{n+1}-1\n=\\prod_{k=1}^{n+1}(a_k+1)-1.\n\\]\nIt is enough to prove that $P$ is not a power of $2$.\n\nLet\n\\[\nv_2(m-n)=d,\n\\]\nand choose $c$ so that\n\\[\n2^c\\le2n+1<2^{c+1}.\n\\]\nSince\n\\[\n2n+1\\le2^{c+1}-1,\n\\]\nwe have $n+1\\le2^c$. Thus $2^c$ occurs among\n\\[\nn+1,n+2,\\ldots,2n+1.\n\\]\nIt is the only multiple of $2^c$ in this interval. Let $\\ell$ be the unique index such that\n\\[\nn+\\ell=2^c.\n\\]\n\nBecause $a_\\ell=(m-n)/2^c$ is an integer, we have $d\\ge c$. Moreover,\n\\[\nv_2(a_\\ell)=d-c,\n\\]\nwhile for every $k\\ne\\ell$ the number $n+k$ is not divisible by $2^c$, so\n\\[\nv_2(a_k)\\ge d-c+1.\n\\]\nSet\n\\[\nq=2^{d-c+1}.\n\\]\nThen\n\\[\nq\\nmid a_\\ell,\n\\qquad\nq\\mid a_k\\quad(k\\ne\\ell).\n\\]\nTherefore\n\\[\nP\n=\\prod_{k=1}^{n+1}(a_k+1)-1\n\\equiv a_\\ell\\not\\equiv0\\pmod q.\n\\tag{1}\n\\]\n\nThere is at least one index $k\\ne\\ell$, and for such an index $a_k\\ge q$. Hence\n\\[\nP\\ge a_k\\ge q.\n\\tag{2}\n\\]\nA power of $2$ which is at least $q$ must be divisible by $q$, contradicting (1). Thus $P$ is not a power of $2$.\n\nSince $P>1$, it follows that $P$ has an odd prime divisor, as required."
+  ]
+}

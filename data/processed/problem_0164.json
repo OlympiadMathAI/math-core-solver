@@ -1,0 +1,16 @@
+{
+  "id": "0164",
+  "source": "IMO Shortlist",
+  "year": "2015",
+  "topic": "Geometry",
+  "subtopics": [
+    "Radical Axis",
+    "Tangency",
+    "Orthocenter",
+    "Power of a Point"
+  ],
+  "statement": "Let $ABC$ be an acute triangle with $AB>AC$, and let $\\Gamma$ be its circumcircle. Let $H,M,F$ be the orthocenter of the triangle, the midpoint of $BC$, and the foot of the altitude from $A$, respectively. Let $Q$ and $K$ be the two points on $\\Gamma$ satisfying\n\\[\n\\angle AQH=90^\\circ\n\\qquad\\text{and}\\qquad\n\\angle QKH=90^\\circ.\n\\]\nProve that the circumcircles of triangles $KQH$ and $KFM$ are tangent to each other.",
+  "solutions": [
+    "Let $A'$ be the point diametrically opposite to $A$ on $\\Gamma$. Since\n\\[\n\\angle AQA'=90^\\circ=\\angle AQH,\n\\]\nthe points $Q,H,A'$ are collinear.\n\nLet the line $AH$ meet $\\Gamma$ again at $E$. We use two standard facts about the orthocenter configuration:\n\\[\nM\\text{ is the midpoint of }HA'\n\\qquad\\text{and}\\qquad\nF\\text{ is the midpoint of }HE.\n\\tag{1}\n\\]\nThe second fact follows because the reflection of $H$ across $BC$ is $E$. For the first, take the circumcenter as the origin. Then\n\\[\n\\vec H=\\vec A+\\vec B+\\vec C,\n\\qquad\n\\vec{A'}=-\\vec A,\n\\]\nand therefore\n\\[\n\\frac{\\vec H+\\vec{A'}}2\n=\n\\frac{\\vec B+\\vec C}2\n=\n\\vec M.\n\\]\nIn particular, the line $MH$ is the same as the line $HQ$.\n\nSince $\\angle QKH=90^\\circ$, the segment $HQ$ is a diameter of the circumcircle of $KQH$. Also, because $A,A',E$ lie on $\\Gamma$ and $AA'$ is a diameter,\n\\[\n\\angle HEA'=\\angle AEA'=90^\\circ,\n\\]\nso $HA'$ is a diameter of the circumcircle of $EA'H$. These two circles have a common tangent $t$ at $H$, perpendicular to $MH$.\n\nLet $R$ be the radical center of the three circles\n\\[\n\\Gamma,\n\\qquad\n(KQH),\n\\qquad\n(EA'H).\n\\]\nTheir pairwise radical axes are $QK$, $A'E$, and $t$, so these three lines pass through $R$. Let $S$ be the midpoint of $HR$.\n\nBecause $R,K,Q$ are collinear and $\\angle QKH=90^\\circ$, we have $\\angle HKR=90^\\circ$. Similarly, since $R,E,A'$ are collinear and $\\angle HEA'=90^\\circ$, we have $\\angle HER=90^\\circ$. Hence $H,E,R,K$ are concyclic with diameter $HR$, and $S$ is the center of this circle. Thus\n\\[\nSK=SE=SH.\n\\tag{2}\n\\]\nBy (1), the line $BC$ is the perpendicular bisector of $HE$. Since $SE=SH$, the point $S$ lies on $BC$, and therefore $S,M,F$ are collinear.\n\nThe line $t$ is also tangent at $H$ to the circumcircle of $HMF$: indeed, $t\\perp HM$ and $HF\\perp FM$. Consequently, the power of $S$ with respect to the circle $(HMF)$ is\n\\[\nSM\\cdot SF=SH^2=SK^2.\n\\tag{3}\n\\]\nThus the line $SK$ is tangent at $K$ to the circle $(KFM)$. On the other hand, $SH$ is tangent to the circle $(KQH)$, so the power of $S$ with respect to that circle is also $SH^2=SK^2$; hence $SK$ is tangent at $K$ to $(KQH)$ as well.\n\nTherefore the circumcircles of $KQH$ and $KFM$ have the same tangent at their common point $K$, so they are tangent to each other."
+  ]
+}

@@ -1,0 +1,116 @@
+ID: 0149
+
+SOURCE: IMO Shortlist
+
+YEAR: 2015
+
+TOPIC: Algebra
+
+SUBTOPICS: Functional Equations, Fixed Points, Symmetry, Odd Functions
+
+STATEMENT:
+Find all functions $f:\mathbb R\to\mathbb R$ satisfying
+\[
+f\bigl(x+f(x+y)\bigr)+f(xy)
+=x+f(x+y)+yf(x)
+\tag{1}
+\]
+for all real numbers $x,y$.
+
+SOLUTION 1:
+The solutions are
+\[
+\boxed{f(x)=x}
+\qquad\text{and}\qquad
+\boxed{f(x)=2-x}
+\]
+for all real $x$. Both are easily verified.
+
+Let $f$ satisfy (1). Setting $y=1$, we obtain
+\[
+f\bigl(x+f(x+1)\bigr)=x+f(x+1).
+\tag{2}
+\]
+Thus $x+f(x+1)$ is a fixed point of $f$ for every real $x$.
+
+We distinguish two cases.
+
+\textbf{Case 1: $f(0)\ne0$.}
+Putting $x=0$ in (1) gives
+\[
+f(f(y))+f(0)=f(y)+yf(0).
+\tag{3}
+\]
+If $y_0$ is a fixed point of $f$, then (3) with $y=y_0$ yields
+\[
+f(0)=y_0f(0),
+\]
+so $y_0=1$. By (2),
+\[
+x+f(x+1)=1
+\]
+for every $x$, and hence
+\[
+f(t)=2-t
+\]
+for every real $t$.
+
+\textbf{Case 2: $f(0)=0$.}
+Putting $y=0$ in (1), and then replacing $x$ by $x+1$, gives
+\[
+f\bigl(x+f(x+1)+1\bigr)=x+f(x+1)+1.
+\tag{4}
+\]
+Putting $x=1$ in (1) gives
+\[
+f\bigl(1+f(y+1)\bigr)+f(y)
+=1+f(y+1)+yf(1).
+\tag{5}
+\]
+Equation (2) with $x=-1$ gives $f(-1)=-1$. Substituting $y=-1$ into (5), we obtain $f(1)=1$. Therefore (5) becomes
+\[
+f\bigl(1+f(y+1)\bigr)+f(y)
+=1+f(y+1)+y.
+\tag{6}
+\]
+
+If both $y_0$ and $y_0+1$ are fixed points, then (6) shows that $y_0+2$ is also fixed. Equations (2) and (4) show that
+\[
+x+f(x+1)
+\quad\text{and}\quad
+x+f(x+1)+1
+\]
+are consecutive fixed points. Hence
+\[
+x+f(x+1)+2
+\]
+is fixed as well. Replacing $x$ by $x-2$, we get
+\[
+f\bigl(x+f(x-1)\bigr)=x+f(x-1).
+\tag{7}
+\]
+On the other hand, setting $y=-1$ in (1) gives
+\[
+f\bigl(x+f(x-1)\bigr)+f(-x)
+=x+f(x-1)-f(x).
+\]
+Comparing with (7), we obtain
+\[
+f(-x)=-f(x)
+\tag{8}
+\]
+for every real $x$.
+
+Finally, substitute $(x,y)=(-1,-y)$ into (1). Using $f(-1)=-1$ and the oddness (8), we get
+\[
+-f\bigl(1+f(y+1)\bigr)+f(y)
+=-1-f(y+1)+y.
+\tag{9}
+\]
+Adding (9) to (6) gives
+\[
+2f(y)=2y.
+\]
+Thus $f(y)=y$ for every real $y$.
+
+The two cases yield exactly the two stated solutions.

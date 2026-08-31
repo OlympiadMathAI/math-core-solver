@@ -1,0 +1,92 @@
+ID: 0169
+
+SOURCE: IMO Shortlist
+
+YEAR: 2015
+
+TOPIC: Number Theory
+
+SUBTOPICS: 2-adic Valuations, Products, Divisibility, Powers of Two
+
+STATEMENT:
+Let $m$ and $n$ be positive integers with $m>n$. For
+\[
+k=1,2,\ldots,n+1,
+\]
+define
+\[
+x_k=\frac{m+k}{n+k}.
+\]
+Prove that if all the numbers $x_1,x_2,\ldots,x_{n+1}$ are integers, then
+\[
+x_1x_2\cdots x_{n+1}-1
+\]
+is divisible by an odd prime.
+
+SOLUTION 1:
+For each $k$, put
+\[
+a_k=x_k-1=\frac{m-n}{n+k}.
+\]
+By hypothesis, every $a_k$ is a positive integer. Let
+\[
+P=x_1x_2\cdots x_{n+1}-1
+=\prod_{k=1}^{n+1}(a_k+1)-1.
+\]
+It is enough to prove that $P$ is not a power of $2$.
+
+Let
+\[
+v_2(m-n)=d,
+\]
+and choose $c$ so that
+\[
+2^c\le2n+1<2^{c+1}.
+\]
+Since
+\[
+2n+1\le2^{c+1}-1,
+\]
+we have $n+1\le2^c$. Thus $2^c$ occurs among
+\[
+n+1,n+2,\ldots,2n+1.
+\]
+It is the only multiple of $2^c$ in this interval. Let $\ell$ be the unique index such that
+\[
+n+\ell=2^c.
+\]
+
+Because $a_\ell=(m-n)/2^c$ is an integer, we have $d\ge c$. Moreover,
+\[
+v_2(a_\ell)=d-c,
+\]
+while for every $k\ne\ell$ the number $n+k$ is not divisible by $2^c$, so
+\[
+v_2(a_k)\ge d-c+1.
+\]
+Set
+\[
+q=2^{d-c+1}.
+\]
+Then
+\[
+q\nmid a_\ell,
+\qquad
+q\mid a_k\quad(k\ne\ell).
+\]
+Therefore
+\[
+P
+=\prod_{k=1}^{n+1}(a_k+1)-1
+\equiv a_\ell\not\equiv0\pmod q.
+\tag{1}
+\]
+
+There is at least one index $k\ne\ell$, and for such an index $a_k\ge q$. Hence
+\[
+P\ge a_k\ge q.
+\tag{2}
+\]
+A power of $2$ which is at least $q$ must be divisible by $q$, contradicting (1). Thus $P$ is not a power of $2$.
+
+Since $P>1$, it follows that $P$ has an odd prime divisor, as required.

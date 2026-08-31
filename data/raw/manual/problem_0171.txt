@@ -1,0 +1,390 @@
+ID: 0171
+
+SOURCE: IMO Shortlist
+
+YEAR: 2015
+
+TOPIC: Number Theory
+
+SUBTOPICS: Diophantine Equations, Powers of Two, 2-adic Valuations, Case Analysis
+
+STATEMENT:
+Determine all triples $(a,b,c)$ of positive integers for which
+\[
+ab-c,\qquad bc-a,\qquad ca-b
+\]
+are powers of $2$. A power of $2$ means an integer of the form $2^n$, where $n$ is a nonnegative integer.
+
+SOLUTION 1:
+The complete list consists of
+\[
+(2,2,2),
+\]
+the three permutations of
+\[
+(2,2,3),
+\]
+and the six permutations of each of
+\[
+(2,6,11)
+\qquad\text{and}\qquad
+(3,5,7).
+\]
+A direct substitution verifies that all these triples work.
+
+Now let $(a,b,c)$ be any solution. None of $a,b,c$ can equal $1$. For example, if $a=1$, then both
+\[
+b-c
+\qquad\text{and}\qquad
+c-b
+\]
+would have to be positive powers of $2$, which is impossible. Thus
+\[
+a,b,c\ge2.
+\tag{1}
+\]
+
+\textbf{Case 1: at least two variables are equal.}
+
+By symmetry, suppose $a=b$. Then
+\[
+a^2-c
+\qquad\text{and}\qquad
+a(c-1)
+\]
+are powers of $2$. Hence both $a$ and $c-1$ are powers of $2$, so
+\[
+a=2^\alpha,
+\qquad
+c=2^\gamma+1
+\]
+for some $\alpha\ge1$ and $\gamma\ge0$.
+
+Now
+\[
+a^2-c=2^{2\alpha}-2^\gamma-1
+\]
+is a power of $2$. If $\gamma\ge2$, this number is congruent to $-1$ modulo $4$, which is impossible. Thus $\gamma\le1$.
+
+If $\gamma=0$, then $2^{2\alpha}-2$ is a power of $2$, forcing $\alpha=1$. If $\gamma=1$, then $2^{2\alpha}-3$ is an odd power of $2$, hence equals $1$, again forcing $\alpha=1$. We obtain
+\[
+(a,b,c)=(2,2,2)
+\quad\text{or}\quad
+(2,2,3).
+\]
+
+\textbf{Case 2: the variables are distinct.}
+
+By symmetry, assume
+\[
+2\le a<b<c.
+\tag{2}
+\]
+Write
+\[
+bc-a=2^\alpha,\qquad
+ac-b=2^\beta,\qquad
+ab-c=2^\gamma.
+\tag{3}
+\]
+The differences
+\[
+(bc-a)-(ac-b)=(b-a)(c+1)>0
+\]
+and
+\[
+(ac-b)-(ab-c)=(c-b)(a+1)>0
+\]
+show that
+\[
+\alpha>\beta>\gamma.
+\tag{4}
+\]
+
+\textbf{Case 2a: $a=2$.}
+
+We first prove that $\gamma=0$. If $\gamma>0$, then $c$ is even by $2b-c=2^\gamma$. Since $\beta>\gamma>0$, the equation $2c-b=2^\beta$ then shows that $b$ is even. But
+\[
+bc-2\equiv2\pmod4,
+\]
+so the power of $2$ equal to $bc-2$ would have to be $2$, giving $bc=4$, contrary to (2).
+
+Thus $\gamma=0$, and
+\[
+c=2b-1.
+\]
+The middle equation in (3) becomes
+\[
+3b-2=2^\beta.
+\tag{5}
+\]
+Because $b>2$, we have $\beta\ge4$. If $\beta=4$, then
+\[
+b=6,\qquad c=11,
+\]
+giving the solution $(2,6,11)$.
+
+Suppose $\beta\ge5$. From (3) and (5),
+\[
+\begin{aligned}
+9\cdot2^\alpha
+&=9b(2b-1)-18\\
+&=(3b-2)(6b+1)-16\\
+&=2^\beta(2^{\beta+1}+5)-16.
+\end{aligned}
+\]
+The last expression has 2-adic valuation exactly $4$, so $\alpha=4$, contradicting $\alpha>\beta\ge5$. Therefore $(2,6,11)$ is the only solution in this case.
+
+\textbf{Case 2b: $a\ge3$.}
+
+Choose $\vartheta\in\{-1,1\}$ so that $c-\vartheta$ is not divisible by $4$. Using (3),
+\[
+2^\alpha+\vartheta2^\beta
+=(b+\vartheta a)(c-\vartheta).
+\tag{6}
+\]
+The left side has 2-adic valuation exactly $\beta$. Since $v_2(c-\vartheta)\le1$, equation (6) gives
+\[
+2^{\beta-1}\mid b+\vartheta a.
+\tag{7}
+\]
+
+On the other hand,
+\[
+2^\beta=ac-b>(a-1)c\ge2c.
+\]
+Thus
+\[
+a,b<c<2^{\beta-1}.
+\]
+If $\vartheta=-1$, then
+\[
+0<b-a<2^{\beta-1},
+\]
+contradicting (7). Hence $\vartheta=1$. Since
+\[
+0<a+b<2c<2^\beta,
+\]
+equation (7) forces
+\[
+a+b=2^{\beta-1}.
+\]
+Therefore
+\[
+ac-b=2^\beta=2(a+b).
+\tag{8}
+\]
+Equation (8) gives
+\[
+a(c-1)=a+3b.
+\]
+Since $a<b$ and $c-1\ge b$,
+\[
+4b>a+3b=a(c-1)\ge ab.
+\]
+Hence $a<4$, and therefore $a=3$.
+
+Now (8) becomes
+\[
+c=b+2.
+\]
+The first equation in (3) gives
+\[
+bc-a=b(b+2)-3=(b-1)(b+3),
+\]
+which is a power of $2$. Hence both $b-1$ and $b+3$ are powers of $2$. They differ by $4$, so they must be $4$ and $8$. Thus
+\[
+b=5,\qquad c=7.
+\]
+
+We have obtained only the listed triples and their permutations.
+
+SOLUTION 2:
+We again begin with $a,b,c\ge2$.
+
+\textbf{Case 1: $a,b,c$ are all even.}
+
+Let
+\[
+v_2(a)=A,\qquad v_2(b)=B,\qquad v_2(c)=C,
+\]
+and, by symmetry, suppose
+\[
+1\le A\le B\le C.
+\]
+Since
+\[
+v_2(ac)>B,
+\]
+the highest power of $2$ dividing $ac-b$ is $2^B$. As $ac-b$ itself is a power of $2$,
+\[
+ac-b=2^B\le b.
+\]
+Similarly,
+\[
+bc-a=2^A\le a.
+\]
+Adding these two inequalities gives
+\[
+(a+b)(c-1)\le a+b,
+\]
+so $c\le2$. Hence $c=2$, and then $A=B=C=1$. Equality must hold throughout, which yields
+\[
+a=b=c=2.
+\]
+
+\textbf{Case 2: $a,b,c$ are all odd.}
+
+If two variables were equal, say $a=b$, then
+\[
+ac-b=a(c-1)
+\]
+would have the odd divisor $a>1$, so it could not be a power of $2$. Thus the variables are distinct; assume
+\[
+a<b<c.
+\]
+Write
+\[
+bc-a=2^\alpha,\qquad ac-b=2^\beta.
+\]
+Then $\alpha>\beta$. Moreover,
+\[
+a2^\alpha-b2^\beta
+=a(bc-a)-b(ac-b)
+=b^2-a^2
+=(b+a)(b-a).
+\]
+Hence $2^\beta$ divides $(b+a)(b-a)$. The even numbers $b+a$ and $b-a$ cannot both be divisible by $4$, so one of them is divisible by $2^{\beta-1}$. Therefore
+\[
+2^\beta\le2(a+b).
+\]
+Consequently,
+\[
+(a-1)b<ac-b=2^\beta\le2(a+b)<4b,
+\]
+which gives $a<5$. Since $a$ is odd and at least $2$, we get $a=3$.
+
+The inequality
+\[
+3c-b\le2(3+b)
+\]
+gives $c\le b+2$. Since $b<c$ and both are odd, we must have
+\[
+c=b+2.
+\]
+Then
+\[
+bc-a=(b-1)(b+3)
+\]
+is a power of $2$, so $b-1$ and $b+3$ are powers of $2$ differing by $4$. Hence
+\[
+b=5,\qquad c=7.
+\]
+
+\textbf{Case 3: both parities occur.}
+
+By symmetry, take $c$ odd and assume $a\le b$. At least one of $a,b$ is even, so
+\[
+ab-c
+\]
+is odd. Being a power of $2$, it must equal $1$:
+\[
+ab-c=1.
+\tag{9}
+\]
+
+If $a=b$, then
+\[
+c=a^2-1
+\]
+and
+\[
+ac-b=a(a^2-2)
+\]
+is a power of $2$. Hence both $a$ and $a^2-2$ are powers of $2$, which forces $a=2$. This gives
+\[
+(a,b,c)=(2,2,3).
+\]
+
+Now suppose $a<b$. Write
+\[
+bc-a=2^\alpha,\qquad ac-b=2^\beta,
+\qquad \alpha>\beta.
+\tag{10}
+\]
+If $\beta=0$, then $ac-b=ab-c=1$, which gives
+\[
+(a+1)(c-b)=0,
+\]
+impossible. Thus $\beta>0$. Equations (9) and (10) then show that $a$ and $b$ are both even.
+
+Substituting $c=ab-1$ into (10), we get
+\[
+2^\alpha=ab^2-(a+b),
+\tag{11}
+\]
+\[
+2^\beta=a^2b-(a+b).
+\tag{12}
+\]
+Adding,
+\[
+2^\alpha+2^\beta=(ab-2)(a+b).
+\]
+Here $ab-2$ is divisible by $2$ but not by $4$, so
+\[
+v_2(a+b)=\beta-1.
+\tag{13}
+\]
+Equations (11) and (12) then imply
+\[
+v_2(ab^2)=v_2(a^2b)=\beta-1.
+\]
+Therefore
+\[
+v_2(a)=v_2(b)=\tau
+\]
+for some $\tau\ge1$, and
+\[
+\beta=3\tau+1.
+\]
+
+Write
+\[
+a=2^\tau A,\qquad
+b=2^\tau B,\qquad
+a+b=2^{3\tau}C,
+\]
+where $A,B,C$ are odd and $A<B$. Thus
+\[
+A+B=2^{2\tau}C\ge4C.
+\tag{14}
+\]
+Dividing (12) by $2^{3\tau}$ gives
+\[
+A^2B-C=2.
+\tag{15}
+\]
+Using (14) and (15),
+\[
+\begin{aligned}
+8
+&=4A^2B-4C\\
+&\ge4A^2B-A-B\\
+&\ge A^2(3B-1).
+\end{aligned}
+\]
+Since $A$ and $B$ are odd and $A<B$, this forces
+\[
+A=1,\qquad B=3.
+\]
+Then (14) yields
+\[
+\tau=1,\qquad C=1.
+\]
+Therefore
+\[
+a=2,\qquad b=6,\qquad c=ab-1=11.
+\]
+
+This completes the classification.

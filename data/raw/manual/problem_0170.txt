@@ -1,0 +1,161 @@
+ID: 0170
+
+SOURCE: IMO Shortlist
+
+YEAR: 2015
+
+TOPIC: Number Theory
+
+SUBTOPICS: GCD and LCM, Recurrence Relations, Invariants, Periodicity
+
+STATEMENT:
+Suppose that $a_0,a_1,\ldots$ and $b_0,b_1,\ldots$ are sequences of positive integers satisfying
+\[
+a_0,b_0\ge2
+\]
+and
+\[
+a_{n+1}=\gcd(a_n,b_n)+1,
+\qquad
+b_{n+1}=\operatorname{lcm}(a_n,b_n)-1
+\]
+for every $n\ge0$. Prove that the sequence $(a_n)$ is eventually periodic.
+
+SOLUTION 1:
+Put
+\[
+s_n=a_n+b_n.
+\]
+If $a_n\mid b_n$, then
+\[
+a_{n+1}=a_n+1,
+\qquad
+b_{n+1}=b_n-1,
+\qquad
+s_{n+1}=s_n.
+\tag{1}
+\]
+
+For each $n$, define
+\[
+W_n=\{m\in\mathbb Z_{>0}:m\ge a_n\text{ and }m\nmid s_n\}
+\]
+and
+\[
+w_n=\min W_n.
+\]
+The set $W_n$ is nonempty, since every integer greater than $s_n$ belongs to it.
+
+We first show that $(w_n)$ is non-increasing.
+
+If $a_n\mid b_n$, then $a_n\mid s_n$, so $a_n\notin W_n$. By (1), the sum $s_n$ stays unchanged and the lower bound in the definition of $W_n$ increases from $a_n$ to $a_n+1$. Hence
+\[
+W_{n+1}=W_n,
+\qquad
+w_{n+1}=w_n.
+\]
+
+If $a_n\nmid b_n$, then $a_n\nmid s_n$, so
+\[
+w_n=a_n.
+\]
+Also,
+\[
+a_{n+1}=\gcd(a_n,b_n)+1\le a_n.
+\]
+Furthermore,
+\[
+s_{n+1}
+=\gcd(a_n,b_n)+\operatorname{lcm}(a_n,b_n).
+\]
+The second summand is divisible by $a_n$, whereas the first is a positive proper divisor of $a_n$. Thus
+\[
+a_n\nmid s_{n+1}.
+\]
+Therefore $a_n\in W_{n+1}$ and
+\[
+w_{n+1}\le a_n=w_n.
+\]
+
+Hence $(w_n)$ is a non-increasing sequence of positive integers. It is eventually constant; choose $N$ and $w$ such that
+\[
+w_n=w
+\qquad(n\ge N).
+\]
+
+For $n\ge N$, define
+\[
+g_n=\gcd(w,s_n).
+\]
+Starting from any such $n$, the values of $a$ increase by $1$ while the sum $s$ remains fixed, until $a$ reaches $w$, the first integer at least $a_n$ which does not divide $s_n$. At that point,
+\[
+a_{n+1}=\gcd(w,s_n)+1=g_n+1.
+\tag{2}
+\]
+
+We now show that $g_n$ is constant for $n\ge N$. During a step with $a_n\mid b_n$, the sum $s_n$ does not change, so neither does $g_n$. At a step with $a_n=w$, we have
+\[
+\gcd(a_n,b_n)=\gcd(w,s_n)=g_n.
+\]
+Since $b_n=s_n-w$,
+\[
+\begin{aligned}
+s_{n+1}
+&=g_n+\frac{wb_n}{g_n}\\
+&=g_n+\frac{w(s_n-w)}{g_n}.
+\end{aligned}
+\]
+The second term is divisible by $w$, and $g_n\mid w$. Therefore
+\[
+g_{n+1}
+=\gcd(w,s_{n+1})
+=\gcd(w,g_n)
+=g_n.
+\]
+Thus $g_n$ is eventually a fixed integer $g$.
+
+By (2), from that point onward the sequence $(a_n)$ repeatedly follows the cycle
+\[
+g+1,g+2,\ldots,w,g+1,g+2,\ldots.
+\]
+Hence $(a_n)$ is eventually periodic.
+
+SOLUTION 2:
+The first part of Solution 1 shows that
+\[
+a_n\le w_n\le w_0
+\]
+for every $n$. Thus $(a_n)$ takes only finitely many values.
+
+Let
+\[
+M=\operatorname{lcm}\{a_n:n\ge0\},
+\]
+which is well-defined because the set of possible values of $a_n$ is finite. Let $r_n$ be the residue of $b_n$ modulo $M$, chosen in $\{0,1,\ldots,M-1\}$.
+
+Since $a_n\mid M$,
+\[
+\gcd(a_n,b_n)=\gcd(a_n,r_n),
+\]
+so
+\[
+a_{n+1}=\gcd(a_n,r_n)+1.
+\tag{1}
+\]
+Also,
+\[
+\begin{aligned}
+b_{n+1}
+&=\operatorname{lcm}(a_n,b_n)-1\\
+&=\frac{a_n}{\gcd(a_n,b_n)}\,b_n-1.
+\end{aligned}
+\]
+Reducing modulo $M$ and using $\gcd(a_n,b_n)=\gcd(a_n,r_n)$ gives
+\[
+r_{n+1}\equiv
+\frac{a_n}{\gcd(a_n,r_n)}\,r_n-1
+\pmod M.
+\tag{2}
+\]
+
+Equations (1) and (2) show that the pair $(a_n,r_n)$ uniquely determines $(a_{n+1},r_{n+1})$. There are only finitely many possible pairs, so the sequence of pairs is eventually periodic. Consequently, its first component $(a_n)$ is eventually periodic.

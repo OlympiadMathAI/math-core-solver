@@ -1,0 +1,16 @@
+{
+  "id": "0162",
+  "source": "IMO Shortlist",
+  "year": "2015",
+  "topic": "Geometry",
+  "subtopics": [
+    "Cyclic Quadrilaterals",
+    "Parallelograms",
+    "Similar Triangles",
+    "Midpoints"
+  ],
+  "statement": "Let $ABC$ be an acute triangle, and let $M$ be the midpoint of $AC$. A circle $\\omega$ passing through $B$ and $M$ meets the sides $AB$ and $BC$ again at $P$ and $Q$, respectively. Let $T$ be the point such that $BPTQ$ is a parallelogram. Suppose that $T$ lies on the circumcircle of triangle $ABC$. Determine all possible values of\n\\[\n\\frac{BT}{BM}.\n\\]",
+  "solutions": [
+    "The answer is\n\\[\n\\boxed{\\sqrt2}.\n\\]\n\nWe first prove a lemma.\n\n\\textbf{Lemma.} Let $ABCT$ be a cyclic quadrilateral. Let $U$ and $V$ lie on the lines $BA$ and $BC$, respectively, and suppose that $BUTV$ is a parallelogram. Then\n\\[\nBU\\cdot BA+BV\\cdot BC=BT^2,\n\\tag{1}\n\\]\nwhere directed lengths may be used if necessary.\n\n\\textit{Proof.}\nLet the circumcircle of triangle $VTC$ meet the line $BT$ again at $J$. By the power of $B$ with respect to this circle,\n\\[\nBV\\cdot BC=BJ\\cdot BT.\n\\tag{2}\n\\]\nMoreover,\n\\[\n\\angle TJV=180^\\circ-\\angle VCT=\\angle TAB\n\\]\nand, because $TV\\parallel BA$,\n\\[\n\\angle VTJ=\\angle ABT.\n\\]\nThus triangles $TJV$ and $BAT$ are similar, so\n\\[\n\\frac{TJ}{TV}=\\frac{BA}{BT}.\n\\]\nSince $TV=BU$, we get\n\\[\nTJ\\cdot BT=BU\\cdot BA.\n\\tag{3}\n\\]\nAdding (2) and (3), and using $BJ+JT=BT$ on the line $BT$, gives (1). $\\square$\n\nLet $X$ and $Y$ be the midpoints of $BA$ and $BC$, respectively. Since $M$ is the midpoint of $AC$, the quadrilateral $BXMY$ is a parallelogram.\n\nThe points $P,B,Q,M$ lie on $\\omega$. Applying the lemma to the cyclic quadrilateral $PBQM$ and the parallelogram $BXMY$, we obtain\n\\[\nBX\\cdot BP+BY\\cdot BQ=BM^2.\n\\tag{4}\n\\]\nThe points $A,B,C,T$ are cyclic, and $BPTQ$ is a parallelogram. Applying the lemma again gives\n\\[\nBP\\cdot BA+BQ\\cdot BC=BT^2.\n\\tag{5}\n\\]\nSince\n\\[\nBA=2BX\n\\qquad\\text{and}\\qquad\nBC=2BY,\n\\]\nequations (4) and (5) yield\n\\[\nBT^2=2BM^2.\n\\]\nAll lengths are positive, so\n\\[\n\\frac{BT}{BM}=\\sqrt2.\n\\]"
+  ]
+}

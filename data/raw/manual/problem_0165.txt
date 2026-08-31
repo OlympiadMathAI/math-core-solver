@@ -1,0 +1,134 @@
+ID: 0165
+
+SOURCE: IMO Shortlist
+
+YEAR: 2015
+
+TOPIC: Geometry
+
+SUBTOPICS: Tangential Quadrilaterals, Menelaus' Theorem, Similar Triangles, Incenter Geometry
+
+STATEMENT:
+Let $ABCD$ be a convex quadrilateral, and let $P,Q,R,S$ lie on the sides $AB,BC,CD,DA$, respectively. Let the segments $PR$ and $QS$ meet at $O$. Suppose that each of the quadrilaterals $APOS$, $BQOP$, $CROQ$, and $DSOR$ has an incircle. Prove that the lines $AC$, $PQ$, and $RS$ are either concurrent or parallel.
+
+SOLUTION 1:
+Using directed lengths, Menelaus' theorem applied to triangles $ABC$ and $ACD$ shows that the lines $AC$, $PQ$, and $RS$ pass through one common point, possibly a point at infinity, if and only if
+\[
+\frac{AP}{PB}\cdot
+\frac{BQ}{QC}\cdot
+\frac{CR}{RD}\cdot
+\frac{DS}{SA}=1.
+\tag{1}
+\]
+Thus it is enough to prove (1).
+
+We first establish a lemma.
+
+\textbf{Lemma.} Let $EFGH$ be a tangential quadrilateral with incenter $N$. Then
+\[
+\frac{EF\cdot FG}{GH\cdot HE}
+=
+\frac{FN^2}{HN^2}.
+\tag{2}
+\]
+
+\textit{Proof.}
+Since $N$ lies on all four angle bisectors,
+\[
+\angle ENH+\angle GNF
+=
+\angle FNE+\angle HNG
+=
+180^\circ,
+\]
+while
+\[
+\angle FGN=\angle NGH
+\qquad\text{and}\qquad
+\angle HEN=\angle NEF.
+\]
+Applying the sine rule in the four triangles adjacent to the sides of the quadrilateral, we obtain
+\[
+\begin{aligned}
+\frac{EF}{FN}\cdot\frac{FG}{FN}
+&=
+\frac{\sin\angle FNE\,\sin\angle GNF}
+     {\sin\angle NEF\,\sin\angle FGN}\
+&=
+\frac{\sin\angle HNG\,\sin\angle ENH}
+     {\sin\angle NGH\,\sin\angle HEN}\
+&=
+\frac{GH}{HN}\cdot\frac{HE}{HN}.
+\end{aligned}
+\]
+This is equivalent to (2). $\square$
+
+Let $I,J,K,L$ be the incenters of $APOS$, $BQOP$, $CROQ$, and $DSOR$, respectively. Applying the lemma to these four quadrilaterals gives
+\[
+\frac{AP\cdot PO}{OS\cdot SA}
+=
+\frac{PI^2}{SI^2},
+\]
+\[
+\frac{BQ\cdot QO}{OP\cdot PB}
+=
+\frac{QJ^2}{PJ^2},
+\]
+\[
+\frac{CR\cdot RO}{OQ\cdot QC}
+=
+\frac{RK^2}{QK^2},
+\]
+and
+\[
+\frac{DS\cdot SO}{OR\cdot RD}
+=
+\frac{SL^2}{RL^2}.
+\]
+Multiplying these equalities and cancelling the factors containing $O$, we find
+\[
+\frac{AP}{PB}\cdot
+\frac{BQ}{QC}\cdot
+\frac{CR}{RD}\cdot
+\frac{DS}{SA}
+=
+\frac{PI^2}{PJ^2}\cdot
+\frac{QJ^2}{QK^2}\cdot
+\frac{RK^2}{RL^2}\cdot
+\frac{SL^2}{SI^2}.
+\tag{3}
+\]
+
+At $P$, the internal angles of the two tangential quadrilaterals $APOS$ and $BQOP$ are supplementary, so their bisectors $PI$ and $PJ$ are perpendicular. Similarly, $OI\perp OJ$. Hence
+\[
+\angle IPJ=\angle IOJ=90^\circ,
+\]
+and $I,P,J,O$ are cyclic.
+
+Likewise, at $Q$ and $O$ we have
+\[
+\angle JQK=\angle JOK=90^\circ,
+\]
+so $J,Q,K,O$ are cyclic. Therefore
+\[
+\angle QKJ
+=
+\angle QOJ
+=
+\angle JOP
+=
+\angle JIP,
+\]
+where the middle equality holds because $OJ$ bisects $\angle QOP$. The right triangles $IPJ$ and $KQJ$ are thus similar, and
+\[
+\frac{PI}{PJ}=\frac{QK}{QJ}.
+\tag{4}
+\]
+By the analogous argument at $R$ and $S$,
+\[
+\frac{RK}{RL}=\frac{SI}{SL}.
+\tag{5}
+\]
+Substituting (4) and (5) into (3), the right-hand side becomes $1$. Hence (1) holds.
+
+Therefore the lines $AC$, $PQ$, and $RS$ are concurrent, with the parallel case corresponding to a common point at infinity.
