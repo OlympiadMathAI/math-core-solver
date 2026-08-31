@@ -1,0 +1,54 @@
+ID: 0123
+
+SOURCE: IMO Shortlist
+
+YEAR: 2014
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Invariants, Products, AM-GM Inequality, Extremal Processes
+
+STATEMENT:
+Let $m$ be a positive integer. There are $2^m$ sheets of paper, with the number $1$ written on each sheet. At every step, two distinct sheets carrying numbers $a$ and $b$ are chosen, and the number $a+b$ is written on both of them in place of the old numbers. Prove that after
+\[
+m2^{m-1}
+\]
+steps, the sum of all numbers on the sheets is at least $4^m$.
+
+SOLUTION 1:
+Let $P_t$ be the product of the $2^m$ numbers after $t$ steps. Initially,
+\[
+P_0=1.
+\]
+
+Suppose that at some step the numbers $a$ and $b$ are both replaced by $a+b$. In the total product, the factor $ab$ is replaced by $(a+b)^2$. Since
+\[
+(a+b)^2\ge4ab,
+\]
+we obtain
+\[
+P_{t+1}\ge4P_t.
+\]
+Therefore, by induction,
+\[
+P_t\ge4^t
+\]
+for every $t\ge0$.
+
+Set
+\[
+T=m2^{m-1}.
+\]
+Then
+\[
+P_T\ge4^{m2^{m-1}}
+=2^{m2^m}
+=(2^m)^{2^m}.
+\]
+There are $2^m$ positive numbers on the sheets. By the AM-GM inequality, their sum is at least
+\[
+2^m\sqrt[2^m]{P_T}
+\ge2^m\cdot2^m
+=4^m.
+\]
+This proves the assertion.

@@ -1,0 +1,64 @@
+ID: 0129
+
+SOURCE: IMO Shortlist
+
+YEAR: 2014
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Combinatorial Games, Symmetric Difference, Vector Spaces over the Binary Field, Pairing Strategies
+
+STATEMENT:
+A deck contains $1024$ cards, one for each subset of the ten decimal digits; thus one card is empty. Two players alternately take one card until the deck is empty. Each player then asks whether he can discard one of his cards so that every digit occurs on an even number of his remaining cards. If exactly one player can do so, that player wins; otherwise the game is a draw.
+
+Determine all possible first moves of the first player after which he has a winning strategy.
+
+SOLUTION 1:
+The answer is: every first move except taking the empty card.
+
+Identify each card with its subset of digits, and use symmetric difference $\triangle$ as addition. The sum of a collection of cards means their iterated symmetric difference.
+
+Each digit occurs on exactly $512$ cards, so the sum of all $1024$ cards is the empty set $\varnothing$. At the end of the game, the two players therefore have the same sum; call it $C$. A player can discard one card and leave total sum $\varnothing$ exactly when he owns the card $C$. Since every card occurs only once, exactly one player owns $C$. Thus there is never a draw: the player who owns $C$ wins.
+
+We need the following lemma.
+
+\textbf{Lemma.} Let $B\ne\varnothing$. Pair the cards as
+\[
+\{X,X\triangle B\}.
+\]
+If exactly one card is selected from each of the $512$ pairs, then the sum of the selected cards is either $\varnothing$ or $B$.
+
+\textbf{Proof.}
+Choose a digit $b\in B$. In every pair, let $X_i$ be the member not containing $b$. The $512$ cards $X_i$ are precisely all subsets not containing $b$. Every other digit occurs in exactly $256$ of them, and $b$ occurs in none, so
+\[
+X_1\triangle\cdots\triangle X_{512}=\varnothing.
+\]
+Replacing $X_i$ by its partner $X_i\triangle B$ adds one copy of $B$ to the total. Hence any transversal has sum $\varnothing$ or $B$. \hfill$\square$
+
+Let the players be $F$ and $S$.
+
+\textbf{Case 1: $F$ first takes $\varnothing$.}
+We give a winning strategy for $S$. Let $S$ take any card $A$. If $F$ next takes $B$, then $S$ takes $A\triangle B$. Here $B\ne\varnothing$, and the four cards taken so far form two complete pairs for the pairing
+\[
+\{X,X\triangle B\}:
+\]
+$F$ owns the pair $\{\varnothing,B\}$, and $S$ owns the pair $\{A,A\triangle B\}$.
+
+Thereafter, whenever $F$ takes a card, $S$ takes its partner. At the end, temporarily replace $S$'s card $A$ by $\varnothing$. The resulting collection contains exactly one member of every pair, so by the lemma its sum is $\varnothing$ or $B$. Restoring $A$ shows that the actual sum of $S$'s cards is
+\[
+A\quad\text{or}\quad A\triangle B.
+\]
+Since $S$ owns both cards, he owns his total sum and therefore wins. Thus taking $\varnothing$ is a losing first move.
+
+\textbf{Case 2: $F$ first takes a nonempty card $A$.}
+We give a winning strategy for $F$.
+
+Suppose first that $S$ takes a nonempty card $B$. Then $F$ takes $A\triangle B$ and pairs all cards as $\{X,X\triangle B\}$. Among the remaining cards there are complete pairs together with one unpaired extra card, initially $\varnothing$, whose partner $B$ has been taken by $S$.
+
+Whenever $S$ takes a card from a complete pair, $F$ takes its partner. If $S$ takes the current extra card, $F$ takes an arbitrary card $Y$ from a complete pair, and $Y\triangle B$ becomes the new extra card. Eventually, on his last move, $S$ is forced to take the extra card.
+
+At the end, $F$ owns both $A$ and $A\triangle B$, $S$ owns both $\varnothing$ and $B$, and $F$ owns exactly one card from every other pair. Temporarily replace $F$'s card $A$ by $\varnothing$. The lemma shows that the modified sum is $\varnothing$ or $B$, so the actual sum of $F$'s cards is $A$ or $A\triangle B$. He owns both, and hence wins.
+
+If $S$ takes $\varnothing$ on his first move, choose any still available nonempty card $B\ne A$, let $F$ take $A\triangle B$, and use the same pairing strategy. Now $B$ is the initial extra card, and the same conclusion follows.
+
+Therefore the first player has a winning strategy after every nonempty first move, and after no other first move.

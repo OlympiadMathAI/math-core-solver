@@ -1,0 +1,126 @@
+ID: 0118
+
+SOURCE: IMO Shortlist
+
+YEAR: 2014
+
+TOPIC: Algebra
+
+SUBTOPICS: Greedy Algorithms, Partial Sums, Extremal Inequalities
+
+STATEMENT:
+For a sequence $x_1,x_2,\ldots,x_n$ of real numbers, define its price to be
+\[
+\max_{1\le i\le n}|x_1+x_2+\cdots+x_i|.
+\]
+
+Given $n$ real numbers, Dave and George arrange them into sequences. Dave checks every possible ordering and obtains the minimum possible price $D$. George uses the following greedy procedure: at step $i$, among the unused numbers he chooses $x_i$ so that
+\[
+|x_1+x_2+\cdots+x_i|
+\]
+is as small as possible. If several choices give the same value, he may choose any of them. Let $G$ be the price of the sequence George obtains.
+
+Find the least constant $c$ such that
+\[
+G\le cD
+\]
+for every positive integer $n$, every collection of $n$ real numbers, and every sequence that George's rule may produce.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{c=2}.
+\]
+
+First, the constant cannot be smaller than $2$. Consider the numbers
+\[
+1,-1,2,-2.
+\]
+Dave can use the ordering
+\[
+1,-2,2,-1,
+\]
+whose partial sums are $1,-1,1,0$, so $D\le1$. Conversely, in any ordering the two partial sums immediately before and after the term whose value is $2$ or $-2$ differ by $2$ in absolute value. Hence at least one of them has absolute value at least $1$, so $D=1$. George may choose
+\[
+1,-1,2,-2:
+\]
+at the first step $1$ is a permissible minimum-absolute-value choice, at the second step $-1$ makes the partial sum $0$, and at the third step either $2$ or $-2$ is permissible. This ordering has price $G=2$. Hence
+\[
+c\ge2.
+\]
+
+We now prove that $G\le2D$ always. Let the original numbers be $x_1,\ldots,x_n$, and define
+\[
+M=\max_{1\le i\le n}|x_i|,
+\qquad
+S=\left|x_1+\cdots+x_n\right|,
+\qquad
+N=\max\{M,S\}.
+\]
+We establish
+\[
+D\ge S,
+\tag{1}
+\]
+\[
+D\ge\frac M2,
+\tag{2}
+\]
+and
+\[
+G\le N.
+\tag{3}
+\]
+
+Inequality (1) is immediate because the last partial sum in every ordering has absolute value $S$.
+
+For (2), let $d_1,\ldots,d_n$ be an ordering of price $D$, and choose $i$ with $|d_i|=M$. If
+\[
+p_j=d_1+\cdots+d_j
+\]
+and $p_0=0$, then
+\[
+M=|d_i|=|p_i-p_{i-1}|
+\le |p_i|+|p_{i-1}|
+\le2D.
+\]
+
+It remains to prove (3). Let George's ordering be $g_1,\ldots,g_n$, and put
+\[
+h_i=g_1+\cdots+g_i,
+\qquad h_0=0.
+\]
+We prove by induction that
+\[
+|h_i|\le N
+\]
+for every $i$. The assertion is clear for $i=0$, and
+\[
+|h_n|=S\le N.
+\]
+
+Assume $|h_{i-1}|\le N$. If all unused numbers $g_i,\ldots,g_n$ have the same sign, then the remaining partial sums move monotonically from $h_{i-1}$ to $h_n$. Hence $h_i$ lies between these two numbers and
+\[
+|h_i|\le\max\{|h_{i-1}|,|h_n|\}\le N.
+\]
+
+Otherwise, among the unused numbers there is some $g_j$ whose sign is opposite to that of $h_{i-1}$; if $h_{i-1}=0$, choose any unused number. Then
+\[
+|h_{i-1}+g_j|
+\le\max\{|h_{i-1}|,|g_j|\}
+\le N.
+\]
+By George's greedy choice,
+\[
+|h_i|=|h_{i-1}+g_i|
+\le |h_{i-1}+g_j|
+\le N.
+\]
+This completes the induction and proves (3).
+
+Finally,
+\[
+G\le N=\max\{M,S\}
+\le\max\{2D,D\}=2D.
+\]
+Together with the example, this proves that the least possible constant is $2$.

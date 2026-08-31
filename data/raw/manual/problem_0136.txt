@@ -1,0 +1,395 @@
+ID: 0136
+
+SOURCE: IMO Shortlist
+
+YEAR: 2014
+
+TOPIC: Geometry
+
+SUBTOPICS: Similar Triangles, Spiral Similarity, Miquel's Theorem, Pascal's Theorem, Complex Numbers, Menelaus' Theorem
+
+STATEMENT:
+Let $ABC$ be a fixed acute-angled triangle. Points $E$ and $F$ lie on the sides $AC$ and $AB$, respectively, and $M$ is the midpoint of $EF$. The perpendicular bisector of $EF$ meets the line $BC$ at $K$, and the perpendicular bisector of $MK$ meets the lines $AC$ and $AB$ at $S$ and $T$, respectively. The pair $(E,F)$ is called interesting if the quadrilateral $KSAT$ is cyclic.
+
+Suppose that $(E_1,F_1)$ and $(E_2,F_2)$ are interesting. Prove that
+\[
+\frac{E_1E_2}{AB}=\frac{F_1F_2}{AC}.
+\]
+
+SOLUTION 1:
+For an interesting pair $(E,F)$, call the associated triangle $EFK$ an interesting triangle. We first prove the basic fact
+\[
+\angle KEF=\angle KFE=\angle A.
+\tag{1}
+\]
+In particular, all interesting triangles are directly similar, and the lines $KE,KF$ are tangent at $E,F$ to the circumcircle of $AEF$.
+
+Let $\omega$ be the circle through $K,S,A,T$. Let the line $AM$ meet $ST$ at $N$ and meet $\omega$ again at $L$.
+
+Because $ST$ is the perpendicular bisector of $MK$, while $KM$ is the perpendicular bisector of $EF$,
+\[
+ST\parallel EF.
+\tag{2}
+\]
+In triangle $AEF$, the point $M$ is the midpoint of $EF$. Since the line through $N\in AM$ parallel to $EF$ meets $AE$ and $AF$ at $S$ and $T$, the point $N$ is the midpoint of $ST$.
+
+The points $K$ and $M$ are reflections of one another across $ST$. Hence
+\[
+\angle KNS=\angle MNS=\angle LNT.
+\]
+The circle $\omega$ is symmetric about the perpendicular bisector of its chord $ST$. The preceding equality shows that the reflection of $K$ in that perpendicular bisector lies on the line $NL$, and therefore equals $L$. Thus
+\[
+KL\parallel ST.
+\tag{3}
+\]
+If $K=L$, statement (3) is understood as saying that the tangent to $\omega$ at $K$ is parallel to $ST$; this follows from the same reflection argument.
+
+Let $G$ be the reflection of $K$ in $N$. From (2), and from the fact that $M$ is the reflection of $K$ across $ST$, it follows that $G$ lies on $EF$. Since $N$ is the midpoint of both $KG$ and $ST$, the quadrilateral $KSGT$ is a parallelogram.
+
+Using the collinearities and parallels just established,
+\[
+\angle KGE
+=\angle KNS
+=\angle SNM
+=\angle KLA
+=180^\circ-\angle KSA,
+\]
+where, in the case $K=L$, $KL$ is interpreted as the tangent to $\omega$ at $K$. Hence $K,G,E,S$ are cyclic. Consequently,
+\[
+\angle KEF
+=\angle KEG
+=\angle KSG
+=180^\circ-\angle TKS
+=\angle TAS
+=\angle A.
+\]
+Since $K$ lies on the perpendicular bisector of $EF$, we have $KE=KF$, and (1) follows.
+
+We now present three ways to finish the proof.
+
+\textbf{First method: a common spiral-similarity center.}
+We use the following lemma.
+
+\textbf{Lemma.}
+Let $E_i\in AC$, $F_i\in AB$, and $K_i\in BC$ for $i=1,2$. If triangles $E_1F_1K_1$ and $E_2F_2K_2$ are directly similar, then the six circles
+\[
+(AE_iF_i),
+\qquad
+(BF_iK_i),
+\qquad
+(CE_iK_i)
+\qquad (i=1,2)
+\]
+have a common point $Z$. Moreover, $Z$ is the center of the spiral similarity taking $E_1F_1K_1$ to $E_2F_2K_2$.
+
+\textbf{Proof of the lemma.}
+For each $i$, Miquel's theorem gives a common point $Z_i$ of the three circles belonging to the index $i$. Directed-angle equalities show that $Z_i$ occupies the same corresponding position with respect to triangle $E_iF_iK_i$. For example,
+\[
+\measuredangle(AB,AZ_1)
+=\measuredangle(E_1F_1,E_1Z_1)
+=\measuredangle(E_2F_2,E_2Z_2)
+=\measuredangle(AB,AZ_2).
+\]
+Thus $A,Z_1,Z_2$ are collinear. The analogous argument at $B$ gives that $B,Z_1,Z_2$ are collinear. Since $A\ne B$, we must have $Z_1=Z_2=:Z$. The angle relations then show that $Z$ is the required spiral-similarity center. $\square$
+
+Let $P$ and $Q$ be the feet of the perpendiculars from $B$ and $C$ to $AC$ and $AB$, respectively, and let $R$ be the midpoint of $BC$. Since $B,C,P,Q$ are concyclic with center $R$, a direct angle computation gives
+\[
+\angle QPR=\angle PQR=\angle A.
+\]
+Thus triangle $PQR$ is directly similar to every interesting triangle.
+
+Let $Z$ be the common point of the circles
+\[
+(APQ),
+\qquad
+(BQR),
+\qquad
+(CPR).
+\]
+For two interesting triangles $E_1F_1K_1$ and $E_2F_2K_2$, the lemma shows that the same point $Z$ is the spiral-similarity center among all three triangles $E_1F_1K_1,E_2F_2K_2,PQR$. Therefore
+\[
+\triangle ZE_1E_2\sim\triangle ZF_1F_2
+\]
+and
+\[
+\triangle ZE_1F_1\sim\triangle ZPQ.
+\]
+Hence
+\[
+\frac{E_1E_2}{F_1F_2}
+=
+\frac{ZE_1}{ZF_1}
+=
+\frac{ZP}{ZQ}.
+\tag{4}
+\]
+
+Now
+\[
+\angle AZQ=\angle APQ=\angle ABC
+\]
+from the circle $(APQ)$, while
+\[
+\angle QZR=180^\circ-\angle QBR
+=180^\circ-\angle ABC
+\]
+from the circle $(BQR)$. Thus $A,Z,R$ are collinear.
+
+The cyclicities and this collinearity give
+\[
+\triangle AZP\sim\triangle ACR,
+\qquad
+\triangle AZQ\sim\triangle ABR.
+\]
+Since $RB=RC$,
+\[
+\frac{ZP}{ZQ}
+=
+\frac{ZP}{RC}\cdot\frac{RB}{ZQ}
+=
+\frac{AZ}{AC}\cdot\frac{AB}{AZ}
+=
+\frac{AB}{AC}.
+\tag{5}
+\]
+Combining (4) and (5) yields the desired equality.
+
+\textbf{Second method: a linear relation in the side parameters.}
+Let $\omega_1$ be the circumcircle of $AEF$. By (1), $KE$ and $KF$ are tangents to $\omega_1$.
+
+Let
+\[
+Y=BE\cap CF.
+\]
+Apply the converse of Pascal's theorem to the degenerate hexagon
+\[
+A,F,F,Y,E,E
+\]
+with the repeated vertices interpreted through the tangents $KF$ and $KE$. The three intersections of opposite sides are $B,K,C$, which are collinear. Therefore
+\[
+Y\in\omega_1.
+\]
+
+Let $Z$ be the second intersection of the circumcircle of $BFY$ with $BC$. By Miquel's theorem, $C,Z,Y,E$ are cyclic. Taking powers with respect to these circles gives
+\[
+BF\cdot AB=BY\cdot BE,
+\qquad
+CE\cdot AC=CY\cdot CF,
+\]
+and
+\[
+BY\cdot BE=BZ\cdot BC,
+\qquad
+CY\cdot CF=CZ\cdot CB.
+\]
+Using directed lengths on the line $BC$ and adding,
+\[
+BF\cdot AB+CE\cdot AC
+=(BZ+ZC)BC
+=BC^2.
+\tag{6}
+\]
+Since $F\in AB$ and $E\in AC$,
+\[
+BF=AB-AF,
+\qquad
+CE=AC-AE.
+\]
+Using the cosine law
+\[
+BC^2=AB^2+AC^2-2AB\cdot AC\cos A
+\]
+in (6), we obtain
+\[
+\frac{AE}{AB}+\frac{AF}{AC}=2\cos A.
+\tag{7}
+\]
+For two interesting pairs, subtracting their two instances of (7) gives the signed relation
+\[
+\frac{AE_1-AE_2}{AB}
+=-\frac{AF_1-AF_2}{AC}.
+\]
+Taking absolute values proves
+\[
+\frac{E_1E_2}{AB}=\frac{F_1F_2}{AC}.
+\]
+
+\textbf{Third method: complex numbers.}
+Place the configuration in the complex plane with $A=0$, and identify points with their complex coordinates.
+
+For any interesting triangle $EFK$, relation (1) and the fixed orientation imply that
+\[
+\nu=\frac{K-E}{F-E}
+\]
+is the same complex constant. Put $\mu=1-\nu$. Then
+\[
+K=\mu E+\nu F.
+\tag{8}
+\]
+
+Choose $X$ on the ray $AB$ and $Y$ on the ray $AC$ so that
+\[
+\angle CXA=\angle AYB=\angle A.
+\]
+The triangles $AXC$ and $YAB$ are directly similar to an interesting triangle. Therefore
+\[
+C=\nu X,
+\qquad
+B=\mu Y,
+\tag{9}
+\]
+and, from their metric similarity,
+\[
+\frac{X}{Y}=\frac{\overline C}{\overline B}.
+\tag{10}
+\]
+
+Since $E\in AC$, $F\in AB$, and $K\in BC$, there exist real numbers $\rho,\sigma,t$ such that
+\[
+E=\rho Y,
+\qquad
+F=\sigma X,
+\qquad
+K=tB+(1-t)C.
+\]
+Using (8) and (9),
+\[
+tB+(1-t)C
+=\mu E+\nu F
+=\rho B+\sigma C.
+\]
+The nonzero complex numbers $B$ and $C$ have different arguments, so they are linearly independent over $\mathbb R$. Hence
+\[
+\rho=t,
+\qquad
+\sigma=1-t,
+\]
+and therefore
+\[
+\frac{E}{Y}+\frac{F}{X}=1.
+\tag{11}
+\]
+Applying (11) to $(E_1,F_1)$ and $(E_2,F_2)$ and subtracting,
+\[
+\frac{E_1-E_2}{Y}=\frac{F_2-F_1}{X}.
+\]
+Thus, by (10),
+\[
+\frac{E_1-E_2}{F_2-F_1}
+=
+\frac{Y}{X}
+=
+\frac{\overline B}{\overline C}.
+\]
+Taking absolute values gives
+\[
+\frac{E_1E_2}{F_1F_2}=\frac{AB}{AC},
+\]
+which is equivalent to the required result.
+
+SOLUTION 2:
+Let $(E,F)$ be interesting, and retain the notation $M,K,S,T$. We first prove
+\[
+\frac{AM}{AK}=\cos A.
+\tag{1}
+\]
+
+Let $\omega$ be the circle through $K,S,A,T$. Let $AM$ meet $ST$ at $N$ and meet $\omega$ again at $L$, and let $O$ be the center of $\omega$. As in the initial part of Solution 1, $N$ is the midpoint of $ST$, and reflection across the perpendicular bisector of $ST$ interchanges $K$ and $L$. Hence
+\[
+KL\parallel ST,
+\tag{2}
+\]
+with the tangent interpretation when $K=L$. Also $KM\perp ST$.
+
+Assume first that $K\ne L$. Let $X$ be the point antipodal to $L$ on $\omega$. Since $LX$ is a diameter,
+\[
+KX\perp KL.
+\]
+Thus $K,X,M$ are collinear, and $X=LO\cap KM$. Since $ON\perp ST$ and $XM\perp ST$,
+\[
+ON\parallel XM.
+\]
+The cyclic quadrilateral $A,K,L,X$ now gives
+\[
+\angle LON=\angle LXK=\angle MAK,
+\]
+and
+\[
+\angle OLN=\angle MKA.
+\]
+Therefore
+\[
+\triangle NOL\sim\triangle MAK.
+\]
+Consequently,
+\[
+\frac{AM}{AK}
+=
+\frac{ON}{OL}
+=
+\frac{ON}{OT}
+=
+\cos\angle TON.
+\]
+Since $ON$ is the perpendicular bisector of chord $ST$ and $\angle SAT=A$, we have
+\[
+\angle TON=A.
+\]
+This proves (1) when $K\ne L$.
+
+If $K=L$, then $A,M,N,K$ are collinear and this line is the perpendicular bisector of $ST$. The segment $AK$ is a diameter of $\omega$, and the same midpoint calculation gives
+\[
+AM=2ON,
+\qquad
+AK=2OT.
+\]
+Hence again
+\[
+\frac{AM}{AK}=\frac{ON}{OT}=\cos A.
+\]
+Thus (1) always holds.
+
+Let $P$ and $Q$ be the feet of the perpendiculars from $B$ to $AC$ and from $C$ to $AB$, respectively. Consider the similarity obtained by first applying the homothety with center $A$ and ratio $\cos A$, and then reflecting across the angle bisector of $\angle BAC$. It sends
+\[
+B\longmapsto P,
+\qquad
+C\longmapsto Q.
+\]
+The cyclic quadrilateral $K,S,A,T$, the collinearities $A,F,T$ and $A,E,S$, and (2) give
+\[
+\angle FAM=\angle EAK.
+\]
+Thus the rays $AM$ and $AK$ are isogonal in $\angle A$. Together with (1), this shows that the same similarity also sends
+\[
+K\longmapsto M.
+\]
+Since $K\in BC$, it follows that
+\[
+M\in PQ.
+\tag{3}
+\]
+
+If $E\ne P$, then also $F\ne Q$. Apply Menelaus' theorem to triangle $AEF$ with transversal $P,M,Q$. Because $M$ is the midpoint of $EF$,
+\[
+\frac{AQ}{FQ}\cdot\frac{FM}{ME}\cdot\frac{EP}{AP}=1
+\]
+gives
+\[
+\frac{EP}{FQ}=\frac{AP}{AQ}.
+\tag{4}
+\]
+The triangles $APQ$ and $ABC$ are similar, and
+\[
+\frac{AP}{AQ}=\frac{AB}{AC}.
+\]
+Thus, with directed lengths,
+\[
+\frac{EP}{AB}=\frac{FQ}{AC}.
+\tag{5}
+\]
+If $E=P$, then (3) forces $F=Q$, and (5) still holds.
+
+Apply (5) to the two interesting pairs. Depending on whether $P$ lies between $E_1,E_2$, add or subtract the two signed equalities. In either case,
+\[
+\frac{E_1E_2}{AB}=\frac{F_1F_2}{AC}.
+\]

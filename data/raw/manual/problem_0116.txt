@@ -1,0 +1,61 @@
+ID: 0116
+
+SOURCE: IMO Shortlist
+
+YEAR: 2014
+
+TOPIC: Algebra
+
+SUBTOPICS: Sequences, Monovariants, Inequalities
+
+STATEMENT:
+Let
+\[
+z_0<z_1<z_2<\cdots
+\]
+be an infinite sequence of positive integers. Prove that there exists a unique integer $n\ge1$ such that
+\[
+z_n<\frac{z_0+z_1+\cdots+z_n}{n}\le z_{n+1}.
+\]
+
+SOLUTION 1:
+For every $n\ge1$, define
+\[
+d_n=(z_0+z_1+\cdots+z_n)-nz_n.
+\]
+The first inequality in the desired conclusion is equivalent to
+\[
+d_n>0.
+\]
+Also,
+\[
+d_{n+1}
+=z_0+\cdots+z_n+z_{n+1}-(n+1)z_{n+1}
+=z_0+\cdots+z_n-nz_{n+1},
+\]
+so the second inequality is equivalent to
+\[
+d_{n+1}\le0.
+\]
+Thus it is enough to prove that there is a unique $n\ge1$ such that
+\[
+d_n>0\ge d_{n+1}.
+\tag{1}
+\]
+
+We have
+\[
+d_1=z_0>0.
+\]
+Moreover,
+\[
+d_{n+1}-d_n
+=n(z_n-z_{n+1})<0.
+\]
+Hence $(d_n)_{n\ge1}$ is strictly decreasing. Since every $d_n$ is an integer, in fact
+\[
+d_{n+1}\le d_n-1,
+\]
+and therefore $d_n\to-\infty$. Consequently the sequence has a last positive term. If this term is $d_n$, then (1) holds.
+
+The strict decrease also shows that there can be only one such index $n$. This proves both existence and uniqueness.

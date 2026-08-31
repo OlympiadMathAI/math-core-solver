@@ -1,0 +1,16 @@
+{
+  "id": "0100",
+  "source": "IMO Shortlist",
+  "year": "2013",
+  "topic": "Combinatorics",
+  "subtopics": [
+    "Graph Distances",
+    "Minimal Covers",
+    "Extremal Set Systems",
+    "Pigeonhole Principle"
+  ],
+  "statement": "In a country, some pairs of cities are connected by direct two-way flights, and every city can be reached from every other city by a sequence of flights. The distance between two cities is the minimum number of flights needed to travel from one to the other.\n\nIt is known that, for every city, at most $100$ cities are at distance exactly $3$ from it. Prove that no city has more than $2550$ cities at distance exactly $4$ from it.",
+  "solutions": [
+    "For cities $u,v$, let $d(u,v)$ denote their distance, and define\n\\[\nS_i(u)=\\{w:d(u,w)=i\\}.\n\\]\nSuppose for a contradiction that some city $x$ satisfies\n\\[\nD:=S_4(x),\n\\qquad\n|D|\\ge2551.\n\\]\nLet\n\\[\nA=S_1(x).\n\\]\nCall a subset $A'\\subseteq A$ substantial if every city of $D$ is at distance $3$ from at least one member of $A'$, equivalently,\n\\[\nD\\subseteq\\bigcup_{a\\in A'}S_3(a).\n\\]\nThe set $A$ is substantial. Choose a substantial subset $A^*$ of minimum size, and write\n\\[\nm=|A^*|.\n\\]\n\nSince\n\\[\nm(101-m)\\le2550\n\\]\nfor every integer $m$, we have\n\\[\n\\frac{2551}{m}>101-m.\n\\]\nThe sets $S_3(a)\\cap D$, with $a\\in A^*$, cover $D$. Hence, by averaging, some $a\\in A^*$ satisfies\n\\[\n|S_3(a)\\cap D|\\ge102-m.\n\\tag{1}\n\\]\n\nBy hypothesis $|S_3(a)|\\le100$. Every city in $S_3(a)$ has distance at most $4$ from $x$, because $d(x,a)=1$. Therefore the set\n\\[\nT=\\{c\\in S_3(a):d(x,c)\\le3\\}\n\\]\nconsists exactly of the elements of $S_3(a)$ not lying in $D$. From (1),\n\\[\n|T|\\le100-(102-m)=m-2.\n\\tag{2}\n\\]\nIf $m=1$, inequality (2) is already impossible. Hence assume $m\\ge2$.\n\nWe now construct $m-1$ distinct elements of $T$. Let\n\\[\nA_a=A^*\\setminus\\{a\\}.\n\\]\nBy the minimality of $A^*$, for each $y\\in A_a$ there exists a city $d_y\\in D$ that is at distance $3$ from $y$ but not at distance $3$ from any other member of $A^*$. Choose a shortest path\n\\[\nx-y-b_y-c_y-d_y.\n\\tag{3}\n\\]\nSince $d(x,d_y)=4$, the intermediate cities satisfy\n\\[\nd(x,b_y)=2,\n\\qquad\nd(x,c_y)=3.\n\\tag{4}\n\\]\n\nAll $2(m-1)$ cities $b_y,c_y$ are distinct. A city $b_y$ cannot equal any $c_z$ because their distances from $x$ are $2$ and $3$. If $b_y=b_z$ for distinct $y,z$, then\n\\[\nx-y-b_z-c_z-d_z\n\\]\nis a shortest four-flight path to $d_z$ passing through $y$, contradicting the defining property of $d_z$. The same argument shows $c_y\\ne c_z$ for $y\\ne z$.\n\nFix $y\\in A_a$. We have\n\\[\nd(a,y)\\le2\n\\]\nthrough the path $a-x-y$. Also\n\\[\nd(a,d_y)\\ge d(x,d_y)-d(x,a)=3.\n\\]\nEquality cannot hold, since then $d_y$ would be at distance $3$ from $a\\ne y$. Hence\n\\[\nd(a,d_y)>3.\n\\]\nAlong the path\n\\[\ny-b_y-c_y-d_y,\n\\]\nconsecutive distances from $a$ differ by at most $1$. The first is at most $2$ and the last is greater than $3$, so one of $b_y,c_y$ has distance exactly $3$ from $a$. By (4), that city also has distance at most $3$ from $x$, and hence belongs to $T$.\n\nAs all the $b_y,c_y$ are distinct, this produces $m-1$ distinct elements of $T$, contradicting (2). Therefore\n\\[\n|S_4(x)|\\le2550\n\\]\nfor every city $x$."
+  ]
+}

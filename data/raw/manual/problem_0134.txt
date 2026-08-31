@@ -1,0 +1,243 @@
+ID: 0134
+
+SOURCE: IMO Shortlist
+
+YEAR: 2014
+
+TOPIC: Geometry
+
+SUBTOPICS: Locus, Radical Axes, Miquel's Theorem, Directed Angles, Inversion, Pappus' Theorem
+
+STATEMENT:
+Let $\Gamma$ be a fixed circle and let $A,B,C$ be three fixed points on it. Fix a real number $\lambda\in(0,1)$. For a variable point
+\[
+P\in\Gamma\setminus\{A,B,C\},
+\]
+let $M$ be the point of the segment $CP$ satisfying
+\[
+CM=\lambda\,CP.
+\]
+Let $Q$ be the second common point of the circumcircles of triangles $AMP$ and $BMC$. Prove that, as $P$ varies, $Q$ lies on a fixed circle.
+
+SOLUTION 1:
+All directed angles in this solution are taken modulo $180^\circ$.
+
+Let $D$ be the fixed point of $AB$ such that
+\[
+BD=\lambda\,BA.
+\]
+We prove that either $Q=D$, or
+\[
+\measuredangle(DQ,QB)=\measuredangle(AB,BC).
+\tag{1}
+\]
+Equation (1) says precisely that $Q$ belongs to the fixed circle through $B,D$ whose tangent at $B$ is parallel to $BC$.
+
+Let
+\[
+\omega_A=(AMP),
+\qquad
+\omega_B=(BMC).
+\]
+The pairwise radical axes of $\Gamma,\omega_A,\omega_B$ are, respectively,
+\[
+AP,
+\qquad
+BC,
+\qquad
+MQ.
+\]
+They are therefore either concurrent or parallel.
+
+\textbf{Parallel case.}
+Suppose that
+\[
+AP\parallel BC\parallel MQ.
+\]
+The parallel chords $AP$ and $BC$ of $\Gamma$ have the same perpendicular bisector. This line is also the perpendicular bisector of the parallel chords $AP$ and $MQ$ of $\omega_A$. Reflection in this common perpendicular bisector sends
+\[
+A\longleftrightarrow P,
+\qquad
+B\longleftrightarrow C,
+\qquad
+M\longleftrightarrow Q.
+\]
+Consequently,
+\[
+\frac{BQ}{BA}=\frac{CM}{CP}=\lambda=\frac{BD}{BA},
+\]
+and hence $Q=D$.
+
+\textbf{Concurrent case.}
+Let
+\[
+X=AP\cap BC\cap MQ.
+\]
+By Miquel's theorem applied to triangle $XPC$, the points
+\[
+A,Q,B,X
+\]
+are concyclic; call their circle $\Omega$.
+
+Let $Y$ be the reflection of $X$ in the perpendicular bisector of $AB$. Reflection interchanges $A$ and $B$, so it preserves the circle through $A,B,X$; hence $Y\in\Omega$. The triangles $XPC$ and $XBA$ are directly similar because $A,B,C,P$ lie on $\Gamma$. The reflection also gives
+\[
+\triangle YAB\cong\triangle XBA.
+\]
+Thus the triangles $YAB$ and $XPC$ are directly similar, with the correspondence
+\[
+Y\leftrightarrow X,
+\qquad
+A\leftrightarrow P,
+\qquad
+B\leftrightarrow C.
+\]
+Since
+\[
+\frac{BD}{BA}=\frac{CM}{CP}=\lambda,
+\]
+the points $D$ and $M$ correspond under this similarity. Therefore
+\[
+\measuredangle(MX,XP)=\measuredangle(DY,YA).
+\tag{2}
+\]
+On the other hand, $A,Q,X,Y$ are concyclic, so
+\[
+\measuredangle(QY,YA)=\measuredangle(QX,XA)
+=\measuredangle(MX,XP).
+\tag{3}
+\]
+Equations (2) and (3) show that $D,Y,Q$ are collinear.
+
+Finally, using the cyclic quadrilateral $A,B,Q,Y$ and then the reflection symmetry,
+\[
+\begin{aligned}
+\measuredangle(DQ,QB)
+&=\measuredangle(YQ,QB)\\
+&=\measuredangle(YA,AB)\\
+&=\measuredangle(AB,BX)\\
+&=\measuredangle(AB,BC).
+\end{aligned}
+\]
+Thus (1) holds, and the locus of $Q$ is contained in the required fixed circle.
+
+SOLUTION 2:
+Let $\omega_A,\omega_B$ be as in Solution 1. If the three radical axes $AP,BC,MQ$ are parallel, the reflection argument from the parallel case above gives the fixed point $Q=D$. We may therefore assume that they meet at a finite point
+\[
+X=AP\cap BC\cap MQ.
+\]
+Again, Miquel's theorem gives a circle $\Omega$ through $A,Q,B,X$.
+
+We first note that $Q$ always lies on the same side of $BC$ as $A$. Indeed, if $P$ lies on the arc $BAC$ of $\Gamma$, then $X$ lies outside $\Gamma$, and $Q$ lies on the ray $XM$; hence $A$ and $Q$ are on the same side of $BC$. If $P$ lies on the other arc $BC$, then $X$ lies inside $\Gamma$ and $M,Q$ are on opposite sides of $BC$, which again places $Q$ on the same side of $BC$ as $A$.
+
+We prove that
+\[
+\frac{QB}{\sin\angle QBC}
+\tag{1}
+\]
+is constant. Since $A,Q,B,X$ are concyclic, the sine rule in $\Omega$ gives
+\[
+\frac{QX}{\sin\angle QBX}
+=
+\frac{AX}{\sin\angle ABX}
+=
+\frac{AX}{\sin\angle ABC},
+\tag{2}
+\]
+because $B,X,C$ are collinear.
+
+The cyclic quadrilateral $B,Q,M,C$, together with $X\in BC\cap QM$, gives
+\[
+\triangle XBQ\sim\triangle XMC,
+\]
+so
+\[
+\frac{QB}{QX}=\frac{CM}{CX}
+=\lambda\frac{CP}{CX}.
+\tag{3}
+\]
+Also, from the cyclic quadrilateral $A,B,C,P$,
+\[
+\triangle XCP\sim\triangle XAB,
+\]
+and therefore
+\[
+\frac{CP}{CX}=\frac{AB}{AX}.
+\tag{4}
+\]
+Multiplying (2)--(4), we obtain
+\[
+\frac{QB}{\sin\angle QBC}
+=
+\lambda\frac{AB}{\sin\angle ABC},
+\tag{5}
+\]
+which is independent of $P$.
+
+For a circle through $B$ tangent to $BC$ at $B$, the quantity $QB/\sin\angle QBC$ is its diameter. Equation (5), together with the fact that $Q$ always lies on the same side of $BC$, therefore determines one fixed circle. Hence $Q$ lies on a fixed circle.
+
+SOLUTION 3:
+Perform an inversion $\iota$ with center $C$, and write $X'$ for the image of a point $X$.
+
+The fixed circle $\Gamma$ becomes a fixed line $g$ through $A'$ and $B'$, while $P'$ varies on $g$. The locus of $M$ before inversion is the circle obtained from $\Gamma$ by the homothety with center $C$ and ratio $\lambda$. Consequently, after inversion $M'$ varies on a fixed line $h$ parallel to $g$, and
+\[
+M'=CP'\cap h.
+\]
+The circle $(AMP)$ becomes the circle
+\[
+\omega_A'=(A'M'P'),
+\]
+whereas the circle $(BMC)$, which passes through the inversion center $C$, becomes the line $B'M'$. Thus $Q'$ is the second intersection of $B'M'$ with $\omega_A'$.
+
+Let
+\[
+J=h\cap CA',
+\]
+and let $\ell$ be the fixed line through $J$ parallel to $CB'$. Put
+\[
+V=\ell\cap B'M'.
+\]
+Apply Pappus' theorem to the two collinear triples
+\[
+(C,J,A')
+\qquad\text{and}\qquad
+(V,B',M').
+\]
+Two of the three Pappus intersection points are points at infinity:
+\[
+CB'\parallel JV
+\qquad\text{and}\qquad
+JM'=h\parallel A'B'=g.
+\]
+Hence the third one is also at infinity, and therefore
+\[
+CM'\parallel A'V.
+\tag{1}
+\]
+
+Because $A',M',P',Q'$ are concyclic,
+\[
+\measuredangle(Q'A',A'P')
+=
+\measuredangle(Q'M',M'P').
+\]
+Now $A',B',P'$ are collinear, $B',Q',M',V$ are collinear, and $M'P'\parallel A'V$ by (1). Hence
+\[
+\measuredangle(Q'A',A'B')
+=
+\measuredangle(B'V,VA').
+\]
+Together with the common angle at $B'$, this proves
+\[
+\triangle B'Q'A'\sim\triangle B'A'V.
+\]
+Consequently,
+\[
+(B'A')^2=B'Q'\cdot B'V.
+\tag{2}
+\]
+Thus $Q'$ is the image of $V$ under the fixed inversion $\jmath$ with center $B'$ and radius $B'A'$. Since $V$ moves on the fixed line $\ell$, the point $Q'$ moves on the fixed circle
+\[
+\Theta=\jmath(\ell).
+\]
+
+The circle $\Theta$ does not pass through $C$. Indeed, the inverse of $C$ under $\jmath$ lies on the line $B'C$, while $\ell\parallel B'C$ and is distinct from it. Therefore the first inversion $\iota^{-1}$ maps $\Theta$ to a circle, not to a line. This image is fixed and contains every possible point $Q$. Hence $Q$ lies on a fixed circle.

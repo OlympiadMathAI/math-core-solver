@@ -1,0 +1,89 @@
+ID: 0132
+
+SOURCE: IMO Shortlist
+
+YEAR: 2014
+
+TOPIC: Geometry
+
+SUBTOPICS: Ceva's Theorem, Inradii, Homothety, Geometric Inequalities
+
+STATEMENT:
+Let $ABC$ be a triangle. The points $K,L,M$ lie on the segments $BC,CA,AB$, respectively, and the lines $AK,BL,CM$ are concurrent. Prove that two of the triangles
+\[
+ALM,\qquad BMK,\qquad CKL
+\]
+can be chosen so that the sum of their inradii is at least the inradius of triangle $ABC$.
+
+SOLUTION 1:
+Put
+\[
+a=\frac{BK}{KC},
+\qquad
+b=\frac{CL}{LA},
+\qquad
+c=\frac{AM}{MB}.
+\]
+By Ceva's theorem,
+\[
+abc=1.
+\tag{1}
+\]
+After a cyclic relabelling, we may assume that $a\ge1$. At least one of $b,c$ is then at most $1$. If $b\le1$, the pair $(a,b)$ has first entry at least $1$ and second entry at most $1$. If $b>1$, then $c<1$, and the pair $(b,c)$ has the same property. Thus, after another cyclic relabelling if necessary, we may assume
+\[
+a\ge1,
+\qquad
+b\le1.
+\tag{2}
+\]
+From (1) and (2),
+\[
+bc\le1
+\qquad\text{and}\qquad
+ca\ge1.
+\]
+Equivalently,
+\[
+\frac{AM}{MB}\le\frac{LA}{CL},
+\qquad
+\frac{MB}{AM}\le\frac{BK}{KC}.
+\tag{3}
+\]
+
+Draw through $M$ the line parallel to $BC$, and let it meet $AC$ at $X$. In triangle $ABC$,
+\[
+\frac{AX}{XC}=\frac{AM}{MB}.
+\]
+The first inequality in (3) therefore implies that $X$ lies on the segment $AL$. Consequently,
+\[
+\triangle AMX\subseteq\triangle ALM.
+\]
+If $r_1$ is the inradius of triangle $AMX$, then the inradius of $ALM$ is at least $r_1$.
+
+Similarly, draw through $M$ the line parallel to $AC$, meeting $BC$ at $Y$. We have
+\[
+\frac{BY}{YC}=\frac{BM}{MA}.
+\]
+The second inequality in (3) shows that $Y$ lies on the segment $BK$. Hence
+\[
+\triangle BMY\subseteq\triangle BMK.
+\]
+If $r_2$ is the inradius of triangle $BMY$, then the inradius of $BMK$ is at least $r_2$.
+
+Let $r$ be the inradius of $ABC$. The homothety with centre $A$ that sends $M$ to $B$ also sends $X$ to $C$, because $MX\parallel BC$. Therefore it sends triangle $AMX$ to triangle $ABC$, and
+\[
+\frac{r_1}{r}=\frac{AM}{AB}.
+\tag{4}
+\]
+Likewise, the homothety with centre $B$ that sends $M$ to $A$ sends $Y$ to $C$, so
+\[
+\frac{r_2}{r}=\frac{BM}{AB}.
+\tag{5}
+\]
+Adding (4) and (5),
+\[
+r_1+r_2
+=r\frac{AM+BM}{AB}
+=r.
+\]
+Thus the inradii of $ALM$ and $BMK$ have sum at least $r_1+r_2=r$. These two triangles satisfy the requirement.

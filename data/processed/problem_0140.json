@@ -1,0 +1,16 @@
+{
+  "id": "0140",
+  "source": "IMO Shortlist",
+  "year": "2014",
+  "topic": "Number Theory",
+  "subtopics": [
+    "Unit Fractions",
+    "Packing",
+    "Merging Arguments",
+    "Averaging"
+  ],
+  "statement": "A coin is called a Cape Town coin if its value is $1/n$ for some positive integer $n$. Given a collection of Cape Town coins of total value at most\n\\[\n99+\\frac12,\n\\]\nprove that it is possible to split the collection into at most $100$ groups, each of total value at most $1$.",
+  "solutions": [
+    "We prove the more general statement that, for every positive integer $N$, any collection of Cape Town coins whose total value is at most\n\\[\nN-\\frac12\n\\tag{1}\n\\]\ncan be divided into $N$ groups of value at most $1$. Taking $N=100$ gives the problem.\n\nWhenever several coins have total value $1/k$ for some positive integer $k$, merge them temporarily into one coin of value $1/k$. This operation preserves the total value, and any grouping of the merged collection can later be expanded to a grouping of the original coins. Since each merger reduces the number of coins, the process terminates.\n\nIn the resulting collection:\n\n- for every even $k$, there is at most one coin of value $1/k$, since two such coins could be merged into one coin of value $1/(k/2)$;\n- for every odd $k>1$, there are at most $k-1$ coins of value $1/k$, since $k$ such coins could be merged into one coin of value $1$.\n\nEvery coin of value $1$ may be put alone in a group. If there are $d$ such coins, remove them and replace $N$ by $N-d$. Condition (1) remains valid for the coins that are left. Hence we may assume from now on that no coin has value $1$.\n\nCreate groups $G_1,\\ldots,G_N$. For each $k=1,\\ldots,N$, put into $G_k$ every coin of value\n\\[\n\\frac1{2k-1}\n\\qquad\\text{or}\\qquad\n\\frac1{2k}.\n\\]\nBy the terminal properties above, the total value already placed in $G_k$ is at most\n\\[\n\\frac{2k-2}{2k-1}+\\frac1{2k}<1.\n\\tag{2}\n\\]\nThis formula also covers $k=1$, because there are no coins of value $1$.\n\nThe only undistributed coins now have denominator greater than $2N$, and therefore each has value strictly less than $1/(2N)$. Add these remaining coins one at a time. At any stage, the total value in all $N$ groups is at most $N-1/2$, so at least one group has current value at most\n\\[\n\\frac{N-\\frac12}{N}=1-\\frac1{2N}.\n\\]\nPlacing the next small coin into that group keeps its value below $1$. Repeating this distributes every coin.\n\nFinally, undo all temporary mergers. We obtain at most $N$ groups, each of total value at most $1$, as required."
+  ]
+}

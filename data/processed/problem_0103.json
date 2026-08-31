@@ -1,0 +1,17 @@
+{
+  "id": "0103",
+  "source": "IMO Shortlist",
+  "year": "2013",
+  "topic": "Geometry",
+  "subtopics": [
+    "Orthocenter",
+    "Radical Axes",
+    "Power of a Point",
+    "Cyclic Quadrilaterals",
+    "Similar Triangles"
+  ],
+  "statement": "Let $ABC$ be an acute-angled triangle with orthocenter $H$, and let $W$ be a point on side $BC$. Let $M$ and $N$ be the feet of the altitudes from $B$ and $C$, respectively. Let $\\omega_1$ be the circumcircle of $BWN$, and let $X$ be the point of $\\omega_1$ diametrically opposite $W$. Analogously, let $\\omega_2$ be the circumcircle of $CWM$, and let $Y$ be the point of $\\omega_2$ diametrically opposite $W$. Prove that $X,Y,H$ are collinear.",
+  "solutions": [
+    "Let $L$ be the foot of the altitude from $A$, and let $Z\\ne W$ be the second common point of $\\omega_1$ and $\\omega_2$. We will prove that $X,Y,Z,H$ lie on one line.\n\nSince\n\\[\n\\angle BNC=\\angle BMC=90^\\circ,\n\\]\nthe points $B,C,N,M$ are concyclic; denote their circle by $\\omega_3$. The radical axes of the three circles $\\omega_1,\\omega_2,\\omega_3$ are\n\\[\nWZ,\\qquad BN,\\qquad CM,\n\\]\nrespectively. Because\n\\[\nA=BN\\cap CM,\n\\]\nthe radical-center theorem gives\n\\[\nA\\in WZ.\n\\tag{1}\n\\]\n\nThe segments $WX$ and $WY$ are diameters of $\\omega_1$ and $\\omega_2$. Hence\n\\[\n\\angle WZX=\\angle WZY=90^\\circ.\n\\]\nThus $X,Y,Z$ lie on the line through $Z$ perpendicular to $WZ$.\n\nIt remains to place $H$ on the same line. The quadrilateral $BLHN$ is cyclic, since\n\\[\n\\angle BLH=\\angle BNH=90^\\circ.\n\\]\nTaking powers of $A$ with respect to $BLHN$ and $\\omega_1$, we obtain\n\\[\nAL\\cdot AH=AB\\cdot AN=AW\\cdot AZ.\n\\tag{2}\n\\]\n\nIf $H$ lies on $AW$, then (1) shows that $A,W,H,Z$ are collinear, and (2) gives $H=Z$. Hence the conclusion follows.\n\nSuppose now that $H$ does not lie on $AW$. From (2),\n\\[\n\\frac{AZ}{AH}=\\frac{AL}{AW}.\n\\]\nMoreover,\n\\[\n\\angle HAZ=\\angle LAW,\n\\]\nbecause $AH\\perp BC$, $AL\\perp BC$, and $A,Z,W$ are collinear. Therefore\n\\[\n\\triangle AHZ\\sim\\triangle AWL.\n\\]\nConsequently,\n\\[\n\\angle HZA=\\angle WLA=90^\\circ.\n\\]\nBy (1), this means that $HZ\\perp WZ$. Hence $H$ lies on the same line through $Z$ as $X$ and $Y$, and therefore $X,Y,H$ are collinear."
+  ]
+}

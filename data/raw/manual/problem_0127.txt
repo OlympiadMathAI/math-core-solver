@@ -1,0 +1,212 @@
+ID: 0127
+
+SOURCE: IMO Shortlist
+
+YEAR: 2014
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Order Statistics, Transitive Relations, Relative Order, Induction
+
+STATEMENT:
+There is one card carrying each real number. Two players choose disjoint sets $A$ and $B$ of $100$ cards each. A rule declares one of them the winner and must satisfy the following conditions:
+
+\begin{enumerate}
+\item The winner depends only on the relative order of the $200$ chosen numbers.
+\item If
+\[
+A=\{a_1<a_2<\cdots<a_{100}\},
+\qquad
+B=\{b_1<b_2<\cdots<b_{100}\},
+\]
+and $a_i>b_i$ for every $i$, then $A$ beats $B$.
+\item If three players choose pairwise disjoint sets $A,B,C$, and $A$ beats $B$ while $B$ beats $C$, then $A$ beats $C$.
+\end{enumerate}
+
+How many such rules are there? Two rules are considered different if for some disjoint sets $A,B$, they declare different winners.
+
+SOLUTION 1:
+We prove the more general result for sets of size $n$. Write
+\[
+A\succ B
+\]
+when $A$ beats $B$, and write $A\prec B$ for $B\succ A$.
+
+For each fixed $k\in\{1,2,\ldots,n\}$, the rule
+\[
+\{a_1<\cdots<a_n\}\succ\{b_1<\cdots<b_n\}
+\quad\Longleftrightarrow\quad
+a_k>b_k
+\tag{1}
+\]
+satisfies all three conditions. These $n$ rules are distinct, so at least $n$ rules exist.
+
+We prove that every admissible rule is of this form. For $0\le k\le n$, define
+\[
+A_k=\{1,2,\ldots,k\}\cup\{n+k+1,n+k+2,\ldots,2n\},
+\]
+\[
+B_k=\{k+1,k+2,\ldots,n+k\}.
+\]
+Each set has $n$ elements. Condition 2 gives $A_0\succ B_0$ and $A_n\prec B_n$. Let $k\in\{1,\ldots,n\}$ be the smallest index for which
+\[
+A_k\prec B_k.
+\tag{2}
+\]
+By minimality,
+\[
+A_{k-1}\succ B_{k-1}.
+\tag{3}
+\]
+
+Now let
+\[
+X=\{x_1<\cdots<x_n\},
+\qquad
+Y=\{y_1<\cdots<y_n\}
+\]
+be arbitrary disjoint sets with
+\[
+x_k<y_k.
+\]
+Choose three further $n$-element sets
+\[
+U=\{u_1<\cdots<u_n\},\quad
+V=\{v_1<\cdots<v_n\},\quad
+W=\{w_1<\cdots<w_n\},
+\]
+all mutually disjoint and disjoint from $X\cup Y$, so that
+\[
+u_1<\cdots<u_{k-1}<\min\{x_1,y_1\},
+\]
+\[
+\max\{x_n,y_n\}<v_{k+1}<\cdots<v_n,
+\]
+and
+\[
+x_k<v_1<\cdots<v_k<w_1<\cdots<w_n<u_k<\cdots<u_n<y_k.
+\tag{4}
+\]
+Such choices are possible because $x_k<y_k$.
+
+From (4), $u_i<y_i$ and $x_i<v_i$ for every $i$, so condition 2 gives
+\[
+U\prec Y,
+\qquad
+X\prec V.
+\tag{5}
+\]
+The relative order of the elements of $U\cup W$ is the same as that of $A_{k-1}\cup B_{k-1}$, so
+\[
+U\succ W.
+\tag{6}
+\]
+Similarly, the relative order of $V\cup W$ is the same as that of $A_k\cup B_k$, and hence
+\[
+V\prec W.
+\tag{7}
+\]
+Combining (5)--(7) and using transitivity on the relevant pairwise disjoint triples, we obtain
+\[
+X\prec V\prec W\prec U\prec Y,
+\]
+so $X\prec Y$.
+
+Thus $x_k<y_k$ always implies $X\prec Y$. Interchanging $X$ and $Y$ shows that $x_k>y_k$ implies $X\succ Y$. Therefore the rule is exactly (1).
+
+Hence there are precisely $n$ rules. For $n=100$, the answer is
+\[
+\boxed{100}.
+\]
+
+SOLUTION 2:
+Again we prove the result for sets of size $n$, by induction on $n$. The case $n=1$ follows immediately from condition 2.
+
+We first prove that at least one of the following two relations must hold:
+\[
+\{2,3,5,7,\ldots,2n-1\}
+\prec
+\{1,4,6,8,\ldots,2n\},
+\tag{1}
+\]
+\[
+\{1,3,5,\ldots,2n-3,2n\}
+\prec
+\{2,4,6,\ldots,2n-2,2n-1\}.
+\tag{2}
+\]
+Suppose that neither holds. Since exactly one player wins, the reverse of each relation holds. By condition 1, the failure of (1) implies
+\[
+\{2\}\cup\{3i-2:2\le i\le n-1\}\cup\{3n-2\}
+\succ
+\{1\}\cup\{3i-1:2\le i\le n-1\}\cup\{3n\},
+\tag{3}
+\]
+and the failure of (2) implies
+\[
+\{1\}\cup\{3i-1:2\le i\le n-1\}\cup\{3n\}
+\succ
+\{3\}\cup\{3i:2\le i\le n-1\}\cup\{3n-1\}.
+\tag{4}
+\]
+Transitivity gives that the left side of (3) beats the right side of (4). But, after both sets are written in increasing order, every element of the former is smaller than the corresponding element of the latter. This contradicts condition 2. Hence (1) or (2) holds.
+
+\textbf{First case: relation (1) holds.}
+We claim that, for two increasing $n$-element sets
+\[
+A=\{a_1,\ldots,a_n\},
+\qquad
+B=\{b_1,\ldots,b_n\},
+\]
+the winner is independent of the two smallest elements $a_1,b_1$.
+
+Suppose otherwise. After interchanging the names of the two players if necessary, assume $a_2<b_2$. Then $a_1$ lies below every element of $A\setminus\{a_1\}$ and $B\setminus\{b_1\}$, so after fixing those elements and $a_1$, all remaining relative-order freedom is the position of $b_1$. Hence there would be two possible values $x,y<b_2$ such that, with
+\[
+B_x=\{x,b_2,\ldots,b_n\},
+\qquad
+B_y=\{y,b_2,\ldots,b_n\},
+\]
+one has, after interchanging $x,y$ if necessary,
+\[
+A\prec B_x,
+\qquad
+A\succ B_y.
+\tag{5}
+\]
+For a set $T$, write $T\pm\varepsilon=\{t\pm\varepsilon:t\in T\}$. Choose $\varepsilon>0$ so small that all three sets
+\[
+A,
+\qquad
+B_x-\varepsilon,
+\qquad
+B_y+\varepsilon
+\]
+are pairwise disjoint and their relative orders with $A$ are unchanged. Then (5) gives
+\[
+A\prec B_x-\varepsilon,
+\qquad
+B_y+\varepsilon\prec A.
+\tag{6}
+\]
+If $y>x$, condition 2 gives $B_x-\varepsilon\prec B_y+\varepsilon$. If $y<x$, the relative order of their union is exactly the pattern in (1), so the same conclusion follows from (1). Thus
+\[
+A\prec B_x-\varepsilon\prec B_y+\varepsilon\prec A,
+\]
+contradicting transitivity. The claim is proved.
+
+Therefore deleting the smallest element from each set induces a well-defined rule on $(n-1)$-element sets. This new rule again satisfies the three conditions. By the induction hypothesis, it compares the $i$th smallest elements for some $i\in\{1,\ldots,n-1\}$. Hence the original rule compares the $(i+1)$st smallest elements.
+
+\textbf{Second case: relation (2) holds.}
+Define a new rule by
+\[
+A\prec^{\circ}B
+\quad\Longleftrightarrow\quad
+(-B)\prec(-A),
+\]
+where $-A=\{-a:a\in A\}$. This new rule satisfies all three conditions, and relation (2) for the original rule becomes relation (1) for the new rule. By the first case, the new rule compares one fixed order statistic. Reversing the signs shows that the original rule also compares one fixed order statistic.
+
+Thus the only rules are the $n$ rules obtained by comparing the $k$th smallest elements. For $n=100$, there are
+\[
+\boxed{100}
+\]
+such rules.

@@ -1,0 +1,16 @@
+{
+  "id": "0123",
+  "source": "IMO Shortlist",
+  "year": "2014",
+  "topic": "Combinatorics",
+  "subtopics": [
+    "Invariants",
+    "Products",
+    "AM-GM Inequality",
+    "Extremal Processes"
+  ],
+  "statement": "Let $m$ be a positive integer. There are $2^m$ sheets of paper, with the number $1$ written on each sheet. At every step, two distinct sheets carrying numbers $a$ and $b$ are chosen, and the number $a+b$ is written on both of them in place of the old numbers. Prove that after\n\\[\nm2^{m-1}\n\\]\nsteps, the sum of all numbers on the sheets is at least $4^m$.",
+  "solutions": [
+    "Let $P_t$ be the product of the $2^m$ numbers after $t$ steps. Initially,\n\\[\nP_0=1.\n\\]\n\nSuppose that at some step the numbers $a$ and $b$ are both replaced by $a+b$. In the total product, the factor $ab$ is replaced by $(a+b)^2$. Since\n\\[\n(a+b)^2\\ge4ab,\n\\]\nwe obtain\n\\[\nP_{t+1}\\ge4P_t.\n\\]\nTherefore, by induction,\n\\[\nP_t\\ge4^t\n\\]\nfor every $t\\ge0$.\n\nSet\n\\[\nT=m2^{m-1}.\n\\]\nThen\n\\[\nP_T\\ge4^{m2^{m-1}}\n=2^{m2^m}\n=(2^m)^{2^m}.\n\\]\nThere are $2^m$ positive numbers on the sheets. By the AM-GM inequality, their sum is at least\n\\[\n2^m\\sqrt[2^m]{P_T}\n\\ge2^m\\cdot2^m\n=4^m.\n\\]\nThis proves the assertion."
+  ]
+}

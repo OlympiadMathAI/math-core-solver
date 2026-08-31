@@ -1,0 +1,92 @@
+ID: 0133
+
+SOURCE: IMO Shortlist
+
+YEAR: 2014
+
+TOPIC: Geometry
+
+SUBTOPICS: Radical Axes, Radical Center, Angle Bisectors, Cyclic Quadrilaterals, Arc Midpoints
+
+STATEMENT:
+Let $\Omega$ and $O$ be the circumcircle and circumcenter of an acute-angled triangle $ABC$ with $AB>BC$. The angle bisector of $\angle ABC$ meets $\Omega$ again at $M\ne B$. Let $\Gamma$ be the circle with diameter $BM$. The angle bisectors of $\angle AOB$ and $\angle BOC$ meet $\Gamma$ at $P$ and $Q$, respectively. A point $R$ is chosen on the line $PQ$ so that
+\[
+BR=MR.
+\]
+Prove that
+\[
+BR\parallel AC.
+\]
+Here every angle bisector is understood to be a ray.
+
+SOLUTION 1:
+Let $K$ be the midpoint of $BM$, so $K$ is the center of $\Gamma$. Since $M$ is the midpoint of the arc $AC$ not containing $B$, the line $OM$ is the perpendicular bisector of $AC$. Also, $OK$ is the perpendicular bisector of $BM$.
+
+The condition $BR=MR$ places $R$ on the perpendicular bisector $OK$ of $BM$. Since $R\in PQ$,
+\[
+R=PQ\cap OK.
+\tag{1}
+\]
+
+Let $N\ne M$ be the second intersection of $OM$ with $\Gamma$. Since $BM$ is a diameter of $\Gamma$,
+\[
+\angle BNM=90^\circ.
+\]
+As $N,M,O$ are collinear, $BN\perp OM$. But $AC\perp OM$ as well, and therefore
+\[
+BN\parallel AC.
+\tag{2}
+\]
+It remains to prove that $R$ lies on $BN$.
+
+Let $\omega$ be the circle with diameter $BO$. We have
+\[
+\angle BNO=90^\circ
+\qquad\text{and}\qquad
+\angle BKO=90^\circ,
+\]
+so $N,K\in\omega$.
+
+Let $E$ and $D$ be the midpoints of $AB$ and $BC$, respectively. The ray $OE$ is the angle bisector of $\angle AOB$, and the ray $OD$ is the angle bisector of $\angle BOC$; hence
+\[
+O,E,P\ \text{are collinear},
+\qquad
+O,D,Q\ \text{are collinear}.
+\]
+Moreover $E,D\in\omega$, because $OE\perp AB$ and $OD\perp BC$. On the circle $\omega$,
+\[
+\angle EOK=\angle EBK=\frac12\angle ABC
+\]
+and
+\[
+\angle KOD=\angle KBD=\frac12\angle ABC.
+\]
+Thus $OK$ is the external angle bisector of $\angle POQ$.
+
+Because $K$ is the center of $\Gamma$ and $P,Q\in\Gamma$,
+\[
+KP=KQ.
+\]
+Hence $K$ lies on the perpendicular bisector of $PQ$. The external angle bisector of $\angle POQ$ and the perpendicular bisector of $PQ$ meet at the midpoint of one of the arcs $PQ$ of the circumcircle of triangle $POQ$. Consequently, the points
+\[
+O,K,P,Q
+\]
+are concyclic; denote their circle by $\gamma$.
+
+We now have three circles $\omega,\Gamma,\gamma$. Their pairwise radical axes are
+\[
+\operatorname{Rad}(\omega,\gamma)=OK,
+\]
+because $O,K$ are common to them,
+\[
+\operatorname{Rad}(\omega,\Gamma)=BN,
+\]
+because $B,N$ are common to them, and
+\[
+\operatorname{Rad}(\Gamma,\gamma)=PQ,
+\]
+because $P,Q$ are common to them. By the radical-center theorem, these three lines are concurrent. In view of (1), their common point is $R$, so $R\in BN$. By (2),
+\[
+BR\parallel AC,
+\]
+as required.

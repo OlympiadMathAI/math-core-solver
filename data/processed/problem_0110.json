@@ -1,0 +1,17 @@
+{
+  "id": "0110",
+  "source": "IMO Shortlist",
+  "year": "2013",
+  "topic": "Number Theory",
+  "subtopics": [
+    "Product Decompositions",
+    "Induction",
+    "Binary Expansions",
+    "Telescoping Products"
+  ],
+  "statement": "Prove that for every pair of positive integers $k,n$ there exist positive integers\n\\[\nm_1,m_2,\\ldots,m_k\n\\]\nsuch that\n\\[\n1+\\frac{2^k-1}{n}\n=\n\\left(1+\\frac1{m_1}\\right)\n\\left(1+\\frac1{m_2}\\right)\n\\cdots\n\\left(1+\\frac1{m_k}\\right).\n\\tag{1}\n\\]",
+  "solutions": [
+    "We use induction on $k$.\n\nFor $k=1$, equation (1) is immediate by taking $m_1=n$.\n\nAssume that the assertion is true for $k=j-1$, and let us prove it for $k=j$.\n\n\\textbf{Case 1: $n$ is odd.} Write $n=2t-1$ with $t\\ge1$. Then\n\\[\n\\begin{aligned}\n1+\\frac{2^j-1}{2t-1}\n&=\\frac{2(t+2^{j-1}-1)}{2t}\\cdot\\frac{2t}{2t-1}\\\\\n&=\\left(1+\\frac{2^{j-1}-1}{t}\\right)\n  \\left(1+\\frac1{2t-1}\\right).\n\\end{aligned}\n\\]\nBy the induction hypothesis, the first factor is a product of $j-1$ factors of the required form. Taking $m_j=2t-1$ completes this case.\n\n\\textbf{Case 2: $n$ is even.} Write $n=2t$ with $t\\ge1$. We have\n\\[\n\\begin{aligned}\n1+\\frac{2^j-1}{2t}\n&=\\frac{2t+2^j-1}{2t+2^j-2}\n  \\cdot\n  \\frac{2t+2^j-2}{2t}\\\\\n&=\\left(1+\\frac1{2t+2^j-2}\\right)\n  \\left(1+\\frac{2^{j-1}-1}{t}\\right).\n\\end{aligned}\n\\]\nAgain the second factor is, by induction, a product of $j-1$ factors of the required form, and we may take\n\\[\nm_j=2t+2^j-2>0.\n\\]\nThis completes the induction.",
+    "We construct the $m_i$ directly from binary expansions modulo $2^k$.\n\nLet $A$ be the least nonnegative residue of $n-1$ modulo $2^k$, and let $B$ be the least nonnegative residue of $-n$ modulo $2^k$. Write\n\\[\nA=2^{a_1}+2^{a_2}+\\cdots+2^{a_r},\n\\qquad\n0\\le a_1<a_2<\\cdots<a_r\\le k-1,\n\\]\nand\n\\[\nB=2^{b_1}+2^{b_2}+\\cdots+2^{b_s},\n\\qquad\n0\\le b_1<b_2<\\cdots<b_s\\le k-1.\n\\]\nSince $A+B=2^k-1$, the sets of exponents are complementary:\n\\[\n\\{a_1,\\ldots,a_r\\}\\mathbin{\\dot\\cup}\\{b_1,\\ldots,b_s\\}\n=\n\\{0,1,\\ldots,k-1\\},\n\\]\nand hence\n\\[\nr+s=k.\n\\tag{2}\n\\]\n\nDefine\n\\[\nS_p=2^{a_p}+2^{a_{p+1}}+\\cdots+2^{a_r}\n\\qquad(1\\le p\\le r),\n\\]\n\\[\nT_q=2^{b_1}+2^{b_2}+\\cdots+2^{b_q}\n\\qquad(1\\le q\\le s),\n\\]\nand put\n\\[\nS_{r+1}=0,\n\\qquad\nT_0=0.\n\\]\nThen\n\\[\nS_1+T_s=2^k-1\n\\]\n(with the natural empty-sum interpretation if $r=0$ or $s=0$), and because $T_s\\equiv-n\\pmod{2^k}$,\n\\[\nn+T_s\\equiv0\\pmod{2^k}.\n\\tag{3}\n\\]\n\nNow telescope:\n\\[\n\\begin{aligned}\n1+\\frac{2^k-1}{n}\n&=\\frac{n+S_1+T_s}{n}\\\\\n&=\n\\left(\\prod_{p=1}^{r}\n\\frac{n+S_p+T_s}{n+S_{p+1}+T_s}\\right)\n\\left(\\prod_{q=1}^{s}\n\\frac{n+T_q}{n+T_{q-1}}\\right)\\\\\n&=\n\\left(\\prod_{p=1}^{r}\n\\left(1+\\frac{2^{a_p}}{n+S_{p+1}+T_s}\\right)\\right)\n\\left(\\prod_{q=1}^{s}\n\\left(1+\\frac{2^{b_q}}{n+T_{q-1}}\\right)\\right).\n\\end{aligned}\n\\tag{4}\n\\]\n\nFor $1\\le p\\le r$, define\n\\[\nm_p=\\frac{n+S_{p+1}+T_s}{2^{a_p}},\n\\]\nand for $1\\le q\\le s$, define\n\\[\nm_{r+q}=\\frac{n+T_{q-1}}{2^{b_q}}.\n\\]\nAll these numbers are positive integers. Indeed, by (3),\n\\[\nn+S_{p+1}+T_s\\equiv n+T_s\\equiv0\\pmod{2^{a_p}},\n\\]\nbecause every term of $S_{p+1}$ is divisible by $2^{a_p}$. Similarly,\n\\[\nn+T_{q-1}\\equiv n+T_s\\equiv0\\pmod{2^{b_q}},\n\\]\nbecause $T_s-T_{q-1}$ is divisible by $2^{b_q}$.\n\nBy (2), exactly $k$ integers have been constructed, and (4) is the desired identity."
+  ]
+}

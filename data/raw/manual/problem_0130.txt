@@ -1,0 +1,170 @@
+ID: 0130
+
+SOURCE: IMO Shortlist
+
+YEAR: 2014
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Parity Invariants, Plane Curves, Topological Combinatorics, Euler Characteristic
+
+STATEMENT:
+There are $n$ circles in the plane. Every two circles intersect in two points, and no three circles pass through one point. Turbo the snail moves along the circles. He starts by moving clockwise on one circle. Whenever he reaches an intersection with another circle, he switches to the other circle and reverses direction, from clockwise to anticlockwise or conversely.
+
+Suppose Turbo's path entirely covers all the circles. Prove that $n$ is odd.
+
+SOLUTION 1:
+At every intersection, replace the crossing by two short connecting arcs that follow Turbo's rule. The circles are thereby smoothed into a collection of pairwise disjoint simple closed curves. Call these curves the snail orbits. The hypothesis that Turbo's path covers all the circles means that there is exactly one orbit.
+
+We prove the more general parity statement:
+
+\[
+\text{For any collection of $n$ circles with no tangencies, the number of snail orbits is congruent to $n$ modulo $2$.}
+\tag{1}
+\]
+Pairs of circles are allowed to be disjoint in this statement.
+
+At one crossing, change the smoothing to the other possible smoothing; call this operation flipping the crossing. Label the four incident arc ends $a,b,c,d$ so that $a,b$ belong to one original circle and $c,d$ to the other. Before the flip the local connections are $(a,c)$ and $(b,d)$; afterward they are $(a,d)$ and $(b,c)$.
+
+Outside a small disk around the crossing, the endpoints are connected by the remaining parts of the disjoint orbits. The pairing $(a,b),(c,d)$ is impossible: closing these two pairs inside the disk would produce two simple closed curves meeting exactly once. Thus the outside pairing is either $(a,c),(b,d)$ or $(a,d),(b,c)$. In the first case the flip merges two orbits into one; in the second it splits one orbit into two. Hence every flip changes the number of orbits by exactly $1$ and therefore reverses its parity.
+
+Now flip every crossing. Every pair of circles contributes either $0$ or $2$ crossings, so the total number of flips is even. Consequently the parity of the number of orbits is unchanged.
+
+In the fully flipped configuration, switching circles preserves the clockwise or anticlockwise orientation along the circle arcs. Orient every modified orbit so that it traverses every original circle arc anticlockwise. Let $P$ and $N$ be the numbers of these orbits whose orientation as a plane curve is positive and negative, respectively.
+
+Double-count the total signed change of direction along all modified orbits. Along the arcs belonging to one original circle, the total curvature is $2\pi$. At each former crossing, the two connecting turns have equal magnitudes and opposite signs, so their contributions cancel. Thus the total curvature is
+\[
+2\pi n.
+\]
+On the other hand, every positively oriented simple closed orbit contributes $2\pi$, and every negatively oriented one contributes $-2\pi$. Therefore
+\[
+2\pi(P-N)=2\pi n,
+\]
+so
+\[
+P-N=n.
+\]
+The number of modified orbits is $P+N$, which has the same parity as $P-N=n$. Since the original and modified orbit counts have the same parity, (1) follows.
+
+Under the hypothesis of the problem there is one orbit. Hence
+\[
+1\equiv n\pmod2,
+\]
+so $n$ is odd.
+
+SOLUTION 2:
+We again prove the general parity statement (1) from Solution 1. Deform the circle configuration continuously until all circles are disjoint, keeping the deformation generic. Such a deformation may be decomposed into two kinds of local moves:
+
+\begin{itemize}
+\item a type-1 move, in which an arc passes across an arc of another circle, creating or removing two intersections;
+\item a type-2 move, in which an arc passes through an intersection point of two other circles.
+\end{itemize}
+
+We show that neither move changes the parity of the number of snail orbits.
+
+For a type-1 move, take a small disk containing the changing part. The two circle arcs have four endpoints on the disk boundary. Their orientations may agree or disagree, and the portions of the orbits outside the disk may connect the four endpoints in either of the two noncrossing ways. Tracing the four possibilities shows that in one case the number of orbits changes by $2$ or $-2$, while in the other three cases it does not change. Thus its parity is preserved.
+
+For a type-2 move, use a disk containing the small triangular region formed by the three circles. Label the six endpoints on the disk boundary cyclically by $a,b,c,d,e,f$. The local move changes the internal connection pattern from
+\[
+(a,b),(c,d),(e,f)
+\]
+to
+\[
+(a,f),(b,c),(d,e),
+\]
+or conversely. Outside the disk, the endpoints are connected by a noncrossing matching. Up to rotation and reflection there are only two possibilities:
+
+\begin{itemize}
+\item all three outside pairs join neighboring endpoints;
+\item one pair joins opposite endpoints, and the remaining two pairs join neighboring endpoints.
+\end{itemize}
+
+In the first case the local move changes the number of closed components by $2$ or $-2$; in the second case it merely rearranges the components and changes their number by $0$. Thus type-2 moves also preserve parity.
+
+After the deformation, the circles are disjoint, so each circle itself is one snail orbit. The final number of orbits is therefore $n$. Since parity was preserved throughout, the initial number of orbits is congruent to $n$ modulo $2$. If Turbo has one orbit, $n$ must be odd.
+
+SOLUTION 3:
+We prove a parity formula by using the regions cut out by the circles. The argument works for any connected collection of circles in general position, even if some pairs are disjoint.
+
+Let $\mathcal C$ be the set of circles, $\mathcal P$ the set of their intersection points, and $\mathcal R$ the set of regions into which they divide the plane. Call a region odd if it lies inside an odd number of circles. Call an intersection point odd if it lies inside an odd number of circles other than the two circles passing through it. Let
+\[
+\mathcal R_{\mathrm{odd}}
+\quad\text{and}\quad
+\mathcal P_{\mathrm{odd}}
+\]
+be the corresponding sets.
+
+We first prove
+\[
+|\mathcal R_{\mathrm{odd}}|-|\mathcal P_{\mathrm{odd}}|
+\equiv n\pmod2.
+\tag{1}
+\]
+
+For a circle $c$, let
+\begin{itemize}
+\item $R_c$ be the number of regions lying inside $c$;
+\item $P_c$ be the number of intersection points lying strictly inside $c$;
+\item $X_c$ be the number of other circles intersecting $c$;
+\item $A_c$ be the number of subdivision arcs lying inside $c$.
+\end{itemize}
+
+By double counting modulo $2$,
+\[
+|\mathcal R_{\mathrm{odd}}|
+\equiv\sum_{c\in\mathcal C}R_c\pmod2,
+\qquad
+|\mathcal P_{\mathrm{odd}}|
+\equiv\sum_{c\in\mathcal C}P_c\pmod2.
+\tag{2}
+\]
+
+Apply Euler's formula to the planar graph inside and on $c$. There are $P_c+2X_c$ vertices, $A_c+2X_c$ edges, and $R_c+1$ faces when the exterior is included. Hence
+\[
+R_c+P_c=A_c+1.
+\tag{3}
+\]
+Counting endpoints of the arcs inside $c$ gives
+\[
+2A_c=4P_c+2X_c,
+\]
+so
+\[
+A_c=2P_c+X_c.
+\tag{4}
+\]
+From (3) and (4),
+\[
+R_c-P_c=X_c+1.
+\tag{5}
+\]
+Summing (5) over all circles and using (2), we obtain
+\[
+|\mathcal R_{\mathrm{odd}}|-|\mathcal P_{\mathrm{odd}}|
+\equiv
+\sum_{c\in\mathcal C}X_c+n
+\pmod2.
+\]
+Every intersecting pair of circles is counted twice in $\sum X_c$, so that sum is even. This proves (1).
+
+Now assume that there is a single snail orbit, and denote the resulting smoothed simple closed curve by $\gamma$. A generic ray from a point $x$ to infinity meets $\gamma$ an odd number of times exactly when $x$ lies inside $\gamma$. The same ray meets an individual circle an odd number of times exactly when $x$ lies inside that circle. Since $\gamma$ consists of all the circle arcs, it follows that the odd regions are precisely the regions inside $\gamma$, while the even regions lie outside.
+
+Consider an intersection point $p$ of circles $c_1,c_2$. If $p$ lies inside $k$ other circles, the four adjacent regions lie inside respectively
+\[
+k,
+\quad k+2,
+\quad k+1,
+\quad k+1
+\]
+circles. The smoothing connects the two regions of parity $k$. Thus every odd intersection point connects two odd regions.
+
+Form a graph whose vertices are the odd regions and whose edges are the odd intersection points, an edge joining the two odd regions connected at that point. Since $\gamma$ is a single simple closed curve, its interior is a disk. The closures of the odd regions fill this disk and are joined precisely at the odd intersection points. Hence the graph is connected and has no cycle; it is a tree. Therefore
+\[
+|\mathcal R_{\mathrm{odd}}|-|\mathcal P_{\mathrm{odd}}|=1.
+\tag{6}
+\]
+Combining (1) and (6),
+\[
+n\equiv1\pmod2.
+\]
+Thus $n$ is odd.

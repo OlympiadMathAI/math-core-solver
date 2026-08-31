@@ -1,0 +1,16 @@
+{
+  "id": "0099",
+  "source": "IMO Shortlist",
+  "year": "2013",
+  "topic": "Combinatorics",
+  "subtopics": [
+    "Periodic Sequences",
+    "Pigeonhole Principle",
+    "Sliding Sums",
+    "Finite-State Arguments"
+  ],
+  "statement": "Let $r$ be a positive integer, and let $a_0,a_1,\\ldots$ be an infinite sequence of real numbers. Assume that for all nonnegative integers $m$ and $s$, there exists an integer\n\\[\nn\\in\\{m+1,m+2,\\ldots,m+r\\}\n\\]\nsuch that\n\\[\na_m+a_{m+1}+\\cdots+a_{m+s}\n=\na_n+a_{n+1}+\\cdots+a_{n+s}.\n\\]\nProve that the sequence is periodic: there exists an integer $p\\ge1$ such that\n\\[\na_{j+p}=a_j\n\\]\nfor every $j\\ge0$.",
+  "solutions": [
+    "For $u\\le v$, write\n\\[\nS(u,v)=a_u+a_{u+1}+\\cdots+a_{v-1},\n\\]\nso $S(v,v)=0$.\n\nWe begin with a lemma.\n\n\\textbf{Lemma.} Let $b_0,b_1,\\ldots$ be a sequence such that for every $m\\ge0$ there is an index\n\\[\nn\\in\\{m+1,\\ldots,m+r\\}\n\\]\nwith $b_n=b_m$. Then:\n\n\\begin{enumerate}\n\\item for every $k\\le \\ell$, some $t\\in\\{\\ell,\\ell+1,\\ldots,\\ell+r-1\\}$ satisfies $b_t=b_k$;\n\\item the sequence $(b_i)$ takes at most $r$ distinct values.\n\\end{enumerate}\n\n\\textbf{Proof.} Starting from $k_1=k$, repeatedly choose\n\\[\nk_i<k_{i+1}\\le k_i+r\n\\]\nwith $b_{k_{i+1}}=b_{k_i}$. The indices are unbounded. If $k_j$ is the first one at least $\\ell$, then\n\\[\n\\ell\\le k_j\\le\\ell+r-1,\n\\]\nwhich proves the first assertion.\n\nIf $r+1$ distinct values occurred at indices $i_1,\\ldots,i_{r+1}$, apply the first assertion with\n\\[\n\\ell=\\max(i_1,\\ldots,i_{r+1}).\n\\]\nEach of those $r+1$ values would then occur among the $r$ positions\n\\[\n\\ell,\\ell+1,\\ldots,\\ell+r-1,\n\\]\na contradiction.\n\nSet $s=0$ in the hypothesis of the problem. The lemma shows that the sequence $(a_i)$ takes at most $r$ distinct values. Define the length-$r$ blocks\n\\[\nA_i=(a_i,a_{i+1},\\ldots,a_{i+r-1}).\n\\]\nThere are at most $r^r$ possible blocks. Consequently, for every $K\\ge0$, two of\n\\[\nA_K,A_{K+1},\\ldots,A_{K+r^r}\n\\]\nare equal. Thus there exist integers $d\\ge K$ and $1\\le p\\le r^r$ such that\n\\[\nA_d=A_{d+p}.\n\\]\nSince only finitely many values of $p$ are possible, one fixed $p$ occurs for arbitrarily large $d$. Let\n\\[\nD=\\{d\\ge0:A_d=A_{d+p}\\}.\n\\]\nThen $D$ is unbounded.\n\nWe prove that $D$ contains every nonnegative integer. Since it is unbounded, it is enough to prove the downward implication\n\\[\nd+1\\in D\\quad\\Longrightarrow\\quad d\\in D.\n\\tag{1}\n\\]\nAssume $d+1\\in D$. Define\n\\[\nb_k=S(k,k+p).\n\\]\nThe original hypothesis with $s=p-1$ shows that the sequence $(b_k)$ satisfies the lemma. Hence some\n\\[\nt\\in\\{d+1,d+2,\\ldots,d+r\\}\n\\]\nsatisfies\n\\[\nS(t,t+p)=S(d,d+p).\n\\]\nEquivalently,\n\\[\nS(d,t)=S(d+p,t+p).\n\\tag{2}\n\\]\nBecause $d+1\\in D$, the blocks $A_{d+1}$ and $A_{d+p+1}$ are equal, so\n\\[\nS(d+1,t)=S(d+p+1,t+p).\n\\tag{3}\n\\]\nSubtracting (3) from (2) gives\n\\[\na_d=a_{d+p}.\n\\]\nTogether with $A_{d+1}=A_{d+p+1}$, this yields\n\\[\nA_d=A_{d+p},\n\\]\nso $d\\in D$. This proves (1).\n\nTherefore $A_d=A_{d+p}$ for every $d\\ge0$, and in particular\n\\[\na_{d+p}=a_d\n\\]\nfor every $d\\ge0$. The sequence is periodic."
+  ]
+}

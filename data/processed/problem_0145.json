@@ -1,0 +1,16 @@
+{
+  "id": "0145",
+  "source": "IMO Shortlist",
+  "year": "2014",
+  "topic": "Number Theory",
+  "subtopics": [
+    "Double Factorials",
+    "p-adic Valuations",
+    "Nearest Integers",
+    "Fractional Parts"
+  ],
+  "statement": "For a real number $x$, let $\\|x\\|$ denote the distance from $x$ to the nearest integer. Prove that for every pair $(a,b)$ of positive integers there exist an odd prime $p$ and a positive integer $k$ such that\n\\[\n\\left\\|\\frac{a}{p^k}\\right\\|\n+\n\\left\\|\\frac{b}{p^k}\\right\\|\n+\n\\left\\|\\frac{a+b}{p^k}\\right\\|\n=1.\n\\tag{1}\n\\]",
+  "solutions": [
+    "For every real $x$,\n\\[\n\\left\\lfloor x+\\frac12\\right\\rfloor\n=x\\pm\\|x\\|,\n\\tag{2}\n\\]\nbecause the left-hand side is an integer nearest to $x$.\n\nFor an odd prime $p$ and a nonzero rational number $r$, let $v_p(r)$ denote its $p$-adic valuation. We first prove a counting formula for odd double factorials:\n\\[\nv_p((2n-1)!!)\n=\n\\sum_{k=1}^{\\infty}\n\\left\\lfloor\\frac{n}{p^k}+\\frac12\\right\\rfloor.\n\\tag{3}\n\\]\nIndeed, for each $k$, the multiples of $p^k$ among\n\\[\n1,3,5,\\ldots,2n-1\n\\]\nare exactly the numbers $(2\\ell-1)p^k$ satisfying\n\\[\n0<(2\\ell-1)p^k\\le2n.\n\\]\nThe number of such $\\ell$ is\n\\[\n\\left\\lfloor\\frac{n}{p^k}+\\frac12\\right\\rfloor.\n\\]\nSumming this count over all $k$ counts every factor once for each power of $p$ dividing it, proving (3).\n\nNow consider the positive rational number\n\\[\nR=\n\\frac{(2a+2b-1)!!}{(2a-1)!!(2b-1)!!}\n=\n\\prod_{j=1}^{b}\\frac{2a+2j-1}{2j-1}.\n\\]\nEvery factor in the product is greater than $1$, so $R>1$. Therefore some prime $p$ satisfies\n\\[\nv_p(R)>0.\n\\]\nThe numerator and denominator of $R$ are odd, so such a prime $p$ is odd.\n\nBy (3),\n\\[\nv_p(R)\n=\n\\sum_{k=1}^{\\infty}d_k,\n\\]\nwhere\n\\[\nd_k=\n\\left\\lfloor\\frac{a+b}{p^k}+\\frac12\\right\\rfloor\n-\n\\left\\lfloor\\frac{a}{p^k}+\\frac12\\right\\rfloor\n-\n\\left\\lfloor\\frac{b}{p^k}+\\frac12\\right\\rfloor.\n\\tag{4}\n\\]\nSince the sum is positive, some $d_k$ is a positive integer, so $d_k\\ge1$.\n\nApply (2) to the three terms in (4). Their linear parts cancel, giving\n\\[\nd_k\n=\n\\pm\\left\\|\\frac{a+b}{p^k}\\right\\|\n\\pm\\left\\|\\frac{a}{p^k}\\right\\|\n\\pm\\left\\|\\frac{b}{p^k}\\right\\|.\n\\tag{5}\n\\]\nBecause $p^k$ is odd and the numerators are integers, none of these rational numbers is a half-integer. Hence each of the three distances is strictly less than $1/2$.\n\nIf at least one sign in (5) were negative, the right-hand side would be strictly less than $1$, because at most two positive terms would remain and each is below $1/2$. This is incompatible with the positive integer $d_k\\ge1$. Therefore all three signs are positive. Their sum is less than $3/2$, so the integer $d_k$ must equal $1$. Thus\n\\[\n\\left\\|\\frac{a}{p^k}\\right\\|\n+\n\\left\\|\\frac{b}{p^k}\\right\\|\n+\n\\left\\|\\frac{a+b}{p^k}\\right\\|\n=d_k=1,\n\\]\nwhich is exactly (1)."
+  ]
+}

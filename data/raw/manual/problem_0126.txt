@@ -1,0 +1,57 @@
+ID: 0126
+
+SOURCE: IMO Shortlist
+
+YEAR: 2014
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Line Arrangements, Extremal Principle, Double Counting, Planar Regions
+
+STATEMENT:
+Let $n\ge3$ lines be given in the plane, with no two parallel and no three concurrent. They divide the plane into polygonal regions, and let $\mathcal F$ be the set of bounded regions. Prove that one can color
+\[
+\left\lceil\sqrt{\frac n2}\right\rceil
+\]
+of the lines blue so that no region in $\mathcal F$ has an entirely blue boundary.
+
+SOLUTION 1:
+Let $\mathcal L$ be the set of the given lines. Choose a subset $B\subseteq\mathcal L$ that is maximal by inclusion subject to the condition that no bounded region has an entirely blue boundary when exactly the lines in $B$ are colored blue. Put
+\[
+k=|B|.
+\]
+We prove that
+\[
+k\ge\left\lceil\sqrt{\frac n2}\right\rceil.
+\]
+
+Color every line in $\mathcal L\setminus B$ red. Call an intersection point of two blue lines a blue point. There are
+\[
+\binom{k}{2}
+\]
+blue points.
+
+Consider a red line $\ell$. By the maximality of $B$, coloring $\ell$ blue would create a bounded region whose whole boundary is blue. Before recoloring $\ell$, that region therefore has exactly one red side, lying on $\ell$, while all its other sides are blue. Since every bounded region has at least three sides, it has at least one blue vertex. Choose one such blue vertex and associate it with $\ell$.
+
+A blue point is incident with four regions. Consequently it can be associated with at most four red lines. Hence
+\[
+n-k\le4\binom{k}{2}=2k(k-1).
+\]
+Therefore
+\[
+n\le2k^2-k\le2k^2,
+\]
+so
+\[
+k\ge\sqrt{\frac n2}.
+\]
+As $k$ is an integer,
+\[
+k\ge\left\lceil\sqrt{\frac n2}\right\rceil.
+\]
+
+If $B$ contains more than the required number of lines, retain any
+\[
+\left\lceil\sqrt{\frac n2}\right\rceil
+\]
+of them as blue and recolor the others red. Removing blue lines cannot create a bounded region with an entirely blue boundary. Thus the required coloring exists.

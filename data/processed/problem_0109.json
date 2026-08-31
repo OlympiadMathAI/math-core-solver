@@ -1,0 +1,18 @@
+{
+  "id": "0109",
+  "source": "IMO Shortlist",
+  "year": "2013",
+  "topic": "Number Theory",
+  "subtopics": [
+    "Divisibility",
+    "Functional Equations",
+    "Inequality Bounds",
+    "Prime Substitution"
+  ],
+  "statement": "Let $\\mathbb{Z}_{>0}$ be the set of positive integers. Find all functions\n\\[\nf:\\mathbb{Z}_{>0}\\to\\mathbb{Z}_{>0}\n\\]\nsuch that\n\\[\nm^2+f(n)\\mid m f(m)+n\n\\tag{1}\n\\]\nfor all positive integers $m,n$.",
+  "solutions": [
+    "The only solution is\n\\[\nf(n)=n\\qquad(n\\in\\mathbb{Z}_{>0}).\n\\]\n\nSet $m=n=2$ in (1). Then\n\\[\n4+f(2)\\mid 2f(2)+2.\n\\]\nThe right-hand side is positive and satisfies\n\\[\n2f(2)+2<2\\bigl(4+f(2)\\bigr).\n\\]\nHence it must equal $4+f(2)$; otherwise it would be either smaller than the divisor or at least twice the divisor. Thus\n\\[\n2f(2)+2=4+f(2),\n\\]\nso\n\\[\nf(2)=2.\n\\tag{2}\n\\]\n\nNow put $m=2$ in (1). Using (2), we get\n\\[\n4+f(n)\\mid 4+n,\n\\]\nand therefore\n\\[\nf(n)\\le n\n\\tag{3}\n\\]\nfor every positive integer $n$.\n\nNext put $m=n$ in (1). We obtain\n\\[\nn^2+f(n)\\mid nf(n)+n.\n\\]\nSince all quantities are positive,\n\\[\nnf(n)+n\\ge n^2+f(n),\n\\]\nwhich is equivalent to\n\\[\n(n-1)(f(n)-n)\\ge0.\n\\]\nConsequently $f(n)\\ge n$ for every $n\\ge2$. Together with (3), this gives $f(n)=n$ for every $n\\ge2$. For $n=1$, (3) and positivity give $f(1)=1$ as well.\n\nFinally, the function $f(n)=n$ satisfies (1), because\n\\[\nm^2+f(n)=m^2+n=m f(m)+n.\n\\]",
+    "We again prove that the only solution is $f(n)=n$.\n\nFix a positive integer $n$ and substitute $m=f(n)$ in (1). Then\n\\[\nf(n)^2+f(n)\n\\mid\nf(n)f(f(n))+n.\n\\]\nThe divisor and the first term on the right are both divisible by $f(n)$, so\n\\[\nf(n)\\mid n\n\\tag{2}\n\\]\nfor every positive integer $n$.\n\nNow fix an arbitrary positive integer $m$. Choose a prime $p$ so large that\n\\[\np>2m^2\n\\qquad\\text{and}\\qquad\np>m f(m).\n\\]\nSet\n\\[\nn=p-m f(m),\n\\]\nwhich is positive. Equation (1) gives\n\\[\nm^2+f(n)\n\\mid\nm f(m)+n=p.\n\\]\nSince $m^2+f(n)>1$ and $p$ is prime, we must have\n\\[\nm^2+f(n)=p,\n\\]\nso\n\\[\nf(n)=p-m^2.\n\\tag{3}\n\\]\nBy (2),\n\\[\np-m^2\\mid p-m f(m).\n\\]\nMoreover,\n\\[\n0<p-m f(m)<p<2(p-m^2),\n\\]\nwhere the last inequality follows from $p>2m^2$. Therefore the positive multiple $p-m f(m)$ of $p-m^2$ is smaller than twice $p-m^2$, and hence\n\\[\np-m f(m)=p-m^2.\n\\]\nThus $f(m)=m$. Since $m$ was arbitrary, $f$ is the identity function, which clearly works.",
+    "Put $m=1$ in (1). Since a positive divisor cannot exceed the positive number it divides,\n\\[\n1+f(n)\\le f(1)+n.\n\\]\nHence\n\\[\nf(n)\\le n+c,\n\\qquad\nc:=f(1)-1\\ge0.\n\\tag{2}\n\\]\n\nSuppose, for contradiction, that $f(n)\\ne n$ for some fixed positive integer $n$. Choose $m$ so large that\n\\[\nm\\ge n,\n\\qquad\nm\\ge c+1,\n\\qquad\nm>|f(n)-n|.\n\\]\nUsing (2),\n\\[\n\\begin{aligned}\nm f(m)+n\n&\\le m(m+c)+n\\\\\n&\\le 2m^2\\\\\n&<2\\bigl(m^2+f(n)\\bigr).\n\\end{aligned}\n\\]\nBy (1), the positive integer $m f(m)+n$ is a multiple of $m^2+f(n)$, so the above strict upper bound forces\n\\[\nm f(m)+n=m^2+f(n).\n\\]\nTherefore\n\\[\nf(n)-n=m(f(m)-m).\n\\tag{3}\n\\]\nThe left-hand side of (3) is nonzero and has absolute value smaller than $m$, whereas the right-hand side is divisible by $m$. This is impossible.\n\nThus $f(n)=n$ for every positive integer $n$, and this function satisfies the required divisibility."
+  ]
+}

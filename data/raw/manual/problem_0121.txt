@@ -1,0 +1,610 @@
+ID: 0121
+
+SOURCE: IMO Shortlist
+
+YEAR: 2014
+
+TOPIC: Algebra
+
+SUBTOPICS: Functional Equations, Integer-Valued Functions, Function Iteration, Diophantine Analysis
+
+STATEMENT:
+Find all functions $f:\mathbb Z\to\mathbb Z$ such that
+\[
+n^2+4f(n)=f(f(n))^2
+\tag{1}
+\]
+for every integer $n$.
+
+SOLUTION 1:
+The solutions are the following:
+
+\[
+\boxed{f(n)=n+1\quad\text{for all }n\in\mathbb Z;}
+\tag{2}
+\]
+
+for every integer $a\ge1$,
+\[
+\boxed{
+f(n)=
+\begin{cases}
+n+1,&n>-a,\\
+1-n,&n\le-a;
+\end{cases}}
+\tag{3}
+\]
+and
+\[
+\boxed{
+f(n)=
+\begin{cases}
+n+1,&n>0,\\
+0,&n=0,\\
+1-n,&n<0.
+\end{cases}}
+\tag{4}
+\]
+
+A direct substitution verifies all these functions. We prove that there are no others.
+
+\textbf{Step 1: $f(n)=n+1$ for every positive integer $n$.}
+
+Let
+\[
+a_k=f^k(1)
+\]
+be the orbit of $1$, so $a_0=1$. Applying (1) to $a_k$ gives
+\[
+a_k^2+4a_{k+1}=a_{k+2}^2.
+\tag{5}
+\]
+
+Since
+\[
+a_2^2=1+4a_1
+\]
+is odd, write
+\[
+a_2=2r+1.
+\]
+Then
+\[
+a_1=r^2+r
+\]
+and
+\[
+a_3^2=(r^2+r)^2+8r+4.
+\tag{6}
+\]
+The integer $r^2+r$ is even. Except for the harmless cases $r=0,-1$, the distance from its square to any distinct even square is at least
+\[
+(r^2+r)^2-(r^2+r-2)^2=4(r^2+r-1).
+\]
+Equation (6) therefore implies
+\[
+4r^2\le |8r+4|-4r+4.
+\tag{7}
+\]
+(The same inequality is immediate when $r=0$ or $r=-1$.) If $|r|\ge4$, then
+\[
+|8r+4|-4r+4
+\le12|r|+8
+<16|r|
+\le4r^2,
+\]
+contradicting (7). Hence $|r|<4$. Checking the seven possibilities gives
+\[
+r\in\{-3,0,1\}.
+\]
+
+If $r=-3$, then
+\[
+a_1=6,\qquad a_2=-5.
+\]
+Equation (5) gives $a_3^2=16$. The choice $a_3=4$ would make
+\[
+a_4^2=a_2^2+4a_3=41,
+\]
+so $a_3=-4$. Continuing in the same way, at each stage the other sign makes the next required square impossible, and we obtain
+\[
+a_4=-3,\quad a_5=-2,\quad a_6=-1,\quad a_7=0,\quad a_8=1.
+\]
+Now
+\[
+a_9=f(a_8)=f(1)=a_1=6,
+\]
+whereas (5) at $k=7$ gives $a_9^2=4$, a contradiction.
+
+If $r=0$, then
+\[
+a_1=0,\qquad a_2=1,\qquad a_3=\pm2.
+\]
+Since $a_2=a_0=1$, we must have
+\[
+a_3=f(a_2)=f(a_0)=a_1=0,
+\]
+again a contradiction.
+
+Thus $r=1$, so
+\[
+a_1=2,\qquad a_2=3.
+\]
+We prove by induction that
+\[
+a_k=k+1
+\tag{8}
+\]
+for all $k\ge0$. Suppose $a_{k-1}=k$ and $a_k=k+1$. Then (5) gives
+\[
+a_{k+1}^2=k^2+4(k+1)=(k+2)^2.
+\]
+If $a_{k+1}=-(k+2)$, then
+\[
+a_{k+2}^2=(k+1)^2-4(k+2)=(k-1)^2-8.
+\]
+The difference of the two squares $(k-1)^2$ and $a_{k+2}^2$ is $8$, so $k=4$. This would give
+\[
+a_4=5,\qquad a_5=-6,\qquad a_6=\pm1,
+\]
+and then
+\[
+a_7^2=a_5^2+4a_6=36\pm4,
+\]
+neither of which is a square. Hence the negative sign is impossible, and (8) follows.
+
+Since $a_{n-1}=n$, we obtain
+\[
+f(n)=f(a_{n-1})=a_n=n+1
+\]
+for every $n\ge1$.
+
+\textbf{Step 2: Determine $f(0)$.}
+
+Putting $n=0$ in (1) gives
+\[
+4f(0)=f(f(0))^2,
+\]
+so $f(0)\ge0$.
+
+If $f(0)=0$, then $f(n)\ne0$ for every $n\ne0$, because otherwise (1) at such an $n$ would give
+\[
+n^2=f(0)^2=0.
+\]
+
+If $f(0)>0$, Step 1 gives
+\[
+f(f(0))=f(0)+1.
+\]
+Thus
+\[
+4f(0)=(f(0)+1)^2,
+\]
+so
+\[
+f(0)=1.
+\tag{9}
+\]
+
+\textbf{Step 3: Determine the values at negative integers.}
+
+We prove by strong induction on $n\ge1$ that
+\[
+f(-n)\in\{1-n,1+n\},
+\tag{10}
+\]
+and that
+\[
+f(-n)=1-n\quad\Longrightarrow\quad f(-n+1)=2-n.
+\tag{11}
+\]
+
+For $n=1$, equation (1) gives
+\[
+1+4f(-1)=f(f(-1))^2.
+\]
+Hence $f(-1)\ge0$. If $f(-1)=0$, then the same equation gives $f(0)^2=1$, and hence $f(0)=1$; otherwise Step 1 gives
+\[
+f(f(-1))=f(-1)+1,
+\]
+and solving
+\[
+1+4f(-1)=(f(-1)+1)^2
+\]
+gives $f(-1)=2$. Thus (10) holds for $n=1$.
+
+Assume now that the assertion is known for all smaller positive integers, and put
+\[
+t=f(-n),\qquad u=f(t).
+\]
+Suppose first that $t\le-n$. From (1),
+\[
+u^2=n^2+4t\le n^2-4n<(n-2)^2,
+\]
+so
+\[
+|u|\le n-3.
+\]
+If $u\ge0$, Steps 1 and 2 show that $f(u)=u+1$, except for the impossible case $u=0=f(0)$ with $t\ne0$. If $u<0$, the induction hypothesis applies to $u$. Thus in every case
+\[
+f(u)=\pm u+1.
+\]
+Applying (1) to $t$ gives
+\[
+t^2+4u=f(u)^2.
+\]
+Consequently,
+\[
+\begin{aligned}
+n^2
+&\le t^2\\
+&=f(u)^2-4u\\
+&\le u^2+6|u|+1\\
+&\le(n-3)^2+6(n-3)+1\\
+&=n^2-8,
+\end{aligned}
+\]
+a contradiction. Therefore
+\[
+t>-n.
+\tag{12}
+\]
+
+If $t\ge0$, Steps 1 and 2 again give $f(t)=t+1$; if $-n<t<0$, the induction hypothesis gives
+\[
+f(t)=\pm t+1.
+\]
+Thus
+\[
+n^2+4t=(\pm t+1)^2.
+\]
+For the plus sign,
+\[
+n^2=(t-1)^2,
+\]
+so
+\[
+t=1\pm n.
+\]
+For the minus sign,
+\[
+n^2=(t-3)^2-8.
+\]
+The latter equation has a positive solution $n$ only when $n=1$, already treated. Hence (10) holds.
+
+Finally, suppose $n\ge2$ and
+\[
+f(-n)=1-n.
+\]
+Then
+\[
+f(1-n)^2=n^2+4(1-n)=(n-2)^2.
+\]
+By (10) for $n-1$, the value $f(1-n)$ is either $2-n$ or $n$. Only the first has square $(n-2)^2$. This proves (11).
+
+We now finish the classification. If
+\[
+f(n)=n+1
+\]
+for every integer $n$, we obtain (2). Otherwise, let $m\le0$ be the largest integer for which $f(m)\ne m+1$.
+
+If $m=-a<0$, then $a\ge1$. By (10),
+\[
+f(m)=1-m.
+\]
+No integer below $m$ can satisfy $f(n)=n+1$, because (11) would propagate this equality step by step up to $m$. Therefore
+\[
+f(n)=
+\begin{cases}
+1-n,&n\le-a,\\
+n+1,&n>-a,
+\end{cases}
+\]
+which is (3).
+
+If $m=0$, then Step 2 gives $f(0)=0$. Again (11) shows that every negative integer has value $1-n$, while Step 1 gives $f(n)=n+1$ for positive $n$. This is (4).
+
+Hence the displayed functions are all the solutions.
+
+SOLUTION 2:
+We give a second proof of the completeness of the same list of solutions.
+
+For an integer $a$, write
+\[
+b=f(a).
+\]
+If $b=0$, then (1) gives
+\[
+a^2=f(0)^2,
+\]
+so
+\[
+a=\pm f(0).
+\tag{12}
+\]
+Set
+\[
+D=|f(0)|.
+\]
+For $a\notin\{-D,0,D\}$, we therefore have $b\ne0$.
+
+Since
+\[
+f(b)^2-a^2=4b,
+\]
+the integers $f(b)$ and $a$ have the same parity. Distinct squares of integers of the same parity differ by at least $4|a|-4$, so
+\[
+4|b|\ge4|a|-4
+\]
+and hence
+\[
+|f(a)|=|b|\ge|a|-1
+\tag{13}
+\]
+whenever $a\notin\{-D,0,D\}$.
+
+Let
+\[
+E=\max\{D+2,10\}.
+\]
+For $|a|\ge E$, relation (13) applies both to $a$ and to $b=f(a)$. Writing $c=f(b)$, we get
+\[
+|c|\ge|b|-1.
+\]
+Using $c^2=a^2+4b$,
+\[
+a^2\ge(|b|-1)^2-4|b|
+=(|b|-3)^2-8
+>(|b|-4)^2.
+\]
+Thus
+\[
+|a|-1\le|b|\le|a|+3.
+\tag{14}
+\]
+
+Because $c$ and $a$ have the same parity, write
+\[
+|c|=|a|+2t
+\]
+for some integer $t$. Then
+\[
+4b=c^2-a^2
+=4t(|a|+t),
+\]
+so
+\[
+b=t(|a|+t).
+\tag{15}
+\]
+For $|a|\ge10$, estimate (14) forces $t\in\{-1,0,1\}$. Indeed, if $t\ge2$, then
+\[
+|b|=t(|a|+t)\ge2(|a|+2)>|a|+3.
+\]
+If $t\le-2$, put $s=-t$. Since $|c|=|a|-2s\ge0$, we have $2\le s\le|a|/2$, and
+\[
+|b|=s(|a|-s)>|a|+3,
+\]
+again contradicting (14). Since $b\ne0$, $t\ne0$. Therefore
+\[
+f(a)=1+a
+\quad\text{or}\quad
+f(a)=1-a
+\tag{16}
+\]
+for every $|a|\ge E$.
+
+Define
+\[
+Z_+=\{a\in\mathbb Z:f(a)=a+1\},
+\]
+\[
+Z_-=\{a\in\mathbb Z:f(a)=1-a\},
+\]
+and
+\[
+Z_0=\mathbb Z\setminus(Z_+\cup Z_-).
+\]
+By (16), $Z_0$ is finite.
+
+We first show that $Z_+$ is nonempty. If
+\[
+f(E+1)=E+2,
+\]
+then $E+1\in Z_+$. Otherwise (16) gives $f(E+1)=-E$. Equation (1) at $E+1$ then yields
+\[
+f(-E)^2=(E-1)^2.
+\]
+Using (16) at $-E$, we get $f(-E)=1-E$, so $-E\in Z_+$.
+
+Next, $Z_+$ is upward closed. Suppose $x-1\in Z_+$, so $f(x-1)=x$. Then
+\[
+f(x)^2=(x-1)^2+4x=(x+1)^2.
+\]
+Thus
+\[
+f(x)=x+1
+\quad\text{or}\quad
+f(x)=-(x+1).
+\]
+Assume the second alternative and $x\ne-1$. Applying (1) at $x$ gives
+\[
+f(-x-1)^2=(x-2)^2-8.
+\]
+Hence $x-2=\pm3$ and $f(-x-1)=\pm1$. Applying (1) once more at $-x-1$ shows that
+\[
+(x+1)^2\pm4
+\]
+is a square, which forces
+\[
+x+1\in\{-2,0,2\}.
+\]
+Combining these restrictions gives $x=-1$, contrary to the assumption. Therefore $f(x)=x+1$, proving the upward closure.
+
+Consequently either $Z_+=\mathbb Z$, which gives solution (2), or
+\[
+Z_+=\{x\in\mathbb Z:x\ge a_0\}
+\tag{17}
+\]
+for some least element $a_0$.
+
+Assume now that $Z_0=\varnothing$. Then all $x<a_0$ belong to $Z_-$, while all $x\ge a_0$ belong to $Z_+$. Since both formulas give $f(0)=1$, we have $0\in Z_+$ and hence $a_0\le0$. Writing
+\[
+a=1-a_0\ge1,
+\]
+we obtain exactly the family (3).
+
+It remains to consider the case $Z_0\ne\varnothing$.
+
+We claim that
+\[
+f(Z_0)\subseteq Z_0.
+\tag{18}
+\]
+Suppose $a\in Z_0$, put $b=f(a)$, and assume $b\notin Z_0$. Then
+\[
+f(b)=1\pm b.
+\]
+Equation (1) gives
+\[
+a^2+4b=(1\pm b)^2.
+\]
+If the plus sign occurs, then
+\[
+a^2=(b-1)^2,
+\]
+so $b=1\pm a$, contradicting $a\in Z_0$.
+
+For the minus sign,
+\[
+a^2=(b-3)^2-8.
+\]
+The difference-of-squares factorization implies
+\[
+|a|=1,
+\qquad
+b\in\{0,6\}.
+\]
+If $b=0$, then $f(0)=1$, so $0\in Z_+$ and $a_0\le0$. Upward closure then forces $a=1$ to be in $Z_+$; if $a=-1$, the equality $f(-1)=0=(-1)+1$ also puts $a$ in $Z_+$. Both are contradictions.
+
+If $b=6$, then $f(6)=-5$. Equation (1) at $6$ gives
+\[
+f(-5)^2=16,
+\]
+so $f(-5)=\pm4$. Applying (1) at $-5$, the value $f(-5)=4$ would make the right-hand side $f(4)^2=41$, impossible. Hence
+\[
+f(-5)=-4,
+\]
+so $-5\in Z_+$. Upward closure then puts $a=\pm1$ in $Z_+$, again a contradiction. This proves (18).
+
+Choose $c\in Z_0$ and form its orbit
+\[
+c_i=f^i(c).
+\]
+By (18), all $c_i$ lie in the finite set $Z_0$. Choose $k$ so that
+\[
+M=|c_k|
+\]
+is maximal along the orbit. Then
+\[
+|c_{k+1}|,|c_{k+2}|\le M,
+\]
+and
+\[
+c_k^2+4c_{k+1}=c_{k+2}^2.
+\tag{19}
+\]
+The two numbers $c_k,c_{k+2}$ have the same parity. Write
+\[
+|c_{k+2}|=M-2j
+\]
+with an integer $j\ge0$. From (19) and $|c_{k+1}|\le M$,
+\[
+(M-2j)^2=c_{k+2}^2
+=M^2+4c_{k+1}
+\ge M^2-4M.
+\]
+Thus
+\[
+(j-1)M\le j^2.
+\tag{20}
+\]
+If $j\ge2$, then $M\ge2j$ because $M-2j\ge0$, while (20) gives
+\[
+M\le\frac{j^2}{j-1}.
+\]
+These inequalities are compatible only for $j=2$ and $M=4$. Consequently the only possibilities are
+\[
+|c_{k+2}|=M,
+\qquad
+|c_{k+2}|=M-2,
+\]
+or
+\[
+M=4,\qquad c_{k+2}=0.
+\tag{21}
+\]
+
+If $|c_{k+2}|=M-2$, equation (19) gives
+\[
+c_{k+1}=1-M.
+\]
+According as $c_k=M$ or $c_k=-M$, this says $f(c_k)=1-c_k$ or $f(c_k)=c_k+1$, contradicting $c_k\in Z_0$.
+
+Suppose $|c_{k+2}|=M$. Then (19) gives $c_{k+1}=0$. The next recurrence is
+\[
+c_{k+3}^2=4c_{k+2}.
+\]
+If $c_{k+3}=0$, then $c_{k+2}=0$ and hence $M=0$, so the entire orbit is zero. Otherwise apply the preceding classification at the maximal term $c_{k+2}$. The case $|c_{k+4}|=M$ would force $c_{k+3}=0$, and the case $|c_{k+4}|=M-2$ would put $c_{k+2}$ in $Z_+\cup Z_-$. Therefore the exceptional case in (21) occurs, so $M=4$.
+
+The remaining exceptional case in (21) also has $M=4$. In that case the recurrence forces
+\[
+-4,0,4,-4,0,4,\ldots
+\]
+from some point onward. Indeed, from a pair $(-4,0)$ the next value has absolute value $4$; the following equation forces it to be $4$, and then the next value must be $-4$ because $32$ is not a square. Thus every orbit in $Z_0$ is either identically zero or eventually lies in
+\[
+\{-4,0,4\}.
+\]
+
+If some earlier term $c_r$ were the last term outside this set, then
+\[
+c_r^2=c_{r+2}^2-4c_{r+1}
+\in\{-16,0,16,32\}.
+\]
+The only square values here are $0$ and $16$, which would already give $c_r\in\{-4,0,4\}$, a contradiction. Hence
+\[
+Z_0\subseteq\{-4,0,4\}.
+\tag{22}
+\]
+
+We now exclude $4$ and $-4$. If $4\in Z_0$, then $4\notin Z_+$, so the least element $a_0$ in (17) is greater than $4$. Since $-3\notin Z_0$, it follows that $-3\in Z_-$ and
+\[
+f(-3)=4.
+\]
+Equation (1) at $-3$ gives
+\[
+f(4)^2=25,
+\]
+so $f(4)=\pm5\notin Z_0$, contradicting (18).
+
+If $-4\in Z_0$, then by (18) and (22), $f(-4)\in\{-4,0,4\}$. The value $4$ is impossible because it would give
+\[
+f(4)^2=32.
+\]
+If $f(-4)=0$, then (1) gives $f(0)^2=16$, hence $f(0)=4$, contradicting the already proved fact that $4\notin Z_0$ together with (18). If $f(-4)=-4$, then (1) gives $0=16$. Thus
+\[
+Z_0=\{0\}.
+\]
+By (18), $f(0)=0$.
+
+Finally, $1$ cannot belong only to $Z_-$, because then $f(1)=0$ and (1) at $1$ would give
+\[
+1=f(0)^2=0.
+\]
+Thus $1\in Z_+$. Since $0\notin Z_+$, the least element in (17) is
+\[
+a_0=1.
+\]
+Therefore every positive integer lies in $Z_+$, every negative integer lies in $Z_-$, and $f(0)=0$. This is precisely solution (4).
+
+The classification is complete.

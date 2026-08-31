@@ -1,0 +1,231 @@
+ID: 0138
+
+SOURCE: IMO Shortlist
+
+YEAR: 2014
+
+TOPIC: Number Theory
+
+SUBTOPICS: Additive Semigroups, Binary Expansions, Induction, Frobenius-Type Problems
+
+STATEMENT:
+Let $n\ge 2$ be an integer, and let
+\[
+A_n=\{2^n-2^k\mid k\in\mathbb Z,\ 0\le k<n\}.
+\]
+Determine the largest positive integer that cannot be written as the sum of one or more, not necessarily distinct, elements of $A_n$.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{(n-2)2^n+1}.
+\]
+
+We first prove, by induction on $n$, that every integer
+\[
+m>(n-2)2^n+1
+\tag{1}
+\]
+is representable.
+
+For $n=2$, we have $A_2=\{2,3\}$, so every integer greater than $1$ is representable.
+
+Now let $n>2$ and assume the assertion for $n-1$. If $m$ is even, then
+\[
+\frac m2\ge (n-2)2^{n-1}+1>(n-3)2^{n-1}+1.
+\]
+By induction,
+\[
+\frac m2=\sum_{i=1}^r\bigl(2^{n-1}-2^{k_i}\bigr)
+\qquad(0\le k_i<n-1).
+\]
+Multiplying by $2$ gives
+\[
+m=\sum_{i=1}^r\bigl(2^n-2^{k_i+1}\bigr),
+\]
+a representation using elements of $A_n$.
+
+If $m$ is odd, then $m\ge (n-2)2^n+3$, and hence
+\[
+\frac{m-(2^n-1)}2>(n-3)2^{n-1}+1.
+\]
+The induction hypothesis represents this integer using $A_{n-1}$. Doubling that representation and then adding the element $2^n-1\in A_n$ represents $m$.
+
+It remains to show that
+\[
+M=(n-2)2^n+1
+\tag{2}
+\]
+is not representable. Let $N$ be the smallest positive representable integer satisfying
+\[
+N\equiv1\pmod{2^n}.
+\]
+Such an integer exists, since
+\[
+\sum_{k=0}^{n-1}(2^n-2^k)
+=n2^n-(2^n-1)
+=(n-1)2^n+1.
+\]
+Choose a representation
+\[
+N=\sum_{i=1}^r(2^n-2^{k_i}),
+\qquad 0\le k_i<n.
+\tag{3}
+\]
+No two exponents $k_i$ can be equal. Indeed, if two equal exponents are $n-1$, deleting the corresponding two summands decreases the represented number by $2^n$. If two equal exponents are $k<n-1$, replacing the two summands by the single summand $2^n-2^{k+1}$ again decreases the represented number by $2^n$. Either operation would produce a smaller positive representable integer congruent to $1$ modulo $2^n$, contradicting the definition of $N$.
+
+Thus the $k_i$ are distinct, and
+\[
+0<\sum_{i=1}^r2^{k_i}\le 1+2+\cdots+2^{n-1}=2^n-1.
+\]
+Reducing (3) modulo $2^n$ gives
+\[
+\sum_{i=1}^r2^{k_i}\equiv-1\pmod{2^n}.
+\]
+The preceding bounds force
+\[
+\sum_{i=1}^r2^{k_i}=2^n-1.
+\]
+By uniqueness of binary expansion, every exponent $0,1,\ldots,n-1$ occurs. Consequently
+\[
+N=(n-1)2^n+1.
+\]
+Therefore no smaller positive integer congruent to $1$ modulo $2^n$ is representable. In particular, the number in (2) is not representable. Together with (1), this proves the answer.
+
+SOLUTION 2:
+We again obtain
+\[
+\boxed{(n-2)2^n+1}.
+\]
+First, every larger integer is representable by induction on $n$. The case $n=2$ uses $A_2=\{2,3\}$. For $n>2$, if $m>(n-2)2^n+1$ is even, represent $m/2$ using $A_{n-1}$ and double every summand. If $m$ is odd, represent $(m-(2^n-1))/2$ using $A_{n-1}$, double every summand, and add $2^n-1$. The same inequalities as in Solution 1 ensure that the numbers to which induction is applied exceed $(n-3)2^{n-1}+1$.
+
+We now give a different proof that the displayed number is not representable.
+
+We prove the following stronger claim.
+
+\textbf{Claim.} If $a,b$ are integers satisfying
+\[
+a\ge0,\qquad b\ge1,\qquad a+b<n,
+\]
+then $a2^n+b$ cannot be represented as a sum of elements of $A_n$.
+
+We use induction on $n$. For $n=2$, the only possible pair is $(a,b)=(0,1)$, and $1$ is not representable by $2$ and $3$.
+
+Suppose $n>2$ and, contrary to the claim, write
+\[
+a2^n+b=m_1+\cdots+m_r,
+\qquad m_i\in A_n,
+\]
+with
+\[
+m_1\ge m_2\ge\cdots\ge m_r.
+\]
+Let $\ell$ be the number of summands equal to $2^n-1$. Since all the remaining summands are even, $\ell\equiv b\pmod2$. Removing these $\ell$ summands and dividing the remaining equality by $2$ gives
+\[
+(a-\ell)2^{n-1}+\frac{b+\ell}{2}
+=\frac{m_{\ell+1}}2+\cdots+\frac{m_r}2.
+\tag{1}
+\]
+Every term on the right belongs to $A_{n-1}$.
+
+We must have $a-\ell\ge0$. Otherwise $\ell\ge a+1$, and the original equality would imply
+\[
+a2^n+b\ge(a+1)(2^n-1),
+\]
+so
+\[
+a+b+1\ge2^n,
+\]
+contrary to $a+b+1\le n<2^n$.
+
+The second coefficient in (1) is a positive integer. By the induction hypothesis, its representability forces
+\[
+a-\ell+\frac{b+\ell}{2}\ge n-1.
+\tag{2}
+\]
+But $b+\ell$ is a positive even integer, so
+\[
+\frac{b+\ell}{2}\le b+\ell-1.
+\]
+Hence the left-hand side of (2) is at most
+\[
+a-\ell+b+\ell-1=a+b-1<n-1,
+\]
+a contradiction. The claim follows.
+
+Taking $a=n-2$ and $b=1$ proves that $(n-2)2^n+1$ is not representable, completing the solution.
+
+SOLUTION 3:
+Let $B_n$ be the set of all positive integers representable as sums of elements of $A_n$. For a nonnegative integer $t$, let $\sigma_2(t)$ denote the number of $1$'s in its binary expansion.
+
+Every positive integer has a unique form
+\[
+m=s2^n-t,
+\qquad s\ge1,\quad 0\le t\le2^n-1.
+\]
+We prove the characterization
+\[
+\boxed{m\in B_n\iff s\ge\sigma_2(t)}.
+\tag{1}
+\]
+
+If $t=0$, then
+\[
+m=s2^n=2s(2^n-2^{n-1}),
+\]
+so $m\in B_n$. Now let $t>0$ and write its binary expansion as
+\[
+t=2^{k_1}+\cdots+2^{k_q},
+\qquad 0\le k_1<\cdots<k_q<n,
+\qquad q=\sigma_2(t).
+\]
+If $s\ge q$, then
+\[
+\begin{aligned}
+m
+&=(s-q)2^n+(q2^n-t)\\
+&=2(s-q)(2^n-2^{n-1})+
+  \sum_{i=1}^q(2^n-2^{k_i}),
+\end{aligned}
+\]
+so $m\in B_n$.
+
+For the converse, suppose that (1) fails, and choose the smallest representable number
+\[
+m=s2^n-t
+\]
+with $s<\sigma_2(t)$. Write
+\[
+m=\sum_{i=1}^d(2^n-2^{\ell_i}),
+\qquad 0\le\ell_i<n.
+\tag{2}
+\]
+If all $\ell_i$ are distinct, then their powers of $2$ sum to an integer between $0$ and $2^n-1$. Comparing (2) with the unique form $s2^n-t$ modulo $2^n$ and within this range yields
+\[
+t=\sum_{i=1}^d2^{\ell_i},
+\qquad s=d.
+\]
+Thus $s=\sigma_2(t)$, a contradiction.
+
+Hence two exponents in (2) are equal. Combining the two corresponding summands replaces
+\[
+2(2^n-2^\ell)
+\]
+by $2^n-2^{\ell+1}$ and decreases the represented number by $2^n$; when $\ell=n-1$, the two summands are simply deleted. Therefore
+\[
+m-2^n=(s-1)2^n-t
+\]
+is also representable. The repeated pair has total at least $2^n$, so $s\ge2$ and this number is positive. Since $s-1<\sigma_2(t)$, this contradicts the minimal choice of $m$. Thus (1) is proved.
+
+For a fixed $t\ge1$, every nonrepresentable positive integer congruent to $-t$ modulo $2^n$ is at most
+\[
+(\sigma_2(t)-1)2^n-t.
+\]
+Thus the global maximum is obtained by maximizing this expression. At $t=2^n-1$, where $\sigma_2(t)=n$, it equals
+\[
+(n-1)2^n-(2^n-1)=(n-2)2^n+1.
+\]
+For every other $t$, one has $\sigma_2(t)\le n-1$, so the corresponding value is smaller. Hence the required largest integer is
+\[
+\boxed{(n-2)2^n+1}.
+\]

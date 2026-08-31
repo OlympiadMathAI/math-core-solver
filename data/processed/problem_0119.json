@@ -1,0 +1,16 @@
+{
+  "id": "0119",
+  "source": "IMO Shortlist",
+  "year": "2014",
+  "topic": "Algebra",
+  "subtopics": [
+    "Functional Equations",
+    "Integer-Valued Functions",
+    "Translation Equations",
+    "Linearization"
+  ],
+  "statement": "Determine all functions $f:\\mathbb Z\\to\\mathbb Z$ satisfying\n\\[\nf(f(m)+n)+f(m)=f(n)+f(3m)+2014\n\\tag{1}\n\\]\nfor all integers $m,n$.",
+  "solutions": [
+    "The only solution is\n\\[\n\\boxed{f(n)=2n+1007}.\n\\]\n\nSet\n\\[\nC=1007\n\\]\nand define\n\\[\ng(m)=f(3m)-f(m)+2C.\n\\]\nThen (1) becomes\n\\[\nf(f(m)+n)=g(m)+f(n)\n\\tag{2}\n\\]\nfor all integers $m,n$. Repeatedly applying (2), forward and backward, gives\n\\[\nf(tf(m)+n)=tg(m)+f(n)\n\\tag{3}\n\\]\nfor all $m,n,t\\in\\mathbb Z$.\n\nApply (3) first with\n\\[\n(m,n,t)=(r,0,f(0))\n\\]\nand then with\n\\[\n(m,n,t)=(0,0,f(r)).\n\\]\nBoth left-hand sides are $f(f(r)f(0))$, so\n\\[\nf(0)g(r)=f(r)g(0).\n\\tag{4}\n\\]\nSince\n\\[\ng(0)=2C\\ne0,\n\\]\nwe cannot have $f(0)=0$: otherwise (4) would imply $f(r)=0$ for every $r$, contradicting (1). Thus\n\\[\ng(r)=\\alpha f(r)\n\\tag{5}\n\\]\nfor all $r$, where\n\\[\n\\alpha=\\frac{g(0)}{f(0)}\\ne0.\n\\]\n\nFrom the definition of $g$ and (5),\n\\[\nf(3m)=(1+\\alpha)f(m)-2C.\n\\]\nPut\n\\[\n\\beta=\\frac{2C}{\\alpha}.\n\\]\nThen\n\\[\nf(3m)-\\beta=(1+\\alpha)\\bigl(f(m)-\\beta\\bigr),\n\\]\nand therefore\n\\[\nf(3^km)-\\beta=(1+\\alpha)^k\\bigl(f(m)-\\beta\\bigr)\n\\tag{6}\n\\]\nfor every $k\\ge0$.\n\nThere is a value $d=f(a)$ not divisible by $3$. Indeed, if every value of $f$ were divisible by $3$, then the two sides of (1) would be incongruent modulo $3$, because $2014\\equiv1\\pmod3$.\n\nUsing (3), (5), and $d=f(a)$, we obtain\n\\[\nf(n+td)=f(n)+\\alpha td\n\\tag{7}\n\\]\nfor all integers $n,t$.\n\nChoose a positive integer $k$ such that\n\\[\nd\\mid 3^k-1.\n\\]\nThis is possible because $\\gcd(3,d)=1$; when $|d|=1$, take $k=1$, and otherwise one may use Euler's theorem modulo $|d|$. For each $m\\in\\mathbb Z$, equation (7) gives\n\\[\nf(3^km)=f(m)+\\alpha(3^k-1)m.\n\\tag{8}\n\\]\nComparing (6) and (8), we get\n\\[\n\\bigl((1+\\alpha)^k-1\\bigr)\\bigl(f(m)-\\beta\\bigr)\n=\\alpha(3^k-1)m.\n\\tag{9}\n\\]\nThe factor $(1+\\alpha)^k-1$ is nonzero, because the right-hand side of (9) is nonzero for any $m\\ne0$. Hence\n\\[\nf(m)=Am+\\beta\n\\]\nfor all $m$, where\n\\[\nA=\\frac{\\alpha(3^k-1)}{(1+\\alpha)^k-1}.\n\\]\n\nSubstituting $f(m)=Am+\\beta$ into (1) and comparing coefficients gives\n\\[\nA^2=2A,\n\\qquad\nA\\beta=2C.\n\\]\nSince $C\\ne0$, we must have\n\\[\nA=2,\n\\qquad\n\\beta=C=1007.\n\\]\nTherefore\n\\[\nf(n)=2n+1007.\n\\]\n\nA direct substitution verifies that this function satisfies (1)."
+  ]
+}

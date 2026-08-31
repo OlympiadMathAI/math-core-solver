@@ -1,0 +1,16 @@
+{
+  "id": "0111",
+  "source": "IMO Shortlist",
+  "year": "2013",
+  "topic": "Number Theory",
+  "subtopics": [
+    "Largest Prime Divisors",
+    "Polynomial Factorization",
+    "Coprimality",
+    "Infinite Sequences"
+  ],
+  "statement": "Prove that there exist infinitely many positive integers $n$ such that the largest prime divisor of\n\\[\nn^4+n^2+1\n\\]\nis equal to the largest prime divisor of\n\\[\n(n+1)^4+(n+1)^2+1.\n\\]",
+  "solutions": [
+    "For $n\\ge1$, let $p_n$ be the largest prime divisor of $n^4+n^2+1$, and let $q_n$ be the largest prime divisor of $n^2+n+1$. Since\n\\[\nn^4+n^2+1=(n^2)^2+n^2+1,\n\\]\nwe have\n\\[\np_n=q_{n^2}.\n\\tag{1}\n\\]\nAlso,\n\\[\n\\begin{aligned}\nn^4+n^2+1\n&=(n^2-n+1)(n^2+n+1)\\\\\n&=\\bigl((n-1)^2+(n-1)+1\\bigr)(n^2+n+1).\n\\end{aligned}\n\\]\nFor $n\\ge2$, the two factors are coprime. Indeed,\n\\[\n\\begin{aligned}\n\\gcd(n^2+n+1,n^2-n+1)\n&=\\gcd(2n,n^2-n+1)\\\\\n&=\\gcd(n,n^2-n+1)\\\\\n&=1,\n\\end{aligned}\n\\]\nwhere we used that $n^2-n+1$ is odd. Therefore\n\\[\np_n=\\max\\{q_{n-1},q_n\\}\n\\qquad(n\\ge2),\n\\tag{2}\n\\]\nand in particular\n\\[\nq_n\\ne q_{n-1}\n\\qquad(n\\ge2).\n\\tag{3}\n\\]\n\nConsider the set\n\\[\nS=\\{n\\ge2:q_n>q_{n-1}\\text{ and }q_n>q_{n+1}\\}.\n\\]\nFor every $n\\in S$, equation (2) gives\n\\[\np_n=q_n=p_{n+1}.\n\\]\nThus every $n\\in S$ has the required property. It remains to prove that $S$ is infinite.\n\nWe have\n\\[\nq_2=7,\n\\qquad q_3=13,\n\\qquad q_4=7,\n\\]\nso $3\\in S$. Suppose, for contradiction, that $S$ is finite, and let $m$ be its largest element.\n\nThe sequence $q_m,q_{m+1},q_{m+2},\\ldots$ cannot be strictly decreasing forever, since it consists of positive integers and adjacent terms are unequal by (3). Hence there exists $k\\ge m$ such that\n\\[\nq_k<q_{k+1}.\n\\]\nNor can the sequence be strictly increasing from that point onward. Indeed, if\n\\[\nq_k<q_{k+1}<q_{k+2}<\\cdots,\n\\]\nthen, because $(k+1)^2>k+1$, we would have\n\\[\nq_{(k+1)^2}>q_{k+1}.\n\\]\nOn the other hand, by (1) and (2),\n\\[\nq_{(k+1)^2}=p_{k+1}\n=\\max\\{q_k,q_{k+1}\\}\n=q_{k+1},\n\\]\na contradiction.\n\nTherefore there is a first integer $\\ell\\ge k+1$ such that\n\\[\nq_\\ell>q_{\\ell+1}.\n\\]\nBy the minimality of $\\ell$,\n\\[\nq_{\\ell-1}<q_\\ell,\n\\]\nso $\\ell\\in S$. But $\\ell>m$, contradicting the maximality of $m$.\n\nHence $S$ is infinite, and so there are infinitely many required integers $n$."
+  ]
+}

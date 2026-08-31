@@ -1,0 +1,135 @@
+ID: 0131
+
+SOURCE: IMO Shortlist
+
+YEAR: 2014
+
+TOPIC: Geometry
+
+SUBTOPICS: Similar Triangles, Cyclic Quadrilaterals, Reflections, Pascal's Theorem
+
+STATEMENT:
+The points $P$ and $Q$ are chosen on the side $BC$ of an acute-angled triangle $ABC$ so that
+\[
+\angle PAB=\angle ACB
+\qquad\text{and}\qquad
+\angle QAC=\angle CBA.
+\]
+The points $M$ and $N$ are taken on the rays $AP$ and $AQ$, respectively, so that
+\[
+AP=PM
+\qquad\text{and}\qquad
+AQ=QN.
+\]
+Prove that the lines $BM$ and $CN$ intersect on the circumcircle of triangle $ABC$.
+
+SOLUTION 1:
+Let
+\[
+S=BM\cap CN,
+\qquad
+\beta=\angle QAC=\angle CBA,
+\qquad
+\gamma=\angle PAB=\angle ACB.
+\]
+The triangles $ABP$ and $CAQ$ are similar: indeed,
+\[
+\angle BAP=\gamma=\angle ACQ
+\quad\text{and}\quad
+\angle ABP=\beta=\angle CAQ.
+\]
+Consequently,
+\[
+\frac{BP}{PA}=\frac{AQ}{QC}.
+\]
+Using $PA=PM$ and $AQ=QN$, we obtain
+\[
+\frac{BP}{PM}=\frac{NQ}{QC}.
+\tag{1}
+\]
+Since $M$ lies beyond $P$ on the ray $AP$, while $N$ lies beyond $Q$ on the ray $AQ$,
+\[
+\angle BPM=\beta+\gamma=\angle CQN.
+\]
+Together with (1), this proves
+\[
+\triangle BPM\sim\triangle NQC.
+\]
+Hence
+\[
+\angle BMP=\angle NCQ.
+\tag{2}
+\]
+
+Now $B,P,C$ are collinear, $B,M,S$ are collinear, and $C,N,S$ are collinear. Thus
+\[
+\angle PBM=\angle CBS,
+\]
+and (2) gives
+\[
+\angle BMP=\angle BCS.
+\]
+Therefore
+\[
+\triangle BPM\sim\triangle BSC.
+\]
+It follows that
+\[
+\angle BSC=\angle BPM=\beta+\gamma.
+\]
+But
+\[
+\beta+\gamma=180^\circ-\angle BAC.
+\]
+Thus
+\[
+\angle BSC+\angle BAC=180^\circ,
+\]
+so the points $A,B,C,S$ are concyclic. Since $S=BM\cap CN$, the desired result follows.
+
+SOLUTION 2:
+Let
+\[
+S=BM\cap CN.
+\]
+Let the circumcircle of $ABC$ meet $AP$ again at $K\ne A$ and meet $AQ$ again at $L\ne A$.
+
+Because $A,B,C,L$ are concyclic and $A,Q,L$ are collinear,
+\[
+\angle LBC=\angle LAC=\angle QAC=\angle CBA.
+\]
+Thus $BL$ is the reflection of $BA$ across $BC$. Similarly,
+\[
+\angle KCB=\angle KAB=\angle PAB=\angle ACB,
+\]
+so $CK$ is the reflection of $CA$ across $BC$. Hence, if
+\[
+X=BL\cap CK,
+\]
+then $X$ is the reflection of $A$ across the line $BC$.
+
+We next show that $M,N,X$ are collinear. Choose coordinates in which $BC$ is the $x$-axis and write
+\[
+A=(a,h),\qquad P=(p,0),\qquad Q=(q,0).
+\]
+Since $P$ and $Q$ are the midpoints of $AM$ and $AN$, respectively,
+\[
+M=(2p-a,-h),
+\qquad
+N=(2q-a,-h).
+\]
+The reflection of $A$ across $BC$ is $X=(a,-h)$, so $M,N,X$ indeed lie on one line.
+
+Consider the hexagon
+\[
+A,L,B,S,C,K.
+\]
+The intersections of its three pairs of opposite sides are
+\[
+AL\cap SC=N,
+\qquad
+LB\cap CK=X,
+\qquad
+BS\cap KA=M.
+\]
+These three points are collinear. By the converse of Pascal's theorem, the six vertices of the hexagon lie on one conic. Five of them, namely $A,L,B,C,K$, already lie on the circumcircle of $ABC$. Hence the conic is that circle, and therefore $S$ lies on the circumcircle of $ABC$.

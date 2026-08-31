@@ -1,0 +1,17 @@
+{
+  "id": "0125",
+  "source": "IMO Shortlist",
+  "year": "2014",
+  "topic": "Combinatorics",
+  "subtopics": [
+    "Tilings",
+    "Coloring Invariants",
+    "Parity",
+    "Modular Weights"
+  ],
+  "statement": "An $S$-tetromino consists, up to translation and rotation, of the four unit squares\n\\[\n(0,0),(1,0),(1,1),(2,1),\n\\]\nwhere a pair denotes the lower-left corner of a square. A $Z$-tetromino is the mirror image, consisting, up to translation and rotation, of\n\\[\n(1,0),(2,0),(0,1),(1,1).\n\\]\n\nAssume that a lattice polygon $P$ can be tiled entirely by $S$-tetrominoes. Prove that every tiling of $P$ using only $S$- and $Z$-tetrominoes contains an even number of $Z$-tetrominoes.",
+  "solutions": [
+    "Color the unit squares of the infinite grid periodically with period $4$ in both coordinate directions. If a square has lower-left corner $(i,j)$, color it black when the entry in row $i\\pmod4$ and column $j\\pmod4$ of the following matrix is $1$:\n\\[\n\\begin{pmatrix}\n1&1&1&0\\\\\n1&1&0&1\\\\\n0&1&0&0\\\\\n1&0&0&0\n\\end{pmatrix}.\n\\tag{1}\n\\]\nThe entries $0$ correspond to white squares.\n\nA direct check, using the four possible orientations modulo translations, gives:\n\n\\begin{itemize}\n\\item every $S$-tetromino covers an even number of black squares;\n\\item every $Z$-tetromino covers an odd number of black squares.\n\\end{itemize}\n\nSince $P$ has a tiling using only $S$-tetrominoes, the total number of black squares in $P$ is even. In any other tiling, the parity of the number of covered black squares is therefore the parity of the number of $Z$-tetrominoes. That parity must be even, so the number of $Z$-tetrominoes is even.",
+    "Translate the polygon so that every unit square in it has nonnegative integer coordinates. Assign to the square with lower-left corner $(i,j)$ the integer weight\n\\[\nw(i,j)=3^i(-3)^j.\n\\]\n\nThere are two rotational orientations of an $S$-tetromino. Factoring out $3^i(-3)^j$ from the sum of its four weights, the two possible sums are\n\\[\n1+3+3(-3)+3^2(-3)=-32\n\\]\nand\n\\[\n3+3(-3)+(-3)+(-3)^2=0.\n\\]\nThus the total weight of every $S$-tetromino is divisible by $32$.\n\nFor the two rotational orientations of a $Z$-tetromino, the corresponding sums are\n\\[\n3+3^2+(-3)+3(-3)=0\n\\]\nand\n\\[\n1+(-3)+3(-3)+3(-3)^2=16.\n\\]\nThe second value is actually $16$ times the odd integer $3^i(-3)^j$ after translation.\n\nBecause $P$ can be tiled by $S$-tetrominoes, the total weight of all its squares is divisible by $32$. In an arbitrary tiling by $S$- and $Z$-tetrominoes, only one of the two rotational orientations of the $Z$-tetromino contributes a number congruent to $16$ modulo $32$; all other tiles contribute $0$ modulo $32$. Hence the number of $Z$-tetrominoes of that orientation is even.\n\nRotate the whole coordinate system by $90^\\circ$ and repeat the argument. The two orientations interchange, so the number of $Z$-tetrominoes of the other orientation is also even. Therefore the total number of $Z$-tetrominoes is even."
+  ]
+}

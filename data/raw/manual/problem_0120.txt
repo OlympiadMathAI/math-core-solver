@@ -1,0 +1,222 @@
+ID: 0120
+
+SOURCE: IMO Shortlist
+
+YEAR: 2014
+
+TOPIC: Algebra
+
+SUBTOPICS: Polynomials, Symmetry, Functional Equivalences, Asymptotic Growth, Inequalities
+
+STATEMENT:
+Consider all polynomials $P(x)$ with real coefficients having the following property: for every pair of real numbers $x,y$,
+\[
+|y^2-P(x)|\le2|x|
+\quad\Longleftrightarrow\quad
+|x^2-P(y)|\le2|y|.
+\tag{1}
+\]
+Determine all possible values of $P(0)$.
+
+SOLUTION 1:
+The set of possible values is
+\[
+\boxed{(-\infty,0)\cup\{1\}}.
+\]
+
+We first construct polynomials giving all these values.
+
+Let $C>0$ and define
+\[
+P_C(x)=-\left(\frac{2x^2}{C}+C\right).
+\]
+Then $P_C(0)=-C$. For all real $x,y$,
+\[
+\begin{aligned}
+|y^2-P_C(x)|
+&=y^2+\frac{2x^2}{C}+C\\
+&=y^2+\frac{x^2}{C}+\frac{(|x|-C)^2}{C}+2|x|\\
+&\ge\frac{x^2}{C}+2|x|
+\ge2|x|.
+\end{aligned}
+\]
+Equality in the first estimate would require $y=0$ and $|x|=C$, while equality in the second would require $x=0$; these conditions are incompatible because $C>0$. Thus
+\[
+|y^2-P_C(x)|>2|x|
+\]
+for every $x,y$. By symmetry, the other inequality in (1) is also always false, so the equivalence holds.
+
+The value $1$ is obtained from
+\[
+P(x)=x^2+1.
+\]
+Indeed,
+\[
+\begin{aligned}
+|y^2-P(x)|\le2|x|
+&\Longleftrightarrow (y^2-x^2-1)^2\le4x^2\\
+&\Longleftrightarrow
+\bigl(y^2-(x-1)^2\bigr)\bigl((x+1)^2-y^2\bigr)\ge0\\
+&\Longleftrightarrow
+\bigl((x+y)^2-1\bigr)\bigl(1-(x-y)^2\bigr)\ge0.
+\end{aligned}
+\]
+The final condition is symmetric in $x$ and $y$, proving (1).
+
+It remains to show that no nonnegative value other than $1$ is possible. Assume that $P$ satisfies (1) and
+\[
+P(0)\ge0.
+\]
+
+\textbf{Step 1: $P$ is even.}
+For fixed $x$, condition (1), applied twice, gives
+\[
+|y^2-P(x)|\le2|x|
+\quad\Longleftrightarrow\quad
+|y^2-P(-x)|\le2|x|
+\]
+for every $y$. Hence
+\[
+[P(x)-2|x|,P(x)+2|x|]\cap[0,\infty)
+=
+[P(-x)-2|x|,P(-x)+2|x|]\cap[0,\infty).
+\tag{2}
+\]
+
+There are infinitely many $x$ for which
+\[
+P(x)+2|x|\ge0.
+\]
+Indeed, let $c$ be the coefficient of $x$ in $P$, and choose $\varepsilon\in\{-1,1\}$ so that $\varepsilon c\ge0$. For all sufficiently small $t>0$,
+\[
+P(\varepsilon t)+2t\ge0,
+\]
+because $P(0)\ge0$ and, when $P(0)=0$, the linear term of the left-hand side has coefficient $\varepsilon c+2>0$. Hence the required inequality holds for infinitely many values $x=\varepsilon t$.
+
+For every such $x$, the intervals in (2) are nonempty and have equal right endpoints. Therefore
+\[
+P(x)=P(-x).
+\]
+This holds for infinitely many $x$, so the polynomial $P(x)-P(-x)$ is identically zero. Thus $P$ is even.
+
+\textbf{Step 2: $P(t)>0$ for every real $t$.}
+Suppose first that $P(t)=0$ for some $t\ne0$. By continuity, there is an open interval $I$ around $t$ such that
+\[
+|P(y)|\le2|y|
+\]
+for all $y\in I$. Putting $x=0$ in (1), the right-hand inequality is then true, so the left-hand inequality gives
+\[
+y^2=P(0)
+\]
+for every $y\in I$, which is impossible. Hence
+\[
+P(t)\ne0
+\]
+for every $t\ne0$.
+
+If $P(0)=0$, then, since $P$ is even, we may write
+\[
+P(x)=x^2Q(x)
+\]
+for some polynomial $Q$. For every $y\ne0$, the left-hand condition in (1) with $x=0$ is false. Therefore the right-hand condition must also be false:
+\[
+|P(y)|>2|y|.
+\]
+This gives
+\[
+|yQ(y)|>2
+\]
+for every $y\ne0$, which is impossible for sufficiently small $y$. Thus $P(0)>0$. Since $P$ has no real zero, continuity now gives
+\[
+P(t)>0
+\]
+for all $t\in\mathbb R$.
+
+\textbf{Step 3: $P$ has degree $2$.}
+The polynomial $P$ is not constant. Otherwise, taking $x=\sqrt{P(0)}$ and then taking $|y|$ large would make the first condition in (1) false and the second one true.
+
+Because $P$ is even and everywhere positive, its degree $n$ is even, at least $2$, and its leading coefficient is positive. Suppose $n\ge4$. Put
+\[
+y=\sqrt{P(x)}.
+\]
+The first condition in (1) is true, so
+\[
+\left|x^2-P\!\left(\sqrt{P(x)}\right)\right|
+\le2\sqrt{P(x)},
+\]
+and hence
+\[
+P\!\left(\sqrt{P(x)}\right)
+\le x^2+2\sqrt{P(x)}.
+\tag{3}
+\]
+
+Choose constants $a,b>0$ and $x_0>0$ such that
+\[
+ax^n<P(x)<bx^n
+\]
+for all $x>x_0$. For sufficiently large $x$, also $\sqrt{P(x)}>x_0$, and therefore
+\[
+P\!\left(\sqrt{P(x)}\right)
+>aP(x)^{n/2}
+>a^{n/2+1}x^{n^2/2}.
+\]
+On the other hand, (3) gives
+\[
+P\!\left(\sqrt{P(x)}\right)
+<x^2+2\sqrt b\,x^{n/2}
+\le(1+2\sqrt b)x^{n/2}
+\]
+for large $x$, since $n/2\ge2$. Thus
+\[
+a^{n/2+1}x^{(n^2-n)/2}<1+2\sqrt b
+\]
+for arbitrarily large $x$, a contradiction. Hence $\deg P=2$.
+
+\textbf{Step 4: $P(x)=x^2+1$.}
+Write
+\[
+P(x)=Ax^2+B,
+\qquad A>0.
+\]
+For sufficiently large positive $x$, choose
+\[
+y=\sqrt A\,x.
+\]
+Then
+\[
+|y^2-P(x)|=|B|\le2x,
+\]
+so the other inequality in (1) gives
+\[
+|(1-A^2)x^2-B|\le2\sqrt A\,x.
+\]
+Dividing by $x^2$ and letting $x\to\infty$ yields $A^2=1$. Since $A>0$,
+\[
+A=1.
+\]
+
+Now put $y=x+1$ with $x>0$. Condition (1) becomes
+\[
+|2x+1-B|\le2x
+\quad\Longleftrightarrow\quad
+|2x+1+B|\le2x+2.
+\]
+Equivalently,
+\[
+B\in[1,4x+1]
+\quad\Longleftrightarrow\quad
+B\in[-4x-3,1].
+\]
+For sufficiently large $x$, at least one of these two inclusions holds; by equivalence both must hold. Their intersection is $\{1\}$, so
+\[
+B=1.
+\]
+Therefore the only polynomial satisfying (1) with $P(0)\ge0$ is
+\[
+P(x)=x^2+1,
+\]
+and the complete set of possible values of $P(0)$ is
+\[
+(-\infty,0)\cup\{1\}.
+\]

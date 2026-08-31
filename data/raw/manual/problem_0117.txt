@@ -1,0 +1,108 @@
+ID: 0117
+
+SOURCE: IMO Shortlist
+
+YEAR: 2014
+
+TOPIC: Algebra
+
+SUBTOPICS: Iterated Functions, Dynamical Systems, Growth Arguments
+
+STATEMENT:
+Define the function $f:(0,1)\to(0,1)$ by
+\[
+f(x)=
+\begin{cases}
+x+\dfrac12,&x<\dfrac12,\\[2mm]
+x^2,&x\ge\dfrac12.
+\end{cases}
+\]
+Let $0<a<b<1$, and define
+\[
+a_0=a,\qquad b_0=b,
+\]
+and
+\[
+a_n=f(a_{n-1}),\qquad b_n=f(b_{n-1})
+\]
+for every $n\ge1$. Prove that there exists a positive integer $n$ such that
+\[
+(a_n-a_{n-1})(b_n-b_{n-1})<0.
+\]
+
+SOLUTION 1:
+Put
+\[
+I_1=\left(0,\frac12\right),
+\qquad
+I_2=\left[\frac12,1\right).
+\]
+For $x\in I_1$,
+\[
+f(x)-x=\frac12>0,
+\]
+whereas for $x\in I_2$,
+\[
+f(x)-x=x^2-x<0.
+\]
+Therefore
+\[
+(a_n-a_{n-1})(b_n-b_{n-1})<0
+\]
+exactly when $a_{n-1}$ and $b_{n-1}$ belong to different intervals among $I_1,I_2$.
+
+Assume for contradiction that $a_k$ and $b_k$ always belong to the same one of these two intervals. Set
+\[
+d_k=|a_k-b_k|.
+\]
+Since $a_0\ne b_0$, we have $d_0>0$.
+
+If $a_k,b_k\in I_1$, then
+\[
+d_{k+1}
+=\left|a_k+\frac12-b_k-\frac12\right|
+=d_k.
+\tag{1}
+\]
+If $a_k,b_k\in I_2$, then
+\[
+\begin{aligned}
+d_{k+1}
+&=|a_k^2-b_k^2|\\
+&=|a_k-b_k|(a_k+b_k).
+\end{aligned}
+\]
+Writing the larger of $a_k,b_k$ as the smaller plus $d_k$, and using that the smaller is at least $1/2$, we get
+\[
+a_k+b_k\ge1+d_k.
+\]
+Hence
+\[
+d_{k+1}\ge d_k(1+d_k)\ge d_k.
+\tag{2}
+\]
+Thus $(d_k)$ is nondecreasing, so $d_k\ge d_0$ for all $k$.
+
+We now compare terms two steps apart. If $a_k,b_k\in I_2$, then by (2) and the monotonicity of $(d_k)$,
+\[
+d_{k+2}\ge d_{k+1}\ge d_k(1+d_k)\ge d_k(1+d_0).
+\]
+If $a_k,b_k\in I_1$, then (1) gives $d_{k+1}=d_k$, and both $a_{k+1}$ and $b_{k+1}$ lie in $I_2$. Therefore,
+\[
+d_{k+2}\ge d_{k+1}(1+d_{k+1})
+=d_k(1+d_k)
+\ge d_k(1+d_0).
+\]
+In either case,
+\[
+d_{k+2}\ge d_k(1+d_0).
+\]
+Inductively,
+\[
+d_{2m}\ge d_0(1+d_0)^m.
+\]
+The right-hand side eventually exceeds $1$, while $a_{2m},b_{2m}\in(0,1)$ always give
+\[
+d_{2m}<1.
+\]
+This contradiction proves that at some stage $a_{n-1}$ and $b_{n-1}$ lie in different intervals. For that positive integer $n$, the required product is negative.

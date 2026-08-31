@@ -1,0 +1,17 @@
+{
+  "id": "0105",
+  "source": "IMO Shortlist",
+  "year": "2013",
+  "topic": "Geometry",
+  "subtopics": [
+    "Angle Bisectors",
+    "Rhombi",
+    "Distances to Lines",
+    "Trigonometric Inequalities",
+    "Affine Geometry"
+  ],
+  "statement": "In a triangle $ABC$, let $D$ and $E$ be the feet of the angle bisectors of angles $A$ and $B$, respectively. A rhombus is inscribed in the quadrilateral $AEDB$, with its four vertices lying on four different sides of $AEDB$. Let $\\varphi$ be the non-obtuse angle of the rhombus. Prove that\n\\[\n\\varphi\\le \\max\\{\\angle BAC,\\angle ABC\\}.\n\\]",
+  "solutions": [
+    "Let $K,L,M,N$ be the vertices of the rhombus lying on $AE,ED,DB,BA$, respectively. Put\n\\[\n\\alpha=\\angle BAC,\n\\qquad\n\\beta=\\angle ABC,\n\\qquad\n\\psi=\\angle NKL=\\varphi,\n\\]\nwhere $\\psi$ is chosen to be the non-obtuse angle of the rhombus. Let the common side length of the rhombus be\n\\[\na=KL=LM=MN=NK.\n\\]\n\nFor a point $X$ and a line $YZ$, write $d(X,YZ)$ for the distance from $X$ to $YZ$. Since $D$ lies on the bisector of $\\angle A$ and $E$ lies on the bisector of $\\angle B$,\n\\[\nd(D,AB)=d(D,AC),\n\\qquad\nd(E,AB)=d(E,BC).\n\\]\nAlso,\n\\[\nd(D,BC)=0,\n\\qquad\nd(E,AC)=0.\n\\]\nHence\n\\[\nd(D,AC)+d(D,BC)=d(D,AB)\n\\]\nand\n\\[\nd(E,AC)+d(E,BC)=d(E,AB).\n\\]\nInside triangle $ABC$, signed distance to a fixed side-line is an affine function of the point. Since $L$ lies on $DE$, the preceding two equalities imply\n\\[\nd(L,AC)+d(L,BC)=d(L,AB).\n\\tag{1}\n\\]\n\nDefine the angles $\\mu,\\nu,\\delta,\\varepsilon$ by\n\\[\n\\mu=\\angle CKL,\n\\qquad\n\\nu=\\angle CML,\n\\qquad\n\\delta=\\angle ANK,\n\\qquad\n\\varepsilon=\\angle MNB.\n\\]\nThen\n\\[\nd(L,AC)=a\\sin\\mu,\n\\qquad\nd(L,BC)=a\\sin\\nu.\n\\]\nBecause $KLMN$ is a parallelogram and $N\\in AB$, the affine-distance identity for its opposite vertices gives\n\\[\nd(L,AB)+d(N,AB)=d(K,AB)+d(M,AB).\n\\]\nSince $d(N,AB)=0$, this becomes\n\\[\nd(L,AB)=a(\\sin\\delta+\\sin\\varepsilon).\n\\]\nSubstituting in (1), we obtain\n\\[\n\\sin\\mu+\\sin\\nu=\\sin\\delta+\\sin\\varepsilon.\n\\tag{2}\n\\]\n\nIf either $\\alpha$ or $\\beta$ is non-acute, then\n\\[\n\\max\\{\\alpha,\\beta\\}\\ge90^\\circ\\ge\\psi,\n\\]\nand there is nothing to prove. Thus assume\n\\[\n\\alpha,\\beta<90^\\circ.\n\\]\nSuppose, for a contradiction, that\n\\[\n\\psi>\\max\\{\\alpha,\\beta\\}.\n\\tag{3}\n\\]\nAt $K$ we have\n\\[\n\\mu+\\psi=\\angle CKN=\\alpha+\\delta,\n\\]\nso (3) gives\n\\[\n\\mu<\\delta.\n\\tag{4}\n\\]\nSimilarly, at $M$,\n\\[\n\\nu+\\psi=\\beta+\\varepsilon,\n\\]\nand hence\n\\[\n\\nu<\\varepsilon.\n\\tag{5}\n\\]\n\nSince $KN\\parallel LM$,\n\\[\n\\beta=\\delta+\\nu,\n\\]\nso\n\\[\n0<\\delta<\\beta<90^\\circ.\n\\]\nLikewise, since $KL\\parallel MN$,\n\\[\n\\alpha=\\mu+\\varepsilon,\n\\]\nand therefore\n\\[\n0<\\varepsilon<\\alpha<90^\\circ.\n\\]\nThus (4) and (5), together with the strict increase of sine on $(0,90^\\circ)$, give\n\\[\n\\sin\\mu<\\sin\\delta\n\\qquad\\text{and}\\qquad\n\\sin\\nu<\\sin\\varepsilon.\n\\]\nAdding these inequalities contradicts (2). Hence (3) is impossible, and\n\\[\n\\varphi=\\psi\\le\\max\\{\\angle BAC,\\angle ABC\\}.\n\\]"
+  ]
+}

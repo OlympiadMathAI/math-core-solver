@@ -1,0 +1,71 @@
+ID: 0128
+
+SOURCE: IMO Shortlist
+
+YEAR: 2014
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Potential Functions, Geometric Graphs, Crossing Elimination, Double Counting
+
+STATEMENT:
+Let $M$ be a set of $n\ge4$ points in the plane, no three collinear. Initially, $n$ segments join pairs of points of $M$ so that every point is an endpoint of exactly two segments. At one move, two present segments $AB$ and $CD$ that meet at a common interior point may be replaced by $AC$ and $BD$, provided neither replacement segment is already present. Prove that fewer than
+\[
+\frac{n^3}{4}
+\]
+moves can be performed.
+
+SOLUTION 1:
+Call a line red if it passes through two points of $M$. Since no three points are collinear, there are exactly
+\[
+\binom n2<\frac{n^2}{2}
+\]
+red lines.
+
+Define the value of a segment to be the number of red lines that cross it at an interior point (the supporting line of the segment is not counted), and define the value of a set of segments to be the sum of their values. Every segment has value less than $n^2/2$. Therefore the initial set of $n$ segments has total value less than
+\[
+\frac{n^3}{2}.
+\tag{1}
+\]
+
+We show that every move decreases the total value by at least $2$. Suppose crossing segments $AB$ and $CD$ are replaced by $AC$ and $BD$. For a segment $PQ$, let $X_{PQ}$ be the set of red lines crossing $PQ$ at an interior point.
+
+First,
+\[
+|X_{AC}\cup X_{BD}|+2
+\le
+|X_{AB}\cup X_{CD}|.
+\tag{2}
+\]
+Indeed, a red line crossing the interior of $AC$ must leave the triangle $ACS$ through the interior of $AS$ or $CS$, or through the crossing point $S=AB\cap CD$. Hence it belongs to $X_{AB}\cup X_{CD}$; the same argument applies to a line crossing $BD$. Moreover, the two red lines $AB$ and $CD$ belong to $X_{AB}\cup X_{CD}$, because each crosses the other old segment, but neither belongs to $X_{AC}\cup X_{BD}$. This proves (2).
+
+Second,
+\[
+|X_{AC}\cap X_{BD}|
+\le
+|X_{AB}\cap X_{CD}|.
+\tag{3}
+\]
+A line crossing the interiors of both $AC$ and $BD$ also crosses the interiors of both old segments $AB$ and $CD$. If it passes through $S$, this is immediate. Otherwise, $A$ and $C$ lie in opposite open half-planes bounded by the line, as do $B$ and $D$. If $A,B$ lay in one half-plane and $C,D$ in the other, the segments $AB$ and $CD$ could not intersect; hence $A,B$ are on opposite sides and so are $C,D$. Thus the line crosses both $AB$ and $CD$.
+
+Using
+\[
+|X|+|Y|=|X\cup Y|+|X\cap Y|,
+\]
+and adding (2) and (3), we obtain
+\[
+|X_{AC}|+|X_{BD}|+2
+\le
+|X_{AB}|+|X_{CD}|.
+\]
+Thus every move decreases the total value by at least $2$.
+
+The value is always nonnegative. If $t$ moves were performed, (1) would give
+\[
+2t<\frac{n^3}{2},
+\]
+so
+\[
+t<\frac{n^3}{4}.
+\]
+This is the desired result.

@@ -1,0 +1,15 @@
+{
+  "id": "0090",
+  "source": "IMO Shortlist",
+  "year": "2013",
+  "topic": "Algebra",
+  "subtopics": [
+    "Pigeonhole Principle",
+    "Extremal Argument",
+    "Ratios of Differences"
+  ],
+  "statement": "Prove that in any set of $2000$ distinct real numbers there exist two pairs $a>b$ and $c>d$, with $a\\ne c$ or $b\\ne d$, such that\n\\[\n\\left|\\frac{a-b}{c-d}-1\\right|<\\frac1{100000}.\n\\]",
+  "solutions": [
+    "Let $S$ be a set of $n=2000$ distinct real numbers, and list all positive distances between two elements of $S$, with multiplicity, as\n\\[\nD_1\\le D_2\\le\\cdots\\le D_M,\n\\qquad\nM=\\binom n2.\n\\]\nMultiplying every element of $S$ by the same positive constant does not change any ratio of distances, so we may assume that\n\\[\nD_1=1.\n\\]\nChoose $x<y$ in $S$ with $y-x=1$. Also let $u$ and $v$ be the smallest and largest elements of $S$, respectively, so\n\\[\nD_M=v-u.\n\\]\n\nSuppose first that, for some $i<M$,\n\\[\n\\frac{D_{i+1}}{D_i}<1+10^{-5}.\n\\]\nChoose two actual pairs of elements of $S$ realizing the two displayed occurrences $D_i$ and $D_{i+1}$, and orient each pair from the larger element to the smaller one. The occurrences are distinct even if their numerical distances are equal, so the resulting ordered pairs are not identical. Taking $a-b=D_{i+1}$ and $c-d=D_i$, we obtain\n\\[\n0\\le \\frac{a-b}{c-d}-1\n=\\frac{D_{i+1}}{D_i}-1\n<10^{-5},\n\\]\nas required.\n\nIt remains to consider the case\n\\[\n\\frac{D_{i+1}}{D_i}\\ge1+10^{-5}\n\\qquad (i=1,\\ldots,M-1).\n\\]\nThen\n\\[\nD_M\\ge(1+10^{-5})^{M-1}.\n\\]\nNow\n\\[\nM-1=\\binom{2000}{2}-1=1{,}998{,}999>19\\cdot10^5,\n\\]\nand the binomial theorem gives\n\\[\n(1+10^{-5})^{10^5}\\ge1+10^5\\cdot10^{-5}=2.\n\\]\nConsequently,\n\\[\nD_M>(1+10^{-5})^{19\\cdot10^5}\n=\\left((1+10^{-5})^{10^5}\\right)^{19}\n\\ge2^{19}>2\\cdot10^5.\n\\tag{1}\n\\]\nAt least one of the two distances $x-u$ and $v-x$ is at least\n\\[\n\\frac{v-u}{2}>10^5.\n\\]\nChoose $z\\in\\{u,v\\}$ such that\n\\[\n|z-x|>10^5.\n\\]\n\nIf $z=v$, then $z>y>x$. Set\n\\[\n(a,b)=(z,y),\n\\qquad\n(c,d)=(z,x).\n\\]\nThe two pairs are distinct because $b\\ne d$, and\n\\[\n\\left|\\frac{a-b}{c-d}-1\\right|\n=\n\\left|\\frac{z-y}{z-x}-1\\right|\n=\\frac{y-x}{z-x}\n=\\frac1{z-x}<10^{-5}.\n\\]\n\nIf $z=u$, then $y>x>z$. Set\n\\[\n(a,b)=(y,z),\n\\qquad\n(c,d)=(x,z).\n\\]\nHere $a\\ne c$, and\n\\[\n\\left|\\frac{a-b}{c-d}-1\\right|\n=\n\\left|\\frac{y-z}{x-z}-1\\right|\n=\\frac{y-x}{x-z}\n=\\frac1{x-z}<10^{-5}.\n\\]\nThus the required pairs always exist."
+  ]
+}

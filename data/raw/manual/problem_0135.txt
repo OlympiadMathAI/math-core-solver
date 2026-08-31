@@ -1,0 +1,125 @@
+ID: 0135
+
+SOURCE: IMO Shortlist
+
+YEAR: 2014
+
+TOPIC: Geometry
+
+SUBTOPICS: Circumcenters, Cyclic Quadrilaterals, Angle Bisectors, Apollonius Circles, Tangency
+
+STATEMENT:
+Let $ABCD$ be a convex quadrilateral with
+\[
+\angle ABC=\angle ADC=90^\circ.
+\]
+Let $H$ be the foot of the perpendicular from $A$ to $BD$. Points $S$ and $T$ are chosen on the sides $AB$ and $AD$, respectively, so that $H$ lies inside triangle $SCT$ and
+\[
+\angle SHC-\angle BSC=90^\circ,
+\qquad
+\angle THC-\angle DTC=90^\circ.
+\]
+Prove that the circumcircle of triangle $SHT$ is tangent to the line $BD$.
+
+SOLUTION 1:
+Draw through $C$ the line perpendicular to $SC$, and let it meet $AB$ at $Q$. Then
+\[
+\angle SQC=90^\circ-\angle BSC
+=180^\circ-\angle SHC.
+\]
+Hence $C,H,S,Q$ are concyclic. Since $CQ\perp CS$, the segment $SQ$ is a diameter of this circle. Therefore the circumcenter $K$ of triangle $SHC$ is the midpoint of $SQ$, and in particular
+\[
+K\in AB.
+\]
+Analogously, the circumcenter $L$ of triangle $CHT$ lies on $AD$.
+
+The perpendicular bisector of $HS$ passes through $K$. Since $KS=KH$ and $A,K,S$ are collinear, it is the appropriate angle bisector of $\angle AKH$. Likewise, the perpendicular bisector of $HT$ is the appropriate angle bisector of $\angle ALH$.
+
+Let these two angle bisectors meet the line $AH$ at $U_K$ and $U_L$, respectively. By the angle-bisector theorem in triangles $AKH$ and $ALH$,
+\[
+\frac{AU_K}{U_KH}=\frac{AK}{KH},
+\qquad
+\frac{AU_L}{U_LH}=\frac{AL}{LH}.
+\]
+Thus they meet at the same point of $AH$ if and only if
+\[
+\frac{AK}{KH}=\frac{AL}{LH}.
+\tag{1}
+\]
+Once (1) is known, the circumcenter of triangle $SHT$ lies on $AH$. Since $AH\perp BD$, the radius from that circumcenter to $H$ is perpendicular to $BD$, and the circumcircle of $SHT$ is tangent to $BD$ at $H$.
+
+It remains to prove (1). We give two proofs.
+
+\textbf{First proof of (1).}
+Let
+\[
+M=KL\cap HC.
+\]
+Since $KH=KC$ and $LH=LC$, both $K$ and $L$ lie on the perpendicular bisector of $HC$. Hence $H$ and $C$ are reflections of each other across $KL$, and $M$ is the midpoint of $HC$.
+
+Because $\angle B=\angle D=90^\circ$, the quadrilateral $ABCD$ is cyclic with diameter $AC$. Let $O$ be its circumcenter, so $O$ is the midpoint of $AC$. In triangle $AHC$, the segment joining the midpoints $O$ of $AC$ and $M$ of $HC$ is parallel to $AH$. Thus
+\[
+OM\parallel AH\perp BD.
+\]
+Also $OB=OD$, so $OM$ is the perpendicular bisector of $BD$. Therefore
+\[
+BM=DM.
+\tag{2}
+\]
+
+The points $B,C,M,K$ are cyclic: both
+\[
+\angle KBC=90^\circ
+\qquad\text{and}\qquad
+\angle KMC=90^\circ.
+\]
+Their circle has diameter $KC$. Similarly, $L,C,M,D$ are cyclic on the circle with diameter $LC$.
+
+Applying the sine rule in triangle $AKL$ and then using these two diameter circles,
+\[
+\begin{aligned}
+\frac{AK}{AL}
+&=\frac{\sin\angle ALK}{\sin\angle AKL}\\
+&=\frac{DM/CL}{BM/CK}\\
+&=\frac{CK}{CL},
+\end{aligned}
+\]
+where the last equality follows from (2). Since $CK=KH$ and $CL=LH$, we obtain
+\[
+\frac{AK}{AL}=\frac{KH}{LH},
+\]
+which is equivalent to (1).
+
+\textbf{Second proof of (1).}
+If $A,H,C$ are collinear, then the diameter $AC$ of the circumcircle of $ABCD$ is perpendicular to the chord $BD$, so it bisects $BD$. Hence the configuration formed by the two lines $AB,AD$ and the line $KL$, which is the perpendicular bisector of $HC$ and is parallel to $BD$, is symmetric about $AC$. It follows that
+\[
+AK=AL,
+\qquad
+KH=LH.
+\]
+Thus (1) holds. We may therefore assume that $A,H,C$ are not collinear, and let $\omega$ be the circumcircle of triangle $AHC$.
+
+Since $ABCD$ is cyclic,
+\[
+\angle BAC=\angle BDC.
+\]
+Using $DC\perp DA$ and $AH\perp DH$, this becomes
+\[
+\angle BAC=\angle HAD.
+\tag{3}
+\]
+Let $N\ne A$ be the point where the angle bisector of $\angle CAH$ meets $\omega$. By (3), the same line $AN$ bisects $\angle BAD=\angle KAL$.
+
+Because $AN$ bisects $\angle CAH$, the point $N$ is equidistant from $C$ and $H$. Hence $N$ lies on the perpendicular bisector $KL$ of $CH$. The center of $\omega$ also lies on $KL$.
+
+By the angle-bisector theorem in triangle $AKL$,
+\[
+\frac{AK}{AL}=\frac{NK}{NL}.
+\tag{4}
+\]
+The ratio in (4) is not $1$: otherwise $N$ would be the midpoint of $KL$ and $AN\perp KL$, while a circle through $A,N$ with center on $KL$ could not exist. Hence the Apollonius locus of $K,L$ corresponding to the ratio $NK/NL$ is a genuine circle. By (4), it passes through both $A$ and $N$, and its center lies on $KL$. The circle $\omega$ has the same properties. Since the center of a circle through $A,N$ is the intersection of the perpendicular bisector of $AN$ with $KL$, the circle is unique; therefore $\omega$ is precisely this Apollonius circle. Since $H\in\omega$,
+\[
+\frac{HK}{HL}=\frac{NK}{NL}.
+\tag{5}
+\]
+Combining (4) and (5) proves (1), and the solution is complete.

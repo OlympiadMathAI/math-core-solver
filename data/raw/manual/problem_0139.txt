@@ -1,0 +1,90 @@
+ID: 0139
+
+SOURCE: IMO Shortlist
+
+YEAR: 2014
+
+TOPIC: Number Theory
+
+SUBTOPICS: Diophantine Equations, Perfect Squares, Parametrization, Polynomial Factorization
+
+STATEMENT:
+Determine all pairs $(x,y)$ of positive integers satisfying
+\[
+\sqrt[3]{7x^2-13xy+7y^2}=|x-y|+1.
+\tag{1}
+\]
+
+SOLUTION 1:
+The solutions are
+\[
+(x,y)=(1,1)
+\]
+and, for every integer $m\ge2$,
+\[
+\{x,y\}
+=
+\{m^3+m^2-2m-1,\ m^3+2m^2-m-1\}.
+\tag{2}
+\]
+
+If $x=y$, equation (1) gives $\sqrt[3]{x^2}=1$, hence $x=y=1$.
+
+Now suppose $x\ne y$. By symmetry, assume $x>y$ and put
+\[
+n=x-y>0.
+\]
+Cubing (1) and substituting $x=y+n$, we obtain
+\[
+7(y+n)^2-13(y+n)y+7y^2=(n+1)^3,
+\]
+which simplifies to
+\[
+y^2+ny=n^3-4n^2+3n+1.
+\tag{3}
+\]
+Multiplying by $4$ and adding $n^2$ gives
+\[
+(2y+n)^2
+=4n^3-15n^2+12n+4
+=(n-2)^2(4n+1).
+\tag{4}
+\]
+The cases $n=1$ and $n=2$ are impossible: for $n=1$, the right-hand side of (4) is $5$, while for $n=2$ it is $0$ although $2y+n>0$. Thus $n>2$.
+
+Equation (4) shows that $4n+1$ is the square of a positive rational number. Since it is an integer, it must in fact be a perfect square. It is odd, so for some integer $m\ge0$,
+\[
+4n+1=(2m+1)^2.
+\]
+Therefore
+\[
+n=m^2+m.
+\tag{5}
+\]
+Because $n>2$, we have $m\ge2$.
+
+Substituting (5) into (4), and taking the positive square root, yields
+\[
+2y+m^2+m
+=(m^2+m-2)(2m+1)
+=2m^3+3m^2-3m-2.
+\]
+Hence
+\[
+y=m^3+m^2-2m-1,
+\]
+and then
+\[
+x=y+n=m^3+2m^2-m-1.
+\]
+For $m\ge2$, both numbers are positive.
+
+Conversely, for the two numbers in (2),
+\[
+x-y=m^2+m
+\]
+and a direct factorization gives
+\[
+7x^2-13xy+7y^2=(m^2+m+1)^3=(|x-y|+1)^3.
+\]
+Thus all the listed pairs satisfy (1), and the classification is complete.

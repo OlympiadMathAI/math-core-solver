@@ -1,0 +1,16 @@
+{
+  "id": "0126",
+  "source": "IMO Shortlist",
+  "year": "2014",
+  "topic": "Combinatorics",
+  "subtopics": [
+    "Line Arrangements",
+    "Extremal Principle",
+    "Double Counting",
+    "Planar Regions"
+  ],
+  "statement": "Let $n\\ge3$ lines be given in the plane, with no two parallel and no three concurrent. They divide the plane into polygonal regions, and let $\\mathcal F$ be the set of bounded regions. Prove that one can color\n\\[\n\\left\\lceil\\sqrt{\\frac n2}\\right\\rceil\n\\]\nof the lines blue so that no region in $\\mathcal F$ has an entirely blue boundary.",
+  "solutions": [
+    "Let $\\mathcal L$ be the set of the given lines. Choose a subset $B\\subseteq\\mathcal L$ that is maximal by inclusion subject to the condition that no bounded region has an entirely blue boundary when exactly the lines in $B$ are colored blue. Put\n\\[\nk=|B|.\n\\]\nWe prove that\n\\[\nk\\ge\\left\\lceil\\sqrt{\\frac n2}\\right\\rceil.\n\\]\n\nColor every line in $\\mathcal L\\setminus B$ red. Call an intersection point of two blue lines a blue point. There are\n\\[\n\\binom{k}{2}\n\\]\nblue points.\n\nConsider a red line $\\ell$. By the maximality of $B$, coloring $\\ell$ blue would create a bounded region whose whole boundary is blue. Before recoloring $\\ell$, that region therefore has exactly one red side, lying on $\\ell$, while all its other sides are blue. Since every bounded region has at least three sides, it has at least one blue vertex. Choose one such blue vertex and associate it with $\\ell$.\n\nA blue point is incident with four regions. Consequently it can be associated with at most four red lines. Hence\n\\[\nn-k\\le4\\binom{k}{2}=2k(k-1).\n\\]\nTherefore\n\\[\nn\\le2k^2-k\\le2k^2,\n\\]\nso\n\\[\nk\\ge\\sqrt{\\frac n2}.\n\\]\nAs $k$ is an integer,\n\\[\nk\\ge\\left\\lceil\\sqrt{\\frac n2}\\right\\rceil.\n\\]\n\nIf $B$ contains more than the required number of lines, retain any\n\\[\n\\left\\lceil\\sqrt{\\frac n2}\\right\\rceil\n\\]\nof them as blue and recolor the others red. Removing blue lines cannot create a bounded region with an entirely blue boundary. Thus the required coloring exists."
+  ]
+}
