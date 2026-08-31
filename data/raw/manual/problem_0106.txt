@@ -1,0 +1,331 @@
+ID: 0106
+
+SOURCE: IMO Shortlist
+
+YEAR: 2013
+
+TOPIC: Geometry
+
+SUBTOPICS: Tangency, Similar Triangles, Cyclic Quadrilaterals, Isogonal Geometry, Projective Transformations
+
+STATEMENT:
+Let $ABC$ be a triangle with
+\[
+\angle B>\angle C.
+\]
+Let $P$ and $Q$ be two distinct points on the line $AC$ such that
+\[
+\angle PBA=\angle QBA=\angle ACB,
+\]
+and suppose that $A$ lies between $P$ and $C$. Assume that there is an interior point $D$ of segment $BQ$ such that
+\[
+PD=PB.
+\]
+The ray $AD$ meets the circumcircle of $ABC$ again at $R\ne A$. Prove that
+\[
+QB=QR.
+\]
+
+SOLUTION 1:
+Let $\omega$ be the circumcircle of $ABC$, and put
+\[
+\gamma=\angle ACB.
+\]
+Since $\angle ABC>\gamma$, we have $\gamma<90^\circ$. By the tangent-chord theorem, the equality
+\[
+\angle PBA=\angle BCA=\gamma
+\]
+shows that $PB$ is tangent to $\omega$ at $B$. Hence
+\[
+PA\cdot PC=PB^2=PD^2.
+\tag{1}
+\]
+
+Because $\gamma<\angle ABC$, the ray $BQ$ lies inside $\angle ABC$ and meets the segment $AC$, while the tangent ray $BP$ meets the extension of $AC$ beyond $A$. Thus the points occur on the line $AC$ in the order
+\[
+P,A,Q,C.
+\]
+From (1),
+\[
+\frac{PA}{PD}=\frac{PD}{PC}.
+\]
+Moreover,
+\[
+\angle APD=\angle DPC.
+\]
+Therefore, by SAS similarity,
+\[
+\triangle PAD\sim\triangle PDC,
+\]
+so
+\[
+\angle ADP=\angle DCP.
+\tag{2}
+\]
+
+Since
+\[
+\angle ABQ=\angle ACB,
+\]
+the triangles $ABC$ and $AQB$ are similar. Thus
+\[
+\angle AQB=\angle ABC=\angle ARC.
+\]
+Because $A,Q,C$ are collinear and $B,D,Q$ are collinear,
+\[
+\angle DQC=180^\circ-\angle AQB.
+\]
+Also $A,D,R$ are collinear, so
+\[
+\angle DRC=\angle ARC.
+\]
+Hence
+\[
+\angle DQC+\angle DRC=180^\circ,
+\]
+and therefore $D,R,C,Q$ are concyclic. Consequently,
+\[
+\angle DRQ=\angle DCQ=\angle DCP=\angle ADP,
+\tag{3}
+\]
+where the last equality is (2).
+
+The triangle $PBD$ is isosceles, because $PB=PD$. Also,
+\[
+\angle PBD
+ =\angle PBA+\angle ABQ
+ =2\gamma.
+\]
+Hence
+\[
+\angle PDB=\angle PBD=2\gamma.
+\tag{4}
+\]
+Furthermore,
+\[
+\angle ARB=\angle ACB=\gamma.
+\tag{5}
+\]
+Using that $D$ lies on both $AR$ and $BQ$, equations (3)--(5) give
+\[
+\begin{aligned}
+\angle QBR
+&=\angle ADB-\angle ARB\\
+&=\angle ADP+\angle PDB-\angle ARB\\
+&=\angle DRQ+2\gamma-\gamma\\
+&=\angle DRQ+\gamma\\
+&=\angle QRB.
+\end{aligned}
+\]
+Thus triangle $QBR$ is isosceles, and therefore
+\[
+QB=QR.
+\]
+
+SOLUTION 2:
+Again let $\omega$ be the circumcircle of $ABC$ and put
+\[
+\gamma=\angle ACB.
+\]
+As in Solution 1, $PB$ is tangent to $\omega$ at $B$.
+
+Let $E\ne B$ be the second intersection of $BQ$ with $\omega$. Let the ray $CE$ beyond $E$ meet the ray $BA$ at $V$. To justify this construction and record two similarities, observe that
+\[
+\angle BEV
+ =180^\circ-\angle BEC
+ =180^\circ-\angle BAC
+ =\angle PAB,
+\]
+while
+\[
+\angle VBE=
+\angle ABQ=
+\angle PBA.
+\]
+Therefore
+\[
+\triangle VEB\sim\triangle PAB.
+\tag{1}
+\]
+In particular,
+\[
+\angle BVE=\angle BPA.
+\tag{2}
+\]
+Moreover,
+\[
+\angle AEV
+ =\angle BEV-\gamma
+ =\angle PAB-\angle ABQ
+ =\angle AQB.
+\]
+Together with (2), this gives
+\[
+\triangle VAE\sim\triangle PBQ.
+\tag{3}
+\]
+
+Let $PH$ be the altitude of the isosceles triangle $PBD$. Since $PB=PD$, the point $H$ is the midpoint of $BD$. Let
+\[
+G=PH\cap AB.
+\]
+Reflection in $PH$ interchanges $B$ and $D$, so
+\[
+\angle BDG=\angle DBG=\gamma.
+\]
+Also,
+\[
+\angle BEA=\angle BCA=
+\gamma.
+\]
+Hence
+\[
+DG\parallel AE.
+\]
+In triangle $BAE$, this gives
+\[
+\frac{BG}{GA}=\frac{BD}{DE}.
+\tag{4}
+\]
+Under the similarity (1), the sides $BA$ and $BE$ correspond. Relation (4) therefore shows that $G$ and $D$ are corresponding points. Hence
+\[
+\angle DVB=\angle GPB.
+\]
+Since $PG\perp BQ$ and, by (3), $\angle PBQ=\angle VAE$, we obtain
+\[
+\angle DVB=90^\circ-\angle PBQ
+             =90^\circ-\angle VAE.
+\]
+Thus
+\[
+VD\perp AE.
+\tag{5}
+\]
+
+Let
+\[
+T=VD\cap AE,
+\]
+and let $S$ be the foot of the altitude from $D$ to $BR$. The triangles $ADE$ and $BDR$ are similar. Indeed, because $A,D,R$ are collinear and $B,D,E$ are collinear,
+\[
+\angle ADE=\angle BDR.
+\]
+Also, $A,B,E,R$ lie on $\omega$, and hence
+\[
+\angle AED=\angle AEB=\angle ARB=\angle DRB.
+\]
+Thus the correspondence is
+\[
+A\leftrightarrow B,
+\qquad
+D\leftrightarrow D,
+\qquad
+E\leftrightarrow R.
+\]
+By (5), $T$ and $S$ are the feet of corresponding altitudes. Therefore
+\[
+\frac{BS}{SR}=\frac{AT}{TE}.
+\tag{6}
+\]
+
+Likewise, in the similar triangles $VAE$ and $PBQ$ from (3), the points $T$ and $H$ are the feet of corresponding altitudes. Thus
+\[
+\frac{AT}{TE}=\frac{BH}{HQ}.
+\tag{7}
+\]
+Combining (6) and (7),
+\[
+\frac{BS}{SR}=\frac{BH}{HQ}.
+\]
+Equivalently,
+\[
+\frac{BS}{BR}=\frac{BH}{BQ}.
+\]
+Since the included angle at $B$ is common, this proves
+\[
+\triangle BHS\sim\triangle BQR.
+\tag{8}
+\]
+
+The triangle $SBD$ is right-angled at $S$, and $H$ is the midpoint of its hypotenuse $BD$. Hence
+\[
+HS=HB.
+\]
+Using (8), we conclude that
+\[
+QR=QB.
+\]
+
+SOLUTION 3:
+Let $\omega$ and $O$ be the circumcircle of $ABC$ and its center. As before, $BP$ is tangent to $\omega$ at $B$.
+
+Let $E\ne B$ be the second intersection of $BD$ with $\omega$. Since $PB=PD$, the tangent to $\omega$ at $E$ is parallel to $DP$; let this tangent meet $BP$ at $L$. Thus
+\[
+DP\parallel LE.
+\tag{1}
+\]
+Let $M$ be the midpoint of $BE$, and let $H$ be the midpoint of $BR$.
+
+Because
+\[
+\angle AEB=\angle ACB=\angle ABQ=\angle ABE,
+\]
+we have $AE=AB$, so $A$ lies on the perpendicular bisector of $BE$. The points $L$ and $O$ also lie on this perpendicular bisector: $LB=LE$ because they are tangent lengths, and $OB=OE$. Hence
+\[
+L,A,M,O
+\]
+are collinear.
+
+Let $\omega_1$ be the circle with diameter $BO$, and define
+\[
+Q'=HO\cap BE.
+\]
+Since $H$ is the midpoint of $BR$ and $OB=OR$, the line $HO$ is the perpendicular bisector of $BR$. Therefore the desired equality $QB=QR$ is equivalent to
+\[
+Q'=Q.
+\tag{2}
+\]
+
+Consider the following five projective maps.
+
+\begin{enumerate}
+\item Project the line $BE$ to the line $LB$ from the center $A$. Under this map, $Q\mapsto P$.
+\item Project the line $LB$ to the line $BE$ in the direction parallel to $LE$. By (1), $P\mapsto D$.
+\item Project the line $BE$ to the circle $\omega$ from the point $A$, taking a point to the second intersection of its line through $A$ with $\omega$. Thus $D\mapsto R$.
+\item Apply the homothety with center $B$ and ratio $1/2$. It sends $\omega$ to $\omega_1$ and $R\mapsto H$.
+\item Project $\omega_1$ to the line $BE$ from the point $O$. Thus $H\mapsto Q'$.
+\end{enumerate}
+
+Their composition is a projectivity from the line $BE$ to itself, and it sends $Q$ to $Q'$. We prove that this projectivity is the identity by finding three fixed points.
+
+First, $B$ is fixed by every map. Second, $M$ is fixed, since its successive images are
+\[
+M\mapsto L\mapsto E\mapsto E\mapsto M\mapsto M.
+\]
+
+For a third fixed point, draw through $A$ the line parallel to $LE$. Let it meet $BE$, $LB$, and $\omega$ at $X,Y,Z\ne A$, respectively. Then the first three maps send
+\[
+X\mapsto Y\mapsto X\mapsto Z.
+\]
+Moreover,
+\[
+\angle XBZ
+ =\angle EAZ
+ =\angle AEL
+ =\angle LBA
+ =\angle BZX.
+\]
+Thus triangle $XBZ$ is isosceles with
+\[
+XB=XZ.
+\]
+Let $U$ be the midpoint of $BZ$. Both $O$ and $X$ lie on the perpendicular bisector of $BZ$, so $O,U,X$ are collinear. The last two maps therefore send
+\[
+Z\mapsto U\mapsto X.
+\]
+Hence $X$ is fixed.
+
+A projectivity of a line fixing three distinct points is the identity. Consequently the image $Q'$ of $Q$ equals $Q$. By (2),
+\[
+QB=QR.
+\]

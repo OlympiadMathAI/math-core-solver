@@ -1,0 +1,225 @@
+ID: 0094
+
+SOURCE: IMO Shortlist
+
+YEAR: 2013
+
+TOPIC: Algebra
+
+SUBTOPICS: Polynomial Functional Equations, Root Propagation, Complex Roots, Finite Differences
+
+STATEMENT:
+Let $m\ne0$ be an integer. Find all polynomials $P(x)$ with real coefficients such that
+\[
+(x^3-mx^2+1)P(x+1)+(x^3+mx^2+1)P(x-1)
+=2(x^3-mx+1)P(x)
+\tag{1}
+\]
+for all real numbers $x$.
+
+SOLUTION 1:
+The answer is
+\[
+P(x)=tx
+\]
+for an arbitrary real constant $t$.
+
+The zero polynomial is included by taking $t=0$. Suppose now that $P$ is nonzero, and write
+\[
+P(x)=a_nx^n+\cdots+a_0,
+\qquad a_n\ne0.
+\]
+Comparing the coefficients of $x^{n+1}$ in (1) gives
+\[
+a_n(n-2m)(n-1)=0.
+\tag{2}
+\]
+Hence
+\[
+n=1
+\qquad\text{or}\qquad
+n=2m.
+\tag{3}
+\]
+If $n=1$, write $P(x)=tx+s$. The polynomial $x$ satisfies (1), whereas substitution of the constant polynomial $1$ leaves the nonzero difference $2mx$. By linearity of (1), $s=0$, and all linear solutions are $P(x)=tx$.
+
+Assume for a contradiction that $n=2m$. Then $m\ge1$ and $n\ge2$. Consider
+\[
+H(x)=xP(x+1)-(x+1)P(x).
+\]
+Its leading term is $(n-1)a_nx^n$, so $H$ has degree $n$ and therefore has a complex root $r$. The relation $H(r)=0$ allows us to choose a complex number $k$ so that
+\[
+S(x)=P(x)-kx
+\]
+has both $r$ and $r+1$ as roots. Explicitly, if $r\notin\{0,-1\}$, take
+\[
+k=\frac{P(r)}r=\frac{P(r+1)}{r+1};
+\]
+if $r=0$, take $k=P(1)$; and if $r=-1$, take $k=-P(-1)$. Since both $P$ and $kx$ satisfy (1), so does $S$. Moreover, $S$ is nonzero because $\deg P=n\ge2$.
+
+Set
+\[
+A(x)=x^3-mx^2+1,
+\qquad
+B(x)=x^3+mx^2+1.
+\]
+Equation (1), applied to $S$, shows the following:
+
+\[
+\begin{array}{ll}
+\text{(i)}&S(s-1)=S(s)=0\text{ and }A(s)\ne0\Longrightarrow S(s+1)=0,\\[1mm]
+\text{(ii)}&S(s)=S(s+1)=0\text{ and }B(s)\ne0\Longrightarrow S(s-1)=0.
+\end{array}
+\tag{4}
+\]
+Because $S$ has only finitely many roots, there exist integers $a\ge0$ and $b\ge1$ such that
+\[
+r-a,r-a+1,\ldots,r+b
+\]
+are roots of $S$, while $r-a-1$ and $r+b+1$ are not. By (4),
+\[
+B(r-a)=0,
+\qquad
+A(r+b)=0.
+\]
+Let
+\[
+c=a+b\ge1,
+\qquad
+\rho=r-a.
+\]
+Then $\rho$ is a common root of the integer polynomials
+\[
+B(x)
+\qquad\text{and}\qquad
+A(x+c).
+\]
+Thus these two cubics have a nonconstant common divisor over $\mathbb{Q}$.
+
+The cubic $B(x)=x^3+mx^2+1$ has no rational root. Indeed, the rational-root theorem leaves only $\pm1$, but
+\[
+B(-1)=m>0,
+\qquad
+B(1)=m+2>0.
+\]
+Hence $B$ is irreducible over $\mathbb{Q}$. It follows that $B(x)$ divides $A(x+c)$. Since both are monic cubics,
+\[
+B(x)=A(x+c).
+\]
+Subtracting gives
+\[
+0=A(x+c)-B(x)
+=(3c-2m)x^2+c(3c-2m)x+c^2(c-m).
+\]
+Therefore
+\[
+3c-2m=0,
+\qquad
+c-m=0.
+\]
+These equations imply $m=0$, contradicting the hypothesis. Thus the case $n=2m$ is impossible, and the only solutions are $P(x)=tx$.
+
+SOLUTION 2:
+Again, $P(x)=tx$ is easily checked to work. We prove that every solution has this form.
+
+Multiplying (1) by $x$ and regrouping, using the fact that the polynomial $x$ itself satisfies (1), gives
+\[
+(x^3-mx^2+1)Q(x)=(x^3+mx^2+1)Q(x-1),
+\tag{2}
+\]
+where
+\[
+Q(x)=xP(x+1)-(x+1)P(x).
+\tag{3}
+\]
+If $\deg P\ge2$, then $\deg Q=\deg P$, because the leading coefficient of $Q$ is $(\deg P-1)$ times the leading coefficient of $P$.
+
+Let $R_Q$ be the multiset of complex roots of $Q$, counted with multiplicity. Let
+\[
+X=\{x_1,x_2,x_3\}
+\]
+and
+\[
+Y=\{y_1,y_2,y_3\}
+\]
+be the multisets of roots of
+\[
+A(x)=x^3-mx^2+1
+\]
+and
+\[
+B(x)=x^3+mx^2+1,
+\]
+respectively. Equation (2) gives the multiset identity
+\[
+X\sqcup R_Q=Y\sqcup(R_Q+1),
+\tag{4}
+\]
+where $R_Q+1=\{r+1:r\in R_Q\}$, with multiplicities preserved.
+
+We use (4) to decompose the roots into chains. For each occurrence of a root $r$ of $Q$, draw a directed edge from $r$ to $r+1$. At every complex number, identity (4) says that the number of incoming edges together with its multiplicity in $Y$ equals the number of outgoing edges together with its multiplicity in $X$. The graph is finite and has no directed cycle, since every edge increases the real part by $1$. Hence it is a disjoint union of three directed paths, each beginning at an occurrence from $Y$ and ending at an occurrence from $X$. After relabelling, these paths have the form
+\[
+y_i,y_i+1,\ldots,y_i+k_i=x_i
+\qquad(i=1,2,3)
+\tag{5}
+\]
+for some integers $k_i\ge0$. In particular, $A$ and $B$ have the same number of real roots.
+
+For an integer parameter $a$, define
+\[
+F_a(x)=x^3+ax^2+1.
+\]
+Its critical points are $0$ and $-2a/3$, and
+\[
+F_a(0)=1,
+\qquad
+F_a(-2a/3)=1+\frac{4a^3}{27}.
+\]
+It follows that, for integral $a$,
+\[
+F_a\text{ has }
+\begin{cases}
+3\text{ real roots},&a\le-2,\\
+1\text{ real root},&a\ge-1.
+\end{cases}
+\tag{6}
+\]
+Now $B=F_m$ and $A=F_{-m}$. Since (5) forces them to have the same number of real roots, (6) and $m\ne0$ imply
+\[
+m=1
+\qquad\text{or}\qquad
+m=-1.
+\tag{7}
+\]
+
+Let $\alpha$ be the unique real root of
+\[
+F_1(x)=x^3+x^2+1,
+\]
+and let $\beta$ be the unique real root of
+\[
+F_{-1}(x)=x^3-x^2+1.
+\]
+We have
+\[
+F_1(-3/2)=-1/8<0<F_1(-1)=1,
+\]
+so
+\[
+-\frac32<\alpha<-1.
+\]
+Also,
+\[
+F_{-1}(-1)=-1<0<F_{-1}(-1/2)=\frac58,
+\]
+so
+\[
+-1<\beta<-\frac12.
+\]
+Thus $0<\beta-\alpha<1$, and the two real roots cannot differ by an integer. This contradicts (5), for either choice $m=\pm1$.
+
+Therefore $\deg P\le1$. Writing $P(x)=tx+s$ in (1), the $tx$ part satisfies the equation and the constant part contributes $2msx$. Since $m\ne0$, we must have $s=0$. Hence all solutions are
+\[
+P(x)=tx,
+\qquad t\in\mathbb{R}.
+\]

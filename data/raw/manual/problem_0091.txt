@@ -1,0 +1,131 @@
+ID: 0091
+
+SOURCE: IMO Shortlist
+
+YEAR: 2013
+
+TOPIC: Algebra
+
+SUBTOPICS: Functional Inequalities, Superadditivity, Positive Rational Numbers
+
+STATEMENT:
+Let $\mathbb{Q}_{>0}$ be the set of positive rational numbers. Let
+\[
+f:\mathbb{Q}_{>0}\to\mathbb{R}
+\]
+be a function satisfying
+\[
+f(x)f(y)\ge f(xy)
+\tag{1}
+\]
+and
+\[
+f(x+y)\ge f(x)+f(y)
+\tag{2}
+\]
+for all $x,y\in\mathbb{Q}_{>0}$. Given that $f(a)=a$ for some rational number $a>1$, prove that
+\[
+f(x)=x
+\]
+for every $x\in\mathbb{Q}_{>0}$.
+
+SOLUTION 1:
+Putting $x=1$ and $y=a$ in (1), and using $f(a)=a>0$, gives
+\[
+f(1)\ge1.
+\tag{3}
+\]
+By repeated application of (2),
+\[
+f(nx)\ge n f(x)
+\tag{4}
+\]
+for every positive integer $n$ and every $x\in\mathbb{Q}_{>0}$. In particular,
+\[
+f(n)\ge n f(1)\ge n
+\tag{5}
+\]
+for every positive integer $n$.
+
+We next show that $f$ is positive everywhere. Write an arbitrary positive rational as $q=m/n$, where $m,n$ are positive integers. From (1),
+\[
+f(m/n)f(n)\ge f(m).
+\]
+Both $f(m)$ and $f(n)$ are positive by (5), so
+\[
+f(q)>0
+\tag{6}
+\]
+for all $q\in\mathbb{Q}_{>0}$.
+
+It follows from (2) and (6) that $f$ is strictly increasing: if $y>x>0$, then
+\[
+f(y)=f(x+(y-x))\ge f(x)+f(y-x)>f(x).
+\tag{7}
+\]
+Hence, for every rational $x\ge1$,
+\[
+f(x)\ge f(\lfloor x\rfloor)\ge\lfloor x\rfloor>x-1.
+\tag{8}
+\]
+Repeated use of (1) gives
+\[
+f(x)^N\ge f(x^N)
+\]
+for every positive integer $N$. If $x>1$, then (8) applied to $x^N$ yields
+\[
+f(x)^N\ge f(x^N)>x^N-1,
+\]
+so
+\[
+f(x)\ge (x^N-1)^{1/N}.
+\tag{9}
+\]
+We claim that this implies
+\[
+f(x)\ge x
+\qquad (x>1).
+\tag{10}
+\]
+Indeed, fix a rational $y$ with $1<y<x$. For sufficiently large $N$,
+\[
+x^N-y^N
+=(x-y)(x^{N-1}+x^{N-2}y+\cdots+y^{N-1})
+>N(x-y)>1.
+\]
+Thus $x^N-1>y^N$, and (9) gives $f(x)>y$. Since rationals $y<x$ can be chosen arbitrarily close to $x$, (10) follows.
+
+Now, for every positive integer $N$, conditions (1) and (10) give
+\[
+a^N=f(a)^N\ge f(a^N)\ge a^N.
+\]
+Therefore
+\[
+f(a^N)=a^N.
+\tag{11}
+\]
+Let $x>1$ be rational, and choose $N$ so large that $a^N-x>1$. By (2), (10), and (11),
+\[
+\begin{aligned}
+a^N=f(a^N)
+&=f\bigl(x+(a^N-x)\bigr)\\
+&\ge f(x)+f(a^N-x)\\
+&\ge x+(a^N-x)=a^N.
+\end{aligned}
+\]
+All inequalities are therefore equalities, and in particular
+\[
+f(x)=x
+\qquad (x>1).
+\tag{12}
+\]
+
+Finally, let $x\in\mathbb{Q}_{>0}$ be arbitrary. Choose an integer $n\ge2$ such that $nx>1$. We already know from (12) that $f(n)=n$ and $f(nx)=nx$. Using (1) and (4),
+\[
+nf(x)=f(n)f(x)\ge f(nx)\ge n f(x).
+\]
+Thus equality holds throughout, so
+\[
+nx=f(nx)=nf(x).
+\]
+Hence $f(x)=x$ for every positive rational $x$.

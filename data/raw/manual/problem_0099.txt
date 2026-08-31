@@ -1,0 +1,127 @@
+ID: 0099
+
+SOURCE: IMO Shortlist
+
+YEAR: 2013
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Periodic Sequences, Pigeonhole Principle, Sliding Sums, Finite-State Arguments
+
+STATEMENT:
+Let $r$ be a positive integer, and let $a_0,a_1,\ldots$ be an infinite sequence of real numbers. Assume that for all nonnegative integers $m$ and $s$, there exists an integer
+\[
+n\in\{m+1,m+2,\ldots,m+r\}
+\]
+such that
+\[
+a_m+a_{m+1}+\cdots+a_{m+s}
+=
+a_n+a_{n+1}+\cdots+a_{n+s}.
+\]
+Prove that the sequence is periodic: there exists an integer $p\ge1$ such that
+\[
+a_{j+p}=a_j
+\]
+for every $j\ge0$.
+
+SOLUTION 1:
+For $u\le v$, write
+\[
+S(u,v)=a_u+a_{u+1}+\cdots+a_{v-1},
+\]
+so $S(v,v)=0$.
+
+We begin with a lemma.
+
+\textbf{Lemma.} Let $b_0,b_1,\ldots$ be a sequence such that for every $m\ge0$ there is an index
+\[
+n\in\{m+1,\ldots,m+r\}
+\]
+with $b_n=b_m$. Then:
+
+\begin{enumerate}
+\item for every $k\le \ell$, some $t\in\{\ell,\ell+1,\ldots,\ell+r-1\}$ satisfies $b_t=b_k$;
+\item the sequence $(b_i)$ takes at most $r$ distinct values.
+\end{enumerate}
+
+\textbf{Proof.} Starting from $k_1=k$, repeatedly choose
+\[
+k_i<k_{i+1}\le k_i+r
+\]
+with $b_{k_{i+1}}=b_{k_i}$. The indices are unbounded. If $k_j$ is the first one at least $\ell$, then
+\[
+\ell\le k_j\le\ell+r-1,
+\]
+which proves the first assertion.
+
+If $r+1$ distinct values occurred at indices $i_1,\ldots,i_{r+1}$, apply the first assertion with
+\[
+\ell=\max(i_1,\ldots,i_{r+1}).
+\]
+Each of those $r+1$ values would then occur among the $r$ positions
+\[
+\ell,\ell+1,\ldots,\ell+r-1,
+\]
+a contradiction.
+
+Set $s=0$ in the hypothesis of the problem. The lemma shows that the sequence $(a_i)$ takes at most $r$ distinct values. Define the length-$r$ blocks
+\[
+A_i=(a_i,a_{i+1},\ldots,a_{i+r-1}).
+\]
+There are at most $r^r$ possible blocks. Consequently, for every $K\ge0$, two of
+\[
+A_K,A_{K+1},\ldots,A_{K+r^r}
+\]
+are equal. Thus there exist integers $d\ge K$ and $1\le p\le r^r$ such that
+\[
+A_d=A_{d+p}.
+\]
+Since only finitely many values of $p$ are possible, one fixed $p$ occurs for arbitrarily large $d$. Let
+\[
+D=\{d\ge0:A_d=A_{d+p}\}.
+\]
+Then $D$ is unbounded.
+
+We prove that $D$ contains every nonnegative integer. Since it is unbounded, it is enough to prove the downward implication
+\[
+d+1\in D\quad\Longrightarrow\quad d\in D.
+\tag{1}
+\]
+Assume $d+1\in D$. Define
+\[
+b_k=S(k,k+p).
+\]
+The original hypothesis with $s=p-1$ shows that the sequence $(b_k)$ satisfies the lemma. Hence some
+\[
+t\in\{d+1,d+2,\ldots,d+r\}
+\]
+satisfies
+\[
+S(t,t+p)=S(d,d+p).
+\]
+Equivalently,
+\[
+S(d,t)=S(d+p,t+p).
+\tag{2}
+\]
+Because $d+1\in D$, the blocks $A_{d+1}$ and $A_{d+p+1}$ are equal, so
+\[
+S(d+1,t)=S(d+p+1,t+p).
+\tag{3}
+\]
+Subtracting (3) from (2) gives
+\[
+a_d=a_{d+p}.
+\]
+Together with $A_{d+1}=A_{d+p+1}$, this yields
+\[
+A_d=A_{d+p},
+\]
+so $d\in D$. This proves (1).
+
+Therefore $A_d=A_{d+p}$ for every $d\ge0$, and in particular
+\[
+a_{d+p}=a_d
+\]
+for every $d\ge0$. The sequence is periodic.

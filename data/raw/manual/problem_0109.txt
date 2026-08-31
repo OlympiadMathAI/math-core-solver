@@ -1,0 +1,173 @@
+ID: 0109
+
+SOURCE: IMO Shortlist
+
+YEAR: 2013
+
+TOPIC: Number Theory
+
+SUBTOPICS: Divisibility, Functional Equations, Inequality Bounds, Prime Substitution
+
+STATEMENT:
+Let $\mathbb{Z}_{>0}$ be the set of positive integers. Find all functions
+\[
+f:\mathbb{Z}_{>0}\to\mathbb{Z}_{>0}
+\]
+such that
+\[
+m^2+f(n)\mid m f(m)+n
+\tag{1}
+\]
+for all positive integers $m,n$.
+
+SOLUTION 1:
+The only solution is
+\[
+f(n)=n\qquad(n\in\mathbb{Z}_{>0}).
+\]
+
+Set $m=n=2$ in (1). Then
+\[
+4+f(2)\mid 2f(2)+2.
+\]
+The right-hand side is positive and satisfies
+\[
+2f(2)+2<2\bigl(4+f(2)\bigr).
+\]
+Hence it must equal $4+f(2)$; otherwise it would be either smaller than the divisor or at least twice the divisor. Thus
+\[
+2f(2)+2=4+f(2),
+\]
+so
+\[
+f(2)=2.
+\tag{2}
+\]
+
+Now put $m=2$ in (1). Using (2), we get
+\[
+4+f(n)\mid 4+n,
+\]
+and therefore
+\[
+f(n)\le n
+\tag{3}
+\]
+for every positive integer $n$.
+
+Next put $m=n$ in (1). We obtain
+\[
+n^2+f(n)\mid nf(n)+n.
+\]
+Since all quantities are positive,
+\[
+nf(n)+n\ge n^2+f(n),
+\]
+which is equivalent to
+\[
+(n-1)(f(n)-n)\ge0.
+\]
+Consequently $f(n)\ge n$ for every $n\ge2$. Together with (3), this gives $f(n)=n$ for every $n\ge2$. For $n=1$, (3) and positivity give $f(1)=1$ as well.
+
+Finally, the function $f(n)=n$ satisfies (1), because
+\[
+m^2+f(n)=m^2+n=m f(m)+n.
+\]
+
+SOLUTION 2:
+We again prove that the only solution is $f(n)=n$.
+
+Fix a positive integer $n$ and substitute $m=f(n)$ in (1). Then
+\[
+f(n)^2+f(n)
+\mid
+f(n)f(f(n))+n.
+\]
+The divisor and the first term on the right are both divisible by $f(n)$, so
+\[
+f(n)\mid n
+\tag{2}
+\]
+for every positive integer $n$.
+
+Now fix an arbitrary positive integer $m$. Choose a prime $p$ so large that
+\[
+p>2m^2
+\qquad\text{and}\qquad
+p>m f(m).
+\]
+Set
+\[
+n=p-m f(m),
+\]
+which is positive. Equation (1) gives
+\[
+m^2+f(n)
+\mid
+m f(m)+n=p.
+\]
+Since $m^2+f(n)>1$ and $p$ is prime, we must have
+\[
+m^2+f(n)=p,
+\]
+so
+\[
+f(n)=p-m^2.
+\tag{3}
+\]
+By (2),
+\[
+p-m^2\mid p-m f(m).
+\]
+Moreover,
+\[
+0<p-m f(m)<p<2(p-m^2),
+\]
+where the last inequality follows from $p>2m^2$. Therefore the positive multiple $p-m f(m)$ of $p-m^2$ is smaller than twice $p-m^2$, and hence
+\[
+p-m f(m)=p-m^2.
+\]
+Thus $f(m)=m$. Since $m$ was arbitrary, $f$ is the identity function, which clearly works.
+
+SOLUTION 3:
+Put $m=1$ in (1). Since a positive divisor cannot exceed the positive number it divides,
+\[
+1+f(n)\le f(1)+n.
+\]
+Hence
+\[
+f(n)\le n+c,
+\qquad
+c:=f(1)-1\ge0.
+\tag{2}
+\]
+
+Suppose, for contradiction, that $f(n)\ne n$ for some fixed positive integer $n$. Choose $m$ so large that
+\[
+m\ge n,
+\qquad
+m\ge c+1,
+\qquad
+m>|f(n)-n|.
+\]
+Using (2),
+\[
+\begin{aligned}
+m f(m)+n
+&\le m(m+c)+n\\
+&\le 2m^2\\
+&<2\bigl(m^2+f(n)\bigr).
+\end{aligned}
+\]
+By (1), the positive integer $m f(m)+n$ is a multiple of $m^2+f(n)$, so the above strict upper bound forces
+\[
+m f(m)+n=m^2+f(n).
+\]
+Therefore
+\[
+f(n)-n=m(f(m)-m).
+\tag{3}
+\]
+The left-hand side of (3) is nonzero and has absolute value smaller than $m$, whereas the right-hand side is divisible by $m$. This is impossible.
+
+Thus $f(n)=n$ for every positive integer $n$, and this function satisfies the required divisibility.

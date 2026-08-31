@@ -1,0 +1,109 @@
+ID: 0111
+
+SOURCE: IMO Shortlist
+
+YEAR: 2013
+
+TOPIC: Number Theory
+
+SUBTOPICS: Largest Prime Divisors, Polynomial Factorization, Coprimality, Infinite Sequences
+
+STATEMENT:
+Prove that there exist infinitely many positive integers $n$ such that the largest prime divisor of
+\[
+n^4+n^2+1
+\]
+is equal to the largest prime divisor of
+\[
+(n+1)^4+(n+1)^2+1.
+\]
+
+SOLUTION 1:
+For $n\ge1$, let $p_n$ be the largest prime divisor of $n^4+n^2+1$, and let $q_n$ be the largest prime divisor of $n^2+n+1$. Since
+\[
+n^4+n^2+1=(n^2)^2+n^2+1,
+\]
+we have
+\[
+p_n=q_{n^2}.
+\tag{1}
+\]
+Also,
+\[
+\begin{aligned}
+n^4+n^2+1
+&=(n^2-n+1)(n^2+n+1)\\
+&=\bigl((n-1)^2+(n-1)+1\bigr)(n^2+n+1).
+\end{aligned}
+\]
+For $n\ge2$, the two factors are coprime. Indeed,
+\[
+\begin{aligned}
+\gcd(n^2+n+1,n^2-n+1)
+&=\gcd(2n,n^2-n+1)\\
+&=\gcd(n,n^2-n+1)\\
+&=1,
+\end{aligned}
+\]
+where we used that $n^2-n+1$ is odd. Therefore
+\[
+p_n=\max\{q_{n-1},q_n\}
+\qquad(n\ge2),
+\tag{2}
+\]
+and in particular
+\[
+q_n\ne q_{n-1}
+\qquad(n\ge2).
+\tag{3}
+\]
+
+Consider the set
+\[
+S=\{n\ge2:q_n>q_{n-1}\text{ and }q_n>q_{n+1}\}.
+\]
+For every $n\in S$, equation (2) gives
+\[
+p_n=q_n=p_{n+1}.
+\]
+Thus every $n\in S$ has the required property. It remains to prove that $S$ is infinite.
+
+We have
+\[
+q_2=7,
+\qquad q_3=13,
+\qquad q_4=7,
+\]
+so $3\in S$. Suppose, for contradiction, that $S$ is finite, and let $m$ be its largest element.
+
+The sequence $q_m,q_{m+1},q_{m+2},\ldots$ cannot be strictly decreasing forever, since it consists of positive integers and adjacent terms are unequal by (3). Hence there exists $k\ge m$ such that
+\[
+q_k<q_{k+1}.
+\]
+Nor can the sequence be strictly increasing from that point onward. Indeed, if
+\[
+q_k<q_{k+1}<q_{k+2}<\cdots,
+\]
+then, because $(k+1)^2>k+1$, we would have
+\[
+q_{(k+1)^2}>q_{k+1}.
+\]
+On the other hand, by (1) and (2),
+\[
+q_{(k+1)^2}=p_{k+1}
+=\max\{q_k,q_{k+1}\}
+=q_{k+1},
+\]
+a contradiction.
+
+Therefore there is a first integer $\ell\ge k+1$ such that
+\[
+q_\ell>q_{\ell+1}.
+\]
+By the minimality of $\ell$,
+\[
+q_{\ell-1}<q_\ell,
+\]
+so $\ell\in S$. But $\ell>m$, contradicting the maximality of $m$.
+
+Hence $S$ is infinite, and so there are infinitely many required integers $n$.

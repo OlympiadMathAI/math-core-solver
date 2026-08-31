@@ -1,0 +1,107 @@
+ID: 0090
+
+SOURCE: IMO Shortlist
+
+YEAR: 2013
+
+TOPIC: Algebra
+
+SUBTOPICS: Pigeonhole Principle, Extremal Argument, Ratios of Differences
+
+STATEMENT:
+Prove that in any set of $2000$ distinct real numbers there exist two pairs $a>b$ and $c>d$, with $a\ne c$ or $b\ne d$, such that
+\[
+\left|\frac{a-b}{c-d}-1\right|<\frac1{100000}.
+\]
+
+SOLUTION 1:
+Let $S$ be a set of $n=2000$ distinct real numbers, and list all positive distances between two elements of $S$, with multiplicity, as
+\[
+D_1\le D_2\le\cdots\le D_M,
+\qquad
+M=\binom n2.
+\]
+Multiplying every element of $S$ by the same positive constant does not change any ratio of distances, so we may assume that
+\[
+D_1=1.
+\]
+Choose $x<y$ in $S$ with $y-x=1$. Also let $u$ and $v$ be the smallest and largest elements of $S$, respectively, so
+\[
+D_M=v-u.
+\]
+
+Suppose first that, for some $i<M$,
+\[
+\frac{D_{i+1}}{D_i}<1+10^{-5}.
+\]
+Choose two actual pairs of elements of $S$ realizing the two displayed occurrences $D_i$ and $D_{i+1}$, and orient each pair from the larger element to the smaller one. The occurrences are distinct even if their numerical distances are equal, so the resulting ordered pairs are not identical. Taking $a-b=D_{i+1}$ and $c-d=D_i$, we obtain
+\[
+0\le \frac{a-b}{c-d}-1
+=\frac{D_{i+1}}{D_i}-1
+<10^{-5},
+\]
+as required.
+
+It remains to consider the case
+\[
+\frac{D_{i+1}}{D_i}\ge1+10^{-5}
+\qquad (i=1,\ldots,M-1).
+\]
+Then
+\[
+D_M\ge(1+10^{-5})^{M-1}.
+\]
+Now
+\[
+M-1=\binom{2000}{2}-1=1{,}998{,}999>19\cdot10^5,
+\]
+and the binomial theorem gives
+\[
+(1+10^{-5})^{10^5}\ge1+10^5\cdot10^{-5}=2.
+\]
+Consequently,
+\[
+D_M>(1+10^{-5})^{19\cdot10^5}
+=\left((1+10^{-5})^{10^5}\right)^{19}
+\ge2^{19}>2\cdot10^5.
+\tag{1}
+\]
+At least one of the two distances $x-u$ and $v-x$ is at least
+\[
+\frac{v-u}{2}>10^5.
+\]
+Choose $z\in\{u,v\}$ such that
+\[
+|z-x|>10^5.
+\]
+
+If $z=v$, then $z>y>x$. Set
+\[
+(a,b)=(z,y),
+\qquad
+(c,d)=(z,x).
+\]
+The two pairs are distinct because $b\ne d$, and
+\[
+\left|\frac{a-b}{c-d}-1\right|
+=
+\left|\frac{z-y}{z-x}-1\right|
+=\frac{y-x}{z-x}
+=\frac1{z-x}<10^{-5}.
+\]
+
+If $z=u$, then $y>x>z$. Set
+\[
+(a,b)=(y,z),
+\qquad
+(c,d)=(x,z).
+\]
+Here $a\ne c$, and
+\[
+\left|\frac{a-b}{c-d}-1\right|
+=
+\left|\frac{y-z}{x-z}-1\right|
+=\frac{y-x}{x-z}
+=\frac1{x-z}<10^{-5}.
+\]
+Thus the required pairs always exist.

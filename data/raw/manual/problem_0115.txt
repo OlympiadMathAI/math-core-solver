@@ -1,0 +1,210 @@
+ID: 0115
+
+SOURCE: IMO Shortlist
+
+YEAR: 2013
+
+TOPIC: Number Theory
+
+SUBTOPICS: Floor and Ceiling Functions, Diophantine Counting, Euclidean Algorithm, Divisor Sums
+
+STATEMENT:
+Let $\nu$ be a positive irrational number and let $m$ be a positive integer. A pair $(a,b)$ of positive integers is called \emph{good} if
+\[
+a\lceil b\nu\rceil-b\lfloor a\nu\rfloor=m.
+\tag{1}
+\]
+A good pair $(a,b)$ is called \emph{excellent} if neither $(a-b,b)$ nor $(a,b-a)$ is good. Prove that the number of excellent pairs is equal to the sum of the positive divisors of $m$.
+
+SOLUTION 1:
+For positive integers $a,b$, define
+\[
+F(a,b)=a\lceil b\nu\rceil-b\lfloor a\nu\rfloor.
+\]
+We call a pair $m$-good or $m$-excellent when its value is $m$. A pair having a nonpositive coordinate is not a pair of positive integers and is therefore not good.
+
+Because $\nu$ is irrational,
+\[
+F(a,b)
+=a\bigl(1-\{b\nu\}\bigr)+b\{a\nu\}>0.
+\tag{2}
+\]
+We first compare a pair with its two children
+\[
+(a+b,b)
+\qquad\text{and}\qquad
+(a,b+a).
+\]
+If $\{a\nu\}+\{b\nu\}<1$, then
+\[
+F(a+b,b)=F(a,b)+b,
+\qquad
+F(a,b+a)=F(a,b).
+\tag{3}
+\]
+If $\{a\nu\}+\{b\nu\}\ge1$, then
+\[
+F(a+b,b)=F(a,b),
+\qquad
+F(a,b+a)=F(a,b)+a.
+\tag{4}
+\]
+Thus one child has the same value as its parent, while the other has a larger value, increased by one of $a,b$. The child with the larger value is excellent for that value: its unique positive parent is not good for the new value. The child with the unchanged value is not excellent, because its parent is good for the same value.
+
+Call $(a+b,b)$ and $(a,b+a)$ the children of $(a,b)$. A pair obtained by repeatedly passing to a child is called a descendant. Every pair with unequal coordinates has a unique parent, obtained by subtracting the smaller coordinate from the larger one. Repeating this operation eventually reaches a unique pair of the form $(x,x)$.
+
+We next record a bound for excellent pairs. If $(a,b)$ is $m$-excellent and $a=b$, then by irrationality
+\[
+F(a,a)=a,
+\]
+so $a=m$. If $a\ne b$, the pair is the child of some pair $(a',b')$. If, for example, $(a,b)=(a'+b',b')$, then excellence and (3)-(4) force
+\[
+m=F(a',b')+b',
+\]
+so $b=b'<m$. The other case is symmetric. Therefore every $m$-excellent pair satisfies
+\[
+\min\{a,b\}\le m.
+\tag{5}
+\]
+
+Let
+\[
+S_m=\{(a,b):F(a,b)\le m\text{ and }\min\{a,b\}\le m\}.
+\]
+Every ancestor of a pair in $S_m$ also belongs to $S_m$, because passing from a parent to a child never decreases $F$, and the minimum coordinate of a parent is no larger than that of its child. By (5), every $m$-excellent pair lies in $S_m$.
+
+We claim that $S_m$ is finite. Suppose, for example, that it contains infinitely many pairs $(c,d)$ with $d>2m$. Then $c\le m<d$. Repeatedly replacing $(c,d)$ by its parent $(c,d-c)$, we reach a pair
+\[
+(c,d')\in S_m
+\qquad\text{with}\qquad
+m<d'\le2m.
+\]
+There are only finitely many possibilities for $(c,d')$, so one such pair has infinitely many descendants in $S_m$ of the form
+\[
+(c,d'+tc)
+\qquad(t=1,2,\ldots).
+\]
+The integer sequence $F(c,d'+tc)$ is nondecreasing by (3)-(4) and bounded above by $m$, so it is eventually constant. By (3), eventual constancy implies
+\[
+\{c\nu\}+\{(d'+tc)\nu\}<1
+\]
+for every sufficiently large $t$. No wraparound then occurs, and consequently
+\[
+\{(d'+tc)\nu\}
+=
+\{(d'+t_0c)\nu\}+(t-t_0)\{c\nu\}
+\]
+for all sufficiently large $t$, which is impossible because $\{c\nu\}>0$. Thus only finitely many elements of $S_m$ have second coordinate greater than $2m$. By symmetry, only finitely many have first coordinate greater than $2m$. Hence $S_m$ is finite.
+
+We now prove the main counting lemma.
+
+\textbf{Lemma.} Let $(a,b)$ satisfy $F(a,b)\ne m$. Let $g(a,b)$ be the number of $m$-excellent descendants of $(a,b)$, and let $h(a,b)$ be the number of representations
+\[
+m-F(a,b)=ka+\ell b
+\tag{6}
+\]
+with $k,\ell$ nonnegative integers. Then
+\[
+g(a,b)=h(a,b).
+\tag{7}
+\]
+
+\textbf{Proof.} We induct on the number of descendants of $(a,b)$ that lie in $S_m$.
+
+If there are none, then $g(a,b)=0$. Suppose $h(a,b)>0$, and assume without loss of generality that $a\le b$. Since $F(a,b)\ne m$, a representation (6) is nonzero and gives
+\[
+m-F(a,b)\ge a.
+\]
+By (3)-(4),
+\[
+F(a,b+a)\le F(a,b)+a\le m,
+\]
+and $a\le m$ because $F(a,b)>0$. Hence $(a,b+a)\in S_m$, contradicting the base assumption. Thus $h(a,b)=0$, proving the base case.
+
+For the induction step, suppose first that
+\[
+F(a+b,b)=F(a,b)+b,
+\qquad
+F(a,b+a)=F(a,b),
+\tag{8}
+\]
+the other case being symmetric.
+
+Assume first that $F(a,b)+b\ne m$. Neither child is then $m$-excellent. Their descendant sets are disjoint and together form the descendant set of $(a,b)$, so the induction hypothesis gives
+\[
+\begin{aligned}
+g(a,b)
+&=g(a+b,b)+g(a,b+a)\\
+&=h(a+b,b)+h(a,b+a).
+\end{aligned}
+\tag{9}
+\]
+A representation counted by $h(a+b,b)$ has the form
+\[
+m-F(a,b)-b=k'(a+b)+\ell'b.
+\]
+It gives
+\[
+m-F(a,b)=k'a+(k'+\ell'+1)b,
+\]
+which is a representation (6) with $k<\ell$. Conversely, every representation (6) with $k<\ell$ arises uniquely in this way.
+
+A representation counted by $h(a,b+a)$ has the form
+\[
+m-F(a,b)=k'a+\ell'(b+a)
+=(k'+\ell')a+\ell'b,
+\]
+which corresponds exactly to a representation (6) with $k\ge\ell$. Thus the two classes partition all representations (6), and
+\[
+h(a,b)=h(a+b,b)+h(a,b+a).
+\]
+Together with (9), this proves (7) in this case.
+
+It remains to consider
+\[
+F(a,b)+b=m.
+\tag{10}
+\]
+Then $(a+b,b)$ is itself $m$-excellent. No descendant of this child can be $m$-excellent: while the value remains $m$, the parent is also $m$-good, and once the value increases it exceeds $m$. Therefore
+\[
+g(a,b)=1+g(a,b+a)=1+h(a,b+a).
+\tag{11}
+\]
+On the other hand, by (10), equation (6) is
+\[
+b=ka+\ell b.
+\]
+It always has the representation $(k,\ell)=(0,1)$. Its only possible additional representation has $\ell=0$ and $ka=b$. Such an additional representation exists exactly when the equation counted by $h(a,b+a)$,
+\[
+b=ka+\ell(b+a),
+\]
+has a solution; necessarily that solution also has $\ell=0$. Hence
+\[
+h(a,b)=1+h(a,b+a).
+\tag{12}
+\]
+Equations (11) and (12) complete the induction. $\square$
+
+There is exactly one $m$-excellent diagonal pair, namely $(m,m)$, because $F(x,x)=x$. Every other $m$-excellent pair has a unique diagonal ancestor $(x,x)$ with $x<m$.
+
+For such an $x$, the lemma says that the number of $m$-excellent descendants of $(x,x)$ is the number of nonnegative solutions of
+\[
+m-F(x,x)=m-x=(k+\ell)x.
+\]
+This number is $0$ if $x\nmid m$. If $x\mid m$, writing $m=dx$, it is the number of solutions of $k+\ell=d-1$, namely
+\[
+d=\frac mx.
+\]
+Therefore the total number of excellent pairs is
+\[
+1+
+\sum_{\substack{x\mid m\\x<m}}\frac mx.
+\]
+Under the substitution $d=m/x$, the proper divisors $x<m$ correspond to the divisors $d>1$, so this equals
+\[
+1+
+\sum_{\substack{d\mid m\\d>1}}d
+=
+\sum_{d\mid m}d.
+\]
+This is exactly the sum of the positive divisors of $m$.

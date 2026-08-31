@@ -1,0 +1,361 @@
+ID: 0093
+
+SOURCE: IMO Shortlist
+
+YEAR: 2013
+
+TOPIC: Algebra
+
+SUBTOPICS: Functional Equations, Function Iteration, Injectivity, Modular Arithmetic
+
+STATEMENT:
+Let $\mathbb{Z}_{\ge0}$ be the set of all nonnegative integers. Find all functions
+\[
+f:\mathbb{Z}_{\ge0}\to\mathbb{Z}_{\ge0}
+\]
+satisfying
+\[
+f(f(f(n)))=f(n+1)+1
+\tag{*}
+\]
+for every $n\in\mathbb{Z}_{\ge0}$.
+
+SOLUTION 1:
+For a function $h$, write $h^k$ for its $k$-fold iterate, with $h^0$ the identity. The two solutions are
+\[
+f(n)=n+1
+\tag{1}
+\]
+for all $n\ge0$, and
+\[
+f(n)=
+\begin{cases}
+n+1,&n\equiv0,2\pmod4,\\
+n+5,&n\equiv1\pmod4,\\
+n-3,&n\equiv3\pmod4.
+\end{cases}
+\tag{2}
+\]
+We prove that no others exist.
+
+First, from (*) we obtain
+\[
+f^4(n)=f\bigl(f(n+1)+1\bigr)
+\]
+and, by applying (*) to the input $f(n+1)$,
+\[
+f^4(n+1)=f\bigl(f(n+1)+1\bigr)+1.
+\]
+Therefore
+\[
+f^4(n+1)=f^4(n)+1
+\tag{3}
+\]
+for all $n\ge0$.
+
+For $i\ge0$, let $R_i$ be the range of $f^i$. Then
+\[
+R_0\supseteq R_1\supseteq R_2\supseteq\cdots.
+\]
+Equation (3) gives $f^4(n)=f^4(0)+n$, so $R_4$, and hence $R_1$, is unbounded and has finite complement in $\mathbb{Z}_{\ge0}$.
+
+We claim that $f$ is injective. If $f(m)=f(n)$, then (*) gives $f(m+1)=f(n+1)$, and induction gives
+\[
+f(m+c)=f(n+c)
+\qquad(c\ge0).
+\]
+If $m\ne n$, this would make the sequence $f(0),f(1),\ldots$ eventually periodic, and its range would be bounded, contradicting the unboundedness of $R_1$. Thus $f$ is injective.
+
+For $i\ge1$, set
+\[
+S_i=R_{i-1}\setminus R_i.
+\]
+The sets $S_1,S_2,S_3,S_4$ are finite. Injectivity gives
+\[
+x\in S_i\quad\Longleftrightarrow\quad f(x)\in S_{i+1},
+\]
+so $f$ is a bijection from $S_i$ to $S_{i+1}$. Hence all these sets have the same cardinality; write
+\[
+|S_i|=k.
+\]
+The number $0$ cannot belong to $R_3$, because $f^3(n)=0$ would imply from (*) that $f(n+1)=-1$. Thus
+\[
+0\in R_0\setminus R_3=S_1\cup S_2\cup S_3,
+\]
+so $k\ge1$.
+
+Let $b\in R_0\setminus R_3$. We claim that at least one of the following holds:
+\[
+b=0,
+\qquad
+b=f(0)+1,
+\qquad
+b-1\in S_1.
+\tag{4}
+\]
+Otherwise $b\ge1$, $b-1\notin S_1$, and hence $b-1\in R_1$. Choose $n\ge0$ with $f(n)=b-1$. Since $b\ne f(0)+1$, we have $n>0$. Then (*) at $n-1$ gives
+\[
+f^3(n-1)=f(n)+1=b,
+\]
+contrary to $b\notin R_3$. Thus (4) holds.
+
+It follows that
+\[
+3k=|S_1\cup S_2\cup S_3|
+\le1+1+|S_1|=k+2.
+\]
+Since $k\ge1$, we get $k=1$. Write
+\[
+S_1=\{a\},
+\qquad
+S_2=\{f(a)\},
+\qquad
+S_3=\{f^2(a)\}.
+\]
+Equality in the preceding count gives
+\[
+\{a,f(a),f^2(a)\}=\{0,a+1,f(0)+1\}.
+\tag{5}
+\]
+In particular, $a+1$ is either $f(a)$ or $f^2(a)$. The second possibility is impossible, because then
+\[
+f(a+1)=f^3(a)=f(a+1)+1.
+\]
+Therefore
+\[
+f(a)=a+1.
+\tag{6}
+\]
+Since $f(a)>0$, equation (5) shows that either $a=0$ or $f^2(a)=0$.
+
+\textbf{Case 1: $a=0$.}
+Then (6) gives $f(0)=1$, and (5) gives $f(1)=2$. We prove by induction that $f(n)=n+1$. If this is known up to $n-1$, where $n\ge2$, then
+\[
+f(n)=f^2(n-1)=f^3(n-2)=f(n-1)+1=n+1.
+\]
+Thus (1) is obtained.
+
+\textbf{Case 2: $f^2(a)=0$.}
+From (5) and (6),
+\[
+a=f(0)+1.
+\]
+Moreover, $f(a+1)=f^2(a)=0$, and (*) at $a$ gives
+\[
+f(0)=f^3(a)=f(a+1)+1=1.
+\]
+Hence
+\[
+a=2,
+\qquad
+f(0)=1,
+\qquad
+f(2)=3,
+\qquad
+f(3)=0.
+\tag{7}
+\]
+We now prove (2) by induction. More precisely, after stage $m$ the formula is known for numbers $4k,4k+2,4k+3$ with $k\le m$, and for numbers $4k+1$ with $k<m$. The case $m=0$ is (7).
+
+Assume $m\ge1$ and the preceding values are known. First,
+\[
+f^3(4m-3)=f(4m-2)+1=4m.
+\tag{8}
+\]
+Using (3) and $f(4m-4)=4m-3$, we get
+\[
+\begin{aligned}
+f(4m)
+&=f^4(4m-3)\\
+&=f^4(4m-4)+1\\
+&=f^3(4m-3)+1=4m+1.
+\end{aligned}
+\tag{9}
+\]
+The already known value $f(4m-1)=4m-4$, together with (*) and (9), gives
+\[
+f(4m-3)=f^3(4m-1)=f(4m)+1=4m+2.
+\tag{10}
+\]
+Next,
+\[
+f(4m+2)=f^3(4m-4)=f(4m-3)+1=4m+3,
+\tag{11}
+\]
+and finally, by (8),
+\[
+f(4m+3)=f^3(4m-3)=4m.
+\tag{12}
+\]
+This completes the induction and proves (2).
+
+It remains to verify the two functions. Formula (1) is immediate. For (2), direct calculation in the four residue classes gives
+\[
+\begin{aligned}
+f^3(4k)&=4k+7=f(4k+1)+1,\\
+f^3(4k+1)&=4k+4=f(4k+2)+1,\\
+f^3(4k+2)&=4k+1=f(4k+3)+1,\\
+f^3(4k+3)&=4k+6=f(4k+4)+1.
+\end{aligned}
+\]
+Thus both displayed functions satisfy (*), and they are the only solutions.
+
+SOLUTION 2:
+Again write $f^k$ for the $k$-fold iterate, and define
+\[
+g(n)=f(n)+1.
+\]
+Substituting $f(n)$ for $n$ in (*) gives
+\[
+f^4(n)=f\bigl(f(n)+1\bigr)+1=g^2(n).
+\tag{1}
+\]
+Applying $f$ to (*) and using (*) once more at the input $f(n+1)$ yields
+\[
+f^4(n+1)=f^4(n)+1.
+\tag{2}
+\]
+Let
+\[
+c=f^4(0)=g^2(0).
+\]
+Then (1) and (2) imply
+\[
+f^4(n)=g^2(n)=n+c
+\qquad(n\ge0).
+\tag{3}
+\]
+Both $f$ and $g$ are injective. For example, $f(m)=f(n)$ implies $m+c=f^4(m)=f^4(n)=n+c$; the argument for $g$ is identical. Since $g(n)\ge1$, we have $c=g^2(0)\ge1$. Equation (3) also shows that
+\[
+f(n)\ne n,
+\qquad
+g(n)\ne n
+\tag{4}
+\]
+for every $n$.
+
+Applying $f$ and $g$ to (3) gives
+\[
+f(n+c)=f(n)+c,
+\qquad
+g(n+c)=g(n)+c.
+\tag{5}
+\]
+It follows that
+\[
+m\equiv n\pmod c
+\quad\Longleftrightarrow\quad
+f(m)\equiv f(n)\pmod c
+\quad\Longleftrightarrow\quad
+g(m)\equiv g(n)\pmod c.
+\tag{6}
+\]
+The forward implications follow from (5); the reverse implications follow by iterating the forward implication and using $f^4(t)=g^2(t)=t+c$.
+
+Set
+\[
+\delta(n)=f(n)-n=g(n)-n-1
+\]
+and
+\[
+S=\sum_{n=0}^{c-1}\delta(n).
+\]
+By (5), $\delta$ is periodic modulo $c$. By (6), each of the sets
+\[
+\{f^j(0),\ldots,f^j(c-1)\}
+\quad\text{and}\quad
+\{g^j(0),\ldots,g^j(c-1)\}
+\]
+is a complete residue system modulo $c$. Therefore, telescoping the iterates in (3),
+\[
+\begin{aligned}
+c^2
+&=\sum_{n=0}^{c-1}\bigl(f^4(n)-n\bigr)\\
+&=\sum_{j=0}^{3}\sum_{n=0}^{c-1}
+\bigl(f^{j+1}(n)-f^j(n)\bigr)\\
+&=\sum_{j=0}^{3}\sum_{n=0}^{c-1}\delta(f^j(n))
+=4S.
+\end{aligned}
+\tag{7}
+\]
+Similarly,
+\[
+\begin{aligned}
+c^2
+&=\sum_{n=0}^{c-1}\bigl(g^2(n)-n\bigr)\\
+&=\sum_{j=0}^{1}\sum_{n=0}^{c-1}
+\bigl(g^{j+1}(n)-g^j(n)\bigr)\\
+&=\sum_{j=0}^{1}\sum_{n=0}^{c-1}
+\bigl(\delta(g^j(n))+1\bigr)
+=2S+2c.
+\end{aligned}
+\tag{8}
+\]
+Combining (7) and (8) gives
+\[
+c^2=4c.
+\]
+Since $c>0$,
+\[
+c=4.
+\tag{9}
+\]
+Thus (5) becomes
+\[
+f(n+4)=f(n)+4,
+\qquad
+g(n+4)=g(n)+4.
+\tag{10}
+\]
+It remains only to determine the values on $0,1,2,3$.
+
+Let $d=g(0)\ge1$. By (3) and (9),
+\[
+g(d)=g^2(0)=4.
+\]
+If $d\ge4$, then (10) would give $g(d-4)=0$, impossible. Hence $d\in\{1,2,3\}$. The values $d=1$ and $d=3$ would give respectively $f(0)=0$ and $f(3)=3$, both forbidden by (4). Therefore
+\[
+g(0)=2,
+\qquad
+g(2)=g^2(0)=4.
+\tag{11}
+\]
+
+By (6), the four numbers $g(0),g(1),g(2),g(3)$ form a complete residue system modulo $4$. Hence $g(1)$ is congruent to $1$ or $3$ modulo $4$. If
+\[
+g(1)=1+4k,
+\]
+then (3) and (10) give
+\[
+5=g^2(1)=g(1+4k)=g(1)+4k=1+8k,
+\]
+impossible. Thus
+\[
+g(1)=3+4k
+\]
+for some $k\ge0$. Again using $g^2(1)=5$ and (10),
+\[
+g(3)=5-4k.
+\]
+Since $g(3)\ge1$, we have $k=0$ or $k=1$.
+
+If $k=0$, then
+\[
+(f(0),f(1),f(2),f(3))=(1,2,3,4),
+\]
+and (10) gives $f(n)=n+1$.
+
+If $k=1$, then
+\[
+(f(0),f(1),f(2),f(3))=(1,6,3,0),
+\]
+and (10) gives
+\[
+f(n)=
+\begin{cases}
+n+1,&n\equiv0,2\pmod4,\\
+n+5,&n\equiv1\pmod4,\\
+n-3,&n\equiv3\pmod4.
+\end{cases}
+\]
+A direct check in the four residue classes verifies both functions, completing the solution.

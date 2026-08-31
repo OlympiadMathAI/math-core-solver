@@ -1,0 +1,236 @@
+ID: 0092
+
+SOURCE: IMO Shortlist
+
+YEAR: 2013
+
+TOPIC: Algebra
+
+SUBTOPICS: Periodic Sequences, Combinatorial Inequalities, Double Counting, Directed Graphs
+
+STATEMENT:
+Let $n$ be a positive integer, and let $a_1,a_2,\ldots,a_n$ be positive integers. Extend the sequence periodically by defining
+\[
+a_{n+i}=a_i
+\]
+for all $i\ge1$. Suppose that
+\[
+a_1\le a_2\le\cdots\le a_n\le a_1+n
+\tag{1}
+\]
+and
+\[
+a_{a_i}\le n+i-1
+\qquad (i=1,2,\ldots,n).
+\tag{2}
+\]
+Prove that
+\[
+a_1+a_2+\cdots+a_n\le n^2.
+\]
+
+SOLUTION 1:
+We first prove that
+\[
+a_i\le n+i-1
+\qquad (i=1,\ldots,n).
+\tag{3}
+\]
+Suppose otherwise, and let $i$ be the smallest index for which $a_i\ge n+i$. Let $r\in\{1,\ldots,n\}$ be congruent to $a_i$ modulo $n$. By periodicity,
+\[
+a_{a_i}=a_r.
+\]
+If $r\ge i$, then monotonicity gives
+\[
+a_{a_i}=a_r\ge a_i\ge n+i,
+\]
+contrary to (2). Hence $r<i$. But an integer at least $n+i$ whose residue modulo $n$ belongs to $\{1,\ldots,i-1\}$ must be at least $2n+1$. Therefore
+\[
+a_i\ge2n+1.
+\]
+By (1),
+\[
+a_1+n\ge a_n\ge a_i\ge2n+1,
+\]
+so $a_1\ge n+1$. Thus index $1$ also violates (3), and the minimality of $i$ forces $i=1$. This is impossible because the residue $r$ would have to satisfy $1\le r<i=1$. Hence (3) is proved.
+
+In particular, $a_1\le n$. If $a_n\le n$, then every $a_i\le n$ and the result is immediate. Assume therefore that $a_n>n$, and let $t$ be the unique index such that
+\[
+a_1\le\cdots\le a_t\le n<a_{t+1}\le\cdots\le a_n.
+\tag{4}
+\]
+Here $1\le t\le n-1$. Since $1\le a_1\le n$ and (2) with $i=1$ gives $a_{a_1}\le n$, relation (4) implies
+\[
+a_1\le t.
+\]
+Consequently, by (1),
+\[
+a_n\le a_1+n\le n+t.
+\tag{5}
+\]
+
+For $i=1,\ldots,t$, let
+\[
+b_i=\#\{j\in\{t+1,\ldots,n\}:a_j\ge n+i\}.
+\]
+We claim that
+\[
+a_i+b_i\le n
+\qquad (i=1,\ldots,t).
+\tag{6}
+\]
+Indeed, $a_i\le n$, and (2) gives $a_{a_i}\le n+i-1$. If $a_j\ge n+i$, then $a_j>a_{a_i}$, so monotonicity forces $j>a_i$. Hence there are at most $n-a_i$ possible indices $j$, proving $b_i\le n-a_i$.
+
+By (4) and (5), every $a_j$ with $j>t$ is an integer between $n+1$ and $n+t$. Therefore
+\[
+a_j=n+\sum_{i=1}^t\mathbf 1_{\{a_j\ge n+i\}},
+\]
+and summing over $j=t+1,\ldots,n$ gives
+\[
+a_{t+1}+\cdots+a_n=n(n-t)+b_1+\cdots+b_t.
+\]
+Using (6), we obtain
+\[
+\begin{aligned}
+a_1+\cdots+a_n
+&=n(n-t)+\sum_{i=1}^t(a_i+b_i)\\
+&\le n(n-t)+nt=n^2.
+\end{aligned}
+\]
+
+SOLUTION 2:
+We use a lattice-cell interpretation. In columns $1,\ldots,n$, shade the bottom $a_i$ cells of column $i$ dark. Thus the total number of dark cells is
+\[
+a_1+\cdots+a_n.
+\]
+Let
+\[
+S=\{(i,j):1\le i\le n,\ 1\le j\le n\}
+\]
+be the $n\times n$ square formed by the first $n$ rows and columns.
+
+To the left of $S$, start each row $j\in\{1,\ldots,n\}$ at column $-n+1$ and shade its first $a_j$ cells light. Equivalently, the light shape is obtained by reflecting the dark shape across the diagonal and translating it $n$ units to the left. A cell $(i,j)\in S$ is light exactly when
+\[
+a_j\ge n+i.
+\tag{3}
+\]
+
+We claim that no cell of $S$ is both dark and light. Suppose such a cell exists in column $i$, and let
+\[
+h=\min(a_i,n)
+\]
+be the row of the highest dark cell of that column lying in $S$. If $(i,j)$ is both dark and light, then $j\le h$ and $a_j\ge n+i$. Since the sequence is nondecreasing, $a_h\ge a_j$, so $(i,h)$ is also light.
+
+If $a_i\le n$, then $h=a_i$. By (3), the lightness of $(i,a_i)$ says
+\[
+a_{a_i}\ge n+i,
+\]
+contradicting (2).
+
+If $a_i\ge n+1$, then $h=n$. The lightness of $(i,n)$ says $a_n\ge n+i$. From (1), $a_n\le a_1+n$, so $i\le a_1$. Also every term of the period is at least $a_1$, while (2) with $i=1$ gives $a_{a_1}\le n$; hence
+\[
+a_1\le a_{a_1}\le n.
+\]
+Since $i\le a_1$, monotonicity gives
+\[
+a_i\le a_{a_1}\le n,
+\]
+contradicting $a_i\ge n+1$. The claim follows.
+
+It remains to relate the dark cells above $S$ to the light cells inside $S$. The map
+\[
+(i,j)\longmapsto(j-n,i)
+\tag{4}
+\]
+sends a dark cell with $j>n$ to a light cell with positive column, and the inverse map sends every such light cell back to a dark cell above $S$. There cannot be a light cell in a column greater than $n$: if such a cell existed, then some $a_j>2n$, hence $a_n>2n$, and the cell $(n,n)$ would be both dark and light, contrary to the claim. Thus (4) is a bijection between the dark cells above $S$ and the light cells inside $S$.
+
+Consequently,
+\[
+\begin{aligned}
+\#\{\text{all dark cells}\}
+&=\#\{\text{dark cells in }S\}
+ +\#\{\text{light cells in }S\}\\
+&\le n^2,
+\end{aligned}
+\]
+because no cell of $S$ receives both colors. Hence $a_1+\cdots+a_n\le n^2$.
+
+SOLUTION 3:
+As in Solution 1, we first establish
+\[
+a_i\le n+i-1
+\qquad (i=1,\ldots,n).
+\tag{3}
+\]
+For completeness, if $i$ were the smallest counterexample and $r\in\{1,\ldots,n\}$ were congruent to $a_i$ modulo $n$, then $a_{a_i}=a_r\le n+i-1$ would force $r<i$. Since $a_i\ge n+i$, this would imply $a_i\ge2n+1$, hence $a_1\ge n+1$, contradicting the minimality of $i$ exactly as in Solution 1.
+
+Define
+\[
+c_i=\max(a_i,i)
+\qquad (i=1,\ldots,n),
+\]
+and extend $c_i$ periodically. Then
+\[
+c_1\le c_2\le\cdots\le c_n\le c_1+n.
+\tag{4}
+\]
+We also have
+\[
+c_{c_i}\le n+i-1
+\qquad (i=1,\ldots,n).
+\tag{5}
+\]
+Indeed, if $c_i=i$, then $c_{c_i}=c_i=i$. If $c_i=a_i$, let $r\in\{1,\ldots,n\}$ be congruent to $a_i$ modulo $n$. By (3), $a_i\le n+i-1<2n$, so $r$ is either $a_i$ or $a_i-n$. Hence
+\[
+c_{c_i}=c_r=\max(a_{a_i},r)\le n+i-1
+\]
+by (2) and (3). Thus the sequence $c_i$ satisfies the same two hypotheses as $a_i$, and in addition
+\[
+c_i\ge i.
+\tag{6}
+\]
+
+Place $n$ vertices on a circle, labelled cyclically by $1,2,\ldots,n$. From vertex $i$, draw directed arrows to the vertices carrying the successive labels
+\[
+i+1,i+2,\ldots,c_i,
+\]
+where labels are read modulo $n$. Applying the argument that proved (3) to the sequence $c_i$, using (4) and (5), gives $c_i\le n+i-1$. Hence no arrow is a loop and no arrow is repeated. The total number of arrows is
+\[
+\sum_{i=1}^n(c_i-i).
+\tag{7}
+\]
+
+We show that no unordered pair of vertices carries arrows in both directions. Suppose $1\le i<j\le n$ and both $i\to j$ and $j\to i$ are drawn. Then
+\[
+j\le c_i,
+\qquad
+n+i\le c_j.
+\tag{8}
+\]
+From (4),
+\[
+n+i\le c_j\le c_n\le c_1+n,
+\]
+so $i\le c_1$. By (5) with $i=1$, $c_{c_1}\le n$; hence monotonicity gives
+\[
+c_i\le c_{c_1}\le n.
+\]
+Now $j\le c_i\le n$, so again by monotonicity and (5),
+\[
+c_j\le c_{c_i}\le n+i-1,
+\]
+contradicting the second inequality in (8).
+
+Therefore the number of arrows is at most $\binom n2$. From (7),
+\[
+\sum_{i=1}^n(c_i-i)\le\binom n2,
+\]
+so
+\[
+\sum_{i=1}^n c_i
+\le \binom n2+\frac{n(n+1)}2=n^2.
+\]
+Finally, $a_i\le c_i$ for every $i$, and hence
+\[
+a_1+\cdots+a_n\le n^2.
+\]

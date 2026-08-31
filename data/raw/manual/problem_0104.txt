@@ -1,0 +1,143 @@
+ID: 0104
+
+SOURCE: IMO Shortlist
+
+YEAR: 2013
+
+TOPIC: Geometry
+
+SUBTOPICS: Reflections, Circumcircles, Arc Midpoints, Perpendicular Bisectors, Isosceles Trapezoids
+
+STATEMENT:
+Let $\omega$ be the circumcircle of a triangle $ABC$. Let $M$ and $N$ be the midpoints of $AB$ and $AC$, respectively, and let $T$ be the midpoint of the arc $BC$ of $\omega$ not containing $A$.
+
+The circumcircles of $AMT$ and $ANT$ intersect the perpendicular bisectors of $AC$ and $AB$ at points $X$ and $Y$, respectively; assume that $X$ and $Y$ lie inside triangle $ABC$. The lines $MN$ and $XY$ intersect at $K$. Prove that
+\[
+KA=KT.
+\]
+
+SOLUTION 1:
+Let $O$ be the center of $\omega$. Since $M$ and $N$ are the midpoints of $AB$ and $AC$, respectively, the perpendicular bisectors of $AB$ and $AC$ are $OM$ and $ON$. Thus
+\[
+O=M Y\cap N X.
+\]
+
+Let $\ell$ be the perpendicular bisector of $AT$. The point $O$ lies on $\ell$, because $A,T\in\omega$. Let $r$ denote reflection in $\ell$.
+
+Since $T$ is the midpoint of the arc $BC$ not containing $A$, the line $AT$ bisects $\angle BAC$. It follows that the reflection of the line $AB$ in $\ell$ is parallel to $AC$. As
+\[
+OM\perp AB
+\qquad\text{and}\qquad
+ON\perp AC,
+\]
+the reflected line $r(OM)$ is the line through $O$ parallel to $ON$. Therefore
+\[
+r(OM)=ON.
+\tag{1}
+\]
+
+Let $\gamma$ be the circumcircle of $AMT$. Any circle through $A$ and $T$ has its center on the perpendicular bisector of $AT$, so $\gamma$ is invariant under $r$. Hence $r(M)$ belongs both to $ON$ and to $\gamma$. It is precisely the specified interior intersection point $X$, and therefore
+\[
+r(M)=X.
+\tag{2}
+\]
+Analogously,
+\[
+r(N)=Y.
+\tag{3}
+\]
+
+Equations (2) and (3) show that reflection in $\ell$ sends the line $MN$ to the line $XY$. Their intersection $K$ is therefore fixed by this reflection, so
+\[
+K\in\ell.
+\]
+Since $\ell$ is the perpendicular bisector of $AT$, we conclude that
+\[
+KA=KT.
+\]
+
+SOLUTION 2:
+Let $\gamma$ be the circumcircle of $AMT$, and let $L\ne A$ be the second intersection of $\gamma$ with the line $AC$.
+
+The quadrilaterals $ABTC$ and $AMTL$ are cyclic. Therefore
+\[
+\angle BTC=180^\circ-\angle BAC=\angle MTL,
+\]
+which gives
+\[
+\angle BTM=\angle CTL.
+\]
+Also, $BT=TC$ because $T$ is the midpoint of arc $BC$. Since $AT$ bisects $\angle BAC$,
+\[
+\angle MAT=\angle TAL.
+\]
+These are inscribed angles of the circle $AMTL$, so they subtend equal chords and
+\[
+MT=TL.
+\]
+Hence
+\[
+\triangle BTM\cong\triangle CTL,
+\]
+and so
+\[
+CL=BM=AM.
+\tag{1}
+\]
+
+Let $X'$ be the intersection of $NX$ with the external bisector of $\angle BAC$. The point $X'$ lies outside triangle $ABC$. Since $X'$ lies on the perpendicular bisector of $AC$,
+\[
+X'A=X'C,
+\]
+and, because the internal and external angle bisectors at $A$ are perpendicular,
+\[
+\angle TAX'=90^\circ.
+\]
+Using (1), we obtain
+\[
+\angle X'AM
+ =90^\circ+\frac{\angle BAC}{2}
+ =180^\circ-\angle X'AC
+ =180^\circ-\angle X'CA
+ =\angle X'CL.
+\]
+Together with $X'A=X'C$ and $AM=CL$, this yields
+\[
+\triangle X'AM\cong\triangle X'CL.
+\]
+Consequently,
+\[
+\begin{aligned}
+\angle MX'L
+&=\angle AX'C+\bigl(\angle CX'L-\angle AX'M\bigr)\\
+&=\angle AX'C\\
+&=180^\circ-2\angle X'AC\\
+&=\angle BAC\\
+&=\angle MAL.
+\end{aligned}
+\]
+Thus $A,M,L,X'$ are concyclic, so $X'\in\gamma$.
+
+Because $X,X',N$ are collinear and $A,M,T,X$ are concyclic,
+\[
+\angle TXN=\angle TXX'=\angle TAX'=90^\circ.
+\]
+Since $XN\perp AC$, it follows that
+\[
+TX\parallel AC.
+\tag{2}
+\]
+Now
+\[
+\angle XTA=\angle TAC=\angle TAM.
+\]
+In the cyclic quadrilateral $MATX$, the equality
+\[
+\angle XTA=\angle TAM
+\]
+shows that the diagonals $XA$ and $TM$ are equal. A cyclic quadrilateral with equal diagonals is an isosceles trapezoid; here its bases are $AT$ and $MX$. Its axis of symmetry is therefore the perpendicular bisector of $AT$, and that reflection exchanges $M$ and $X$.
+
+The same argument applied symmetrically shows that the same reflection exchanges $N$ and $Y$. Hence it sends the line $MN$ to the line $XY$. Their intersection $K$ lies on the perpendicular bisector of $AT$, and therefore
+\[
+KA=KT.
+\]

@@ -1,0 +1,185 @@
+ID: 0098
+
+SOURCE: IMO Shortlist
+
+YEAR: 2013
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Integer Partitions, Pigeonhole Principle, Extremal Combinatorics, Minimal Counterexample
+
+STATEMENT:
+Let $n$ be a positive integer, and let $A\subseteq\{1,2,\ldots,n\}$. An $A$-partition of $n$ into $k$ parts is a representation
+\[
+n=a_1+a_2+\cdots+a_k,
+\]
+where every $a_i$ belongs to $A$ and repetitions are allowed. The number of different parts in the partition is
+\[
+\bigl|\{a_1,a_2,\ldots,a_k\}\bigr|.
+\]
+An $A$-partition is called optimal if no $A$-partition of $n$ uses fewer parts.
+
+Prove that every optimal $A$-partition of $n$ contains at most
+\[
+\sqrt[3]{6n}
+\]
+different parts.
+
+SOLUTION 1:
+Assume an $A$-partition exists, and let
+\[
+n=a_1+\cdots+a_{k_{\min}}
+\]
+be optimal. Let its distinct parts be
+\[
+S=\{b_1,b_2,\ldots,b_s\},
+\qquad
+b_1<b_2<\cdots<b_s.
+\]
+Suppose for a contradiction that
+\[
+s>\sqrt[3]{6n}.
+\tag{1}
+\]
+We will find subsets $X,Y\subseteq S$ such that
+\[
+|X|<|Y|
+\qquad\text{and}\qquad
+\sum_{x\in X}x=\sum_{y\in Y}y.
+\tag{2}
+\]
+Then one occurrence of every element of $Y$ can be removed from the original partition and one occurrence of every element of $X$ inserted. This preserves the total sum but decreases the number of parts, contradicting optimality.
+
+Fix $k\in\{1,2,\ldots,s\}$. Starting with the $k$-subset
+\[
+\{b_1,b_2,\ldots,b_k\},
+\]
+repeatedly move the rightmost selected element that can be moved one position to the right, until the subset
+\[
+\{b_{s-k+1},\ldots,b_s\}
+\]
+is reached. Every move replaces some $b_j$ by $b_{j+1}$, so the subset sum strictly increases.
+
+The potential given by the sum of the selected indices starts at
+\[
+1+2+\cdots+k
+\]
+and ends at
+\[
+(s-k+1)+\cdots+s.
+\]
+Each move increases this potential by $1$, so the list contains exactly
+\[
+k(s-k)+1
+\]
+distinct $k$-subsets with pairwise distinct sums. Every such sum is an integer between $1$ and $n$, because all selected parts occur in the original partition.
+
+As $k$ ranges from $1$ to $s$, the total number of sums produced is
+\[
+\begin{aligned}
+\sum_{k=1}^s\bigl(k(s-k)+1\bigr)
+&=\frac{s(s^2+5)}6\\
+&>\frac{s^3}{6}\\
+&>n,
+\end{aligned}
+\]
+where the last inequality follows from (1). By the pigeonhole principle, two produced sums are equal. Within a fixed value of $k$ the sums were distinct, so the equal sums come from subsets of different sizes. Calling the smaller one $X$ and the larger one $Y$ gives (2), a contradiction.
+
+Therefore
+\[
+s\le\sqrt[3]{6n}.
+\]
+
+SOLUTION 2:
+Assume the assertion is false, and choose the smallest positive integer $n$ for which a counterexample exists. Let
+\[
+n=a_1+\cdots+a_{k_{\min}}
+\]
+be an optimal $A$-partition with distinct parts
+\[
+b_1<b_2<\cdots<b_s,
+\]
+where
+\[
+s>\sqrt[3]{6n}>1.
+\tag{1}
+\]
+Choose the ordering so that $a_{k_{\min}}=b_s$.
+
+\textbf{Case 1.} Suppose
+\[
+b_s\ge\frac{s(s-1)}2+1.
+\tag{2}
+\]
+Then
+\[
+n-b_s=a_1+\cdots+a_{k_{\min}-1}
+\]
+is an optimal partition of $n-b_s$: otherwise, adding one part $b_s$ to a shorter partition of $n-b_s$ would give a shorter partition of $n$. Every part used here is at most $n-b_s$, so this is an instance of the problem for the set $A\cap\{1,\ldots,n-b_s\}$. It contains at least $s-1$ distinct parts.
+
+From $n<s^3/6$ and (2),
+\[
+\begin{aligned}
+n-b_s
+&\le n-\frac{s(s-1)}2-1\\
+&<\frac{s^3}{6}-\frac{s(s-1)}2-1\\
+&<\frac{(s-1)^3}{6}.
+\end{aligned}
+\]
+Thus
+\[
+s-1>\sqrt[3]{6(n-b_s)},
+\]
+contradicting the minimal choice of $n$.
+
+\textbf{Case 2.} Suppose
+\[
+b_s\le\frac{s(s-1)}2.
+\tag{3}
+\]
+Set
+\[
+b_0=0,
+\qquad
+\Sigma_{0,0}=0,
+\]
+and for $1\le i\le j<s$ define
+\[
+\Sigma_{i,j}=b_1+b_2+\cdots+b_{i-1}+b_j.
+\]
+There are
+\[
+1+\frac{s(s-1)}2>b_s
+\]
+such sums. Hence two distinct sums, say $\Sigma_{i,j}$ and $\Sigma_{i',j'}$, are congruent modulo $b_s$.
+
+For a fixed $i$, the residues are distinct, because if $i\le j<k<s$, then
+\[
+0<\Sigma_{i,k}-\Sigma_{i,j}=b_k-b_j<b_s.
+\]
+Thus $i\ne i'$. Assume $i>i'$. Write
+\[
+\Sigma_{i,j}-\Sigma_{i',j'}=r b_s
+\]
+for some integer $r$. Since $b_{i'}\le b_{j'}$,
+\[
+\Sigma_{i,j}-\Sigma_{i',j'}
+=(b_{i'}-b_{j'})+b_j+b_{i'+1}+\cdots+b_{i-1},
+\]
+and every displayed positive term is less than $b_s$. Therefore
+\[
+-b_s<\Sigma_{i,j}-\Sigma_{i',j'}<(i-i')b_s.
+\]
+It follows that
+\[
+0\le r\le i-i'-1.
+\tag{4}
+\]
+
+The sum $\Sigma_{i,j}$ consists of $i$ distinct parts from the original partition. Remove one occurrence of each of them. Replace them by the $i'$ parts occurring in $\Sigma_{i',j'}$ and by $r$ copies of $b_s$. The total sum is unchanged, while by (4) the number of inserted parts is
+\[
+i'+r<i.
+\]
+This contradicts optimality.
+
+Both cases are impossible, so the claimed bound holds.

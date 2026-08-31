@@ -1,0 +1,151 @@
+ID: 0110
+
+SOURCE: IMO Shortlist
+
+YEAR: 2013
+
+TOPIC: Number Theory
+
+SUBTOPICS: Product Decompositions, Induction, Binary Expansions, Telescoping Products
+
+STATEMENT:
+Prove that for every pair of positive integers $k,n$ there exist positive integers
+\[
+m_1,m_2,\ldots,m_k
+\]
+such that
+\[
+1+\frac{2^k-1}{n}
+=
+\left(1+\frac1{m_1}\right)
+\left(1+\frac1{m_2}\right)
+\cdots
+\left(1+\frac1{m_k}\right).
+\tag{1}
+\]
+
+SOLUTION 1:
+We use induction on $k$.
+
+For $k=1$, equation (1) is immediate by taking $m_1=n$.
+
+Assume that the assertion is true for $k=j-1$, and let us prove it for $k=j$.
+
+\textbf{Case 1: $n$ is odd.} Write $n=2t-1$ with $t\ge1$. Then
+\[
+\begin{aligned}
+1+\frac{2^j-1}{2t-1}
+&=\frac{2(t+2^{j-1}-1)}{2t}\cdot\frac{2t}{2t-1}\\
+&=\left(1+\frac{2^{j-1}-1}{t}\right)
+  \left(1+\frac1{2t-1}\right).
+\end{aligned}
+\]
+By the induction hypothesis, the first factor is a product of $j-1$ factors of the required form. Taking $m_j=2t-1$ completes this case.
+
+\textbf{Case 2: $n$ is even.} Write $n=2t$ with $t\ge1$. We have
+\[
+\begin{aligned}
+1+\frac{2^j-1}{2t}
+&=\frac{2t+2^j-1}{2t+2^j-2}
+  \cdot
+  \frac{2t+2^j-2}{2t}\\
+&=\left(1+\frac1{2t+2^j-2}\right)
+  \left(1+\frac{2^{j-1}-1}{t}\right).
+\end{aligned}
+\]
+Again the second factor is, by induction, a product of $j-1$ factors of the required form, and we may take
+\[
+m_j=2t+2^j-2>0.
+\]
+This completes the induction.
+
+SOLUTION 2:
+We construct the $m_i$ directly from binary expansions modulo $2^k$.
+
+Let $A$ be the least nonnegative residue of $n-1$ modulo $2^k$, and let $B$ be the least nonnegative residue of $-n$ modulo $2^k$. Write
+\[
+A=2^{a_1}+2^{a_2}+\cdots+2^{a_r},
+\qquad
+0\le a_1<a_2<\cdots<a_r\le k-1,
+\]
+and
+\[
+B=2^{b_1}+2^{b_2}+\cdots+2^{b_s},
+\qquad
+0\le b_1<b_2<\cdots<b_s\le k-1.
+\]
+Since $A+B=2^k-1$, the sets of exponents are complementary:
+\[
+\{a_1,\ldots,a_r\}\mathbin{\dot\cup}\{b_1,\ldots,b_s\}
+=
+\{0,1,\ldots,k-1\},
+\]
+and hence
+\[
+r+s=k.
+\tag{2}
+\]
+
+Define
+\[
+S_p=2^{a_p}+2^{a_{p+1}}+\cdots+2^{a_r}
+\qquad(1\le p\le r),
+\]
+\[
+T_q=2^{b_1}+2^{b_2}+\cdots+2^{b_q}
+\qquad(1\le q\le s),
+\]
+and put
+\[
+S_{r+1}=0,
+\qquad
+T_0=0.
+\]
+Then
+\[
+S_1+T_s=2^k-1
+\]
+(with the natural empty-sum interpretation if $r=0$ or $s=0$), and because $T_s\equiv-n\pmod{2^k}$,
+\[
+n+T_s\equiv0\pmod{2^k}.
+\tag{3}
+\]
+
+Now telescope:
+\[
+\begin{aligned}
+1+\frac{2^k-1}{n}
+&=\frac{n+S_1+T_s}{n}\\
+&=
+\left(\prod_{p=1}^{r}
+\frac{n+S_p+T_s}{n+S_{p+1}+T_s}\right)
+\left(\prod_{q=1}^{s}
+\frac{n+T_q}{n+T_{q-1}}\right)\\
+&=
+\left(\prod_{p=1}^{r}
+\left(1+\frac{2^{a_p}}{n+S_{p+1}+T_s}\right)\right)
+\left(\prod_{q=1}^{s}
+\left(1+\frac{2^{b_q}}{n+T_{q-1}}\right)\right).
+\end{aligned}
+\tag{4}
+\]
+
+For $1\le p\le r$, define
+\[
+m_p=\frac{n+S_{p+1}+T_s}{2^{a_p}},
+\]
+and for $1\le q\le s$, define
+\[
+m_{r+q}=\frac{n+T_{q-1}}{2^{b_q}}.
+\]
+All these numbers are positive integers. Indeed, by (3),
+\[
+n+S_{p+1}+T_s\equiv n+T_s\equiv0\pmod{2^{a_p}},
+\]
+because every term of $S_{p+1}$ is divisible by $2^{a_p}$. Similarly,
+\[
+n+T_{q-1}\equiv n+T_s\equiv0\pmod{2^{b_q}},
+\]
+because $T_s-T_{q-1}$ is divisible by $2^{b_q}$.
+
+By (2), exactly $k$ integers have been constructed, and (4) is the desired identity.

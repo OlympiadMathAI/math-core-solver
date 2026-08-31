@@ -1,0 +1,322 @@
+ID: 0108
+
+SOURCE: IMO Shortlist
+
+YEAR: 2013
+
+TOPIC: Geometry
+
+SUBTOPICS: Excircles, Contact Lengths, Arc Midpoints, Circumcenters, Cyclic Quadrilaterals
+
+STATEMENT:
+Let the excircle of triangle $ABC$ opposite $A$ touch side $BC$ at $A_1$. Define $B_1$ and $C_1$ analogously. Suppose that the circumcenter of triangle $A_1B_1C_1$ lies on the circumcircle of triangle $ABC$. Prove that triangle $ABC$ is right-angled.
+
+SOLUTION 1:
+Let $\Omega$ and $\Gamma$ be the circumcircles of $ABC$ and $A_1B_1C_1$, respectively, and let $Q$ be the center of $\Gamma$. By hypothesis,
+\[
+Q\in\Omega.
+\]
+Let $A_0$ be the midpoint of the arc $CB$ of $\Omega$ containing $A$. Define $B_0$ and $C_0$ cyclically.
+
+We first prove a lemma.
+
+\textbf{Lemma.} We have
+\[
+A_0B_1=A_0C_1.
+\]
+Moreover, $A,A_0,B_1,C_1$ are concyclic, and $A,A_0$ lie on the same side of $B_1C_1$. The analogous statements hold cyclically.
+
+\textbf{Proof.} If $A=A_0$, then $AB=AC$, so symmetry gives $AB_1=AC_1$, and all the assertions are immediate.
+
+Assume $A\ne A_0$. Since $A_0$ is the midpoint of the arc $CB$ containing $A$,
+\[
+A_0B=A_0C.
+\]
+The standard excircle contact-length equalities give
+\[
+BC_1=CB_1.
+\]
+Also,
+\[
+\angle C_1BA_0
+=
+\angle ABA_0
+=
+\angle ACA_0
+=
+\angle B_1CA_0.
+\]
+Hence
+\[
+\triangle A_0BC_1\cong\triangle A_0CB_1.
+\]
+It follows that
+\[
+A_0C_1=A_0B_1.
+\]
+The corresponding exterior angles also give
+\[
+\angle A_0C_1A=
+\angle A_0B_1A,
+\]
+so $A,A_0,B_1,C_1$ are concyclic. In their cyclic order, $AA_0$ and $B_1C_1$ are opposite sides, so $A,A_0$ lie on the same side of $B_1C_1$. This proves the lemma. $\square$
+
+The contact triangle $A_1B_1C_1$ is obtuse-angled; equivalently, its three vertices lie in the interior of a semicircle of $\Gamma$. Relabel cyclically if necessary so that
+\[
+\angle A_1B_1C_1>90^\circ.
+\]
+Then the center $Q$ and the vertex $B_1$ lie on opposite sides of $A_1C_1$. From the positions of the contact points on the sides of $ABC$, the points $B$ and $B_1$ also lie on opposite sides of $A_1C_1$. Thus $Q$ and $B$ lie on the same side of $A_1C_1$.
+
+The perpendicular bisector of $A_1C_1$ meets $\Omega$ in two points, one on each side of $A_1C_1$. The point $Q$ lies on this perpendicular bisector because it is the center of $\Gamma$. By the cyclic version of the lemma,
+\[
+B_0A_1=B_0C_1,
+\]
+so $B_0$ lies on the same perpendicular bisector; moreover, $B$ and $B_0$ are on the same side of $A_1C_1$. Therefore
+\[
+Q=B_0.
+\tag{1}
+\]
+
+The lemma also shows that $A_0$ and $C_0$ lie on the perpendicular bisectors of $B_1C_1$ and $A_1B_1$, respectively. In view of (1),
+\[
+QA_0
+\quad\text{and}\quad
+QC_0
+\]
+are precisely those perpendicular bisectors. Hence reflection about $QA_0$ interchanges $B_1,C_1$, while reflection about $QC_0$ interchanges $A_1,B_1$. Therefore
+\[
+\begin{aligned}
+\angle C_1B_0A_1
+&=\angle C_1B_0B_1+\angle B_1B_0A_1\\
+&=2\angle A_0B_0B_1+2\angle B_1B_0C_0\\
+&=2\angle A_0B_0C_0\\
+&=180^\circ-\angle ABC.
+\end{aligned}
+\tag{2}
+\]
+The last equality follows from the definitions of the arc midpoints $A_0,C_0$.
+
+On the other hand, the cyclic version of the lemma for the vertex $B$ says that
+\[
+B,B_0,C_1,A_1
+\]
+are concyclic. Thus
+\[
+\angle C_1B_0A_1
+=
+\angle C_1BA_1
+=
+\angle ABC.
+\tag{3}
+\]
+Comparing (2) and (3),
+\[
+\angle ABC=180^\circ-\angle ABC,
+\]
+so
+\[
+\angle ABC=90^\circ.
+\]
+Therefore triangle $ABC$ is right-angled.
+
+SOLUTION 2:
+Let $\Gamma$ be the circumcircle of $A_1B_1C_1$, let $Q$ be its center, and let $\Omega$ be the circumcircle of $ABC$. By hypothesis,
+\[
+Q\in\Omega.
+\]
+
+First suppose that $Q$ coincides with a vertex of $ABC$, say $Q=B$. Since $B$ is the center of the circle through $A_1,B_1,C_1$,
+\[
+BC_1=BA_1.
+\]
+Let $s$ be the semiperimeter of $ABC$. In terms of the usual excircle contact lengths, this equality is
+\[
+s-BC=s-AB,
+\]
+so $AB=BC$ and triangle $ABC$ is isosceles at $B$. Also,
+\[
+BC_1=B_1C
+\]
+for every triangle. Since $B$ is the center of $\Gamma$,
+\[
+BB_1=BC_1=B_1C.
+\]
+By the isosceles relation $AB=BC$, the analogous contact lengths also give
+\[
+B_1A=B_1C.
+\]
+Thus $B_1$ is equidistant from $A,B,C$, so $B_1$ is the center of $\Omega$. Because $B_1\in AC$, the segment $AC$ is a diameter of $\Omega$, and hence
+\[
+\angle ABC=90^\circ.
+\]
+
+We may therefore assume
+\[
+Q\notin\{A,B,C\}.
+\]
+We use the following elementary lemma.
+
+\textbf{Lemma.} Let $XYZ$ and $X'Y'Z'$ be triangles satisfying
+\[
+XY=X'Y',
+\qquad
+YZ=Y'Z'.
+\]
+Then:
+
+\begin{enumerate}
+\item If $XZ\ne X'Z'$ and
+\[
+\angle YZX=\angle Y'Z'X',
+\]
+then
+\[
+\angle ZXY+
+\angle Z'X'Y'=180^\circ.
+\]
+\item If
+\[
+\angle YZX+
+\angle X'Z'Y'=180^\circ,
+\]
+then
+\[
+\angle ZXY=
+\angle Y'X'Z'.
+\]
+\end{enumerate}
+
+\textbf{Proof.} Superimpose the two triangles so that $Y=Y'$ and $Z=Z'$. After reflecting one triangle in $YZ$ if necessary, in the first case $X,X'$ lie on the same side of $YZ$, and in the second case they lie on opposite sides. The angle hypothesis makes $X,Z,X'$ collinear. Also $X\ne X'$. Since
+\[
+YX=YX',
+\]
+triangle $XX'Y$ is isosceles, and the two conclusions follow from its equal base angles. $\square$
+
+After a cyclic relabelling, suppose that $Q$ lies in the interior of the arc $AB$ of $\Omega$ not containing $C$. The six triangles
+\[
+QBA_1,\quad QA_1C,\quad QCB_1,\quad QB_1A,\quad QC_1A,\quad QBC_1
+\]
+have the same orientation. The point $Q$ cannot be the circumcenter of $ABC$, so not all of $QA,QB,QC$ are equal. Relabel $A$ and $B$ if necessary so that
+\[
+QC\ne QB.
+\]
+
+Apply part 1 of the lemma to triangles $QB_1C$ and $QC_1B$. We have
+\[
+QB_1=QC_1
+\]
+because $Q$ is the center of $\Gamma$, and
+\[
+B_1C=C_1B
+\]
+by the excircle contact-length equalities. Moreover,
+\[
+\angle B_1CQ=
+\angle C_1BQ,
+\]
+because these are inscribed angles standing over the same side of chord $QA$ in $\Omega$. Since $QC\ne QB$, the lemma gives
+\[
+\angle CQB_1+
+\angle BQC_1=180^\circ.
+\tag{1}
+\]
+
+We claim that
+\[
+QC=QA.
+\tag{2}
+\]
+Suppose instead that $QC\ne QA$. Applying part 1 of the lemma in the same way to triangles $QA_1C$ and $QC_1A$ gives
+\[
+\angle A_1QC+
+\angle C_1QA=180^\circ.
+\tag{3}
+\]
+Adding (1) and (3) yields
+\[
+\angle A_1QB_1+
+\angle BQA=360^\circ,
+\]
+which is impossible because both angles lie strictly between $0^\circ$ and $180^\circ$. Thus (2) holds.
+
+Now triangles $QA_1C$ and $QC_1A$ have all three corresponding sides equal:
+\[
+QA_1=QC_1,
+\qquad
+A_1C=C_1A,
+\qquad
+QC=QA.
+\]
+Hence they are congruent, and
+\[
+\angle A_1QC=
+\angle C_1QA.
+\tag{4}
+\]
+
+Next apply part 2 of the lemma to triangles $QA_1B$ and $QB_1A$. We have
+\[
+QA_1=QB_1,
+\qquad
+A_1B=B_1A.
+\]
+Also, $A$ and $B$ lie on opposite sides of chord $QC$ of $\Omega$, so
+\[
+\angle A_1BQ+
+\angle QAB_1=180^\circ.
+\]
+The lemma therefore gives
+\[
+\angle BQA_1=
+\angle B_1QA.
+\tag{5}
+\]
+
+Combining (1) and (5),
+\[
+\bigl(
+\angle B_1QC+
+\angle B_1QA
+\bigr)
++
+\bigl(
+\angle C_1QB-
+\angle BQA_1
+\bigr)
+=180^\circ.
+\]
+This is equivalent to
+\[
+\angle CQA+
+\angle A_1QC_1=180^\circ.
+\tag{6}
+\]
+With the common orientation of the rays around $Q$,
+\[
+\angle A_1QC_1
+=
+\angle A_1QC+\angle CQC_1
+\]
+and
+\[
+\angle CQA
+=
+\angle CQC_1+\angle C_1QA.
+\]
+Equation (4) therefore gives
+\[
+\angle A_1QC_1=\angle CQA.
+\]
+Thus (6) becomes
+\[
+2\angle CQA=180^\circ.
+\]
+Thus
+\[
+\angle CQA=90^\circ.
+\]
+Since $A,B,C,Q$ lie on $\Omega$, the chord $CA$ subtends equal angles at $Q$ and $B$. Therefore
+\[
+\angle CBA=90^\circ,
+\]
+and triangle $ABC$ is right-angled.

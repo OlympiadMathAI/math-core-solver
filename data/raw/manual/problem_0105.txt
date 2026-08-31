@@ -1,0 +1,144 @@
+ID: 0105
+
+SOURCE: IMO Shortlist
+
+YEAR: 2013
+
+TOPIC: Geometry
+
+SUBTOPICS: Angle Bisectors, Rhombi, Distances to Lines, Trigonometric Inequalities, Affine Geometry
+
+STATEMENT:
+In a triangle $ABC$, let $D$ and $E$ be the feet of the angle bisectors of angles $A$ and $B$, respectively. A rhombus is inscribed in the quadrilateral $AEDB$, with its four vertices lying on four different sides of $AEDB$. Let $\varphi$ be the non-obtuse angle of the rhombus. Prove that
+\[
+\varphi\le \max\{\angle BAC,\angle ABC\}.
+\]
+
+SOLUTION 1:
+Let $K,L,M,N$ be the vertices of the rhombus lying on $AE,ED,DB,BA$, respectively. Put
+\[
+\alpha=\angle BAC,
+\qquad
+\beta=\angle ABC,
+\qquad
+\psi=\angle NKL=\varphi,
+\]
+where $\psi$ is chosen to be the non-obtuse angle of the rhombus. Let the common side length of the rhombus be
+\[
+a=KL=LM=MN=NK.
+\]
+
+For a point $X$ and a line $YZ$, write $d(X,YZ)$ for the distance from $X$ to $YZ$. Since $D$ lies on the bisector of $\angle A$ and $E$ lies on the bisector of $\angle B$,
+\[
+d(D,AB)=d(D,AC),
+\qquad
+d(E,AB)=d(E,BC).
+\]
+Also,
+\[
+d(D,BC)=0,
+\qquad
+d(E,AC)=0.
+\]
+Hence
+\[
+d(D,AC)+d(D,BC)=d(D,AB)
+\]
+and
+\[
+d(E,AC)+d(E,BC)=d(E,AB).
+\]
+Inside triangle $ABC$, signed distance to a fixed side-line is an affine function of the point. Since $L$ lies on $DE$, the preceding two equalities imply
+\[
+d(L,AC)+d(L,BC)=d(L,AB).
+\tag{1}
+\]
+
+Define the angles $\mu,\nu,\delta,\varepsilon$ by
+\[
+\mu=\angle CKL,
+\qquad
+\nu=\angle CML,
+\qquad
+\delta=\angle ANK,
+\qquad
+\varepsilon=\angle MNB.
+\]
+Then
+\[
+d(L,AC)=a\sin\mu,
+\qquad
+d(L,BC)=a\sin\nu.
+\]
+Because $KLMN$ is a parallelogram and $N\in AB$, the affine-distance identity for its opposite vertices gives
+\[
+d(L,AB)+d(N,AB)=d(K,AB)+d(M,AB).
+\]
+Since $d(N,AB)=0$, this becomes
+\[
+d(L,AB)=a(\sin\delta+\sin\varepsilon).
+\]
+Substituting in (1), we obtain
+\[
+\sin\mu+\sin\nu=\sin\delta+\sin\varepsilon.
+\tag{2}
+\]
+
+If either $\alpha$ or $\beta$ is non-acute, then
+\[
+\max\{\alpha,\beta\}\ge90^\circ\ge\psi,
+\]
+and there is nothing to prove. Thus assume
+\[
+\alpha,\beta<90^\circ.
+\]
+Suppose, for a contradiction, that
+\[
+\psi>\max\{\alpha,\beta\}.
+\tag{3}
+\]
+At $K$ we have
+\[
+\mu+\psi=\angle CKN=\alpha+\delta,
+\]
+so (3) gives
+\[
+\mu<\delta.
+\tag{4}
+\]
+Similarly, at $M$,
+\[
+\nu+\psi=\beta+\varepsilon,
+\]
+and hence
+\[
+\nu<\varepsilon.
+\tag{5}
+\]
+
+Since $KN\parallel LM$,
+\[
+\beta=\delta+\nu,
+\]
+so
+\[
+0<\delta<\beta<90^\circ.
+\]
+Likewise, since $KL\parallel MN$,
+\[
+\alpha=\mu+\varepsilon,
+\]
+and therefore
+\[
+0<\varepsilon<\alpha<90^\circ.
+\]
+Thus (4) and (5), together with the strict increase of sine on $(0,90^\circ)$, give
+\[
+\sin\mu<\sin\delta
+\qquad\text{and}\qquad
+\sin\nu<\sin\varepsilon.
+\]
+Adding these inequalities contradicts (2). Hence (3) is impossible, and
+\[
+\varphi=\psi\le\max\{\angle BAC,\angle ABC\}.
+\]

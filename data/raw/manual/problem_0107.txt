@@ -1,0 +1,473 @@
+ID: 0107
+
+SOURCE: IMO Shortlist
+
+YEAR: 2013
+
+TOPIC: Geometry
+
+SUBTOPICS: Parallelograms, Directed Angles, Vectors, Complex Numbers, Concurrency
+
+STATEMENT:
+Let $ABCDEF$ be a convex hexagon such that
+\[
+AB=DE,
+\qquad
+BC=EF,
+\qquad
+CD=FA,
+\]
+and
+\[
+\angle A-\angle D
+=
+\angle C-\angle F
+=
+\angle E-\angle B.
+\]
+Prove that the diagonals $AD,BE,CF$ are concurrent.
+
+SOLUTION 1:
+Put
+\[
+\theta=
+\angle A-\angle D
+=
+\angle C-\angle F
+=
+\angle E-\angle B.
+\]
+After reversing the order of the vertices if necessary, assume
+\[
+\theta\ge0.
+\]
+Also set
+\[
+x=AB=DE,
+\qquad
+y=CD=FA,
+\qquad
+z=EF=BC.
+\]
+
+Choose points $P,Q,R$ so that $CDEP$, $EFAQ$, and $ABCR$ are parallelograms. We first compute
+\[
+\begin{aligned}
+\angle PEQ
+&=\angle FEQ+\angle DEP-\angle E\\
+&=(180^\circ-\angle F)+(180^\circ-\angle D)-\angle E\\
+&=360^\circ-\angle D-\angle E-\angle F.
+\end{aligned}
+\]
+Since the interior angles of a hexagon sum to $720^\circ$,
+\[
+360^\circ-\angle D-\angle E-\angle F
+=
+\frac12\bigl(
+\angle A+\angle B+\angle C
+-
+\angle D-\angle E-\angle F
+\bigr)
+=\frac\theta2.
+\]
+Thus
+\[
+\angle PEQ=\frac\theta2.
+\]
+Cyclically,
+\[
+\angle QAR=\angle RCP=\frac\theta2.
+\tag{1}
+\]
+
+If $\theta=0$, then triangle $RCP$ is isosceles with zero apex angle, so $R=P$. From the defining parallelograms,
+\[
+AB\parallel RC,
+\qquad
+PC\parallel DE.
+\]
+Since $R=P$, it follows that $AB\parallel DE$; together with $AB=DE$, this makes $ABDE$ a parallelogram. Similarly, $BCEF$ and $CDFA$ are parallelograms. Their diagonals $AD,BE,CF$ pass through the same midpoint, so the result follows.
+
+Assume now that $\theta>0$. The triangles
+\[
+PEQ,
+\qquad QAR,
+\qquad RCP
+\]
+are isosceles, have the same apex angle $\theta/2$, and have equal-side lengths $y,z,x$, respectively. Therefore they are similar in the ratio
+\[
+y:z:x.
+\]
+In particular, the three side lengths of triangle $PQR$ are proportional to
+\[
+y,z,x.
+\tag{2}
+\]
+
+Next,
+\[
+\frac{RQ}{QP}=\frac zy=\frac{RA}{AF}.
+\tag{3}
+\]
+Using directed angles between rays, the equal base angles of the three isosceles triangles and the parallelogram relations give
+\[
+\begin{aligned}
+\measuredangle(RQ,QP)
+&=\measuredangle(RQ,QE)+\measuredangle(QE,QP)\\
+&=\measuredangle(RQ,QE)+\measuredangle(RA,RQ)\\
+&=\measuredangle(RA,QE)\\
+&=\measuredangle(RA,AF),
+\end{aligned}
+\tag{4}
+\]
+because $QE\parallel AF$. From (3) and (4),
+\[
+\triangle PQR\sim\triangle FAR.
+\]
+Now $FA=y$ and $AR=z$, while (2) says that the side $PR$ corresponding to $FR$ is proportional to $x$. The similarity therefore yields
+\[
+FR=x.
+\]
+By the same cyclic argument,
+\[
+FP=x.
+\]
+Since the parallelograms give
+\[
+CR=CP=x,
+\]
+the quadrilateral $CRFP$ is a rhombus.
+
+Thus $CF$ is the perpendicular bisector of $PR$. Cyclically, $BE$ is the perpendicular bisector of $PQ$, and $AD$ is the perpendicular bisector of $QR$. Hence the three diagonals meet at the circumcenter of triangle $PQR$.
+
+SOLUTION 2:
+Let
+\[
+\theta=
+\angle A-\angle D
+=
+\angle C-\angle F
+=
+\angle E-\angle B,
+\]
+and, after reversing the order of the vertices if necessary, assume $\theta\ge0$. Define
+\[
+\begin{aligned}
+X&=CD\cap EF,&
+Y&=EF\cap AB,&
+Z&=AB\cap CD,\\
+X'&=FA\cap BC,&
+Y'&=BC\cap DE,&
+Z'&=DE\cap FA.
+\end{aligned}
+\]
+All intersections are taken on the corresponding extended side-lines.
+
+From the angle conditions,
+\[
+\angle B+
+\angle C
+=
+\angle E+
+\angle F,
+\]
+and similarly for the other cyclic pairs. Hence
+\[
+\angle YZX
+=
+\angle B+
+\angle C-180^\circ
+=
+\angle E+
+\angle F-180^\circ
+=
+\angle Y'Z'X'.
+\]
+The other two angles are equal in the same way, so
+\[
+\triangle XYZ\sim\triangle X'Y'Z'.
+\tag{1}
+\]
+
+Let $\mathcal R$ be the rotation that sends the directions of the sides of $XYZ$ to the corresponding directions of $X'Y'Z'$. The orientation in the convex configuration and the equalities of opposite side lengths give
+\[
+\mathcal R(\overrightarrow{AB})=\overrightarrow{DE},
+\qquad
+\mathcal R(\overrightarrow{CD})=\overrightarrow{FA},
+\qquad
+\mathcal R(\overrightarrow{EF})=\overrightarrow{BC}.
+\tag{2}
+\]
+Since the six side vectors of the hexagon sum to zero, (2) yields
+\[
+\begin{aligned}
+\vec0
+&=
+\overrightarrow{AB}+
+\overrightarrow{BC}+
+\overrightarrow{CD}+
+\overrightarrow{DE}+
+\overrightarrow{EF}+
+\overrightarrow{FA}\\
+&=
+\bigl(
+\overrightarrow{AB}+
+\overrightarrow{CD}+
+\overrightarrow{EF}
+\bigr)
++
+\mathcal R\bigl(
+\overrightarrow{AB}+
+\overrightarrow{CD}+
+\overrightarrow{EF}
+\bigr).
+\end{aligned}
+\tag{3}
+\]
+
+If $\mathcal R$ is a rotation through $180^\circ$, then each pair of opposite sides of the hexagon is equal and oppositely parallel. The hexagon is centrally symmetric, and $AD,BE,CF$ pass through its center.
+
+Otherwise, a nonzero vector cannot be sent by $\mathcal R$ to its negative. Equation (3) therefore implies
+\[
+\overrightarrow{AB}+
+\overrightarrow{CD}+
+\overrightarrow{EF}=
+\vec0.
+\tag{4}
+\]
+
+Using (4), construct a triangle $LMN$ such that
+\[
+\overrightarrow{LM}=
+\overrightarrow{EF},
+\qquad
+\overrightarrow{MN}=
+\overrightarrow{AB},
+\qquad
+\overrightarrow{NL}=
+\overrightarrow{CD}.
+\]
+Let $O$ be its circumcenter. Choose $O_1,O_2,O_3$ so that
+\[
+\triangle AO_1B,
+\qquad
+\triangle CO_2D,
+\qquad
+\triangle EO_3F
+\]
+are translations of
+\[
+\triangle MON,
+\qquad
+\triangle NOL,
+\qquad
+\triangle LOM,
+\]
+respectively, with the displayed vertex correspondences.
+
+The vectors $FO_3$ and $AO_1$ are both translates of $MO$, so $AFO_3O_1$ is a parallelogram. Consequently,
+\[
+O_3O_1=FA=CD=NL.
+\]
+Similarly,
+\[
+O_1O_2=LM,
+\qquad
+O_2O_3=MN.
+\]
+Thus
+\[
+\triangle O_1O_2O_3\cong\triangle LMN.
+\tag{5}
+\]
+The rotation $\mathcal R$ shows that these congruent triangles have the same orientation.
+
+Let $T$ be the circumcenter of $O_1O_2O_3$. We prove that $C,T,F$ are collinear. By construction and (5),
+\[
+CO_2=O_2T=TO_3=O_3F,
+\]
+all four lengths being equal to the circumradius of $LMN$. Hence triangles $TO_3F$ and $CO_2T$ are isosceles, and directed angles between rays give
+\[
+\measuredangle(TF,TO_3)=\measuredangle(FO_3,FT),
+\tag{6}
+\]
+\[
+\measuredangle(TO_2,TC)=\measuredangle(CT,CO_2).
+\tag{7}
+\]
+Because $T$ and $O$ are the circumcenters of the equally oriented congruent triangles in (5),
+\[
+\measuredangle(TO_3,TO_2)=\measuredangle(ON,OM).
+\]
+The segments $CO_2$ and $FO_3$ are translates of $NO$ and $MO$, respectively, so
+\[
+\measuredangle(TO_3,TO_2)=\measuredangle(CO_2,FO_3).
+\tag{8}
+\]
+Adding (6), (7), and (8), we obtain
+\[
+\measuredangle(TF,TC)=\measuredangle(CT,FT).
+\]
+The two angles are negatives of one another, so the rays $TF$ and $TC$ are collinear. Therefore
+\[
+T\in CF.
+\]
+The same cyclic argument gives
+\[
+T\in AD
+\qquad\text{and}\qquad
+T\in BE.
+\]
+Thus $AD,BE,CF$ are concurrent.
+
+SOLUTION 3:
+Let
+\[
+\theta=
+\angle A-\angle D
+=
+\angle C-\angle F
+=
+\angle E-\angle B.
+\]
+Place the hexagon in the complex plane, with $A=0$ and the vertices labelled clockwise. Define the complex side vectors
+\[
+a=B-A,
+\qquad
+b=D-C,
+\qquad
+c=F-E,
+\]
+and
+\[
+a'=E-D,
+\qquad
+b'=A-F,
+\qquad
+c'=C-B.
+\]
+The length conditions give
+\[
+|a|=|a'|,
+\qquad
+|b|=|b'|,
+\qquad
+|c|=|c'|.
+\tag{1}
+\]
+
+The angle-difference conditions imply
+\[
+\frac{a'}a\frac{b'}b=e^{-i\theta},
+\qquad
+\frac{b'}b\frac{c'}c=e^{-i\theta},
+\qquad
+\frac{c'}c\frac{a'}a=e^{-i\theta}.
+\]
+All six ratios in these equations are nonzero. Comparing the equations shows that
+\[
+\frac{a'}a=\frac{b'}b=\frac{c'}c=r
+\]
+for some complex number $r$. By (1),
+\[
+|r|=1,
+\]
+and therefore
+\[
+a'=ar,
+\qquad
+b'=br,
+\qquad
+c'=cr.
+\tag{2}
+\]
+
+The sum of the side vectors is zero, so by (2),
+\[
+0=a+cr+b+ar+c+br=(a+b+c)(1+r).
+\tag{3}
+\]
+If $r=-1$, then opposite side vectors are negatives of each other; the hexagon is centrally symmetric, and the three diagonals meet at its center. Hence assume
+\[
+r\ne-1.
+\]
+Equation (3) gives
+\[
+a+b+c=0.
+\tag{4}
+\]
+The vertices then have coordinates
+\[
+A=0,
+\qquad
+B=a,
+\qquad
+C=a+cr,
+\qquad
+D=c(r-1),
+\qquad
+E=-br-c,
+\qquad
+F=-br.
+\tag{5}
+\]
+
+The diagonals $AD$ and $BE$ of a convex hexagon meet at an interior point $W$. Write
+\[
+W=c(r-1)\lambda,
+\qquad
+0<\lambda<1.
+\]
+Since $D\ne A$, we have $r\ne1$. Put
+\[
+s=\frac1{r-1}.
+\]
+Using $r\overline r=1$, we obtain
+\[
+1+s
+=
+\frac r{r-1}
+=
+\frac r{r-r\overline r}
+=
+\frac1{1-\overline r}
+=
+-\overline s.
+\tag{6}
+\]
+Here and below, $u\parallel v$ for nonzero complex numbers means that $u/v$ is real.
+
+From (4)--(6),
+\[
+\begin{aligned}
+W\in BE
+&\iff c(r-1)\lambda-a\parallel a-(-br-c)=b(r-1)\\
+&\iff c\lambda-as\parallel b\\
+&\iff -a\lambda-b\lambda-as\parallel b\\
+&\iff a(\lambda+s)\parallel b.
+\end{aligned}
+\tag{7}
+\]
+Because $r\ne\pm1$, the number $s$ is nonreal, and hence $\lambda+s\ne0$.
+
+Similarly,
+\[
+\begin{aligned}
+W\in CF
+&\iff c(r-1)\lambda+br\parallel -br-(a+cr)=a(r-1)\\
+&\iff c\lambda+b(1+s)\parallel a\\
+&\iff -a\lambda-b\lambda-b\overline s\parallel a\\
+&\iff b(\lambda+\overline s)\parallel a\\
+&\iff b\parallel a(\lambda+s).
+\end{aligned}
+\tag{8}
+\]
+The last equivalence uses
+\[
+(\lambda+s)(\lambda+\overline s)=|\lambda+s|^2>0.
+\]
+Conditions (7) and (8) are the same. Since $W$ was chosen on $BE$, it follows that $W\in CF$. Thus
+\[
+W=AD\cap BE\cap CF,
+\]
+and the three diagonals are concurrent.

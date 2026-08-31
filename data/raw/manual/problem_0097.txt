@@ -1,0 +1,97 @@
+ID: 0097
+
+SOURCE: IMO Shortlist
+
+YEAR: 2013
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Graph Theory, Graph Coloring, Degree Parity, Hypercube Graphs
+
+STATEMENT:
+A physicist has a finite family of particles called imons. Some pairs of imons are entangled. He may perform the following operations, one at a time:
+
+\begin{enumerate}
+\item If an imon is entangled with an odd number of other imons, he may destroy it.
+\item He may double the whole family: for every imon $I$ he creates a copy $I'$. Two copies $I',J'$ are entangled exactly when $I,J$ were entangled, and each copy $I'$ is entangled with its original $I$. No other entanglements are added or removed.
+\end{enumerate}
+
+Prove that the physicist can perform a sequence of operations after which no two remaining imons are entangled.
+
+SOLUTION 1:
+Represent the family by a finite simple graph: imons are vertices and entanglements are edges.
+
+We prove the following lemma.
+
+\textbf{Lemma.} If a graph has a proper coloring with $q>1$ colors, then a sequence of allowed operations transforms it into a graph having a proper coloring with $q-1$ colors.
+
+\textbf{Proof.} Repeatedly delete any vertex of odd degree until no such vertex remains. This process terminates, and every remaining vertex has even degree. Fix a proper coloring of the remaining graph with colors $1,2,\ldots,q$.
+
+Now double the graph. Keep the color of every original vertex. If an original vertex $I$ has color $c$, give its copy $I'$ color $c+1$ cyclically modulo $q$. This is a proper coloring: adjacent original vertices retain different colors; their copies also receive different shifted colors; and $I$ and $I'$ have different colors because $q>1$.
+
+Before doubling all degrees were even. After doubling, each original vertex gains the edge to its copy, and each copy has the old degree of its original plus that one new edge. Thus every vertex now has odd degree.
+
+Delete all vertices of color $q$, one by one. They form an independent set, so deleting one of them does not change the degree of another. Consequently each is still of odd degree when deleted. The remaining graph is properly colored with colors $1,\ldots,q-1$. This proves the lemma.
+
+A graph with $N$ vertices has a proper coloring using at most $N$ colors. Repeatedly apply the lemma until only one color is needed. A graph properly colored with one color has no edges. Hence the desired sequence of operations exists.
+
+SOLUTION 2:
+Again work with graphs. We first justify a convenient auxiliary operation.
+
+\textbf{Lemma.} Suppose $G$ contains an isolated vertex $A$, and let $G^{\circ}=G-A$. If $G^{\circ}$ can be transformed into an edgeless graph, then so can $G$.
+
+\textbf{Proof.} Simulate the chosen sequence for $G^{\circ}$. A deletion of an odd-degree vertex can be performed unchanged in $G$, because the isolated vertex affects no degree. When the simulated operation is a doubling, double $G$ and then delete the new copy $A'$, which has degree $1$. The original $A$ becomes isolated again. Thus each step can be simulated, and at the end the extra vertex $A$ is isolated. The resulting graph is edgeless.
+
+Therefore, during an existence proof we may also use the virtual operation
+\[
+\text{(iii) delete an isolated vertex}.
+\]
+Any use of this operation can later be removed by the lemma.
+
+Let the initial graph have vertices
+\[
+A_1^0,A_2^0,\ldots,A_n^0.
+\]
+After $m$ doublings and no deletions, label the descendants by
+\[
+A_i^{\varepsilon},
+\qquad
+1\le i\le n,
+\quad
+\varepsilon\in\{0,1\}^m.
+\]
+The vector $\varepsilon$ records at each doubling whether the descendant came from the original half or the copied half. Two vertices are adjacent exactly in either of the following situations:
+
+\begin{enumerate}
+\item they have the same vector $\varepsilon$, and their ancestors were adjacent in the initial graph;
+\item they have the same ancestor index $i$, and their binary vectors differ in exactly one coordinate.
+\end{enumerate}
+
+Call this graph $G_n^m$. Any graph that can occur after $m$ doublings and some deletions is an induced subgraph of $G_n^m$.
+
+We prove the stronger assertion that every subgraph of every $G_n^m$ can be reduced to the empty graph using operations (i), (ii), and (iii). We induct on $n$. The case $n=0$ is trivial.
+
+Take a subgraph of $G_n^m$.
+
+\textbf{Step 1.} Repeatedly delete odd-degree vertices until all remaining degrees are even.
+
+\textbf{Step 2.} Double the graph. Every degree becomes odd, and the new graph is a subgraph of $G_n^{m+1}$. Delete all vertices
+\[
+A_n^{\varepsilon}
+\]
+for which the number of $1$'s in $\varepsilon$ is even. No two such vertices are adjacent: hypercube edges change the parity of the number of $1$'s, and edges inherited from the initial graph join different ancestor indices. Thus these vertices remain of odd degree while they are deleted. Afterwards delete all isolated vertices by operation (iii).
+
+\textbf{Step 3.} The remaining vertices of the form $A_n^{\varepsilon}$ have odd parity vectors $\varepsilon$. Process them one at a time.
+
+If such a vertex has odd degree, delete it. Otherwise it has positive even degree, so choose a neighbor. Any surviving neighbor must be of the form
+\[
+A_k^{\varepsilon}
+\qquad(k<n),
+\]
+because a hypercube neighbor $A_n^{\delta}$ would have even parity and was deleted in Step 2.
+
+The degree of $A_k^{\varepsilon}$ is still odd. It was odd immediately after doubling. None of its neighbors was deleted in Step 2: the only possible neighbor with ancestor $n$ has the same odd vector $\varepsilon$. Nor was any of its neighbors deleted while processing a different odd vector $\delta$, because two different odd-parity vectors cannot differ in exactly one coordinate, while edges inherited from the initial graph require equal vectors. Hence we may delete $A_k^{\varepsilon}$; this changes the degree of $A_n^{\varepsilon}$ from even to odd, after which we delete $A_n^{\varepsilon}$ as well.
+
+Operations carried out for one odd vector do not affect vertices belonging to another odd vector, by the same parity argument. Thus all descendants of the ancestor $A_n^0$ are removed. What remains is a subgraph of $G_{n-1}^{m+1}$, which can be reduced to the empty graph by the induction hypothesis.
+
+Finally, the preliminary lemma removes every use of the virtual operation (iii). Therefore a sequence using only the two operations from the problem exists.
