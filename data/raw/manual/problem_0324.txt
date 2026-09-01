@@ -1,0 +1,123 @@
+ID: 0324
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Number Theory
+
+SUBTOPICS: Rational Constructions, Modular Arithmetic, Prime Avoidance, Recurrence Relations
+
+STATEMENT:
+Given a positive integer $k$, prove that there exists a prime $p$ for which one can choose distinct integers
+\[
+a_1,a_2,\ldots,a_{k+3}\in\{1,2,\ldots,p-1\}
+\]
+such that
+\[
+p\mid a_i a_{i+1}a_{i+2}a_{i+3}-i
+\]
+for every
+\[
+i=1,2,\ldots,k.
+\]
+
+SOLUTION 1:
+We first construct distinct positive rational numbers
+\[
+r_1,r_2,\ldots,r_{k+3}
+\]
+satisfying
+\[
+r_i r_{i+1}r_{i+2}r_{i+3}=i
+\qquad(1\le i\le k).
+\tag{1}
+\]
+
+Choose three distinct primes
+\[
+x,y,z>k
+\]
+and set
+\[
+r_1=x,\qquad r_2=y,\qquad r_3=z,\qquad
+r_4=\frac1{xyz}.
+\]
+For every $i\ge1$ for which the term is needed, define
+\[
+r_{i+4}=\frac{i+1}{i}\,r_i.
+\tag{2}
+\]
+The first product is
+\[
+r_1r_2r_3r_4=1.
+\]
+If (1) holds for an index $i$, then by (2),
+\[
+r_{i+1}r_{i+2}r_{i+3}r_{i+4}
+=
+r_ir_{i+1}r_{i+2}r_{i+3}\cdot\frac{r_{i+4}}{r_i}
+=
+i\cdot\frac{i+1}{i}
+=i+1.
+\]
+Thus (1) holds for all required indices.
+
+We also verify that the $r_i$ are pairwise distinct. Write every $r_i$ in lowest terms. Since
+\[
+x,y,z>k,
+\]
+none of these three primes can be cancelled by any of the factors appearing in the recurrence (2). Consequently:
+
+\begin{itemize}
+\item the numerator of $r_i$ is divisible by $x$ when $i\equiv1\pmod4$;
+\item it is divisible by $y$ when $i\equiv2\pmod4$;
+\item it is divisible by $z$ when $i\equiv3\pmod4$;
+\item it is divisible by none of $x,y,z$ when $i\equiv0\pmod4$.
+\end{itemize}
+
+Hence terms belonging to different residue classes modulo $4$ are distinct. Within each residue class, (2) shows that
+\[
+r_i<r_{i+4},
+\]
+so all the terms are distinct.
+
+Write
+\[
+r_i=\frac{u_i}{v_i}
+\]
+in lowest terms, with $u_i,v_i$ positive. Choose a prime $p>k$ that divides none of the finitely many nonzero integers
+\[
+u_i,\qquad v_i,\qquad
+u_iv_j-u_jv_i
+\quad(1\le i<j\le k+3).
+\tag{3}
+\]
+Such a prime exists.
+
+For every $i$, let $a_i$ be the unique integer in
+\[
+\{1,2,\ldots,p-1\}
+\]
+satisfying
+\[
+a_iv_i\equiv u_i\pmod p.
+\tag{4}
+\]
+The condition on $u_i$ and $v_i$ guarantees that $a_i$ is nonzero modulo $p$.
+
+If $a_i\equiv a_j\pmod p$, then (4) gives
+\[
+u_iv_j\equiv u_jv_i\pmod p,
+\]
+contrary to (3). Thus the $a_i$ are distinct.
+
+Finally, multiply the rational identity (1) by
+\[
+v_iv_{i+1}v_{i+2}v_{i+3}
+\]
+and reduce modulo $p$. Using (4), we obtain
+\[
+a_ia_{i+1}a_{i+2}a_{i+3}\equiv i\pmod p
+\]
+for every $1\le i\le k$. This is exactly the desired conclusion.

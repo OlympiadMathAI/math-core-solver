@@ -1,0 +1,182 @@
+ID: 0311
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Two-Colorings, Prefix Densities, Extremal Arguments, Pigeonhole Principle
+
+STATEMENT:
+Let $p$ be an odd prime, and put
+\[
+N=\frac{p^3-p}{4}-1.
+\]
+The integers
+\[
+1,2,\ldots,N
+\]
+are colored arbitrarily red or blue. For $1\le n\le N$, let $r(n)$ be the fraction of the integers
+\[
+1,2,\ldots,n
+\]
+that are red.
+
+Prove that there exists
+\[
+a\in\{1,2,\ldots,p-1\}
+\]
+such that
+\[
+r(n)\ne\frac ap
+\]
+for every $1\le n\le N$.
+
+SOLUTION 1:
+Let $R(n)$ and $B(n)$ denote the numbers of red and blue integers among
+\[
+1,2,\ldots,n.
+\]
+Thus
+\[
+R(n)+B(n)=n.
+\]
+
+Assume, for contradiction, that every fraction
+\[
+\frac1p,\frac2p,\ldots,\frac{p-1}{p}
+\]
+occurs. For each $a\in\{1,\ldots,p-1\}$, choose $n_a\le N$ such that
+\[
+R(n_a)=\frac{a n_a}{p}.
+\]
+Since $p\nmid a$, we have $p\mid n_a$. Write
+\[
+n_a=pm_a.
+\]
+Then
+\[
+R(n_a)=am_a,
+\qquad
+B(n_a)=(p-a)m_a.
+\tag{1}
+\]
+
+The positive integers $m_1,\ldots,m_{p-1}$ are pairwise distinct: if $m_a=m_b$, then $n_a=n_b$ and (1) would give $a=b$. Moreover,
+\[
+m_a\le\frac Np
+=
+\frac{p^2-1}{4}-\frac1p
+<
+\frac{p^2-1}{4}.
+\tag{2}
+\]
+
+Swapping the two colors replaces the sequence $(m_a)$ by $(m_{p-a})$. Hence, without loss of generality,
+\[
+m_1<m_{p-1}.
+\tag{3}
+\]
+
+We use the following observation.
+
+\textbf{Claim.}
+If
+\[
+m_a<m_b,
+\]
+then
+\[
+m_b\ge\frac ab\,m_a
+\tag{4}
+\]
+and
+\[
+m_b\ge\frac{p-a}{p-b}\,m_a.
+\tag{5}
+\]
+
+\textit{Proof.}
+Since $n_a<n_b$, monotonicity of the red count gives
+\[
+bm_b=R(n_b)\ge R(n_a)=am_a,
+\]
+which proves (4). Monotonicity of the blue count gives
+\[
+(p-b)m_b=B(n_b)\ge B(n_a)=(p-a)m_a,
+\]
+which proves (5). $\square$
+
+Put
+\[
+q=\frac{p-1}{2}.
+\]
+
+\textbf{Case 1.}
+Suppose
+\[
+m_1,m_2,\ldots,m_q<m_{p-1}.
+\]
+Let $m_a$ be the largest of $m_1,\ldots,m_q$. Since these are $q$ distinct positive integers,
+\[
+m_a\ge q,
+\]
+and $a\le q$. Applying (5) to $m_a<m_{p-1}$ gives
+\[
+m_{p-1}
+\ge
+(p-a)m_a
+\ge
+(p-q)q
+=
+\frac{p^2-1}{4},
+\]
+contradicting (2).
+
+\textbf{Case 2.}
+Suppose some $m_k$ with $k\le q$ satisfies
+\[
+m_k>m_{p-1}.
+\]
+Choose the least such $k$. By (3),
+\[
+2\le k\le q.
+\]
+Let $m_a$ be the largest of
+\[
+m_1,\ldots,m_{k-1}.
+\]
+Then
+\[
+a\le k-1,
+\qquad
+m_a\ge k-1,
+\qquad
+m_a<m_{p-1}<m_k.
+\]
+Applying (4) to $m_{p-1}<m_k$ and then (5) to $m_a<m_{p-1}$,
+\[
+\begin{aligned}
+m_k
+&\ge
+\frac{p-1}{k}m_{p-1}\\
+&\ge
+\frac{p-1}{k}(p-a)m_a\\
+&\ge
+\frac{p-1}{k}(p-k+1)(k-1).
+\end{aligned}
+\]
+Since
+\[
+\frac{k-1}{k}\ge\frac12
+\qquad\text{and}\qquad
+p-k+1\ge p-q=\frac{p+1}{2},
+\]
+we obtain
+\[
+m_k\ge\frac{p^2-1}{4},
+\]
+again contradicting (2).
+
+Both cases are impossible. Therefore at least one value $a/p$ never occurs among the prefix red proportions.

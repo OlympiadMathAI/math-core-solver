@@ -1,0 +1,16 @@
+{
+  "id": "0318",
+  "source": "IMO Shortlist",
+  "year": "2020",
+  "topic": "Geometry",
+  "subtopics": [
+    "Disjoint Disks",
+    "Induction",
+    "Triangle Inequality",
+    "Extremal Geometry"
+  ],
+  "statement": "In the plane, let\n\\[\nD_1,D_2,\\ldots,D_n\n\\qquad(n\\ge6)\n\\]\nbe pairwise disjoint disks with radii\n\\[\nR_1\\ge R_2\\ge\\cdots\\ge R_n.\n\\]\nFor every $i$, choose a point $P_i\\in D_i$, and let $O$ be an arbitrary point in the plane.\n\nProve that\n\\[\nOP_1+OP_2+\\cdots+OP_n\n\\ge\nR_6+R_7+\\cdots+R_n.\n\\]",
+  "solutions": [
+    "We use the following lemma.\n\n\\textbf{Lemma.}\nLet $D_1,\\ldots,D_6$ be six pairwise disjoint disks with radii $R_1,\\ldots,R_6$. Choose $P_i\\in D_i$, and let $O$ be any point. Then there are indices $i,j$ such that\n\\[\nOP_i\\ge R_j.\n\\]\n\n\\textit{Proof.}\nLet $O_i$ be the centre of $D_i$. Consider the six rays\n\\[\nOO_1,OO_2,\\ldots,OO_6.\n\\]\nIf $O=O_i$, assign an arbitrary direction to the corresponding ray. These rays determine six successive angles whose total measure is $360^\\circ$, so one of them, say\n\\[\n\\angle O_iOO_j,\n\\]\nis at most $60^\\circ$.\n\nIn the possibly degenerate triangle $OO_iO_j$, the side $O_iO_j$ cannot be the unique longest side, because the angle opposite it is at most $60^\\circ$. Interchanging $i$ and $j$ if necessary,\n\\[\nOO_i\\ge O_iO_j.\n\\]\nThe disks are disjoint, so\n\\[\nO_iO_j\\ge R_i+R_j.\n\\]\nSince $P_i\\in D_i$,\n\\[\nOP_i\n\\ge OO_i-O_iP_i\n\\ge OO_i-R_i\n\\ge R_j.\n\\]\nThis proves the lemma. $\\square$\n\nWe now prove the result by induction on $n\\ge5$. For $n=5$, the right-hand side is an empty sum, so the assertion is trivial.\n\nLet $n\\ge6$, and assume the result for $n-1$ disks. Apply the lemma to the six disks with largest radii. It gives indices\n\\[\n1\\le i,j\\le6\n\\]\nsuch that\n\\[\nOP_i\\ge R_j\\ge R_6.\n\\tag{1}\n\\]\n\nRemove the disk $D_i$. The induction hypothesis applied to the remaining $n-1$ disks gives\n\\[\n\\sum_{k\\ne i}OP_k\n\\ge\nR_7+R_8+\\cdots+R_n.\n\\tag{2}\n\\]\nIndeed, after one of the six largest disks has been removed, the tail of the remaining ordered radii beginning with the sixth one is\n\\[\nR_7,R_8,\\ldots,R_n;\n\\]\nwhen $n=6$, this tail is empty.\n\nAdding (1) and (2), we obtain\n\\[\n\\sum_{k=1}^n OP_k\n\\ge\nR_6+R_7+\\cdots+R_n,\n\\]\nas required."
+  ]
+}

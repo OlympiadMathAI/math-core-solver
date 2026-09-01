@@ -1,0 +1,165 @@
+ID: 0314
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Combinatorial Games, Binary Digit Sums, Invariants, 2-adic Valuation
+
+STATEMENT:
+Players $A$ and $B$ play a game on a blackboard initially containing $2020$ copies of the number $1$. In every round, player $A$ erases two numbers $x$ and $y$, and then player $B$ writes either
+\[
+x+y
+\qquad\text{or}\qquad
+|x-y|.
+\]
+The game ends as soon as, after a round, either:
+
+\begin{enumerate}
+\item[(1)] one number on the board is larger than the sum of all the other numbers; or
+\item[(2)] all numbers on the board are zero.
+\end{enumerate}
+
+At the end, $B$ gives $A$ as many cookies as there are numbers remaining on the board. Player $A$ tries to maximize this number, while player $B$ tries to minimize it. Determine the number of cookies received under optimal play.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{7}.
+\]
+
+We prove the more general statement that, if the initial board contains an even number $n>1$ of ones, then the value of the game is
+\[
+S_2(n),
+\]
+the number of $1$'s in the binary representation of $n$.
+
+For
+\[
+n=2020=11111100100_2,
+\]
+we have
+\[
+S_2(2020)=7.
+\]
+
+\textbf{Strategy for player $A$.}
+
+Whenever possible, $A$ chooses two equal nonzero numbers.
+
+As long as the game has not ended, this move is always available. Indeed, by induction, every number appearing under this strategy is either $0$ or a power of $2$. If the nonzero numbers were all distinct, their largest member would be greater than the sum of all the smaller distinct powers of $2$, so the game would already have ended. If there were no nonzero numbers, it would also have ended.
+
+Attach to every current board entry its \emph{range}: the number of original ones from which it was formed. The ranges of all current entries are disjoint and sum to $n$.
+
+Under $A$'s strategy, induction gives:
+
+\begin{itemize}
+\item every nonzero entry $z$ has range exactly $z$;
+\item every zero has a range that is a power of $2$.
+\end{itemize}
+
+Indeed, when two equal nonzero entries $z$ are combined, their ranges are both $z$. If $B$ writes $2z$, the new range is $2z$; if $B$ writes $0$, the new range is again $2z$, a power of $2$.
+
+Thus, after every round, the ranges form a representation of $n$ as a sum of powers of $2$. Any such representation uses at least
+\[
+S_2(n)
+\]
+summands, because
+\[
+S_2(u+v)\le S_2(u)+S_2(v)
+\]
+for positive integers $u,v$. Hence the board always contains at least $S_2(n)$ numbers. Player $A$ can therefore guarantee at least $S_2(n)$ cookies.
+
+\textbf{Strategy for player $B$.}
+
+Put
+\[
+s=S_2(n).
+\]
+For a board position
+\[
+x_1,x_2,\ldots,x_k,
+\]
+call a sign vector
+\[
+(\varepsilon_1,\ldots,\varepsilon_k)\in\{1,-1\}^k
+\]
+\emph{balanced} if
+\[
+\sum_{i=1}^k\varepsilon_i x_i=0.
+\]
+Call a position \emph{good} if the number of balanced sign vectors is not divisible by
+\[
+2^{s+1}.
+\]
+
+We need three facts.
+
+\textbf{Lemma 1.}
+The initial position is good.
+
+\textit{Proof.}
+Initially, a balanced sign vector has exactly $n/2$ plus signs, so their number is
+\[
+\binom{n}{n/2}.
+\]
+Legendre's formula
+\[
+v_2(m!)=m-S_2(m)
+\]
+gives, because $n$ is even,
+\[
+\begin{aligned}
+v_2\binom{n}{n/2}
+&=v_2(n!)-2v_2((n/2)!)\\
+&=n-S_2(n)-2\left(\frac n2-S_2(n/2)\right)\\
+&=S_2(n)=s.
+\end{aligned}
+\]
+Thus the number is divisible by $2^s$ but not by $2^{s+1}$. $\square$
+
+\textbf{Lemma 2.}
+After every move of $A$, player $B$ can choose an option that leaves a good position.
+
+\textit{Proof.}
+Suppose $A$ erases $x_p$ and $x_q$. Partition the balanced sign vectors of the old position into:
+
+\begin{itemize}
+\item $N_+$ vectors with $\varepsilon_p=\varepsilon_q$;
+\item $N_-$ vectors with $\varepsilon_p=-\varepsilon_q$.
+\end{itemize}
+
+The number of balanced sign vectors after replacing the two entries by $x_p+x_q$ is exactly $N_+$. The number after replacing them by $|x_p-x_q|$ is exactly $N_-$. Since
+\[
+N_++N_-
+\]
+is not divisible by $2^{s+1}$, at least one of $N_+$ and $N_-$ is not divisible by $2^{s+1}$. Player $B$ chooses that option. $\square$
+
+\textbf{Lemma 3.}
+If the game ends in a good position, at most $s$ numbers remain.
+
+\textit{Proof.}
+The game cannot end by condition (1), because then no balanced sign vector exists; their number would be $0$, which is divisible by $2^{s+1}$.
+
+Hence all remaining numbers are zeros. If there are $k$ zeros, every one of the $2^k$ sign vectors is balanced. Goodness gives
+\[
+2^{s+1}\nmid2^k,
+\]
+so
+\[
+k\le s.
+\]
+$\square$
+
+By Lemmas 1 and 2, $B$ can keep the position good throughout the game. Lemma 3 then shows that $B$ gives at most $s$ cookies.
+
+Therefore the value is exactly
+\[
+S_2(n).
+\]
+For $n=2020$, this equals
+\[
+\boxed{7}.
+\]

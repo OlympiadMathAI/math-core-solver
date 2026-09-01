@@ -1,0 +1,541 @@
+ID: 0328
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Number Theory
+
+SUBTOPICS: Completely Additive Functions, Prime Valuations, Lucas Theorem, Extremal Prime Arguments
+
+STATEMENT:
+Determine all functions
+\[
+f:\mathbb Z_{>0}\to\mathbb Z_{\ge0}
+\]
+satisfying the following three conditions:
+
+\begin{enumerate}
+\item[(i)] $f(n)\ne0$ for at least one positive integer $n$;
+\item[(ii)]
+\[
+f(xy)=f(x)+f(y)
+\]
+for all positive integers $x,y$;
+\item[(iii)] there are infinitely many positive integers $n$ such that
+\[
+f(k)=f(n-k)
+\]
+for every integer $k$ with
+\[
+1\le k<n.
+\]
+\end{enumerate}
+
+SOLUTION 1:
+The solutions are
+\[
+\boxed{f(n)=c\,v_p(n)},
+\]
+where $p$ is a prime, $c$ is a positive integer, and $v_p(n)$ denotes the exponent of $p$ in the prime factorization of $n$.
+
+Call a positive integer $n$ \emph{good} if
+\[
+f(k)=f(n-k)
+\qquad(1\le k<n).
+\]
+
+Condition (ii) gives
+\[
+f(1)=0
+\]
+and, if
+\[
+n=p_1p_2\cdots p_t
+\]
+is written as a product of primes with multiplicity, then
+\[
+f(n)=f(p_1)+f(p_2)+\cdots+f(p_t).
+\tag{1}
+\]
+In particular, if $f(n)=0$, then $f(q)=0$ for every prime divisor $q$ of $n$.
+
+We first observe that every divisor of a good number is good. Suppose
+\[
+n=dm
+\]
+is good. For $1\le k<d$,
+\[
+\begin{aligned}
+f(k)
+&=f(mk)-f(m)\\
+&=f(n-mk)-f(m)\\
+&=f(m(d-k))-f(m)\\
+&=f(d-k).
+\end{aligned}
+\]
+Thus $d$ is good.
+
+By condition (i), some prime has positive $f$-value. Let $p$ be the smallest such prime. Then
+\[
+f(r)=0
+\qquad(1\le r<p),
+\tag{2}
+\]
+because every prime divisor of $r$ is smaller than $p$.
+
+Every good number $n>p$ is divisible by $p$. Indeed, if
+\[
+n=pk+r,
+\qquad 0<r<p,
+\]
+then goodness gives
+\[
+f(pk)=f(n-pk)=f(r)=0,
+\]
+while
+\[
+f(pk)=f(p)+f(k)\ge f(p)>0,
+\]
+a contradiction.
+
+Now let $n$ be good, and let $r$ be its largest divisor not divisible by $p$. Since every divisor of $n$ is good, either $r=1$ or, by the preceding paragraph,
+\[
+r<p.
+\]
+Thus every good number has the form
+\[
+r p^m,
+\qquad 1\le r<p.
+\tag{3}
+\]
+
+There are infinitely many good numbers. Since only finitely many values of $r$ occur in (3), the exponent $m$ is unbounded. Every divisor of a good number is good, so
+\[
+p^m
+\]
+is good for every positive integer $m$.
+
+Let $q\ne p$ be any prime. By Fermat's little theorem,
+\[
+q\mid p^{q-1}-1.
+\]
+The number $p^{q-1}$ is good, and therefore
+\[
+f(1)=f(p^{q-1}-1).
+\]
+The left side is $0$, while
+\[
+f(p^{q-1}-1)\ge f(q)
+\]
+by (1) and nonnegativity. Hence
+\[
+f(q)=0.
+\]
+Thus $p$ is the only prime at which $f$ is nonzero. Writing
+\[
+c=f(p)>0,
+\]
+we obtain
+\[
+f(n)=c\,v_p(n).
+\]
+
+Conversely, let
+\[
+f(n)=c\,v_p(n)
+\]
+with $c>0$. Conditions (i) and (ii) are immediate. For every $m\ge1$ and
+\[
+1\le k<p^m,
+\]
+we have
+\[
+v_p(p^m-k)=v_p(k).
+\]
+Hence every $p^m$ is good, so condition (iii) also holds.
+
+SOLUTION 2:
+Again call $n$ good when
+\[
+f(k)=f(n-k)
+\qquad(1\le k<n).
+\]
+
+Call a prime $p$ \emph{big} if
+\[
+f(p)>0.
+\]
+For a positive integer $m$, define its \emph{essence} by
+\[
+e(m)=\prod_{\substack{p\text{ big}}}p^{v_p(m)}.
+\]
+The quotient $m/e(m)$ has no big prime divisor, so
+\[
+f(m)=f(e(m)).
+\tag{1}
+\]
+
+We use the following lemma.
+
+\textbf{Lemma.}
+If $n$ is good, then
+\[
+e(k)=e(n-k)
+\qquad(1\le k<n).
+\tag{2}
+\]
+
+\textit{Proof.}
+Suppose otherwise, and choose the smallest $k$ for which (2) fails.
+
+The number $k$ must be big. Otherwise
+\[
+f(k)=0,
+\]
+and goodness gives
+\[
+f(n-k)=0;
+\]
+then both $k$ and $n-k$ have essence $1$, contrary to the choice of $k$.
+
+Put
+\[
+E=e(k),
+\qquad
+t=\frac{k}{E}.
+\]
+There are exactly $t-1$ multiples of $E$ in
+\[
+1,2,\ldots,k-1.
+\]
+For every $j<k$, minimality gives
+\[
+e(j)=e(n-j).
+\]
+Moreover,
+\[
+E\mid j
+\quad\Longleftrightarrow\quad
+E\mid e(j)
+\quad\Longleftrightarrow\quad
+E\mid e(n-j)
+\quad\Longleftrightarrow\quad
+E\mid n-j.
+\]
+Thus the bijection
+\[
+j\longmapsto n-j
+\]
+shows that there are exactly $t-1$ multiples of $E$ in
+\[
+n-k+1,\ldots,n-1.
+\]
+
+The interval
+\[
+n-k,n-k+1,\ldots,n-1
+\]
+contains exactly $k=tE$ consecutive integers and hence exactly $t$ multiples of $E$. The missing multiple must therefore be $n-k$, so
+\[
+E\mid n-k.
+\]
+
+Using goodness and (1),
+\[
+\begin{aligned}
+f(E)
+&=f(k)\\
+&=f(n-k)\\
+&=f(E)+f\left(\frac{n-k}{E}\right).
+\end{aligned}
+\]
+Hence
+\[
+f\left(\frac{n-k}{E}\right)=0.
+\]
+The quotient contains no big prime, so
+\[
+e(n-k)=E=e(k),
+\]
+contradicting the choice of $k$. $\square$
+
+Suppose that at least two big primes exist, and let
+\[
+p_1<p_2
+\]
+be the two smallest. Choose a good number
+\[
+n>p_1p_2.
+\]
+Let $p_1^\alpha$ be the largest power of $p_1$ smaller than $n$. Then
+\[
+n\le p_1^{\alpha+1}<p_1^\alpha p_2.
+\tag{3}
+\]
+By the lemma,
+\[
+e(n-p_1^\alpha)=e(p_1^\alpha)=p_1^\alpha,
+\]
+so
+\[
+p_1^\alpha\mid n.
+\tag{4}
+\]
+Applying the lemma with $k=p_2$ gives
+\[
+p_2\mid n.
+\tag{5}
+\]
+Equations (4)--(5) imply
+\[
+n\ge p_1^\alpha p_2,
+\]
+contradicting (3).
+
+Thus there is at most one big prime. Condition (i) shows that there is exactly one, say $p$. Formula (1) then yields
+\[
+f(n)=f(p)\,v_p(n),
+\]
+which is the required form.
+
+SOLUTION 3:
+By complete additivity,
+\[
+f\left(\prod_p p^{\alpha_p}\right)
+=
+\sum_p\alpha_p f(p).
+\tag{1}
+\]
+
+Let $n$ be good. For every
+\[
+1\le k\le n-1,
+\]
+we have
+\[
+\begin{aligned}
+&\sum_{j=1}^{k}f(n-j)-\sum_{j=1}^{k}f(j)\\
+&\qquad
+=
+f\left(\frac{(n-1)(n-2)\cdots(n-k)}{k!}\right)\\
+&\qquad
+=
+f\binom{n-1}{k}.
+\end{aligned}
+\tag{2}
+\]
+For a good number, the left side of (2) is zero. Hence
+\[
+f\binom{n-1}{k}=0
+\qquad(1\le k\le n-1).
+\tag{3}
+\]
+
+Suppose that
+\[
+f(p)>0
+\]
+for a prime $p$. By (1), equation (3) implies
+\[
+p\nmid\binom{n-1}{k}
+\qquad(1\le k\le n-2).
+\tag{4}
+\]
+
+We use the following standard consequence of Lucas' theorem.
+
+\textbf{Lemma.}
+For a prime $p$, condition (4) holds if and only if
+\[
+n=a p^s
+\]
+for some integers
+\[
+s\ge0,
+\qquad
+1\le a<p.
+\]
+
+\textit{Proof.}
+Write $n-1$ in base $p$. Lucas' theorem says that every binomial coefficient in the row of $n-1$ is nonzero modulo $p$ precisely when every non-leading base-$p$ digit of $n-1$ is $p-1$. Thus
+\[
+n-1=(a-1)p^s+(p-1)(1+p+\cdots+p^{s-1})
+=ap^s-1
+\]
+for some $1\le a\le p$. If $a=p$, absorb one further factor of $p$, obtaining the stated form with $a=1$. The converse follows directly from Lucas' theorem. $\square$
+
+If two distinct primes $p$ and $q$ satisfied
+\[
+f(p)>0,
+\qquad
+f(q)>0,
+\]
+then every good number would have both forms
+\[
+n=a p^s=b q^t,
+\qquad
+1\le a<p,\quad1\le b<q.
+\tag{5}
+\]
+There are only finitely many integers satisfying (5). Indeed,
+\[
+p^s\mid b
+\]
+and
+\[
+q^t\mid a,
+\]
+so both exponents are bounded.
+
+This contradicts the existence of infinitely many good numbers. Therefore only one prime $p$ has positive $f$-value, and (1) gives
+\[
+f(n)=c\,v_p(n)
+\]
+with
+\[
+c=f(p)>0.
+\]
+
+SOLUTION 4:
+For an additive function $f$ and a prime $p$, define
+\[
+g(f,p)=\frac{f(p)}{\log p}.
+\]
+
+Suppose that $n$ is good and that at least two primes smaller than $n$ have positive $f$-value. Choose a prime $p_0<n$ for which
+\[
+g(f,p_0)
+\]
+is maximal among all primes smaller than $n$, and let $a_0$ be the largest integer such that
+\[
+p_0^{a_0}<n.
+\]
+
+We claim that
+\[
+f(k)<f(p_0^{a_0})
+\qquad(1\le k<p_0^{a_0}).
+\tag{1}
+\]
+Indeed, write
+\[
+k=\prod_i p_i^{\alpha_i}.
+\]
+Every $p_i<n$, and therefore
+\[
+\begin{aligned}
+f(k)
+&=\sum_i\alpha_i f(p_i)\\
+&=\sum_i g(f,p_i)\alpha_i\log p_i\\
+&\le
+g(f,p_0)\log k\\
+&<
+g(f,p_0)a_0\log p_0\\
+&=
+f(p_0^{a_0}).
+\end{aligned}
+\]
+
+Write
+\[
+n=b p_0^{a_0}+r,
+\qquad
+0\le r<p_0^{a_0}.
+\]
+If $r>0$, goodness gives
+\[
+f(r)=f(n-r)=f(bp_0^{a_0})\ge f(p_0^{a_0}),
+\]
+contradicting (1). Hence
+\[
+p_0^{a_0}\mid n.
+\tag{2}
+\]
+
+It follows that
+\[
+n=p_0^{v_{p_0}(n)}n_1
+\qquad\text{with}\qquad
+1\le n_1\le p_0.
+\tag{3}
+\]
+Indeed, $p_0^{a_0}$ is the largest power strictly below $n$, while the next power is at least $n$.
+
+Define
+\[
+f_1(m)=f(p_0)v_{p_0}(m),
+\qquad
+f_2=f-f_1.
+\]
+Both functions are completely additive. They are also nonnegative, because
+\[
+f(m)
+=
+f_1(m)+f\left(\frac{m}{p_0^{v_{p_0}(m)}}\right)
+\ge f_1(m).
+\]
+We claim that $(f_2,n)$ is also good.
+
+For every $1\le k<n$,
+\[
+v_{p_0}(k)=v_{p_0}(n-k).
+\tag{4}
+\]
+If $v_{p_0}(k)<v_{p_0}(n)$, this is standard. Otherwise, by (3),
+\[
+k=p_0^{v_{p_0}(n)}u
+\]
+with
+\[
+1\le u<n_1\le p_0,
+\]
+so both $u$ and $n_1-u$ are nonzero modulo $p_0$, and (4) again follows.
+
+Thus
+\[
+f_1(k)=f_1(n-k).
+\]
+Since $f(k)=f(n-k)$, we also have
+\[
+f_2(k)=f_2(n-k),
+\]
+proving that $(f_2,n)$ is good.
+
+The function $f_2$ is positive at some prime, because there were at least two positive primes for $f$ and
+\[
+f_2(p_0)=0.
+\]
+Repeat the preceding argument with $f_2$. We obtain a prime
+\[
+q_0\ne p_0
+\]
+such that
+\[
+n=q_0^{v_{q_0}(n)}n_2
+\qquad\text{with}\qquad
+1\le n_2\le q_0.
+\tag{5}
+\]
+
+Since $q_0\mid n$ and $q_0\ne p_0$, equation (3) gives
+\[
+q_0\mid n_1,
+\qquad
+q_0\le n_1\le p_0.
+\]
+Similarly, (5) gives
+\[
+p_0\le n_2\le q_0.
+\]
+Therefore
+\[
+p_0=q_0,
+\]
+a contradiction.
+
+Hence a good number larger than two positive primes cannot exist. Since there are infinitely many good numbers, the function can be positive at only one prime. Complete additivity then gives
+\[
+f(n)=c\,v_p(n)
+\]
+for some prime $p$ and positive integer $c$.

@@ -1,0 +1,226 @@
+ID: 0304
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Algebra
+
+SUBTOPICS: Iterated Functions, Functional Equations, Orbits, Periodicity
+
+STATEMENT:
+Determine all functions
+\[
+f:\mathbb Z\to\mathbb Z
+\]
+such that
+\[
+f^{\,a^2+b^2}(a+b)=af(a)+bf(b)
+\tag{1}
+\]
+for all integers $a,b$. Here $f^m$ denotes the $m$-fold iterate of $f$, with
+\[
+f^0(x)=x
+\]
+and
+\[
+f^{m+1}(x)=f(f^m(x))
+\qquad(m\ge0).
+\]
+
+SOLUTION 1:
+The solutions are
+\[
+\boxed{f(x)=0\text{ for every }x\in\mathbb Z}
+\]
+and
+\[
+\boxed{f(x)=x+1\text{ for every }x\in\mathbb Z}.
+\]
+
+Denote equation (1) by $E(a,b)$. From $E(0,b)$,
+\[
+f^{b^2}(b)=bf(b).
+\tag{2}
+\]
+Taking $b=-1$ gives
+\[
+f(-1)=0.
+\tag{3}
+\]
+
+Using $E(a,-1)$ and then (2) with $b=a$, we obtain
+\[
+f^{a^2+1}(a-1)=af(a)=f^{a^2}(a).
+\tag{4}
+\]
+Thus the forward orbits of $a-1$ and $a$ have identical tails. Consequently every two integer orbits have identical tails, and either all orbits are finite or all are infinite.
+
+\textbf{Case 1: all orbits are finite.}
+
+Let
+\[
+\mathcal O(0)=\{0,f(0),f^2(0),\ldots\}.
+\]
+This is a finite set. From $E(a,-a)$,
+\[
+f^{2a^2}(0)=a\bigl(f(a)-f(-a)\bigr)\in\mathcal O(0).
+\tag{5}
+\]
+For all sufficiently large $|a|$, the right side of (5), being a multiple of $a$ and lying in the fixed finite set $\mathcal O(0)$, must be zero. Hence
+\[
+f(a)=f(-a)
+\quad\text{and}\quad
+f^{2a^2}(0)=0
+\tag{6}
+\]
+for all sufficiently large $|a|$.
+
+Let $T$ be the least positive integer for which
+\[
+f^T(0)=0.
+\]
+For two sufficiently large consecutive integers $a,a+1$, equation (6) shows that $T$ divides both
+\[
+2a^2
+\qquad\text{and}\qquad
+2(a+1)^2.
+\]
+Therefore
+\[
+T\mid\gcd\bigl(2a^2,2(a+1)^2\bigr)=2,
+\]
+and hence
+\[
+f^2(0)=0.
+\tag{7}
+\]
+Now (5) and (7) give
+\[
+f(a)=f(-a)
+\qquad(a\ne0).
+\tag{8}
+\]
+In particular, by (3),
+\[
+f(1)=0.
+\tag{9}
+\]
+
+Take $(a,b)=(n,1-n)$ in (1). Since
+\[
+a^2+b^2=n^2+(1-n)^2=2n^2-2n+1
+\]
+and the argument is $1$, equations (7) and (9) give
+\[
+nf(n)+(1-n)f(1-n)=0
+\qquad(n\in\mathbb Z).
+\tag{10}
+\]
+
+Suppose that $f(m)\ne0$ for some nonzero integer $m$, and choose such an $m$ with $|m|$ minimal. By (8), we may assume $m>0$. Equations (9) and (10) show that $m>1$ and
+\[
+f(1-m)\ne0.
+\]
+But
+\[
+|1-m|<m,
+\]
+contradicting the minimality of $m$. Thus
+\[
+f(m)=0
+\qquad(m\ne0).
+\tag{11}
+\]
+
+Finally, $E(0,2)$ gives
+\[
+f^4(2)=2f(2)=0.
+\]
+By (11), $f(2)=0$, so
+\[
+f^4(2)=f^3(0).
+\]
+Using (7),
+\[
+f^3(0)=f(0).
+\]
+Hence $f(0)=0$, and therefore $f$ is the zero function.
+
+\textbf{Case 2: all orbits are infinite.}
+
+For any integers $a,b$, the common tail property following from (4) ensures that there exist nonnegative integers $r,s$ such that
+\[
+f^r(a)=f^s(b).
+\]
+We claim that the difference $r-s$ depends only on $a,b$.
+
+Indeed, suppose
+\[
+f^r(a)=f^s(b)
+\qquad\text{and}\qquad
+f^u(a)=f^v(b),
+\]
+with
+\[
+r-s>u-v.
+\]
+Applying suitable further iterates to these equalities gives, for every sufficiently large $k$,
+\[
+f^{s+u+k}(b)=f^{r+u+k}(a)=f^{r+v+k}(b).
+\]
+The two exponents on the orbit of $b$ differ by
+\[
+(r-s)-(u-v)>0.
+\]
+Thus the orbit of $b$ would be eventually periodic and hence finite, a contradiction.
+
+Define
+\[
+X(a,b)=r-s
+\]
+whenever $f^r(a)=f^s(b)$. Then
+\[
+X(a,b)+X(b,c)=X(a,c).
+\tag{12}
+\]
+Equation (4) gives
+\[
+X(a-1,a)=1.
+\]
+Using (12) repeatedly,
+\[
+X(a,b)=b-a
+\qquad(a,b\in\mathbb Z).
+\tag{13}
+\]
+
+Apply $f$ to both sides of (4). We get
+\[
+f^{a^2+1}(f(a-1))=f^{a^2}(f(a)).
+\]
+Therefore
+\[
+X(f(a-1),f(a))=1.
+\]
+By (13),
+\[
+f(a)-f(a-1)=1
+\qquad(a\in\mathbb Z).
+\]
+Together with $f(-1)=0$, this yields
+\[
+f(x)=x+1
+\qquad(x\in\mathbb Z).
+\]
+
+Both obtained functions are readily checked in (1). For $f(x)=x+1$,
+\[
+f^m(x)=x+m,
+\]
+so
+\[
+f^{a^2+b^2}(a+b)
+=a+b+a^2+b^2
+=a(a+1)+b(b+1).
+\]

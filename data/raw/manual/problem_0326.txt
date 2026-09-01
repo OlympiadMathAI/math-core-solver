@@ -1,0 +1,197 @@
+ID: 0326
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Number Theory
+
+SUBTOPICS: Arithmetic and Geometric Means, Prime Valuations, Greatest Common Divisors, Extremal Principle
+
+STATEMENT:
+Let $n\ge2$. Does there exist a sequence
+\[
+(a_1,a_2,\ldots,a_n)
+\]
+of positive integers, not all equal, such that the arithmetic mean of every two terms is equal to the geometric mean of one or more terms of the sequence?
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{\text{No}}.
+\]
+
+Suppose that such a sequence exists. Divide all its terms by
+\[
+d=\gcd(a_1,a_2,\ldots,a_n).
+\]
+Both arithmetic and geometric means are divided by $d$, so the required property is preserved. We may therefore assume
+\[
+\gcd(a_1,a_2,\ldots,a_n)=1.
+\tag{1}
+\]
+
+Choose an index $m$ such that
+\[
+a_m=\max(a_1,\ldots,a_n).
+\]
+Since the terms are not all equal and satisfy (1),
+\[
+a_m\ge2.
+\]
+Let $p$ be a prime divisor of $a_m$. By (1), some term is not divisible by $p$. Choose $k$ so that
+\[
+a_k=\max\{a_i:p\nmid a_i\}.
+\]
+Then
+\[
+a_m>a_k.
+\]
+
+Put
+\[
+b=\frac{a_m+a_k}{2}.
+\]
+We show that $b$ cannot be the geometric mean of any nonempty selection of terms.
+
+Let
+\[
+g=(a_{i_1}a_{i_2}\cdots a_{i_t})^{1/t}
+\]
+be such a geometric mean.
+
+If none of the selected terms is divisible by $p$, then each is at most $a_k$, so
+\[
+g\le a_k<b.
+\]
+
+Suppose instead that at least one selected term is divisible by $p$. If $2g$ is not an integer, then clearly $g\ne b$. If $2g$ is an integer, then $g$ is rational; since $g$ is a root of the monic polynomial
+\[
+X^t-a_{i_1}\cdots a_{i_t},
+\]
+it must in fact be an integer. The divisibility of the product by $p$ then gives
+\[
+p\mid g,
+\]
+and hence
+\[
+p\mid2g.
+\]
+But
+\[
+2b=a_m+a_k
+\]
+is not divisible by $p$, because $p\mid a_m$ and $p\nmid a_k$. Thus again $g\ne b$.
+
+This contradicts the required property for the pair $a_m,a_k$. Therefore no such nonconstant sequence exists.
+
+SOLUTION 2:
+Assume again that a sequence with the required property exists, and divide all its terms by their common gcd. Thus
+\[
+\gcd(a_1,\ldots,a_n)=1.
+\tag{1}
+\]
+
+The arithmetic mean of any two terms is half an integer. If it equals the geometric mean of some terms, then it is a rational root of a monic polynomial with integer coefficients, and hence is an integer. Therefore the sum of every two terms is even, so all terms have the same parity. By (1), all of them are odd.
+
+Among all pairs of distinct values in the sequence, let
+\[
+d=\min\{\gcd(a_i,a_j):a_i\ne a_j\}.
+\]
+Choose a pair
+\[
+a_1>a_2
+\]
+such that
+\[
+\gcd(a_1,a_2)=d
+\]
+and, among all pairs with gcd $d$, the sum
+\[
+a_1+a_2
+\]
+is maximal.
+
+Write
+\[
+a_1=xd,\qquad a_2=yd,
+\qquad \gcd(x,y)=1.
+\]
+Suppose that the arithmetic mean of $a_1,a_2$ is the geometric mean of terms
+\[
+b_1,b_2,\ldots,b_t
+\]
+from the sequence:
+\[
+b_1b_2\cdots b_t
+=
+\left(\frac{a_1+a_2}{2}\right)^t
+=
+\left(\frac{x+y}{2}\right)^t d^t.
+\tag{2}
+\]
+
+For each $i$, put
+\[
+d_i=\gcd(a_1,b_i),
+\qquad
+D=d_1d_2\cdots d_t.
+\]
+Then
+\[
+D\mid b_1b_2\cdots b_t.
+\tag{3}
+\]
+We claim that
+\[
+D\mid d^t.
+\tag{4}
+\]
+
+Fix a prime $p\mid D$. If
+\[
+p\mid\frac{x+y}{2},
+\]
+then $p\nmid x$: otherwise $p$ would also divide $y$, contrary to $\gcd(x,y)=1$. Hence
+\[
+v_p(d_i)\le v_p(a_1)=v_p(d)
+\]
+for every $i$. If
+\[
+p\nmid\frac{x+y}{2},
+\]
+then (2)--(3) directly show that the entire $p$-adic valuation of $D$ comes from $d^t$. In either case,
+\[
+v_p(D)\le t\,v_p(d),
+\]
+which proves (4).
+
+On the other hand,
+\[
+d_i\ge d
+\]
+for every $i$: this follows from the definition of $d$ when $b_i\ne a_1$, while it is obvious when $b_i=a_1$. Therefore
+\[
+D\ge d^t.
+\]
+Together with (4), this yields
+\[
+d_1=d_2=\cdots=d_t=d.
+\tag{5}
+\]
+
+The geometric mean in (2) is greater than $a_2$, so at least one selected term, say $b_j$, satisfies
+\[
+b_j>a_2.
+\]
+By (5),
+\[
+\gcd(a_1,b_j)=d.
+\]
+Also $b_j\ne a_1$, because $d<a_1$. Thus
+\[
+a_1+b_j>a_1+a_2,
+\]
+contradicting the maximal choice of the pair $a_1,a_2$.
+
+Hence no required nonconstant sequence exists.

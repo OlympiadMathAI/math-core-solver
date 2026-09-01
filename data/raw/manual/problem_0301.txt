@@ -1,0 +1,200 @@
+ID: 0301
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Algebra
+
+SUBTOPICS: Inequalities, AM-GM, Homogeneity, Extremal Values
+
+STATEMENT:
+Suppose that $a,b,c,d$ are positive real numbers satisfying
+\[
+(a+c)(b+d)=ac+bd.
+\]
+Find the smallest possible value of
+\[
+\frac ab+\frac bc+\frac cd+\frac da.
+\]
+
+SOLUTION 1:
+The smallest possible value is
+\[
+\boxed{8}.
+\]
+
+Put
+\[
+S=\frac ab+\frac bc+\frac cd+\frac da.
+\]
+By the arithmetic-geometric mean inequality,
+\[
+\frac ab+\frac cd
+\ge2\sqrt{\frac{ac}{bd}},
+\]
+and
+\[
+\frac bc+\frac da
+\ge2\sqrt{\frac{bd}{ac}}.
+\]
+Therefore
+\[
+S\ge
+2\sqrt{\frac{ac}{bd}}
++2\sqrt{\frac{bd}{ac}}.
+\tag{1}
+\]
+
+The condition gives
+\[
+ac+bd=(a+c)(b+d)
+\ge4\sqrt{abcd}.
+\]
+Set
+\[
+x=\sqrt{\frac{ac}{bd}}>0.
+\]
+After division by $\sqrt{abcd}$, the preceding inequality becomes
+\[
+x+\frac1x\ge4.
+\tag{2}
+\]
+Combining (1) and (2),
+\[
+S\ge2\left(x+\frac1x\right)\ge8.
+\]
+
+Equality is attainable. Take
+\[
+a=c=1,
+\qquad
+b=d=2+\sqrt3.
+\]
+Then
+\[
+(a+c)(b+d)=4(2+\sqrt3)=1+(2+\sqrt3)^2=ac+bd,
+\]
+and
+\[
+S=2\left((2+\sqrt3)+(2-\sqrt3)\right)=8.
+\]
+Thus the minimum is $8$.
+
+SOLUTION 2:
+By homogeneity, scale the variables so that
+\[
+abcd=1.
+\]
+Define
+\[
+A=bc,
+\qquad
+B=ac,
+\qquad
+C=ab.
+\]
+Then
+\[
+ad=\frac1A,
+\qquad
+bd=\frac1B,
+\qquad
+cd=\frac1C.
+\]
+The condition becomes
+\[
+A+\frac1A+C+\frac1C=B+\frac1B.
+\tag{1}
+\]
+Moreover,
+\[
+\begin{aligned}
+S
+&=\left(\frac ab+\frac cd\right)
+ +\left(\frac bc+\frac da\right)\\
+&=B\left(A+\frac1A\right)
+ +\frac1B\left(C+\frac1C\right).
+\end{aligned}
+\]
+Using (1),
+\[
+S=
+\left(B-\frac1B\right)
+\left(A+\frac1A\right)
++1+\frac1{B^2}.
+\tag{2}
+\]
+
+A cyclic relabelling of $a,b,c,d$ replaces $B$ by $1/B$ and leaves both the condition and $S$ unchanged. Hence we may assume
+\[
+B\ge1.
+\]
+Since
+\[
+A+\frac1A\ge2
+\qquad\text{and}\qquad
+C+\frac1C\ge2,
+\]
+equation (1) gives
+\[
+B+\frac1B\ge4.
+\]
+Thus
+\[
+B\ge2+\sqrt3.
+\tag{3}
+\]
+From (2),
+\[
+S\ge
+2\left(B-\frac1B\right)+1+\frac1{B^2}
+=:F(B).
+\]
+For $B\ge1$,
+\[
+F'(B)=2+\frac2{B^2}-\frac2{B^3}>0.
+\]
+Using (3),
+\[
+S\ge F(2+\sqrt3)=8.
+\]
+The equality example from Solution 1 shows that this bound is sharp.
+
+SOLUTION 3:
+We give another direct proof. As in Solution 1,
+\[
+S\ge
+2\sqrt{\frac{ac}{bd}}
++2\sqrt{\frac{bd}{ac}}.
+\tag{1}
+\]
+Put
+\[
+y=\sqrt{ac},
+\qquad
+z=\sqrt{bd}.
+\]
+Set
+\[
+x=\max\left\{\frac yz,\frac zy\right\}\ge1.
+\]
+Then $x+1/x=y/z+z/y$.
+The condition and AM-GM give
+\[
+y^2+z^2=ac+bd=(a+c)(b+d)\ge4yz.
+\]
+Hence
+\[
+x^2+1\ge4x.
+\]
+For $x\ge1$, this is equivalent to
+\[
+x\ge2+\sqrt3.
+\]
+The function $x+1/x$ is increasing on $[1,\infty)$, so (1) yields
+\[
+S\ge2\left(x+\frac1x\right)
+\ge2\left((2+\sqrt3)+(2-\sqrt3)\right)=8.
+\]
+Again, equality is attained by the example in Solution 1.

@@ -1,0 +1,184 @@
+ID: 0325
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Number Theory
+
+SUBTOPICS: Graph Connectivity, Quadratic Congruences, Quadratic Residues, Euclid-Type Prime Construction
+
+STATEMENT:
+For every prime $p$, the kingdom of $p$-Landia consists of $p$ islands numbered
+\[
+1,2,\ldots,p.
+\]
+Two distinct islands numbered $n$ and $m$ are connected by a bridge if and only if
+\[
+p\mid(n^2-m+1)(m^2-n+1).
+\]
+The bridges may pass over one another, but cannot cross.
+
+Prove that for infinitely many primes $p$, there are two islands in $p$-Landia that are not connected by any chain of bridges.
+
+SOLUTION 1:
+We prove that the graph is disconnected for every prime $p>3$ that divides a number of the form
+\[
+x^2-x+1.
+\tag{1}
+\]
+
+For distinct residues $m,n$, a bridge joins $m$ and $n$ precisely when
+\[
+n\equiv m^2+1\pmod p
+\qquad\text{or}\qquad
+m\equiv n^2+1\pmod p.
+\]
+Whenever
+\[
+n\equiv m^2+1\pmod p
+\]
+with $n\ne m$, direct an arrow from $m$ to $n$. Every bridge carries at least one arrow, while at most one arrow starts from each island.
+
+Suppose that
+\[
+x^2-x+1\equiv0\pmod p.
+\]
+Then
+\[
+x^2+1\equiv x\pmod p,
+\]
+so no arrow starts at the island $x$. The other root of the same quadratic is
+\[
+1-x\pmod p,
+\]
+represented among the island numbers by $p+1-x$, and no arrow starts there either.
+
+These two islands are distinct. Indeed, if
+\[
+x\equiv1-x\pmod p,
+\]
+then $2x\equiv1\pmod p$, and
+\[
+4(x^2-x+1)\equiv3\pmod p,
+\]
+which is impossible for $p>3$.
+
+Thus at most $p-2$ arrows occur, and consequently the number of bridges is at most $p-2$. A graph with $p$ vertices and fewer than $p-1$ edges is disconnected. Hence two islands are not connected by a chain of bridges.
+
+It remains to prove that infinitely many primes satisfy (1). Start with the prime
+\[
+3\mid 2^2-2+1.
+\]
+Suppose that
+\[
+p_1,p_2,\ldots,p_t
+\]
+are distinct primes already obtained in this way, including $3$, and put
+\[
+P=p_1p_2\cdots p_t.
+\]
+The integer
+\[
+P^2-P+1
+\]
+is greater than $1$ and is congruent to $1$ modulo every $p_i$. Therefore it has a prime divisor not among
+\[
+p_1,\ldots,p_t.
+\]
+This new prime also divides a value of $x^2-x+1$. Repeating the argument proves that infinitely many such primes exist.
+
+SOLUTION 2:
+We prove the stronger assertion that for infinitely many primes $p$, two islands form a connected component by themselves.
+
+Use the same directed-arrow convention as in Solution 1. Let $p>3$, and suppose that
+\[
+a^2-a+1\equiv0\pmod p.
+\]
+Put
+\[
+b\equiv1-a\pmod p,
+\qquad 1\le b\le p.
+\]
+Then $b$ is the other root, $a\ne b$, and
+\[
+ab\equiv1\pmod p.
+\tag{1}
+\]
+
+No arrow starts from either $a$ or $b$. If an arrow ends at $a$, its starting point $t$ satisfies
+\[
+t^2+1\equiv a\equiv a^2+1\pmod p.
+\]
+Apart from the forbidden loop $t=a$, the only possibility is
+\[
+t\equiv-a\pmod p.
+\]
+Thus the only arrow entering $a$ comes from $p-a$. Similarly, the only arrow entering $b$ comes from $p-b$.
+
+The pair
+\[
+\{a,p-a\}
+\]
+is therefore isolated from the remaining islands if the congruence
+\[
+t^2+1\equiv-a\pmod p
+\]
+has no solution. Likewise, the pair
+\[
+\{b,p-b\}
+\]
+is isolated if
+\[
+t^2+1\equiv-b\pmod p
+\]
+has no solution.
+
+Now
+\[
+(-1-a)(-1-b)
+\equiv
+1+(a+b)+ab
+\equiv3\pmod p
+\]
+by (1). Hence, if $3$ is a quadratic nonresidue modulo $p$, at least one of
+\[
+-1-a,\qquad -1-b
+\]
+is a quadratic nonresidue, and one of the two pairs above is an isolated component.
+
+It remains to construct infinitely many primes $p$ for which:
+
+\begin{itemize}
+\item $x^2-x+1\equiv0\pmod p$ is solvable; and
+\item $3$ is a quadratic nonresidue modulo $p$.
+\end{itemize}
+
+The first condition is equivalent to
+\[
+(2x-1)^2\equiv-3\pmod p.
+\]
+Thus, once the first condition holds, $3$ is a nonresidue exactly when $-1$ is a nonresidue, that is, when
+\[
+p\equiv-1\pmod4.
+\]
+
+Suppose that
+\[
+p_1,\ldots,p_t
+\]
+are primes congruent to $-1$ modulo $4$ and dividing values of $x^2-x+1$. Put
+\[
+P=p_1p_2\cdots p_t
+\]
+and consider
+\[
+(2P)^2-2P+1.
+\]
+This number is congruent to $1$ modulo every $p_i$, and it is congruent to $-1$ modulo $4$. Therefore it has a prime divisor
+\[
+p\equiv-1\pmod4
+\]
+that is not among the $p_i$. Since it is a value of $x^2-x+1$, the new prime has both required properties.
+
+This Euclid-type construction produces infinitely many suitable primes.

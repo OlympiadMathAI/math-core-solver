@@ -1,0 +1,77 @@
+ID: 0309
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Directed Graphs, Chains, Pigeonhole Principle, Extremal Construction
+
+STATEMENT:
+Let $n\ge2$. On a mountain slope, $n^2$ checkpoints are numbered
+\[
+1,2,\ldots,n^2
+\]
+from bottom to top. Each of two cable-car companies, $A$ and $B$, operates $k$ cable cars numbered $1,\ldots,k$. Each cable car connects a checkpoint to a higher checkpoint. For each company, whenever $i<j$, both the starting checkpoint and the finishing checkpoint of car $j$ are higher than the corresponding checkpoints of car $i$.
+
+Two checkpoints are called linked by a company if one can travel from the lower one to the higher one using one or more of that company's cable cars, without walking.
+
+Determine the smallest $k$ for which one can guarantee the existence of two checkpoints linked by both companies.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{n^2-n+1}.
+\]
+
+We first show that $k=n^2-n$ does not suffice.
+
+For company $A$, use the cars
+\[
+i\longrightarrow i+1
+\qquad(1\le i<n^2,\ n\nmid i).
+\]
+Thus its chains are the $n$ consecutive blocks
+\[
+1,\ldots,n;\quad
+n+1,\ldots,2n;\quad\ldots;\quad
+n^2-n+1,\ldots,n^2.
+\]
+Any two checkpoints linked by $A$ lie in the same block.
+
+For company $B$, use the cars
+\[
+i\longrightarrow i+n
+\qquad(1\le i\le n^2-n).
+\]
+Its chains consist of checkpoints having the same residue modulo $n$. Two distinct checkpoints cannot lie both in the same consecutive block of length $n$ and in the same residue class modulo $n$. Hence no pair is linked by both companies.
+
+We now prove that
+\[
+k=n^2-n+1
+\]
+always suffices.
+
+For one company, regard its cars as directed edges. The hypotheses imply that no two cars have the same starting checkpoint and no two have the same finishing checkpoint. Since every edge goes upward, every connected component is a directed chain, possibly consisting of one isolated checkpoint.
+
+The number of chains equals
+\[
+n^2-k=n-1.
+\]
+Indeed, a chain has exactly one checkpoint that is not the finishing point of a car, and the $k$ cars have distinct finishing points.
+
+Thus company $A$ has $n-1$ chains, and company $B$ also has $n-1$ chains. Associate to each checkpoint the ordered pair
+\[
+(\text{its $A$-chain},\text{its $B$-chain}).
+\]
+There are only
+\[
+(n-1)^2<n^2
+\]
+such ordered pairs but $n^2$ checkpoints. By the pigeonhole principle, two distinct checkpoints receive the same pair. They lie in the same chain for each company, so the lower one is linked to the higher one by both companies.
+
+Therefore the smallest possible value is
+\[
+\boxed{n^2-n+1}.
+\]

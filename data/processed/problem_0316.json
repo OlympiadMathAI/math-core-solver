@@ -1,0 +1,17 @@
+{
+  "id": "0316",
+  "source": "IMO Shortlist",
+  "year": "2020",
+  "topic": "Geometry",
+  "subtopics": [
+    "Angle Bisectors",
+    "Cyclic Quadrilaterals",
+    "Circumcentres",
+    "Isosceles Triangles"
+  ],
+  "statement": "Let $ABCD$ be a convex quadrilateral. Suppose that $P$ lies inside $ABCD$ and\n\\[\n\\angle PAD:\\angle PBA:\\angle DPA\n=\n1:2:3\n=\n\\angle CBP:\\angle BAP:\\angle BPC.\n\\]\nThe internal angle bisectors of $\\angle ADP$ and $\\angle PCB$ meet at a point $Q$ inside triangle $ABP$.\n\nProve that\n\\[\nAQ=BQ.\n\\]",
+  "solutions": [
+    "Set\n\\[\n\\varphi=\\angle PAD,\n\\qquad\n\\psi=\\angle CBP.\n\\]\nThen\n\\[\n\\angle PBA=2\\varphi,\n\\qquad\n\\angle DPA=3\\varphi,\n\\]\nand\n\\[\n\\angle BAP=2\\psi,\n\\qquad\n\\angle BPC=3\\psi.\n\\]\n\nChoose $X\\in AD$ such that\n\\[\n\\angle XPA=\\varphi.\n\\]\nSince $A,X,D$ are collinear,\n\\[\n\\angle PXD\n=\n\\angle PAX+\\angle XPA\n=\n2\\varphi\n=\n\\angle DPA-\\angle XPA\n=\n\\angle DPX.\n\\]\nThus triangle $DPX$ is isosceles and\n\\[\nDX=DP.\n\\]\nConsequently, the internal angle bisector of $\\angle ADP=\\angle XDP$ is the perpendicular bisector of $XP$.\n\nSimilarly, choose $Y\\in BC$ such that\n\\[\n\\angle BPY=\\psi.\n\\]\nThe same argument shows that the internal angle bisector of $\\angle PCB$ is the perpendicular bisector of $PY$.\n\nIt remains to show that the perpendicular bisectors of $XP$, $PY$, and $AB$ are concurrent.\n\nWe have\n\\[\n\\angle AXP\n=\n180^\\circ-\\angle PXD\n=\n180^\\circ-2\\varphi\n=\n180^\\circ-\\angle PBA.\n\\]\nHence $A,X,P,B$ are concyclic. Analogously,\n\\[\nA,Y,P,B\n\\]\nare concyclic. Thus\n\\[\nA,B,P,X,Y\n\\]\nlie on one circle.\n\nThe centre $O$ of this circle lies on the perpendicular bisectors of the three chords\n\\[\nXP,\\qquad PY,\\qquad AB.\n\\]\nThe first two of these perpendicular bisectors are precisely the two given angle bisectors, so\n\\[\nQ=O.\n\\]\nSince $O$ lies on the perpendicular bisector of $AB$,\n\\[\nAQ=BQ.\n\\]",
+    "Again put\n\\[\n\\varphi=\\angle PAD,\n\\qquad\n\\psi=\\angle CBP.\n\\]\nThen\n\\[\n\\angle PBA=2\\varphi,\\quad\n\\angle DPA=3\\varphi,\\quad\n\\angle BAP=2\\psi,\\quad\n\\angle BPC=3\\psi.\n\\]\n\nLet $O$ be the circumcentre of triangle $APB$. We show that $O$ lies on both given angle bisectors.\n\nFirst,\n\\[\n\\angle ADP\n=\n180^\\circ-\\angle PAD-\\angle DPA\n=\n180^\\circ-4\\varphi.\n\\]\nOn the other hand,\n\\[\n\\angle POA\n=\n2\\angle PBA\n=\n4\\varphi.\n\\]\nTherefore\n\\[\n\\angle ADP+\\angle POA=180^\\circ,\n\\]\nso $A,D,P,O$ are concyclic.\n\nSince $OA=OP$, the equal chords $OA$ and $OP$ in the circle $(ADPO)$ subtend equal angles at $D$:\n\\[\n\\angle ADO=\\angle ODP.\n\\]\nThus $DO$ is the internal angle bisector of $\\angle ADP$.\n\nThe completely analogous argument gives that\n\\[\nCO\n\\]\nis the internal angle bisector of $\\angle PCB$.\n\nHence the two angle bisectors meet at $O$, so $Q=O$. Finally, because $O$ is the circumcentre of triangle $APB$,\n\\[\nOA=OB,\n\\]\nand therefore\n\\[\nAQ=BQ.\n\\]"
+  ]
+}

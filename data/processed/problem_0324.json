@@ -1,0 +1,16 @@
+{
+  "id": "0324",
+  "source": "IMO Shortlist",
+  "year": "2020",
+  "topic": "Number Theory",
+  "subtopics": [
+    "Rational Constructions",
+    "Modular Arithmetic",
+    "Prime Avoidance",
+    "Recurrence Relations"
+  ],
+  "statement": "Given a positive integer $k$, prove that there exists a prime $p$ for which one can choose distinct integers\n\\[\na_1,a_2,\\ldots,a_{k+3}\\in\\{1,2,\\ldots,p-1\\}\n\\]\nsuch that\n\\[\np\\mid a_i a_{i+1}a_{i+2}a_{i+3}-i\n\\]\nfor every\n\\[\ni=1,2,\\ldots,k.\n\\]",
+  "solutions": [
+    "We first construct distinct positive rational numbers\n\\[\nr_1,r_2,\\ldots,r_{k+3}\n\\]\nsatisfying\n\\[\nr_i r_{i+1}r_{i+2}r_{i+3}=i\n\\qquad(1\\le i\\le k).\n\\tag{1}\n\\]\n\nChoose three distinct primes\n\\[\nx,y,z>k\n\\]\nand set\n\\[\nr_1=x,\\qquad r_2=y,\\qquad r_3=z,\\qquad\nr_4=\\frac1{xyz}.\n\\]\nFor every $i\\ge1$ for which the term is needed, define\n\\[\nr_{i+4}=\\frac{i+1}{i}\\,r_i.\n\\tag{2}\n\\]\nThe first product is\n\\[\nr_1r_2r_3r_4=1.\n\\]\nIf (1) holds for an index $i$, then by (2),\n\\[\nr_{i+1}r_{i+2}r_{i+3}r_{i+4}\n=\nr_ir_{i+1}r_{i+2}r_{i+3}\\cdot\\frac{r_{i+4}}{r_i}\n=\ni\\cdot\\frac{i+1}{i}\n=i+1.\n\\]\nThus (1) holds for all required indices.\n\nWe also verify that the $r_i$ are pairwise distinct. Write every $r_i$ in lowest terms. Since\n\\[\nx,y,z>k,\n\\]\nnone of these three primes can be cancelled by any of the factors appearing in the recurrence (2). Consequently:\n\n\\begin{itemize}\n\\item the numerator of $r_i$ is divisible by $x$ when $i\\equiv1\\pmod4$;\n\\item it is divisible by $y$ when $i\\equiv2\\pmod4$;\n\\item it is divisible by $z$ when $i\\equiv3\\pmod4$;\n\\item it is divisible by none of $x,y,z$ when $i\\equiv0\\pmod4$.\n\\end{itemize}\n\nHence terms belonging to different residue classes modulo $4$ are distinct. Within each residue class, (2) shows that\n\\[\nr_i<r_{i+4},\n\\]\nso all the terms are distinct.\n\nWrite\n\\[\nr_i=\\frac{u_i}{v_i}\n\\]\nin lowest terms, with $u_i,v_i$ positive. Choose a prime $p>k$ that divides none of the finitely many nonzero integers\n\\[\nu_i,\\qquad v_i,\\qquad\nu_iv_j-u_jv_i\n\\quad(1\\le i<j\\le k+3).\n\\tag{3}\n\\]\nSuch a prime exists.\n\nFor every $i$, let $a_i$ be the unique integer in\n\\[\n\\{1,2,\\ldots,p-1\\}\n\\]\nsatisfying\n\\[\na_iv_i\\equiv u_i\\pmod p.\n\\tag{4}\n\\]\nThe condition on $u_i$ and $v_i$ guarantees that $a_i$ is nonzero modulo $p$.\n\nIf $a_i\\equiv a_j\\pmod p$, then (4) gives\n\\[\nu_iv_j\\equiv u_jv_i\\pmod p,\n\\]\ncontrary to (3). Thus the $a_i$ are distinct.\n\nFinally, multiply the rational identity (1) by\n\\[\nv_iv_{i+1}v_{i+2}v_{i+3}\n\\]\nand reduce modulo $p$. Using (4), we obtain\n\\[\na_ia_{i+1}a_{i+2}a_{i+3}\\equiv i\\pmod p\n\\]\nfor every $1\\le i\\le k$. This is exactly the desired conclusion."
+  ]
+}

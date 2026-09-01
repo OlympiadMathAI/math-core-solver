@@ -1,0 +1,336 @@
+ID: 0319
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Geometry
+
+SUBTOPICS: Incircles, Homothety Centres, Monge's Theorem, Inversion, Cyclic Quadrilaterals
+
+STATEMENT:
+Let $ABCD$ be a cyclic quadrilateral with no two sides parallel. Let
+\[
+K\in AB,\qquad L\in BC,\qquad M\in CD,\qquad N\in DA
+\]
+be such that $KLMN$ is a rhombus with
+\[
+KL\parallel AC
+\qquad\text{and}\qquad
+LM\parallel BD.
+\]
+Let $\omega_1,\omega_2,\omega_3,\omega_4$ be the incircles of triangles
+\[
+ANK,\qquad BKL,\qquad CLM,\qquad DMN,
+\]
+respectively.
+
+Prove that the internal common tangents to $\omega_1$ and $\omega_3$, together with the internal common tangents to $\omega_2$ and $\omega_4$, are concurrent.
+
+SOLUTION 1:
+Let $I_i$ and $r_i$ be the centre and radius of $\omega_i$.
+
+Let the internal common tangents to $\omega_1$ and $\omega_3$ meet at $S$. Thus $S$ is the centre of the homothety of negative ratio
+\[
+-\frac{r_3}{r_1}
+\]
+that maps $\omega_1$ to $\omega_3$.
+
+Let $T_1$ and $T_3$ be the points where $\omega_1$ and $\omega_3$ touch the parallel sides $NK$ and $LM$, respectively. The homothety maps $T_1$ to $T_3$, so
+\[
+T_1S:ST_3=r_1:r_3.
+\tag{1}
+\]
+
+Through $S$, draw
+\[
+S_1S_3\parallel KL,
+\qquad
+S_2S_4\parallel LM,
+\]
+where
+\[
+S_1\in NK,\quad S_2\in KL,\quad S_3\in LM,\quad S_4\in MN.
+\]
+The same homothety maps $S_1$ to $S_3$. Hence
+\[
+I_1S_1\parallel I_3S_3
+\qquad\text{and}\qquad
+S_1S:SS_3=r_1:r_3.
+\tag{2}
+\]
+
+We shall prove
+\[
+S_2S:SS_4=r_2:r_4.
+\tag{3}
+\]
+In a parallelogram, (3) is equivalent to
+\[
+KS_1:S_1N=r_2:r_4.
+\tag{4}
+\]
+Once (3) is known, the conclusion follows: the corresponding intersection $S'$ of the internal common tangents to $\omega_2$ and $\omega_4$ satisfies both division relations (2) and (3), and there is a unique point inside $KLMN$ satisfying them. Therefore
+\[
+S'=S.
+\]
+
+We now prove (4).
+
+For the original cyclic quadrilateral $ABCD$, let
+\[
+I_A,I_B,I_C,I_D
+\]
+be the incentres of triangles
+\[
+DAB,\quad ABC,\quad BCD,\quad CDA,
+\]
+and let their inradii be
+\[
+r_A,r_B,r_C,r_D.
+\]
+
+Translate triangle $CLM$ by the vector $\overrightarrow{LK}$. Its image is a triangle $C'KN$, and together with triangle $AKN$ it forms a quadrilateral
+\[
+AKC'N
+\]
+similar to $ABCD$. Consequently,
+\[
+r_1:r_3=r_A:r_C,
+\qquad
+r_2:r_4=r_B:r_D.
+\tag{5}
+\]
+
+The translation maps $S_3$ to $S_1$ and $I_3$ to the incenter $I_3'$ of triangle $KC'N$. From
+\[
+I_1S_1\parallel I_3S_3
+\]
+we obtain
+\[
+I_1,S_1,I_3'\ \text{are collinear}.
+\]
+We apply the following lemma to the cyclic quadrilateral $AKC'N$.
+
+\textbf{Lemma.}
+Let $ABCD$ be cyclic. Let $I_A$ and $I_C$ be the incentres of triangles $DAB$ and $BCD$, and let $r_B,r_D$ be the inradii of triangles $ABC$ and $CDA$. If
+\[
+X=I_AI_C\cap BD,
+\]
+then
+\[
+\frac{BX}{XD}=\frac{r_B}{r_D}.
+\tag{6}
+\]
+
+\textit{Proof.}
+Use directed angles modulo $180^\circ$. Invert about a circle centred at $X$, and denote images by primes.
+
+Since $X,I_A,I_C$ are collinear and $X,B,D$ are collinear, inversion and the angle-bisector properties give
+\[
+\begin{aligned}
+\measuredangle(I_C'I_A',I_A'D')
+&=\measuredangle(XI_A',I_A'D')\\
+&=\measuredangle(XD,DI_A)\\
+&=\frac12\angle BDA\\
+&=\frac12\angle BCA\\
+&=\angle ACI_B.
+\end{aligned}
+\]
+Similarly,
+\[
+\measuredangle(I_A'I_C',I_C'D')=\angle CAI_B.
+\]
+Therefore
+\[
+\triangle I_C'I_A'D'\sim\triangle ACI_B.
+\tag{7}
+\]
+The analogous angle calculation gives
+\[
+\triangle I_C'I_A'B'\sim\triangle ACI_D.
+\tag{8}
+\]
+
+It follows from (7)--(8) that the quadrilaterals
+\[
+I_C'B'I_A'D'
+\qquad\text{and}\qquad
+AI_DCI_B
+\]
+are similar.
+
+Let
+\[
+Y=AC\cap I_BI_D.
+\]
+The perpendicular distances of $I_B$ and $I_D$ from $AC$ are $r_B$ and $r_D$, respectively. Hence
+\[
+\frac{I_BY}{YI_D}=\frac{r_B}{r_D}.
+\]
+Under the similarity of the two quadrilaterals, $Y$ corresponds to $X$, $I_B$ to $D'$, and $I_D$ to $B'$. Thus
+\[
+\frac{D'X}{B'X}=\frac{r_B}{r_D}.
+\]
+If the power of the inversion is $\rho$, then
+\[
+XD'=\frac{\rho}{XD},
+\qquad
+XB'=\frac{\rho}{XB}.
+\]
+Therefore
+\[
+\frac{BX}{XD}
+=
+\frac{XD'}{XB'}
+=
+\frac{r_B}{r_D},
+\]
+proving the lemma. $\square$
+
+In the quadrilateral $AKC'N$, the point $S_1$ is the intersection of the line joining the two opposite incentres with the diagonal $KN$. The lemma and (5) therefore give
+\[
+\frac{KS_1}{S_1N}
+=
+\frac{r_B}{r_D}
+=
+\frac{r_2}{r_4}.
+\]
+This is (4), and the proof is complete.
+
+SOLUTION 2:
+We use the following form of Monge's theorem.
+
+\textbf{Lemma.}
+Let $E$ and $F$ be distinct points, and let
+\[
+\omega_1,\omega_2,\omega_3,\omega_4
+\]
+be four circles lying in the same half-plane with respect to $EF$. For $i\ne j$, let
+\[
+O_{ij}^{+}
+\qquad\text{and}\qquad
+O_{ij}^{-}
+\]
+denote the centres of the homotheties of positive and negative ratio, respectively, that map $\omega_i$ to $\omega_j$.
+
+Suppose
+\[
+E=O_{12}^{+}=O_{34}^{+}
+\qquad\text{and}\qquad
+F=O_{23}^{+}=O_{41}^{+}.
+\]
+Then
+\[
+O_{13}^{-}=O_{24}^{-}.
+\tag{1}
+\]
+
+\textit{Proof.}
+Apply Monge's theorem to the triples
+\[
+(\omega_1,\omega_2,\omega_4)
+\qquad\text{and}\qquad
+(\omega_1,\omega_3,\omega_4).
+\]
+It follows that both $O_{24}^{-}$ and $O_{13}^{-}$ lie on the line
+\[
+EO_{14}^{-}.
+\]
+Similarly, applying Monge's theorem to the appropriate triples containing $\omega_3$ and $\omega_4$, both points lie on
+\[
+FO_{34}^{-}.
+\]
+These two lines are distinct, so their intersection is unique. Hence
+\[
+O_{13}^{-}=O_{24}^{-}.
+\]
+$\square$
+
+We now verify the hypotheses of the lemma.
+
+Let
+\[
+E=AB\cap CD,
+\qquad
+F=BC\cap DA.
+\]
+Choose the naming so that $B$ lies on both segments $AE$ and $CF$.
+
+The cyclicity of $ABCD$ gives
+\[
+\triangle ECA\sim\triangle EBD.
+\]
+Using this similarity, together with
+\[
+KN\parallel BD
+\qquad\text{and}\qquad
+MN\parallel AC,
+\]
+we obtain
+\[
+\frac{AN}{ND}
+=
+\frac{AN}{AD}\cdot\frac{AD}{ND}
+=
+\frac{KN}{BD}\cdot\frac{AC}{NM}
+=
+\frac{AC}{BD}
+=
+\frac{AE}{ED}.
+\]
+By the angle-bisector theorem, $N$ lies on the internal angle bisector of $\angle AED$. The same argument shows that $L$ lies on that angle bisector. Thus
+\[
+E,L,N\ \text{are collinear}.
+\tag{2}
+\]
+
+Similarly,
+\[
+F,K,M\ \text{are collinear},
+\tag{3}
+\]
+and this line is the internal angle bisector of $\angle AFB$.
+
+Because $KLMN$ is a rhombus, reflection in its diagonal $LN$ interchanges $K$ and $M$. By (2), the quadrilateral bounded by the lines
+\[
+EK,\quad KL,\quad LM,\quad ME
+\]
+is a kite, and therefore has an incircle; call it $\omega_0$.
+
+The circles $\omega_0$ and $\omega_2$ have the two common external tangents $EK$ and $KL$, so
+\[
+O_{02}^{+}=K.
+\]
+Similarly,
+\[
+O_{03}^{+}=M.
+\]
+Monge's theorem applied to $\omega_0,\omega_2,\omega_3$ gives
+\[
+O_{23}^{+}\in KM.
+\]
+But $BC$ is also a common external tangent to $\omega_2$ and $\omega_3$, so
+\[
+O_{23}^{+}\in BC.
+\]
+By (3),
+\[
+KM\cap BC=F,
+\]
+and hence
+\[
+F=O_{23}^{+}.
+\]
+
+The same argument applied cyclically yields
+\[
+E=O_{12}^{+}=O_{34}^{+}
+\qquad\text{and}\qquad
+F=O_{23}^{+}=O_{41}^{+}.
+\]
+The lemma now gives
+\[
+O_{13}^{-}=O_{24}^{-}.
+\]
+These are precisely the intersection points of the two pairs of internal common tangents, so all four tangents are concurrent.

@@ -1,0 +1,273 @@
+ID: 0329
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Number Theory
+
+SUBTOPICS: Euler Totient Function, Divisor Function, Prime Distribution, Prime Number Theorem
+
+STATEMENT:
+For a positive integer $n$, let $d(n)$ be the number of positive divisors of $n$, and let
+\[
+\varphi(n)
+\]
+be Euler's totient function.
+
+Does there exist a constant $C$ such that
+\[
+\frac{\varphi(d(n))}{d(\varphi(n))}\le C
+\]
+for every positive integer $n$?
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{\text{No}}.
+\]
+
+Choose an integer $N>1$ for which the interval
+\[
+(N,2N]
+\]
+contains at least one prime. Let
+\[
+p_1,p_2,\ldots,p_k
+\]
+be all primes not exceeding $N$, and let
+\[
+p_{k+1},\ldots,p_{k+s}
+\]
+be all primes in $(N,2N]$.
+
+Every prime divisor of every number
+\[
+p_j-1
+\qquad(1\le j\le k+s)
+\]
+does not exceed $N$. Indeed, if a prime $r>N$ divided $p_j-1<2N$, then necessarily
+\[
+p_j-1=r,
+\]
+which is impossible because $p_j-1$ is even and $r>2$ is odd. Hence there are nonnegative integers
+\[
+c_1,\ldots,c_k
+\]
+such that
+\[
+\prod_{j=1}^{k+s}(p_j-1)
+=
+\prod_{i=1}^{k}p_i^{c_i}.
+\tag{1}
+\]
+
+Choose a very large prime $q>2N$, and define
+\[
+n=
+(p_1p_2\cdots p_k)^{q-1}
+(p_{k+1}\cdots p_{k+s}).
+\tag{2}
+\]
+The first $k$ primes occur in $n$ with exponent $q-1$, while the remaining $s$ primes occur with exponent $1$. Therefore
+\[
+d(n)=q^k2^s,
+\]
+and
+\[
+\varphi(d(n))
+=
+q^{k-1}(q-1)2^{s-1}.
+\tag{3}
+\]
+
+On the other hand,
+\[
+\begin{aligned}
+\varphi(n)
+&=
+\left(\prod_{i=1}^k p_i^{q-2}\right)
+\left(\prod_{j=1}^{k+s}(p_j-1)\right)\\
+&=
+\prod_{i=1}^k p_i^{q-2+c_i}
+\end{aligned}
+\]
+by (1). Consequently,
+\[
+d(\varphi(n))
+=
+\prod_{i=1}^k(q-1+c_i).
+\tag{4}
+\]
+
+Combining (3)--(4),
+\[
+\frac{\varphi(d(n))}{d(\varphi(n))}
+=
+2^{s-1}\cdot
+\frac{q-1}{q}
+\prod_{i=1}^k
+\frac{q}{q-1+c_i}.
+\tag{5}
+\]
+For fixed $N$, the factors after $2^{s-1}$ tend to $1$ as
+\[
+q\to\infty.
+\]
+Thus the ratio in (5) can be made arbitrarily close to
+\[
+2^{s-1}.
+\tag{6}
+\]
+
+It remains to show that $s$, the number of primes in $(N,2N]$, is unbounded. This follows from the classical divergence
+\[
+\sum_{p\ \mathrm{prime}}\frac1p=\infty.
+\]
+Indeed, if every dyadic interval
+\[
+[2^j,2^{j+1})
+\]
+contained at most $M$ primes, then
+\[
+\sum_{p\ \mathrm{prime}}\frac1p
+\le
+\sum_{j=0}^{\infty}\frac{M}{2^j}
+<\infty,
+\]
+a contradiction.
+
+Hence $s$ can be arbitrarily large. Equations (5)--(6) show that the ratio
+\[
+\frac{\varphi(d(n))}{d(\varphi(n))}
+\]
+is unbounded, so no constant $C$ exists.
+
+SOLUTION 2:
+This solution uses the Prime Number Theorem.
+
+Let $m>5$ be large, and put
+\[
+n=\prod_{p\le m}p,
+\]
+the product of all primes not exceeding $m$. Let
+\[
+\pi(m)
+\]
+denote the number of primes not exceeding $m$.
+
+Since $n$ is squarefree,
+\[
+d(n)=2^{\pi(m)},
+\]
+and therefore
+\[
+\varphi(d(n))=2^{\pi(m)-1}.
+\tag{1}
+\]
+
+We have
+\[
+\varphi(n)=\prod_{p\le m}(p-1).
+\]
+Every prime divisor of this product is at most $m/2$, so write
+\[
+\varphi(n)=\prod_{q\le m/2}q^{\alpha_q}.
+\tag{2}
+\]
+Then
+\[
+d(\varphi(n))
+=
+\prod_{q\le m/2}(\alpha_q+1).
+\tag{3}
+\]
+
+Split the primes in (3) at $\sqrt m$.
+
+For
+\[
+q>\sqrt m,
+\]
+each factor $p-1$ contains at most one prime factor greater than $\sqrt m$, counted with multiplicity. Hence
+\[
+\sum_{q>\sqrt m}\alpha_q\le\pi(m).
+\]
+If $\ell$ is the number of primes $q$ in
+\[
+(\sqrt m,m/2],
+\]
+then
+\[
+\sum_{q>\sqrt m}(\alpha_q+1)
+\le
+\pi(m)+\pi(m/2).
+\]
+By the arithmetic--geometric mean inequality and the estimate
+\[
+\left(\frac Ax\right)^x\le e^{A/e},
+\]
+we obtain
+\[
+\prod_{q>\sqrt m}(\alpha_q+1)
+\le
+\exp\left(\frac{\pi(m)+\pi(m/2)}e\right).
+\tag{4}
+\]
+
+For
+\[
+q\le\sqrt m,
+\]
+we use the crude estimate
+\[
+\alpha_q+1\le m^2
+\]
+for all sufficiently large $m$. Since there are at most $\sqrt m$ such primes,
+\[
+\prod_{q\le\sqrt m}(\alpha_q+1)
+\le
+m^{2\sqrt m}.
+\tag{5}
+\]
+
+Equations (3)--(5) yield
+\[
+\log d(\varphi(n))
+\le
+2\sqrt m\log m
++
+\frac{\pi(m)+\pi(m/2)}e.
+\tag{6}
+\]
+
+The Prime Number Theorem states that
+\[
+\pi(x)=\frac{x}{\log x}(1+o(1)).
+\]
+Therefore,
+\[
+\limsup_{m\to\infty}
+\frac{\log d(\varphi(n))}{m/\log m}
+\le
+\frac{3}{2e}.
+\tag{7}
+\]
+On the other hand, by (1),
+\[
+\lim_{m\to\infty}
+\frac{\log\varphi(d(n))}{m/\log m}
+=
+\log2.
+\tag{8}
+\]
+Since
+\[
+\frac{3}{2e}<\log2,
+\]
+equations (7)--(8) show that
+\[
+\log\frac{\varphi(d(n))}{d(\varphi(n))}
+\to+\infty
+\]
+along this sequence of values of $n$. Hence the ratio is unbounded.

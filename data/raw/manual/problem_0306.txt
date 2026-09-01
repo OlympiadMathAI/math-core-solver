@@ -1,0 +1,324 @@
+ID: 0306
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Algebra
+
+SUBTOPICS: Functional Equations, Injectivity, Monotonicity, Boundedness
+
+STATEMENT:
+Let $\mathbb R_{>0}$ be the set of positive real numbers. Determine all functions
+\[
+f:\mathbb R_{>0}\to\mathbb R_{>0}
+\]
+such that
+\[
+f\bigl(x+f(xy)\bigr)+y=f(x)f(y)+1
+\tag{1}
+\]
+for all positive real numbers $x,y$.
+
+SOLUTION 1:
+The unique solution is
+\[
+\boxed{f(x)=x+1}.
+\]
+It is immediate that this function satisfies (1).
+
+We prove uniqueness in four steps.
+
+\textbf{Step 1: $f$ is injective.}
+
+Put $x=1$ in (1):
+\[
+f(1+f(y))+y=f(1)f(y)+1.
+\]
+Thus $y$ is uniquely determined by $f(y)$. Therefore
+\[
+f(y_1)=f(y_2)\Longrightarrow y_1=y_2.
+\]
+
+\textbf{Step 2: $f$ is strictly increasing.}
+
+Fix $y>0$. From (1),
+\[
+f\bigl(x+f(xy)\bigr)=f(x)f(y)+1-y.
+\]
+The right side is injective as a function of $x$, because $f(y)>0$ and $f$ is injective. Since $f$ itself is injective,
+\[
+x_1+f(x_1y)\ne x_2+f(x_2y)
+\qquad(x_1\ne x_2).
+\]
+Write
+\[
+z_i=x_i y.
+\]
+Then, for all $y>0$ and all distinct $z_1,z_2>0$,
+\[
+\frac{z_1-z_2}{y}\ne f(z_2)-f(z_1).
+\]
+Dividing by $z_1-z_2$,
+\[
+\frac1y\ne
+\frac{f(z_2)-f(z_1)}{z_1-z_2}.
+\]
+As $1/y$ ranges over all positive real numbers, the quotient on the right cannot be positive. Hence
+\[
+\frac{f(z_1)-f(z_2)}{z_1-z_2}\ge0.
+\]
+Thus $f$ is nondecreasing, and injectivity makes it strictly increasing.
+
+\textbf{Step 3: $f$ is affine.}
+
+Since $f$ is increasing and positive, the right limit
+\[
+p=\lim_{x\to0^+}f(x)
+\]
+exists and is nonnegative. The right limit
+\[
+q=\lim_{t\to p^+}f(t)
+\]
+also exists.
+
+Fix $y>0$ and let $x\to0^+$ in (1). Then
+\[
+f(xy)\to p
+\]
+and
+\[
+x+f(xy)\to p^+.
+\]
+Therefore
+\[
+q+y=p f(y)+1.
+\tag{2}
+\]
+We cannot have $p=0$, because then (2) would give $q+y=1$ for every $y$. Thus
+\[
+f(y)=\frac{y+q-1}{p},
+\]
+so $f$ is affine:
+\[
+f(y)=ay+b.
+\]
+
+\textbf{Step 4: determination of the coefficients.}
+
+Substituting $f(t)=at+b$ into (1), we get
+\[
+a(x+axy+b)+b+y=(ax+b)(ay+b)+1.
+\]
+Comparing the coefficients of $x$, $y$, and the constant term gives
+\[
+a-ab=0,
+\qquad
+1-ab=0,
+\qquad
+ab+b-b^2-1=0.
+\]
+The second equation gives $a,b>0$ and $ab=1$. The first then gives $b=1$, and therefore $a=1$.
+
+Hence
+\[
+f(x)=x+1
+\]
+for every positive real $x$.
+
+SOLUTION 2:
+Put
+\[
+a=f(1)
+\qquad\text{and}\qquad
+\varphi(x)=f(x)-x-1.
+\]
+Equation (1) becomes
+\[
+\varphi\bigl(x+f(xy)\bigr)
+=f(x)f(y)-f(xy)-x-y.
+\tag{2}
+\]
+The right side is symmetric in $x,y$, so
+\[
+\varphi\bigl(x+f(xy)\bigr)
+=
+\varphi\bigl(y+f(xy)\bigr).
+\]
+Taking $(x,y)=(t,1/t)$ gives
+\[
+\varphi(a+t)=\varphi\left(a+\frac1t\right)
+\qquad(t>0).
+\tag{3}
+\]
+
+We first establish boundedness.
+
+The function $f$ is bounded below by a positive constant. Indeed, fix any $y_0>1$. From (1),
+\[
+f(x)f(y_0)>y_0-1
+\]
+for every $x>0$. Hence the number
+\[
+M=\inf_{x>0}f(x)
+\]
+is positive, and
+\[
+f(x)\ge M
+\qquad(x>0).
+\tag{4}
+\]
+Taking the infimum over $x$ in the inequality
+\[
+f(x)f(y)>y-1
+\]
+gives
+\[
+f(y)\ge\frac{y-1}{M}
+\qquad(y>0).
+\tag{5}
+\]
+
+\textbf{Lemma 1.}
+The function $f$, and hence $\varphi$, is bounded on every compact interval
+\[
+[p,q]\subset(0,\infty).
+\]
+
+\textit{Proof.}
+The lower bound follows from (4). Let $z\in[p,q]$ and put
+\[
+s=f(z).
+\]
+Putting $y=1$ in (1),
+\[
+f(z+s)=as
+\]
+and then
+\[
+f(z+s+as)=a^2s.
+\tag{6}
+\]
+
+Use (1) with
+\[
+x=z,
+\qquad
+y=1+\frac sz.
+\]
+Since $xy=z+s$ and $f(z+s)=as$,
+\[
+f(z+as)
+=s f\left(1+\frac sz\right)-\frac sz.
+\]
+By (5),
+\[
+f(z+as)\ge\frac{s^2}{Mz}-\frac sz.
+\tag{7}
+\]
+
+Next use (1) with
+\[
+x=z+as,
+\qquad
+y=\frac z{z+as}.
+\]
+Then $xy=z$, and (6) gives
+\[
+a^2s+\frac z{z+as}
+=
+f(z+as)f\left(\frac z{z+as}\right)+1.
+\]
+Using (4),
+\[
+a^2s\ge M f(z+as).
+\]
+Together with (7),
+\[
+a^2s\ge\frac{s^2}{z}-\frac{Ms}{z},
+\]
+and hence
+\[
+s\le M+a^2z\le M+a^2q.
+\]
+Thus $f$ is bounded above on $[p,q]$. \hfill$\square$
+
+By Lemma 1, $\varphi$ is bounded on $[a,a+1]$. Equation (3) then shows that $\varphi$ is bounded on $[a+1,\infty)$ as well. Thus $\varphi$ is bounded on $[a,\infty)$.
+
+Put
+\[
+C=\max\{a,3\}.
+\]
+
+\textbf{Lemma 2.}
+For every $x\ge C$,
+\[
+\varphi(x)=0.
+\]
+
+\textit{Proof.}
+Taking $y=x$ in (2),
+\[
+\varphi\bigl(x+f(x^2)\bigr)
+=f(x)^2-f(x^2)-2x.
+\]
+Adding
+\[
+\varphi(x^2)=f(x^2)-x^2-1
+\]
+gives
+\[
+\varphi\bigl(x+f(x^2)\bigr)+\varphi(x^2)
+=
+\varphi(x)\bigl(f(x)+x+1\bigr).
+\tag{8}
+\]
+For $x\ge C\ge3$,
+\[
+f(x)+x+1\ge4.
+\]
+Therefore
+\[
+|\varphi(x)|
+\le
+\frac14\left(
+\left|\varphi\bigl(x+f(x^2)\bigr)\right|
++|\varphi(x^2)|
+\right).
+\tag{9}
+\]
+Let
+\[
+S=\sup_{x\ge C}|\varphi(x)|<\infty.
+\]
+Both arguments on the right of (9) are at least $C$, so taking the supremum yields
+\[
+S\le\frac S2.
+\]
+Hence $S=0$, proving the lemma. \hfill$\square$
+
+Thus
+\[
+f(x)=x+1
+\qquad(x\ge C).
+\]
+Finally, fix any $y>0$ and choose
+\[
+x>\max\left\{C,\frac Cy\right\}.
+\]
+Then $x$, $xy$, and $x+f(xy)$ are all at least $C$. Equation (1) becomes
+\[
+x+xy+2+y=(x+1)f(y)+1.
+\]
+The left side equals
+\[
+(x+1)(y+1)+1,
+\]
+so
+\[
+f(y)=y+1.
+\]
+Therefore the unique solution is
+\[
+\boxed{f(x)=x+1}.
+\]

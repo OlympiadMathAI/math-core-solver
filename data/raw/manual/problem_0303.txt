@@ -1,0 +1,81 @@
+ID: 0303
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Algebra
+
+SUBTOPICS: Polynomial Interpolation, Linear Algebra, Intermediate Value Theorem, Multisets
+
+STATEMENT:
+A magician intends to perform the following trick. She announces a positive integer $n$, together with $2n$ real numbers
+\[
+x_1<x_2<\cdots<x_{2n}.
+\]
+A member of the audience secretly chooses a polynomial $P(x)$ of degree $n$ with real coefficients, computes
+\[
+P(x_1),P(x_2),\ldots,P(x_{2n}),
+\]
+and writes these $2n$ values on the blackboard in nondecreasing order. The magician then announces the secret polynomial.
+
+Can the magician choose $n$ and the numbers $x_1,\ldots,x_{2n}$ so that she can always determine the polynomial?
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{\text{No}}.
+\]
+
+Fix any positive integer $n$ and any real numbers
+\[
+x_1<x_2<\cdots<x_{2n}
+\]
+chosen by the magician. We construct two distinct polynomials of degree $n$ that produce the same multiset of values.
+
+Consider a polynomial
+\[
+P(x)=c_nx^n+c_{n-1}x^{n-1}+\cdots+c_0.
+\]
+Impose the $n$ homogeneous linear conditions
+\[
+P(x_{2i-1})+P(x_{2i})=0
+\qquad(1\le i\le n).
+\tag{1}
+\]
+These are $n$ homogeneous linear equations in the $n+1$ unknown coefficients
+\[
+c_0,c_1,\ldots,c_n.
+\]
+Hence there is a nonzero solution, giving a nonzero polynomial $P$ of degree at most $n$ satisfying (1).
+
+For every $i$, the values of $P$ at the endpoints of
+\[
+[x_{2i-1},x_{2i}]
+\]
+have opposite signs or are both zero. By the intermediate value theorem, $P$ has a root in each of these $n$ pairwise disjoint intervals. Thus $P$ has at least $n$ distinct real roots. Since $P$ is nonzero and has degree at most $n$, it follows that
+\[
+\deg P=n.
+\]
+
+Now define
+\[
+Q(x)=-P(x).
+\]
+The polynomials $P$ and $Q$ are distinct and both have degree $n$. From (1),
+\[
+P(x_{2i-1})=Q(x_{2i}),
+\qquad
+P(x_{2i})=Q(x_{2i-1})
+\]
+for every $i$. Therefore
+\[
+\{P(x_1),\ldots,P(x_{2n})\}
+\]
+and
+\[
+\{Q(x_1),\ldots,Q(x_{2n})\}
+\]
+are the same multiset. Their nondecreasing lists are identical, so the magician cannot distinguish $P$ from $Q$.
+
+Hence no strategy of the required kind exists.

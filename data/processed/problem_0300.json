@@ -1,0 +1,16 @@
+{
+  "id": "0300",
+  "source": "IMO Shortlist",
+  "year": "2020",
+  "topic": "Algebra",
+  "subtopics": [
+    "Polynomial Ideals",
+    "Symmetric Polynomials",
+    "Homogeneous Components",
+    "Monomials"
+  ],
+  "statement": "Let $\\mathcal A$ be the set of all polynomials in three variables $x,y,z$ with integer coefficients. Let $\\mathcal B$ be the subset of $\\mathcal A$ consisting of all polynomials expressible in the form\n\\[\n(x+y+z)P(x,y,z)+(xy+yz+zx)Q(x,y,z)+xyzR(x,y,z),\n\\]\nwhere $P,Q,R\\in\\mathcal A$.\n\nFind the smallest nonnegative integer $n$ such that\n\\[\nx^iy^jz^k\\in\\mathcal B\n\\]\nfor all nonnegative integers $i,j,k$ satisfying\n\\[\ni+j+k\\ge n.\n\\]",
+  "solutions": [
+    "The answer is\n\\[\n\\boxed{4}.\n\\]\n\nPut\n\\[\np=x+y+z,\n\\qquad\nq=xy+yz+zx,\n\\qquad\nr=xyz.\n\\]\nWe first show that every monomial of total degree at least $4$ belongs to $\\mathcal B$.\n\nBecause $x,y,z$ are roots of\n\\[\nt^3-pt^2+qt-r,\n\\]\nwe have\n\\[\nx^3=px^2-qx+r\\in\\mathcal B.\n\\tag{1}\n\\]\nAlso,\n\\[\nx^2y^2=xyq-(x+y)r\\in\\mathcal B.\n\\tag{2}\n\\]\nNow consider a monomial $x^iy^jz^k$ of degree at least $4$. By symmetry, assume\n\\[\ni\\ge j\\ge k.\n\\]\nIf $k\\ge1$, the monomial is divisible by $r$. If $k=0$ and $j\\ge2$, it is divisible by $x^2y^2$, which belongs to $\\mathcal B$ by (2). Finally, if $k=0$ and $j\\le1$, then $i\\ge3$, so the monomial is divisible by $x^3$, which belongs to $\\mathcal B$ by (1). Thus\n\\[\nn\\le4.\n\\]\n\nIt remains to show that $x^2y\\notin\\mathcal B$. Suppose otherwise. Taking only homogeneous components of the relevant degrees, we could write\n\\[\nx^2y=pP_2+qQ_1+rR_0,\n\\tag{3}\n\\]\nwhere $P_2,Q_1,R_0$ are homogeneous of degrees $2,1,0$, respectively.\n\nThe coefficient of $x^3$ on the right of (3) is the coefficient of $x^2$ in $P_2$, so that coefficient must vanish. The same applies to $y^2$ and $z^2$. Hence write\n\\[\nP_2=Axy+Byz+Czx,\n\\]\n\\[\nQ_1=Dx+Ey+Fz,\n\\qquad\nR_0=G.\n\\]\nComparing the coefficients of\n\\[\nxy^2,\\quad y^2z,\\quad yz^2,\\quad xz^2,\\quad x^2z\n\\]\nin (3) gives\n\\[\nA+E=0,\n\\quad\nB+E=0,\n\\quad\nB+F=0,\n\\quad\nC+F=0,\n\\quad\nC+D=0.\n\\]\nThus\n\\[\nA=B=C\n\\qquad\\text{and}\\qquad\nD=E=F=-A.\n\\]\nBut the coefficient of $x^2y$ on the right of (3) is then\n\\[\nA+D=0,\n\\]\nwhereas on the left it is $1$. This contradiction proves that $x^2y\\notin\\mathcal B$.\n\nTherefore the smallest possible value is\n\\[\n\\boxed{n=4}.\n\\]"
+  ]
+}

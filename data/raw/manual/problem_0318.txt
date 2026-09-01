@@ -1,0 +1,98 @@
+ID: 0318
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Geometry
+
+SUBTOPICS: Disjoint Disks, Induction, Triangle Inequality, Extremal Geometry
+
+STATEMENT:
+In the plane, let
+\[
+D_1,D_2,\ldots,D_n
+\qquad(n\ge6)
+\]
+be pairwise disjoint disks with radii
+\[
+R_1\ge R_2\ge\cdots\ge R_n.
+\]
+For every $i$, choose a point $P_i\in D_i$, and let $O$ be an arbitrary point in the plane.
+
+Prove that
+\[
+OP_1+OP_2+\cdots+OP_n
+\ge
+R_6+R_7+\cdots+R_n.
+\]
+
+SOLUTION 1:
+We use the following lemma.
+
+\textbf{Lemma.}
+Let $D_1,\ldots,D_6$ be six pairwise disjoint disks with radii $R_1,\ldots,R_6$. Choose $P_i\in D_i$, and let $O$ be any point. Then there are indices $i,j$ such that
+\[
+OP_i\ge R_j.
+\]
+
+\textit{Proof.}
+Let $O_i$ be the centre of $D_i$. Consider the six rays
+\[
+OO_1,OO_2,\ldots,OO_6.
+\]
+If $O=O_i$, assign an arbitrary direction to the corresponding ray. These rays determine six successive angles whose total measure is $360^\circ$, so one of them, say
+\[
+\angle O_iOO_j,
+\]
+is at most $60^\circ$.
+
+In the possibly degenerate triangle $OO_iO_j$, the side $O_iO_j$ cannot be the unique longest side, because the angle opposite it is at most $60^\circ$. Interchanging $i$ and $j$ if necessary,
+\[
+OO_i\ge O_iO_j.
+\]
+The disks are disjoint, so
+\[
+O_iO_j\ge R_i+R_j.
+\]
+Since $P_i\in D_i$,
+\[
+OP_i
+\ge OO_i-O_iP_i
+\ge OO_i-R_i
+\ge R_j.
+\]
+This proves the lemma. $\square$
+
+We now prove the result by induction on $n\ge5$. For $n=5$, the right-hand side is an empty sum, so the assertion is trivial.
+
+Let $n\ge6$, and assume the result for $n-1$ disks. Apply the lemma to the six disks with largest radii. It gives indices
+\[
+1\le i,j\le6
+\]
+such that
+\[
+OP_i\ge R_j\ge R_6.
+\tag{1}
+\]
+
+Remove the disk $D_i$. The induction hypothesis applied to the remaining $n-1$ disks gives
+\[
+\sum_{k\ne i}OP_k
+\ge
+R_7+R_8+\cdots+R_n.
+\tag{2}
+\]
+Indeed, after one of the six largest disks has been removed, the tail of the remaining ordered radii beginning with the sixth one is
+\[
+R_7,R_8,\ldots,R_n;
+\]
+when $n=6$, this tail is empty.
+
+Adding (1) and (2), we obtain
+\[
+\sum_{k=1}^n OP_k
+\ge
+R_6+R_7+\cdots+R_n,
+\]
+as required.

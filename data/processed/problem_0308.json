@@ -1,0 +1,16 @@
+{
+  "id": "0308",
+  "source": "IMO Shortlist",
+  "year": "2020",
+  "topic": "Combinatorics",
+  "subtopics": [
+    "Polygon Colorings",
+    "Induction",
+    "Pigeonhole Principle",
+    "Convexity"
+  ],
+  "statement": "In a regular $100$-gon, $41$ vertices are colored black and the remaining $59$ vertices are colored white. Prove that there exist $24$ convex quadrilaterals\n\\[\nQ_1,Q_2,\\ldots,Q_{24}\n\\]\nwhose vertices are vertices of the $100$-gon, such that:\n\n\\begin{itemize}\n\\item the quadrilaterals are pairwise disjoint; and\n\\item every quadrilateral has three vertices of one color and one vertex of the other color.\n\\end{itemize}",
+  "solutions": [
+    "Call a quadrilateral \\emph{skew-colored} if three of its vertices have one color and the fourth has the other color.\n\nWe prove the following stronger claim.\n\n\\textbf{Claim.}\nLet the vertices of a convex $(4k+1)$-gon be colored black and white, with at least $k$ vertices of each color. Then it contains $k$ pairwise disjoint skew-colored quadrilaterals whose vertices are polygon vertices.\n\nWe use induction on $k$.\n\nFor $k=1$, consider a colored pentagon with both colors present. If the number of black vertices is even, delete one black vertex; otherwise delete one white vertex. In the remaining quadrilateral, the numbers of black and white vertices are both odd, so they are $1$ and $3$. Hence the quadrilateral is skew-colored.\n\nNow let $k\\ge2$, and assume the result for $k-1$. Let $b$ and $w$ be the numbers of black and white vertices. Interchanging the colors if necessary, assume\n\\[\nw\\ge b.\n\\]\nThen\n\\[\nk\\le b\\le2k,\n\\qquad\n2k+1\\le w\\le3k+1.\n\\tag{1}\n\\]\n\nChoose a black vertex and label it $V_{4k+1}$. Divide the preceding $4k$ vertices into the $k$ consecutive groups\n\\[\n(V_1,V_2,V_3,V_4),\\ \n(V_5,V_6,V_7,V_8),\\ldots,\n(V_{4k-3},V_{4k-2},V_{4k-1},V_{4k}).\n\\]\nThese groups contain all $w$ white vertices and only $b-1$ black vertices. Since\n\\[\nw>b-1,\n\\]\nsome group contains more white than black vertices.\n\nIf that group contains three white vertices and one black vertex, it already gives a skew-colored quadrilateral. If it contains four white vertices, move forward cyclically until the first black vertex is reached. The three vertices immediately preceding that first black vertex are white, so those four consecutive vertices again form a skew-colored quadrilateral.\n\nRemove these four consecutive vertices. The remaining vertices form a convex\n\\[\n4k+1-4=4(k-1)+1\n\\]\ngon. Its two color classes have sizes $w-3$ and $b-1$, and by (1),\n\\[\nw-3\\ge k-1,\n\\qquad\nb-1\\ge k-1.\n\\]\nThe induction hypothesis supplies $k-1$ pairwise disjoint skew-colored quadrilaterals in the remaining polygon. Together with the removed one, this proves the claim.\n\nReturn now to the regular $100$-gon. Remove any three vertices. Among the remaining $97=4\\cdot24+1$ vertices, each color still occurs at least\n\\[\n41-3=38>24\n\\]\ntimes. Applying the claim with $k=24$ gives the required $24$ quadrilaterals."
+  ]
+}

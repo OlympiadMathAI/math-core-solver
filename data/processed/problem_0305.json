@@ -1,0 +1,17 @@
+{
+  "id": "0305",
+  "source": "IMO Shortlist",
+  "year": "2020",
+  "topic": "Algebra",
+  "subtopics": [
+    "Inequalities",
+    "Dyadic Decomposition",
+    "Cauchy-Schwarz",
+    "Induction"
+  ],
+  "statement": "Let $n$ and $k$ be positive integers. Prove that, for\n\\[\na_1,a_2,\\ldots,a_n\\in[1,2^k],\n\\]\none has\n\\[\n\\sum_{i=1}^{n}\n\\frac{a_i}{\\sqrt{a_1^2+a_2^2+\\cdots+a_i^2}}\n\\le4\\sqrt{kn}.\n\\]",
+  "solutions": [
+    "Partition the index set $\\{1,2,\\ldots,n\\}$ into disjoint sets\n\\[\nM_1,M_2,\\ldots,M_k\n\\]\nso that\n\\[\n2^{j-1}\\le a_\\ell\\le2^j\n\\qquad(\\ell\\in M_j).\n\\]\nAt common endpoints of two intervals, assign the index to either one of them.\n\nFix $j$, and list the elements of $M_j$ in increasing order:\n\\[\n\\ell_1<\\ell_2<\\cdots<\\ell_{p_j},\n\\qquad\np_j=|M_j|.\n\\]\nFor the $r$th such index, the denominator contains at least $r$ terms from $M_j$, each of square at least $2^{2j-2}$. Therefore\n\\[\n\\frac{a_{\\ell_r}}\n{\\sqrt{a_1^2+\\cdots+a_{\\ell_r}^2}}\n\\le\n\\frac{2^j}{2^{j-1}\\sqrt r}\n=\\frac2{\\sqrt r}.\n\\]\nHence\n\\[\n\\sum_{\\ell\\in M_j}\n\\frac{a_\\ell}{\\sqrt{a_1^2+\\cdots+a_\\ell^2}}\n\\le\n2\\sum_{r=1}^{p_j}\\frac1{\\sqrt r}.\n\\]\nSince\n\\[\n\\sqrt r-\\sqrt{r-1}\n=\\frac1{\\sqrt r+\\sqrt{r-1}}\n\\ge\\frac1{2\\sqrt r},\n\\]\nwe have\n\\[\n\\sum_{r=1}^{p_j}\\frac1{\\sqrt r}\n\\le2\\sqrt{p_j}.\n\\]\nThus\n\\[\n\\sum_{\\ell\\in M_j}\n\\frac{a_\\ell}{\\sqrt{a_1^2+\\cdots+a_\\ell^2}}\n\\le4\\sqrt{p_j}.\n\\]\nSumming over $j$ and applying Cauchy-Schwarz,\n\\[\n\\begin{aligned}\n\\sum_{i=1}^{n}\n\\frac{a_i}{\\sqrt{a_1^2+\\cdots+a_i^2}}\n&\\le4\\sum_{j=1}^{k}\\sqrt{p_j}\\\\\n&\\le4\\sqrt{k\\sum_{j=1}^{k}p_j}\\\\\n&=4\\sqrt{kn}.\n\\end{aligned}\n\\]",
+    "Put\n\\[\nS_i=a_1^2+\\cdots+a_i^2\n\\qquad\\text{and}\\qquad\nx_i=\\frac{a_i}{\\sqrt{S_i}}.\n\\]\nWe prove the result by strong induction on $n$.\n\nFor $n\\le16$,\n\\[\n\\sum_{i=1}^{n}x_i\\le n\\le4\\sqrt n\\le4\\sqrt{kn}.\n\\]\n\nAssume now that $n\\ge17$ and that the result holds for all smaller positive integers.\n\n\\textbf{Case 1: $n=2t$.}\n\nFor $i=t+1,\\ldots,2t$,\n\\[\n1-x_i^2=\\frac{S_{i-1}}{S_i}.\n\\]\nTherefore\n\\[\n\\prod_{i=t+1}^{2t}(1-x_i^2)\n=\\frac{S_t}{S_{2t}}.\n\\tag{1}\n\\]\nSince\n\\[\na_{t+r}\\le2^k a_r\n\\qquad(1\\le r\\le t),\n\\]\nwe have\n\\[\nS_{2t}\\le(1+4^k)S_t.\n\\]\nThus the product in (1) is at least $1/(1+4^k)$.\n\nUsing $1-u\\le e^{-u}$ for $0\\le u<1$,\n\\[\ne^{-\\sum_{i=t+1}^{2t}x_i^2}\n\\ge\n\\prod_{i=t+1}^{2t}(1-x_i^2)\n\\ge\\frac1{1+4^k}.\n\\]\nHence\n\\[\n\\sum_{i=t+1}^{2t}x_i^2\n\\le\\log(1+4^k)\n\\le2k.\n\\]\nBy Cauchy-Schwarz,\n\\[\n\\sum_{i=t+1}^{2t}x_i\n\\le\\sqrt{2kt}.\n\\]\nThe induction hypothesis applied to the first $t$ terms gives\n\\[\n\\sum_{i=1}^{2t}x_i\n\\le4\\sqrt{kt}+\\sqrt{2kt}\n\\le4\\sqrt{2kt}.\n\\]\n\n\\textbf{Case 2: $n=2t+1$.}\n\nThe same telescoping argument, now for the indices $t+2,\\ldots,2t+1$, gives\n\\[\n\\sum_{i=t+2}^{2t+1}x_i\\le\\sqrt{2kt}.\n\\]\nThe first $t+1$ terms satisfy the induction hypothesis, so\n\\[\n\\sum_{i=1}^{2t+1}x_i\n\\le4\\sqrt{k(t+1)}+\\sqrt{2kt}.\n\\]\nFor $t\\ge8$,\n\\[\n4\\sqrt{t+1}+\\sqrt{2t}\\le4\\sqrt{2t+1};\n\\]\nafter two squarings, this reduces to\n\\[\n17t^2-32t\\ge0.\n\\]\nTherefore\n\\[\n\\sum_{i=1}^{2t+1}x_i\n\\le4\\sqrt{k(2t+1)}.\n\\]\n\nThe induction is complete."
+  ]
+}

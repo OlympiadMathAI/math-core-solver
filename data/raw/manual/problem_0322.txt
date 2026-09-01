@@ -1,0 +1,302 @@
+ID: 0322
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Geometry
+
+SUBTOPICS: Directed Angles, Circle Tangency, Inversion, Orthocentres, Cyclic Quadrilaterals
+
+STATEMENT:
+Let $\Gamma$ and $I$ be the circumcircle and the incenter of an acute triangle $ABC$. Two circles
+\[
+\omega_B
+\qquad\text{and}\qquad
+\omega_C,
+\]
+passing through $B$ and $C$, respectively, are tangent to each other at $I$.
+
+The circle $\omega_B$ meets the shorter arc $AB$ of $\Gamma$ and the segment $AB$ again at $P$ and $M$, respectively. Similarly, $\omega_C$ meets the shorter arc $AC$ of $\Gamma$ and the segment $AC$ again at $Q$ and $N$, respectively.
+
+The rays $PM$ and $QN$ meet at $X$, and the tangents to $\omega_B$ and $\omega_C$ at $B$ and $C$, respectively, meet at $Y$.
+
+Prove that
+\[
+A,X,Y
+\]
+are collinear.
+
+SOLUTION 1:
+Let the lines
+\[
+AI,\qquad BI,\qquad CI
+\]
+meet $\Gamma$ again at
+\[
+D,\qquad E,\qquad F,
+\]
+respectively. Let $\ell$ be the common tangent to $\omega_B$ and $\omega_C$ at $I$. We use directed angles modulo $180^\circ$.
+
+\textbf{Step 1: $Y$ lies on $\Gamma$.}
+
+For a chord of a circle, the directed angles it makes with the tangents at its endpoints are complementary. Therefore,
+\[
+\measuredangle(BY,BI)+\measuredangle(CI,CY)
+=
+\measuredangle(IB,\ell)+\measuredangle(\ell,IC)
+=
+\measuredangle(IB,IC).
+\tag{1}
+\]
+Using the fact that $BI$ and $CI$ are angle bisectors,
+\[
+\begin{aligned}
+\measuredangle(BY,BA)+\measuredangle(CA,CY)
+&=
+\measuredangle(BI,BA)
++\measuredangle(BY,BI)\\
+&\quad+
+\measuredangle(CI,CY)
++\measuredangle(CA,CI)\\
+&=
+\measuredangle(BC,BI)
++\measuredangle(IB,IC)
++\measuredangle(CI,CB)\\
+&=0.
+\end{aligned}
+\]
+Thus
+\[
+Y\in\Gamma.
+\tag{2}
+\]
+
+\textbf{Step 2: $X=\ell\cap EF$.}
+
+Let
+\[
+X^*=\ell\cap EF.
+\]
+By symmetry, it is enough to prove that $X^*\in QN$.
+
+We have
+\[
+\begin{aligned}
+\measuredangle(IX^*,IQ)
+&=\measuredangle(CI,CQ)\\
+&=\measuredangle(CF,CQ)\\
+&=\measuredangle(EF,EQ)\\
+&=\measuredangle(EX^*,EQ).
+\end{aligned}
+\tag{3}
+\]
+Here the first equality is the tangent--chord theorem for $\omega_C$, and the middle equalities use the fact that $A,C,E,F,Q$ all lie on $\Gamma$.
+
+Equation (3) shows that
+\[
+X^*,I,Q,E
+\]
+are concyclic. If $Q=E$, the same relation is interpreted as tangency at $Q$.
+
+Consequently,
+\[
+\begin{aligned}
+\measuredangle(QX^*,QI)
+&=\measuredangle(EX^*,EI)\\
+&=\measuredangle(EF,EB)\\
+&=\measuredangle(CA,CF)\\
+&=\measuredangle(CN,CI)\\
+&=\measuredangle(QN,QI).
+\end{aligned}
+\]
+Hence
+\[
+X^*\in QN.
+\]
+The symmetric argument gives
+\[
+X^*\in PM.
+\]
+Therefore
+\[
+X=X^*=\ell\cap EF.
+\tag{4}
+\]
+
+\textbf{Step 3: $A,X,Y$ are collinear.}
+
+A standard property of the triangle formed by the second intersections of its angle bisectors with the circumcircle says that
+\[
+I
+\]
+is the orthocentre of triangle $DEF$, and that $A$ is the reflection of $I$ in the line $EF$.
+
+Since $X\in EF$, reflection in $EF$ gives
+\[
+\measuredangle(AX,AE)=\measuredangle(IE,IX).
+\]
+Using (4), the tangency at $I$, the tangent at $B$, and (2), we obtain
+\[
+\begin{aligned}
+\measuredangle(AX,AE)
+&=\measuredangle(IE,IX)\\
+&=\measuredangle(BI,\ell)\\
+&=\measuredangle(BY,BI)\\
+&=\measuredangle(BY,BE)\\
+&=\measuredangle(AY,AE).
+\end{aligned}
+\]
+Thus the lines $AX$ and $AY$ coincide, proving that
+\[
+A,X,Y
+\]
+are collinear.
+
+SOLUTION 2:
+Perform an inversion centred at $I$, and denote images by primes.
+
+The circumcircle $\Gamma$ becomes a circle $\Gamma'$, and
+\[
+I
+\]
+is the orthocentre of triangle $A'B'C'$.
+
+The circles $\omega_B$ and $\omega_C$, which pass through the centre of inversion and are tangent at $I$, become parallel lines:
+\[
+B'P'M'\parallel C'Q'N'.
+\tag{1}
+\]
+The points $P',Q'$ lie on $\Gamma'$.
+
+Let
+\[
+\gamma_B=(A'IB'),
+\qquad
+\gamma_C=(A'IC').
+\]
+The points $M'$ and $N'$ are the second intersections of the two parallel lines in (1) with $\gamma_B$ and $\gamma_C$, respectively.
+
+The circle $\gamma_C$ is the translate of $\gamma_B$ by the vector
+\[
+\overrightarrow{B'C'}.
+\]
+The same translation maps $B'P'$ to $C'Q'$, and hence maps $M'$ to $N'$. Thus
+\[
+B'M'N'C'
+\]
+is a parallelogram. Moreover, the chord $P'Q'$ divides it into two isosceles trapezoids.
+
+The line $PM$ becomes the circle
+\[
+(IP'M'),
+\]
+and $QN$ becomes
+\[
+(IQ'N').
+\]
+Thus $X'$ is the second common point, other than $I$, of these two circles.
+
+The two circles are congruent, and their centres lie on the common perpendicular bisector $p$ of the equal segments
+\[
+P'M'
+\qquad\text{and}\qquad
+Q'N'.
+\]
+Therefore their common chord $IX'$ is perpendicular to $p$, and $X'$ is the reflection of $I$ in $p$. Since
+\[
+p\perp B'P',
+\]
+we have
+\[
+IX'\parallel B'P'.
+\tag{2}
+\]
+
+We next locate $Y'$. The tangent--chord relations in the original figure become
+\[
+\measuredangle(Y'B',Y'I)
+=
+\measuredangle(B'P',B'I)
+\tag{3}
+\]
+and
+\[
+\measuredangle(Y'C',Y'I)
+=
+\measuredangle(C'Q',C'I).
+\tag{4}
+\]
+Using (1), (3), and (4),
+\[
+\begin{aligned}
+\measuredangle(Y'B',Y'C')
+&=
+\measuredangle(B'P',B'I)
++\measuredangle(C'I,C'Q')\\
+&=
+\measuredangle(C'I,B'I)\\
+&=
+\measuredangle(A'B',A'C').
+\end{aligned}
+\]
+Hence
+\[
+Y'\in\Gamma'.
+\tag{5}
+\]
+
+The circles $\Gamma'$ and $\gamma_B$ are congruent. In them, the chords
+\[
+A'P'
+\qquad\text{and}\qquad
+A'M'
+\]
+subtend the same angle
+\[
+\angle A'B'P'.
+\]
+Therefore
+\[
+A'P'=A'M',
+\]
+so $A'$ lies on the perpendicular bisector $p$ of $P'M'$. Since $X'$ is the reflection of $I$ in $p$,
+\[
+A'X'=A'I.
+\]
+Thus triangle $A'IX'$ is isosceles, and
+\[
+\measuredangle(IA',IX')
+=
+\measuredangle(X'I,X'A').
+\tag{6}
+\]
+
+Finally, using (3), (5), and (2),
+\[
+\begin{aligned}
+\measuredangle(Y'I,Y'A')
+&=
+\measuredangle(Y'I,Y'B')
++\measuredangle(Y'B',Y'A')\\
+&=
+\measuredangle(B'I,B'P')
++\measuredangle(IA',IB')\\
+&=
+\measuredangle(IA',B'P')\\
+&=
+\measuredangle(IA',IX')\\
+&=
+\measuredangle(X'I,X'A').
+\end{aligned}
+\]
+Hence
+\[
+A',X',Y',I
+\]
+are concyclic.
+
+Under inversion centred at $I$, a line not through $I$ becomes a circle through $I$. Therefore the cyclicity of $A',X',Y',I$ is equivalent to the collinearity of
+\[
+A,X,Y.
+\]

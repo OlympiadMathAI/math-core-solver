@@ -1,0 +1,278 @@
+ID: 0299
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Algebra
+
+SUBTOPICS: Inequalities, Chebyshev Polynomials, Polynomial Coefficients, Calculus
+
+STATEMENT:
+\textbf{Version 1.} Let $n$ be a positive integer and set
+\[
+N=2^n.
+\]
+Determine the smallest real number $a_n$ such that, for every real number $x$,
+\[
+\sqrt[N]{\frac{x^{2N}+1}{2}}
+\le a_n(x-1)^2+x.
+\tag{1}
+\]
+
+\textbf{Version 2.} For every positive integer $N$, determine the smallest real number $b_N$ such that, for every real number $x$,
+\[
+\sqrt[N]{\frac{x^{2N}+1}{2}}
+\le b_N(x-1)^2+x.
+\tag{2}
+\]
+
+SOLUTION 1:
+For both versions, the answer is
+\[
+\boxed{\frac N2}.
+\]
+This solution proves Version 1, where $N$ is a power of $2$.
+
+We first prove the lower bound. Suppose that a constant $c<N/2$ satisfied the required inequality. Put
+\[
+x=1+t,
+\qquad t>0.
+\]
+The right-hand side is positive for all sufficiently small $t$, so after raising the inequality to the $N$th power we would have
+\[
+\left(1+t+ct^2\right)^N
+\ge
+\frac{(1+t)^{2N}+1}{2}.
+\]
+The difference between the two sides has expansion
+\[
+\left(Nc-\frac{N^2}{2}\right)t^2+O(t^3).
+\]
+Its quadratic coefficient is negative, so the difference is negative for sufficiently small positive $t$, a contradiction. Hence
+\[
+c\ge\frac N2.
+\tag{3}
+\]
+
+It remains to prove
+\[
+\sqrt[N]{\frac{x^{2N}+1}{2}}
+\le x+\frac N2(x-1)^2
+\qquad(x\in\mathbb R)
+\tag{$I_N$}
+\]
+when $N$ is a power of $2$. We prove this by induction under the doubling $N\mapsto2N$.
+
+For $N=1$,
+\[
+\frac{x^2+1}{2}=x+\frac12(x-1)^2,
+\]
+so equality holds.
+
+Assume that $(I_N)$ holds for every real argument. We prove $(I_{2N})$. A direct calculation gives
+\[
+\begin{aligned}
+\left(x+N(x-1)^2\right)^2
+&=x^2+N^2(x-1)^4+2Nx(x-1)^2\\
+&=x^2+\frac N2(x^2-1)^2
+ +\left(N^2-\frac N2\right)(x-1)^4\\
+&\ge x^2+\frac N2(x^2-1)^2.
+\end{aligned}
+\]
+By $(I_N)$ applied to $x^2$,
+\[
+x^2+\frac N2(x^2-1)^2
+\ge
+\sqrt[N]{\frac{x^{4N}+1}{2}}.
+\]
+Moreover,
+\[
+x+N(x-1)^2
+\ge x+\frac12(x-1)^2
+=\frac{x^2+1}{2}\ge0.
+\]
+Taking square roots therefore yields
+\[
+x+N(x-1)^2
+\ge
+\sqrt[2N]{\frac{x^{4N}+1}{2}},
+\]
+which is $(I_{2N})$.
+
+Thus equality is possible with $c=N/2$, and (3) proves that this is the smallest value.
+
+SOLUTION 2:
+We prove Version 2 for an arbitrary positive integer $N$ by comparing polynomial coefficients.
+
+The lower bound $b_N\ge N/2$ follows from the expansion at $x=1$ given in Solution 1. We prove that $b_N=N/2$ works.
+
+It is enough first to consider $x>0$. Put
+\[
+t=\frac{(x-1)^2}{x}=x+\frac1x-2\ge0
+\]
+and
+\[
+F_N(t)=\frac{x^N+x^{-N}}2.
+\]
+Then the desired inequality with $b_N=N/2$, after division by $x$, is equivalent to
+\[
+F_N(t)\le\left(1+\frac N2t\right)^N.
+\tag{4}
+\]
+
+We use the identity
+\[
+F_N(t)
+=N\sum_{r=0}^{N}
+\frac1{N+r}\binom{N+r}{2r}t^r.
+\tag{5}
+\]
+It follows by induction from
+\[
+F_{N+1}+F_{N-1}=(2+t)F_N,
+\]
+with $F_0=1$ and $F_1=1+t/2$.
+
+For $r\ge1$, compare the coefficient of $t^r$ in (5) with the corresponding coefficient in the right-hand side of (4). Their ratio is
+\[
+\begin{aligned}
+&\frac{\displaystyle \frac{N}{N+r}\binom{N+r}{2r}}
+{\displaystyle \left(\frac N2\right)^r\binom Nr}\\
+&\qquad=
+\frac{2^r r!}{(2r)!}
+\prod_{j=1}^{r-1}\left(1+\frac jN\right)\\
+&\qquad\le
+\frac{2^r(r!)^2}{(2r)!}
+=
+\prod_{j=1}^{r}\frac{2j}{r+j}
+\le1.
+\end{aligned}
+\]
+The constant coefficients are both $1$. Hence every coefficient of the right-hand side of (4) is at least the corresponding coefficient of $F_N$, and (4) follows for $t\ge0$.
+
+For $x=0$, the required inequality is immediate. For $x<0$, write $u=-x>0$. The left-hand side is the same for $x=-u$ and $x=u$, while
+\[
+\left[-u+\frac N2(u+1)^2\right]
+-
+\left[u+\frac N2(u-1)^2\right]
+=2(N-1)u\ge0.
+\]
+Thus the result for $u>0$ implies the result for $-u$ as well.
+
+Therefore $b_N=N/2$ for every positive integer $N$.
+
+SOLUTION 3:
+We give a second proof of Version 2 using the roots of a Chebyshev-type polynomial.
+
+As before, the expansion at $x=1$ gives the lower bound $b_N\ge N/2$. For $x>0$, put
+\[
+t=x+\frac1x-2\ge0,
+\qquad
+F_N(t)=\frac{x^N+x^{-N}}2.
+\]
+It is enough to prove
+\[
+F_N(t)\le\left(1+\frac N2t\right)^N.
+\tag{6}
+\]
+
+The recurrence
+\[
+F_{N+1}=(2+t)F_N-F_{N-1}
+\]
+shows that $F_N$ is a polynomial of degree $N$ in $t$. For
+\[
+\theta_j=\frac{(2j-1)\pi}{2N},
+\qquad
+s_j=4\sin^2\frac{\theta_j}{2}
+\qquad(1\le j\le N),
+\]
+take $x=e^{i\theta_j}$. Then
+\[
+t=x+x^{-1}-2=-s_j
+\]
+and
+\[
+F_N(-s_j)=\cos(N\theta_j)=0.
+\]
+Since $F_N(0)=1$, we obtain
+\[
+F_N(t)=\prod_{j=1}^{N}\left(1+\frac{t}{s_j}\right).
+\tag{7}
+\]
+Furthermore,
+\[
+F_N'(0)=\frac{N^2}{2},
+\]
+which follows, for example, by writing $x=e^u$ and using
+\[
+t=2\cosh u-2=u^2+O(u^4),
+\qquad
+F_N(t)=\cosh(Nu)=1+\frac{N^2u^2}{2}+O(u^4).
+\]
+Comparing with (7),
+\[
+\sum_{j=1}^{N}\frac1{s_j}=\frac{N^2}{2}.
+\]
+The arithmetic-geometric mean inequality now gives
+\[
+\begin{aligned}
+F_N(t)
+&=\prod_{j=1}^{N}\left(1+\frac{t}{s_j}\right)\\
+&\le
+\left(1+\frac tN\sum_{j=1}^{N}\frac1{s_j}\right)^N\\
+&=
+\left(1+\frac N2t\right)^N.
+\end{aligned}
+\]
+This proves (6). The cases $x=0$ and $x<0$ are handled exactly as in Solution 2. Hence the smallest constant is $N/2$.
+
+SOLUTION 4:
+We give a calculus proof of Version 2. For a real constant $c$, define on $x>0$
+\[
+h_c(x)=
+\left(\frac{x^{2N}+1}{2}\right)^{1/N}
+-c(x-1)^2-x.
+\]
+The desired inequality is $h_c(x)\le0$.
+
+At $x=1$,
+\[
+h_c(1)=h_c'(1)=0,
+\qquad
+h_c''(1)=N-2c.
+\]
+If $c<N/2$, then $x=1$ is a strict local minimum of $h_c$, so $h_c(x)>0$ for some $x$ near $1$. Thus $c\ge N/2$.
+
+Now put $c=N/2$. If $N=1$, then $h_c\equiv0$. Assume $N>1$. Direct differentiation gives
+\[
+h_c'''(x)=
+\frac12(1-N)(1-2N)
+\left(\frac{x^{2N}+1}{2}\right)^{1/N-3}
+ x^{2N-3}(1-x^{2N}).
+\tag{8}
+\]
+The coefficient in front of $1-x^{2N}$ is positive. Therefore
+\[
+h_c'''(x)>0\quad(0<x<1),
+\qquad
+h_c'''(x)<0\quad(x>1).
+\]
+Since $h_c''(1)=0$, it follows that
+\[
+h_c''(x)<0
+\qquad(x>0,\,x\ne1).
+\]
+Thus $h_c'$ is strictly decreasing, and because $h_c'(1)=0$,
+\[
+h_c'(x)>0\quad(0<x<1),
+\qquad
+h_c'(x)<0\quad(x>1).
+\]
+Hence $h_c$ attains its maximum at $x=1$, where it equals $0$. This proves the inequality for $x>0$. The cases $x=0$ and $x<0$ follow as in Solution 2.
+
+Therefore the smallest constant is again
+\[
+\boxed{\frac N2}.
+\]

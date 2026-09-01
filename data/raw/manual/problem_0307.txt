@@ -1,0 +1,159 @@
+ID: 0307
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Permutations, Fibonacci Numbers, Recurrence Relations, Induction, Tilings
+
+STATEMENT:
+Let $n$ be a positive integer. Find the number of permutations
+\[
+a_1,a_2,\ldots,a_n
+\]
+of $1,2,\ldots,n$ satisfying
+\[
+a_1\le2a_2\le3a_3\le\cdots\le na_n.
+\tag{1}
+\]
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{F_{n+1}},
+\]
+where
+\[
+F_1=F_2=1,
+\qquad
+F_{m+1}=F_m+F_{m-1}.
+\]
+
+Let $P_n$ be the number of permutations satisfying (1). Clearly,
+\[
+P_1=1,
+\qquad
+P_2=2.
+\]
+
+We first prove a structural lemma.
+
+\textbf{Lemma.}
+For $n\ge3$, every permutation satisfying (1) has either
+\[
+a_n=n,
+\]
+or
+\[
+(a_{n-1},a_n)=(n,n-1).
+\]
+
+\textit{Proof.}
+Let $a_k=n$.
+
+If $k=n$, there is nothing to prove. If $k=n-1$, then
+\[
+n(n-1)=(n-1)a_{n-1}\le na_n,
+\]
+so $a_n\ge n-1$. Since $a_n\ne n$, we get $a_n=n-1$.
+
+Suppose now that $k\le n-2$. For every $i$ with $k<i<n$,
+\[
+kn=ka_k\le ia_i<na_i,
+\]
+so $a_i\ge k+1$. Furthermore,
+\[
+na_n\ge(n-1)a_{n-1}\ge(n-1)(k+1)>nk,
+\]
+so $a_n\ge k+1$ as well. Hence the $n-k+1$ entries
+\[
+a_k,a_{k+1},\ldots,a_n
+\]
+are all greater than $k$, although only $n-k$ values among $1,\ldots,n$ are greater than $k$. This is impossible. $\square$
+
+If $a_n=n$, then the first $n-1$ entries form any valid permutation of $1,\ldots,n-1$. Conversely, appending $n$ to such a permutation preserves the final inequality because
+\[
+(n-1)a_{n-1}\le(n-1)^2<n^2=na_n.
+\]
+This gives $P_{n-1}$ possibilities.
+
+If
+\[
+(a_{n-1},a_n)=(n,n-1),
+\]
+then the first $n-2$ entries form any valid permutation of $1,\ldots,n-2$. Conversely, appending $n,n-1$ works because
+\[
+(n-2)a_{n-2}\le(n-2)^2<n(n-1)
+\]
+and
+\[
+(n-1)a_{n-1}=n(n-1)=na_n.
+\]
+This gives $P_{n-2}$ possibilities.
+
+Therefore
+\[
+P_n=P_{n-1}+P_{n-2}
+\qquad(n\ge3).
+\]
+Together with $P_1=F_2$ and $P_2=F_3$, this yields
+\[
+P_n=F_{n+1}.
+\]
+
+SOLUTION 2:
+We prove that the valid permutations are exactly those obtained by partitioning
+\[
+1,2,\ldots,n
+\]
+into singletons and adjacent pairs, leaving every singleton fixed and reversing every pair. Such partitions are tilings of a row of length $n$ by monominoes and dominoes, so their number is $F_{n+1}$.
+
+We establish the characterization inductively. Suppose that a valid permutation satisfies
+\[
+\{a_1,\ldots,a_{k-1}\}=\{1,\ldots,k-1\}.
+\tag{2}
+\]
+Let $a_t=k$. Since $k$ does not occur before position $k$, we have $t\ge k$.
+
+If $t=k$, then $a_k=k$, corresponding to a singleton.
+
+Suppose $t>k$. Among
+\[
+a_k,a_{k+1},\ldots,a_{t-1}
+\]
+there is an entry $a_i\ge t$, because there are $t-k$ entries but only $t-k-1$ integers strictly between $k$ and $t$. Using (1),
+\[
+kt=ta_t\ge ia_i\ge it\ge kt.
+\]
+Thus equality holds throughout, so
+\[
+i=k,
+\qquad
+a_k=t.
+\]
+If $t=k+1$, then
+\[
+(a_k,a_{k+1})=(k+1,k),
+\]
+corresponding to one reversed adjacent pair.
+
+It remains to exclude $t>k+1$. Equality throughout the chain
+\[
+ka_k\le(k+1)a_{k+1}\le\cdots\le ta_t
+\]
+would give
+\[
+(t-1)a_{t-1}=kt,
+\]
+and hence
+\[
+a_{t-1}=\frac{kt}{t-1}=k+\frac{k}{t-1}.
+\]
+But $0<k<t-1$, so this is not an integer, a contradiction.
+
+Starting with $k=1$ and applying the argument successively proves the claimed description. Therefore the number of valid permutations is the number of monomino-domino tilings of a row of length $n$, namely
+\[
+\boxed{F_{n+1}}.
+\]

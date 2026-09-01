@@ -1,0 +1,158 @@
+ID: 0321
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Geometry
+
+SUBTOPICS: Radical Axes, Simson's Theorem, Reflections, Orthocentre, Cyclic Quadrilaterals
+
+STATEMENT:
+Let $P$ be a point on the circumcircle of an acute triangle $ABC$. Let $D,E,F$ be the reflections of $P$ in the midlines of triangle $ABC$ parallel to $BC,CA,AB$, respectively.
+
+Let
+\[
+\omega_A=(ADP),\qquad
+\omega_B=(BEP),\qquad
+\omega_C=(CFP).
+\]
+The perpendicular bisectors of $AD,BE,CF$ form a triangle. Let $\omega$ be the circumcircle of that triangle.
+
+Prove that
+\[
+\omega_A,\omega_B,\omega_C,\omega
+\]
+have a common point.
+
+SOLUTION 1:
+Let
+\[
+AA_1,\qquad BB_1,\qquad CC_1
+\]
+be the altitudes of triangle $ABC$, and let
+\[
+m_A,\qquad m_B,\qquad m_C
+\]
+be its midlines parallel to $BC,CA,AB$, respectively. We use directed angles modulo $180^\circ$.
+
+\textbf{Step 1: The circles $\omega_A,\omega_B,\omega_C$ have a second common point $Q$.}
+
+The line $m_A$ is the perpendicular bisector of $PD$. Reflection in $m_A$ also sends $A$ to $A_1$. Since $\omega_A$ is symmetric about $m_A$,
+\[
+A_1\in\omega_A.
+\]
+Similarly,
+\[
+B_1\in\omega_B,
+\qquad
+C_1\in\omega_C.
+\]
+
+Let $H$ be the orthocentre of triangle $ABC$. The quadrilaterals
+\[
+A,B,A_1,B_1
+\qquad\text{and}\qquad
+B,C,B_1,C_1
+\]
+are cyclic. Using directed lengths along the three altitudes,
+\[
+HA\cdot HA_1
+=
+HB\cdot HB_1
+=
+HC\cdot HC_1.
+\tag{1}
+\]
+The three directed products in (1) are the powers of $H$ with respect to
+\[
+\omega_A,\qquad\omega_B,\qquad\omega_C.
+\]
+Thus $H$ lies on every pairwise radical axis. The point $P$ also lies on all three circles, so the common radical axis is
+\[
+PH.
+\]
+
+Because $ABC$ is acute, $H$ lies inside each of the three circles, so $PH$ is not tangent to them at $P$. Let $Q\ne P$ be the second intersection of $PH$ with $\omega_A$. Equation (1) implies that $Q$ also lies on $\omega_B$ and $\omega_C$. Hence
+\[
+Q\in\omega_A\cap\omega_B\cap\omega_C.
+\tag{2}
+\]
+
+\textbf{Step 2: The point $Q$ lies on $\omega$.}
+
+Let
+\[
+p_A,\qquad p_B,\qquad p_C
+\]
+be the perpendicular bisectors of $AD,BE,CF$, respectively, and let $\Delta$ be the triangle formed by these three lines.
+
+By Simson's theorem, it is enough to show that the perpendicular projections of $Q$ onto the three sidelines
+\[
+p_A,p_B,p_C
+\]
+are collinear. Equivalently, it is enough to show that the reflections
+\[
+Q_A,\qquad Q_B,\qquad Q_C
+\]
+of $Q$ in $p_A,p_B,p_C$, respectively, are collinear.
+
+In fact, we prove the stronger statement that
+\[
+P,Q_A,Q_B,Q_C
+\]
+are collinear.
+
+The line $p_A$ is the common perpendicular bisector of $AD$ and $QQ_A$. Hence $Q_A\in\omega_A$. Using the cyclic quadrilateral
+\[
+P,A,D,Q_A
+\]
+and the fact that $D$ is the reflection of $P$ in the line parallel to $BC$, we get
+\[
+\begin{aligned}
+\measuredangle(PA,PQ_A)
+&=\measuredangle(DA,DQ_A)\\
+&=\measuredangle(AQ,AD)\\
+&=\measuredangle(PQ,PD)\\
+&=\measuredangle(PQ,BC)+90^\circ.
+\end{aligned}
+\tag{3}
+\]
+Similarly,
+\[
+\measuredangle(PB,PQ_B)
+=
+\measuredangle(PQ,CA)+90^\circ.
+\tag{4}
+\]
+
+Using (3)--(4) and the cyclicity of $A,B,C,P$,
+\[
+\begin{aligned}
+\measuredangle(PQ_A,PQ_B)
+&=
+\measuredangle(PQ_A,PA)
++\measuredangle(PA,PB)
++\measuredangle(PB,PQ_B)\\
+&=
+\measuredangle(BC,PQ)+90^\circ
++\measuredangle(CA,CB)
++\measuredangle(PQ,CA)+90^\circ\\
+&=0.
+\end{aligned}
+\]
+Thus
+\[
+P,Q_A,Q_B
+\]
+are collinear. The same calculation gives
+\[
+P,Q_A,Q_C
+\]
+collinear as well.
+
+Therefore the projections of $Q$ onto $p_A,p_B,p_C$ are collinear. By Simson's theorem,
+\[
+Q\in\omega.
+\]
+Together with (2), this proves that all four circles have the common point $Q$.

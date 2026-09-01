@@ -1,0 +1,135 @@
+ID: 0323
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Geometry
+
+SUBTOPICS: Convex Geometry, Orthogonal Projections, Extremal Principle, Packing Estimates
+
+STATEMENT:
+Prove that there is a positive constant $c$ with the following property.
+
+For every integer $n\ge2$ and every set $S$ of $n$ points in the plane such that the distance between any two distinct points of $S$ is at least $1$, there exists a line $\ell$ separating $S$ such that the distance from every point of $S$ to $\ell$ is at least
+\[
+cn^{-1/3}.
+\]
+
+A line $\ell$ is said to separate $S$ if some segment joining two points of $S$ crosses $\ell$.
+
+SOLUTION 1:
+We prove that the statement holds with
+\[
+\boxed{c=\frac18}.
+\]
+Put
+\[
+\delta=\frac18n^{-1/3}.
+\]
+For a line $g$ and a point $X$, write $X_g$ for the orthogonal projection of $X$ onto $g$; use the analogous notation for point sets.
+
+Suppose that, for some line $g$, two adjacent points $X_g,Y_g$ of the projected set $S_g$ satisfy
+\[
+X_gY_g=2d.
+\]
+The line perpendicular to $g$ through the midpoint of $X_gY_g$ separates $S$. Since no projected point lies strictly between $X_g$ and $Y_g$, every point of $S$ is at distance at least $d$ from this separating line.
+
+Thus, if $d\ge\delta$, we are done. Assume, for contradiction, that this never happens for any projection. Therefore every gap between adjacent projected points, in every direction, is smaller than
+\[
+2\delta.
+\tag{1}
+\]
+
+Choose $A,B\in S$ with maximal distance, and put
+\[
+M=AB.
+\]
+Then
+\[
+M\ge1.
+\]
+Let $g=AB$. Every point of $S$ lies in each of the two disks of radius $M$ centred at $A$ and $B$, so the projection $S_g$ is contained in segment $AB$. By (1), the projected points divide $AB$ into fewer than $n$ gaps, each shorter than $2\delta$. Hence
+\[
+M<2n\delta.
+\tag{2}
+\]
+
+Choose $H\in AB$ such that
+\[
+AH=\frac12.
+\]
+Let $\mathcal P$ be the closed strip bounded by the lines through $A$ and $H$ perpendicular to $AB$. Put
+\[
+T=S\cap\mathcal P,
+\qquad
+t=|T|.
+\]
+Starting with the projection of $A$, condition (1) forces enough projected points into the interval $AH$ to give
+\[
+t>\frac1{4\delta}.
+\tag{3}
+\]
+
+The set $T$ lies in the intersection of $\mathcal P$ with the disk of radius $M$ centred at $B$. Let $a$ be the boundary line of $\mathcal P$ through $A$. The projection of this circular segment onto $a$ has length
+\[
+2\sqrt{M^2-\left(M-\frac12\right)^2}
+<
+2\sqrt M.
+\tag{4}
+\]
+
+For any distinct $X,Y\in T$, we know
+\[
+XY\ge1,
+\]
+while the difference of their projections onto $AB$ is at most $1/2$. Therefore their projections onto $a$ differ by at least
+\[
+\sqrt{1-\frac14}
+=
+\frac{\sqrt3}{2}.
+\tag{5}
+\]
+
+Thus the $t$ projected points of $T_a$ lie on a segment of length less than $2\sqrt M$ and are pairwise separated, in their natural order, by at least $\sqrt3/2$. Hence
+\[
+2\sqrt M
+>
+(t-1)\frac{\sqrt3}{2},
+\]
+which gives
+\[
+t
+<
+1+\frac{4\sqrt M}{\sqrt3}
+<
+4\sqrt M,
+\tag{6}
+\]
+because $M\ge1$.
+
+Combining (2), (3), and (6),
+\[
+\frac1{4\delta}
+<
+t
+<
+4\sqrt M
+<
+4\sqrt{2n\delta}.
+\]
+Squaring the outer inequality gives
+\[
+512n\delta^3>1.
+\]
+But for
+\[
+\delta=\frac18n^{-1/3},
+\]
+the left-hand side equals $1$. This contradiction proves that a desired separating line must exist.
+
+Therefore the constant
+\[
+c=\frac18
+\]
+works.

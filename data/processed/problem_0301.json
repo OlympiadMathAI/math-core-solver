@@ -1,0 +1,18 @@
+{
+  "id": "0301",
+  "source": "IMO Shortlist",
+  "year": "2020",
+  "topic": "Algebra",
+  "subtopics": [
+    "Inequalities",
+    "AM-GM",
+    "Homogeneity",
+    "Extremal Values"
+  ],
+  "statement": "Suppose that $a,b,c,d$ are positive real numbers satisfying\n\\[\n(a+c)(b+d)=ac+bd.\n\\]\nFind the smallest possible value of\n\\[\n\\frac ab+\\frac bc+\\frac cd+\\frac da.\n\\]",
+  "solutions": [
+    "The smallest possible value is\n\\[\n\\boxed{8}.\n\\]\n\nPut\n\\[\nS=\\frac ab+\\frac bc+\\frac cd+\\frac da.\n\\]\nBy the arithmetic-geometric mean inequality,\n\\[\n\\frac ab+\\frac cd\n\\ge2\\sqrt{\\frac{ac}{bd}},\n\\]\nand\n\\[\n\\frac bc+\\frac da\n\\ge2\\sqrt{\\frac{bd}{ac}}.\n\\]\nTherefore\n\\[\nS\\ge\n2\\sqrt{\\frac{ac}{bd}}\n+2\\sqrt{\\frac{bd}{ac}}.\n\\tag{1}\n\\]\n\nThe condition gives\n\\[\nac+bd=(a+c)(b+d)\n\\ge4\\sqrt{abcd}.\n\\]\nSet\n\\[\nx=\\sqrt{\\frac{ac}{bd}}>0.\n\\]\nAfter division by $\\sqrt{abcd}$, the preceding inequality becomes\n\\[\nx+\\frac1x\\ge4.\n\\tag{2}\n\\]\nCombining (1) and (2),\n\\[\nS\\ge2\\left(x+\\frac1x\\right)\\ge8.\n\\]\n\nEquality is attainable. Take\n\\[\na=c=1,\n\\qquad\nb=d=2+\\sqrt3.\n\\]\nThen\n\\[\n(a+c)(b+d)=4(2+\\sqrt3)=1+(2+\\sqrt3)^2=ac+bd,\n\\]\nand\n\\[\nS=2\\left((2+\\sqrt3)+(2-\\sqrt3)\\right)=8.\n\\]\nThus the minimum is $8$.",
+    "By homogeneity, scale the variables so that\n\\[\nabcd=1.\n\\]\nDefine\n\\[\nA=bc,\n\\qquad\nB=ac,\n\\qquad\nC=ab.\n\\]\nThen\n\\[\nad=\\frac1A,\n\\qquad\nbd=\\frac1B,\n\\qquad\ncd=\\frac1C.\n\\]\nThe condition becomes\n\\[\nA+\\frac1A+C+\\frac1C=B+\\frac1B.\n\\tag{1}\n\\]\nMoreover,\n\\[\n\\begin{aligned}\nS\n&=\\left(\\frac ab+\\frac cd\\right)\n +\\left(\\frac bc+\\frac da\\right)\\\\\n&=B\\left(A+\\frac1A\\right)\n +\\frac1B\\left(C+\\frac1C\\right).\n\\end{aligned}\n\\]\nUsing (1),\n\\[\nS=\n\\left(B-\\frac1B\\right)\n\\left(A+\\frac1A\\right)\n+1+\\frac1{B^2}.\n\\tag{2}\n\\]\n\nA cyclic relabelling of $a,b,c,d$ replaces $B$ by $1/B$ and leaves both the condition and $S$ unchanged. Hence we may assume\n\\[\nB\\ge1.\n\\]\nSince\n\\[\nA+\\frac1A\\ge2\n\\qquad\\text{and}\\qquad\nC+\\frac1C\\ge2,\n\\]\nequation (1) gives\n\\[\nB+\\frac1B\\ge4.\n\\]\nThus\n\\[\nB\\ge2+\\sqrt3.\n\\tag{3}\n\\]\nFrom (2),\n\\[\nS\\ge\n2\\left(B-\\frac1B\\right)+1+\\frac1{B^2}\n=:F(B).\n\\]\nFor $B\\ge1$,\n\\[\nF'(B)=2+\\frac2{B^2}-\\frac2{B^3}>0.\n\\]\nUsing (3),\n\\[\nS\\ge F(2+\\sqrt3)=8.\n\\]\nThe equality example from Solution 1 shows that this bound is sharp.",
+    "We give another direct proof. As in Solution 1,\n\\[\nS\\ge\n2\\sqrt{\\frac{ac}{bd}}\n+2\\sqrt{\\frac{bd}{ac}}.\n\\tag{1}\n\\]\nPut\n\\[\ny=\\sqrt{ac},\n\\qquad\nz=\\sqrt{bd}.\n\\]\nSet\n\\[\nx=\\max\\left\\{\\frac yz,\\frac zy\\right\\}\\ge1.\n\\]\nThen $x+1/x=y/z+z/y$.\nThe condition and AM-GM give\n\\[\ny^2+z^2=ac+bd=(a+c)(b+d)\\ge4yz.\n\\]\nHence\n\\[\nx^2+1\\ge4x.\n\\]\nFor $x\\ge1$, this is equivalent to\n\\[\nx\\ge2+\\sqrt3.\n\\]\nThe function $x+1/x$ is increasing on $[1,\\infty)$, so (1) yields\n\\[\nS\\ge2\\left(x+\\frac1x\\right)\n\\ge2\\left((2+\\sqrt3)+(2-\\sqrt3)\\right)=8.\n\\]\nAgain, equality is attained by the example in Solution 1."
+  ]
+}

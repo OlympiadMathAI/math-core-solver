@@ -1,0 +1,16 @@
+{
+  "id": "0311",
+  "source": "IMO Shortlist",
+  "year": "2020",
+  "topic": "Combinatorics",
+  "subtopics": [
+    "Two-Colorings",
+    "Prefix Densities",
+    "Extremal Arguments",
+    "Pigeonhole Principle"
+  ],
+  "statement": "Let $p$ be an odd prime, and put\n\\[\nN=\\frac{p^3-p}{4}-1.\n\\]\nThe integers\n\\[\n1,2,\\ldots,N\n\\]\nare colored arbitrarily red or blue. For $1\\le n\\le N$, let $r(n)$ be the fraction of the integers\n\\[\n1,2,\\ldots,n\n\\]\nthat are red.\n\nProve that there exists\n\\[\na\\in\\{1,2,\\ldots,p-1\\}\n\\]\nsuch that\n\\[\nr(n)\\ne\\frac ap\n\\]\nfor every $1\\le n\\le N$.",
+  "solutions": [
+    "Let $R(n)$ and $B(n)$ denote the numbers of red and blue integers among\n\\[\n1,2,\\ldots,n.\n\\]\nThus\n\\[\nR(n)+B(n)=n.\n\\]\n\nAssume, for contradiction, that every fraction\n\\[\n\\frac1p,\\frac2p,\\ldots,\\frac{p-1}{p}\n\\]\noccurs. For each $a\\in\\{1,\\ldots,p-1\\}$, choose $n_a\\le N$ such that\n\\[\nR(n_a)=\\frac{a n_a}{p}.\n\\]\nSince $p\\nmid a$, we have $p\\mid n_a$. Write\n\\[\nn_a=pm_a.\n\\]\nThen\n\\[\nR(n_a)=am_a,\n\\qquad\nB(n_a)=(p-a)m_a.\n\\tag{1}\n\\]\n\nThe positive integers $m_1,\\ldots,m_{p-1}$ are pairwise distinct: if $m_a=m_b$, then $n_a=n_b$ and (1) would give $a=b$. Moreover,\n\\[\nm_a\\le\\frac Np\n=\n\\frac{p^2-1}{4}-\\frac1p\n<\n\\frac{p^2-1}{4}.\n\\tag{2}\n\\]\n\nSwapping the two colors replaces the sequence $(m_a)$ by $(m_{p-a})$. Hence, without loss of generality,\n\\[\nm_1<m_{p-1}.\n\\tag{3}\n\\]\n\nWe use the following observation.\n\n\\textbf{Claim.}\nIf\n\\[\nm_a<m_b,\n\\]\nthen\n\\[\nm_b\\ge\\frac ab\\,m_a\n\\tag{4}\n\\]\nand\n\\[\nm_b\\ge\\frac{p-a}{p-b}\\,m_a.\n\\tag{5}\n\\]\n\n\\textit{Proof.}\nSince $n_a<n_b$, monotonicity of the red count gives\n\\[\nbm_b=R(n_b)\\ge R(n_a)=am_a,\n\\]\nwhich proves (4). Monotonicity of the blue count gives\n\\[\n(p-b)m_b=B(n_b)\\ge B(n_a)=(p-a)m_a,\n\\]\nwhich proves (5). $\\square$\n\nPut\n\\[\nq=\\frac{p-1}{2}.\n\\]\n\n\\textbf{Case 1.}\nSuppose\n\\[\nm_1,m_2,\\ldots,m_q<m_{p-1}.\n\\]\nLet $m_a$ be the largest of $m_1,\\ldots,m_q$. Since these are $q$ distinct positive integers,\n\\[\nm_a\\ge q,\n\\]\nand $a\\le q$. Applying (5) to $m_a<m_{p-1}$ gives\n\\[\nm_{p-1}\n\\ge\n(p-a)m_a\n\\ge\n(p-q)q\n=\n\\frac{p^2-1}{4},\n\\]\ncontradicting (2).\n\n\\textbf{Case 2.}\nSuppose some $m_k$ with $k\\le q$ satisfies\n\\[\nm_k>m_{p-1}.\n\\]\nChoose the least such $k$. By (3),\n\\[\n2\\le k\\le q.\n\\]\nLet $m_a$ be the largest of\n\\[\nm_1,\\ldots,m_{k-1}.\n\\]\nThen\n\\[\na\\le k-1,\n\\qquad\nm_a\\ge k-1,\n\\qquad\nm_a<m_{p-1}<m_k.\n\\]\nApplying (4) to $m_{p-1}<m_k$ and then (5) to $m_a<m_{p-1}$,\n\\[\n\\begin{aligned}\nm_k\n&\\ge\n\\frac{p-1}{k}m_{p-1}\\\\\n&\\ge\n\\frac{p-1}{k}(p-a)m_a\\\\\n&\\ge\n\\frac{p-1}{k}(p-k+1)(k-1).\n\\end{aligned}\n\\]\nSince\n\\[\n\\frac{k-1}{k}\\ge\\frac12\n\\qquad\\text{and}\\qquad\np-k+1\\ge p-q=\\frac{p+1}{2},\n\\]\nwe obtain\n\\[\nm_k\\ge\\frac{p^2-1}{4},\n\\]\nagain contradicting (2).\n\nBoth cases are impossible. Therefore at least one value $a/p$ never occurs among the prefix red proportions."
+  ]
+}

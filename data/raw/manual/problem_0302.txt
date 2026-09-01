@@ -1,0 +1,122 @@
+ID: 0302
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Algebra
+
+SUBTOPICS: Weighted AM-GM, Ordered Variables, Convexity, Logarithmic Inequalities
+
+STATEMENT:
+Let $a,b,c,d$ be real numbers satisfying
+\[
+a\ge b\ge c\ge d>0
+\]
+and
+\[
+a+b+c+d=1.
+\]
+Prove that
+\[
+(a+2b+3c+4d)a^ab^bc^cd^d<1.
+\]
+
+SOLUTION 1:
+The weighted arithmetic-geometric mean inequality, with weights $a,b,c,d$, gives
+\[
+a^ab^bc^cd^d
+\le a\cdot a+b\cdot b+c\cdot c+d\cdot d
+=a^2+b^2+c^2+d^2.
+\tag{1}
+\]
+We prove
+\[
+(a+2b+3c+4d)(a^2+b^2+c^2+d^2)<1.
+\tag{2}
+\]
+Since all four variables are positive,
+\[
+\begin{aligned}
+(a+b+c+d)^3
+&>
+ a^2(a+3b+3c+3d)\\
+&\quad+b^2(3a+b+3c+3d)\\
+&\quad+c^2(3a+3b+c+3d)\\
+&\quad+d^2(3a+3b+3c+d).
+\end{aligned}
+\tag{3}
+\]
+The ordering $a\ge b\ge c\ge d$ implies that each coefficient in the large expression on the right of (3) is at least $a+2b+3c+4d$. Hence
+\[
+(a+b+c+d)^3
+>
+(a^2+b^2+c^2+d^2)(a+2b+3c+4d).
+\]
+Because $a+b+c+d=1$, this is (2). Combining (1) and (2) gives the desired strict inequality.
+
+SOLUTION 2:
+Since $b\ge d$,
+\[
+a+2b+3c+4d
+\le a+3b+3c+3d
+=3-2a.
+\tag{1}
+\]
+
+Suppose first that $a<1/2$. Because $a$ is the largest of the four variables,
+\[
+a^ab^bc^cd^d
+\le a^{a+b+c+d}=a.
+\]
+Thus, by (1),
+\[
+(a+2b+3c+4d)a^ab^bc^cd^d
+\le(3-2a)a
+=1-(1-a)(1-2a)<1.
+\]
+
+Now assume
+\[
+\frac12\le a<1.
+\]
+Each of $b,c,d$ is strictly smaller than $1-a=b+c+d$, so
+\[
+b^bc^cd^d<(1-a)^{b+c+d}=(1-a)^{1-a}.
+\]
+Consequently,
+\[
+(a+2b+3c+4d)a^ab^bc^cd^d
+<
+(3-2a)a^a(1-a)^{1-a}.
+\tag{2}
+\]
+Define, for $0<x<1$,
+\[
+F(x)=(3-2x)x^x(1-x)^{1-x}
+\]
+and
+\[
+G(x)=\log F(x)
+=\log(3-2x)+x\log x+(1-x)\log(1-x).
+\]
+A calculation gives
+\[
+G''(x)
+=
+\frac1{x(1-x)}-\frac4{(3-2x)^2}
+=
+\frac{1+8(1-x)^2}{x(1-x)(3-2x)^2}>0.
+\]
+Thus $G$ is strictly convex. Also,
+\[
+G\left(\frac12\right)=0
+\qquad\text{and}\qquad
+\lim_{x\to1^-}G(x)=0.
+\]
+A convex function lies below the chord joining two endpoint values, so
+\[
+G(x)\le0
+\qquad\left(\frac12\le x<1\right).
+\]
+Hence $F(x)\le1$ on this interval. Applying this to (2) gives the required strict inequality.

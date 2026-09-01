@@ -1,0 +1,127 @@
+ID: 0317
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Geometry
+
+SUBTOPICS: Reflections, Tangent Circles, Cyclic Quadrilaterals, Directed Angles
+
+STATEMENT:
+Let $ABCD$ be a convex quadrilateral such that
+\[
+\angle ABC>90^\circ,
+\qquad
+\angle CDA>90^\circ,
+\qquad
+\angle DAB=\angle BCD.
+\]
+Let $E$ and $F$ be the reflections of $A$ in the lines $BC$ and $CD$, respectively. Suppose that the segments $AE$ and $AF$ meet the line $BD$ at $K$ and $L$, respectively.
+
+Prove that the circumcircles of triangles $BEK$ and $DFL$ are tangent to each other.
+
+SOLUTION 1:
+Let $A'$ be the reflection of $A$ in $BD$. We show that the two given circles both pass through $A'$ and are tangent there.
+
+Reflection in $BC$ interchanges $A$ and $E$, while the line $AE$ is invariant. Hence
+\[
+\angle BEK=\angle BAK.
+\]
+Reflection in $BD$ interchanges $A$ and $A'$ and fixes $B$ and $K$, so
+\[
+\angle BAK=\angle BA'K.
+\]
+Therefore
+\[
+\angle BEK=\angle BA'K,
+\]
+and thus
+\[
+A',B,K,E
+\]
+are concyclic.
+
+The same argument, using the reflections in $CD$ and $BD$, shows that
+\[
+A',D,L,F
+\]
+are concyclic.
+
+For the two circles through $A'$ to be tangent at $A'$, the tangent--chord theorem shows that it is enough to prove
+\[
+\angle A'KB+\angle A'LD=\angle BA'D.
+\tag{1}
+\]
+Now
+\[
+AK\perp BC,
+\qquad
+AL\perp CD.
+\]
+Reflection in $BD$ preserves the angles made with $BD$, so
+\[
+\begin{aligned}
+\angle A'KB+\angle A'LD
+&=
+180^\circ-\angle KA'L\\
+&=
+180^\circ-\angle KAL\\
+&=
+\angle BCD\\
+&=
+\angle BAD\\
+&=
+\angle BA'D.
+\end{aligned}
+\]
+This proves (1), and hence the two circumcircles are tangent at $A'$.
+
+SOLUTION 2:
+Reflect both given circles in the line $BD$.
+
+The reflection of the circle $(BEK)$ is the circle $(KAB)$. Indeed,
+\[
+\angle KEB=\angle KAB,
+\]
+because $E$ is the reflection of $A$ in $BC$. Similarly, the reflection of the circle $(DFL)$ is the circle $(LAD)$.
+
+Thus it is enough to prove that the circles
+\[
+(KAB)
+\qquad\text{and}\qquad
+(LAD)
+\]
+are tangent at $A$.
+
+Since
+\[
+AK\perp BC
+\qquad\text{and}\qquad
+AL\perp CD,
+\]
+we have
+\[
+\angle KAL=180^\circ-\angle BCD.
+\]
+Consequently,
+\[
+\angle AKB+\angle ALD
+=
+180^\circ-\angle KAL
+=
+\angle BCD
+=
+\angle BAD.
+\tag{1}
+\]
+
+Choose a ray $AT$ inside $\angle BAD$ such that
+\[
+\angle BAT=\angle AKB.
+\]
+Equation (1) then gives
+\[
+\angle DAT=\angle DLA.
+\]
+By the tangent--chord theorem, $AT$ is tangent at $A$ to both circles $(KAB)$ and $(LAD)$. Hence these two reflected circles are tangent, and therefore so are the original circles $(BEK)$ and $(DFL)$.

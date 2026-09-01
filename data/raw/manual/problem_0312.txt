@@ -1,0 +1,72 @@
+ID: 0312
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Graph Decompositions, Euler Circuits, Perfect Matchings, Edge Colorings
+
+STATEMENT:
+There are $4n$ coins of weights
+\[
+1,2,3,\ldots,4n.
+\]
+Each coin has one of $n$ colors, and exactly four coins have each color. Prove that the coins can be partitioned into two sets having equal total weight, with each set containing exactly two coins of every color.
+
+SOLUTION 1:
+Pair the coins whose weights sum to $4n+1$:
+\[
+\{1,4n\},\{2,4n-1\},\ldots,\{2n,2n+1\}.
+\tag{1}
+\]
+There are $2n$ such pairs. It is enough to divide the pairs into two groups so that each group contains exactly two coins of every color. Each group will then contain $n$ pairs and have total weight
+\[
+n(4n+1).
+\]
+
+Construct a multigraph $G$ with one vertex for each color. For every pair in (1), join the vertices corresponding to the colors of its two coins. Loops and parallel edges are allowed. Every vertex has degree $4$, where a loop contributes $2$ to the degree.
+
+Consider one connected component of $G$. All its vertex degrees are even, so it has an Euler circuit. The number of edges in the component is
+\[
+\frac12\sum\deg(v)=2\cdot(\text{number of vertices}),
+\]
+and is therefore even. Color the edges alternately red and blue along an Euler circuit.
+
+Whenever the circuit passes through a vertex, one entering edge and the following leaving edge receive opposite colors. Hence each vertex has equal red and blue degrees. Since its total degree is $4$, its degree in each color is $2$.
+
+Perform this construction in every component. Put in the first set all coin pairs represented by red edges and in the second set all pairs represented by blue edges. At every color vertex, each side receives exactly two incident coin endpoints, so each set contains two coins of that color. The two sets also have equal total weight, as required.
+
+SOLUTION 2:
+Again pair the weights as in (1). We construct an auxiliary graph $\Gamma$ whose $4n$ vertices are the individual coins.
+
+Join every complementary-weight pair in (1) by a black edge. For each color, its four vertices can be divided into two pairs in exactly three ways. Choose one such pairing and join its two pairs by grey edges. Thus there are
+\[
+3^n
+\]
+possible choices of the grey edges.
+
+Every vertex has black degree $1$ and grey degree $1$. Hence $\Gamma$ is a disjoint union of cycles in which black and grey edges alternate.
+
+Choose, among all possible grey pairings, a graph $\Gamma_0$ with the smallest possible number of cycles. We claim that every cycle of $\Gamma_0$ has length divisible by $4$.
+
+Suppose not. Then some cycle $C_1$ contains an odd number of grey edges. Since every color contributes exactly two grey edges in total, there is a color for which exactly one grey edge
+\[
+ij
+\]
+lies on $C_1$, while its other grey edge
+\[
+k\ell
+\]
+lies on another cycle $C_2$. Replace these two grey edges by
+\[
+ik
+\qquad\text{and}\qquad
+j\ell.
+\]
+This is another valid pairing of the four vertices of that color, and it merges $C_1$ and $C_2$ into one cycle. This contradicts the minimality of the number of cycles. Therefore every cycle has an even number of grey edges and hence length divisible by $4$.
+
+On each cycle, color the black edges alternately red and blue. Because the number of black edges on the cycle is even, this is consistent. Across every grey edge, the two incident black edges have opposite colors. Thus, for each of the two grey edges belonging to a fixed coin color, one endpoint is incident with a red black edge and the other with a blue black edge. Consequently, among the four coins of every color, exactly two lie in red complementary pairs and exactly two lie in blue complementary pairs.
+
+The red and blue black edges therefore define the desired partition of the coins.

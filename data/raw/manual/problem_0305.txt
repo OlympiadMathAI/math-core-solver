@@ -1,0 +1,173 @@
+ID: 0305
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Algebra
+
+SUBTOPICS: Inequalities, Dyadic Decomposition, Cauchy-Schwarz, Induction
+
+STATEMENT:
+Let $n$ and $k$ be positive integers. Prove that, for
+\[
+a_1,a_2,\ldots,a_n\in[1,2^k],
+\]
+one has
+\[
+\sum_{i=1}^{n}
+\frac{a_i}{\sqrt{a_1^2+a_2^2+\cdots+a_i^2}}
+\le4\sqrt{kn}.
+\]
+
+SOLUTION 1:
+Partition the index set $\{1,2,\ldots,n\}$ into disjoint sets
+\[
+M_1,M_2,\ldots,M_k
+\]
+so that
+\[
+2^{j-1}\le a_\ell\le2^j
+\qquad(\ell\in M_j).
+\]
+At common endpoints of two intervals, assign the index to either one of them.
+
+Fix $j$, and list the elements of $M_j$ in increasing order:
+\[
+\ell_1<\ell_2<\cdots<\ell_{p_j},
+\qquad
+p_j=|M_j|.
+\]
+For the $r$th such index, the denominator contains at least $r$ terms from $M_j$, each of square at least $2^{2j-2}$. Therefore
+\[
+\frac{a_{\ell_r}}
+{\sqrt{a_1^2+\cdots+a_{\ell_r}^2}}
+\le
+\frac{2^j}{2^{j-1}\sqrt r}
+=\frac2{\sqrt r}.
+\]
+Hence
+\[
+\sum_{\ell\in M_j}
+\frac{a_\ell}{\sqrt{a_1^2+\cdots+a_\ell^2}}
+\le
+2\sum_{r=1}^{p_j}\frac1{\sqrt r}.
+\]
+Since
+\[
+\sqrt r-\sqrt{r-1}
+=\frac1{\sqrt r+\sqrt{r-1}}
+\ge\frac1{2\sqrt r},
+\]
+we have
+\[
+\sum_{r=1}^{p_j}\frac1{\sqrt r}
+\le2\sqrt{p_j}.
+\]
+Thus
+\[
+\sum_{\ell\in M_j}
+\frac{a_\ell}{\sqrt{a_1^2+\cdots+a_\ell^2}}
+\le4\sqrt{p_j}.
+\]
+Summing over $j$ and applying Cauchy-Schwarz,
+\[
+\begin{aligned}
+\sum_{i=1}^{n}
+\frac{a_i}{\sqrt{a_1^2+\cdots+a_i^2}}
+&\le4\sum_{j=1}^{k}\sqrt{p_j}\\
+&\le4\sqrt{k\sum_{j=1}^{k}p_j}\\
+&=4\sqrt{kn}.
+\end{aligned}
+\]
+
+SOLUTION 2:
+Put
+\[
+S_i=a_1^2+\cdots+a_i^2
+\qquad\text{and}\qquad
+x_i=\frac{a_i}{\sqrt{S_i}}.
+\]
+We prove the result by strong induction on $n$.
+
+For $n\le16$,
+\[
+\sum_{i=1}^{n}x_i\le n\le4\sqrt n\le4\sqrt{kn}.
+\]
+
+Assume now that $n\ge17$ and that the result holds for all smaller positive integers.
+
+\textbf{Case 1: $n=2t$.}
+
+For $i=t+1,\ldots,2t$,
+\[
+1-x_i^2=\frac{S_{i-1}}{S_i}.
+\]
+Therefore
+\[
+\prod_{i=t+1}^{2t}(1-x_i^2)
+=\frac{S_t}{S_{2t}}.
+\tag{1}
+\]
+Since
+\[
+a_{t+r}\le2^k a_r
+\qquad(1\le r\le t),
+\]
+we have
+\[
+S_{2t}\le(1+4^k)S_t.
+\]
+Thus the product in (1) is at least $1/(1+4^k)$.
+
+Using $1-u\le e^{-u}$ for $0\le u<1$,
+\[
+e^{-\sum_{i=t+1}^{2t}x_i^2}
+\ge
+\prod_{i=t+1}^{2t}(1-x_i^2)
+\ge\frac1{1+4^k}.
+\]
+Hence
+\[
+\sum_{i=t+1}^{2t}x_i^2
+\le\log(1+4^k)
+\le2k.
+\]
+By Cauchy-Schwarz,
+\[
+\sum_{i=t+1}^{2t}x_i
+\le\sqrt{2kt}.
+\]
+The induction hypothesis applied to the first $t$ terms gives
+\[
+\sum_{i=1}^{2t}x_i
+\le4\sqrt{kt}+\sqrt{2kt}
+\le4\sqrt{2kt}.
+\]
+
+\textbf{Case 2: $n=2t+1$.}
+
+The same telescoping argument, now for the indices $t+2,\ldots,2t+1$, gives
+\[
+\sum_{i=t+2}^{2t+1}x_i\le\sqrt{2kt}.
+\]
+The first $t+1$ terms satisfy the induction hypothesis, so
+\[
+\sum_{i=1}^{2t+1}x_i
+\le4\sqrt{k(t+1)}+\sqrt{2kt}.
+\]
+For $t\ge8$,
+\[
+4\sqrt{t+1}+\sqrt{2t}\le4\sqrt{2t+1};
+\]
+after two squarings, this reduces to
+\[
+17t^2-32t\ge0.
+\]
+Therefore
+\[
+\sum_{i=1}^{2t+1}x_i
+\le4\sqrt{k(2t+1)}.
+\]
+
+The induction is complete.

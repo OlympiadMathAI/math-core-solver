@@ -1,0 +1,183 @@
+ID: 0315
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Geometry
+
+SUBTOPICS: Cyclic Quadrilaterals, Reflections, Perpendicular Bisectors, Isosceles Triangles
+
+STATEMENT:
+Let $ABC$ be an isosceles triangle with
+\[
+BC=CA,
+\]
+and let $D$ be a point inside side $AB$ such that
+\[
+AD<DB.
+\]
+Let $P$ and $Q$ be points inside sides $BC$ and $CA$, respectively, such that
+\[
+\angle DPB=\angle DQA=90^\circ.
+\]
+The perpendicular bisector of $PQ$ meets segment $CQ$ at $E$, and the circumcircles of triangles $ABC$ and $CPQ$ meet again at $F\ne C$.
+
+Suppose that $P,E,F$ are collinear. Prove that
+\[
+\angle ACB=90^\circ.
+\]
+
+SOLUTION 1:
+Let $\ell$ be the perpendicular bisector of $PQ$, and let $\omega$ be the circumcircle of $CFPQ$.
+
+Since
+\[
+DP\perp BC
+\qquad\text{and}\qquad
+DQ\perp AC,
+\]
+we have
+\[
+\angle CPD=\angle CQD=90^\circ.
+\]
+Thus $C,P,D,Q$ lie on the circle with diameter $CD$. Since $C,P,Q,F$ are also concyclic,
+\[
+C,P,Q,D,F\in\omega,
+\]
+and $CD$ is a diameter of $\omega$.
+
+Reflection in $\ell$ interchanges $P$ and $Q$. Since $E\in\ell$, the lines $EP$ and $EQ$ are symmetric about $\ell$. The circle $\omega$ is also symmetric about $\ell$, because $\ell$ is the perpendicular bisector of its chord $PQ$. As
+\[
+E,P,F\ \text{are collinear}
+\qquad\text{and}\qquad
+E,Q,C\ \text{are collinear},
+\]
+the reflection in $\ell$ interchanges $F$ and $C$. Hence $\ell$ is the perpendicular bisector of $CF$, and therefore it passes through the circumcentre $O$ of triangle $ABC$.
+
+Let $M$ be the midpoint of $AB$. Since $BC=CA$,
+\[
+CM\perp AB.
+\]
+Because $D,M\in AB$, this gives
+\[
+CM\perp DM,
+\]
+so $M\in\omega$.
+
+Furthermore,
+\[
+\angle PCM=\angle BCM=\angle ACM=\angle QCM.
+\]
+These equal inscribed angles in $\omega$ subtend equal chords, and hence
+\[
+MP=MQ.
+\]
+Thus $M\in\ell$.
+
+The circumcentre $O$ of the isosceles triangle $ABC$ lies on $CM$. The lines $\ell$ and $CM$ are distinct: otherwise $E=C$, and the collinearity of $P,E,F$ would put the three distinct points $C,P,F$ of $\omega$ on one line, which is impossible.
+
+We have now shown that both $O$ and $M$ lie on each of the two distinct lines $\ell$ and $CM$, so
+\[
+O=M.
+\]
+Therefore the midpoint of $AB$ is the circumcentre of $ABC$, which means that $AB$ is a diameter of the circumcircle. Hence
+\[
+\angle ACB=90^\circ.
+\]
+
+SOLUTION 2:
+Let $\ell$ be the perpendicular bisector of $PQ$, and let $M$ be the midpoint of $AB$. As in Solution 1,
+\[
+C,P,Q,D,F,M
+\]
+lie on one circle $\omega$ with diameter $CD$, and
+\[
+M\in\ell.
+\]
+
+Let
+\[
+G=BF\cap CM
+\]
+and put
+\[
+\alpha=\angle ABF.
+\]
+Since $A,B,C,F$ are concyclic and $C,P,Q,F$ are concyclic, while reflection in $\ell$ interchanges the chords $CQ$ and $FP$, we have
+\[
+\angle CQP
+=\angle FPQ
+=\angle FCQ
+=\angle FCA
+=\angle FBA
+=\alpha.
+\tag{1}
+\]
+
+The points $P,E,F$ are collinear, and $E$ lies on the perpendicular bisector of $PQ$. From (1), triangle $EPQ$ is isosceles and
+\[
+\angle FEQ=2\alpha,
+\qquad
+\angle QEM=90^\circ-\alpha.
+\]
+Consequently,
+\[
+\angle FEM
+=\angle FEQ+\angle QEM
+=90^\circ+\alpha.
+\tag{2}
+\]
+
+Since $BF$ makes an angle $\alpha$ with $AB$, while $CM\perp AB$,
+\[
+\angle FGM=90^\circ+\alpha.
+\]
+Together with (2), this shows that
+\[
+F,E,G,M
+\]
+are concyclic. Therefore,
+\[
+\angle EGC
+=\angle EFM
+=\angle PFM
+=\angle PCM,
+\]
+where the last equality follows from the cyclic quadrilateral $FPCM$. Hence
+\[
+GE\parallel PC,
+\]
+and thus
+\[
+GE\parallel BC.
+\tag{3}
+\]
+
+Now
+\[
+\angle FAC=\angle CBF=\angle EGF,
+\]
+using the cyclic quadrilateral $ABCF$ and (3). Since $A,E,C$ are collinear, it follows that
+\[
+F,E,G,A
+\]
+are concyclic. The circles through $F,E,G,M$ and through $F,E,G,A$ coincide, so
+\[
+A,F,G,M
+\]
+are concyclic. Hence
+\[
+\angle ACB
+=\angle AFB
+=\angle AFG
+=180^\circ-\angle AMG.
+\]
+But
+\[
+AM\perp MG,
+\]
+because $AM\subset AB$ and $MG\subset CM$. Thus $\angle AMG=90^\circ$, and therefore
+\[
+\angle ACB=90^\circ.
+\]

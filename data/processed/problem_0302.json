@@ -1,0 +1,17 @@
+{
+  "id": "0302",
+  "source": "IMO Shortlist",
+  "year": "2020",
+  "topic": "Algebra",
+  "subtopics": [
+    "Weighted AM-GM",
+    "Ordered Variables",
+    "Convexity",
+    "Logarithmic Inequalities"
+  ],
+  "statement": "Let $a,b,c,d$ be real numbers satisfying\n\\[\na\\ge b\\ge c\\ge d>0\n\\]\nand\n\\[\na+b+c+d=1.\n\\]\nProve that\n\\[\n(a+2b+3c+4d)a^ab^bc^cd^d<1.\n\\]",
+  "solutions": [
+    "The weighted arithmetic-geometric mean inequality, with weights $a,b,c,d$, gives\n\\[\na^ab^bc^cd^d\n\\le a\\cdot a+b\\cdot b+c\\cdot c+d\\cdot d\n=a^2+b^2+c^2+d^2.\n\\tag{1}\n\\]\nWe prove\n\\[\n(a+2b+3c+4d)(a^2+b^2+c^2+d^2)<1.\n\\tag{2}\n\\]\nSince all four variables are positive,\n\\[\n\\begin{aligned}\n(a+b+c+d)^3\n&>\n a^2(a+3b+3c+3d)\\\\\n&\\quad+b^2(3a+b+3c+3d)\\\\\n&\\quad+c^2(3a+3b+c+3d)\\\\\n&\\quad+d^2(3a+3b+3c+d).\n\\end{aligned}\n\\tag{3}\n\\]\nThe ordering $a\\ge b\\ge c\\ge d$ implies that each coefficient in the large expression on the right of (3) is at least $a+2b+3c+4d$. Hence\n\\[\n(a+b+c+d)^3\n>\n(a^2+b^2+c^2+d^2)(a+2b+3c+4d).\n\\]\nBecause $a+b+c+d=1$, this is (2). Combining (1) and (2) gives the desired strict inequality.",
+    "Since $b\\ge d$,\n\\[\na+2b+3c+4d\n\\le a+3b+3c+3d\n=3-2a.\n\\tag{1}\n\\]\n\nSuppose first that $a<1/2$. Because $a$ is the largest of the four variables,\n\\[\na^ab^bc^cd^d\n\\le a^{a+b+c+d}=a.\n\\]\nThus, by (1),\n\\[\n(a+2b+3c+4d)a^ab^bc^cd^d\n\\le(3-2a)a\n=1-(1-a)(1-2a)<1.\n\\]\n\nNow assume\n\\[\n\\frac12\\le a<1.\n\\]\nEach of $b,c,d$ is strictly smaller than $1-a=b+c+d$, so\n\\[\nb^bc^cd^d<(1-a)^{b+c+d}=(1-a)^{1-a}.\n\\]\nConsequently,\n\\[\n(a+2b+3c+4d)a^ab^bc^cd^d\n<\n(3-2a)a^a(1-a)^{1-a}.\n\\tag{2}\n\\]\nDefine, for $0<x<1$,\n\\[\nF(x)=(3-2x)x^x(1-x)^{1-x}\n\\]\nand\n\\[\nG(x)=\\log F(x)\n=\\log(3-2x)+x\\log x+(1-x)\\log(1-x).\n\\]\nA calculation gives\n\\[\nG''(x)\n=\n\\frac1{x(1-x)}-\\frac4{(3-2x)^2}\n=\n\\frac{1+8(1-x)^2}{x(1-x)(3-2x)^2}>0.\n\\]\nThus $G$ is strictly convex. Also,\n\\[\nG\\left(\\frac12\\right)=0\n\\qquad\\text{and}\\qquad\n\\lim_{x\\to1^-}G(x)=0.\n\\]\nA convex function lies below the chord joining two endpoint values, so\n\\[\nG(x)\\le0\n\\qquad\\left(\\frac12\\le x<1\\right).\n\\]\nHence $F(x)\\le1$ on this interval. Applying this to (2) gives the required strict inequality."
+  ]
+}

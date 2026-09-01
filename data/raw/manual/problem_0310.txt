@@ -1,0 +1,112 @@
+ID: 0310
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Fibonacci Numbers, Graphs, Acyclic Graphs, Extremal Set Construction
+
+STATEMENT:
+The Fibonacci numbers are defined by
+\[
+F_0=0,\qquad F_1=1,\qquad F_{m+1}=F_m+F_{m-1}\quad(m\ge1).
+\]
+Given an integer $n\ge2$, determine the smallest possible size of a set $S$ of integers such that, for every
+\[
+k=2,3,\ldots,n,
+\]
+there are $x,y\in S$ satisfying
+\[
+x-y=F_k.
+\]
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{\left\lceil\frac n2\right\rceil+1}.
+\]
+
+Put
+\[
+d=\left\lceil\frac n2\right\rceil,
+\]
+so
+\[
+n\le2d\le n+1.
+\]
+
+We first prove the lower bound. Suppose $S$ satisfies the required condition. Construct a graph whose vertices are the elements of $S$. For every
+\[
+k=1,2,\ldots,d,
+\]
+choose an edge whose endpoints differ by
+\[
+F_{2k-1}.
+\]
+This is possible: for $k\ge2$, we have
+\[
+3\le2k-1\le2d-1\le n,
+\]
+while for $k=1$ we use
+\[
+F_1=F_2=1.
+\]
+The $d$ chosen edge lengths
+\[
+F_1,F_3,\ldots,F_{2d-1}
+\]
+are distinct.
+
+We claim that this graph is acyclic. Suppose it contained a cycle, and let its longest edge have length
+\[
+F_{2m+1}.
+\]
+All other edges of the cycle have distinct lengths chosen from
+\[
+F_1,F_3,\ldots,F_{2m-1}.
+\]
+By the triangle inequality,
+\[
+F_{2m+1}
+\le
+F_1+F_3+\cdots+F_{2m-1}.
+\]
+But
+\[
+\begin{aligned}
+F_1+F_3+\cdots+F_{2m-1}
+&=F_2+(F_4-F_2)+\cdots+(F_{2m}-F_{2m-2})\\
+&=F_{2m}<F_{2m+1},
+\end{aligned}
+\]
+a contradiction.
+
+An acyclic graph with $d$ edges has at least $d+1$ vertices. Therefore
+\[
+|S|\ge d+1.
+\]
+
+For the matching construction, take
+\[
+S=\{F_0,F_2,F_4,\ldots,F_{2d}\}.
+\]
+This set has $d+1$ elements. For every $1\le k\le d$,
+\[
+F_{2k}-F_{2k-2}=F_{2k-1}
+\]
+and
+\[
+F_{2k}-F_0=F_{2k}.
+\]
+Thus every Fibonacci number
+\[
+F_1,F_2,\ldots,F_{2d}
+\]
+occurs as a difference of two elements of $S$. Since $n\le2d$, all the required differences occur.
+
+Hence the minimum size is
+\[
+\boxed{\left\lceil\frac n2\right\rceil+1}.
+\]

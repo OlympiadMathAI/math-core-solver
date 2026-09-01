@@ -1,0 +1,113 @@
+ID: 0300
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Algebra
+
+SUBTOPICS: Polynomial Ideals, Symmetric Polynomials, Homogeneous Components, Monomials
+
+STATEMENT:
+Let $\mathcal A$ be the set of all polynomials in three variables $x,y,z$ with integer coefficients. Let $\mathcal B$ be the subset of $\mathcal A$ consisting of all polynomials expressible in the form
+\[
+(x+y+z)P(x,y,z)+(xy+yz+zx)Q(x,y,z)+xyzR(x,y,z),
+\]
+where $P,Q,R\in\mathcal A$.
+
+Find the smallest nonnegative integer $n$ such that
+\[
+x^iy^jz^k\in\mathcal B
+\]
+for all nonnegative integers $i,j,k$ satisfying
+\[
+i+j+k\ge n.
+\]
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{4}.
+\]
+
+Put
+\[
+p=x+y+z,
+\qquad
+q=xy+yz+zx,
+\qquad
+r=xyz.
+\]
+We first show that every monomial of total degree at least $4$ belongs to $\mathcal B$.
+
+Because $x,y,z$ are roots of
+\[
+t^3-pt^2+qt-r,
+\]
+we have
+\[
+x^3=px^2-qx+r\in\mathcal B.
+\tag{1}
+\]
+Also,
+\[
+x^2y^2=xyq-(x+y)r\in\mathcal B.
+\tag{2}
+\]
+Now consider a monomial $x^iy^jz^k$ of degree at least $4$. By symmetry, assume
+\[
+i\ge j\ge k.
+\]
+If $k\ge1$, the monomial is divisible by $r$. If $k=0$ and $j\ge2$, it is divisible by $x^2y^2$, which belongs to $\mathcal B$ by (2). Finally, if $k=0$ and $j\le1$, then $i\ge3$, so the monomial is divisible by $x^3$, which belongs to $\mathcal B$ by (1). Thus
+\[
+n\le4.
+\]
+
+It remains to show that $x^2y\notin\mathcal B$. Suppose otherwise. Taking only homogeneous components of the relevant degrees, we could write
+\[
+x^2y=pP_2+qQ_1+rR_0,
+\tag{3}
+\]
+where $P_2,Q_1,R_0$ are homogeneous of degrees $2,1,0$, respectively.
+
+The coefficient of $x^3$ on the right of (3) is the coefficient of $x^2$ in $P_2$, so that coefficient must vanish. The same applies to $y^2$ and $z^2$. Hence write
+\[
+P_2=Axy+Byz+Czx,
+\]
+\[
+Q_1=Dx+Ey+Fz,
+\qquad
+R_0=G.
+\]
+Comparing the coefficients of
+\[
+xy^2,\quad y^2z,\quad yz^2,\quad xz^2,\quad x^2z
+\]
+in (3) gives
+\[
+A+E=0,
+\quad
+B+E=0,
+\quad
+B+F=0,
+\quad
+C+F=0,
+\quad
+C+D=0.
+\]
+Thus
+\[
+A=B=C
+\qquad\text{and}\qquad
+D=E=F=-A.
+\]
+But the coefficient of $x^2y$ on the right of (3) is then
+\[
+A+D=0,
+\]
+whereas on the left it is $1$. This contradiction proves that $x^2y\notin\mathcal B$.
+
+Therefore the smallest possible value is
+\[
+\boxed{n=4}.
+\]

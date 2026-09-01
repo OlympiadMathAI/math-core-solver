@@ -1,0 +1,275 @@
+ID: 0327
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Number Theory
+
+SUBTOPICS: Modular Recurrences, Multiplicative Orders, Periodic Residues, Prime Divisors
+
+STATEMENT:
+For an odd prime $p$ and an integer $n$, let
+\[
+d_p(n)\in\{0,1,\ldots,p-1\}
+\]
+be the remainder of $n$ modulo $p$.
+
+A sequence
+\[
+(a_0,a_1,a_2,\ldots)
+\]
+is called a \emph{$p$-sequence} if $a_0$ is a positive integer coprime to $p$ and
+\[
+a_{n+1}=a_n+d_p(a_n)
+\qquad(n\ge0).
+\]
+
+\begin{enumerate}
+\item[(a)] Do there exist infinitely many primes $p$ for which there are two $p$-sequences $(a_n)$ and $(b_n)$ such that
+\[
+a_n>b_n
+\]
+for infinitely many $n$, and
+\[
+b_n>a_n
+\]
+for infinitely many $n$?
+
+\item[(b)] Do there exist infinitely many primes $p$ for which there are two $p$-sequences $(a_n)$ and $(b_n)$ such that
+\[
+a_0<b_0,
+\]
+but
+\[
+a_n>b_n
+\qquad(n\ge1)?
+\]
+\end{enumerate}
+
+SOLUTION 1:
+The answer to both parts is
+\[
+\boxed{\text{Yes}}.
+\]
+
+Fix an odd prime $p$, and let
+\[
+T=\operatorname{ord}_p(2)
+\]
+be the multiplicative order of $2$ modulo $p$.
+
+Consider any $p$-sequence $(x_n)$. Modulo $p$,
+\[
+x_{n+1}\equiv2x_n\pmod p,
+\]
+and hence
+\[
+x_n\equiv2^n x_0\pmod p.
+\tag{1}
+\]
+It follows that
+\[
+d_p(x_{n+T})=d_p(x_n)
+\]
+for every $n$. Define
+\[
+S_p(x_0)=\sum_{i=0}^{T-1}d_p(2^i x_0),
+\tag{2}
+\]
+where the arguments in (2) may be arbitrary integers. Then
+\[
+x_{n+kT}=x_n+kS_p(x_0)
+\qquad(n,k\ge0).
+\tag{3}
+\]
+Also,
+\[
+S_p(x_0)=S_p(2^t x_0)
+\qquad(t\ge0).
+\tag{4}
+\]
+
+For convenience, put
+\[
+S_p^+=S_p(1)
+=\sum_{i=0}^{T-1}d_p(2^i)
+\]
+and
+\[
+S_p^-=S_p(-1)
+=\sum_{i=0}^{T-1}d_p(-2^i).
+\]
+
+\textbf{Part (a).}
+
+Let $q>3$ be a prime, and choose a prime divisor
+\[
+p>3
+\]
+of
+\[
+2^q+1.
+\]
+Such a divisor exists. Indeed, $3\mid2^q+1$, but
+\[
+9\nmid2^q+1
+\]
+because $q\equiv1$ or $5\pmod6$.
+
+The order of $2$ modulo $p$ is
+\[
+T=2q.
+\]
+Indeed,
+\[
+2^q\equiv-1\pmod p,
+\]
+and the order can be neither $1$, $2$, nor $q$.
+
+Because multiplication by $2^q$ changes every nonzero residue to its negative, the two multisets
+\[
+\{d_p(2^i):0\le i<2q\}
+\]
+and
+\[
+\{d_p(-2^i):0\le i<2q\}
+\]
+coincide. Hence
+\[
+S_p^+=S_p^-.
+\tag{5}
+\]
+
+Let $(a_n)$ and $(b_n)$ be the $p$-sequences beginning with
+\[
+a_0=p+1,
+\qquad
+b_0=p-1.
+\]
+Then
+\[
+a_0>b_0,
+\]
+whereas
+\[
+a_1=p+2<2p-2=b_1.
+\]
+By (3) and (5),
+\[
+a_{2kq}=a_0+kS_p^+>b_0+kS_p^+=b_{2kq}
+\]
+and
+\[
+a_{2kq+1}=a_1+kS_p^+<b_1+kS_p^+=b_{2kq+1}
+\]
+for every $k\ge0$. Thus the inequalities alternate infinitely often.
+
+There are infinitely many possible primes $p$. If $q<r$ are distinct odd primes, then
+\[
+\gcd(2^q+1,2^r+1)=3.
+\]
+Therefore the prime divisors greater than $3$ obtained from different $q$ are distinct.
+
+\textbf{Part (b).}
+
+Let $q$ be an odd prime, and let $p$ be any prime divisor of
+\[
+2^q-1.
+\]
+Then
+\[
+T=q.
+\]
+The numbers $2^q-1$ corresponding to distinct prime values of $q$ are pairwise coprime, because
+\[
+\gcd(2^q-1,2^r-1)=2^{\gcd(q,r)}-1=1.
+\]
+Hence this construction also produces infinitely many primes $p$.
+
+For every nonzero residue $x$ modulo $p$,
+\[
+d_p(x)+d_p(-x)=p.
+\]
+There are $q$ terms in each of the sums defining $S_p^+$ and $S_p^-$, so
+\[
+S_p^++S_p^-=pq.
+\tag{6}
+\]
+The right-hand side is odd; consequently,
+\[
+S_p^+\ne S_p^-.
+\tag{7}
+\]
+
+We now choose initial values $x_0<y_0$ such that
+\[
+S_p(x_0)>S_p(y_0).
+\]
+If
+\[
+S_p^+>S_p^-,
+\]
+take
+\[
+x_0=1,\qquad y_0=p-1.
+\]
+If
+\[
+S_p^+<S_p^-,
+\]
+take
+\[
+x_0=p-1,\qquad y_0=p+1.
+\]
+In either case the required two inequalities hold.
+
+Let $(x_n)$ and $(y_n)$ be the corresponding $p$-sequences. For
+\[
+0\le r<q,
+\]
+equation (3) gives
+\[
+x_{Mq+r}-y_{Mq+r}
+=
+(x_r-y_r)
++
+M\bigl(S_p(x_0)-S_p(y_0)\bigr).
+\tag{8}
+\]
+Thus
+\[
+x_n>y_n
+\]
+for all sufficiently large $n$.
+
+The two sequences never meet. Indeed, if
+\[
+x_n=y_n,
+\]
+then by (4),
+\[
+S_p(x_0)=S_p(x_n)=S_p(y_n)=S_p(y_0),
+\]
+contrary to the choice of the initial values.
+
+Since $x_0<y_0$ but eventually $x_n>y_n$, there is a largest index $n_0$ for which
+\[
+x_{n_0}<y_{n_0}.
+\]
+Define
+\[
+a_n=x_{n+n_0},
+\qquad
+b_n=y_{n+n_0}.
+\]
+Then
+\[
+a_0<b_0,
+\]
+and, because equality never occurs,
+\[
+a_n>b_n
+\qquad(n\ge1).
+\]
+This proves part (b).

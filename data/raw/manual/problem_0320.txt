@@ -1,0 +1,386 @@
+ID: 0320
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Geometry
+
+SUBTOPICS: Incenter and Excenter Geometry, Miquel Point, Circle Tangency, Inversion, Spiral Similarity
+
+STATEMENT:
+Let $I$ and $I_A$ be the incenter and the $A$-excenter of an acute triangle $ABC$ with
+\[
+AB<AC.
+\]
+The incircle touches $BC$ at $D$. The line $AD$ meets the lines $BI_A$ and $CI_A$ at $E$ and $F$, respectively.
+
+Prove that the circumcircles of triangles
+\[
+AID
+\qquad\text{and}\qquad
+I_AEF
+\]
+are tangent to each other.
+
+SOLUTION 1:
+Use directed angles modulo $180^\circ$. Let
+\[
+\Gamma=(BICI_A),
+\qquad
+\omega=(I_AEF),
+\qquad
+\Omega=(AID).
+\]
+The circle $\Gamma$ has diameter $II_A$.
+
+Let $T\ne I_A$ be the second intersection of $\omega$ and $\Gamma$. The four lines
+\[
+BC,\qquad BI_A,\qquad CI_A,\qquad DEF
+\]
+form a complete quadrilateral. The point $T$ is its Miquel point, so
+\[
+T\in(BDE)
+\qquad\text{and}\qquad
+T\in(CDF).
+\tag{1}
+\]
+
+We first show that $T\in\Omega$. Using (1), the cyclic quadrilateral $BII_AT$, and the collinearities
+\[
+A,D,E,F\ \text{collinear},
+\qquad
+B,E,I_A\ \text{collinear},
+\qquad
+A,I,I_A\ \text{collinear},
+\]
+we get
+\[
+\begin{aligned}
+\measuredangle(DT,DA)
+&=\measuredangle(DT,DE)\\
+&=\measuredangle(BT,BE)\\
+&=\measuredangle(BT,BI_A)\\
+&=\measuredangle(IT,II_A)\\
+&=\measuredangle(IT,I_AA).
+\end{aligned}
+\]
+This is exactly the cyclicity condition for
+\[
+A,I,D,T,
+\]
+so $T\in\Omega$.
+
+Let $\ell$ be the tangent to $\omega$ at $T$. By the tangent--chord theorem,
+\[
+\measuredangle(TI_A,\ell)=\measuredangle(EI_A,ET).
+\]
+Using the cyclic quadrilaterals in (1) and $BICI_A$, we obtain
+\[
+\measuredangle(EI_A,ET)
+=
+\measuredangle(EB,ET)
+=
+\measuredangle(DB,DT).
+\]
+Since
+\[
+DI\perp DB
+\qquad\text{and}\qquad
+TI\perp TI_A,
+\]
+it follows that
+\[
+\begin{aligned}
+\measuredangle(TI,\ell)
+&=
+90^\circ+\measuredangle(TI_A,\ell)\\
+&=
+90^\circ+\measuredangle(DB,DT)\\
+&=
+\measuredangle(DI,DT).
+\end{aligned}
+\]
+By the tangent--chord theorem, $\ell$ is also tangent to $\Omega$ at $T$. Hence $\omega$ and $\Omega$ are tangent.
+
+SOLUTION 2:
+Keep the notation
+\[
+\Gamma=(BICI_A),
+\qquad
+\omega=(I_AEF),
+\qquad
+\Omega=(AID).
+\]
+
+Let $L$ be the point diametrically opposite $I$ on $\Omega$. Then
+\[
+\angle IAL=\angle IDL=90^\circ.
+\]
+Thus $AL$ is the external angle bisector at $A$, and
+\[
+DL\parallel BC.
+\tag{1}
+\]
+
+Let the line $LI$ meet $\Gamma$ again at $M$. Let $T$ be the foot of the perpendicular from $I$ to $I_AL$.
+
+Because
+\[
+IT\perp I_AT,
+\]
+we have $T\in\Gamma$. Since $T,L,I_A$ are collinear, we also have
+\[
+IT\perp LT,
+\]
+so $T\in\Omega$, whose diameter is $IL$. Thus $T$ is the second common point of $\Gamma$ and $\Omega$.
+
+We prove that $T\in\omega$. Directed-angle calculations give
+\[
+\measuredangle(LT,LM)=\measuredangle(AT,AI)
+\]
+and
+\[
+\measuredangle(MT,ML)
+=
+\measuredangle(MT,MI)
+=
+\measuredangle(I_AT,I_AI).
+\]
+Hence
+\[
+\triangle TML\sim\triangle TI_AA
+\]
+by a direct similarity. Let $\tau$ be the corresponding spiral similarity centred at $T$, so that
+\[
+\tau(M)=I_A,
+\qquad
+\tau(L)=A.
+\]
+
+From (1),
+\[
+\measuredangle(ML,LD)=\measuredangle(AI,AD),
+\]
+and therefore
+\[
+\tau(BC)=AD.
+\tag{2}
+\]
+
+Moreover,
+\[
+\begin{aligned}
+\measuredangle(MB,ML)
+&=\measuredangle(MB,MI)\\
+&=\measuredangle(I_AB,I_AI)\\
+&=\measuredangle(I_AE,I_AA).
+\end{aligned}
+\]
+Together with (2), this gives
+\[
+\tau(B)=E.
+\]
+Similarly,
+\[
+\tau(C)=F.
+\]
+
+The points $M,B,C,T$ lie on $\Gamma$. Their images
+\[
+I_A,E,F,T
+\]
+are therefore concyclic, so
+\[
+T\in\omega.
+\]
+
+Finally, since $\tau(L)=A$ and $\tau(B)=E$, the corresponding triangles give
+\[
+\measuredangle(AT,AL)
+=
+\measuredangle(ET,EB)
+=
+\measuredangle(EI_A,ET).
+\]
+By the tangent--chord theorem, the tangents to $\Omega$ and $\omega$ at $T$ make the same angle with the common line
+\[
+I_A,T,L.
+\]
+Hence the two circles are tangent at $T$.
+
+SOLUTION 3:
+Perform an inversion centred at $D$, and denote the image of every point by a prime.
+
+The circle
+\[
+\Omega=(AID)
+\]
+passes through the centre of inversion, so it becomes the line
+\[
+\Omega'=A'I'.
+\]
+The other circle becomes
+\[
+\omega'=(E'F'I_A').
+\]
+It is enough to prove that the line $A'I'$ is tangent to $\omega'$.
+
+Put
+\[
+\beta=\angle BID,
+\qquad
+\gamma=\angle CID,
+\qquad
+\alpha=180^\circ-\beta-\gamma
+       =90^\circ-\angle BAI.
+\]
+
+A direct angle chase after inversion gives
+\[
+\angle DB'I'=\beta,
+\qquad
+\angle DC'I'=\gamma,
+\qquad
+\angle B'I'C'=\alpha,
+\tag{1}
+\]
+and
+\[
+\angle E'I_A'F'=180^\circ-\alpha.
+\tag{2}
+\]
+
+It also gives
+\[
+\angle A'E'B'
+=
+\beta
+=
+90^\circ-\frac12\angle E'A'B'.
+\]
+Thus triangle $A'B'E'$ is isosceles and
+\[
+A'B'=A'E'.
+\tag{3}
+\]
+Similarly,
+\[
+A'C'=A'F'.
+\tag{4}
+\]
+
+A further directed-angle calculation gives
+\[
+\begin{aligned}
+\angle A'B'I'
+&=\angle I'B'D-\angle A'B'D\\
+&=\beta-\angle BAD\\
+&=\beta-(90^\circ-\alpha)+\angle IAD\\
+&=\angle ICD+\angle IAD\\
+&=\angle C'I'D+\angle A'I'D\\
+&=\angle C'I'A'.
+\end{aligned}
+\]
+Similarly,
+\[
+\angle A'C'I'=\angle A'I'B'.
+\]
+Hence there is a direct similarity
+\[
+\triangle A'B'I'\sim\triangle A'I'C'.
+\]
+Consequently,
+\[
+A'I'^2=A'B'\cdot A'C'.
+\tag{5}
+\]
+Combining (3)--(5),
+\[
+A'E'\cdot A'F'=A'I'^2.
+\tag{6}
+\]
+
+Let $T'$ be the reflection of $I'$ in $A'$. Then
+\[
+A'T'=A'I',
+\]
+so (6) becomes
+\[
+A'T'^2=A'E'\cdot A'F'.
+\tag{7}
+\]
+
+We now show that $T'\in\omega'$. The similarity
+\[
+\triangle A'B'I'\sim\triangle A'I'C'
+\]
+and the fact that $A'$ is the midpoint of $I'T'$ imply that
+\[
+B',I',C',T'
+\]
+form a harmonic cyclic quadrilateral. We include the geometric verification from the official solution.
+
+Let $C^*$ be the reflection of $C'$ in the perpendicular bisector of $I'T'$. Since $A'$ is the midpoint of $I'T'$ and
+\[
+\angle B'A'I'=\angle A'I'C'=\angle T'I'C^*,
+\]
+the point $C^*$ lies on $B'A'$. Furthermore,
+\[
+A'B'\cdot A'C^*
+=
+A'B'\cdot A'C'
+=
+A'I'^2
+=
+A'I'\cdot A'T'.
+\]
+Thus $C^*$ lies on the circle $(I'B'T')$. Reflection in the perpendicular bisector of $I'T'$ preserves this circle and maps $C^*$ to $C'$, so
+\[
+B',I',C',T'
+\]
+are concyclic.
+
+The line $B'C^*$ passes through the midpoint $A'$ of $I'T'$, and hence is a median of triangle $B'I'T'$. In the cyclic configuration above, the line $B'C'$ is the corresponding symmedian; this establishes the harmonicity and gives
+\[
+\angle A'B'T'=\angle I'B'C'.
+\]
+Similarly,
+\[
+\angle A'C'T'=\angle I'C'B'.
+\tag{8}
+\]
+
+By (1) and the isosceles triangles from (3)--(4),
+\[
+\angle I'B'C'=\beta=\angle A'B'E',
+\]
+so (8) gives
+\[
+E'\in B'T'.
+\]
+Similarly,
+\[
+F'\in C'T'.
+\]
+Therefore,
+\[
+\angle E'T'F'
+=
+\angle B'T'C'
+=
+\angle B'I'C'
+=
+\alpha.
+\]
+Together with (2), this proves that
+\[
+E',T',F',I_A'
+\]
+are concyclic; hence $T'\in\omega'$.
+
+Finally, (7) says that the power of $A'$ with respect to $\omega'$ equals $A'T'^2$. Thus the line $A'T'$ is tangent to $\omega'$ at $T'$. Since $A',I',T'$ are collinear, this is precisely the line
+\[
+\Omega'=A'I'.
+\]
+Inverting back proves that $\Omega$ and $\omega$ are tangent.

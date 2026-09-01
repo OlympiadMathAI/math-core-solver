@@ -1,0 +1,18 @@
+{
+  "id": "0307",
+  "source": "IMO Shortlist",
+  "year": "2020",
+  "topic": "Combinatorics",
+  "subtopics": [
+    "Permutations",
+    "Fibonacci Numbers",
+    "Recurrence Relations",
+    "Induction",
+    "Tilings"
+  ],
+  "statement": "Let $n$ be a positive integer. Find the number of permutations\n\\[\na_1,a_2,\\ldots,a_n\n\\]\nof $1,2,\\ldots,n$ satisfying\n\\[\na_1\\le2a_2\\le3a_3\\le\\cdots\\le na_n.\n\\tag{1}\n\\]",
+  "solutions": [
+    "The answer is\n\\[\n\\boxed{F_{n+1}},\n\\]\nwhere\n\\[\nF_1=F_2=1,\n\\qquad\nF_{m+1}=F_m+F_{m-1}.\n\\]\n\nLet $P_n$ be the number of permutations satisfying (1). Clearly,\n\\[\nP_1=1,\n\\qquad\nP_2=2.\n\\]\n\nWe first prove a structural lemma.\n\n\\textbf{Lemma.}\nFor $n\\ge3$, every permutation satisfying (1) has either\n\\[\na_n=n,\n\\]\nor\n\\[\n(a_{n-1},a_n)=(n,n-1).\n\\]\n\n\\textit{Proof.}\nLet $a_k=n$.\n\nIf $k=n$, there is nothing to prove. If $k=n-1$, then\n\\[\nn(n-1)=(n-1)a_{n-1}\\le na_n,\n\\]\nso $a_n\\ge n-1$. Since $a_n\\ne n$, we get $a_n=n-1$.\n\nSuppose now that $k\\le n-2$. For every $i$ with $k<i<n$,\n\\[\nkn=ka_k\\le ia_i<na_i,\n\\]\nso $a_i\\ge k+1$. Furthermore,\n\\[\nna_n\\ge(n-1)a_{n-1}\\ge(n-1)(k+1)>nk,\n\\]\nso $a_n\\ge k+1$ as well. Hence the $n-k+1$ entries\n\\[\na_k,a_{k+1},\\ldots,a_n\n\\]\nare all greater than $k$, although only $n-k$ values among $1,\\ldots,n$ are greater than $k$. This is impossible. $\\square$\n\nIf $a_n=n$, then the first $n-1$ entries form any valid permutation of $1,\\ldots,n-1$. Conversely, appending $n$ to such a permutation preserves the final inequality because\n\\[\n(n-1)a_{n-1}\\le(n-1)^2<n^2=na_n.\n\\]\nThis gives $P_{n-1}$ possibilities.\n\nIf\n\\[\n(a_{n-1},a_n)=(n,n-1),\n\\]\nthen the first $n-2$ entries form any valid permutation of $1,\\ldots,n-2$. Conversely, appending $n,n-1$ works because\n\\[\n(n-2)a_{n-2}\\le(n-2)^2<n(n-1)\n\\]\nand\n\\[\n(n-1)a_{n-1}=n(n-1)=na_n.\n\\]\nThis gives $P_{n-2}$ possibilities.\n\nTherefore\n\\[\nP_n=P_{n-1}+P_{n-2}\n\\qquad(n\\ge3).\n\\]\nTogether with $P_1=F_2$ and $P_2=F_3$, this yields\n\\[\nP_n=F_{n+1}.\n\\]",
+    "We prove that the valid permutations are exactly those obtained by partitioning\n\\[\n1,2,\\ldots,n\n\\]\ninto singletons and adjacent pairs, leaving every singleton fixed and reversing every pair. Such partitions are tilings of a row of length $n$ by monominoes and dominoes, so their number is $F_{n+1}$.\n\nWe establish the characterization inductively. Suppose that a valid permutation satisfies\n\\[\n\\{a_1,\\ldots,a_{k-1}\\}=\\{1,\\ldots,k-1\\}.\n\\tag{2}\n\\]\nLet $a_t=k$. Since $k$ does not occur before position $k$, we have $t\\ge k$.\n\nIf $t=k$, then $a_k=k$, corresponding to a singleton.\n\nSuppose $t>k$. Among\n\\[\na_k,a_{k+1},\\ldots,a_{t-1}\n\\]\nthere is an entry $a_i\\ge t$, because there are $t-k$ entries but only $t-k-1$ integers strictly between $k$ and $t$. Using (1),\n\\[\nkt=ta_t\\ge ia_i\\ge it\\ge kt.\n\\]\nThus equality holds throughout, so\n\\[\ni=k,\n\\qquad\na_k=t.\n\\]\nIf $t=k+1$, then\n\\[\n(a_k,a_{k+1})=(k+1,k),\n\\]\ncorresponding to one reversed adjacent pair.\n\nIt remains to exclude $t>k+1$. Equality throughout the chain\n\\[\nka_k\\le(k+1)a_{k+1}\\le\\cdots\\le ta_t\n\\]\nwould give\n\\[\n(t-1)a_{t-1}=kt,\n\\]\nand hence\n\\[\na_{t-1}=\\frac{kt}{t-1}=k+\\frac{k}{t-1}.\n\\]\nBut $0<k<t-1$, so this is not an integer, a contradiction.\n\nStarting with $k=1$ and applying the argument successively proves the claimed description. Therefore the number of valid permutations is the number of monomino-domino tilings of a row of length $n$, namely\n\\[\n\\boxed{F_{n+1}}.\n\\]"
+  ]
+}

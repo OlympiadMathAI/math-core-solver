@@ -1,0 +1,16 @@
+{
+  "id": "0310",
+  "source": "IMO Shortlist",
+  "year": "2020",
+  "topic": "Combinatorics",
+  "subtopics": [
+    "Fibonacci Numbers",
+    "Graphs",
+    "Acyclic Graphs",
+    "Extremal Set Construction"
+  ],
+  "statement": "The Fibonacci numbers are defined by\n\\[\nF_0=0,\\qquad F_1=1,\\qquad F_{m+1}=F_m+F_{m-1}\\quad(m\\ge1).\n\\]\nGiven an integer $n\\ge2$, determine the smallest possible size of a set $S$ of integers such that, for every\n\\[\nk=2,3,\\ldots,n,\n\\]\nthere are $x,y\\in S$ satisfying\n\\[\nx-y=F_k.\n\\]",
+  "solutions": [
+    "The answer is\n\\[\n\\boxed{\\left\\lceil\\frac n2\\right\\rceil+1}.\n\\]\n\nPut\n\\[\nd=\\left\\lceil\\frac n2\\right\\rceil,\n\\]\nso\n\\[\nn\\le2d\\le n+1.\n\\]\n\nWe first prove the lower bound. Suppose $S$ satisfies the required condition. Construct a graph whose vertices are the elements of $S$. For every\n\\[\nk=1,2,\\ldots,d,\n\\]\nchoose an edge whose endpoints differ by\n\\[\nF_{2k-1}.\n\\]\nThis is possible: for $k\\ge2$, we have\n\\[\n3\\le2k-1\\le2d-1\\le n,\n\\]\nwhile for $k=1$ we use\n\\[\nF_1=F_2=1.\n\\]\nThe $d$ chosen edge lengths\n\\[\nF_1,F_3,\\ldots,F_{2d-1}\n\\]\nare distinct.\n\nWe claim that this graph is acyclic. Suppose it contained a cycle, and let its longest edge have length\n\\[\nF_{2m+1}.\n\\]\nAll other edges of the cycle have distinct lengths chosen from\n\\[\nF_1,F_3,\\ldots,F_{2m-1}.\n\\]\nBy the triangle inequality,\n\\[\nF_{2m+1}\n\\le\nF_1+F_3+\\cdots+F_{2m-1}.\n\\]\nBut\n\\[\n\\begin{aligned}\nF_1+F_3+\\cdots+F_{2m-1}\n&=F_2+(F_4-F_2)+\\cdots+(F_{2m}-F_{2m-2})\\\\\n&=F_{2m}<F_{2m+1},\n\\end{aligned}\n\\]\na contradiction.\n\nAn acyclic graph with $d$ edges has at least $d+1$ vertices. Therefore\n\\[\n|S|\\ge d+1.\n\\]\n\nFor the matching construction, take\n\\[\nS=\\{F_0,F_2,F_4,\\ldots,F_{2d}\\}.\n\\]\nThis set has $d+1$ elements. For every $1\\le k\\le d$,\n\\[\nF_{2k}-F_{2k-2}=F_{2k-1}\n\\]\nand\n\\[\nF_{2k}-F_0=F_{2k}.\n\\]\nThus every Fibonacci number\n\\[\nF_1,F_2,\\ldots,F_{2d}\n\\]\noccurs as a difference of two elements of $S$. Since $n\\le2d$, all the required differences occur.\n\nHence the minimum size is\n\\[\n\\boxed{\\left\\lceil\\frac n2\\right\\rceil+1}.\n\\]"
+  ]
+}

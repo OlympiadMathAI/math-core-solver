@@ -1,0 +1,16 @@
+{
+  "id": "0303",
+  "source": "IMO Shortlist",
+  "year": "2020",
+  "topic": "Algebra",
+  "subtopics": [
+    "Polynomial Interpolation",
+    "Linear Algebra",
+    "Intermediate Value Theorem",
+    "Multisets"
+  ],
+  "statement": "A magician intends to perform the following trick. She announces a positive integer $n$, together with $2n$ real numbers\n\\[\nx_1<x_2<\\cdots<x_{2n}.\n\\]\nA member of the audience secretly chooses a polynomial $P(x)$ of degree $n$ with real coefficients, computes\n\\[\nP(x_1),P(x_2),\\ldots,P(x_{2n}),\n\\]\nand writes these $2n$ values on the blackboard in nondecreasing order. The magician then announces the secret polynomial.\n\nCan the magician choose $n$ and the numbers $x_1,\\ldots,x_{2n}$ so that she can always determine the polynomial?",
+  "solutions": [
+    "The answer is\n\\[\n\\boxed{\\text{No}}.\n\\]\n\nFix any positive integer $n$ and any real numbers\n\\[\nx_1<x_2<\\cdots<x_{2n}\n\\]\nchosen by the magician. We construct two distinct polynomials of degree $n$ that produce the same multiset of values.\n\nConsider a polynomial\n\\[\nP(x)=c_nx^n+c_{n-1}x^{n-1}+\\cdots+c_0.\n\\]\nImpose the $n$ homogeneous linear conditions\n\\[\nP(x_{2i-1})+P(x_{2i})=0\n\\qquad(1\\le i\\le n).\n\\tag{1}\n\\]\nThese are $n$ homogeneous linear equations in the $n+1$ unknown coefficients\n\\[\nc_0,c_1,\\ldots,c_n.\n\\]\nHence there is a nonzero solution, giving a nonzero polynomial $P$ of degree at most $n$ satisfying (1).\n\nFor every $i$, the values of $P$ at the endpoints of\n\\[\n[x_{2i-1},x_{2i}]\n\\]\nhave opposite signs or are both zero. By the intermediate value theorem, $P$ has a root in each of these $n$ pairwise disjoint intervals. Thus $P$ has at least $n$ distinct real roots. Since $P$ is nonzero and has degree at most $n$, it follows that\n\\[\n\\deg P=n.\n\\]\n\nNow define\n\\[\nQ(x)=-P(x).\n\\]\nThe polynomials $P$ and $Q$ are distinct and both have degree $n$. From (1),\n\\[\nP(x_{2i-1})=Q(x_{2i}),\n\\qquad\nP(x_{2i})=Q(x_{2i-1})\n\\]\nfor every $i$. Therefore\n\\[\n\\{P(x_1),\\ldots,P(x_{2n})\\}\n\\]\nand\n\\[\n\\{Q(x_1),\\ldots,Q(x_{2n})\\}\n\\]\nare the same multiset. Their nondecreasing lists are identical, so the magician cannot distinguish $P$ from $Q$.\n\nHence no strategy of the required kind exists."
+  ]
+}

@@ -1,0 +1,411 @@
+ID: 0313
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Minimax Structures, Finite Posets, Iterated Maps, Induction, Matrix Dominance
+
+STATEMENT:
+Consider a finite rectangular table with a real number $a(r,c)$ in the cell in row $r$ and column $c$.
+
+A pair $(R,C)$, where $R$ is a nonempty set of rows and $C$ is a nonempty set of columns, is called a \emph{saddle pair} if:
+
+\begin{enumerate}
+\item[(i)] for every row $r'$, there is a row $r\in R$ such that
+\[
+a(r,c)\ge a(r',c)
+\qquad\text{for every }c\in C;
+\]
+\item[(ii)] for every column $c'$, there is a column $c\in C$ such that
+\[
+a(r,c)\le a(r,c')
+\qquad\text{for every }r\in R.
+\]
+\end{enumerate}
+
+A saddle pair $(R,C)$ is called \emph{minimal} if it has no proper saddle subpair $(R',C')$ with
+\[
+R'\subseteq R,
+\qquad
+C'\subseteq C.
+\]
+
+Prove that any two minimal pairs contain the same number of rows.
+
+SOLUTION 1:
+Let
+\[
+(R_1,C_1)
+\qquad\text{and}\qquad
+(R_2,C_2)
+\]
+be two minimal pairs. Suppose, for contradiction, that
+\[
+|R_1|>|R_2|.
+\tag{1}
+\]
+We construct a proper saddle subpair of $(R_1,C_1)$.
+
+From the saddle properties, choose maps
+\[
+\rho_1:R_2\to R_1,
+\qquad
+\rho_2:R_1\to R_2,
+\]
+such that
+\[
+a(\rho_1(r_2),c_1)\ge a(r_2,c_1)
+\quad(r_2\in R_2,\ c_1\in C_1),
+\tag{2}
+\]
+and
+\[
+a(\rho_2(r_1),c_2)\ge a(r_1,c_2)
+\quad(r_1\in R_1,\ c_2\in C_2).
+\tag{3}
+\]
+Similarly choose
+\[
+\sigma_1:C_2\to C_1,
+\qquad
+\sigma_2:C_1\to C_2,
+\]
+such that
+\[
+a(r_1,\sigma_1(c_2))\le a(r_1,c_2)
+\quad(r_1\in R_1,\ c_2\in C_2),
+\tag{4}
+\]
+and
+\[
+a(r_2,\sigma_2(c_1))\le a(r_2,c_1)
+\quad(r_2\in R_2,\ c_1\in C_1).
+\tag{5}
+\]
+
+Put
+\[
+\rho=\rho_1\circ\rho_2:R_1\to R_1,
+\qquad
+\sigma=\sigma_1\circ\sigma_2:C_1\to C_1.
+\]
+Then
+\[
+|\rho(R_1)|\le|R_2|.
+\tag{6}
+\]
+Moreover, combining (2)--(5), for every $r\in R_1$ and $c\in C_1$,
+\[
+a(\rho(r),c)\ge a(r,\sigma(c)).
+\tag{7}
+\]
+
+Define
+\[
+R_i=\rho^i(R_1),
+\qquad
+C_i=\sigma^i(C_1)
+\qquad(i\ge0).
+\]
+These are descending chains of finite sets, so they eventually stabilize. Choose $N$ such that
+\[
+R_N=R_{N+1}=\cdots,
+\qquad
+C_N=C_{N+1}=\cdots.
+\]
+On $R_N$ and $C_N$, respectively, the maps $\rho$ and $\sigma$ are surjections and hence permutations. Choose an exponent $M\ge N$ for which
+\[
+\rho^M=\operatorname{id}_{R_N},
+\qquad
+\sigma^M=\operatorname{id}_{C_N}.
+\tag{8}
+\]
+
+We claim that $(R_N,C_N)$ is a saddle pair.
+
+Take any row $r'$. Since $(R_1,C_1)$ is a saddle pair, there is $r\in R_1$ with
+\[
+a(r,c)\ge a(r',c)
+\qquad(c\in C_1).
+\]
+Put
+\[
+r^*=\rho^M(r)\in R_N.
+\]
+Iterating (7), and using (8), for every $c\in C_N$ we obtain
+\[
+a(r^*,c)
+=a(\rho^M(r),c)
+\ge a(r,\sigma^M(c))
+=a(r,c)
+\ge a(r',c).
+\]
+Thus condition (i) holds. Condition (ii) follows symmetrically.
+
+Finally,
+\[
+|R_N|\le|\rho(R_1)|\le|R_2|<|R_1|
+\]
+by (1) and (6). Hence $(R_N,C_N)$ is a proper saddle subpair of the minimal pair $(R_1,C_1)$, a contradiction.
+
+Therefore
+\[
+|R_1|\le|R_2|.
+\]
+Interchanging the two pairs gives the reverse inequality, so
+\[
+|R_1|=|R_2|.
+\]
+
+SOLUTION 2:
+We prove a stronger statement.
+
+For rows, write
+\[
+r_1\succeq_C r_2
+\]
+if
+\[
+a(r_1,c)\ge a(r_2,c)
+\qquad(c\in C).
+\]
+For columns, write
+\[
+c_1\preceq_R c_2
+\]
+if
+\[
+a(r,c_1)\le a(r,c_2)
+\qquad(r\in R).
+\]
+Write $\equiv_C$ or $\equiv_R$ when equality holds throughout the indicated set.
+
+We first record a reduction lemma.
+
+\textbf{Lemma.}
+If $(R,C)$ is minimal, then deleting rows outside $R$ or columns outside $C$ leaves $(R,C)$ minimal in the smaller table.
+
+\textit{Proof.}
+The pair remains saddle. If one of its proper subpairs became saddle after the deletion, then the original saddle property of $(R,C)$ would extend the same domination relations to every deleted row and column. That subpair would already have been saddle in the original table, contradicting minimality. $\square$
+
+Given two minimal pairs, use the lemma to delete every row and column outside their union. If the two row sets overlap, duplicate every common row and assign one copy to each pair; do the same with common columns. Identical copies do not affect the saddle or minimality conditions. Thus it is enough to prove the following stronger claim.
+
+\textbf{Claim.}
+Suppose
+\[
+R=R_1\sqcup R_2,
+\qquad
+C=C_1\sqcup C_2,
+\]
+and both $(R_1,C_1)$ and $(R_2,C_2)$ are minimal. Then
+\[
+|R_1|=|R_2|,
+\qquad
+|C_1|=|C_2|,
+\tag{1}
+\]
+and there are bijections
+\[
+\begin{aligned}
+\rho_1&:R_2\to R_1,
+&
+\rho_1(r_2)&\equiv_{C_1}r_2,\\
+\rho_2&:R_1\to R_2,
+&
+\rho_2(r_1)&\equiv_{C_2}r_1,\\
+\sigma_1&:C_2\to C_1,
+&
+\sigma_1(c_2)&\equiv_{R_1}c_2,\\
+\sigma_2&:C_1\to C_2,
+&
+\sigma_2(c_1)&\equiv_{R_2}c_1.
+\end{aligned}
+\tag{2}
+\]
+
+We prove the claim by induction on
+\[
+|R|+|C|.
+\]
+
+In the smallest case, each of the four sets is a singleton. If
+\[
+R_i=\{r_i\},
+\qquad
+C_i=\{c_i\},
+\]
+the two saddle conditions give
+\[
+a(r_1,c_1)\ge a(r_2,c_1)\ge a(r_2,c_2)
+\ge a(r_1,c_2)\ge a(r_1,c_1).
+\]
+All four entries are equal, and the claim follows.
+
+For the induction step, choose maps
+\[
+\begin{aligned}
+\rho_1&:R_2\to R_1,
+&
+\rho_1(r_2)&\succeq_{C_1}r_2,\\
+\rho_2&:R_1\to R_2,
+&
+\rho_2(r_1)&\succeq_{C_2}r_1,\\
+\sigma_1&:C_2\to C_1,
+&
+\sigma_1(c_2)&\preceq_{R_1}c_2,\\
+\sigma_2&:C_1\to C_2,
+&
+\sigma_2(c_1)&\preceq_{R_2}c_1.
+\end{aligned}
+\tag{3}
+\]
+
+Assume first that all four maps are surjective. Then they are bijections and (1) follows. For $r_2\in R_2$ and $c_2\in C_2$, put
+\[
+c_1=\sigma_2^{-1}(c_2),
+\qquad
+c_2'=\sigma_1^{-1}(c_1).
+\]
+Using (3),
+\[
+\begin{aligned}
+a(r_2,c_2)
+&\le a(r_2,c_1)\\
+&\le a(\rho_1(r_2),c_1)\\
+&\le a(\rho_1(r_2),c_2')\\
+&\le a(\rho_2\rho_1(r_2),c_2').
+\end{aligned}
+\tag{4}
+\]
+Sum (4) over all $r_2\in R_2$ and $c_2\in C_2$. The first and last double sums are equal, because
+\[
+\rho_2\rho_1
+\quad\text{and}\quad
+\sigma_1^{-1}\sigma_2^{-1}
+\]
+are permutations. Hence every inequality in (4) is an equality. As $r_2$ and $c_2$ vary, this gives all four equalities in (2).
+
+It remains to prove that the maps in (3) must be surjective. Suppose, for contradiction, that $\rho_1$ is not. Put
+\[
+R_1'=\rho_1(R_2),
+\qquad
+C_1'=\sigma_1(C_2).
+\]
+Then
+\[
+R_1'\subsetneq R_1.
+\tag{5}
+\]
+
+Delete the rows in $R_1\setminus R_1'$ and the columns in $C_1\setminus C_1'$, obtaining a table $Q$. By (3), $(R_1',C_1')$ is a saddle pair in $Q$, while $(R_2,C_2)$ remains minimal by the lemma.
+
+Choose a minimal subpair
+\[
+(\widetilde R,\widetilde C)
+\subseteq
+(R_1',C_1')
+\]
+in $Q$, and restrict to the subtable with row set
+\[
+\widetilde R\sqcup R_2
+\]
+and column set
+\[
+\widetilde C\sqcup C_2.
+\]
+The induction hypothesis gives
+\[
+|R_2|
+=|\widetilde R|
+\le|R_1'|
+=|\rho_1(R_2)|
+\le|R_2|.
+\]
+Thus
+\[
+\widetilde R=R_1'
+\]
+and $\rho_1:R_2\to R_1'$ is a bijection. The same argument for columns gives
+\[
+\widetilde C=C_1'
+\]
+and $\sigma_1:C_2\to C_1'$ is a bijection. Hence $(R_1',C_1')$ is minimal in $Q$.
+
+Apply the induction hypothesis once more to the two complementary minimal pairs
+\[
+(R_1',C_1')
+\qquad\text{and}\qquad
+(R_2,C_2)
+\]
+in $Q$. It gives bijections
+\[
+\rho_1',\rho_2',\sigma_1',\sigma_2'
+\]
+satisfying the equality relations analogous to (2).
+
+We claim that
+\[
+\sigma_1=\sigma_1'.
+\tag{6}
+\]
+For every $c_2\in C_2$ and every $r\in R_1'$,
+\[
+a(r,\sigma_1(c_2))
+\le a(r,c_2)
+=a(r,\sigma_1'(c_2)).
+\tag{7}
+\]
+Suppose that the two image columns differ for some $c_2$, and put
+\[
+d=\sigma_1(c_2),
+\qquad
+d'=\sigma_1'(c_2).
+\]
+Delete $d'$ from $C_1'$.
+
+The row condition for $(R_1',C_1'\setminus\{d'\})$ is inherited from $(R_1',C_1')$. For the column condition, the deleted column $d'$ is represented by $d$, in view of (7). Every retained column of $C_1'$ represents itself. Finally, take any column $c\in C_2$. If $\sigma_1(c)\ne d'$, use the retained column $\sigma_1(c)$. If $\sigma_1(c)=d'$, then $c\ne c_2$ because $d\ne d'$; hence the bijectivity of $\sigma_1'$ gives
+\[
+\sigma_1'(c)\ne d',
+\]
+and this retained column is equal to $c$ on $R_1'$.
+
+Thus deleting $d'$ leaves a proper saddle subpair of $(R_1',C_1')$, contradicting minimality. This proves (6).
+
+We now show that $(R_1',C_1')$ is a saddle pair in the original table. It is enough to verify the row condition; the column condition is symmetric.
+
+Let $r^*$ be any row. If $r^*\in R_2$, then $\rho_1(r^*)\in R_1'$ dominates it on all of $C_1'$.
+
+Suppose $r^*\in R_1$. Choose $r_2\in R_2$ such that
+\[
+r_2\succeq_{C_2}r^*,
+\]
+and put
+\[
+r_1=(\rho_2')^{-1}(r_2)\in R_1'.
+\]
+Then
+\[
+r_1\equiv_{C_2}r_2\succeq_{C_2}r^*.
+\]
+For any $c_1\in C_1'$, let
+\[
+c_2=\sigma_1^{-1}(c_1).
+\]
+Using (3), (6), and the equality relation for $\sigma_1'$, we get
+\[
+\begin{aligned}
+a(r^*,c_1)
+&\le a(r^*,c_2)\\
+&\le a(r_1,c_2)\\
+&=a(r_1,\sigma_1'(c_2))\\
+&=a(r_1,c_1).
+\end{aligned}
+\]
+Thus $r_1$ dominates $r^*$ on $C_1'$.
+
+Therefore $(R_1',C_1')$ is a saddle subpair of $(R_1,C_1)$. By (5) it is proper, contradicting the minimality of $(R_1,C_1)$. Hence $\rho_1$ is surjective. By symmetry, all four maps in (3) are surjective, and the claim follows.
+
+In particular, any two minimal pairs have the same number of rows.

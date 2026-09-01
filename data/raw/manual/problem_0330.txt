@@ -1,0 +1,300 @@
+ID: 0330
+
+SOURCE: IMO Shortlist
+
+YEAR: 2020
+
+TOPIC: Number Theory
+
+SUBTOPICS: Divisibility, Inductive Ordering, Pigeonhole Principle, Unimodal Permutations
+
+STATEMENT:
+Let $S$ be a set of $n\ge3$ positive integers, none of which is a sum of two other distinct members of $S$.
+
+Prove that the elements of $S$ can be ordered as
+\[
+a_1,a_2,\ldots,a_n
+\]
+so that
+\[
+a_i\nmid a_{i-1}+a_{i+1}
+\]
+for every
+\[
+i=2,3,\ldots,n-1.
+\]
+
+SOLUTION 1:
+Call a set of positive integers \emph{good} if none of its elements is a sum of two other distinct elements of the set.
+
+We use the following observation.
+
+\textbf{Observation.}
+If $a,b,c$ are distinct elements of a good set and
+\[
+b>a,\qquad b>c,
+\]
+then
+\[
+b\nmid a+c.
+\]
+
+Indeed, goodness gives
+\[
+b\ne a+c.
+\]
+If $b\mid a+c$, then $a+c$ is a positive multiple of $b$ different from $b$, so
+\[
+a+c\ge2b.
+\]
+But
+\[
+a+c<2b,
+\]
+a contradiction.
+
+We prove the following stronger assertion.
+
+\textbf{Claim.}
+The elements of every good set of $n\ge2$ positive integers can be ordered as
+\[
+a_1,a_2,\ldots,a_n
+\]
+so that
+\[
+a_i\nmid a_{i-1}+a_{i+1}
+\qquad\text{and}\qquad
+a_i\nmid a_{i-1}-a_{i+1}
+\tag{1}
+\]
+for every $2\le i\le n-1$.
+
+Call an ordering satisfying (1) \emph{nice}. We use induction on $n$.
+
+For $n=2$, there are no restrictions.
+
+Let $n\ge3$, let
+\[
+a=\max S,
+\qquad
+T=S\setminus\{a\},
+\]
+and choose, by induction, a nice ordering
+\[
+b_1,b_2,\ldots,b_{n-1}
+\]
+of $T$.
+
+For every
+\[
+j=1,2,\ldots,n,
+\]
+insert $a$ into the $j$th gap:
+\[
+N_j=
+(b_1,\ldots,b_{j-1},a,b_j,\ldots,b_{n-1}).
+\]
+At the two ends, the missing terms are simply omitted.
+
+Suppose that $N_j$ is not nice. Any new violation must have its central element among
+\[
+b_{j-1},\ a,\ b_j.
+\]
+The central element cannot be $a$. It does not divide the nonzero difference
+\[
+b_{j-1}-b_j
+\]
+because its absolute value is smaller than $a$, and it does not divide
+\[
+b_{j-1}+b_j
+\]
+by the observation.
+
+Thus an offending central element is one of
+\[
+b_{j-1},b_j.
+\]
+Assign one such offending element to the index $j$.
+
+Assume, for contradiction, that none of the $n$ insertions is nice. There are $n$ indices but only $n-1$ elements of $T$, so some $b_k$ is assigned to two indices. The only insertions at which $b_k$ can become the centre of a new triple are
+\[
+j=k
+\qquad\text{and}\qquad
+j=k+1.
+\]
+Hence $b_k$ is assigned at both of them. There are signs
+\[
+\varepsilon_1,\varepsilon_2\in\{-1,1\}
+\]
+such that
+\[
+b_k\mid b_{k-1}+\varepsilon_1a
+\]
+and
+\[
+b_k\mid a+\varepsilon_2b_{k+1}.
+\]
+Therefore
+\[
+b_{k-1}\equiv-\varepsilon_1a
+\equiv
+\varepsilon_1\varepsilon_2b_{k+1}
+\pmod{b_k},
+\]
+so
+\[
+b_k\mid
+b_{k-1}-\varepsilon_1\varepsilon_2b_{k+1}.
+\]
+This contradicts the fact that the ordering of $T$ is nice.
+
+Thus at least one insertion is nice, completing the induction. The first divisibility in (1) gives the required ordering.
+
+SOLUTION 2:
+We prove another stronger statement.
+
+\textbf{Claim.}
+For every set $S$ of $n\ge3$ positive integers, its elements can be ordered as
+\[
+a_1,a_2,\ldots,a_n
+\]
+so that
+\[
+a_i\mid a_{i-1}+a_{i+1}
+\quad\Longrightarrow\quad
+a_i=\max S.
+\tag{1}
+\]
+
+For a good set, the observation from Solution 1 shows that the maximal element cannot divide the sum of its two distinct smaller neighbours. Hence the claim implies the problem.
+
+For $a<b$ in $S$, define $f(a,b)$ to be the unique integer in
+\[
+\{1,2,\ldots,a\}
+\]
+such that
+\[
+a\mid b+f(a,b).
+\tag{2}
+\]
+If
+\[
+a<b<c
+\qquad\text{and}\qquad
+b\mid a+c,
+\]
+then uniqueness in (2) gives
+\[
+a=f(b,c).
+\tag{3}
+\]
+
+Thus the claim follows from the following combinatorial lemma.
+
+\textbf{Lemma.}
+Let $S$ be a set of $n\ge3$ positive integers, and suppose that, for every $a<b$ in $S$, a value
+\[
+f(a,b)\in\{1,2,\ldots,a\}
+\]
+is specified. Then the elements of $S$ can be ordered as
+\[
+a_1,a_2,\ldots,a_n
+\]
+so that both of the following hold:
+
+\begin{enumerate}
+\item[(i)] the ordering is unimodal: for some $j$,
+\[
+a_1<a_2<\cdots<a_j>a_{j+1}>\cdots>a_n;
+\]
+\item[(ii)] if $a<b$ are adjacent in the ordering, then $f(a,b)$ is not adjacent to $a$.
+\end{enumerate}
+
+\textit{Proof.}
+For convenience, set
+\[
+f(x,y)=x
+\qquad\text{when }x\ge y;
+\]
+this imposes no additional restriction.
+
+Call an ordering satisfying (i)--(ii) \emph{$f$-nice}. We use induction on $n$.
+
+For $n=3$, place the maximal element in the middle. This ordering is clearly $f$-nice.
+
+Now let $n\ge4$, and let
+\[
+p<q
+\]
+be the two smallest elements of $S$. Put
+\[
+T=S\setminus\{p\}.
+\]
+Define a function $g$ on pairs $a<b$ in $T$ by
+\[
+g(a,b)=
+\begin{cases}
+q,&f(a,b)=p,\\
+f(a,b),&f(a,b)\ne p.
+\end{cases}
+\tag{4}
+\]
+Since every $a\in T$ satisfies $a\ge q$,
+\[
+g(a,b)\le a.
+\]
+
+By induction, choose a $g$-nice ordering
+\[
+b_1,b_2,\ldots,b_{n-1}
+\]
+of $T$. The smallest element $q$ must be at one end of a unimodal ordering. Reversing the ordering if necessary, assume
+\[
+b_1=q.
+\]
+
+The $g$-avoidance condition at the adjacent pair $b_2,b_3$ implies that
+\[
+f(b_2,b_3)\notin\{p,q\}.
+\tag{5}
+\]
+At the other end, the number
+\[
+f(b_{n-1},b_{n-2})
+\]
+differs from at least one of $p,q$. Choose
+\[
+r\in\{p,q\}
+\]
+different from it, and let
+\[
+s=p+q-r,
+\]
+so that
+\[
+\{r,s\}=\{p,q\}.
+\]
+
+Order $S$ as
+\[
+s,b_2,b_3,\ldots,b_{n-1},r.
+\tag{6}
+\]
+This ordering is unimodal, because both $p$ and $q$ are smaller than every element of
+\[
+T\setminus\{q\}.
+\]
+
+We verify the avoidance condition. For all unchanged internal adjacent pairs, it follows from the inductive hypothesis and (4). The only internal pairs whose neighbouring elements changed are the first and last ones; condition (5) handles the first, and the choice of $r$ handles the last. For each of the two new endpoint pairs, the value of $f$ is no greater than the smaller endpoint, and therefore cannot equal its only neighbour.
+
+Thus (6) is $f$-nice, completing the induction. $\square$
+
+We now prove the claim. Take the ordering supplied by the lemma for the function defined in (2). Suppose that a non-maximal central element $b$ divides the sum of its neighbours. By unimodality, one neighbour is smaller and the other is larger; write them as
+\[
+a<b<c.
+\]
+Equation (3) gives
+\[
+a=f(b,c).
+\]
+But $b$ and $c$ are adjacent, while $a$ is also adjacent to $b$, contradicting the $f$-avoidance condition. Therefore only the maximal element can divide a neighbouring sum, proving the claim and the problem.
