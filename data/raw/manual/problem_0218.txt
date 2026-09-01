@@ -1,0 +1,82 @@
+ID: 0218
+
+SOURCE: IMO Shortlist
+
+YEAR: 2017
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Pigeonhole Principle, Induction, Matrix Selection, Ordered Sets
+
+STATEMENT:
+Let $N\ge2$ be an integer. There are $N(N+1)$ soccer players of distinct heights standing in a row in an arbitrary order. Prove that one can remove $N(N-1)$ players so that, among the remaining $2N$ players, the two tallest stand next to each other, the third and fourth tallest stand next to each other, and so on, down to the two shortest.
+
+SOLUTION 1:
+Split the row into $N$ consecutive blocks of $N+1$ players. For each block $j$, list its players in decreasing order of height:
+\[
+x_{1,j}>x_{2,j}>\cdots>x_{N+1,j}.
+\]
+
+We now permute the columns, which only relabels the blocks. For
+\[
+k=1,2,\ldots,N-1,
+\]
+after the first $k-1$ columns have been fixed, move into column $k$ a remaining column for which the entry in row $k+1$ is largest. Thus
+\[
+x_{k+1,k}>x_{k+1,j}
+\qquad(j>k).
+\tag{1}
+\]
+
+Keep precisely the following $2N$ players:
+\[
+x_{1,1},x_{2,1},
+x_{2,2},x_{3,2},
+\ldots,
+x_{N,N},x_{N+1,N}.
+\tag{2}
+\]
+Within each column the entries decrease, while (1) compares successive columns. Hence the retained heights satisfy
+\[
+x_{1,1}>x_{2,1}>x_{2,2}>x_{3,2}>
+\cdots>x_{N,N}>x_{N+1,N}.
+\]
+Therefore the displayed pairs are respectively the tallest two, the next two, and so on.
+
+For every $k$, the pair
+\[
+x_{k,k},x_{k+1,k}
+\]
+comes from one original consecutive block. All other players from that block have been removed, so no remaining player stands between the two members of the pair. Thus every required pair is adjacent in the final row.
+
+SOLUTION 2:
+Partition the players by height into $N$ groups
+\[
+G_1,G_2,\ldots,G_N,
+\]
+where $G_1$ consists of the $N+1$ tallest players, $G_2$ of the next $N+1$, and so on.
+
+Scan the row from left to right until two scanned players belong to the same group, say $G_i$. Since there are only $N$ groups, this happens among the first $N+1$ scanned players. Keep those two players, remove every other scanned player, and remove every other player of $G_i$.
+
+The kept pair is adjacent in the remaining row, because every player originally standing between its members was scanned and removed. It also becomes a pair of consecutive heights among all players eventually retained, because every other member of its height group has been removed.
+
+Each other group lost at most one scanned player, so after the first stage there remain $N-1$ groups, each with at least $N$ unscanned players. Repeat the same procedure on the remaining row. More generally, when $r$ groups remain, each has at least $r+1$ unscanned players; the first repeated group appears after at most $r+1$ scans, and every other group loses at most one player.
+
+After $N$ stages, two players have been kept from every height group. Each chosen pair is adjacent in the final row, and the ordering of the height groups makes these pairs exactly the tallest two, the third and fourth tallest, and so on. Hence the required $2N$ players remain.
+
+SOLUTION 3:
+We prove the following lemma.
+
+\textbf{Lemma.}
+Suppose there are $N$ disjoint groups, each containing at least $N+1$ people, and all people have distinct heights. One can choose two people from every group so that, among all chosen people, the tallest two belong to one group, the next two belong to one group, and so on.
+
+\textit{Proof.}
+We use induction on $N$. The case $N=1$ is immediate.
+
+Number all people from tallest to shortest. Let $s$ be the smallest index such that among the first $s$ people, two belong to the same group, say $G_N$. These two people are numbered $i$ and $s$ with $i<s$.
+
+Choose them, discard the rest of $G_N$, and discard from every other group all people numbered at most $s$. By the minimality of $s$, every other group loses at most one person, so each still contains at least $N$ people. Apply the induction hypothesis to these $N-1$ groups.
+
+All people selected by induction have numbers greater than $s$, so the chosen pair $i,s$ is the tallest pair. The induction hypothesis pairs all remaining selected people in order of height. This proves the lemma. $\square$
+
+To solve the problem, split the original row into $N$ consecutive blocks of $N+1$ people and apply the lemma to these blocks. Within each block, remove everyone except its selected pair. Since the block was consecutive, the selected pair becomes adjacent. The lemma guarantees that the pairs occur consecutively in the height ordering, exactly as required.

@@ -1,0 +1,16 @@
+{
+  "id": "0212",
+  "source": "IMO Shortlist",
+  "year": "2017",
+  "topic": "Algebra",
+  "subtopics": [
+    "Functional Equations",
+    "Injectivity",
+    "Integer Translations",
+    "Symmetry"
+  ],
+  "statement": "Find all functions\n\\[\nf:\\mathbb R\\to\\mathbb R\n\\]\nsuch that\n\\[\nf\\bigl(f(x)f(y)\\bigr)+f(x+y)=f(xy)\n\\tag{1}\n\\]\nfor all real numbers $x,y$.",
+  "solutions": [
+    "The solutions are\n\\[\n\\boxed{f(x)=0,\\qquad f(x)=x-1,\\qquad f(x)=1-x.}\n\\]\n\nA direct substitution verifies all three functions.\n\nIf $f$ is a solution, then so is $-f$. We may therefore assume without loss of generality that\n\\[\nf(0)\\le0.\n\\tag{2}\n\\]\n\nFor every $x\\ne1$, choose\n\\[\ny=\\frac{x}{x-1}.\n\\]\nThen $x+y=xy$, so (1) gives\n\\[\nf\\left(f(x)f\\left(\\frac{x}{x-1}\\right)\\right)=0.\n\\tag{3}\n\\]\nIn particular, taking $x=0$,\n\\[\nf\\bigl(f(0)^2\\bigr)=0.\n\\tag{4}\n\\]\n\n\\textbf{Case 1: $f(0)=0$.}\n\nPut $y=0$ in (1):\n\\[\nf(f(x)f(0))+f(x)=f(0).\n\\]\nThus\n\\[\nf(x)=0\n\\]\nfor every $x$.\n\n\\textbf{Case 2: $f(0)<0$.}\n\nEquation (4) shows that $f$ has a zero. We claim that its only zero is $1$. Indeed, if\n\\[\nf(a)=0\n\\qquad\\text{and}\\qquad\na\\ne1,\n\\]\nthen applying (3) with $x=a$ gives\n\\[\nf(0)=0,\n\\]\na contradiction. Hence\n\\[\nf(1)=0,\n\\qquad\nf(a)=0\\Longrightarrow a=1.\n\\tag{5}\n\\]\nFrom (4),\n\\[\nf(0)^2=1.\n\\]\nTogether with (2),\n\\[\nf(0)=-1.\n\\tag{6}\n\\]\n\nPutting $y=1$ in (1), and using (5)--(6),\n\\[\nf(0)+f(x+1)=f(x),\n\\]\nso\n\\[\nf(x+1)=f(x)+1.\n\\]\nBy induction in both directions,\n\\[\nf(x+m)=f(x)+m\n\\qquad(x\\in\\mathbb R,\\ m\\in\\mathbb Z).\n\\tag{7}\n\\]\n\nWe next prove that $f$ is injective. Suppose\n\\[\nf(a)=f(b)\n\\qquad\\text{with }a\\ne b.\n\\]\nBy (7), for every integer $N$,\n\\[\nf(a+N+1)=f(b+N)+1.\n\\tag{8}\n\\]\nChoose a sufficiently negative integer $N$ so that there exist real numbers $u,v$ satisfying\n\\[\nu+v=a+N+1,\n\\qquad\nuv=b+N.\n\\]\nSuch $u,v$ exist because the discriminant is positive for sufficiently negative $N$. Neither is equal to $1$, since otherwise the two displayed equations would give $a=b$.\n\nApplying (1) to $u,v$ and using (8),\n\\[\nf(f(u)f(v))+1=0.\n\\]\nBy (7),\n\\[\nf(f(u)f(v)+1)=0.\n\\]\nThe uniqueness of the zero in (5) gives\n\\[\nf(u)f(v)=0.\n\\]\nThus $u=1$ or $v=1$, a contradiction. Hence $f$ is injective.\n\nNow take $(x,y)=(t,-t)$ in (1):\n\\[\nf(f(t)f(-t))+f(0)=f(-t^2).\n\\]\nUsing (6)--(7),\n\\[\nf(f(t)f(-t))=f(1-t^2).\n\\]\nInjectivity gives\n\\[\nf(t)f(-t)=1-t^2.\n\\tag{9}\n\\]\n\nNext take $(x,y)=(t,1-t)$. Since $f(1)=0$,\n\\[\nf(f(t)f(1-t))=f(t(1-t)).\n\\]\nInjectivity gives\n\\[\nf(t)f(1-t)=t(1-t).\n\\tag{10}\n\\]\nBy (7),\n\\[\nf(1-t)=f(-t)+1.\n\\]\nSubstituting this and (9) into (10),\n\\[\n1-t^2+f(t)=t-t^2,\n\\]\nso\n\\[\nf(t)=t-1\n\\]\nfor every real $t$.\n\nUnder the normalization $f(0)\\le0$, the only solutions are $0$ and $x-1$. Negating them adds the solution $1-x$, completing the classification."
+  ]
+}

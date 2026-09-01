@@ -1,0 +1,16 @@
+{
+  "id": "0209",
+  "source": "IMO Shortlist",
+  "year": "2017",
+  "topic": "Algebra",
+  "subtopics": [
+    "Finite Functions",
+    "Function Composition",
+    "Iteration",
+    "Stabilization of Images"
+  ],
+  "statement": "Let $S$ be a finite set, and let $\\mathcal A$ be the set of all functions from $S$ to $S$. Let\n\\[\nf\\in\\mathcal A,\n\\qquad\nT=f(S).\n\\]\nSuppose that\n\\[\nf\\circ g\\circ f\\ne g\\circ f\\circ g\n\\]\nfor every $g\\in\\mathcal A$ with $g\\ne f$. Prove that\n\\[\nf(T)=T.\n\\]",
+  "solutions": [
+    "For a positive integer $m$, write $f^m$ for the $m$-fold composition of $f$ with itself.\n\nWe first prove the following claim.\n\n\\textbf{Claim.}\nIf there exists an integer $n\\ge3$ such that\n\\[\nf^{n+2}=f^{2n+1},\n\\tag{1}\n\\]\nthen the restriction\n\\[\nf:T\\to T\n\\]\nis a bijection.\n\n\\textit{Proof.}\nSet\n\\[\ng=f^n.\n\\]\nEquation (1) says\n\\[\nf\\circ g\\circ f=g\\circ f\\circ g.\n\\]\nBy the hypothesis of the problem, this equality forces\n\\[\ng=f,\n\\]\nso\n\\[\nf^n=f.\n\\tag{2}\n\\]\n\nSince $n-2\\ge1$, the map $f^{n-2}$ sends $T$ into $T$. For every $t\\in T$, write $t=f(s)$. Then\n\\[\nf^{n-1}(t)=f^n(s)=f(s)=t\n\\]\nby (2). Hence, on $T$,\n\\[\nf^{n-2}\\circ f=f\\circ f^{n-2}=\\operatorname{id}_T.\n\\]\nThus $f:T\\to T$ is bijective. $\\square$\n\nIt remains to find an $n$ satisfying (1).\n\nFor $m\\ge0$, let\n\\[\nS_m=f^m(S).\n\\]\nThen\n\\[\nS=S_0\\supseteq S_1\\supseteq S_2\\supseteq\\cdots.\n\\]\nSince $S$ is finite, this descending chain eventually stabilizes. Thus there is an integer $k\\ge1$ and a set $S_\\infty$ such that\n\\[\nS_k=S_{k+1}=S_{k+2}=\\cdots=S_\\infty.\n\\]\nThe restriction\n\\[\nf:S_\\infty\\to S_\\infty\n\\]\nis surjective, and hence bijective because $S_\\infty$ is finite. Therefore it is a permutation of finite order: there exists $r\\ge1$ such that\n\\[\nf^r=\\operatorname{id}\n\\quad\\text{on }S_\\infty.\n\\]\nConsequently,\n\\[\nf^{m+r}=f^m\n\\quad\\text{as maps on }S\n\\qquad(m\\ge k).\n\\tag{3}\n\\]\n\nChoose\n\\[\nn=2kr+1.\n\\]\nThen\n\\[\nn+2=2kr+3\n\\]\nand\n\\[\n2n+1=4kr+3.\n\\]\nThese exponents are both at least $k$ and differ by the multiple $2kr$ of $r$. Repeated use of (3) gives\n\\[\nf^{n+2}=f^{2n+1}.\n\\]\nThe claim now implies that $f:T\\to T$ is bijective. Therefore\n\\[\nf(T)=T,\n\\]\nas desired."
+  ]
+}

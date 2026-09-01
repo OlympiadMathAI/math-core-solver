@@ -1,0 +1,158 @@
+ID: 0223
+
+SOURCE: IMO Shortlist
+
+YEAR: 2017
+
+TOPIC: Geometry
+
+SUBTOPICS: Angle Bisectors, Orthocenter, Tangential Pentagons, Brianchon's Theorem, Congruent Triangles
+
+STATEMENT:
+Let $ABCDE$ be a convex pentagon such that
+\[
+AB=BC=CD,
+\qquad
+\angle EAB=\angle BCD,
+\qquad
+\angle EDC=\angle CBA.
+\]
+Prove that the line through $E$ perpendicular to $BC$ and the segments $AC$ and $BD$ are concurrent.
+
+SOLUTION 1:
+Write $\angle A,\angle B,\angle C,\angle D,\angle E$ for the internal angles of the pentagon.
+
+The perpendicular bisector of $AC$ passes through $B$, and the perpendicular bisector of $BD$ passes through $C$. Let these two perpendicular bisectors meet at $I$. Then
+\[
+BI\perp AC,
+\qquad
+CI\perp BD.
+\]
+Consequently, if
+\[
+H=AC\cap BD,
+\]
+then $H$ is the orthocenter of $\triangle BIC$, and therefore
+\[
+IH\perp BC.
+\tag{1}
+\]
+It remains to prove that $E,I,H$ are collinear.
+
+We have
+\[
+IA=IC,
+\qquad
+IB=ID.
+\]
+Together with $AB=BC=CD$, this shows that
+\[
+\triangle IAB\cong\triangle ICB\cong\triangle ICD.
+\]
+Hence $IB$ and $IC$ bisect $\angle B$ and $\angle C$, respectively. Since
+\[
+\angle A=\angle C
+\quad\text{and}\quad
+\angle B=\angle D,
+\]
+the same congruences also show that $IA$ and $ID$ bisect $\angle A$ and $\angle D$.
+
+Thus $I$ is equidistant from the four consecutive side-lines
+\[
+EA,AB,BC,CD,DE.
+\]
+In particular, it is equidistant from $EA$ and $ED$, so $IE$ is the internal angle bisector of $\angle E$.
+
+Because the sum of the internal angles of the pentagon is $540^\circ$,
+\[
+\angle E=540^\circ-2\angle A-2\angle B.
+\tag{2}
+\]
+In the quadrilateral $ABIE$, using that $AI$ and $EI$ are angle bisectors, we obtain
+\[
+\begin{aligned}
+\angle BIE
+&=360^\circ-\angle EAB-\angle ABI-\angle AEI\\
+&=360^\circ-\angle A-\frac12\angle B-\frac12\angle E\\
+&=90^\circ+\frac12\angle B\\
+&=90^\circ+\angle IBC.
+\end{aligned}
+\]
+Therefore $IE\perp BC$. Comparing with (1), both $IE$ and $IH$ are the line through $I$ perpendicular to $BC$. Hence $E,I,H$ are collinear, and the required three lines are concurrent at $H$.
+
+SOLUTION 2:
+Define $I$ and $H$ as in Solution 1. The same congruence argument shows that all five internal angle bisectors of $ABCDE$ pass through $I$. Hence the pentagon has an incircle centered at $I$.
+
+Let this incircle touch $BC$ at $T$. Since $IT\perp BC$ and $IH\perp BC$, the points $I,H,T$ are collinear.
+
+Apply Brianchon's theorem to the degenerate circumscribed hexagon
+\[
+ABTCDE,
+\]
+whose consecutive side-lines are all tangent to the incircle; the two consecutive sides $BT$ and $TC$ lie on the same tangent line $BC$. Brianchon's theorem gives the concurrency of the three main diagonals
+\[
+AC,
+\qquad
+BD,
+\qquad
+ET.
+\]
+The first two meet at $H$, so $E,H,T$ are collinear. As $I,H,T$ are also collinear, the line $EH$ is perpendicular to $BC$. Thus the perpendicular from $E$ to $BC$, together with $AC$ and $BD$, passes through $H$.
+
+SOLUTION 3:
+As in Solution 1, let $I$ be the intersection of the perpendicular bisectors of $AC$ and $BD$, and let
+\[
+H=AC\cap BD.
+\]
+Then $IH\perp BC$, and the triangles $IAB$ and $ICD$ are congruent with the same orientation.
+
+Since the pentagon is convex,
+\[
+\angle E<180^\circ.
+\]
+Using $\angle A=\angle C$ and $\angle B=\angle D$, this implies
+\[
+\angle A+\angle B>180^\circ.
+\]
+Therefore the rays $EA$ and $CB$ meet at a point $P$, while the rays $BC$ and $ED$ meet at a point $Q$.
+
+We have
+\[
+\angle PBA=180^\circ-\angle B
+=180^\circ-\angle D
+=\angle QDC,
+\]
+and similarly
+\[
+\angle PAB=\angle QCD.
+\]
+Since $AB=CD$,
+\[
+\triangle PAB\cong\triangle QCD
+\]
+with the same orientation. In particular,
+\[
+\angle EPQ=\angle PQE,
+\]
+so
+\[
+EP=EQ.
+\tag{1}
+\]
+
+Combining this congruence with
+\[
+\triangle IAB\cong\triangle ICD
+\]
+shows that the quadrilaterals $PBIA$ and $QDIC$ are congruent. Hence
+\[
+IP=IQ.
+\tag{2}
+\]
+Equations (1) and (2) say that both $E$ and $I$ lie on the perpendicular bisector of $PQ$. Since $P,Q,B,C$ are collinear,
+\[
+EI\perp PQ,
+\qquad\text{hence}\qquad
+EI\perp BC.
+\]
+But $IH\perp BC$ as well, so $E,I,H$ are collinear. The desired concurrency follows.

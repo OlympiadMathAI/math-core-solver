@@ -1,0 +1,16 @@
+{
+  "id": "0215",
+  "source": "IMO Shortlist",
+  "year": "2017",
+  "topic": "Combinatorics",
+  "subtopics": [
+    "Checkerboard Coloring",
+    "Parity",
+    "Rectangle Tilings",
+    "Invariants"
+  ],
+  "statement": "A rectangle $R$ with odd integer side lengths is divided into smaller rectangles with integer side lengths. Prove that at least one of the smaller rectangles has distances from the four sides of $R$ that are either all odd or all even.",
+  "solutions": [
+    "Let the side lengths of $R$ be the odd integers $a$ and $b$. Divide $R$ into $ab$ unit squares and color them green and yellow in a checkerboard pattern. Since both side lengths are odd, the four corner unit squares of $R$ have the same color; call it green.\n\nCall an integer-sided rectangle \\emph{green} if all four of its corner unit squares are green, \\emph{yellow} if all four are yellow, and \\emph{mixed} otherwise. For any such rectangle:\n\n\\begin{itemize}\n\\item a mixed rectangle contains equally many green and yellow unit squares;\n\\item a green rectangle contains one more green square than yellow square;\n\\item a yellow rectangle contains one more yellow square than green square.\n\\end{itemize}\n\nThe large rectangle $R$ is green, so it contains more green unit squares than yellow ones. Therefore at least one smaller rectangle, say $S$, is green.\n\nLet the distances from $S$ to the top, bottom, left, and right sides of $R$ be\n\\[\nx,\\qquad y,\\qquad u,\\qquad v,\n\\]\nrespectively. Comparing the top-left corner squares of $R$ and $S$, which have the same color, gives\n\\[\nx+u\\equiv0\\pmod2.\n\\]\nThe other three pairs of corresponding green corners similarly give\n\\[\nx+v\\equiv0,\\qquad y+u\\equiv0,\\qquad y+v\\equiv0\\pmod2.\n\\]\nHence\n\\[\nx\\equiv y\\equiv u\\equiv v\\pmod2.\n\\]\nThus the four distances are either all even or all odd."
+  ]
+}

@@ -1,0 +1,256 @@
+ID: 0238
+
+SOURCE: IMO Shortlist
+
+YEAR: 2017
+
+TOPIC: Number Theory
+
+SUBTOPICS: Euclidean Algorithm, Continued Fractions, Quadratic Residues, Modular Inverses
+
+STATEMENT:
+Let $p$ be an odd prime and let $\mathbb Z_{>0}$ be the set of positive integers. Suppose that
+\[
+f:\mathbb Z_{>0}\times\mathbb Z_{>0}\to\{0,1\}
+\]
+satisfies:
+
+\begin{itemize}
+\item $f(1,1)=0$;
+\item for every relatively prime positive pair $(a,b)\ne(1,1)$,
+\[
+f(a,b)+f(b,a)=1;
+\]
+\item for every relatively prime positive pair $(a,b)$,
+\[
+f(a+b,b)=f(a,b).
+\]
+\end{itemize}
+
+Prove that
+\[
+\sum_{n=1}^{p-1}f(n^2,p)\ge\sqrt{2p}-2.
+\]
+
+SOLUTION 1:
+Let $\mathcal A$ be the set of coprime positive pairs. For $(a,b)\in\mathcal A$, there are integers $u,v$ with
+\[
+ua+vb=1.
+\]
+All such pairs are
+\[
+(u+kb,v-ka),
+\qquad k\in\mathbb Z.
+\]
+Hence there is a unique one satisfying
+\[
+-\frac b2<u\le\frac b2.
+\]
+Denote it by
+\[
+g(a,b)=(u,v).
+\]
+
+\textbf{Lemma.} If $g(a,b)=(u,v)$, then
+\[
+f(a,b)=1
+\quad\Longleftrightarrow\quad
+u>0.
+\tag{1}
+\]
+
+We prove this by induction on $a+b$. For $(a,b)=(1,1)$,
+\[
+g(1,1)=(0,1)
+\]
+and $f(1,1)=0$, so the assertion holds.
+
+Suppose first that $a>b$. Then
+\[
+g(a-b,b)=(u,v+u),
+\]
+and the third property gives
+\[
+f(a,b)=f(a-b,b).
+\]
+The induction hypothesis proves (1).
+
+Now suppose $a<b$. From
+\[
+vb=1-ua
+\qquad\text{and}\qquad
+-\frac b2<u\le\frac b2
+\]
+we obtain
+\[
+-\frac a2<v<\frac{a+1}{2}.
+\]
+Since $v$ is an integer,
+\[
+-\frac a2<v\le\frac a2.
+\tag{2}
+\]
+Thus
+\[
+g(b,a)=(v,u).
+\]
+Using the second and third properties,
+\[
+\begin{aligned}
+f(a,b)=1
+&\iff f(b,a)=0\\
+&\iff f(b-a,a)=0.
+\end{aligned}
+\]
+For the pair $(b-a,a)$,
+\[
+g(b-a,a)=(v,u+v).
+\]
+By induction,
+\[
+f(b-a,a)=0\iff v\le0.
+\]
+Finally, because $ua+vb=1$ and $b>a$,
+\[
+v\le0\iff u>0.
+\]
+This proves the lemma.
+
+For $b=p$, the number $u$ in $g(a,p)$ is the representative of the inverse of $a$ modulo $p$ lying in
+\[
+\left(-\frac p2,\frac p2\right].
+\]
+Thus
+\[
+f(a,p)=1
+\]
+exactly when the least positive inverse of $a$ modulo $p$ is less than $p/2$.
+
+As $n$ runs from $1$ to $p-1$, the multisets
+\[
+\{n^2\bmod p\}
+\qquad\text{and}\qquad
+\{n^{-2}\bmod p\}
+\]
+coincide: both contain each nonzero quadratic residue exactly twice. Therefore
+\[
+\sum_{n=1}^{p-1}f(n^2,p)
+=
+2\,\#\left\{
+q:\ 1\le q<\frac p2,\ 
+q\text{ is a quadratic residue modulo }p
+\right\}.
+\tag{3}
+\]
+Every ordinary square
+\[
+1^2,2^2,\ldots,
+\left\lfloor\sqrt{\frac p2}\right\rfloor^2
+\]
+is a distinct quadratic residue below $p/2$. Hence
+\[
+\begin{aligned}
+\sum_{n=1}^{p-1}f(n^2,p)
+&\ge
+2\left\lfloor\sqrt{\frac p2}\right\rfloor\\
+&>
+2\left(\sqrt{\frac p2}-1\right)
+=\sqrt{2p}-2.
+\end{aligned}
+\]
+This proves the required inequality.
+
+SOLUTION 2:
+We give a continued-fraction proof of the lemma used in Solution 1.
+
+For a coprime positive pair $(a,b)$, write the regular continued fraction
+\[
+\frac ab=[a_0;a_1,a_2,\ldots,a_k],
+\]
+where
+\[
+a_1,\ldots,a_k>0
+\qquad\text{and}\qquad
+a_k\ge2
+\]
+when $k>0$.
+
+\textbf{Claim.}
+\[
+f(a,b)=0
+\quad\Longleftrightarrow\quad
+k\text{ is even}.
+\tag{4}
+\]
+
+We induct on $b$. If $b=1$, repeated use of
+\[
+f(a+b,b)=f(a,b)
+\]
+gives
+\[
+f(a,1)=f(1,1)=0,
+\]
+and here $k=0$.
+
+For $b>1$, write
+\[
+a=qb+r,
+\qquad 0<r<b.
+\]
+Then
+\[
+f(a,b)=f(r,b)=1-f(b,r).
+\]
+Moreover,
+\[
+\frac ab=[q;a_1,\ldots,a_k],
+\qquad
+\frac br=[a_1;\ldots,a_k].
+\]
+The continued fractions on the right have lengths of opposite parity, so the induction hypothesis proves (4).
+
+If $k=0$, then $b=1$, $g(a,1)=(0,1)$, and the desired sign criterion is immediate. Assume now that $k>0$.
+
+Let
+\[
+\frac{p_i}{q_i}=[a_0;a_1,\ldots,a_i]
+\]
+be the convergents. Then
+\[
+a=p_k,
+\qquad
+b=q_k,
+\]
+and
+\[
+a q_{k-1}-b p_{k-1}=(-1)^{k-1}.
+\tag{5}
+\]
+If $k=1$, then $q_{k-1}=1\le b/2$. If $k>1$, the recurrence for the convergent denominators gives
+\[
+b=q_k=a_kq_{k-1}+q_{k-2}>2q_{k-1}.
+\]
+Therefore the normalized Bezout coefficient from Solution 1 is
+\[
+u=(-1)^{k-1}q_{k-1},
+\]
+which satisfies
+\[
+-\frac b2<u\le\frac b2.
+\]
+Consequently,
+\[
+u>0
+\quad\Longleftrightarrow\quad
+k\text{ is odd}
+\quad\Longleftrightarrow\quad
+f(a,b)=1.
+\]
+This recovers the lemma.
+
+Applying it with $b=p$ gives the same quadratic-residue count as in Solution 1, and therefore
+\[
+\sum_{n=1}^{p-1}f(n^2,p)
+\ge\sqrt{2p}-2.
+\]

@@ -1,0 +1,205 @@
+ID: 0210
+
+SOURCE: IMO Shortlist
+
+YEAR: 2017
+
+TOPIC: Algebra
+
+SUBTOPICS: Recurrence Relations, Extremal Principle, Bounding Sequences, Induction
+
+STATEMENT:
+A sequence of real numbers
+\[
+a_1,a_2,\ldots
+\]
+satisfies
+\[
+a_n=-\max_{\substack{i+j=n\\i,j\ge1}}(a_i+a_j)
+\]
+for every integer $n>2017$. Prove that the sequence is bounded.
+
+SOLUTION 1:
+Put
+\[
+D=2017.
+\]
+For $n>D$, define
+\[
+M_n=\max_{1\le k<n}a_k,
+\qquad
+m_n=-\min_{1\le k<n}a_k.
+\]
+Both sequences $(M_n)$ and $(m_n)$ are nondecreasing. It is enough to prove that they are bounded.
+
+Fix $n>D$. By the recurrence, for some positive integers $p,q$ with $p+q=n$,
+\[
+a_n=-(a_p+a_q).
+\]
+Since $a_p,a_q\le M_n$,
+\[
+a_n\ge-2M_n.
+\tag{1}
+\]
+
+Choose an index $k<n$ such that
+\[
+a_k=M_n.
+\]
+Then
+\[
+\begin{aligned}
+a_n
+&=-\max_{i+j=n}(a_i+a_j)\\
+&\le-(a_{n-k}+a_k)\\
+&=-a_{n-k}-M_n\\
+&\le m_n-M_n.
+\end{aligned}
+\tag{2}
+\]
+Equations (1) and (2) yield
+\[
+-2M_n\le a_n\le m_n-M_n.
+\]
+Therefore
+\[
+m_n\le m_{n+1}\le\max\{m_n,2M_n\},
+\tag{3}
+\]
+and
+\[
+M_n\le M_{n+1}\le\max\{M_n,m_n-M_n\}.
+\tag{4}
+\]
+
+Call an index $n>D$ \emph{lucky} if
+\[
+m_n\le2M_n.
+\]
+
+Suppose first that some index $n$ is lucky. From (3),
+\[
+m_{n+1}\le2M_n.
+\]
+From (4),
+\[
+M_{n+1}\le\max\{M_n,m_n-M_n\}=M_n.
+\]
+Since $M_{n+1}\ge M_n$, we have
+\[
+M_{n+1}=M_n.
+\]
+Moreover,
+\[
+m_{n+1}\le2M_{n+1},
+\]
+so $n+1$ is lucky. Repeating the argument, $M_j=M_n$ and $m_j\le2M_n$ for every $j\ge n$. Thus both sequences are bounded.
+
+Suppose instead that no index is lucky. Then
+\[
+2M_n<m_n
+\qquad(n>D).
+\]
+Equation (3) gives
+\[
+m_{n+1}=m_n
+\qquad(n>D).
+\]
+Hence $m_n$ is eventually constant. Also,
+\[
+M_n<\frac{m_n}{2},
+\]
+so $M_n$ is bounded as well.
+
+In both cases, $(M_n)$ and $(m_n)$ are bounded. Therefore the original sequence $(a_n)$ is bounded.
+
+SOLUTION 2:
+Again put
+\[
+D=2017.
+\]
+If the sequence is bounded above by some real number $Q$, then for every $n>D$,
+\[
+a_n\ge-2Q.
+\]
+Together with the finitely many initial terms, this would make the sequence bounded. It therefore suffices to prove that the sequence is bounded above.
+
+Assume, for contradiction, that it is not bounded above. Let
+\[
+\ell=\min\{a_1,\ldots,a_D\},
+\qquad
+L=\max\{a_1,\ldots,a_D\}.
+\]
+Call an index $n$ \emph{good} if
+\[
+n>D,\qquad
+a_n>a_i\ \text{for every }i<n,
+\qquad
+a_n>-2\ell.
+\tag{1}
+\]
+
+A good index exists. Indeed, choose $N$ with
+\[
+a_N>\max\{L,-2\ell\},
+\]
+and let $n$ be the first index at which the maximum of
+\[
+a_1,a_2,\ldots,a_N
+\]
+is attained. Then $n$ satisfies (1).
+
+Fix a good index $n$. For every positive $u,v$ with $u+v=n$, the recurrence gives
+\[
+a_n+a_u+a_v\le0.
+\tag{2}
+\]
+Choose $u\in\{1,\ldots,n-1\}$ so that $a_u$ is maximal, and put
+\[
+v=n-u.
+\]
+Then
+\[
+a_u\ge a_v.
+\]
+
+If $v\le D$, then
+\[
+a_u\ge a_v\ge\ell.
+\]
+Equation (2) gives
+\[
+a_n+2\ell\le0,
+\]
+contradicting $a_n>-2\ell$.
+
+Hence $v>D$. By the recurrence for $a_v$, there exist positive integers $w_1,w_2$ with
+\[
+w_1+w_2=v
+\]
+such that
+\[
+a_v+a_{w_1}+a_{w_2}=0.
+\tag{3}
+\]
+Combining (2) and (3),
+\[
+a_n+a_u\le a_{w_1}+a_{w_2}.
+\]
+Since $n$ is a record index,
+\[
+a_n>a_u.
+\]
+Therefore
+\[
+a_{w_1}+a_{w_2}>2a_u,
+\]
+so at least one of $a_{w_1},a_{w_2}$ is greater than $a_u$.
+
+But
+\[
+w_1,w_2<v<n,
+\]
+contradicting the choice of $u$ as an index with maximal value among all indices smaller than $n$.
+
+This contradiction proves that $(a_n)$ is bounded above, and hence it is bounded.

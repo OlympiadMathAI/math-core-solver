@@ -1,0 +1,146 @@
+ID: 0226
+
+SOURCE: IMO Shortlist
+
+YEAR: 2017
+
+TOPIC: Geometry
+
+SUBTOPICS: Excircle, Power of a Point, Radical Axis, Pole and Polar, Homothety
+
+STATEMENT:
+In a triangle $ABC$, let $\omega$ be the excircle opposite $A$. Let $D,E,F$ be the points where $\omega$ is tangent to the lines $BC,CA,AB$, respectively. The circle through $A,E,F$ meets the line $BC$ at $P$ and $Q$. Let $M$ be the midpoint of $AD$. Prove that the circle through $M,P,Q$ is tangent to $\omega$.
+
+SOLUTION 1:
+Let
+\[
+\Omega=(AEFPQ),
+\qquad
+\gamma=(MPQ),
+\]
+and let $A'$ be the center of the excircle $\omega$. Let the line $AD$ meet $\omega$ again at
+\[
+T\ne D.
+\]
+We shall prove that $\gamma$ and $\omega$ are tangent at $T$.
+
+First we show that
+\[
+P,Q,M,T
+\]
+are concyclic. Since
+\[
+A'E\perp AE
+\qquad\text{and}\qquad
+A'F\perp AF,
+\]
+the segment $AA'$ is a diameter of $\Omega$. Let $N$ be the midpoint of $DT$. Because
+\[
+A'D=A'T,
+\]
+we have
+\[
+A'N\perp DT=AD.
+\]
+Thus
+\[
+\angle A'NA=90^\circ,
+\]
+so $N\in\Omega$.
+
+Taking powers of $D$ with respect to $\Omega$ gives
+\[
+DP\cdot DQ=DA\cdot DN.
+\]
+Since $M$ is the midpoint of $AD$ and $N$ is the midpoint of $DT$,
+\[
+DA\cdot DN
+=2DM\cdot\frac{DT}{2}
+=DM\cdot DT.
+\]
+Therefore
+\[
+DP\cdot DQ=DM\cdot DT,
+\]
+which proves that $P,Q,M,T$ are concyclic.
+
+If $EF\parallel BC$, then $ABC$ is isosceles and the tangency follows immediately by symmetry. Assume henceforth that these lines are not parallel.
+
+Let the tangent to $\omega$ at $T$ meet $BC$ at $R$. Since $RD$ and $RT$ are tangent segments from $R$ to $\omega$,
+\[
+RD=RT.
+\tag{1}
+\]
+The line $A'R$ is the perpendicular bisector of $DT$, so $R,N,A'$ are collinear. In the right triangle $A'RD$, the segment $DN$ is the altitude to the hypotenuse $A'R$. Hence
+\[
+RD^2=RN\cdot RA'.
+\]
+Because $N,A',P,Q$ all lie on $\Omega$ and $R,N,A'$ are collinear,
+\[
+RN\cdot RA'=RP\cdot RQ.
+\]
+Using (1),
+\[
+RT^2=RP\cdot RQ.
+\]
+Since $T\in\gamma$, this is exactly the tangent-secant criterion showing that $RT$ is tangent to $\gamma$ at $T$. Thus $RT$ is a common tangent to $\omega$ and $\gamma$, and the two circles are tangent at $T$.
+
+SOLUTION 2:
+Retain the notation of Solution 1, including the already proved fact that
+\[
+P,Q,M,T
+\]
+are concyclic. We again assume $EF\not\parallel BC$.
+
+Let
+\[
+R=PQ\cap EF.
+\]
+The line $PQ$ is the radical axis of $\Omega$ and $\gamma$, while $EF$ is the radical axis of $\Omega$ and $\omega$. Hence $R$ is the radical center of
+\[
+\Omega,\gamma,\omega.
+\]
+
+With respect to $\omega$, the line $DR=BC$ is the polar of $D$, because it is tangent to $\omega$ at $D$. The line $EF$ is the polar of $A$, because $AE$ and $AF$ are the two tangents from $A$ to $\omega$. Therefore the intersection
+\[
+R=DR\cap EF
+\]
+is the pole of the line $AD=DT$.
+
+Since $T$ lies on the polar $AD$ of $R$, the point $R$ lies on the tangent to $\omega$ at $T$. Thus $RT$ is tangent to $\omega$.
+
+The circles $\gamma$ and $\omega$ meet at $T$, and their radical axis passes through the radical center $R$. Hence their radical axis is $RT$. Since this line is tangent to $\omega$ at $T$, it is tangent to $\gamma$ there as well. Therefore $\gamma$ and $\omega$ are tangent at $T$.
+
+SOLUTION 3:
+Keep the notation of Solution 1 and the fact that
+\[
+P,Q,M,T
+\]
+are concyclic. Let $O$ be the midpoint of the diameter $AA'$ of $\Omega$, so $O$ is the center of $\Omega$.
+
+In the triangle $ADA'$, the points $M$ and $O$ are the midpoints of $AD$ and $AA'$. Hence
+\[
+MO\parallel A'D.
+\]
+Since $A'D\perp BC=PQ$,
+\[
+MO\perp PQ.
+\]
+Thus the line $MO$ is the perpendicular bisector of the chord $PQ$ of $\Omega$. In particular,
+\[
+MP=MQ.
+\]
+
+As $P,Q,M,T$ lie on $\gamma$, this equality means that $M$ is the midpoint of one of the arcs $PQ$ of $\gamma$. Therefore the tangent $m$ to $\gamma$ at $M$ satisfies
+\[
+m\parallel PQ.
+\tag{1}
+\]
+
+Consider the homothety centered at $T$ with ratio
+\[
+\frac{TM}{TD}.
+\]
+It sends $D$ to $M$, and by (1) it sends the tangent line $PQ$ to the line $m$.
+
+The excircle $\omega$ passes through $T$ and is tangent to $PQ$ at $D$. Its image under this homothety is therefore a circle through $T$ tangent to $m$ at $M$. There is a unique such circle, namely $\gamma$. Hence the homothety sends $\omega$ to $\gamma$, and the two circles are tangent at their common point $T$.

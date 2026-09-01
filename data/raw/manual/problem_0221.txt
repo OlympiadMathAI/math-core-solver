@@ -1,0 +1,215 @@
+ID: 0221
+
+SOURCE: IMO Shortlist
+
+YEAR: 2017
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Set Operations, Increasing Functions, Functional Composition, Associativity
+
+STATEMENT:
+For a finite set $X$ of positive integers, let $f_X(k)$ be the $k$th smallest positive integer not belonging to $X$. For finite sets $X,Y$ of positive integers, define
+\[
+X*Y=X\cup\{f_X(y):y\in Y\}.
+\]
+
+Let $A$ contain $a>0$ positive integers and $B$ contain $b>0$ positive integers. Prove that if
+\[
+A*B=B*A,
+\]
+then
+\[
+\underbrace{A*A*\cdots*A}_{b\text{ copies of }A}
+=
+\underbrace{B*B*\cdots*B}_{a\text{ copies of }B}.
+\]
+
+SOLUTION 1:
+For a function $g:\mathbb Z_{>0}\to\mathbb Z_{>0}$ and a set $X$, write
+\[
+g(X)=\{g(x):x\in X\}.
+\]
+The range of $f_X$ is
+\[
+f_X(\mathbb Z_{>0})=\mathbb Z_{>0}\setminus X.
+\]
+
+We first prove that the operation $*$ is associative.
+
+\textbf{Lemma 1.}
+For finite sets $X,Y$,
+\[
+f_{X*Y}=f_X\circ f_Y.
+\tag{1}
+\]
+
+\textit{Proof.}
+Because $f_X$ is injective and has range $\mathbb Z_{>0}\setminus X$,
+\[
+\begin{aligned}
+f_{X*Y}(\mathbb Z_{>0})
+&=
+\mathbb Z_{>0}\setminus(X*Y)\\
+&=
+(\mathbb Z_{>0}\setminus X)\setminus f_X(Y)\\
+&=
+f_X(\mathbb Z_{>0}\setminus Y)\\
+&=
+f_X(f_Y(\mathbb Z_{>0})).
+\end{aligned}
+\]
+Both $f_{X*Y}$ and $f_X\circ f_Y$ are strictly increasing functions with this same range. A strictly increasing function from the positive integers is uniquely determined by its range, so (1) follows. $\square$
+
+Consequently,
+\[
+f_{(X*Y)*Z}
+=
+f_X\circ f_Y\circ f_Z
+=
+f_{X*(Y*Z)},
+\]
+and therefore
+\[
+(X*Y)*Z=X*(Y*Z).
+\]
+We may hence omit parentheses. Write
+\[
+X^{*k}=\underbrace{X*X*\cdots*X}_{k\text{ copies}}.
+\]
+
+We need one more lemma.
+
+\textbf{Lemma 2.}
+Suppose finite sets $X,Y$ satisfy
+\[
+X*Y=Y*X
+\qquad\text{and}\qquad
+|X|=|Y|.
+\]
+Then
+\[
+X=Y.
+\]
+
+\textit{Proof.}
+Assume otherwise, and let $s$ be the largest element belonging to exactly one of $X,Y$. Without loss of generality,
+\[
+s\in X\setminus Y.
+\]
+Put
+\[
+t=f_X(s).
+\]
+Since $t$ is the $s$th positive integer not in $X$,
+\[
+t=s+|X\cap\{1,2,\ldots,t\}|.
+\tag{2}
+\]
+We have $t>s$. The sets $X,Y$ agree above $s$ and have equal cardinality, so
+\[
+|X\cap\{1,\ldots,t\}|
+=
+|Y\cap\{1,\ldots,t\}|.
+\tag{3}
+\]
+Equations (2)--(3) show that exactly $s$ positive integers not exceeding $t$ are absent from $Y$. Moreover, $t\notin Y$: it is not in $X$, and $t>s$, where the two sets agree. Hence
+\[
+t=f_Y(s).
+\tag{4}
+\]
+
+Now $t\notin X*Y$. Indeed, $t\notin X$, and if
+\[
+t=f_X(y)
+\]
+for some $y\in Y$, the injectivity of $f_X$ and $t=f_X(s)$ would give $y=s$, contrary to $s\notin Y$.
+
+On the other hand, (4) and $s\in X$ give
+\[
+t=f_Y(s)\in Y*X.
+\]
+This contradicts $X*Y=Y*X$. $\square$
+
+The sets $A^{*b}$ and $B^{*a}$ both have cardinality $ab$, because
+\[
+|X*Y|=|X|+|Y|.
+\]
+Associativity and the relation $A*B=B*A$ allow every adjacent $A$ and $B$ to be interchanged, so
+\[
+A^{*b}*B^{*a}=B^{*a}*A^{*b}.
+\]
+Lemma 2 now gives
+\[
+A^{*b}=B^{*a},
+\]
+as required.
+
+SOLUTION 2:
+We use Lemma 1 from Solution 1. Put
+\[
+g=f_A,
+\qquad
+h=f_B.
+\]
+Since a finite set is determined by the range of its corresponding increasing function, the hypothesis
+\[
+A*B=B*A
+\]
+is equivalent, by Lemma 1, to
+\[
+g\circ h=h\circ g.
+\tag{1}
+\]
+Similarly, the desired conclusion is equivalent to
+\[
+g^b=h^a.
+\tag{2}
+\]
+
+Let
+\[
+p=\max A,
+\qquad
+q=\max B.
+\]
+For every sufficiently large $m$,
+\[
+g(m)=m+a,
+\qquad
+h(m)=m+b.
+\]
+Therefore
+\[
+g^b(m)=m+ab=h^a(m)
+\]
+for all sufficiently large $m$.
+
+Suppose (2) fails somewhere, and let $s$ be the largest positive integer for which
+\[
+g^b(s)\ne h^a(s).
+\tag{3}
+\]
+Both $g(s)$ and $h(s)$ are at least $s$. If both were equal to $s$, then (3) would be false. Interchanging $A$ and $B$ if necessary, assume
+\[
+g(s)>s.
+\]
+By the maximality of $s$, equation (2) holds at $g(s)$. Hence
+\[
+\begin{aligned}
+g(g^b(s))
+&=g^b(g(s))\\
+&=h^a(g(s))\\
+&=g(h^a(s)),
+\end{aligned}
+\]
+where the last equality follows from (1). Since $g$ is injective,
+\[
+g^b(s)=h^a(s),
+\]
+contradicting (3).
+
+Thus (2) holds for every positive integer, and hence
+\[
+A^{*b}=B^{*a}.
+\]

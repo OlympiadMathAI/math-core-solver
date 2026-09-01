@@ -1,0 +1,16 @@
+{
+  "id": "0233",
+  "source": "IMO Shortlist",
+  "year": "2017",
+  "topic": "Number Theory",
+  "subtopics": [
+    "Cyclic Sums",
+    "Prime Moduli",
+    "Pigeonhole Principle",
+    "Counterexamples"
+  ],
+  "statement": "Determine all integers $n\\ge2$ with the following property: for any integers\n\\[\na_1,a_2,\\ldots,a_n\n\\]\nwhose sum is not divisible by $n$, there exists an index $1\\le i\\le n$ such that none of the numbers\n\\[\na_i,\\quad a_i+a_{i+1},\\quad\\ldots,\\quad a_i+a_{i+1}+\\cdots+a_{i+n-1}\n\\]\nis divisible by $n$. Indices are read cyclically, so $a_i=a_{i-n}$ when $i>n$.",
+  "solutions": [
+    "The required integers are exactly the primes:\n\\[\n\\boxed{n\\text{ is prime}}.\n\\]\n\nSuppose first that $n$ is composite. Write\n\\[\nn=ab,\n\\qquad a,b\\ge2,\n\\]\nand set\n\\[\na_1=a_2=\\cdots=a_{n-1}=a,\n\\qquad\na_n=0.\n\\]\nThe total sum is\n\\[\na(n-1),\n\\]\nwhich is not divisible by $n=ab$.\n\nNevertheless, starting from any index, there is a cyclic block with sum $n$. If the starting index is at most $n-b$, take the next $b$ terms. Otherwise, take the next $b+1$ terms. In either case the chosen block contains exactly $b$ copies of $a$ and possibly the single zero $a_n$, so its sum is\n\\[\nab=n.\n\\]\nThus no composite $n$ has the property.\n\nNow let $n$ be prime. Suppose, for contradiction, that the property fails. Then there are integers $a_1,\\ldots,a_n$ with\n\\[\nA=a_1+\\cdots+a_n\\not\\equiv0\\pmod n\n\\tag{1}\n\\]\nsuch that from every starting index there is a nonempty cyclic block of length at most $n-1$ whose sum is divisible by $n$.\n\nConstruct integers\n\\[\n0=i_0<i_1<\\cdots<i_n\n\\]\nrecursively. Having chosen $i_s$, start at the cyclic index $i_s+1$ and choose\n\\[\n1\\le i_{s+1}-i_s\\le n-1\n\\]\nso that\n\\[\na_{i_s+1}+a_{i_s+2}+\\cdots+a_{i_{s+1}}\n\\equiv0\\pmod n.\n\\tag{2}\n\\]\n\nAmong the $n+1$ integers $i_0,i_1,\\ldots,i_n$, two are congruent modulo $n$. Choose\n\\[\n0\\le r<s\\le n\n\\]\nwith\n\\[\ni_s\\equiv i_r\\pmod n.\n\\]\nSumming (2) for $r\\le j<s$ gives\n\\[\na_{i_r+1}+a_{i_r+2}+\\cdots+a_{i_s}\n\\equiv0\\pmod n.\n\\tag{3}\n\\]\nWrite\n\\[\ni_s-i_r=kn.\n\\]\nSince each increment is at most $n-1$ and there are at most $n$ increments,\n\\[\n1\\le k\\le n-1.\n\\]\nThe block from $i_r+1$ to $i_s$ consists of exactly $k$ full turns around the cyclic sequence, so its sum is\n\\[\nkA.\n\\]\nBecause $n$ is prime, neither $k$ nor $A$ is divisible by $n$, contradicting (3).\n\nHence every prime $n$ has the stated property."
+  ]
+}

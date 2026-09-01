@@ -1,0 +1,17 @@
+{
+  "id": "0216",
+  "source": "IMO Shortlist",
+  "year": "2017",
+  "topic": "Combinatorics",
+  "subtopics": [
+    "Adjacent Transpositions",
+    "Inversion Counting",
+    "Graph Distance",
+    "Extremal Constructions"
+  ],
+  "statement": "Let $n$ be a positive integer. A \\emph{chameleon} is a sequence of $3n$ letters containing exactly $n$ occurrences of each of the letters $a,b,c$. A \\emph{swap} is the transposition of two adjacent letters.\n\nProve that for every chameleon $X$, there exists a chameleon $Y$ such that $X$ cannot be transformed into $Y$ using fewer than\n\\[\n\\frac{3n^2}{2}\n\\]\nswaps.",
+  "solutions": [
+    "Swapping two equal adjacent letters changes nothing, so we only count swaps of distinct letters.\n\nFor two chameleons $U,V$, let $d(U,V)$ be the minimum number of swaps needed to transform one into the other. This distance satisfies the triangle inequality.\n\nConsider\n\\[\nP=a^nb^nc^n\n\\qquad\\text{and}\\qquad\nQ=c^nb^na^n.\n\\]\nFor distinct letters $u,v\\in\\{a,b,c\\}$, let $f_{u,v}(W)$ be the number of pairs of positions in $W$ such that the left position contains $u$ and the right position contains $v$. Put\n\\[\nf(W)=f_{a,b}(W)+f_{a,c}(W)+f_{b,c}(W).\n\\]\nFor $P$,\n\\[\nf_{a,b}(P)=f_{a,c}(P)=f_{b,c}(P)=n^2,\n\\]\nso\n\\[\nf(P)=3n^2.\n\\]\nFor $Q$, all three quantities vanish, so\n\\[\nf(Q)=0.\n\\]\n\nA swap of two adjacent distinct letters changes exactly one of the three quantities defining $f$, and changes it by exactly $1$. Hence\n\\[\nd(U,V)\\ge |f(U)-f(V)|\n\\]\nfor all chameleons $U,V$. In particular,\n\\[\nd(P,Q)\\ge3n^2.\n\\]\n\nFor the given chameleon $X$, the triangle inequality gives\n\\[\nd(X,P)+d(X,Q)\\ge d(P,Q)\\ge3n^2.\n\\]\nTherefore\n\\[\n\\max\\{d(X,P),d(X,Q)\\}\\ge\\frac{3n^2}{2}.\n\\]\nTaking as $Y$ whichever of $P,Q$ is farther from $X$ proves the result.",
+    "For a chameleon $W$, let $s_c(W)$ be the sum of the positions occupied by the letters $c$, where the positions are numbered $1,2,\\ldots,3n$.\n\nDelete all occurrences of $c$ from $W$, obtaining a word $W_c$ of length $2n$. Let $s_{c,b}(W)$ be the sum of the positions occupied by $b$ in $W_c$.\n\nFor two chameleons $U,V$, define\n\\[\nd_1(U,V)\n=\n|s_c(U)-s_c(V)|\n+\n|s_{c,b}(U)-s_{c,b}(V)|.\n\\]\n\nIf an adjacent swap involves $c$, then $s_c$ changes by $1$ while $W_c$, and hence $s_{c,b}$, remains unchanged. If the swap is between $a$ and $b$, then $s_c$ is unchanged and $s_{c,b}$ changes by $1$. Thus every swap changes $d_1(U,\\cdot)$ by exactly $1$, and consequently\n\\[\nd(U,V)\\ge d_1(U,V).\n\\tag{1}\n\\]\n\nWe now construct $Y$. The minimum and maximum possible values of $s_c$ are\n\\[\nL_c=\\frac{n(n+1)}2\n\\qquad\\text{and}\\qquad\nU_c=\\frac{n(5n+1)}2,\n\\]\nwhose difference is $2n^2$. Put all $c$'s in the first $n$ positions of $Y$ or all of them in the last $n$ positions, choosing the endpoint farther from $s_c(X)$. Then\n\\[\n|s_c(X)-s_c(Y)|\\ge n^2.\n\\tag{2}\n\\]\n\nAmong the remaining $2n$ positions, the minimum and maximum possible values of $s_{c,b}$ are\n\\[\nL_b=\\frac{n(n+1)}2\n\\qquad\\text{and}\\qquad\nU_b=\\frac{n(3n+1)}2,\n\\]\nwhose difference is $n^2$. Put all $b$'s into either the first or the last $n$ available positions, choosing the farther endpoint. Fill the remaining positions with $a$. Then\n\\[\n|s_{c,b}(X)-s_{c,b}(Y)|\\ge\\frac{n^2}{2}.\n\\tag{3}\n\\]\n\nBy (1)--(3),\n\\[\nd(X,Y)\\ge d_1(X,Y)\\ge n^2+\\frac{n^2}{2}=\\frac{3n^2}{2}.\n\\]"
+  ]
+}

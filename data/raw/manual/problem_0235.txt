@@ -1,0 +1,140 @@
+ID: 0235
+
+SOURCE: IMO Shortlist
+
+YEAR: 2017
+
+TOPIC: Number Theory
+
+SUBTOPICS: Exponential Diophantine Equations, Multiplicative Orders, Modular Arithmetic, Inequalities
+
+STATEMENT:
+Find all pairs $(p,q)$ of prime numbers with $p>q$ for which
+\[
+\frac{(p+q)^{p+q}(p-q)^{p-q}-1}
+     {(p+q)^{p-q}(p-q)^{p+q}-1}
+\]
+is an integer.
+
+SOLUTION 1:
+The unique pair is
+\[
+\boxed{(p,q)=(3,2)}.
+\]
+
+Put
+\[
+M=(p+q)^{p-q}(p-q)^{p+q}-1.
+\]
+The assumption says that $M$ divides the numerator. Since $M$ is relatively prime to both $p+q$ and $p-q$, eliminating the $-1$ terms gives
+\[
+(p+q)^{2q}\equiv(p-q)^{2q}\pmod M,
+\tag{1}
+\]
+or equivalently
+\[
+\left((p+q)(p-q)^{-1}\right)^{2q}\equiv1\pmod M.
+\tag{2}
+\]
+
+\textbf{Case 1: $q\ge5$.}
+
+Here $p$ and $q$ are odd, so $M$ is odd. Let $r$ be any prime divisor of $M$. By (2), the multiplicative order of
+\[
+(p+q)(p-q)^{-1}\pmod r
+\]
+divides $2q$, hence is one of
+\[
+1,2,q,2q.
+\]
+If the order is $q$ or $2q$, Fermat's theorem gives
+\[
+r\equiv1\pmod q.
+\]
+If the order is $1$ or $2$, then
+\[
+r\mid(p+q)^2-(p-q)^2=4pq.
+\]
+Since $r$ is odd, $r=p$ or $r=q$.
+
+The possibility $r=p$ does not occur. Indeed,
+\[
+M\equiv q^{p-q}(-q)^{p+q}-1
+=q^{2p}-1
+\equiv q^2-1\pmod p,
+\]
+and neither $q-1$ nor $q+1$ is divisible by $p$, because
+\[
+0<q-1<q+1<p.
+\]
+Thus every prime divisor of $M$ is either $q$ or congruent to $1$ modulo $q$. Consequently, every positive divisor of $M$ is congruent to $0$ or $1$ modulo $q$.
+
+Now write
+\[
+M=(A-1)(A+1),
+\qquad
+A=(p+q)^{(p-q)/2}(p-q)^{(p+q)/2}.
+\]
+The factors $A-1$ and $A+1$ are positive divisors of $M$ differing by $2$. They cannot both be congruent to $0$ or $1$ modulo a prime $q\ge5$. This contradiction eliminates the case $q\ge5$.
+
+\textbf{Case 2: $q=2$.}
+
+From (1),
+\[
+M\mid(p+2)^4-(p-2)^4.
+\]
+Hence
+\[
+\begin{aligned}
+(p+2)^{p-2}(p-2)^{p+2}-1
+&\le(p+2)^4-(p-2)^4\\
+&\le(p+2)^4-1,
+\end{aligned}
+\]
+so
+\[
+(p+2)^{p-6}(p-2)^{p+2}\le1.
+\tag{3}
+\]
+If $p\ge7$, the left side of (3) is greater than $1$. For $p=5$, it equals
+\[
+7^{-1}3^7>1.
+\]
+Thus $p=3$ is the only possibility. It indeed works:
+\[
+\frac{5^5\cdot1-1}{5\cdot1^5-1}
+=\frac{3124}{4}=781.
+\]
+
+\textbf{Case 3: $q=3$.}
+
+Again (1) gives
+\[
+M\mid(p+3)^6-(p-3)^6
+=64\left(
+\left(\frac{p+3}{2}\right)^6-
+\left(\frac{p-3}{2}\right)^6
+\right).
+\]
+Here $M$ is odd, so it divides the expression in parentheses. Therefore
+\[
+(p+3)^{p-3}(p-3)^{p+3}-1
+\le
+\left(\frac{p+3}{2}\right)^6-1,
+\]
+and hence
+\[
+64(p+3)^{p-9}(p-3)^{p+3}\le1.
+\tag{4}
+\]
+For $p\ge11$, the left side is greater than $1$. The remaining primes give
+\[
+p=7:\quad64\cdot10^{-2}\cdot4^{10}>1,
+\]
+and
+\[
+p=5:\quad64\cdot8^{-4}\cdot2^8=4>1.
+\]
+Thus there is no solution with $q=3$.
+
+Therefore the only pair is $(3,2)$.

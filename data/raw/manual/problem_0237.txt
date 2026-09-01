@@ -1,0 +1,231 @@
+ID: 0237
+
+SOURCE: IMO Shortlist
+
+YEAR: 2017
+
+TOPIC: Number Theory
+
+SUBTOPICS: Homogeneous Polynomials, Chinese Remainder Theorem, Euler's Theorem, Interpolation
+
+STATEMENT:
+An ordered pair $(x,y)$ of integers is called an \emph{irreducible lattice point} if
+\[
+\gcd(x,y)=1.
+\]
+For every finite set $S$ of irreducible lattice points, prove that there exists a homogeneous polynomial
+\[
+f(x,y)\in\mathbb Z[x,y]
+\]
+of degree at least $1$ such that
+\[
+f(x,y)=1
+\]
+for every $(x,y)\in S$.
+
+A homogeneous polynomial of degree $n$ is a nonzero polynomial of the form
+\[
+a_0x^n+a_1x^{n-1}y+\cdots+a_{n-1}xy^{n-1}+a_ny^n.
+\]
+
+SOLUTION 1:
+If $S$ is empty, the polynomial $f(x,y)=x$ works. Assume henceforth that $S$ is nonempty.
+
+It is enough first to construct a homogeneous polynomial taking values $\pm1$ on $S$, because its square then takes the value $1$ everywhere on $S$.
+
+If two irreducible lattice points lie on the same line through the origin, they are negatives of one another. A homogeneous polynomial takes values differing only by a sign at such a pair. We may therefore keep one representative from each such line and square the final polynomial. Write the remaining points as
+\[
+(x_1,y_1),\ldots,(x_n,y_n),
+\]
+with no two collinear with the origin.
+
+For each $i$, define
+\[
+\ell_i(x,y)=y_i x-x_i y
+\]
+and
+\[
+g_i(x,y)=\prod_{j\ne i}\ell_j(x,y).
+\]
+Then
+\[
+g_i(x_j,y_j)=0\quad(j\ne i),
+\qquad
+a_i:=g_i(x_i,y_i)\ne0.
+\tag{1}
+\]
+Because $\gcd(x_i,y_i)=1$, there is a linear homogeneous polynomial $L_i$ with integer coefficients such that
+\[
+L_i(x_i,y_i)=1.
+\]
+Thus, for every $N\ge n-1$,
+\[
+h_i(x,y)=L_i(x,y)^{N-n+1}g_i(x,y)
+\]
+is homogeneous of degree $N$ and satisfies the same interpolation conditions (1).
+
+We need the following universal congruence construction.
+
+\textbf{Claim.} For every positive integer $A$, there is a positive-degree homogeneous polynomial
+\[
+F_A(x,y)\in\mathbb Z[x,y]
+\]
+such that
+\[
+F_A(x,y)\equiv1\pmod A
+\]
+whenever $\gcd(x,y)=1$.
+
+For $A=1$, take $F_A(x,y)=x$. For a prime power $A=p^r$, take
+\[
+F_A(x,y)=
+\bigl(x^{p-1}+y^{p-1}\bigr)^{\varphi(A)}
+\]
+if $p$ is odd, and
+\[
+F_A(x,y)=
+\bigl(x^2+xy+y^2\bigr)^{\varphi(A)}
+\]
+if $p=2$. In either case the expression inside the parentheses is coprime to $p$ whenever $\gcd(x,y)=1$, so Euler's theorem gives the desired congruence.
+
+For general
+\[
+A=q_1q_2\cdots q_s,
+\]
+where the $q_i$ are pairwise coprime prime powers, raise the corresponding $F_{q_i}$ to suitable powers so that all have the same degree; call the resulting polynomials $G_i$. Choose integers $c_i$ satisfying
+\[
+\sum_{i=1}^s c_i\frac{A}{q_i}=1.
+\]
+Then
+\[
+F_A(x,y)=
+\sum_{i=1}^s c_i\frac{A}{q_i}G_i(x,y)
+\]
+is homogeneous and is congruent to $1$ modulo every $q_i$, hence modulo $A$. This proves the claim.
+
+Now take
+\[
+A=\operatorname{lcm}(|a_1|,\ldots,|a_n|).
+\]
+Choose a power $F_A^k$ whose degree is some $N\ge n-1$, and choose the polynomials $h_i$ above with the same degree. Since
+\[
+F_A(x_i,y_i)^k\equiv1\pmod{|a_i|},
+\]
+the integers
+\[
+\lambda_i=
+\frac{F_A(x_i,y_i)^k-1}{a_i}
+\]
+are well defined. Set
+\[
+G(x,y)=F_A(x,y)^k-
+\sum_{i=1}^n\lambda_i h_i(x,y).
+\]
+At $(x_i,y_i)$, all terms $h_j$ with $j\ne i$ vanish, while
+\[
+h_i(x_i,y_i)=a_i.
+\]
+Therefore
+\[
+G(x_i,y_i)=1.
+\]
+If opposite points were discarded at the beginning, replace $G$ by $G^2$. This gives the required polynomial on the original set $S$.
+
+SOLUTION 2:
+If $S$ is empty, take $f(x,y)=x$. Otherwise, as in Solution 1, keep one representative from each line through the origin, construct a polynomial taking the value $1$ at those representatives, and square it at the end if opposite points were removed.
+
+We induct on the number of representatives
+\[
+(x_1,y_1),\ldots,(x_n,y_n).
+\]
+For $n=1$, Bezout's identity gives integers $c,d$ such that
+\[
+cx_1+dy_1=1,
+\]
+so $cx+dy$ works.
+
+Assume $n\ge2$, and let $g(x,y)$ be a homogeneous polynomial of degree $d\ge1$ satisfying
+\[
+g(x_i,y_i)=1
+\qquad(1\le i<n).
+\]
+Define
+\[
+g_n(x,y)=\prod_{i=1}^{n-1}(y_i x-x_i y)
+\]
+and
+\[
+A=g_n(x_n,y_n)\ne0.
+\]
+Choose integers $c,d_0$ with
+\[
+cx_n+d_0y_n=1.
+\]
+We seek a polynomial of the form
+\[
+f(x,y)=
+g(x,y)^K-
+C\,g_n(x,y)(cx+d_0y)^L,
+\tag{2}
+\]
+where
+\[
+L=Kd-(n-1)>0.
+\]
+Then (2) is homogeneous, and its value at each of the first $n-1$ points is automatically $1$.
+
+It remains to choose $K$ so that
+\[
+g(x_n,y_n)^K\equiv1\pmod A.
+\tag{3}
+\]
+Let $p$ be a prime divisor of $A$. Then, for some $i<n$,
+\[
+y_i x_n-x_i y_n\equiv0\pmod p.
+\tag{4}
+\]
+At least one of $x_ix_n$ and $y_iy_n$ is nonzero modulo $p$. Otherwise either one irreducible point would have both coordinates divisible by $p$, or the cross-divisibility would make the left side of (4) nonzero.
+
+If $p\nmid x_ix_n$, homogeneity and (4) give
+\[
+\begin{aligned}
+x_i^d g(x_n,y_n)
+&=g(x_ix_n,x_i y_n)\\
+&\equiv g(x_ix_n,y_ix_n)\\
+&=x_n^d g(x_i,y_i)
+=x_n^d
+\pmod p.
+\end{aligned}
+\]
+Fermat's theorem therefore gives
+\[
+g(x_n,y_n)^{p-1}\equiv1\pmod p.
+\]
+If instead $p\nmid y_i y_n$, the same argument with the $y$-coordinates gives the identical conclusion.
+
+If $p^\alpha\mid A$, the elementary lifting fact
+\[
+u\equiv1\pmod p
+\quad\Longrightarrow\quad
+u^{p^{\alpha-1}}\equiv1\pmod{p^\alpha}
+\]
+shows that
+\[
+g(x_n,y_n)^{p^{\alpha-1}(p-1)}
+\equiv1\pmod{p^\alpha}.
+\]
+Thus a sufficiently large multiple of $\varphi(|A|)$ satisfies (3). Choose, for example,
+\[
+K=n\varphi(|A|),
+\]
+using the convention $\varphi(1)=1$. This also guarantees $L>0$.
+
+Now define
+\[
+C=\frac{g(x_n,y_n)^K-1}{A}.
+\]
+Then (2) also satisfies
+\[
+f(x_n,y_n)=1.
+\]
+This completes the induction. Squaring at the end, if necessary, restores any discarded opposite points.

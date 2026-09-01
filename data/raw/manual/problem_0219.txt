@@ -1,0 +1,156 @@
+ID: 0219
+
+SOURCE: IMO Shortlist
+
+YEAR: 2017
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Pursuit-Evasion Games, Adversarial Strategy, Euclidean Geometry, Distance Estimates
+
+STATEMENT:
+A hunter and an invisible rabbit play a game in the Euclidean plane. Their initial points coincide:
+\[
+H_0=R_0.
+\]
+In round $n\ge1$:
+
+\begin{enumerate}
+\item[(1)] the rabbit secretly moves from $R_{n-1}$ to $R_n$ with
+\[
+R_{n-1}R_n=1;
+\]
+\item[(2)] a tracking device reports a point $R_n'$ satisfying
+\[
+R_nR_n'\le1;
+\]
+\item[(3)] the hunter moves visibly from $H_{n-1}$ to $H_n$ with
+\[
+H_{n-1}H_n=1.
+\]
+\end{enumerate}
+
+Is there a strategy for the hunter that guarantees that after $10^9$ rounds the distance between the hunter and the rabbit is less than $100$?
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{\text{No}}.
+\]
+
+Fix any strategy of the hunter. We show that the rabbit and the possible tracking reports can defeat it.
+
+First, the rabbit can ensure that after the first round the distance is $2$. It plans to use the valid report
+\[
+R_1'=H_0.
+\]
+This report determines the hunter's first unit move under the fixed strategy. The rabbit chooses its own unit move in the opposite direction. Then
+\[
+H_1R_1=2.
+\tag{1}
+\]
+
+Let
+\[
+d_t=H_tR_t.
+\]
+Once $d_t\ge100$, the rabbit can keep the distance at least $100$: in every later round it moves directly away from the hunter, increasing the distance by $1$, after which the hunter can decrease it by at most $1$.
+
+It therefore remains to show that while
+\[
+2\le d_t<100,
+\tag{2}
+\]
+the rabbit can force a definite increase in the squared distance within $200$ rounds.
+
+Fix such a time $t$. Give the hunter the additional information of the exact current rabbit position; this can only help the hunter. Choose coordinates so that
+\[
+H_t=(0,0),
+\qquad
+R_t=(d_t,0).
+\]
+Put
+\[
+T=\sqrt{200^2-1}
+\]
+and define
+\[
+Y_+=(d_t+T,1),
+\qquad
+Y_-=(d_t+T,-1).
+\]
+Both points are exactly $200$ units from $R_t$.
+
+The rabbit chooses one of the two segments $R_tY_+$ and $R_tY_-$ and moves along it in $200$ unit steps. At every intermediate point, its distance from the $x$-axis is at most $1$. The tracking device may therefore report the orthogonal projection onto the $x$-axis. The sequence of reports is identical for the two possible rabbit paths. Since the hunter's strategy is fixed, the rabbit can predict the hunter's final point from this common report sequence and choose the farther endpoint.
+
+Let $H$ be the hunter's position after these $200$ moves. Since the hunter has travelled a total length of $200$, its $x$-coordinate is at most $200$. Let
+\[
+H'=(200,0),
+\qquad
+Z=(d_t+T,0),
+\]
+where $Z$ is the midpoint of $Y_+Y_-$. Define
+\[
+\varepsilon=200-T
+=
+\frac1{200+\sqrt{200^2-1}}
+>
+\frac1{400}.
+\]
+Then
+\[
+HZ\text{ has horizontal separation at least }d_t-\varepsilon,
+\]
+because $d_t\ge2>\varepsilon$ and the $x$-coordinate of $H$ is at most $200$.
+
+More explicitly, if $H=(u,v)$, then
+\[
+\max\{HY_+,HY_-\}^2
+=
+(d_t+T-u)^2+(|v|+1)^2
+\ge
+(d_t-\varepsilon)^2+1.
+\]
+The rabbit chooses the farther of the two indistinguishable endpoints. Hence
+\[
+d_{t+200}^2
+\ge
+(d_t-\varepsilon)^2+1.
+\tag{3}
+\]
+
+Since
+\[
+\varepsilon^2+1=400\varepsilon,
+\]
+equation (3) gives
+\[
+\begin{aligned}
+d_{t+200}^2
+&\ge
+d_t^2-2\varepsilon d_t+\varepsilon^2+1\\
+&=
+d_t^2+\varepsilon(400-2d_t).
+\end{aligned}
+\]
+Under (2),
+\[
+400-2d_t>200,
+\]
+so
+\[
+d_{t+200}^2>d_t^2+\frac12.
+\tag{4}
+\]
+
+Starting from (1), fewer than
+\[
+2\cdot10^4
+\]
+such blocks are enough for the squared distance to reach $10^4$. This takes fewer than
+\[
+2\cdot10^4\cdot200=4\cdot10^6<10^9
+\]
+rounds. From that moment onward, the rabbit keeps the distance at least $100$.
+
+Thus no hunter strategy can guarantee a distance below $100$ after $10^9$ rounds.

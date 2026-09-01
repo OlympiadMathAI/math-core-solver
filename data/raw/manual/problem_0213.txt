@@ -1,0 +1,363 @@
+ID: 0213
+
+SOURCE: IMO Shortlist
+
+YEAR: 2017
+
+TOPIC: Algebra
+
+SUBTOPICS: Integer Recurrences, Induction, Positivity, Growth Estimates
+
+STATEMENT:
+Let
+\[
+a_0,a_1,a_2,\ldots
+\]
+be a sequence of integers and
+\[
+b_0,b_1,b_2,\ldots
+\]
+a sequence of positive integers such that
+\[
+a_0=0,\qquad a_1=1,
+\]
+and
+\[
+a_{n+1}=
+\begin{cases}
+a_nb_n+a_{n-1},&b_{n-1}=1,\\
+a_nb_n-a_{n-1},&b_{n-1}>1
+\end{cases}
+\qquad(n=1,2,\ldots).
+\]
+Prove that at least one of the two numbers $a_{2017}$ and $a_{2018}$ is at least $2017$.
+
+SOLUTION 1:
+The value of $b_0$ is irrelevant because $a_0=0$, so we may assume
+\[
+b_0=1.
+\]
+
+We first prove a positivity lemma.
+
+\textbf{Lemma.}
+\[
+a_n\ge1
+\qquad(n\ge1).
+\]
+
+\textit{Proof.}
+Suppose otherwise, and let $n\ge2$ be the smallest index with
+\[
+a_n\le0.
+\tag{1}
+\]
+Then
+\[
+a_{n-1}\ge1,
+\qquad
+a_{n-2}\ge0.
+\]
+The recurrence for $a_n$ cannot use the plus sign, so
+\[
+a_n=a_{n-1}b_{n-1}-a_{n-2}.
+\]
+Since $a_n\le0$,
+\[
+a_{n-2}\ge a_{n-1}.
+\]
+Thus there is an index $r\le n-2$ such that
+\[
+a_r\ge a_{r+1}\ge a_{r+2}.
+\]
+Choose the smallest such $r$. We have $r\ge2$: if $b_1=1$, then
+\[
+a_2=1,\qquad a_3=a_2b_2+a_1>a_2,
+\]
+while if $b_1>1$, then
+\[
+a_2=b_1>a_1.
+\]
+
+By the minimality of $r$,
+\[
+a_{r-1}<a_r.
+\tag{2}
+\]
+Also, all of
+\[
+a_{r-1},a_r,a_{r+1}
+\]
+are positive by the minimality of $n$.
+
+For $a_{r+2}\le a_{r+1}$ to be possible, the recurrence for $a_{r+2}$ must use the minus sign. Hence
+\[
+b_r>1.
+\]
+The recurrence for $a_{r+1}$ then gives, regardless of its sign choice,
+\[
+a_{r+1}=a_rb_r\pm a_{r-1}
+\ge2a_r-a_{r-1}
+>a_r
+\]
+by (2). This contradicts $a_r\ge a_{r+1}$. $\square$
+
+We now prove by induction that
+\[
+\max\{a_n,a_{n+1}\}\ge n
+\qquad(n\ge0).
+\tag{3}
+\]
+The cases $n=0,1$ are immediate. Let $n\ge2$, and assume (3) for all smaller indices.
+
+\textbf{Case 1: $b_{n-1}=1$.}
+
+Then
+\[
+a_{n+1}=a_nb_n+a_{n-1}\ge a_n+a_{n-1}.
+\]
+By the induction hypothesis,
+\[
+\max\{a_{n-1},a_n\}\ge n-1,
+\]
+while the other term is at least $1$ by the lemma. Therefore
+\[
+a_{n+1}\ge n.
+\]
+
+\textbf{Case 2: $b_{n-1}>1$.}
+
+Because $b_0=1$, there is an index $r$ with
+\[
+1\le r\le n-1
+\]
+such that
+\[
+b_{r-1}=1,
+\qquad
+b_r,b_{r+1},\ldots,b_{n-1}\ge2.
+\]
+At the first step of this block,
+\[
+a_{r+1}=a_rb_r+a_{r-1}\ge2a_r+a_{r-1}.
+\]
+Hence
+\[
+a_{r+1}-a_r\ge a_r+a_{r-1}.
+\]
+By the induction hypothesis and the positivity lemma,
+\[
+a_r+a_{r-1}\ge r.
+\]
+In particular,
+\[
+a_{r+1}\ge r+1
+\qquad\text{and}\qquad
+a_{r+1}>a_r.
+\tag{4}
+\]
+
+For every $m=r+1,\ldots,n-1$, the recurrence uses the minus sign and $b_m\ge2$. Thus
+\[
+a_{m+1}
+=a_mb_m-a_{m-1}
+\ge2a_m-a_{m-1}.
+\]
+If $a_m>a_{m-1}$, then
+\[
+a_{m+1}>a_m.
+\]
+Starting from (4), we obtain
+\[
+a_n>a_{n-1}>\cdots>a_{r+1}\ge r+1.
+\]
+All terms are integers, so
+\[
+a_n\ge n.
+\]
+
+This completes the induction and proves (3). Taking $n=2017$ gives
+\[
+\max\{a_{2017},a_{2018}\}\ge2017,
+\]
+as required.
+
+SOLUTION 2:
+Again the value of $b_0$ does not affect the sequence, so this time assume
+\[
+b_0>1.
+\]
+
+Call an index $n>1$ \emph{bad} if
+\[
+b_{n-1}=1
+\qquad\text{and}\qquad
+b_{n-2}>1;
+\]
+call it \emph{good} otherwise.
+
+\textbf{Lemma 1.}
+For every $n\ge1$,
+\[
+a_n\ge1.
+\tag{1}
+\]
+Moreover, if $n>1$ is good, then
+\[
+a_n>a_{n-1}.
+\tag{2}
+\]
+
+\textit{Proof.}
+We use induction on $n$. We have
+\[
+a_1=1,\qquad a_2=b_1\ge1.
+\]
+If $2$ is good, then $b_1>1$ because $b_0>1$, so $a_2>a_1$.
+
+Assume the result through index $k\ge2$, and consider $a_{k+1}$.
+
+If $k$ is bad, then $b_{k-1}=1$, so
+\[
+a_{k+1}=b_ka_k+a_{k-1}>a_k\ge1.
+\]
+
+Suppose $k$ is good. Then
+\[
+a_k>a_{k-1}\ge1.
+\]
+There are three possibilities.
+
+If $b_k>1$, then
+\[
+a_{k+1}\ge2a_k-a_{k-1}>a_k.
+\]
+If
+\[
+b_k=b_{k-1}=1,
+\]
+then
+\[
+a_{k+1}=a_k+a_{k-1}>a_k.
+\]
+Finally, if
+\[
+b_k=1,\qquad b_{k-1}>1,
+\]
+then $k+1$ is bad, so only positivity is required; and
+\[
+a_{k+1}=a_k-a_{k-1}\ge1
+\]
+because the two terms are integers and $a_k>a_{k-1}$.
+
+This proves both assertions. $\square$
+
+\textbf{Lemma 2.}
+If $n>1$ is bad, then there exists
+\[
+j\in\{1,2,3\}
+\]
+such that
+\[
+a_{n+j}\ge a_{n-1}+j+1
+\tag{3}
+\]
+and
+\[
+a_{n+i}\ge a_{n-1}+i
+\qquad(1\le i<j).
+\tag{4}
+\]
+
+\textit{Proof.}
+Since $n$ is bad,
+\[
+b_{n-1}=1.
+\]
+Let
+\[
+m=\inf\{i>0:b_{n+i-1}>1\},
+\]
+where $m=+\infty$ if the set is empty. We show that
+\[
+j=\min\{m,3\}
+\]
+works.
+
+If $m=1$, then $b_n>1$, and
+\[
+a_{n+1}=b_na_n+a_{n-1}\ge a_{n-1}+2.
+\]
+
+If $m=2$, then $b_n=1$ and $b_{n+1}>1$. Hence
+\[
+a_{n+1}=a_n+a_{n-1}\ge a_{n-1}+1,
+\]
+and
+\[
+a_{n+2}
+=b_{n+1}a_{n+1}+a_n
+\ge2(a_{n-1}+1)+a_n
+\ge a_{n-1}+4.
+\]
+
+If $m>2$, then $b_n=b_{n+1}=1$. Therefore
+\[
+a_{n+1}=a_n+a_{n-1}\ge a_{n-1}+1,
+\]
+\[
+a_{n+2}=a_{n+1}+a_n\ge a_{n-1}+2,
+\]
+and
+\[
+a_{n+3}
+\ge a_{n+2}+a_{n+1}
+\ge(a_{n-1}+2)+(a_{n-1}+1)
+\ge a_{n-1}+4.
+\]
+Thus (3)--(4) hold in every case. $\square$
+
+We now prove
+\[
+\max\{a_n,a_{n+1}\}\ge n
+\qquad(n\ge0).
+\tag{5}
+\]
+Start with
+\[
+a_1=1.
+\]
+More generally, suppose that for some $n>1$ we have
+\[
+a_{n-1}\ge n-1.
+\tag{6}
+\]
+
+If $n$ is good, Lemma 1 gives
+\[
+a_n>a_{n-1},
+\]
+so, since the terms are integers,
+\[
+a_n\ge n.
+\]
+We may continue with the next index.
+
+If $n$ is bad, choose $j$ from Lemma 2. For every $0\le i<j$, equations (3)--(4) give
+\[
+a_{n+i+1}\ge n+i.
+\]
+Hence (5) holds for the successive indices
+\[
+n,n+1,\ldots,n+j-1.
+\]
+Moreover,
+\[
+a_{n+j}\ge a_{n-1}+j+1\ge n+j,
+\]
+so the same argument can be restarted after this block.
+
+Proceeding indefinitely proves (5) for every $n$. In particular,
+\[
+\max\{a_{2017},a_{2018}\}\ge2017.
+\]

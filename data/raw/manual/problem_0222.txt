@@ -1,0 +1,261 @@
+ID: 0222
+
+SOURCE: IMO Shortlist
+
+YEAR: 2017
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Cellular Automata, Lattice Geometry, Convexity, Stability, Primitive Directions
+
+STATEMENT:
+Let $n$ be a positive integer. Initially, every lattice point in the Cartesian plane with nonnegative coordinates contains a butterfly, and there are no other butterflies.
+
+The neighborhood $N(c)$ of a lattice point $c$ consists of all lattice points in the axis-aligned $(2n+1)\times(2n+1)$ square centered at $c$, apart from $c$ itself. A butterfly is called \emph{lonely}, \emph{crowded}, or \emph{comfortable} according as the number of butterflies in its neighborhood is less than, greater than, or equal to half the number of lattice points in the neighborhood.
+
+Every minute, all lonely butterflies fly away simultaneously. The process continues while lonely butterflies remain. Assuming that the process eventually stops, determine the number of comfortable butterflies in the final state.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{n^2+1}.
+\]
+
+We identify a butterfly with the lattice point it occupies. Put
+\[
+Q=\mathbb Z_{\ge0}^2.
+\]
+For points $p,q$, write
+\[
+p\succeq q
+\]
+when both coordinates of $p$ are at least the corresponding coordinates of $q$.
+
+A set $S\subseteq Q$ is called \emph{up-right closed} if
+\[
+q\in S,\quad p\succeq q
+\quad\Longrightarrow\quad
+p\in S.
+\]
+If $S$ is up-right closed and $p,q\in S$ satisfy $p\succeq q$, then
+\[
+|N(p)\cap S|\ge |N(q)\cap S|.
+\tag{1}
+\]
+Hence the set of butterflies remaining after every minute is up-right closed.
+
+Call an up-right closed set $S\subseteq Q$ \emph{stable} if none of its points is lonely. We only need stable sets with finite complement in $Q$. If $S$ is stable, then no butterfly of $S$ can ever leave when the process starts from $Q$, because at every stage the current set contains $S$. If $F$ is the final set, then $F$ itself is stable. Consequently,
+\[
+F\text{ is the largest stable subset of }Q.
+\tag{2}
+\]
+
+We now construct this largest stable set.
+
+\textbf{1. The candidate boundary.}
+
+Let
+\[
+K_n=\{(r,-s):1\le r\le n,\ 1\le s\le n\}.
+\]
+Consider all distinct rays from the origin through points of $K_n$, ordered by increasing slope:
+\[
+\rho_1,\rho_2,\ldots,\rho_m.
+\]
+For each $i$, let $A_i$ be the farthest lattice point of
+\[
+\rho_i\cap K_n,
+\]
+and let
+\[
+k_i=|\rho_i\cap K_n|.
+\]
+If $u_i$ is the primitive lattice vector on $\rho_i$, then
+\[
+A_i=k_i u_i.
+\tag{3}
+\]
+Thus the segment from the origin to $A_i$ contains exactly $k_i+1$ lattice points.
+
+Write
+\[
+A_i=(\alpha_i,-\beta_i)
+\qquad(\alpha_i,\beta_i>0).
+\]
+Define
+\[
+d_0=\left(0,\sum_{i=1}^m\beta_i\right),
+\qquad
+d_i=d_{i-1}+A_i
+\quad(1\le i\le m).
+\]
+Then
+\[
+d_m=\left(\sum_{i=1}^m\alpha_i,0\right).
+\]
+The polygonal line
+\[
+\mathcal C=d_0d_1\cdots d_m
+\]
+is convex, because its edge slopes increase.
+
+Let $\mathcal R$ be the closed region consisting of all real points $p$ in the first quadrant for which
+\[
+p\succeq q
+\]
+for some point $q\in\mathcal C$. Finally, put
+\[
+D=\mathcal R\cap\mathbb Z^2.
+\]
+Thus $D$ is the up-right closed lattice set lying on or above-right of the curve $\mathcal C$.
+
+\textbf{2. Every stable set is contained in $D$.}
+
+Let $S\subseteq Q$ be stable, up-right closed, and cofinite, and let $\overline S$ be its convex hull. Its lower boundary consists of a finite convex lattice polygonal chain joining the two coordinate axes, together with the two infinite axis-parallel rays.
+
+Fix $i$. Take a supporting line $\ell$ of $\overline S$ parallel to $A_i$, and choose a lattice point
+\[
+b\in S\cap\ell.
+\]
+The line $\ell$ contains exactly
+\[
+2k_i
+\]
+points of $N(b)$: namely
+\[
+b\pm u_i,\ b\pm2u_i,\ldots,b\pm k_i u_i.
+\]
+The two open half-planes determined by $\ell$ contain equal numbers of points of $N(b)$. One of them contains no point of $S$, because $\ell$ is supporting.
+
+The neighborhood has
+\[
+(2n+1)^2-1=4n(n+1)
+\]
+lattice points. In order that $b$ not be lonely, at least $k_i$ of the $2k_i$ points of
+\[
+N(b)\cap\ell
+\]
+must lie in $S$. Therefore the boundary chain of $\overline S$ contains a segment codirected with $A_i$ and at least as long as $A_i$.
+
+These boundary segments occur in the same slope order as
+\[
+A_1,A_2,\ldots,A_m.
+\]
+Take any vertex $p$ of the lower boundary of $\overline S$. The segments before and after $p$ divide the directions $A_i$ into two consecutive groups. Let $d_j$ be the corresponding vertex of $\mathcal C$. Comparing the sums of horizontal components of the preceding segments and the absolute vertical components of the following segments gives
+\[
+p_x\ge(d_j)_x,
+\qquad
+p_y\ge(d_j)_y.
+\]
+Thus
+\[
+p\succeq d_j,
+\]
+so $p\in\mathcal R$. Since $\mathcal R$ is convex and up-right closed, the entire lower boundary of $\overline S$, and hence all of $S$, lies in $\mathcal R$. Therefore
+\[
+S\subseteq D.
+\tag{4}
+\]
+
+In particular, (4) applied to the final stable set gives
+\[
+F\subseteq D.
+\tag{5}
+\]
+
+\textbf{3. The lattice points of $\mathcal C$ are comfortable in $D$.}
+
+Fix a lattice point $p$ on the segment
+\[
+d_{i-1}d_i,
+\]
+and let $\ell$ be the line containing this segment. By (3), the segment contains exactly $k_i+1$ lattice points, so exactly $k_i$ other points of the segment lie in $N(p)$. These are precisely half of the $2k_i$ points of
+\[
+N(p)\cap\ell
+\]
+that belong to $D$.
+
+We need the following local observation.
+
+\textbf{Local observation.}
+Every lattice point of $N(p)$ lying strictly on the upper-right side of $\ell$ belongs to $D$, and every lattice point lying strictly on the other side does not belong to $D$.
+
+The second assertion follows from the convexity of the boundary curve. For the first, note that every vector $A_j$ has at least one coordinate of absolute value greater than $n/2$; otherwise $2A_j$ would still belong to $K_n$, contrary to the choice of $A_j$ as the farthest point on its ray. Hence the square defining $N(p)$ meets at most two boundary segments preceding $d_{i-1}d_i$ and at most two following it.
+
+If a lattice point of $N(p)$ were above $\ell$ but outside $D$, its displacement from $p$, or its negative, would lie in $K_n$ and its ray would lie strictly between two consecutive rays among
+\[
+\rho_1,\ldots,\rho_m.
+\]
+This is impossible, because these rays were defined using every lattice point of $K_n$. The local observation follows.
+
+The off-line points of $N(p)$ occur in centrally symmetric pairs, one on each side of $\ell$. By the local observation, exactly one point of every such pair belongs to $D$. On $\ell$, exactly half of the points belong to $D$. Therefore
+\[
+|N(p)\cap D|=\frac{|N(p)|}{2},
+\]
+and $p$ is comfortable.
+
+Thus every lattice point of $\mathcal C$ is comfortable.
+
+\textbf{4. Every other point of $D$ is crowded.}
+
+Let
+\[
+p\in D\setminus\mathcal C.
+\]
+
+First suppose that $p$ lies up-right of a lattice point $p'$ of $\mathcal C$. Translating
+\[
+N(p')\cap D
+\]
+by the vector $p-p'$ produces a subset of
+\[
+N(p)\cap D,
+\]
+because $D$ is up-right closed. This translated set already has exactly half the points of a neighborhood, since $p'$ is comfortable. As $p$ is strictly beyond the boundary, at least one additional lattice point immediately below or to the left of $p$ belongs to $D$ and is not in the translated set. Hence $p$ is crowded.
+
+It remains to consider the points that do not dominate a lattice point of $\mathcal C$. Such a point $p$ lies in the axis-aligned right triangle erected on one of the segments
+\[
+d_id_{i+1}
+\]
+as hypotenuse. Draw through $p$ the line $\ell$ parallel to $d_id_{i+1}$, and draw the vertical line $h$ through $d_i$. Let $D_L$ and $D_R$ be the parts of $D$ on the left and right of $h$, with points on $h$ included in both.
+
+The convex ordering of the boundary slopes implies that translation by
+\[
+\overrightarrow{d_ip}
+\]
+maps $D_L$ into $D$, while translation by
+\[
+\overrightarrow{d_{i+1}p}
+\]
+maps $D_R$ into $D$. Indeed, the directions from $d_i$ and $d_{i+1}$ toward $p$ lie between the directions of the adjacent boundary edges, so the translated lower boundaries never pass below $\mathcal C$.
+
+Inside $N(p)$, these two translated sets cover every lattice point strictly above $\ell$, as well as every lattice point of $\ell$ lying to the left of $p$. This is exactly one point from each centrally symmetric pair in $N(p)$, and hence accounts for half of the neighborhood. In addition,
+\[
+d_i,d_{i+1}\in N(p)\cap D,
+\]
+and these two points lie below $\ell$, so they were not included in the preceding half. Therefore $p$ is crowded.
+
+We have proved that $D$ contains no lonely point; hence it is stable. By (2),
+\[
+D\subseteq F.
+\]
+Together with (5),
+\[
+D=F.
+\]
+Moreover, the comfortable butterflies are exactly the lattice points of $\mathcal C$.
+
+\textbf{5. Counting the comfortable points.}
+
+By (3), the segment $d_{i-1}d_i$ contains exactly $k_i$ lattice points other than its initial endpoint. Hence the total number of lattice points on $\mathcal C$ is
+\[
+1+\sum_{i=1}^m k_i.
+\]
+The rays $\rho_i$ partition the set $K_n$, so
+\[
+\sum_{i=1}^m k_i=|K_n|=n^2.
+\]
+Therefore the number of comfortable butterflies in the final state is
+\[
+\boxed{n^2+1}.
+\]

@@ -1,0 +1,124 @@
+ID: 0209
+
+SOURCE: IMO Shortlist
+
+YEAR: 2017
+
+TOPIC: Algebra
+
+SUBTOPICS: Finite Functions, Function Composition, Iteration, Stabilization of Images
+
+STATEMENT:
+Let $S$ be a finite set, and let $\mathcal A$ be the set of all functions from $S$ to $S$. Let
+\[
+f\in\mathcal A,
+\qquad
+T=f(S).
+\]
+Suppose that
+\[
+f\circ g\circ f\ne g\circ f\circ g
+\]
+for every $g\in\mathcal A$ with $g\ne f$. Prove that
+\[
+f(T)=T.
+\]
+
+SOLUTION 1:
+For a positive integer $m$, write $f^m$ for the $m$-fold composition of $f$ with itself.
+
+We first prove the following claim.
+
+\textbf{Claim.}
+If there exists an integer $n\ge3$ such that
+\[
+f^{n+2}=f^{2n+1},
+\tag{1}
+\]
+then the restriction
+\[
+f:T\to T
+\]
+is a bijection.
+
+\textit{Proof.}
+Set
+\[
+g=f^n.
+\]
+Equation (1) says
+\[
+f\circ g\circ f=g\circ f\circ g.
+\]
+By the hypothesis of the problem, this equality forces
+\[
+g=f,
+\]
+so
+\[
+f^n=f.
+\tag{2}
+\]
+
+Since $n-2\ge1$, the map $f^{n-2}$ sends $T$ into $T$. For every $t\in T$, write $t=f(s)$. Then
+\[
+f^{n-1}(t)=f^n(s)=f(s)=t
+\]
+by (2). Hence, on $T$,
+\[
+f^{n-2}\circ f=f\circ f^{n-2}=\operatorname{id}_T.
+\]
+Thus $f:T\to T$ is bijective. $\square$
+
+It remains to find an $n$ satisfying (1).
+
+For $m\ge0$, let
+\[
+S_m=f^m(S).
+\]
+Then
+\[
+S=S_0\supseteq S_1\supseteq S_2\supseteq\cdots.
+\]
+Since $S$ is finite, this descending chain eventually stabilizes. Thus there is an integer $k\ge1$ and a set $S_\infty$ such that
+\[
+S_k=S_{k+1}=S_{k+2}=\cdots=S_\infty.
+\]
+The restriction
+\[
+f:S_\infty\to S_\infty
+\]
+is surjective, and hence bijective because $S_\infty$ is finite. Therefore it is a permutation of finite order: there exists $r\ge1$ such that
+\[
+f^r=\operatorname{id}
+\quad\text{on }S_\infty.
+\]
+Consequently,
+\[
+f^{m+r}=f^m
+\quad\text{as maps on }S
+\qquad(m\ge k).
+\tag{3}
+\]
+
+Choose
+\[
+n=2kr+1.
+\]
+Then
+\[
+n+2=2kr+3
+\]
+and
+\[
+2n+1=4kr+3.
+\]
+These exponents are both at least $k$ and differ by the multiple $2kr$ of $r$. Repeated use of (3) gives
+\[
+f^{n+2}=f^{2n+1}.
+\]
+The claim now implies that $f:T\to T$ is bijective. Therefore
+\[
+f(T)=T,
+\]
+as desired.

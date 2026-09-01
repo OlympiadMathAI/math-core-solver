@@ -1,0 +1,100 @@
+ID: 0224
+
+SOURCE: IMO Shortlist
+
+YEAR: 2017
+
+TOPIC: Geometry
+
+SUBTOPICS: Tangent-Chord Theorem, Similar Triangles, Reflections, Cyclic Quadrilaterals
+
+STATEMENT:
+Let $R$ and $S$ be distinct points on a circle $\Omega$, and let $t$ be the tangent to $\Omega$ at $R$. Let $R'$ be the reflection of $R$ in $S$. Choose a point $I$ on the smaller arc $RS$ of $\Omega$ so that the circumcircle $\Gamma$ of $\triangle ISR'$ meets $t$ at two distinct points. Let $A$ be the common point of $\Gamma$ and $t$ that is closer to $R$. The line $AI$ meets $\Omega$ again at $J$. Prove that $JR'$ is tangent to $\Gamma$.
+
+SOLUTION 1:
+All angles are understood as directed angles modulo $180^\circ$.
+
+From the cyclic quadrilaterals $RSIJ$ and $ASIR'$, and from the collinearity of $A,I,J$, we have
+\[
+\angle JRS=\angle JIS=\angle AR'S.
+\tag{1}
+\]
+Since $RA$ is tangent to $\Omega$ at $R$, the tangent-chord theorem gives
+\[
+\angle SJR=\angle SRA.
+\tag{2}
+\]
+Equations (1)--(2) imply
+\[
+\triangle ARR'\sim\triangle SJR.
+\]
+Therefore
+\[
+\frac{R'R}{RJ}
+=
+\frac{AR'}{SR}
+=
+\frac{AR'}{SR'},
+\tag{3}
+\]
+because $S$ is the midpoint of $RR'$.
+
+Also, by (1),
+\[
+\angle AR'S=\angle JRR'.
+\]
+Together with (3), this yields
+\[
+\triangle ASR'\sim\triangle R'JR.
+\]
+Hence
+\[
+\angle SAR'=\angle RR'J.
+\tag{4}
+\]
+The angle on the left of (4) is an angle subtended by the chord $SR'$ of $\Gamma$, while the angle on the right is the angle between $JR'$ and $R'S$. Thus the tangent-chord theorem shows that $JR'$ is tangent to $\Gamma$ at $R'$.
+
+SOLUTION 2:
+As in Solution 1,
+\[
+\angle JRS=\angle JIS=\angle AR'S.
+\]
+Since $R,S,R'$ are collinear, this gives
+\[
+RJ\parallel AR'.
+\tag{1}
+\]
+
+Let $A'$ be the reflection of $A$ in $S$. Since $S$ is the midpoint of both $AA'$ and $RR'$, the quadrilateral
+\[
+ARA'R'
+\]
+is a parallelogram. Thus
+\[
+RA'\parallel AR'.
+\]
+By (1), the point $J$ lies on the line $RA'$.
+
+Furthermore,
+\[
+\angle SR'A'
+=
+\angle SRA
+=
+\angle SJR.
+\]
+Consequently,
+\[
+S,J,A',R'
+\]
+are concyclic. Hence
+\[
+\angle SR'J
+=
+\angle SA'J
+=
+\angle SA'R
+=
+\angle SAR'.
+\]
+The last equality uses the central symmetry about $S$ that sends $A$ to $A'$ and $R$ to $R'$. Since $A,S,I,R'$ lie on $\Gamma$, the final angle equality is precisely the tangent-chord condition at $R'$. Therefore $JR'$ is tangent to $\Gamma$.

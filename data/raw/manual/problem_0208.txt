@@ -1,0 +1,147 @@
+ID: 0208
+
+SOURCE: IMO Shortlist
+
+YEAR: 2017
+
+TOPIC: Algebra
+
+SUBTOPICS: Polynomial Identities, Modular Arithmetic, Pigeonhole Principle, Difference of Squares
+
+STATEMENT:
+Let $q$ be a real number. Gugu has a napkin with ten distinct real numbers written on it, and he writes the following three lines of real numbers on a blackboard:
+
+\begin{itemize}
+\item In the first line, he writes every number of the form $a-b$, where $a$ and $b$ are two not necessarily distinct numbers on the napkin.
+\item In the second line, he writes every number of the form $qab$, where $a$ and $b$ are two not necessarily distinct numbers from the first line.
+\item In the third line, he writes every number of the form
+\[
+a^2+b^2-c^2-d^2,
+\]
+where $a,b,c,d$ are four not necessarily distinct numbers from the first line.
+\end{itemize}
+
+Determine all real numbers $q$ such that, regardless of the ten numbers on the napkin, every number in the second line also occurs in the third line.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{q\in\{-2,0,2\}}.
+\]
+
+The number $0$ always occurs in the third line, so $q=0$ works.
+
+Take any two numbers $a,b$ from the first line. Write
+\[
+a=x-y,
+\qquad
+b=u-v,
+\]
+where $x,y,u,v$ are numbers on the napkin. Then
+\[
+\begin{aligned}
+2ab
+&=2(x-y)(u-v)\\
+&=(x-v)^2+(y-u)^2-(x-u)^2-(y-v)^2.
+\end{aligned}
+\]
+All four differences on the right belong to the first line. Hence $q=2$ works, and negating the identity shows that $q=-2$ works as well.
+
+It remains to prove that there are no other values.
+
+First put the numbers
+\[
+1,2,\ldots,10
+\]
+on the napkin. The first line then consists of integers and contains every integer from $-9$ to $9$. Thus the second line contains both $q$ and $81q$. Every number in the third line is an integer, so $q$ must be an integer. Moreover, every first-line number has absolute value at most $9$, and therefore every third-line number lies between $-162$ and $162$. Hence
+\[
+|81q|\le162,
+\]
+so
+\[
+q\in\{-2,-1,0,1,2\}.
+\]
+
+We only need to exclude $q=\pm1$. Put
+\[
+0,1,4,8,12,16,20,24,28,32
+\]
+on the napkin. The first line contains $\pm1$ and $\pm4$, so the second line contains $4$ if $q=1$ and contains $-4$ if $q=-1$.
+
+Every difference of two napkin numbers is congruent to $0$, $1$, or $-1$ modulo $4$. Hence its square is congruent to $0$ or $1$ modulo $8$. A number in the third line is therefore congruent modulo $8$ to one of
+\[
+-2,-1,0,1,2.
+\]
+Neither $4$ nor $-4$ has one of these residues. Thus $q=\pm1$ do not work.
+
+Therefore the only possible values are
+\[
+-2,\ 0,\ 2.
+\]
+
+SOLUTION 2:
+The identity
+\[
+2(x-y)(u-v)
+=(x-v)^2+(y-u)^2-(x-u)^2-(y-v)^2
+\]
+again proves that $q=2$ works; its negative proves that $q=-2$ works, and $q=0$ is immediate.
+
+We now prove necessity by a polynomial argument. Suppose that $q$ works. Let
+\[
+x_1,x_2,\ldots,x_{10}
+\]
+be indeterminates. For every ordered $8$-tuple
+\[
+(r_1,r_2,\ldots,r_8)\in\{1,2,\ldots,10\}^8,
+\]
+define
+\[
+\begin{aligned}
+F_{r_1,\ldots,r_8}
+={}&q(x_1-x_2)(x_3-x_4)\\
+&-(x_{r_1}-x_{r_2})^2-(x_{r_3}-x_{r_4})^2\\
+&+(x_{r_5}-x_{r_6})^2+(x_{r_7}-x_{r_8})^2.
+\end{aligned}
+\]
+Consider the polynomial
+\[
+\mathcal P
+=
+\prod_{1\le i<j\le10}(x_i-x_j)
+\prod_{(r_1,\ldots,r_8)\in\{1,\ldots,10\}^8}
+F_{r_1,\ldots,r_8}.
+\tag{1}
+\]
+
+For every real choice of $x_1,\ldots,x_{10}$, the value of $\mathcal P$ is zero. Indeed, if two of the $x_i$ are equal, the first product vanishes. Otherwise the $x_i$ are ten distinct napkin numbers. Since $q$ works, the second-line number
+\[
+q(x_1-x_2)(x_3-x_4)
+\]
+has a representation as a difference of two sums of two squared first-line numbers, so one of the factors $F_{r_1,\ldots,r_8}$ vanishes.
+
+Thus $\mathcal P$ is the zero polynomial. The polynomial ring in the variables $x_1,\ldots,x_{10}$ is an integral domain, and the Vandermonde factor is nonzero. Hence at least one fixed factor
+\[
+F_{r_1,\ldots,r_8}
+\]
+is itself the zero polynomial.
+
+Look at the four cross-pairs
+\[
+\{x_1,x_3\},\quad
+\{x_1,x_4\},\quad
+\{x_2,x_3\},\quad
+\{x_2,x_4\}.
+\]
+Each of the four squared differences occurring in $F_{r_1,\ldots,r_8}$ can involve at most one of these cross-pairs. Therefore at least one cross-pair occurs in at most one of the four squared differences.
+
+The coefficient of the corresponding cross monomial in
+\[
+q(x_1-x_2)(x_3-x_4)
+\]
+is either $q$ or $-q$. Its total contribution from the four squared differences is either $0$, $2$, or $-2$, because the chosen pair occurs at most once. Since $F_{r_1,\ldots,r_8}$ is identically zero, that coefficient must vanish. Consequently
+\[
+q\in\{-2,0,2\}.
+\]
+
+These three values were already verified, completing the solution.

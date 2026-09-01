@@ -1,0 +1,16 @@
+{
+  "id": "0235",
+  "source": "IMO Shortlist",
+  "year": "2017",
+  "topic": "Number Theory",
+  "subtopics": [
+    "Exponential Diophantine Equations",
+    "Multiplicative Orders",
+    "Modular Arithmetic",
+    "Inequalities"
+  ],
+  "statement": "Find all pairs $(p,q)$ of prime numbers with $p>q$ for which\n\\[\n\\frac{(p+q)^{p+q}(p-q)^{p-q}-1}\n     {(p+q)^{p-q}(p-q)^{p+q}-1}\n\\]\nis an integer.",
+  "solutions": [
+    "The unique pair is\n\\[\n\\boxed{(p,q)=(3,2)}.\n\\]\n\nPut\n\\[\nM=(p+q)^{p-q}(p-q)^{p+q}-1.\n\\]\nThe assumption says that $M$ divides the numerator. Since $M$ is relatively prime to both $p+q$ and $p-q$, eliminating the $-1$ terms gives\n\\[\n(p+q)^{2q}\\equiv(p-q)^{2q}\\pmod M,\n\\tag{1}\n\\]\nor equivalently\n\\[\n\\left((p+q)(p-q)^{-1}\\right)^{2q}\\equiv1\\pmod M.\n\\tag{2}\n\\]\n\n\\textbf{Case 1: $q\\ge5$.}\n\nHere $p$ and $q$ are odd, so $M$ is odd. Let $r$ be any prime divisor of $M$. By (2), the multiplicative order of\n\\[\n(p+q)(p-q)^{-1}\\pmod r\n\\]\ndivides $2q$, hence is one of\n\\[\n1,2,q,2q.\n\\]\nIf the order is $q$ or $2q$, Fermat's theorem gives\n\\[\nr\\equiv1\\pmod q.\n\\]\nIf the order is $1$ or $2$, then\n\\[\nr\\mid(p+q)^2-(p-q)^2=4pq.\n\\]\nSince $r$ is odd, $r=p$ or $r=q$.\n\nThe possibility $r=p$ does not occur. Indeed,\n\\[\nM\\equiv q^{p-q}(-q)^{p+q}-1\n=q^{2p}-1\n\\equiv q^2-1\\pmod p,\n\\]\nand neither $q-1$ nor $q+1$ is divisible by $p$, because\n\\[\n0<q-1<q+1<p.\n\\]\nThus every prime divisor of $M$ is either $q$ or congruent to $1$ modulo $q$. Consequently, every positive divisor of $M$ is congruent to $0$ or $1$ modulo $q$.\n\nNow write\n\\[\nM=(A-1)(A+1),\n\\qquad\nA=(p+q)^{(p-q)/2}(p-q)^{(p+q)/2}.\n\\]\nThe factors $A-1$ and $A+1$ are positive divisors of $M$ differing by $2$. They cannot both be congruent to $0$ or $1$ modulo a prime $q\\ge5$. This contradiction eliminates the case $q\\ge5$.\n\n\\textbf{Case 2: $q=2$.}\n\nFrom (1),\n\\[\nM\\mid(p+2)^4-(p-2)^4.\n\\]\nHence\n\\[\n\\begin{aligned}\n(p+2)^{p-2}(p-2)^{p+2}-1\n&\\le(p+2)^4-(p-2)^4\\\\\n&\\le(p+2)^4-1,\n\\end{aligned}\n\\]\nso\n\\[\n(p+2)^{p-6}(p-2)^{p+2}\\le1.\n\\tag{3}\n\\]\nIf $p\\ge7$, the left side of (3) is greater than $1$. For $p=5$, it equals\n\\[\n7^{-1}3^7>1.\n\\]\nThus $p=3$ is the only possibility. It indeed works:\n\\[\n\\frac{5^5\\cdot1-1}{5\\cdot1^5-1}\n=\\frac{3124}{4}=781.\n\\]\n\n\\textbf{Case 3: $q=3$.}\n\nAgain (1) gives\n\\[\nM\\mid(p+3)^6-(p-3)^6\n=64\\left(\n\\left(\\frac{p+3}{2}\\right)^6-\n\\left(\\frac{p-3}{2}\\right)^6\n\\right).\n\\]\nHere $M$ is odd, so it divides the expression in parentheses. Therefore\n\\[\n(p+3)^{p-3}(p-3)^{p+3}-1\n\\le\n\\left(\\frac{p+3}{2}\\right)^6-1,\n\\]\nand hence\n\\[\n64(p+3)^{p-9}(p-3)^{p+3}\\le1.\n\\tag{4}\n\\]\nFor $p\\ge11$, the left side is greater than $1$. The remaining primes give\n\\[\np=7:\\quad64\\cdot10^{-2}\\cdot4^{10}>1,\n\\]\nand\n\\[\np=5:\\quad64\\cdot8^{-4}\\cdot2^8=4>1.\n\\]\nThus there is no solution with $q=3$.\n\nTherefore the only pair is $(3,2)$."
+  ]
+}

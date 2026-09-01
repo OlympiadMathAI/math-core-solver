@@ -1,0 +1,80 @@
+ID: 0225
+
+SOURCE: IMO Shortlist
+
+YEAR: 2017
+
+TOPIC: Geometry
+
+SUBTOPICS: Orthocenter, Circumcenter, Similar Triangles, Tangent-Chord Theorem, Median
+
+STATEMENT:
+Let $O$ be the circumcenter of an acute scalene triangle $ABC$. The line $OA$ meets the altitudes through $B$ and $C$ at $P$ and $Q$, respectively. These altitudes meet at the orthocenter $H$. Prove that the circumcenter of $\triangle PQH$ lies on a median of $\triangle ABC$.
+
+SOLUTION 1:
+Assume without loss of generality that
+\[
+AB<AC.
+\]
+Since $P,Q,A,O$ are collinear, while $QH\perp AB$ and $PH\perp AC$, we have
+\[
+\begin{aligned}
+\angle PQH
+&=90^\circ-\angle QAB\\
+&=90^\circ-\angle OAB\\
+&=\frac12\angle AOB\\
+&=\angle ACB,
+\end{aligned}
+\]
+and similarly
+\[
+\angle QPH=\angle ABC.
+\]
+Thus
+\[
+\triangle HPQ\sim\triangle ABC.
+\tag{1}
+\]
+
+Let $\Omega$ and $\omega$ be the circumcircles of $\triangle ABC$ and $\triangle HPQ$, respectively. Since
+\[
+\angle AHP
+=90^\circ-\angle HAC
+=\angle ACB
+=\angle HQP,
+\]
+the line $AH$ is tangent to $\omega$ at $H$.
+
+Let $T$ be the center of $\omega$, and let
+\[
+M=AT\cap BC.
+\]
+Under the similarity (1), the point $H$ corresponds to $A$, the line $PQ$ corresponds to $BC$, and the tangent $AH$ at $H$ corresponds to a tangent to $\Omega$ at $A$. Let that tangent meet $BC$ at $S$. The centers $T$ and $O$ correspond, while the points $A\in PQ$ and $S\in BC$ correspond. Therefore
+\[
+\angle OSM=\angle OAT.
+\]
+Since $A,T,M$ are collinear,
+\[
+\angle OAT=\angle OAM.
+\]
+Hence
+\[
+\angle OSM=\angle OAM,
+\]
+so $S,A,O,M$ are concyclic.
+
+The line $AS$ is tangent to $\Omega$ at $A$, so
+\[
+AS\perp AO.
+\]
+Thus
+\[
+\angle OMS
+=180^\circ-\angle OAS
+=90^\circ.
+\]
+Since $M,S\in BC$, this means
+\[
+OM\perp BC.
+\]
+The perpendicular from the circumcenter $O$ to $BC$ passes through the midpoint of $BC$. Therefore $M$ is the midpoint of $BC$, and $T$ lies on the median $AM$. Since $T$ is the circumcenter of $\triangle PQH$, the result follows.

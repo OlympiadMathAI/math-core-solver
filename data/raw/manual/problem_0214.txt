@@ -1,0 +1,438 @@
+ID: 0214
+
+SOURCE: IMO Shortlist
+
+YEAR: 2017
+
+TOPIC: Algebra
+
+SUBTOPICS: Functional Inequalities, Monotonicity, Level Sets, Extremal Intervals
+
+STATEMENT:
+Let
+\[
+f:\mathbb R\to\mathbb R
+\]
+satisfy the following condition: whenever real numbers $x,y$ obey
+\[
+\bigl(f(x)+y\bigr)\bigl(f(y)+x\bigr)>0,
+\]
+we have
+\[
+f(x)+y=f(y)+x.
+\]
+Prove that
+\[
+f(x)+y\le f(y)+x
+\]
+whenever
+\[
+x>y.
+\]
+
+SOLUTION 1:
+Define
+\[
+g(x)=x-f(x).
+\]
+The desired conclusion becomes
+\[
+g(x)\le g(y)
+\qquad\text{whenever }x<y,
+\tag{1}
+\]
+so we must prove that $g$ is nondecreasing.
+
+The hypothesis on $f$ has the following equivalent contrapositive form:
+\[
+g(x)\ne g(y)
+\quad\Longrightarrow\quad
+x+y\text{ lies between }g(x)\text{ and }g(y).
+\tag{2}
+\]
+Indeed,
+\[
+f(x)+y=x+y-g(x),
+\qquad
+f(y)+x=x+y-g(y).
+\]
+If $g(x)\ne g(y)$, the two expressions are unequal, so their product cannot be positive; hence $x+y$ lies between their two zeros $g(x)$ and $g(y)$.
+
+The transformed function
+\[
+g^*(t)=-g(-t)
+\]
+also satisfies (2), and proving (1) for $g^*$ is equivalent to proving it for $g$.
+
+If $g(x)=2x$ for every $x$, then $g$ is increasing and we are done. Otherwise fix $x$ with
+\[
+X=g(x)\ne2x.
+\]
+
+\textbf{Lemma 1.}
+If $X<2x$, then on the interval
+\[
+(X-x,x]
+\]
+the function $g$ takes at most two values: $X$ and possibly one value $Y>X$.
+
+If $X>2x$, then on
+\[
+[x,X-x)
+\]
+it takes at most two values: $X$ and possibly one value $Y<X$.
+
+\textit{Proof.}
+We prove the first assertion. Take
+\[
+a\in(X-x,x)
+\]
+with $g(a)\ne X$. If $g(a)<X$, then (2) gives
+\[
+g(a)\le a+x\le X,
+\]
+so $a\le X-x$, a contradiction. Hence
+\[
+g(a)>X
+\qquad\text{and}\qquad
+X\le a+x\le g(a).
+\tag{3}
+\]
+
+If $a,b\in(X-x,x)$ both satisfy $g(a)\ne X$ and $g(b)\ne X$, then
+\[
+a+b<\min\{a+x,b+x\}\le\min\{g(a),g(b)\}.
+\]
+Thus $a+b$ cannot lie between $g(a)$ and $g(b)$ unless
+\[
+g(a)=g(b).
+\]
+This proves the first assertion. The second follows by applying the first one to $g^*$. $\square$
+
+\textbf{Lemma 2.}
+If $X<2x$, then $g$ is constant on
+\[
+(X-x,x).
+\]
+If $X>2x$, then $g$ is constant on
+\[
+(x,X-x).
+\]
+
+\textit{Proof.}
+Again prove the first assertion. Suppose that two values occur. By Lemma 1, there are
+\[
+a,b\in(X-x,x)
+\]
+such that
+\[
+g(a)=X,
+\qquad
+g(b)=Y>X.
+\]
+Choose
+\[
+u\in(X-x,x)
+\]
+so small that
+\[
+u<\min\{X-a,X-b\}.
+\]
+Lemma 1 gives
+\[
+g(u)\in\{X,Y\}.
+\]
+If $g(u)=X$, then applying (2) to $u,b$ gives
+\[
+X\le u+b,
+\]
+contradicting $u<X-b$. If $g(u)=Y$, then applying (2) to $u,a$ gives
+\[
+X\le u+a,
+\]
+contradicting $u<X-a$. Thus only one value can occur. The second assertion follows from $g^*$. $\square$
+
+\textbf{Lemma 3.}
+If $X<2x$, then
+\[
+g(a)=X
+\qquad(X-x<a<x).
+\]
+If $X>2x$, then
+\[
+g(a)=X
+\qquad(x<a<X-x).
+\]
+
+\textit{Proof.}
+We prove the first assertion. By Lemmas 1 and 2, the only other possibility is that
+\[
+g(a)=Y>X
+\]
+for every $a\in(X-x,x)$.
+
+Choose
+\[
+X-x<a<b<x.
+\]
+Applying (2) to $b,x$ gives
+\[
+Y\ge b+x.
+\tag{4}
+\]
+In particular,
+\[
+Y>b+x>2a.
+\]
+Now apply the second part of Lemma 2 at the point $a$, where $g(a)=Y>2a$. It says that $g$ is constant on
+\[
+(a,Y-a).
+\]
+But (4) implies that both $b$ and $x$ lie in this interval, whereas
+\[
+g(b)=Y\ne X=g(x).
+\]
+This contradiction proves the first assertion. The second again follows from $g^*$. $\square$
+
+We can now finish the proof. Suppose, for contradiction, that
+\[
+x<y
+\qquad\text{but}\qquad
+X=g(x)>g(y)=Y.
+\]
+By (2),
+\[
+Y\le x+y\le X.
+\tag{5}
+\]
+Since $x<y$,
+\[
+X>2x
+\qquad\text{and}\qquad
+Y<2y.
+\]
+Lemma 3 therefore gives
+\[
+g(t)=X
+\qquad(x<t<X-x)
+\]
+and
+\[
+g(t)=Y
+\qquad(Y-y<t<y).
+\]
+By (5),
+\[
+Y-y\le x<y\le X-x.
+\]
+Thus the two open intervals overlap on $(x,y)$, forcing $X=Y$, a contradiction.
+
+Hence $g$ is nondecreasing, which is exactly the desired inequality.
+
+SOLUTION 2:
+Again set
+\[
+g(x)=x-f(x).
+\]
+As in Solution 1, the hypothesis becomes
+\[
+g(x)\ne g(y)
+\quad\Longrightarrow\quad
+x+y\text{ lies between }g(x)\text{ and }g(y).
+\tag{1}
+\]
+We must prove that $g$ is nondecreasing.
+
+If $g$ is constant, the conclusion is immediate. Assume that $g$ takes at least two values.
+
+\textbf{Claim 1.}
+For every real number $c$, the level set
+\[
+\{x:g(x)=c\}
+\]
+is bounded.
+
+\textit{Proof.}
+Choose $y$ with
+\[
+g(y)\ne c.
+\]
+If $g(x)=c$, then (1) places $x+y$ between the two fixed numbers $c$ and $g(y)$. Hence $x$ lies in a fixed bounded interval. $\square$
+
+In particular, $g$ takes infinitely many values.
+
+\textbf{Claim 2.}
+If
+\[
+g(u)<g(v)<g(w),
+\]
+then
+\[
+u<w.
+\]
+
+\textit{Proof.}
+From (1),
+\[
+u+v\le g(v)\le v+w,
+\]
+so $u\le w$. Equality would give $g(u)=g(w)$, impossible. $\square$
+
+\textbf{Claim 3.}
+If
+\[
+x<y
+\qquad\text{and}\qquad
+X=g(x)>g(y)=Y,
+\]
+then
+\[
+g(a)\in\{X,Y\}
+\qquad(x\le a\le y).
+\]
+
+\textit{Proof.}
+If
+\[
+Y<g(a)<X,
+\]
+Claim 2 applied to the points $y,a,x$ gives $y<x$. If
+\[
+g(a)<Y<X,
+\]
+Claim 2 applied to $a,y,x$ gives $a<x$. If
+\[
+Y<X<g(a),
+\]
+Claim 2 applied to $y,x,a$ gives $y<a$. All three conclusions contradict $a\in[x,y]$. $\square$
+
+Assume, for contradiction, that such a descent $x<y$ with $X>Y$ exists.
+
+Call an interval a \emph{two-value interval} if $g$ takes only the values $X$ and $Y$ on it. Define
+\[
+r=\inf\left\{
+a\le x:
+g(t)\in\{X,Y\}\text{ for every }t\in(a,y]
+\right\},
+\]
+and
+\[
+s=\sup\left\{
+b\ge y:
+g(t)\in\{X,Y\}\text{ for every }t\in[x,b)
+\right\}.
+\]
+Claim 3 shows that these sets are nonempty. Claim 1 shows that
+\[
+-\infty<r\le x<y\le s<+\infty.
+\tag{2}
+\]
+Moreover,
+\[
+g(t)\in\{X,Y\}
+\qquad(r<t<s).
+\tag{3}
+\]
+
+Put
+\[
+\Delta=\frac{y-x}{2}.
+\]
+
+We first prove that
+\[
+g(t)=X
+\qquad(r<t<r+\Delta).
+\tag{4}
+\]
+Suppose instead that some such $t$ satisfies $g(t)=Y$. By the definition of $r$, there exists
+\[
+r'\in(r-\Delta,r]
+\]
+with
+\[
+g(r')\notin\{X,Y\}.
+\]
+We claim that
+\[
+g(r')<Y.
+\]
+Indeed, if $Y<g(r')<X$, Claim 2 applied to $y,r',x$ gives $y<x$. If $X<g(r')$, Claim 2 applied to $y,x,r'$ gives $y<r'\le x$. Both are impossible.
+
+Applying (1) to the pairs $(r',y)$ and $(t,x)$ gives
+\[
+r'+y\le Y\le t+x.
+\]
+Using the locations of $r'$ and $t$,
+\[
+r-\Delta+y<r'+y\le t+x<r+\Delta+x.
+\]
+Thus
+\[
+y-x<2\Delta,
+\]
+contrary to the definition of $\Delta$. This proves (4).
+
+Applying the same argument to
+\[
+g^*(u)=-g(-u),
+\]
+we obtain the symmetric conclusion
+\[
+g(t)=Y
+\qquad(s-\Delta<t<s).
+\tag{5}
+\]
+
+Choose
+\[
+s-\Delta<s_1<s_2<s
+\]
+and put
+\[
+\delta=\frac{s_2-s_1}{2}.
+\]
+By the definition of $r$, choose
+\[
+r'\in(r-\delta,r]
+\]
+with
+\[
+g(r')\notin\{X,Y\}.
+\]
+As above,
+\[
+g(r')<Y.
+\]
+Choose any
+\[
+t\in(r,r+\delta).
+\]
+By (4),
+\[
+g(t)=X,
+\]
+and by (5),
+\[
+g(s_1)=g(s_2)=Y.
+\]
+
+Apply (1) to the pairs $(r',s_2)$ and $(t,s_1)$. We get
+\[
+r'+s_2\le Y\le t+s_1.
+\]
+Therefore
+\[
+r-\delta+s_2<r'+s_2\le t+s_1<r+\delta+s_1,
+\]
+which implies
+\[
+s_2-s_1<2\delta.
+\]
+This contradicts the definition of $\delta$.
+
+Hence no descent is possible, and $g$ is nondecreasing. Translating back to $f$ gives
+\[
+f(x)+y\le f(y)+x
+\qquad(x>y).
+\]

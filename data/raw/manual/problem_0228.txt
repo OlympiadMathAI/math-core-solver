@@ -1,0 +1,193 @@
+ID: 0228
+
+SOURCE: IMO Shortlist
+
+YEAR: 2017
+
+TOPIC: Geometry
+
+SUBTOPICS: Regular Polygons, Convexity, Homothety, Half-Planes, Cyclic Order
+
+STATEMENT:
+Let $n\ge3$ be an integer. Two regular $n$-gons $\mathcal A$ and $\mathcal B$ are given in the plane. Prove that the vertices of $\mathcal A$ that lie inside $\mathcal B$ or on its boundary are consecutive in the cyclic order of the vertices of $\mathcal A$.
+
+Equivalently, prove that a line separates those vertices from the remaining vertices of $\mathcal A$.
+
+SOLUTION 1:
+Throughout the proof, a polygon includes its boundary.
+
+We first construct a regular $n$-gon $\mathcal C$ inscribed in $\mathcal B$ and aligned with $\mathcal A$. Let $O_A,O_B$ be the centers of $\mathcal A,\mathcal B$. Choose a vertex $A$ of $\mathcal A$, and choose the point $C$ on the boundary of $\mathcal B$ for which
+\[
+\overrightarrow{O_BC}
+\]
+has the same direction as
+\[
+\overrightarrow{O_AA}.
+\]
+Rotate $C$ about $O_B$ through the multiples of $2\pi/n$. The resulting vertices form a regular $n$-gon $\mathcal C$ inscribed in $\mathcal B$. Corresponding vertices of $\mathcal C$ and $\mathcal A$ are related either by a translation, or by a positive homothety.
+
+It is therefore enough to prove the following more general assertion:
+
+\begin{quote}
+If $\mathcal C$ is a convex polygon inscribed in a convex polygon $\mathcal B$, and $\mathcal A$ is obtained from $\mathcal C$ by a translation or a positive homothety, then the vertices of $\mathcal A$ lying in $\mathcal B$ are consecutive.
+\end{quote}
+
+\textbf{Case 1: a translation.}
+Let $\tau$ be the translation taking $\mathcal C$ to $\mathcal A$. If its vector is zero, all vertices lie on the boundary of $\mathcal B$ and the result is immediate. Otherwise, choose coordinates so that the translation vector points to the right.
+
+Let $B_T$ and $B_B$ be the top and bottom vertices of $\mathcal B$, choosing the rightmost one if there is a tie. They split the boundary of $\mathcal B$ into a left chain $B_L$ and a right chain $B_R$. Accordingly, the vertices of the inscribed polygon $\mathcal C$ split into consecutive sets
+\[
+C_L\subseteq B_L,
+\qquad
+C_R\subseteq B_R.
+\]
+Every point of $C_R$ moves outside $\mathcal B$, because it is the rightmost point of $\mathcal B$ on its horizontal line.
+
+It remains to consider $C_L$. Let $C_1,C_2,C_3$ occur in this order on $C_L$, and suppose
+\[
+A_1=\tau(C_1),
+\qquad
+A_3=\tau(C_3)
+\]
+lie in $\mathcal B$. Put $A_2=\tau(C_2)$. By the convexity of the left boundary, the horizontal line through $C_2$ meets the chord $C_1C_3$ to the right of $C_2$. After translation, the same line meets $A_1A_3$ to the right of $A_2$. Hence $A_2$ lies in the triangle
+\[
+A_1C_2A_3,
+\]
+which is contained in the convex polygon $\mathcal B$. Therefore $A_2\in\mathcal B$. This proves consecutiveness in the translation case.
+
+\textbf{Case 2: a positive homothety.}
+Let $h$ be the homothety taking $\mathcal C$ to $\mathcal A$, with center $X$ and ratio $k>0$.
+
+If $X\in\mathcal B$, the assertion is immediate. For $0<k\le1$, every image vertex lies on a segment from $X$ to a boundary point of $\mathcal B$ and hence lies in $\mathcal B$. For $k>1$, the image vertices lie beyond the corresponding boundary points; none lies inside, except possibly one or two boundary vertices in limiting supporting directions, which are consecutive.
+
+Assume now that
+\[
+X\notin\mathcal B.
+\]
+Choose two boundary vertices $B_T,B_B$ so that $\mathcal B$ lies in the angle $\angle B_TXB_B$. They divide the boundary into a chain $B_R$ farther from $X$ and a chain $B_L$ nearer to $X$. The vertices of $\mathcal C$ again split into consecutive subsets
+\[
+C_R\subseteq B_R,
+\qquad
+C_L\subseteq B_L.
+\]
+
+Suppose first that $k>1$. All vertices on the far chain $C_R$ move outside $\mathcal B$. Let $C_1,C_2,C_3$ occur in this order on $C_L$, and suppose that
+\[
+A_1=h(C_1),
+\qquad
+A_3=h(C_3)
+\]
+lie in $\mathcal B$. The ray $XC_2$ meets the chord $C_1C_3$ beyond $C_2$. After applying the homothety, it meets $A_1A_3$ beyond $A_2=h(C_2)$. Hence
+\[
+A_2\in\triangle A_1C_2A_3\subseteq\mathcal B.
+\]
+Thus the surviving vertices are consecutive.
+
+If $0<k<1$, the points of the near chain $C_L$ move toward the exterior point $X$ and leave $\mathcal B$. The same argument is applied to three vertices $C_1,C_2,C_3$ in the far chain $C_R$. In this case $A_2$ lies on $XC_2$, and the segments $XA_2$ and $A_1A_3$ intersect; again
+\[
+A_2\in\triangle A_1C_2A_3\subseteq\mathcal B.
+\]
+Therefore the vertices of $\mathcal A$ lying in $\mathcal B$ form one consecutive block in every case.
+
+SOLUTION 2:
+Let $O_A,O_B$ be the centers of $\mathcal A,\mathcal B$, and write
+\[
+[n]=\{1,2,\ldots,n\},
+\]
+with all indices interpreted cyclically modulo $n$.
+
+Enumerate the side-lines of $\mathcal B$ clockwise as
+\[
+\ell_1,\ell_2,\ldots,\ell_n.
+\]
+Let $H_i$ be the closed half-plane bounded by $\ell_i$ that contains $\mathcal B$. Let $B_i$ be the midpoint of the corresponding side, and put
+\[
+\mathbf b_i=\overrightarrow{B_iO_B}.
+\]
+
+Choose a vertex $A_1$ of $\mathcal A$ so that
+\[
+\left\langle\overrightarrow{O_AA_1},\mathbf b_1\right\rangle
+\]
+is minimal among all vertices. Enumerate the vertices clockwise as
+\[
+A_1,A_2,\ldots,A_n.
+\]
+Rotational symmetry gives, for every $i$,
+\[
+\left\langle\overrightarrow{O_AA_i},\mathbf b_i\right\rangle
+=
+\min_{j\in[n]}
+\left\langle\overrightarrow{O_AA_j},\mathbf b_i\right\rangle.
+\tag{1}
+\]
+
+Call a subset of $[n]$ \emph{connected} if its elements are consecutive in the cyclic order. The set of vertices of a convex polygon lying in any fixed half-plane is connected. The union of two connected cyclic sets that have a common element is connected.
+
+Define
+\[
+M=\{j\in[n]:A_j\notin\mathcal B\},
+\qquad
+M_i=\{j\in[n]:A_j\notin H_i\}.
+\]
+Since
+\[
+\mathcal B=\bigcap_{i=1}^nH_i,
+\]
+we have
+\[
+M=\bigcup_{i=1}^nM_i.
+\tag{2}
+\]
+
+We establish three properties.
+
+\textbf{Property 1.} Every $M_i$ is connected.
+
+This follows because $M_i$ consists of the vertices of $\mathcal A$ lying in the open half-plane complementary to $H_i$.
+
+\textbf{Property 2.} If $M_i\ne\varnothing$, then $i\in M_i$.
+
+Indeed,
+\[
+\begin{aligned}
+j\in M_i
+&\iff
+\left\langle\overrightarrow{B_iA_j},\mathbf b_i\right\rangle<0\\
+&\iff
+\left\langle\overrightarrow{O_AA_j},\mathbf b_i\right\rangle
+<
+\left\langle\overrightarrow{O_AB_i},\mathbf b_i\right\rangle.
+\end{aligned}
+\tag{3}
+\]
+The right-hand side of the last inequality is independent of $j$. If it holds for some $j$, then by the minimality in (1) it also holds for $j=i$.
+
+Put
+\[
+M'=\{i\in[n]:i\in M_i\}
+=\{i\in[n]:M_i\ne\varnothing\}.
+\]
+
+\textbf{Property 3.} The set $M'$ is connected.
+
+From (3),
+\[
+\begin{aligned}
+i\in M'
+&\iff
+\left\langle\overrightarrow{B_iA_i},\mathbf b_i\right\rangle<0\\
+&\iff
+\left\langle\overrightarrow{O_BO_A},\mathbf b_i\right\rangle
+<
+\left\langle\overrightarrow{O_BB_i},\mathbf b_i\right\rangle
++
+\left\langle\overrightarrow{A_iO_A},\mathbf b_i\right\rangle.
+\end{aligned}
+\tag{4}
+\]
+By the rotational symmetry of both regular polygons, the right-hand side of (4) is a constant, say $\mu$, independent of $i$. Thus $i\in M'$ exactly when the side midpoint $B_i$ lies in a certain open half-plane whose boundary is perpendicular to $O_BO_A$. The corresponding side indices form a connected set, proving Property 3.
+
+Finally, by Property 2 every nonempty connected set $M_i$ contains the index $i\in M'$. Starting from the connected set $M'$ and adjoining all the sets $M_i$, one by one, always adjoins a connected set meeting the union already present. Hence, by (2), $M$ is connected.
+
+The complement $[n]\setminus M$, which indexes precisely the vertices of $\mathcal A$ lying in $\mathcal B$, is also connected in the cyclic order. Therefore those vertices are consecutive.

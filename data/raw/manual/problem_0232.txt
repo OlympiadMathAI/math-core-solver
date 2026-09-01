@@ -1,0 +1,97 @@
+ID: 0232
+
+SOURCE: IMO Shortlist
+
+YEAR: 2017
+
+TOPIC: Number Theory
+
+SUBTOPICS: Combinatorial Games, Modular Arithmetic, Fermat's Little Theorem, Pairing Strategy
+
+STATEMENT:
+Let $p\ge2$ be a prime number. Eduardo and Fernando play the following game, making moves alternately. In each move, the current player chooses an index
+\[
+i\in\{0,1,\ldots,p-1\}
+\]
+that has not previously been chosen by either player, and then chooses a digit
+\[
+a_i\in\{0,1,2,3,4,5,6,7,8,9\}.
+\]
+Eduardo moves first. After all indices have been chosen, define
+\[
+M=a_0+10a_1+\cdots+10^{p-1}a_{p-1}
+ =\sum_{j=0}^{p-1}a_j10^j.
+\]
+Eduardo wants $p\mid M$, while Fernando wants to prevent this. Prove that Eduardo has a winning strategy.
+
+SOLUTION 1:
+If $p=2$ or $p=5$, Eduardo begins by choosing
+\[
+(i,a_i)=(0,0).
+\]
+Every remaining term of $M$ is divisible by $10$, so $p\mid M$ regardless of the later moves.
+
+Assume now that
+\[
+p\notin\{2,5\}.
+\]
+Eduardo first chooses
+\[
+(p-1,0).
+\]
+Put
+\[
+h=\frac{p-1}{2}.
+\]
+By Fermat's little theorem,
+\[
+(10^h)^2=10^{p-1}\equiv1\pmod p.
+\]
+Since $p$ is prime,
+\[
+10^h\equiv1\pmod p
+\qquad\text{or}\qquad
+10^h\equiv-1\pmod p.
+\]
+
+The remaining indices $0,1,\ldots,p-2$ are partitioned into the pairs
+\[
+\{r,r+h\},
+\qquad 0\le r<h.
+\]
+After every move of Fernando, Eduardo chooses the unused partner in the same pair. This is always possible because after each move by Eduardo every pair is either completely unused or completely used.
+
+\textbf{Case 1: $10^h\equiv-1\pmod p$.}
+
+If Fernando chooses $(i,a_i)$, Eduardo chooses its partner $j$ and sets
+\[
+a_j=a_i.
+\]
+Then
+\[
+10^j\equiv-10^i\pmod p,
+\]
+so
+\[
+a_i10^i+a_j10^j\equiv0\pmod p.
+\]
+Together with $a_{p-1}=0$, this gives $M\equiv0\pmod p$.
+
+\textbf{Case 2: $10^h\equiv1\pmod p$.}
+
+If Fernando chooses $(i,a_i)$, Eduardo chooses its partner $j$ and sets
+\[
+a_j=9-a_i.
+\]
+Now $10^j\equiv10^i\pmod p$. If $r$ is the smaller index of the pair, its contribution is
+\[
+a_i10^i+a_j10^j\equiv9\cdot10^r\pmod p.
+\]
+Hence at the end
+\[
+M\equiv9\sum_{r=0}^{h-1}10^r
+=10^h-1
+\equiv0\pmod p.
+\]
+
+Thus Eduardo has a winning strategy for every prime $p$.

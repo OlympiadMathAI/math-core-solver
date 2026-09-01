@@ -1,0 +1,17 @@
+{
+  "id": "0225",
+  "source": "IMO Shortlist",
+  "year": "2017",
+  "topic": "Geometry",
+  "subtopics": [
+    "Orthocenter",
+    "Circumcenter",
+    "Similar Triangles",
+    "Tangent-Chord Theorem",
+    "Median"
+  ],
+  "statement": "Let $O$ be the circumcenter of an acute scalene triangle $ABC$. The line $OA$ meets the altitudes through $B$ and $C$ at $P$ and $Q$, respectively. These altitudes meet at the orthocenter $H$. Prove that the circumcenter of $\\triangle PQH$ lies on a median of $\\triangle ABC$.",
+  "solutions": [
+    "Assume without loss of generality that\n\\[\nAB<AC.\n\\]\nSince $P,Q,A,O$ are collinear, while $QH\\perp AB$ and $PH\\perp AC$, we have\n\\[\n\\begin{aligned}\n\\angle PQH\n&=90^\\circ-\\angle QAB\\\\\n&=90^\\circ-\\angle OAB\\\\\n&=\\frac12\\angle AOB\\\\\n&=\\angle ACB,\n\\end{aligned}\n\\]\nand similarly\n\\[\n\\angle QPH=\\angle ABC.\n\\]\nThus\n\\[\n\\triangle HPQ\\sim\\triangle ABC.\n\\tag{1}\n\\]\n\nLet $\\Omega$ and $\\omega$ be the circumcircles of $\\triangle ABC$ and $\\triangle HPQ$, respectively. Since\n\\[\n\\angle AHP\n=90^\\circ-\\angle HAC\n=\\angle ACB\n=\\angle HQP,\n\\]\nthe line $AH$ is tangent to $\\omega$ at $H$.\n\nLet $T$ be the center of $\\omega$, and let\n\\[\nM=AT\\cap BC.\n\\]\nUnder the similarity (1), the point $H$ corresponds to $A$, the line $PQ$ corresponds to $BC$, and the tangent $AH$ at $H$ corresponds to a tangent to $\\Omega$ at $A$. Let that tangent meet $BC$ at $S$. The centers $T$ and $O$ correspond, while the points $A\\in PQ$ and $S\\in BC$ correspond. Therefore\n\\[\n\\angle OSM=\\angle OAT.\n\\]\nSince $A,T,M$ are collinear,\n\\[\n\\angle OAT=\\angle OAM.\n\\]\nHence\n\\[\n\\angle OSM=\\angle OAM,\n\\]\nso $S,A,O,M$ are concyclic.\n\nThe line $AS$ is tangent to $\\Omega$ at $A$, so\n\\[\nAS\\perp AO.\n\\]\nThus\n\\[\n\\angle OMS\n=180^\\circ-\\angle OAS\n=90^\\circ.\n\\]\nSince $M,S\\in BC$, this means\n\\[\nOM\\perp BC.\n\\]\nThe perpendicular from the circumcenter $O$ to $BC$ passes through the midpoint of $BC$. Therefore $M$ is the midpoint of $BC$, and $T$ lies on the median $AM$. Since $T$ is the circumcenter of $\\triangle PQH$, the result follows."
+  ]
+}

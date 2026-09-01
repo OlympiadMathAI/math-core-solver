@@ -1,0 +1,16 @@
+{
+  "id": "0234",
+  "source": "IMO Shortlist",
+  "year": "2017",
+  "topic": "Number Theory",
+  "subtopics": [
+    "Multiplicative Orders",
+    "Terminating Decimals",
+    "LTE",
+    "Euler Totient Function"
+  ],
+  "statement": "Call a rational number \\emph{short} if it has finitely many digits in its decimal expansion. For a positive integer $m$, a positive integer $t$ is called \\emph{$m$-tastic} if there exists\n\\[\nc\\in\\{1,2,\\ldots,2017\\}\n\\]\nsuch that\n\\[\n\\frac{10^t-1}{cm}\n\\]\nis short, while\n\\[\n\\frac{10^k-1}{cm}\n\\]\nis not short for every $1\\le k<t$. Let $S(m)$ be the set of all $m$-tastic numbers. As $m$ ranges over the positive integers, determine the maximum possible value of $|S(m)|$.",
+  "solutions": [
+    "The maximum is\n\\[\n\\boxed{807}.\n\\]\n\nA rational number is short exactly when, after reduction, its denominator has no prime factors other than $2$ and $5$. Write\n\\[\nm=2^u5^v s,\n\\qquad\n\\gcd(s,10)=1.\n\\]\nThe powers of $2$ and $5$ do not affect whether the quotients in the statement are short, so replacing $m$ by $s$ leaves $S(m)$ unchanged. We may therefore assume\n\\[\n\\gcd(m,10)=1.\n\\]\nLikewise, replacing $c$ by its factor coprime to $10$ does not change the first exponent for which the quotient becomes short. Define\n\\[\n\\mathcal C=\\{c:1\\le c\\le2017,\\ \\gcd(c,10)=1\\}.\n\\]\nThen\n\\[\nS(m)=\\{\\operatorname{ord}_{cm}(10):c\\in\\mathcal C\\},\n\\tag{1}\n\\]\nwhere $\\operatorname{ord}_N(10)$ is the multiplicative order of $10$ modulo $N$.\n\nThere are $201$ complete blocks of ten integers up to $2010$, each contributing the residues $1,3,7,9$, and the additional integers $2011,2013,2017$. Hence\n\\[\n|\\mathcal C|=4\\cdot201+3=807.\n\\]\nEquation (1) gives\n\\[\n|S(m)|\\le807.\n\\tag{2}\n\\]\n\nWe now attain equality. Let\n\\[\n\\mathcal P=\\{p:1<p\\le2017,\\ p\\text{ prime},\\ p\\notin\\{2,5\\}\\}.\n\\]\nChoose a positive integer $\\alpha$ such that\n\\[\np\\mid10^\\alpha-1\n\\qquad(p\\in\\mathcal P).\n\\]\nFor example, one may take $\\alpha=\\varphi(T)$, where $T$ is the product of all primes in $\\mathcal P$. Put\n\\[\nm=10^\\alpha-1.\n\\]\nWe claim that, for every $c\\in\\mathcal C$,\n\\[\n\\operatorname{ord}_{cm}(10)=c\\alpha.\n\\tag{3}\n\\]\n\nFirst,\n\\[\n\\operatorname{ord}_m(10)=\\alpha,\n\\]\nbecause $m=10^\\alpha-1$ and no smaller positive number $10^t-1$ can be divisible by $m$. Thus, if\n\\[\ncm\\mid10^t-1,\n\\]\nthen $\\alpha\\mid t$; write $t=k\\alpha$.\n\nEvery prime divisor of $c$ belongs to $\\mathcal P$. For such a prime $p$, the lifting-the-exponent lemma gives\n\\[\nv_p(10^{k\\alpha}-1)\n=v_p(10^\\alpha-1)+v_p(k)\n=v_p(m)+v_p(k).\n\\]\nTherefore\n\\[\n\\begin{aligned}\ncm\\mid10^{k\\alpha}-1\n&\\iff v_p(c)+v_p(m)\\le v_p(m)+v_p(k)\n   \\quad\\text{for every }p\\mid c\\\\\n&\\iff c\\mid k.\n\\end{aligned}\n\\]\nThe smallest possible $k$ is $c$, proving (3).\n\nThus the $807$ elements of $\\mathcal C$ give the distinct orders\n\\[\nc\\alpha\\qquad(c\\in\\mathcal C),\n\\]\nso $|S(m)|=807$. Together with (2), this proves the answer."
+  ]
+}

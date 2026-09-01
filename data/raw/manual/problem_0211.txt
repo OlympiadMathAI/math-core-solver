@@ -1,0 +1,295 @@
+ID: 0211
+
+SOURCE: IMO Shortlist
+
+YEAR: 2017
+
+TOPIC: Algebra
+
+SUBTOPICS: Symmetric Sums, Hamiltonian Paths, Averaging, Extremal Constructions
+
+STATEMENT:
+Let $n\ge3$ be an integer. Call an $n$-tuple of real numbers
+\[
+(x_1,x_2,\ldots,x_n)
+\]
+\emph{Shiny} if, for every permutation
+\[
+(y_1,y_2,\ldots,y_n)
+\]
+of these numbers,
+\[
+y_1y_2+y_2y_3+\cdots+y_{n-1}y_n\ge-1.
+\]
+Find the largest constant $K=K(n)$ such that
+\[
+\sum_{1\le i<j\le n}x_ix_j\ge K
+\]
+for every Shiny $n$-tuple.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{K=-\frac{n-1}{2}}.
+\]
+
+We first show that no larger constant is possible. Let $t>0$ and take
+\[
+x_1=-\frac1{2t},
+\qquad
+x_2=x_3=\cdots=x_n=t.
+\]
+In any ordering, the negative number has at most two neighbours. If it is an interior term, the path sum is
+\[
+(n-3)t^2-1\ge-1;
+\]
+if it is an endpoint, the path sum is
+\[
+(n-2)t^2-\frac12\ge-1.
+\]
+Thus the tuple is Shiny. Moreover,
+\[
+\sum_{i<j}x_ix_j
+=
+-\frac{n-1}{2}
++
+\frac{(n-1)(n-2)}2\,t^2.
+\]
+As $t\to0^+$, this approaches $-(n-1)/2$. Therefore
+\[
+K\le-\frac{n-1}{2}.
+\tag{1}
+\]
+
+We prove the reverse inequality. Let
+\[
+z_0,z_1,\ldots,z_{n-1}
+\]
+be a relabelling of the numbers, with subscripts taken modulo $n$. Regard every product $z_iz_j$ as the edge $\{i,j\}$ of the complete graph on the residues modulo $n$.
+
+For
+\[
+p=1,2,\ldots,\left\lfloor\frac{n-1}{2}\right\rfloor,
+\]
+consider the ordering of the residues
+\[
+p,\ p-1,\ p+1,\ p-2,\ p+2,\ p-3,\ldots,
+\tag{2}
+\]
+continued until all residues have appeared. This is a Hamiltonian path. The sums of the endpoint indices of its consecutive edges alternate between
+\[
+2p-1
+\qquad\text{and}\qquad
+2p
+\pmod n.
+\]
+A counting check shows that the paths (2) are edge-disjoint and contain every edge except:
+
+\begin{itemize}
+\item when $n$ is odd, the matching
+\[
+\{\{i,-i\}:1\le i\le(n-1)/2\};
+\]
+\item when $n$ is even, the edges whose endpoint sums are $0$ or $-1$ modulo $n$; these edges form the Hamiltonian path
+\[
+0,-1,1,-2,2,\ldots,-n/2.
+\]
+\end{itemize}
+
+Indeed, an edge belongs to the class determined by the residue of the sum of its endpoints. The path for $p$ contains exactly the two classes $2p-1$ and $2p$, and the numbers of edges in those two classes add to $n-1$.
+
+Every Hamiltonian-path sum is at least $-1$, because the tuple is Shiny.
+
+\textbf{Odd $n$.}
+The unused edges form a matching, together with one isolated vertex. We may label the numbers so that every matched pair has nonnegative product. To see this, pair negative numbers among themselves and positive numbers among themselves. If both groups leave an unpaired number, then a zero exists because $n$ is odd; pair one leftover with a zero and leave the other number isolated. Pair all remaining zeros arbitrarily.
+
+Let $L$ be the sum of the unused edge products. Then
+\[
+L\ge0.
+\]
+There are $(n-1)/2$ Hamiltonian paths, and hence
+\[
+\sum_{i<j}x_ix_j
+\ge
+-\frac{n-1}{2}+L
+\ge
+-\frac{n-1}{2}.
+\]
+
+\textbf{Even $n$.}
+The unused edges form a Hamiltonian path. Label its vertices, in path order, by numbers
+\[
+x_1\le x_2\le\cdots\le x_n.
+\]
+Thus its product sum is
+\[
+L=x_1x_2+x_2x_3+\cdots+x_{n-1}x_n.
+\tag{3}
+\]
+
+If all numbers have the same sign, then $L\ge0$. Otherwise choose $k$ such that
+\[
+x_k\le0\le x_{k+1}.
+\]
+By replacing every $x_i$ by $-x_i$ and reversing their order if necessary, we may assume
+\[
+k\ne1.
+\]
+Then all products in (3) are nonnegative except possibly $x_kx_{k+1}$, and $x_1x_2\ge0$. Therefore
+\[
+\begin{aligned}
+2L
+&\ge
+(x_2x_3+\cdots+x_{n-1}x_n)+x_kx_{k+1}\\
+&\ge
+x_2x_3+\cdots+x_{n-1}x_n+x_nx_1.
+\end{aligned}
+\]
+The last expression is the path sum for the permutation
+\[
+x_2,x_3,\ldots,x_n,x_1,
+\]
+so it is at least $-1$. Hence
+\[
+L\ge-\frac12.
+\]
+There are $(n-2)/2$ other Hamiltonian paths, and thus
+\[
+\sum_{i<j}x_ix_j
+\ge
+-\frac{n-2}{2}-\frac12
+=
+-\frac{n-1}{2}.
+\]
+
+Together with (1), this proves the answer.
+
+SOLUTION 2:
+The example
+\[
+-\frac1{2t},t,t,\ldots,t
+\qquad(t>0)
+\]
+from Solution 1 shows that
+\[
+K\le-\frac{n-1}{2}.
+\]
+We prove the opposite inequality by averaging suitable path sums.
+
+Order the numbers so that
+\[
+x_1\le\cdots\le x_k\le0\le x_{k+1}\le\cdots\le x_n.
+\]
+Let
+\[
+\ell=n-k.
+\]
+Negating every number does not change either the Shiny property or the sum of all pairwise products, so we may assume
+\[
+k\ge\ell.
+\]
+If one of the two sign classes is empty, every pairwise product is nonnegative and there is nothing to prove. Hence assume
+\[
+k,\ell\ge1.
+\]
+
+Define
+\[
+A=\sum_{\substack{1\le i<j\le k}}x_ix_j,
+\qquad
+B=\sum_{\substack{1\le i\le k\\k<j\le n}}x_ix_j,
+\qquad
+C=\sum_{\substack{k<i<j\le n}}x_ix_j.
+\]
+Then
+\[
+A,C\ge0,\qquad B\le0,
+\]
+and
+\[
+\sum_{i<j}x_ix_j=A+B+C.
+\tag{1}
+\]
+
+\textbf{Case 1: $k>\ell$.}
+
+Average the path sum
+\[
+y_1y_2+\cdots+y_{n-1}y_n
+\]
+over all permutations in which the $\ell$ nonnegative numbers occupy the even positions
+\[
+2,4,\ldots,2\ell.
+\]
+There are $k!\ell!$ such permutations. Every one of them has path sum at least $-1$.
+
+Each such path contains exactly $2\ell$ mixed-sign edges. Therefore the average contribution of all mixed products is
+\[
+\frac{2\ell}{k\ell}B=\frac2kB.
+\]
+It also contains exactly
+\[
+k-\ell-1
+\]
+edges joining two nonpositive numbers, so their average contribution is
+\[
+\frac{2(k-\ell-1)}{k(k-1)}A.
+\]
+There are no edges joining two nonnegative numbers. Hence
+\[
+-1
+\le
+\frac2kB+
+\frac{2(k-\ell-1)}{k(k-1)}A.
+\]
+Thus
+\[
+B\ge-\frac k2-\frac{k-\ell-1}{k-1}A.
+\]
+Using (1),
+\[
+\begin{aligned}
+A+B+C
+&\ge
+-\frac k2+
+\frac{\ell}{k-1}A+C\\
+&\ge
+-\frac k2\\
+&\ge
+-\frac{n-1}{2},
+\end{aligned}
+\]
+because $\ell\ge1$ gives $k\le n-1$.
+
+\textbf{Case 2: $k=\ell=n/2$.}
+
+Average over all permutations in which the nonnegative numbers occupy the even positions. Every path then alternates between the two sign classes, so all its $n-1$ edges are mixed. Therefore
+\[
+-1
+\le
+\frac{n-1}{k\ell}B
+=
+\frac{4(n-1)}{n^2}B.
+\]
+Hence
+\[
+B\ge-\frac{n^2}{4(n-1)}.
+\]
+Since $A,C\ge0$,
+\[
+A+B+C
+\ge
+-\frac{n^2}{4(n-1)}
+\ge
+-\frac{n-1}{2}.
+\]
+The last inequality holds for every even $n\ge4$.
+
+Thus every Shiny tuple satisfies
+\[
+\sum_{i<j}x_ix_j\ge-\frac{n-1}{2}.
+\]
+Combined with the extremal construction, this proves
+\[
+K=-\frac{n-1}{2}.
+\]

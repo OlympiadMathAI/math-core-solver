@@ -1,0 +1,241 @@
+ID: 0236
+
+SOURCE: IMO Shortlist
+
+YEAR: 2017
+
+TOPIC: Number Theory
+
+SUBTOPICS: Rational Tuples, Vieta Jumping, Diophantine Equations, Symmetric Expressions
+
+STATEMENT:
+Find the smallest positive integer $n$, or prove that none exists, for which there are infinitely many distinct $n$-tuples of positive rational numbers
+\[
+(a_1,a_2,\ldots,a_n)
+\]
+such that both
+\[
+a_1+a_2+\cdots+a_n
+\]
+and
+\[
+\frac1{a_1}+\frac1{a_2}+\cdots+\frac1{a_n}
+\]
+are integers.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{n=3}.
+\]
+
+For $n=1$, positivity and integrality of both $a_1$ and $1/a_1$ force
+\[
+a_1=1,
+\]
+so there is only one tuple.
+
+We next show that only finitely many pairs work. Write
+\[
+x=\frac ab,
+\qquad
+y=\frac cd,
+\]
+in lowest terms. The conditions
+\[
+x+y\in\mathbb Z
+\qquad\text{and}\qquad
+\frac1x+\frac1y\in\mathbb Z
+\]
+are equivalent to
+\[
+bd\mid ad+bc
+\qquad\text{and}\qquad
+ac\mid ad+bc.
+\tag{1}
+\]
+The first divisibility gives
+\[
+d\mid b
+\qquad\text{and}\qquad
+b\mid d,
+\]
+so $b=d$. The second gives analogously $a=c$. Thus $x=y$. We then need
+\[
+2x\in\mathbb Z
+\qquad\text{and}\qquad
+\frac2x\in\mathbb Z.
+\]
+Writing $x=a/b$ in lowest terms, this forces $a,b\mid2$. Hence
+\[
+(x,y)\in
+\left\{
+\left(\frac12,\frac12\right),(1,1),(2,2)
+\right\}.
+\]
+There are therefore only finitely many suitable pairs.
+
+It remains to construct infinitely many triples. Seek triples of the form
+\[
+(x,y,z)=
+\left(
+\frac1{1+b+c},
+\frac b{1+b+c},
+\frac c{1+b+c}
+\right),
+\tag{2}
+\]
+where $b,c$ are positive integers. Their sum is $1$. Their reciprocal sum is integral whenever
+\[
+\frac1b+\frac1c+\frac cb+\frac bc=3,
+\]
+or equivalently
+\[
+b^2+c^2-3bc+b+c=0.
+\tag{3}
+\]
+Indeed, under (3), the reciprocal sum of (2) is
+\[
+b+c+6.
+\]
+
+Equation (3) has infinitely many positive integer solutions. Starting with
+\[
+(b,c)=(2,3),
+\]
+suppose $c\ge b$ and regard (3) as a quadratic equation in $b$:
+\[
+b^2-(3c-1)b+(c^2+c)=0.
+\]
+If $b$ is one root, the other root is
+\[
+b'=\frac{c^2+c}{b}.
+\]
+It is a positive integer, and
+\[
+b'\ge\frac{c^2+c}{c}=c+1>c.
+\]
+Thus
+\[
+(b,c)\longmapsto(c,b')
+\]
+produces a new and strictly larger solution. The first pairs are
+\[
+(2,3),(3,6),(6,14),(14,35),(35,90),\ldots.
+\]
+They yield infinitely many distinct triples through (2). Hence $n=3$ works and is minimal.
+
+SOLUTION 2:
+For a positive rational $n$-tuple $\mathbf a=(a_1,\ldots,a_n)$, define
+\[
+F(\mathbf a)=
+(a_1+\cdots+a_n)
+\left(\frac1{a_1}+\cdots+\frac1{a_n}\right).
+\]
+Call a tuple \emph{pretty} if $F(\mathbf a)$ is an integer. Every tuple satisfying the problem is pretty. Conversely, if $(b_1,\ldots,b_n)$ is pretty, then
+\[
+\left(
+\frac{b_1}{b_1+\cdots+b_n},\ldots,
+\frac{b_n}{b_1+\cdots+b_n}
+\right)
+\]
+has sum $1$ and reciprocal sum $F(b_1,\ldots,b_n)$, so it satisfies the problem.
+
+The quantity $F$ is unchanged by scaling all entries by the same positive rational number. Each scaling class contains a unique primitive positive integral tuple, meaning one whose entries have greatest common divisor $1$.
+
+A fixed scaling class contains only finitely many tuples satisfying the original two integrality conditions. Indeed, if $t(b_1,\ldots,b_n)$ is such a tuple and
+\[
+B=b_1+\cdots+b_n,
+\qquad
+R=\frac1{b_1}+\cdots+\frac1{b_n},
+\]
+then $tB$ and $R/t$ are positive integers whose product is the fixed integer
+\[
+BR=F(b_1,\ldots,b_n).
+\]
+There are only finitely many such factor pairs. Consequently, infinitely many tuples can exist only if there are infinitely many primitive pretty tuples.
+
+For $n=1$ there is only one primitive tuple. For $n=2$, if $a,b$ are coprime positive integers and
+\[
+F(a,b)=\frac{(a+b)^2}{ab}
+\]
+is integral, then $a\mid(a+b)^2$ and $\gcd(a,a+b)=1$, so $a=1$; similarly $b=1$. Thus there is again only one primitive tuple.
+
+We construct infinitely many primitive pretty triples. Fix positive integers $b,c$, and write
+\[
+\sigma=b+c,
+\qquad
+\tau=bc.
+\]
+The equation
+\[
+F(a,b,c)=k
+\]
+is equivalent to
+\[
+\sigma a^2+
+\bigl(\sigma^2-(k-1)\tau\bigr)a+
+\sigma\tau=0.
+\tag{4}
+\]
+Its discriminant can be written as
+\[
+\Delta=
+\bigl((k+1)\tau-\sigma^2\bigr)^2-4k\tau^2.
+\]
+It becomes a square if we impose
+\[
+(k+1)\tau-\sigma^2=\tau^2+k.
+\]
+This is equivalent to
+\[
+\sigma^2=(\tau-1)(k-\tau).
+\tag{5}
+\]
+Thus, whenever
+\[
+\tau-1\mid\sigma^2,
+\]
+we obtain an integer $k$ and rational roots
+\[
+a=\frac{\sigma}{\tau-1}
+\qquad\text{or}\qquad
+a=\frac{\tau(\tau-1)}{\sigma}.
+\tag{6}
+\]
+
+Now impose
+\[
+(b+c)^2=5(bc-1).
+\tag{7}
+\]
+This is equivalent to
+\[
+b^2-3bc+c^2+5=0.
+\]
+For fixed $c$, if $b$ is one root, the other root is $3c-b$. Therefore
+\[
+(b,c)\longmapsto(c,3c-b)
+\]
+preserves (7). Starting from $(2,3)$ gives the infinite recurrence
+\[
+v_1=2,\qquad v_2=3,\qquad
+v_{i+2}=3v_{i+1}-v_i,
+\]
+with solutions
+\[
+(b,c)=(v_i,v_{i+1}).
+\]
+The entries are strictly increasing.
+
+For such a pair, the first value in (6) is
+\[
+a=\frac5{b+c}.
+\]
+After multiplying by $b+c$, the pretty triple is equivalent to
+\[
+\bigl(5,\ b(b+c),\ c(b+c)\bigr).
+\]
+After dividing by its common gcd if necessary, we obtain a primitive pretty triple. The ratio of its last two entries is $b:c$, and these ratios are all distinct. Hence we obtain infinitely many pairwise distinct primitive pretty triples.
+
+Therefore the smallest possible value is $n=3$.

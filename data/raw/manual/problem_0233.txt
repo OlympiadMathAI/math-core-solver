@@ -1,0 +1,101 @@
+ID: 0233
+
+SOURCE: IMO Shortlist
+
+YEAR: 2017
+
+TOPIC: Number Theory
+
+SUBTOPICS: Cyclic Sums, Prime Moduli, Pigeonhole Principle, Counterexamples
+
+STATEMENT:
+Determine all integers $n\ge2$ with the following property: for any integers
+\[
+a_1,a_2,\ldots,a_n
+\]
+whose sum is not divisible by $n$, there exists an index $1\le i\le n$ such that none of the numbers
+\[
+a_i,\quad a_i+a_{i+1},\quad\ldots,\quad a_i+a_{i+1}+\cdots+a_{i+n-1}
+\]
+is divisible by $n$. Indices are read cyclically, so $a_i=a_{i-n}$ when $i>n$.
+
+SOLUTION 1:
+The required integers are exactly the primes:
+\[
+\boxed{n\text{ is prime}}.
+\]
+
+Suppose first that $n$ is composite. Write
+\[
+n=ab,
+\qquad a,b\ge2,
+\]
+and set
+\[
+a_1=a_2=\cdots=a_{n-1}=a,
+\qquad
+a_n=0.
+\]
+The total sum is
+\[
+a(n-1),
+\]
+which is not divisible by $n=ab$.
+
+Nevertheless, starting from any index, there is a cyclic block with sum $n$. If the starting index is at most $n-b$, take the next $b$ terms. Otherwise, take the next $b+1$ terms. In either case the chosen block contains exactly $b$ copies of $a$ and possibly the single zero $a_n$, so its sum is
+\[
+ab=n.
+\]
+Thus no composite $n$ has the property.
+
+Now let $n$ be prime. Suppose, for contradiction, that the property fails. Then there are integers $a_1,\ldots,a_n$ with
+\[
+A=a_1+\cdots+a_n\not\equiv0\pmod n
+\tag{1}
+\]
+such that from every starting index there is a nonempty cyclic block of length at most $n-1$ whose sum is divisible by $n$.
+
+Construct integers
+\[
+0=i_0<i_1<\cdots<i_n
+\]
+recursively. Having chosen $i_s$, start at the cyclic index $i_s+1$ and choose
+\[
+1\le i_{s+1}-i_s\le n-1
+\]
+so that
+\[
+a_{i_s+1}+a_{i_s+2}+\cdots+a_{i_{s+1}}
+\equiv0\pmod n.
+\tag{2}
+\]
+
+Among the $n+1$ integers $i_0,i_1,\ldots,i_n$, two are congruent modulo $n$. Choose
+\[
+0\le r<s\le n
+\]
+with
+\[
+i_s\equiv i_r\pmod n.
+\]
+Summing (2) for $r\le j<s$ gives
+\[
+a_{i_r+1}+a_{i_r+2}+\cdots+a_{i_s}
+\equiv0\pmod n.
+\tag{3}
+\]
+Write
+\[
+i_s-i_r=kn.
+\]
+Since each increment is at most $n-1$ and there are at most $n$ increments,
+\[
+1\le k\le n-1.
+\]
+The block from $i_r+1$ to $i_s$ consists of exactly $k$ full turns around the cyclic sequence, so its sum is
+\[
+kA.
+\]
+Because $n$ is prime, neither $k$ nor $A$ is divisible by $n$, contradicting (3).
+
+Hence every prime $n$ has the stated property.

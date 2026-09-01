@@ -1,0 +1,17 @@
+{
+  "id": "0207",
+  "source": "IMO Shortlist",
+  "year": "2017",
+  "topic": "Algebra",
+  "subtopics": [
+    "Inequalities",
+    "AM-GM",
+    "Bernoulli Inequality",
+    "Elementary Symmetric Polynomials"
+  ],
+  "statement": "Let $a_1,a_2,\\ldots,a_n,k$, and $M$ be positive integers such that\n\\[\n\\frac1{a_1}+\\frac1{a_2}+\\cdots+\\frac1{a_n}=k\n\\]\nand\n\\[\na_1a_2\\cdots a_n=M.\n\\]\nIf $M>1$, prove that the polynomial\n\\[\nP(x)=M(x+1)^k-(x+a_1)(x+a_2)\\cdots(x+a_n)\n\\]\nhas no positive roots.",
+  "solutions": [
+    "We prove that\n\\[\nP(x)<0\n\\qquad(x>0).\n\\]\n\nFor every $i$ and every $x>0$,\n\\[\na_i(x+1)^{1/a_i}\\le x+a_i,\n\\tag{1}\n\\]\nwith equality if and only if $a_i=1$.\n\nIndeed, when $a_i=1$, equality is immediate. When $a_i>1$, apply AM-GM to one copy of $x+1$ and $a_i-1$ copies of $1$:\n\\[\n\\frac{(x+1)+(a_i-1)}{a_i}\n\\ge\n\\bigl((x+1)\\cdot1^{a_i-1}\\bigr)^{1/a_i}.\n\\]\nMultiplying by $a_i$ gives (1), and the inequality is strict because $x+1>1$.\n\nMultiplying (1) for $i=1,2,\\ldots,n$, we obtain\n\\[\n\\begin{aligned}\n\\prod_{i=1}^n(x+a_i)\n&\\ge\n\\prod_{i=1}^n a_i(x+1)^{1/a_i}\\\\\n&=\nM(x+1)^{\\sum_{i=1}^n1/a_i}\\\\\n&=\nM(x+1)^k.\n\\end{aligned}\n\\]\nSince $M>1$, at least one of the integers $a_i$ is greater than $1$, so at least one factor inequality is strict. Therefore\n\\[\n\\prod_{i=1}^n(x+a_i)>M(x+1)^k\n\\]\nfor every $x>0$. Hence $P(x)<0$, and $P$ has no positive roots.",
+    "We prove that every coefficient of $P$ is nonpositive and that at least one coefficient is negative.\n\nPut\n\\[\nc_i=\\frac1{a_i}\n\\qquad(1\\le i\\le n).\n\\]\nThen\n\\[\n0<c_i\\le1\n\\qquad\\text{and}\\qquad\nc_1+\\cdots+c_n=k.\n\\]\nLet $e_r=e_r(c_1,\\ldots,c_n)$ be the $r$th elementary symmetric sum, with $e_0=1$.\n\nWe claim that\n\\[\ne_r\\ge\\binom kr\n\\qquad(0\\le r\\le k).\n\\tag{1}\n\\]\nFor $r=0$ this is clear. Moreover,\n\\[\n\\begin{aligned}\n(r+1)e_{r+1}\n&=\n\\sum_{\\substack{J\\subseteq\\{1,\\ldots,n\\}\\\\|J|=r}}\n\\left(\\prod_{j\\in J}c_j\\right)\n\\left(\\sum_{i\\notin J}c_i\\right)\\\\\n&=\n\\sum_{|J|=r}\n\\left(\\prod_{j\\in J}c_j\\right)\n\\left(k-\\sum_{j\\in J}c_j\\right).\n\\end{aligned}\n\\]\nSince every $c_j\\le1$,\n\\[\nk-\\sum_{j\\in J}c_j\\ge k-r.\n\\]\nThus\n\\[\n(r+1)e_{r+1}\\ge(k-r)e_r.\n\\]\nInduction now gives (1).\n\nBecause $M>1$, not all $a_i$ are $1$, and hence\n\\[\nk=\\sum_{i=1}^n\\frac1{a_i}<n.\n\\tag{2}\n\\]\nFor $0\\le r\\le k$, the coefficient of $x^r$ in the product\n\\[\n\\prod_{i=1}^n(x+a_i)\n\\]\nis\n\\[\n\\sum_{1\\le i_1<\\cdots<i_{n-r}\\le n}\na_{i_1}\\cdots a_{i_{n-r}}\n=\nM e_r.\n\\]\nTherefore the coefficient of $x^r$ in $P$ is\n\\[\nM\\binom kr-Me_r\\le0\n\\]\nby (1).\n\nFor $k<r\\le n$, the term $M(x+1)^k$ contributes nothing to the coefficient of $x^r$, whereas the product contributes a positive coefficient. Hence the coefficient of $x^r$ in $P$ is negative. In particular, by (2), the leading coefficient is $-1$.\n\nThus all coefficients of $P$ are nonpositive and at least one is negative. Consequently\n\\[\nP(x)<0\n\\qquad(x>0),\n\\]\nso $P$ has no positive roots."
+  ]
+}

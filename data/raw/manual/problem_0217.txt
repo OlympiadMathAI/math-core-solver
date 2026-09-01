@@ -1,0 +1,159 @@
+ID: 0217
+
+SOURCE: IMO Shortlist
+
+YEAR: 2017
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Combinatorial Processes, Recurrence Relations, Binary Representations, Extremal Counting
+
+STATEMENT:
+Sir Alex plays the following game on a row of $9$ cells. Initially all cells are empty. In each move he performs exactly one of the following operations:
+
+\begin{enumerate}
+\item[(1)] Choose a number of the form $2^j$, where $j$ is a nonnegative integer, and put it into an empty cell.
+\item[(2)] Choose two not necessarily adjacent cells containing the same number $2^j$. Replace the number in one of them by $2^{j+1}$ and erase the number in the other.
+\end{enumerate}
+
+At the end of the game, one cell contains $2^n$, where $n$ is a given positive integer, and the other eight cells are empty. Determine the maximum possible number of moves.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{2\sum_{j=0}^{8}\binom{n}{j}-1},
+\]
+where $\binom{n}{j}=0$ for $j>n$.
+
+We solve the more general problem with $k$ cells. Let $m(n,k)$ be the maximum number of moves in a game that starts with $k$ empty cells and ends with one cell containing $2^n$ and the other $k-1$ cells empty. Call operations of type (1) \emph{insertions} and operations of type (2) \emph{merges}.
+
+For $n=0$ or $k=1$, only one move is possible:
+\[
+m(0,k)=m(n,1)=1.
+\tag{1}
+\]
+
+Now let $n\ge1$ and $k\ge2$. A maximal game has more than one move, so its last move is a merge. Immediately before it, two cells contain $2^{n-1}$ and all other cells are empty.
+
+Color one of these two numbers blue and the other red, and trace all moves backward. Whenever a merge is reversed, give both predecessor numbers the color of their successor. Reversing an insertion merely deletes one colored number. Thus every number occurring in the game acquires one of the two colors.
+
+Assume the first inserted number is blue. From that first move until the final merge, at least one blue cell is always occupied. Apart from the last merge, blue and red numbers never interact.
+
+The blue moves alone form a legal game on $k$ cells ending in one $2^{n-1}$, so there are at most
+\[
+m(n-1,k)
+\]
+blue moves. Whenever a red move is made, at least one cell is occupied by a blue number. Hence the red moves alone can be performed using at most $k-1$ cells, so there are at most
+\[
+m(n-1,k-1)
+\]
+red moves. Including the final merge,
+\[
+m(n,k)\le m(n-1,k)+m(n-1,k-1)+1.
+\]
+
+Conversely, first perform an optimal game producing $2^{n-1}$ in one of the $k$ cells. Keeping that cell occupied, perform an optimal game on the other $k-1$ cells to produce another $2^{n-1}$. One final merge produces $2^n$. Therefore
+\[
+m(n,k)=m(n-1,k)+m(n-1,k-1)+1.
+\tag{2}
+\]
+
+We claim that
+\[
+m(n,k)=2\sum_{j=0}^{k-1}\binom{n}{j}-1.
+\tag{3}
+\]
+The initial values (1) agree with (3). If (3) holds for $n$, then by (2) and Pascal's identity,
+\[
+\begin{aligned}
+m(n+1,k)
+&=m(n,k)+m(n,k-1)+1\\
+&=
+2\sum_{j=0}^{k-1}\binom{n}{j}
++
+2\sum_{j=0}^{k-2}\binom{n}{j}
+-1\\
+&=
+2\sum_{j=0}^{k-1}
+\left(
+\binom{n}{j}+\binom{n}{j-1}
+\right)-1\\
+&=
+2\sum_{j=0}^{k-1}\binom{n+1}{j}-1.
+\end{aligned}
+\]
+Thus (3) holds for all $n,k$. Setting $k=9$ gives the stated answer.
+
+SOLUTION 2:
+Again consider the game with $k\ge2$ cells. Let $I$ and $M$ be the total numbers of insertions and merges, respectively. Let $q$ be the number of occupied cells and let $S$ be the sum of all numbers currently written in the cells.
+
+Each insertion increases $q$ by $1$ and increases $S$ by a power of $2$. Each merge decreases $q$ by $1$ and leaves $S$ unchanged. Since $q$ starts at $0$ and ends at $1$,
+\[
+I-M=1.
+\tag{1}
+\]
+Thus the total number of moves is
+\[
+I+M=2I-1,
+\]
+so it remains to maximize $I$.
+
+We use the following fact.
+
+\textbf{Lemma.}
+If the binary expansion of a positive integer $A$ has $d$ nonzero digits, then every expression of $A$ as a sum of powers of $2$ uses at least $d$ summands. If it uses exactly $d$, the summands are precisely the distinct powers appearing in the binary expansion.
+
+\textit{Proof.}
+In a representation with the minimum number of summands, no two summands can be equal, since two equal powers could be merged into one. Hence the minimal representation consists of distinct powers and must be the binary expansion. $\square$
+
+At every stage of a game that can still reach the prescribed final state, the binary expansion of $S$ has at most $k-1$ nonzero digits. Indeed, if it had at least $k$, the lemma would force all $k$ cells to be occupied by distinct powers of $2$. Then neither an insertion nor a merge would be possible, while this state is not the final state.
+
+Let
+\[
+\mathcal A(n,k-1)
+\]
+be the set of positive integers at most $2^n$ whose binary expansions have at most $k-1$ nonzero digits. Every insertion strictly increases $S$, while merges do not change it. Hence the number of insertions is at most
+\[
+|\mathcal A(n,k-1)|.
+\tag{2}
+\]
+
+We show that every value in this set can occur successively. Write
+\[
+\mathcal A(n,k-1)=\{a_1<a_2<\cdots<a_t\}.
+\]
+Suppose the current sum is $a_j$ with $j<t$. Perform all possible merges. The nonempty cells then contain the distinct powers in the binary expansion of $a_j$, so at least one cell is empty.
+
+If $a_j$ has fewer than $k-1$ nonzero binary digits, then
+\[
+a_{j+1}=a_j+1.
+\]
+If it has exactly $k-1$ nonzero digits, write
+\[
+a_j=2^{b_1}+2^{b_2}+\cdots+2^{b_{k-1}},
+\qquad
+b_1<b_2<\cdots<b_{k-1}.
+\]
+Adding any positive integer smaller than $2^{b_1}$ creates more than $k-1$ nonzero digits, whereas
+\[
+a_j+2^{b_1}
+\]
+has at most $k-1$ nonzero digits after carrying. Hence
+\[
+a_{j+1}-a_j=2^{b_1}.
+\]
+In either case, $a_{j+1}-a_j$ is a power of $2$, so it can be inserted into an empty cell. Starting from $a_1=1$, this produces every value in $\mathcal A(n,k-1)$ and ends at $a_t=2^n$. Therefore equality is attained in (2).
+
+Finally,
+\[
+|\mathcal A(n,k-1)|
+=
+1+\sum_{j=1}^{k-1}\binom{n}{j}
+=
+\sum_{j=0}^{k-1}\binom{n}{j}.
+\]
+Here the initial $1$ counts the number $2^n$. Using (1), the maximum number of moves is
+\[
+2\sum_{j=0}^{k-1}\binom{n}{j}-1.
+\]
+Taking $k=9$ completes the solution.

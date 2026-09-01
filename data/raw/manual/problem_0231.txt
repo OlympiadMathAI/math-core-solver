@@ -1,0 +1,108 @@
+ID: 0231
+
+SOURCE: IMO Shortlist
+
+YEAR: 2017
+
+TOPIC: Number Theory
+
+SUBTOPICS: Recurrence Relations, Modular Arithmetic, Descent, Periodicity
+
+STATEMENT:
+The sequence $a_0,a_1,a_2,\ldots$ of positive integers satisfies
+\[
+a_{n+1}=
+\begin{cases}
+\sqrt{a_n},&\text{if }\sqrt{a_n}\text{ is an integer},\\
+a_n+3,&\text{otherwise}
+\end{cases}
+\qquad(n\ge0).
+\]
+Determine all values of $a_0>1$ for which there is at least one number $a$ such that
+\[
+a_n=a
+\]
+for infinitely many values of $n$.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{a_0\equiv0\pmod3}.
+\]
+Thus all positive multiples of $3$ greater than $1$ work.
+
+Because $a_{n+1}$ depends only on $a_n$, a value occurs infinitely often if and only if the sequence is eventually periodic.
+
+\textbf{Claim 1.} If
+\[
+a_n\equiv-1\pmod3,
+\]
+then every later term is nonsquare and the sequence is strictly increasing from $a_n$ onward.
+
+No square is congruent to $-1$ modulo $3$. Hence $a_n$ is not a square, so
+\[
+a_{n+1}=a_n+3\equiv-1\pmod3.
+\]
+Repeating this argument proves the claim. Such a sequence cannot be eventually periodic.
+
+\textbf{Claim 2.} If
+\[
+a_n\not\equiv-1\pmod3
+\qquad\text{and}\qquad
+a_n>9,
+\]
+then some later term is smaller than $a_n$.
+
+If $a_n$ is a square, then
+\[
+a_{n+1}=\sqrt{a_n}<a_n,
+\]
+and there is nothing to prove. Otherwise, let $t^2$ be the largest square below $a_n$. Then $t\ge3$. Starting from $a_n$, the sequence adds $3$ until it reaches the first square in the same residue class modulo $3$. Among
+\[
+(t+1)^2,\ (t+2)^2,\ (t+3)^2
+\]
+at least one has that residue. When this square is reached, the next term is at most $t+3$. Since
+\[
+t+3<t^2<a_n
+\]
+for $t\ge3$, the claim follows.
+
+\textbf{Claim 3.} If
+\[
+a_n\equiv0\pmod3,
+\]
+then the sequence eventually reaches $3$.
+
+A multiple of $3$ is always followed by another multiple of $3$. If a term is $3$, $6$, or $9$, the sequence enters the cycle
+\[
+3,6,9,3,6,9,\ldots.
+\tag{1}
+\]
+Suppose $a_n>9$. Among the later terms choose a minimum $a_j$. If $a_j>9$, Claim 2 produces a still smaller later term, a contradiction. Hence
+\[
+a_j\in\{3,6,9\},
+\]
+and the cycle (1) follows.
+
+\textbf{Claim 4.} If
+\[
+a_n\equiv1\pmod3,
+\]
+then some later term is congruent to $-1$ modulo $3$.
+
+The claim is immediate for $a_n=4$, since $4\mapsto2$, and for $a_n=7$, since
+\[
+7\mapsto10\mapsto13\mapsto16\mapsto4\mapsto2.
+\]
+Now assume $a_n\ge10$. Choose a minimum $a_j$ among all later terms. If $a_j\equiv1\pmod3$, Claim 2 forces $a_j\le9$. No term can become $1$ after the sequence starts above $1$, so
+\[
+a_j\in\{4,7\}.
+\]
+But either value is eventually followed by $2<a_j$, contradicting minimality. Therefore
+\[
+a_j\equiv-1\pmod3.
+\]
+
+If $3\mid a_0$, Claim 3 shows that the sequence enters the cycle (1), so some values occur infinitely often. If $a_0\equiv-1\pmod3$, Claim 1 rules out periodicity. If $a_0\equiv1\pmod3$, Claim 4 eventually reduces the sequence to the preceding case, after which Claim 1 applies.
+
+Therefore precisely the positive multiples of $3$ satisfy the requirement.

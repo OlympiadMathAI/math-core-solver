@@ -1,0 +1,168 @@
+ID: 0229
+
+SOURCE: IMO Shortlist
+
+YEAR: 2017
+
+TOPIC: Geometry
+
+SUBTOPICS: Tangential Quadrilaterals, Incenter Geometry, Similitude Centers, Apollonius Circle, Angle Bisectors
+
+STATEMENT:
+A convex quadrilateral $ABCD$ has an incircle with center $I$. Let $I_a,I_b,I_c,I_d$ be the incenters of the triangles $DAB,ABC,BCD,CDA$, respectively.
+
+The common external tangents of the circles
+\[
+(AI_bI_d)
+\qquad\text{and}\qquad
+(CI_bI_d)
+\]
+meet at $X$. The common external tangents of the circles
+\[
+(BI_aI_c)
+\qquad\text{and}\qquad
+(DI_aI_c)
+\]
+meet at $Y$. Prove that
+\[
+\angle XIY=90^\circ.
+\]
+
+SOLUTION 1:
+Denote the four circles by
+\[
+\omega_a=(AI_bI_d),
+\quad
+\omega_b=(BI_aI_c),
+\quad
+\omega_c=(CI_bI_d),
+\quad
+\omega_d=(DI_aI_c).
+\]
+Let their centers and radii be
+\[
+O_a,O_b,O_c,O_d
+\qquad\text{and}\qquad
+r_a,r_b,r_c,r_d,
+\]
+respectively.
+
+\textbf{Claim 1.}
+\[
+I_bI_d\perp AC
+\qquad\text{and}\qquad
+I_aI_c\perp BD.
+\tag{1}
+\]
+
+Let the incircles of $\triangle ABC$ and $\triangle ACD$ touch $AC$ at $T$ and $T'$. Their tangent-length formulas give
+\[
+AT=\frac{AB+AC-BC}{2},
+\qquad
+AT'=\frac{AD+AC-CD}{2}.
+\]
+Because $ABCD$ is tangential,
+\[
+AB+CD=BC+AD,
+\]
+so
+\[
+AB-BC=AD-CD.
+\]
+Hence $AT=AT'$, and therefore $T=T'$. The radii $I_bT$ and $I_dT$ are both perpendicular to $AC$, proving the first relation in (1). The second follows analogously.
+
+\textbf{Claim 2.}
+\[
+O_a\in AI,
+\quad
+O_b\in BI,
+\quad
+O_c\in CI,
+\quad
+O_d\in DI.
+\tag{2}
+\]
+
+We prove the assertion for $O_a$. The incircles of $\triangle ABC$ and $\triangle ACD$ are obtained from the incircle of $ABCD$ by homotheties centered at $B$ and $D$, respectively. Thus
+\[
+I_b\in BI,
+\qquad
+I_d\in DI.
+\tag{3}
+\]
+In the triangle $AI_dI_b$, Claim 1 says that $AT$ is an altitude. In any triangle, the altitude from a vertex and the line joining that vertex to the circumcenter are isogonal. Since $T$ lies inside $I_bI_d$,
+\[
+\angle I_bAT=\angle O_aAI_d.
+\]
+Also, $AI_b$ and $AI_d$ bisect $\angle BAC$ and $\angle CAD$, respectively. Hence
+\[
+\begin{aligned}
+\angle O_aAD
+&=\angle O_aAI_d+\angle I_dAD\\
+&=\angle I_bAT+\angle I_dAD\\
+&=\frac12\angle BAC+\frac12\angle CAD\\
+&=\frac12\angle BAD.
+\end{aligned}
+\]
+Thus $O_a$ lies on the angle bisector $AI$. The angle-domain choice above places it on the segment $AI$; similarly, $O_b,O_c,O_d$ lie on the segments $BI,CI,DI$, respectively. The other three assertions follow by symmetry.
+
+Now consider the pair $\omega_a,\omega_c$. Besides the external similitude center $X$, let $U$ be their internal similitude center. Since the two circles share the chord $I_bI_d$, their centers lie on its perpendicular bisector. By Claim 1,
+\[
+O_aO_c\parallel AC.
+\tag{4}
+\]
+The similitude centers $X,U$ also lie on $O_aO_c$.
+
+Because $O_a\in AI$, $O_c\in CI$, and (4) holds, the triangles $IO_aO_c$ and $IAC$ are similar. Equivalently, one homothety centered at $I$ sends $A,C$ to $O_a,O_c$. Using directed lengths along $IA$ and $IC$, the complementary segments have the same ratio, and hence
+\[
+\frac{O_aI}{O_cI}
+=
+\frac{O_aA}{O_cC}
+=
+\frac{r_a}{r_c}.
+\tag{5}
+\]
+Moreover,
+\[
+\frac{O_aX}{O_cX}
+=
+\frac{O_aU}{O_cU}
+=
+\frac{r_a}{r_c},
+\]
+and, since $I_b,I_d$ lie on both circles,
+\[
+\frac{O_aI_b}{O_cI_b}
+=
+\frac{O_aI_d}{O_cI_d}
+=
+\frac{r_a}{r_c}.
+\]
+Together with (5), the five points
+\[
+X,U,I_b,I_d,I
+\]
+lie on the Apollonius circle of $O_a,O_c$ with ratio $r_a:r_c$.
+
+The two intersections of this Apollonius circle with the line $O_aO_c$ are the internal and external division points $U,X$. Hence
+\[
+UX
+\]
+is a diameter of the Apollonius circle. Therefore $IU$ and $IX$ are the internal and external angle bisectors of
+\[
+\angle O_aIO_c=\angle AIC,
+\]
+respectively.
+
+On the other hand, the line $UX$, which is the same line as $O_aO_c$, is the perpendicular bisector of the common chord $I_bI_d$. Hence $U$ and $X$ are the two arc midpoints determined by the chord $I_bI_d$ on the Apollonius circle. Consequently, $IX$ and $IU$ are the internal and external angle bisectors of
+\[
+\angle I_bII_d=\angle BID,
+\]
+respectively.
+
+Applying the same argument to the pair $\omega_b,\omega_d$ shows that $IY$ is the internal angle bisector of $\angle AIC$ and the external angle bisector of $\angle BID$.
+
+Thus $IX$ and $IY$ are the internal and external angle bisectors of the same angle $\angle BID$. They are perpendicular, and therefore
+\[
+\angle XIY=90^\circ.
+\]
