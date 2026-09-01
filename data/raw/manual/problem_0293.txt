@@ -1,0 +1,194 @@
+ID: 0293
+
+SOURCE: IMO Shortlist
+
+YEAR: 2019
+
+TOPIC: Number Theory
+
+SUBTOPICS: Integer Polynomials, Euler Totient Function, Induction, Pigeonhole Principle
+
+STATEMENT:
+A set $S$ of integers is called \emph{rootiful} if, for every positive integer $n$ and every
+\[
+a_0,a_1,\ldots,a_n\in S,
+\]
+all integer roots of the polynomial
+\[
+a_0+a_1x+\cdots+a_nx^n
+\]
+also belong to $S$.
+
+Find all rootiful sets of integers that contain every number of the form
+\[
+2^a-2^b,
+\]
+where $a$ and $b$ are positive integers.
+
+SOLUTION 1:
+The only such set is
+\[
+\boxed{\mathbb Z}.
+\]
+
+Clearly $\mathbb Z$ itself is rootiful. Let $S$ be any rootiful set containing every number
+\[
+2^a-2^b
+\qquad(a,b\ge1).
+\]
+We prove that $S=\mathbb Z$.
+
+First,
+\[
+0=2^1-2^1\in S
+\qquad\text{and}\qquad
+2=2^2-2^1\in S.
+\]
+The integer $-1$ is a root of
+\[
+2x+2,
+\]
+so $-1\in S$. The integer $1$ is a root of
+\[
+2x^2-x-1,
+\]
+so $1\in S$.
+
+If $t\in S$, then $-t$ is a root of
+\[
+x+t,
+\]
+whose coefficients belong to $S$. Hence
+\[
+t\in S\Longrightarrow -t\in S.
+\tag{1}
+\]
+It is therefore enough to prove that every positive integer lies in $S$.
+
+We first show that every positive integer has a positive multiple in $S$. Let
+\[
+n=2^\alpha u,
+\]
+where $u$ is odd. Euler's theorem gives
+\[
+u\mid2^{\varphi(u)}-1.
+\]
+Therefore
+\[
+n
+\mid
+2^{\alpha+\varphi(u)+1}-2^{\alpha+1}.
+\]
+The number on the right belongs to $S$, so $S$ contains a multiple of $n$.
+
+We now use induction on $n$. Suppose that
+\[
+0,1,\ldots,n-1\in S.
+\]
+Choose a positive multiple $N\in S$ of $n$, and write its base-$n$ expansion as
+\[
+N=d_kn^k+d_{k-1}n^{k-1}+\cdots+d_1n+d_0,
+\]
+where
+\[
+0\le d_i<n.
+\]
+Since $n\mid N$, we have $d_0=0$. By the induction hypothesis, all digits $d_i$ belong to $S$, and by (1), so does $-N$.
+
+Thus $n$ is an integer root of
+\[
+d_kx^k+d_{k-1}x^{k-1}+\cdots+d_1x-N,
+\]
+all of whose coefficients lie in $S$. Since $S$ is rootiful,
+\[
+n\in S.
+\]
+The induction is complete, so $S$ contains every integer. Therefore
+\[
+S=\mathbb Z.
+\]
+
+SOLUTION 2:
+As in Solution 1, every such rootiful set contains
+\[
+0,\qquad1,\qquad-1.
+\]
+We prove that every integer $k$ with $|k|>2$ is an integer root of a nonzero polynomial all of whose coefficients have the form
+\[
+2^a-2^b
+\qquad(a,b\ge1).
+\]
+Together with the numbers already known to lie in $S$, this will prove $S=\mathbb Z$.
+
+It is enough to treat $k>2$. If $k$ is a root of
+\[
+c_nx^n+\cdots+c_1x+c_0,
+\]
+then $-k$ is a root of
+\[
+(-1)^nc_nx^n+\cdots-c_1x+c_0,
+\]
+and the negative of a number $2^a-2^b$ is again of the same form.
+
+Fix $k>2$. We seek two different exponent vectors
+\[
+(a_0,a_1,\ldots,a_n)
+\qquad\text{and}\qquad
+(b_0,b_1,\ldots,b_n)
+\]
+such that
+\[
+\sum_{i=0}^{n}2^{a_i}k^i
+=
+\sum_{i=0}^{n}2^{b_i}k^i.
+\tag{1}
+\]
+Then $k$ is a root of
+\[
+\sum_{i=0}^{n}(2^{a_i}-2^{b_i})x^i.
+\]
+
+For each $i=0,1,\ldots,n$, choose $a_i$ subject to
+\[
+1\le a_i\le1+\left\lfloor(n-i)\log_2k\right\rfloor.
+\]
+Every summand then satisfies
+\[
+2^{a_i}k^i\le2k^n,
+\]
+so every resulting sum is a positive integer at most
+\[
+2(n+1)k^n.
+\tag{2}
+\]
+
+On the other hand, the number of possible exponent vectors is
+\[
+\prod_{i=0}^{n}
+\left(
+1+\left\lfloor(n-i)\log_2k\right\rfloor
+\right).
+\]
+Using $1+\lfloor x\rfloor\ge x$, we obtain
+\[
+\prod_{i=0}^{n}
+\left(
+1+\left\lfloor(n-i)\log_2k\right\rfloor
+\right)
+\ge
+n!(\log_2k)^n.
+\tag{3}
+\]
+For sufficiently large $n$,
+\[
+n!(\log_2k)^n>2(n+1)k^n.
+\tag{4}
+\]
+By (2)--(4), there are more exponent vectors than possible values of the corresponding sums. The pigeonhole principle therefore gives two different vectors producing the same sum, as in (1).
+
+The resulting polynomial is nonzero, all of its coefficients are of the form $2^a-2^b$, and it has the integer root $k$. Hence every positive integer $k>2$ belongs to $S$, and so does $-k$.
+
+Thus every integer belongs to $S$, and the unique rootiful set satisfying the condition is
+\[
+\boxed{\mathbb Z}.
+\]

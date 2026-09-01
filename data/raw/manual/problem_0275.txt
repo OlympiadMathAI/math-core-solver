@@ -1,0 +1,100 @@
+ID: 0275
+
+SOURCE: IMO Shortlist
+
+YEAR: 2019
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Subset Sums, Induction, Ordered Weights, Gap Arguments
+
+STATEMENT:
+A set of $n$ blocks is given. Every block weighs at least $1$, and their total weight is $2n$. Prove that for every real number $r$ satisfying
+\[
+0\le r\le2n-2,
+\]
+there is a subset of the blocks whose total weight lies in the interval
+\[
+[r,r+2].
+\]
+
+SOLUTION 1:
+We prove a slightly stronger assertion.
+
+\textbf{Claim.} Suppose $n$ blocks have weights at least $1$ and total weight $s\le2n$. Then, for every
+\[
+-2\le r\le s,
+\]
+some subset has total weight between $r$ and $r+2$.
+
+We use induction on $n$. The assertion is immediate for $n=1$: the empty subset and the full subset cover the relevant values of $r$.
+
+Let $x$ be a largest block weight. Since $x\ge s/n$,
+\[
+s-x\le\frac{n-1}{n}s\le2(n-1),
+\]
+so the induction hypothesis applies to the remaining $n-1$ blocks. It supplies the desired subset for every
+\[
+-2\le r\le s-x.
+\tag{1}
+\]
+Adding the removed block of weight $x$ to the subsets supplied by induction gives the desired result for every
+\[
+x-2\le r\le s.
+\tag{2}
+\]
+It remains to check that the two intervals overlap. Since all other $n-1$ blocks weigh at least $1$,
+\[
+x\le s-(n-1).
+\]
+Also $s\le2n$, so $x\le n+1$. Adding these two bounds gives
+\[
+2x\le s+2,
+\]
+or equivalently
+\[
+x-2\le s-x.
+\]
+Thus (1) and (2) cover the whole interval $[-2,s]$.
+
+Applying the claim with $s=2n$ proves the problem.
+
+SOLUTION 2:
+Let the block weights be
+\[
+x_1\le x_2\le\cdots\le x_n.
+\]
+For $0\le k\le n$, let $S_k$ be the set of all subset sums formed from
+\[
+x_1,x_2,\ldots,x_k.
+\]
+We show inductively that the distance between any two consecutive elements of $S_k$ is at most $2$.
+
+This is trivial for $k=0$, since $S_0=\{0\}$. For $k\ge1$,
+\[
+S_k=S_{k-1}\cup(x_k+S_{k-1}).
+\]
+The two copies individually have gaps at most $2$, so it is enough to prove that they do not leave a gap larger than $2$ between them. Since the largest element of $S_{k-1}$ is
+\[
+x_1+\cdots+x_{k-1},
+\]
+it suffices to show
+\[
+x_k\le x_1+\cdots+x_{k-1}+2.
+\tag{1}
+\]
+Assume that (1) fails. Since every $x_j\ge1$,
+\[
+x_k>x_1+\cdots+x_{k-1}+2\ge k+1.
+\]
+The sequence is nondecreasing, so $x_j>k+1$ for every $j\ge k$. Hence
+\[
+\begin{aligned}
+2n=\sum_{j=1}^n x_j
+&>(k-1)+(n-k+1)(k+1)\\
+&=n+k(n+1-k).
+\end{aligned}
+\]
+Thus $n>k(n+1-k)$, impossible for $1\le k\le n$, because the right-hand side is at least $n$.
+
+Therefore every gap between consecutive elements of $S_n$ is at most $2$. Since $S_n$ contains both $0$ and $2n$, every interval $[r,r+2]$ with $0\le r\le2n-2$ contains an element of $S_n$.

@@ -1,0 +1,234 @@
+ID: 0289
+
+SOURCE: IMO Shortlist
+
+YEAR: 2019
+
+TOPIC: Geometry
+
+SUBTOPICS: Incircle Polarity, Radical Axes, Miquel Point, Mixtilinear Circle, Isogonal Lines, Symmedians
+
+STATEMENT:
+The incircle $\omega$ of an acute scalene triangle $ABC$ has centre $I$ and touches $BC,CA,AB$ at $D,E,F$, respectively. The line through $D$ perpendicular to $EF$ meets $\omega$ again at $R$. The line $AR$ meets $\omega$ again at $P$. The circumcircles of triangles $PCE$ and $PBF$ meet again at $Q\ne P$. Prove that the lines $DI$ and $PQ$ meet on the external angle bisector of $\angle BAC$.
+
+SOLUTION 1:
+All angles are directed modulo $\pi$.
+
+Let the external angle bisector at $A$ meet $DI$ at $L$, and let $DI$ meet $\omega$ again at $K$. Let $N$ be the midpoint of $EF$. Then $A,N,I$ are collinear, and $N$ is the pole of the line $AL$ with respect to $\omega$.
+
+Because
+\[
+AN\cdot AI=AE^2=AR\cdot AP,
+\]
+the points $R,N,I,P$ are concyclic. Since $IR=IP$, the line $NI$ is the external bisector of $\angle PNR$. It follows that $PN$ meets $\omega$ again at the reflection of $R$ in $AI$, which is $K$. Thus
+\[
+P,N,K\text{ are collinear}.
+\tag{1}
+\]
+Let $DN$ meet $\omega$ again at $S$.
+
+Consider the cyclic quadrilateral $DKPS$. Its two opposite sides $DS,KP$ meet at $N$. The polar of $N$ contains the intersection of the other pair of opposite sides $DK,PS$. Since $AL$ is the polar of $N$ and $L=AL\cap DK$, we get
+\[
+P,S,L\text{ are collinear}.
+\tag{2}
+\]
+Consequently, it remains to prove that $P,Q,S$ are collinear.
+
+Let $\Gamma$ be the circumcircle of $BIC$. The cyclic quadrilaterals $PBFQ$ and $PCEQ$, together with the contact geometry of $D,E,F$, give
+\[
+\begin{aligned}
+\angle(BQ,QC)
+&=\angle(BQ,QP)+\angle(PQ,QC)\\
+&=\angle(BF,FP)+\angle(PE,EC)\\
+&=\angle(EF,EP)+\angle(FP,FE)\\
+&=\angle(FP,EP)\\
+&=\angle(DF,DE)\\
+&=\angle(BI,IC).
+\end{aligned}
+\]
+Hence
+\[
+Q\in\Gamma.
+\tag{3}
+\]
+Let $QP$ meet $\Gamma$ again at $T$. We shall prove that $S,P,T$ are collinear.
+
+From the circles in (3) and $PBFQ$,
+\[
+\angle(BI,IT)
+=\angle(BQ,QT)
+=\angle(BF,FP)
+=\angle(FK,KP).
+\tag{4}
+\]
+The diameter $DK$ gives $FD\perp FK$, while the symmetry of the contact points $D,F$ about the angle bisector $BI$ gives $FD\perp BI$. Thus
+\[
+FK\parallel BI.
+\]
+Equation (4) therefore yields
+\[
+IT\parallel KP=KN.
+\tag{5}
+\]
+Since $I$ is the midpoint of $DK$, the line through $I$ parallel to $KN$ meets $DN$ at its midpoint. Denote this midpoint by $M$. By (5),
+\[
+M=IT\cap DN.
+\]
+
+Let $E_1$ and $F_1$ be the midpoints of $DF$ and $DE$, respectively. The line $BI$ is the perpendicular bisector of the chord $DF$, so $B,E_1,I$ are collinear; similarly $C,F_1,I$ are collinear. Moreover,
+\[
+DE_1\cdot E_1F=DE_1^2=BE_1\cdot E_1I,
+\]
+and analogously at $F_1$. Therefore $E_1$ and $F_1$ lie on the radical axis of $\omega$ and $\Gamma$. The line $E_1F_1$ passes through the midpoint $M$ of $DN$, so $M$ also lies on this radical axis. Hence
+\[
+IM\cdot MT=DM\cdot MS.
+\]
+Thus $S,I,D,T$ are concyclic.
+
+Finally,
+\[
+\angle(DS,ST)
+=\angle(DI,IT)
+=\angle(DK,KP)
+=\angle(DS,SP),
+\]
+where the last equality follows from the cyclic quadrilateral $DKPS$. Therefore $S,T,P$ are collinear. Combining this with (2), the line $PQ$ passes through $L$, which lies on the external angle bisector of $\angle BAC$.
+
+SOLUTION 2:
+Introduce $K,L,N,S$ exactly as follows:
+\[
+K=DI\cap\omega\setminus\{D\},
+\qquad
+L=DI\cap\text{(external bisector at }A),
+\]
+$N$ is the midpoint of $EF$, and $S$ is the second intersection of $DN$ with $\omega$. The polar argument from the beginning of Solution 1 gives
+\[
+P,N,K\text{ collinear},
+\qquad
+P,S,L\text{ collinear}.
+\tag{1}
+\]
+It is therefore enough to show that $P,Q,S$ are collinear.
+
+Let the line $AR$ meet the circumcircle $\Omega$ of $ABC$ again at $X$. The lines $AR$ and $AK$ are isogonal in $\angle BAC$. A standard property of the $A$-mixtilinear incircle says that $X$ is its point of tangency with $\Omega$. Another standard property gives that the line $XI$ meets $\Omega$ again at the midpoint $M'$ of the arc $BAC$.
+
+Let
+\[
+\Omega_B=(PBF),
+\qquad
+\Omega_C=(PCE).
+\]
+Suppose $\Omega_B$ meets $AR$ and $EF$ again at $U$ and $Y$, respectively. Then
+\[
+\angle(UB,BF)=\angle(UP,PF)=\angle(RP,PF)=\angle(RF,FA),
+\]
+so
+\[
+UB\parallel RF.
+\tag{2}
+\]
+We next show that $B,I,U,X$ are concyclic. By (2),
+\[
+\begin{aligned}
+\angle(UB,UX)
+&=\angle(RF,RX)\\
+&=\angle(AF,AR)+\angle(FR,FA)\\
+&=\angle(M'B,M'X)+\angle(DR,DF).
+\end{aligned}
+\]
+The last expression equals $\angle(IB,IX)$, because both remaining component angles equal $\angle(CI,CB)$. Hence $B,I,U,X$ are concyclic.
+
+Using this circle and $BPUFY$, we obtain
+\[
+\begin{aligned}
+\angle(IU,UB)
+&=\angle(IX,BX)\\
+&=\angle(M'X,BX)\\
+&=\frac{\pi-A}{2}\\
+&=\angle(EF,AF)\\
+&=\angle(YF,BF)\\
+&=\angle(YU,UB).
+\end{aligned}
+\]
+Therefore $Y,U,I$ are collinear.
+
+Let
+\[
+W=EF\cap BC.
+\]
+Then
+\[
+\angle(IY,YW)
+=\angle(UY,FY)
+=\angle(UB,FB)
+=\angle(RF,AF)
+=\angle(CI,CW),
+\]
+so $W,Y,I,C$ are concyclic.
+
+Similarly, if $\Omega_C$ meets $AR$ and $EF$ again at $V$ and $Z$, then
+\[
+C,V,I,X\text{ are concyclic},
+\qquad
+B,I,Z,W\text{ are concyclic}.
+\tag{3}
+\]
+
+Let
+\[
+Q'=CY\cap BZ.
+\]
+Using the two circles through $W$ just obtained,
+\[
+\begin{aligned}
+\angle(Q'Y,Q'B)
+&=\angle(CY,ZB)\\
+&=\angle(CY,ZY)+\angle(ZY,BZ)\\
+&=\angle(CI,IW)+\angle(IW,IB)\\
+&=\angle(CI,IB)\\
+&=\frac{\pi-A}{2}\\
+&=\angle(FY,FB).
+\end{aligned}
+\]
+Hence $Q'\in\Omega_B$. The symmetric argument gives $Q'\in\Omega_C$. Thus
+\[
+Q'\in\Omega_B\cap\Omega_C=\{P,Q\}.
+\]
+If $Q'=P$, then
+\[
+\angle(PY,PZ)=\angle(IC,IB),
+\]
+and a short angle calculation shows that $\Omega_B$ and $\Omega_C$ are tangent at $P$. This is impossible because the problem specifies a second intersection $Q\ne P$. Hence
+\[
+Q'=Q.
+\tag{4}
+\]
+
+It remains to prove $P,Q,S$ collinear. With respect to the incircle, $A$ and $D$ are the poles of the lines $EW=EF$ and $DW=BC$. By La Hire's theorem, $W$ is the pole of $AD$, and therefore
+\[
+WI\perp AD.
+\tag{5}
+\]
+Also $CI\perp DE$. Hence
+\[
+\angle(IC,WI)=\angle(DE,DA).
+\tag{6}
+\]
+The line $DA$ is a symmedian of triangle $DEF$, and $N$ is the midpoint of $EF$, so
+\[
+\angle(DE,DA)=\angle(DN,DF)=\angle(DS,DF).
+\tag{7}
+\]
+Combining (4)--(7) and the cyclic quadrilaterals above,
+\[
+\begin{aligned}
+\angle(PS,PF)
+&=\angle(DS,DF)\\
+&=\angle(DE,DA)\\
+&=\angle(IC,IW)\\
+&=\angle(YC,YW)\\
+&=\angle(YQ,YF)\\
+&=\angle(PQ,PF).
+\end{aligned}
+\]
+Therefore $P,S,Q$ are collinear. By (1), $PQ$ passes through $L$, the point where $DI$ meets the external angle bisector at $A$.

@@ -1,0 +1,467 @@
+ID: 0296
+
+SOURCE: IMO Shortlist
+
+YEAR: 2019
+
+TOPIC: Number Theory
+
+SUBTOPICS: Beatty Sequences, Diophantine Approximation, Pell Equations, Additive Combinatorics
+
+STATEMENT:
+Let
+\[
+H=\left\{\left\lfloor i\sqrt2\right\rfloor:i\in\mathbb Z_{>0}\right\}
+=\{1,2,4,5,7,\ldots\}.
+\]
+Prove that there exists a positive constant $C$ such that, for every positive integer $n$, every set
+\[
+A\subseteq\{1,2,\ldots,n\}
+\]
+with
+\[
+|A|\ge C\sqrt n
+\]
+contains two elements $a,b$ satisfying
+\[
+a-b\in H.
+\]
+
+SOLUTION 1:
+We prove the contrapositive. Suppose that no positive difference of two elements of $A$ belongs to $H$. We show that
+\[
+|A|<2\sqrt n.
+\]
+
+For a positive integer $r$,
+\[
+r\in H
+\quad\Longleftrightarrow\quad
+\left\{\frac r{\sqrt2}\right\}>1-\frac1{\sqrt2},
+\tag{1}
+\]
+where $\{x\}$ denotes the fractional part of $x$.
+
+Indeed, $r\in H$ exactly when there is an integer $i$ satisfying
+\[
+r<i\sqrt2<r+1,
+\]
+or equivalently
+\[
+\frac r{\sqrt2}<i<\frac r{\sqrt2}+\frac1{\sqrt2}.
+\]
+This interval contains an integer exactly under condition (1).
+
+Write
+\[
+A=\{a_1<a_2<\cdots<a_k\}.
+\]
+Translation does not change the differences, so we may assume
+\[
+0=a_1<a_2<\cdots<a_k<n.
+\]
+By (1),
+\[
+\left\{\frac{a_i}{\sqrt2}\right\}
+<
+1-\frac1{\sqrt2}
+\qquad(i\ge2).
+\tag{2}
+\]
+
+Moreover, these fractional parts are strictly increasing. Suppose that $i<j$ but
+\[
+\left\{\frac{a_j}{\sqrt2}\right\}
+<
+\left\{\frac{a_i}{\sqrt2}\right\}.
+\]
+Then, using (2),
+\[
+\left\{\frac{a_j-a_i}{\sqrt2}\right\}
+=
+1+
+\left\{\frac{a_j}{\sqrt2}\right\}
+-
+\left\{\frac{a_i}{\sqrt2}\right\}
+>
+\frac1{\sqrt2}
+>
+1-\frac1{\sqrt2}.
+\]
+By (1), this would give
+\[
+a_j-a_i\in H,
+\]
+a contradiction.
+
+Put
+\[
+d_i=a_{i+1}-a_i
+\qquad(1\le i<k).
+\]
+Because the fractional parts are increasing,
+\[
+\left\{\frac{a_{i+1}}{\sqrt2}\right\}
+-
+\left\{\frac{a_i}{\sqrt2}\right\}
+=
+\left\{\frac{d_i}{\sqrt2}\right\}.
+\]
+Thus
+\[
+1-\frac1{\sqrt2}
+>
+\sum_{i=1}^{k-1}
+\left\{\frac{d_i}{\sqrt2}\right\}.
+\tag{3}
+\]
+
+For every positive integer $d$,
+\[
+\left\{\frac d{\sqrt2}\right\}
+>
+\frac1{2d\sqrt2}.
+\tag{4}
+\]
+To prove this, let
+\[
+q=\left\lfloor\frac d{\sqrt2}\right\rfloor.
+\]
+Then
+\[
+\left\{\frac d{\sqrt2}\right\}
+\left(
+\frac d{\sqrt2}+q
+\right)
+=
+\frac{d^2-2q^2}{2}
+\ge\frac12.
+\]
+Since
+\[
+\frac d{\sqrt2}+q<\frac{2d}{\sqrt2},
+\]
+inequality (4) follows.
+
+Applying (4) and Cauchy--Schwarz to (3),
+\[
+\begin{aligned}
+1-\frac1{\sqrt2}
+&>
+\frac1{2\sqrt2}
+\sum_{i=1}^{k-1}\frac1{d_i}\\
+&\ge
+\frac{(k-1)^2}
+{2\sqrt2\sum_{i=1}^{k-1}d_i}\\
+&>
+\frac{(k-1)^2}{2\sqrt2\,n}.
+\end{aligned}
+\]
+Therefore
+\[
+(k-1)^2<(2\sqrt2-2)n,
+\]
+and hence
+\[
+k<2\sqrt n.
+\]
+Thus one may take, for example,
+\[
+\boxed{C=2}.
+\]
+
+SOLUTION 2:
+Let
+\[
+\alpha=2+\sqrt2.
+\]
+Since
+\[
+\frac1{\sqrt2}+\frac1\alpha=1,
+\]
+Beatty's theorem shows that
+\[
+J=\{\lfloor i\alpha\rfloor:i\in\mathbb Z_{>0}\}
+\]
+is the complementary Beatty sequence to $H$:
+\[
+H\cap J=\varnothing,
+\qquad
+H\cup J=\mathbb Z_{>0}.
+\]
+
+Suppose that no positive difference of two elements of
+\[
+A=\{a_1<a_2<\cdots<a_k\}
+\]
+belongs to $H$. Then every such difference belongs to $J$. Hence there are integers
+\[
+0=b_1<b_2<\cdots<b_k
+\]
+such that
+\[
+a_i-a_1=\lfloor\alpha b_i\rfloor.
+\tag{1}
+\]
+
+For $j>i$, the difference
+\[
+\lfloor\alpha b_j\rfloor-\lfloor\alpha b_i\rfloor
+\]
+equals either
+\[
+\lfloor\alpha(b_j-b_i)\rfloor
+\]
+or that number plus $1$. Since $\alpha>2$, two consecutive positive integers cannot both lie in $J$. The difference belongs to $J$, so the second possibility is impossible. Therefore
+\[
+\lfloor\alpha b_j\rfloor-\lfloor\alpha b_i\rfloor
+=
+\lfloor\alpha(b_j-b_i)\rfloor.
+\tag{2}
+\]
+
+Put
+\[
+d_i=b_{i+1}-b_i
+\qquad(1\le i<k).
+\]
+Taking $i=1$ and $j=k$ in (2), and then summing the adjacent relations, gives
+\[
+\left\lfloor
+\alpha\sum_{i=1}^{k-1}d_i
+\right\rfloor
+=
+\sum_{i=1}^{k-1}\lfloor\alpha d_i\rfloor.
+\]
+Hence
+\[
+\sum_{i=1}^{k-1}\{\alpha d_i\}<1.
+\tag{3}
+\]
+Since
+\[
+\{\alpha d\}=\{d\sqrt2\},
+\]
+and the same quadratic-irrationality calculation as in Solution 1 gives
+\[
+\{d\sqrt2\}>\frac1{2d\sqrt2},
+\tag{4}
+\]
+equations (3)--(4) imply
+\[
+1>
+\frac1{2\sqrt2}
+\sum_{i=1}^{k-1}\frac1{d_i}
+\ge
+\frac{(k-1)^2}
+{2\sqrt2\sum_{i=1}^{k-1}d_i}.
+\tag{5}
+\]
+
+Furthermore,
+\[
+1+\left\lfloor
+\alpha\sum_{i=1}^{k-1}d_i
+\right\rfloor
+=
+1+a_k-a_1
+\le a_k
+\le n.
+\]
+Thus
+\[
+\sum_{i=1}^{k-1}d_i<\frac n\alpha.
+\]
+Substituting this into (5),
+\[
+(k-1)^2
+<
+\frac{2\sqrt2}{\alpha}\,n
+=
+(2\sqrt2-2)n.
+\]
+Therefore
+\[
+|A|<2\sqrt n,
+\]
+and again $C=2$ is sufficient.
+
+SOLUTION 3:
+Let
+\[
+J=\mathbb Z_{>0}\setminus H.
+\]
+Suppose that every positive difference between elements of $A$ lies in $J$.
+
+We first make a general observation. Let
+\[
+B\subseteq\{1,2,\ldots,n\}
+\]
+be a set all of whose positive differences lie in $H$. Then
+\[
+|A|\,|B|\le2n.
+\tag{1}
+\]
+Indeed, all sums
+\[
+a+b
+\qquad(a\in A,\ b\in B)
+\]
+are distinct. Otherwise
+\[
+a_1+b_1=a_2+b_2
+\]
+would give
+\[
+|a_1-a_2|=|b_1-b_2|,
+\]
+with the left side in $J$ and the right side in $H$. The sums lie between $2$ and $2n$, proving (1).
+
+It remains to construct a set $B$ of size at least a positive constant times $\sqrt n$ whose differences all lie in $H$.
+
+Consider the negative Pell equation
+\[
+X^2-2Y^2=-1.
+\tag{2}
+\]
+It has infinitely many positive solutions, and the $X$-coordinates satisfy
+\[
+X_1=1,\qquad X_2=7,\qquad
+X_{r}=6X_{r-1}-X_{r-2}.
+\]
+The ratio of two consecutive $X$-coordinates is at most $7$. Hence, for every $n$, we can choose a solution with
+\[
+\frac{\sqrt n}{7}<X\le\sqrt n.
+\tag{3}
+\]
+
+From (2),
+\[
+\frac X{\sqrt2}-Y
+=
+-\frac1{\sqrt2(X+\sqrt2Y)}.
+\]
+Because $\sqrt2Y>X$ and (3) holds,
+\[
+0>
+\frac X{\sqrt2}-Y
+>
+-\frac7{2\sqrt{2n}}.
+\tag{4}
+\]
+
+Put
+\[
+r=\left\lfloor\frac{\sqrt n}{4}\right\rfloor
+\]
+and define
+\[
+B=\{X,2X,\ldots,rX\}.
+\]
+We have $B\subseteq\{1,\ldots,n\}$. For $1\le j\le r$, equation (4) gives
+\[
+0>
+j\left(\frac X{\sqrt2}-Y\right)
+>
+-\frac1{\sqrt2}.
+\]
+Therefore
+\[
+\left\{\frac{jX}{\sqrt2}\right\}
+>
+1-\frac1{\sqrt2},
+\]
+so, by the characterization from Solution 1,
+\[
+jX\in H.
+\]
+Every positive difference between elements of $B$ has this form, and hence lies in $H$.
+
+For $n\ge64$,
+\[
+|B|=r\ge\frac{\sqrt n}{8}.
+\]
+Using (1),
+\[
+|A|\le\frac{2n}{|B|}
+\le16\sqrt n.
+\]
+For $n<64$, the trivial estimate
+\[
+|A|\le n<8\sqrt n
+\]
+is sufficient. Thus, for example,
+\[
+\boxed{C=16}
+\]
+works.
+
+SOLUTION 4:
+We retain the negative-Pell construction from Solution 3, but use it with a different counting argument.
+
+Choose a solution of
+\[
+X^2-2Y^2=-1
+\]
+such that
+\[
+\frac{\sqrt n}{7}<X\le\sqrt n.
+\]
+As proved in Solution 3, if
+\[
+R=\left\lfloor\frac{\sqrt n}{4}\right\rfloor,
+\]
+then
+\[
+X,2X,\ldots,RX
+\]
+all belong to $H$.
+
+Suppose that $A\subseteq\{1,\ldots,n\}$ has no positive difference in $H$. Partition $A$ according to its residue modulo $X$.
+
+Within one fixed residue class, write the elements as
+\[
+r+q_1X<r+q_2X<\cdots<r+q_sX.
+\]
+If
+\[
+1\le q_{i+1}-q_i\le R,
+\]
+then
+\[
+(q_{i+1}-q_i)X\in H,
+\]
+contrary to the assumption on $A$. Hence
+\[
+q_{i+1}-q_i\ge R+1.
+\]
+Since all elements are at most $n$, each residue class contains at most
+\[
+1+\frac{n}{X(R+1)}
+\]
+elements.
+
+There are at most $X$ residue classes, so
+\[
+|A|
+\le
+X+\frac{n}{R+1}.
+\]
+Using
+\[
+X\le\sqrt n
+\qquad\text{and}\qquad
+R+1>\frac{\sqrt n}{4},
+\]
+we obtain
+\[
+|A|<5\sqrt n
+\]
+whenever $n\ge16$. For $n<16$, the trivial estimate
+\[
+|A|\le n\le4\sqrt n
+\]
+is sufficient. Thus one may take, for example,
+\[
+\boxed{C=5}.
+\]

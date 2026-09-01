@@ -1,0 +1,308 @@
+ID: 0269
+
+SOURCE: IMO Shortlist
+
+YEAR: 2019
+
+TOPIC: Algebra
+
+SUBTOPICS: Extremal Subsets, Perturbation, Majorization, Ordered Sets
+
+STATEMENT:
+Let $n\ge3$ be an integer, and let
+\[
+a_1<a_2<\cdots<a_n
+\]
+be positive real numbers with
+\[
+a_1+a_2+\cdots+a_n=2.
+\]
+Let $X\subseteq\{1,2,\ldots,n\}$ be a subset for which
+\[
+\left|1-\sum_{i\in X}a_i\right|
+\]
+is as small as possible. Prove that there are positive real numbers
+\[
+b_1<b_2<\cdots<b_n
+\]
+with
+\[
+b_1+b_2+\cdots+b_n=2
+\]
+and
+\[
+\sum_{i\in X}b_i=1.
+\]
+
+SOLUTION 1:
+Write $X^c=\{1,\ldots,n\}\setminus X$. Neither $X$ nor $X^c$ is empty: the empty and full sets have discrepancy $1$, whereas every singleton has discrepancy less than $1$ because $0<a_i<2$. Since replacing $X$ by $X^c$ does not change the quantity being minimized, we may assume
+\[
+\sum_{i\in X}a_i\le1.
+\]
+Put
+\[
+\Delta=\sum_{i\in X^c}a_i-\sum_{i\in X}a_i\ge0.
+\]
+If $\Delta=0$, take $b_i=a_i$. Hence assume $\Delta>0$.
+
+It is enough to construct a strictly increasing positive sequence $(c_i)$ satisfying
+\[
+\sum_{i\in X}c_i=\sum_{i\in X^c}c_i,
+\tag{1}
+\]
+because multiplying every $c_i$ by
+\[
+\frac2{\sum_i c_i}
+\]
+then gives the required sequence $(b_i)$.
+
+If $n\in X$, increase $a_n$ by $\Delta$ and leave every other term unchanged. Then (1) holds, and strict increase is preserved.
+
+Suppose now that $n\notin X$. Let $k$ be the largest element of $X$. Then
+\[
+k\in X,
+\qquad
+k+1\notin X.
+\]
+Set
+\[
+\delta=a_{k+1}-a_k.
+\]
+If $\delta<\Delta$, replacing $k$ by $k+1$ in $X$ changes the signed difference $\Delta$ to $\Delta-2\delta$, whose absolute value is strictly smaller than $\Delta$. This contradicts the choice of $X$. Hence
+\[
+\delta\ge\Delta.
+\]
+
+If $\delta>\Delta$, increase $a_k$ by $\Delta$ and leave the other terms unchanged. The resulting sequence is still strictly increasing and satisfies (1).
+
+It remains to handle $\delta=\Delta$. Choose an index
+\[
+j\notin\{k,k+1\}
+\]
+and choose $\varepsilon>0$ smaller than $a_1$ and every gap $a_{i+1}-a_i$.
+
+If $j\in X$, increase $a_k$ by $\Delta-\varepsilon$ and increase $a_j$ by $\varepsilon$.
+If $j\notin X$, increase $a_k$ by $\Delta$, increase $a_{k+1}$ by $\varepsilon/2$, and decrease $a_j$ by $\varepsilon/2$.
+
+In either case, for sufficiently small $\varepsilon$ the new sequence is positive and strictly increasing, while the sum over $X$ increases by exactly $\Delta$ relative to the sum over $X^c$. Thus (1) holds. Scaling completes the construction.
+
+SOLUTION 2:
+The minimizing set and its complement are both nonempty. Replace $X$ by its complement if necessary and put
+\[
+\Delta=\sum_{i\in X^c}a_i-\sum_{i\in X}a_i\ge0.
+\]
+If $\Delta=0$, take $b_i=a_i$. Assume $\Delta>0$.
+
+Suppose first that there is an index $j<n$ such that
+\[
+j\in X,
+\qquad
+j+1\notin X.
+\]
+Minimality of $X$ implies
+\[
+a_{j+1}-a_j\ge\Delta,
+\tag{1}
+\]
+for otherwise replacing $j$ by $j+1$ would reduce the discrepancy.
+
+If the inequality in (1) is strict, define
+\[
+b_j=a_j+\frac\Delta2,
+\qquad
+b_{j+1}=a_{j+1}-\frac\Delta2,
+\]
+and let $b_i=a_i$ otherwise. The total sum remains $2$, the sum over $X$ becomes $1$, and strict increase follows from (1).
+
+Now suppose
+\[
+a_{j+1}-a_j=\Delta.
+\]
+Choose a sufficiently small $\varepsilon>0$.
+If $X$ contains an index $k\ne j$, set
+\[
+\begin{aligned}
+b_j&=a_j+\frac\Delta2-\varepsilon,\\
+b_{j+1}&=a_{j+1}-\frac\Delta2,\\
+b_k&=a_k+\varepsilon,
+\end{aligned}
+\]
+and leave the remaining terms unchanged.
+If no such $k$ exists, then $|X|=1$ and $|X^c|\ge2$. Choose $k\in X^c$ with $k\ne j+1$, and set
+\[
+\begin{aligned}
+b_j&=a_j+\frac\Delta2,\\
+b_{j+1}&=a_{j+1}-\frac\Delta2+\varepsilon,\\
+b_k&=a_k-\varepsilon.
+\end{aligned}
+\]
+For sufficiently small $\varepsilon$, both constructions preserve positivity and strict increase, preserve the total sum, and make the sum over $X$ equal to $1$.
+
+Finally, suppose that there is no transition $j\in X$, $j+1\notin X$. Since $X$ is nonempty and its sum is less than $1$, it must have the form
+\[
+X=\{k,k+1,\ldots,n\}
+\]
+for some $k>1$. Minimality after adding the index $1$ to $X$ gives
+\[
+|\Delta-2a_1|\ge\Delta,
+\]
+so $a_1\ge\Delta$. Define
+\[
+b_1=a_1-\frac\Delta2,
+\qquad
+b_n=a_n+\frac\Delta2,
+\]
+and let $b_i=a_i$ otherwise. Then $b_1>0$, the sequence remains strictly increasing, its total sum remains $2$, and exactly $\Delta/2$ is transferred from $X^c$ to $X$. Hence
+\[
+\sum_{i\in X}b_i=1.
+\]
+
+SOLUTION 3:
+The minimizing set and its complement are nonempty. Assume
+\[
+\sum_{i\in X}a_i\le1
+\]
+and put
+\[
+\Delta=\sum_{i\in X^c}a_i-\sum_{i\in X}a_i\ge0.
+\]
+The case $\Delta=0$ is immediate, so suppose $\Delta>0$.
+
+Assume first that some suffix contains more indices from $X$ than from $X^c$; that is, for some $k$,
+\[
+|X\cap\{k,k+1,\ldots,n\}|
+>
+|X^c\cap\{k,k+1,\ldots,n\}|.
+\]
+Choose the largest such $k$. The difference of these two cardinalities is then exactly $1$. Define
+\[
+c_i=
+\begin{cases}
+a_i,&i<k,\\
+a_i+\Delta,&i\ge k.
+\end{cases}
+\]
+The sequence $(c_i)$ is positive and strictly increasing. Since the suffix contains exactly one more index of $X$ than of $X^c$, its modification changes the signed difference by $-\Delta$. Therefore
+\[
+\sum_{i\in X}c_i=\sum_{i\in X^c}c_i.
+\]
+Scaling gives the required sequence.
+
+Suppose now that every suffix contains at least as many indices from $X^c$ as from $X$. A greedy matching from the largest indices downward then gives an injection
+\[
+i\longmapsto j_i
+\]
+from $X$ into $X^c$ such that
+\[
+j_i>i
+\]
+for every $i\in X$. Let $Y$ be the set of elements of $X^c$ not used as any $j_i$. Then
+\[
+\Delta
+=
+\sum_{i\in X}(a_{j_i}-a_i)
++
+\sum_{j\in Y}a_j.
+\tag{1}
+\]
+Every term on the right is positive. There are at least two such terms, because $n\ge3$.
+
+Choose a smallest term in (1). If it is $a_{j_i}-a_i$, replace $i$ by $j_i$ in $X$. If it is $a_j$, add $j$ to $X$. In either case, the chosen positive term changes sign in the expression for the signed discrepancy. Because it is no more than half the sum in (1), the new discrepancy is nonnegative and strictly smaller than $\Delta$. This contradicts the minimality of $X$.
+
+Thus the second case is impossible, and the construction from the first case always applies.
+
+SOLUTION 4:
+The minimizing set $X$ and its complement are both nonempty.
+
+For subsets $U,V\subseteq\{1,\ldots,n\}$, write
+\[
+U\preceq V
+\]
+if
+\[
+|U\cap\{i,i+1,\ldots,n\}|
+\le
+|V\cap\{i,i+1,\ldots,n\}|
+\]
+for every $i$. Equivalently, the elements of $U$ can be injected into $V$ so that every element is sent to an element at least as large as itself. Since
+\[
+a_1<a_2<\cdots<a_n,
+\]
+we have
+\[
+U\prec V\quad\Longrightarrow\quad
+\sum_{i\in U}a_i<\sum_{i\in V}a_i.
+\tag{1}
+\]
+
+If $U\prec V$ and $V=U^c$, then there is a set $W$ such that
+\[
+U\prec W\prec V.
+\]
+Indeed, $|V|\ge2$ because $n\ge3$; take the largest element of $V$ together with all but the largest element of $U$. Hence, if $X\prec X^c$, then by (1)
+\[
+\sum_{i\in X}a_i
+<
+\sum_{i\in W}a_i
+<
+\sum_{i\in X^c}a_i,
+\]
+so $W$ has smaller discrepancy than $X$. The same argument excludes $X^c\prec X$.
+
+Therefore there are suffixes on which $X$ occupies more than half the positions and suffixes on which it occupies less than half. Let $k$ and $\ell$ be the greatest starting indices of such suffixes. Replacing $X$ by $X^c$ if necessary, we may assume
+\[
+k=n,
+\qquad
+\ell<n.
+\]
+Thus $n\in X$. By the maximality of $\ell$,
+\[
+n-\ell\text{ is even}
+\]
+and
+\[
+|X\cap\{\ell,\ell+1,\ldots,n\}|=\frac{n-\ell}{2}.
+\tag{2}
+\]
+In particular, $\ell\notin X$.
+
+Let
+\[
+M=\sum_{i\in X}i.
+\]
+For a small positive number $\varepsilon$, define
+\[
+b_i=i\varepsilon+
+\begin{cases}
+0,&i<\ell,\\
+\delta,&\ell\le i\le n-1,\\
+\gamma,&i=n,
+\end{cases}
+\tag{3}
+\]
+where $\delta$ and $\gamma$ are chosen to satisfy
+\[
+M\varepsilon+
+\left(\frac{n-\ell}{2}-1\right)\delta+
+\gamma=1
+\tag{4}
+\]
+and
+\[
+\frac{n(n+1)}2\varepsilon+(n-\ell)\delta+
+\gamma=2.
+\tag{5}
+\]
+Equation (4) is exactly the condition $\sum_{i\in X}b_i=1$, using (2), while (5) gives $\sum_i b_i=2$.
+
+At $\varepsilon=0$, the unique solution of (4)-(5) is
+\[
+\delta=\frac1{\frac{n-\ell}{2}+1},
+\qquad
+\gamma=2\delta.
+\]
+Hence, for all sufficiently small positive $\varepsilon$, the solution still satisfies
+\[
+0<\delta<\gamma.
+\]
+Formula (3) then gives a positive strictly increasing sequence. This completes the construction.

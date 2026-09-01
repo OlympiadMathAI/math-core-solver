@@ -1,0 +1,17 @@
+{
+  "id": "0284",
+  "source": "IMO Shortlist",
+  "year": "2019",
+  "topic": "Geometry",
+  "subtopics": [
+    "Orthic Triangle",
+    "Incircles",
+    "Similar Right Triangles",
+    "Chord Lengths",
+    "Sine Rule"
+  ],
+  "statement": "Let $ABC$ be an acute triangle, and let $D,E,F$ be the feet of the altitudes from $A,B,C$ to $BC,CA,AB$, respectively. Let $\\omega_B$ and $\\omega_C$ be the incircles of triangles $BDF$ and $CDE$. Suppose that $\\omega_B$ is tangent to $DF$ at $M$, and $\\omega_C$ is tangent to $DE$ at $N$. The line $MN$ meets $\\omega_B$ again at $P\\ne M$ and $\\omega_C$ again at $Q\\ne N$. Prove that\n\\[\nMP=NQ.\n\\]",
+  "solutions": [
+    "Let $O_B,O_C$ and $r_B,r_C$ be the centres and radii of $\\omega_B,\\omega_C$, respectively. Let the two circles touch $BC$ at $T$ and $U$.\n\nThe quadrilaterals $AFDC$ and $ABDE$ are cyclic. Therefore\n\\[\n\\angle MDO_B\n=\\frac12\\angle FDB\n=\\frac12\\angle BAC\n=\\frac12\\angle CDE\n=\\angle O_CDN.\n\\]\nThe triangles $DMO_B$ and $DNO_C$ are right triangles, so they are similar. Consequently,\n\\[\n\\frac{DN}{DM}\n=\\frac{O_CN}{O_BM}\n=\\frac{r_C}{r_B}.\n\\tag{1}\n\\]\n\nSet\n\\[\n\\varphi=\\angle DMN,\n\\qquad\n\\psi=\\angle MND.\n\\]\nBecause $FM$ and $EN$ are tangents to $\\omega_B$ and $\\omega_C$, the tangent-chord theorem gives\n\\[\n\\angle MTP=\\angle FMP=\\varphi,\n\\qquad\n\\angle QUN=\\angle QNE=\\psi,\n\\]\nwith directed angles if one of the points lies in a limiting position.\n\nA chord of a circle of radius $r$ which subtends an inscribed angle $\\theta$ has length $2r\\sin\\theta$. Hence\n\\[\nMP=2r_B\\sin\\varphi,\n\\qquad\nNQ=2r_C\\sin\\psi.\n\\tag{2}\n\\]\nBy the sine rule in triangle $DMN$,\n\\[\n\\frac{DN}{DM}=\\frac{\\sin\\varphi}{\\sin\\psi}.\n\\tag{3}\n\\]\nCombining (1)--(3),\n\\[\n\\frac{MP}{NQ}\n=\\frac{r_B}{r_C}\\cdot\\frac{\\sin\\varphi}{\\sin\\psi}\n=\\frac{DM}{DN}\\cdot\\frac{DN}{DM}\n=1.\n\\]\nTherefore $MP=NQ$."
+  ]
+}

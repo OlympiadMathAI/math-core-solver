@@ -1,0 +1,227 @@
+ID: 0295
+
+SOURCE: IMO Shortlist
+
+YEAR: 2019
+
+TOPIC: Number Theory
+
+SUBTOPICS: Binomial Coefficients, Modular Arithmetic, p-adic Valuations, Lucas Theorem, Dirichlet's Theorem
+
+STATEMENT:
+Let $a$ be a positive integer. A positive integer $b$ is called \emph{$a$-good} if
+\[
+\binom{an}{b}-1
+\]
+is divisible by
+\[
+an+1
+\]
+for every positive integer $n$ satisfying $an\ge b$.
+
+Suppose that $b$ is $a$-good, but $b+2$ is not $a$-good. Prove that
+\[
+b+1
+\]
+is prime.
+
+SOLUTION 1:
+We first characterize the $a$-good integers.
+
+\textbf{Claim.}
+A positive integer $b$ is $a$-good if and only if:
+
+\begin{itemize}
+\item $b$ is even; and
+\item every prime $p\le b$ divides $a$.
+\end{itemize}
+
+Suppose first that there is a prime $p\le b$ with
+\[
+p\nmid a.
+\]
+Put
+\[
+t=v_p(b!).
+\]
+Since $a$ is invertible modulo $p^{t+1}$, there are arbitrarily large positive integers $c$ such that
+\[
+ac\equiv1\pmod{p^{t+1}}.
+\]
+Choose such a $c$, and put
+\[
+n=(p-1)c.
+\]
+Then
+\[
+an\equiv p-1\pmod{p^{t+1}},
+\]
+so
+\[
+p^{t+1}\mid an-p+1.
+\]
+Because $p\le b$, the factor $an-p+1$ occurs in the numerator
+\[
+an(an-1)\cdots(an-b+1)
+\]
+of $\binom{an}{b}$. Therefore
+\[
+p\mid\binom{an}{b}.
+\]
+On the other hand,
+\[
+p\mid an+1.
+\]
+Hence
+\[
+\binom{an}{b}-1\not\equiv0\pmod p,
+\]
+and $b$ is not $a$-good.
+
+Conversely, suppose that every prime $p\le b$ divides $a$. Then
+\[
+\gcd(b!,an+1)=1,
+\]
+so $b!$ is invertible modulo $an+1$. We have
+\[
+\begin{aligned}
+an(an-1)\cdots(an-b+1)
+&\equiv
+(-1)(-2)\cdots(-b)\\
+&=(-1)^b b!
+\pmod{an+1}.
+\end{aligned}
+\]
+Thus
+\[
+\binom{an}{b}\equiv(-1)^b\pmod{an+1}.
+\tag{1}
+\]
+If $b$ is even, (1) proves that $b$ is $a$-good.
+
+If $b$ is odd, choose $n$ so large that
+\[
+an+1>2.
+\]
+Then
+\[
+\binom{an}{b}-1\equiv-2\not\equiv0\pmod{an+1},
+\]
+so $b$ is not $a$-good. The claim is proved.
+
+Now assume that $b$ is $a$-good but $b+2$ is not. By the claim, $b$ is even, and every prime at most $b$ divides $a$. Since $b+2$ is even, its failure to be $a$-good means that there is a prime
+\[
+q\le b+2
+\]
+with
+\[
+q\nmid a.
+\]
+This prime cannot satisfy $q\le b$. Hence
+\[
+q=b+1
+\qquad\text{or}\qquad
+q=b+2.
+\]
+But $b+2>2$ is even, so it is not prime. Therefore
+\[
+q=b+1,
+\]
+and consequently
+\[
+\boxed{b+1\text{ is prime}}.
+\]
+
+SOLUTION 2:
+We first prove, using Lucas' theorem, that if $b$ is $a$-good, then every prime $p\le b$ divides $a$.
+
+Suppose instead that
+\[
+p\le b
+\qquad\text{and}\qquad
+p\nmid a.
+\]
+Write $b$ in base $p$. Since $p\le b$, some digit other than the units digit is nonzero; let the digit in the $p^t$ place be nonzero, where $t\ge1$.
+
+Because multiplication by $a$ permutes the residue classes modulo $p^{t+1}$, we can choose a sufficiently large $n$ such that the base-$p$ expansion of $an$ has:
+
+\begin{itemize}
+\item units digit $p-1$, so $p\mid an+1$;
+\item digit $0$ in the $p^t$ place.
+\end{itemize}
+
+Lucas' theorem then gives
+\[
+\binom{an}{b}\equiv0\pmod p,
+\]
+because the $p^t$ digit of $b$ is positive while the corresponding digit of $an$ is zero. Thus
+\[
+\binom{an}{b}-1\not\equiv0\pmod p,
+\]
+although $p\mid an+1$. This contradicts the assumption that $b$ is $a$-good.
+
+Now suppose that $b$ is $a$-good but $b+2$ is not. Choose $n$ witnessing the failure of $b+2$, and write
+\[
+M=an+1.
+\]
+Since $b$ is $a$-good,
+\[
+\binom{an}{b}\equiv1\pmod M.
+\tag{1}
+\]
+The identity
+\[
+\binom{an}{b+2}
+=
+\binom{an}{b}
+\frac{(an-b)(an-b-1)}{(b+1)(b+2)}
+\tag{2}
+\]
+shows that if $(b+1)(b+2)$ were invertible modulo $M$, then
+\[
+\frac{(an-b)(an-b-1)}{(b+1)(b+2)}
+\equiv1\pmod M,
+\]
+because
+\[
+(an-b)(an-b-1)
+\equiv
+(b+1)(b+2)
+\pmod M.
+\]
+Equations (1)--(2) would then give
+\[
+\binom{an}{b+2}\equiv1\pmod M,
+\]
+contrary to the choice of $n$.
+
+Therefore some prime $q$ divides both
+\[
+M=an+1
+\]
+and
+\[
+(b+1)(b+2).
+\]
+Every prime at most $b$ divides $a$, and hence cannot divide $an+1$. Thus
+\[
+q=b+1
+\qquad\text{or}\qquad
+q=b+2,
+\]
+so at least one of $b+1,b+2$ is prime.
+
+It remains to prove that $b$ is even. By Dirichlet's theorem, there are arbitrarily large $n$ for which
+\[
+an+1
+\]
+is prime. For such an $n$, every prime divisor of $b!$ divides $a$, so $b!$ is invertible modulo $an+1$. As in Solution 1,
+\[
+\binom{an}{b}\equiv(-1)^b\pmod{an+1}.
+\]
+Since $b$ is $a$-good, the left side is congruent to $1$, and therefore $b$ is even.
+
+Hence $b+2>2$ is even and cannot be prime. The prime among $b+1,b+2$ must be
+\[
+\boxed{b+1}.
+\]

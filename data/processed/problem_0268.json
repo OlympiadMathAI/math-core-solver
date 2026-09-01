@@ -1,0 +1,17 @@
+{
+  "id": "0268",
+  "source": "IMO Shortlist",
+  "year": "2019",
+  "topic": "Algebra",
+  "subtopics": [
+    "Inequalities",
+    "Convexity",
+    "Extremal Values",
+    "Cauchy-Schwarz"
+  ],
+  "statement": "Let $u_1,u_2,\\ldots,u_{2019}$ be real numbers satisfying\n\\[\nu_1+u_2+\\cdots+u_{2019}=0\n\\]\nand\n\\[\nu_1^2+u_2^2+\\cdots+u_{2019}^2=1.\n\\]\nLet\n\\[\na=\\min(u_1,u_2,\\ldots,u_{2019}),\n\\qquad\nb=\\max(u_1,u_2,\\ldots,u_{2019}).\n\\]\nProve that\n\\[\nab\\le-\\frac1{2019}.\n\\]",
+  "solutions": [
+    "The numbers $u_i$ are not all zero, and their sum is zero. Hence\n\\[\na<0<b.\n\\]\nLet\n\\[\nP=\\{i:u_i>0\\},\n\\qquad\nN=\\{i:u_i\\le0\\},\n\\]\nand write\n\\[\np=|P|,\n\\qquad\nq=|N|.\n\\]\nThen $p+q=2019$. Since the total sum is zero,\n\\[\n\\sum_{i\\in P}u_i=\\sum_{i\\in N}|u_i|.\n\\tag{1}\n\\]\n\nFor $i\\in P$, we have $0<u_i\\le b$, and therefore\n\\[\nu_i^2\\le bu_i.\n\\]\nUsing (1),\n\\[\n\\sum_{i\\in P}u_i^2\n\\le b\\sum_{i\\in P}u_i\n=b\\sum_{i\\in N}|u_i|\n\\le bq|a|\n=-qab.\n\\tag{2}\n\\]\nSimilarly, for $i\\in N$ we have $|u_i|\\le|a|$, so\n\\[\n\\sum_{i\\in N}u_i^2\n\\le |a|\\sum_{i\\in N}|u_i|\n=|a|\\sum_{i\\in P}u_i\n\\le |a|pb\n=-pab.\n\\tag{3}\n\\]\nAdding (2) and (3),\n\\[\n1=\\sum_{i=1}^{2019}u_i^2\n\\le-(p+q)ab\n=-2019ab.\n\\]\nThus\n\\[\nab\\le-\\frac1{2019}.\n\\]",
+    "Again, $a<0<b$. Every $u_i$ is a convex combination of $a$ and $b$, so there are numbers $x_i,y_i\\in[0,1]$ with\n\\[\nx_i+y_i=1\n\\]\nand\n\\[\nu_i=x_i a+y_i b.\n\\]\nPut\n\\[\nX=\\sum_{i=1}^{2019}x_i,\n\\qquad\nY=\\sum_{i=1}^{2019}y_i.\n\\]\nThe conditions $\\sum u_i=0$ and $\\sum(x_i+y_i)=2019$ give\n\\[\n|a|X=bY,\n\\qquad\nX+Y=2019.\n\\]\nSolving,\n\\[\nX=\\frac{2019b}{|a|+b},\n\\qquad\nY=\\frac{2019|a|}{|a|+b}.\n\\tag{1}\n\\]\n\nSince the function $t\\mapsto t^2$ is convex,\n\\[\nu_i^2=(x_i a+y_i b)^2\\le x_i a^2+y_i b^2.\n\\]\nTherefore, by (1),\n\\[\n\\begin{aligned}\n1\n&=\\sum_{i=1}^{2019}u_i^2\\\\\n&\\le Xa^2+Yb^2\\\\\n&=\\frac{2019b}{|a|+b}|a|^2\n +\\frac{2019|a|}{|a|+b}b^2\\\\\n&=2019|a|b\n=-2019ab.\n\\end{aligned}\n\\]\nHence\n\\[\nab\\le-\\frac1{2019}.\n\\]"
+  ]
+}

@@ -1,0 +1,435 @@
+ID: 0294
+
+SOURCE: IMO Shortlist
+
+YEAR: 2019
+
+TOPIC: Number Theory
+
+SUBTOPICS: Divisibility, Functional Equations on Positive Integers, Prime Arguments, Asymptotic Bounds
+
+STATEMENT:
+Let $\mathbb Z_{>0}$ denote the set of positive integers, and let $C$ be a fixed positive integer.
+
+Determine all functions
+\[
+f:\mathbb Z_{>0}\to\mathbb Z_{>0}
+\]
+such that
+\[
+a+f(b)\mid a^2+b f(a)
+\tag{1}
+\]
+for all positive integers $a,b$ satisfying
+\[
+a+b>C.
+\]
+
+SOLUTION 1:
+The solutions are exactly
+\[
+\boxed{f(n)=kn}
+\]
+for arbitrary positive integers $k$.
+
+It is immediate that every function of this form satisfies (1), because
+\[
+a+f(b)=a+kb
+\]
+and
+\[
+a^2+b f(a)=a^2+kab=a(a+kb).
+\]
+
+We prove the converse. First, setting $a=1$ in (1) gives, for all sufficiently large $b$,
+\[
+1+f(b)\mid1+b f(1),
+\]
+and hence
+\[
+f(b)\le b f(1).
+\tag{2}
+\]
+
+We claim that
+\[
+b\mid f(b)^2
+\qquad(b\ge1).
+\tag{3}
+\]
+Fix $b$ and choose a positive integer $n$ so large that
+\[
+nb-f(b)>0
+\qquad\text{and}\qquad
+nb-f(b)+b>C.
+\]
+Set
+\[
+a=nb-f(b).
+\]
+Then
+\[
+a+f(b)=nb,
+\]
+so (1) gives
+\[
+nb\mid(nb-f(b))^2+b f(nb-f(b)).
+\]
+Reducing modulo $b$, we obtain
+\[
+b\mid f(b)^2,
+\]
+proving (3).
+
+In particular, if $p$ is prime, then
+\[
+p\mid f(p).
+\]
+Write
+\[
+f(p)=k_p p.
+\]
+By (2), for every sufficiently large prime $p$,
+\[
+1\le k_p\le f(1).
+\]
+Therefore some positive integer $k$ occurs as $k_p$ for infinitely many primes $p$.
+
+Fix an arbitrary positive integer $a$. For every sufficiently large prime $p$ in this infinite set, equation (1) with $b=p$ gives
+\[
+a+kp\mid a^2+p f(a).
+\]
+Subtracting $a(a+kp)$,
+\[
+a+kp\mid p(f(a)-ka).
+\]
+For sufficiently large $p$, we have
+\[
+\gcd(a+kp,p)=\gcd(a,p)=1.
+\]
+Hence
+\[
+a+kp\mid f(a)-ka.
+\]
+The left side is unbounded as $p$ ranges through the infinite set, while the right side is fixed. Therefore
+\[
+f(a)=ka.
+\]
+Since $a$ was arbitrary,
+\[
+f(n)=kn
+\]
+for all positive integers $n$.
+
+SOLUTION 2:
+Again, the functions $f(n)=kn$ clearly work. We prove that every solution has this form.
+
+Put
+\[
+c=f(1).
+\]
+Setting $a=1$ in (1) gives
+\[
+f(b)\le bc
+\tag{2}
+\]
+for every sufficiently large $b$.
+
+Now set $b=1$. For every sufficiently large $a$,
+\[
+a+c\mid a^2+f(a).
+\]
+Therefore
+\[
+\frac{f(a)+c^2}{a+c}
+=
+c-a+\frac{a^2+f(a)}{a+c}
+\]
+is a positive integer. By (2),
+\[
+0<
+\frac{f(a)+c^2}{a+c}
+\le c
+\]
+for all sufficiently large $a$.
+
+Hence one value
+\[
+k\in\{1,2,\ldots,c\}
+\]
+is attained for infinitely many $a$. For all such $a$,
+\[
+f(a)=ka+c(k-c).
+\tag{3}
+\]
+
+Now fix an arbitrary positive integer $r$. In (1), take $a=r$ and let $b$ run through the infinite set from (3). We get
+\[
+r+kb+c(k-c)\mid r^2+b f(r).
+\tag{4}
+\]
+The quotient in (4) is an integer and tends to
+\[
+\frac{f(r)}k
+\]
+as $b\to\infty$ through that set. Therefore the quotient is eventually constant, and
+\[
+\frac{f(r)}k
+\]
+is an integer. Equality in (4) then gives, for infinitely many $b$,
+\[
+r^2+b f(r)
+=
+\frac{f(r)}k\bigl(r+kb+c(k-c)\bigr).
+\]
+After cancelling the $b$-terms,
+\[
+\frac{f(r)}k\bigl(r+c(k-c)\bigr)=r^2.
+\tag{5}
+\]
+
+Thus
+\[
+r+c(k-c)\mid r^2
+\]
+for every positive integer $r$. Consequently it also divides
+\[
+c^2(k-c)^2,
+\]
+because
+\[
+r\equiv-c(k-c)\pmod{r+c(k-c)}.
+\]
+If $c(k-c)\ne0$, the positive integers
+\[
+r+c(k-c)
+\]
+are unbounded for large $r$, yet all divide the fixed nonzero integer $c^2(k-c)^2$, which is impossible. Hence
+\[
+k=c.
+\]
+Equation (5) now becomes
+\[
+\frac{f(r)}k\,r=r^2,
+\]
+so
+\[
+f(r)=kr
+\]
+for every $r$.
+
+SOLUTION 3:
+We first record upper and lower bounds valid for all sufficiently large $t$.
+
+Setting $a=1$ in (1),
+\[
+f(t)\le t f(1).
+\tag{2}
+\]
+Setting $b=1$ gives
+\[
+t+f(1)\mid t^2+f(t).
+\]
+Subtracting
+\[
+(t-f(1))(t+f(1)),
+\]
+we obtain
+\[
+t+f(1)\mid f(t)+f(1)^2.
+\]
+Since the latter is positive,
+\[
+f(t)+f(1)^2\ge t+f(1),
+\]
+or
+\[
+f(t)\ge t+f(1)(1-f(1)).
+\tag{3}
+\]
+Thus $f(t)$ grows linearly in $t$.
+
+Fix two distinct positive integers $a$ and $b$. For every sufficiently large $c$, the two numbers
+\[
+(a^2+c f(a))(b+f(c))
+\]
+and
+\[
+(b^2+c f(b))(a+f(c))
+\]
+are divisible by
+\[
+(a+f(c))(b+f(c)).
+\]
+Taking the linear combination obtained by multiplying the first expression by $f(b)$ and the second by $f(a)$ and subtracting, we find that
+\[
+(a+f(c))(b+f(c))
+\]
+divides
+\[
+\begin{aligned}
+E(c)={}&
+\bigl(a^2f(b)-b^2f(a)\bigr)f(c)\\
+&+(b-a)f(a)f(b)c\\
+&+ab\bigl(af(b)-bf(a)\bigr).
+\end{aligned}
+\tag{4}
+\]
+
+By (2)--(3), the divisor in (4) has order $c^2$, whereas $E(c)$ has order at most $c$. Hence, for all sufficiently large $c$,
+\[
+E(c)=0.
+\tag{5}
+\]
+
+Since $a\ne b$, the coefficient
+\[
+(b-a)f(a)f(b)
+\]
+of $c$ in (4) is nonzero. Thus the coefficient of $f(c)$ cannot vanish, and (5) shows that
+\[
+f(c)=kc+\ell
+\]
+for all sufficiently large $c$, for some rational constants $k,\ell$. Since $f$ is integer-valued at all sufficiently large consecutive integers,
+\[
+k,\ell\in\mathbb Z.
+\]
+
+Taking the constant term after substituting $f(c)=kc+\ell$ into (5), we obtain, for all distinct positive integers $a,b$,
+\[
+\bigl(a^2f(b)-b^2f(a)\bigr)\ell
++
+ab\bigl(af(b)-bf(a)\bigr)
+=0.
+\tag{6}
+\]
+Reducing (6) modulo $b$ gives
+\[
+b\mid \ell a^2f(b).
+\tag{7}
+\]
+For all sufficiently large $b$,
+\[
+f(b)=kb+\ell,
+\]
+so (7) yields
+\[
+b\mid \ell^2a^2.
+\]
+Taking arbitrarily large $b$, we conclude that
+\[
+\ell=0.
+\]
+
+Equation (6) now becomes
+\[
+ab\bigl(af(b)-bf(a)\bigr)=0.
+\]
+Hence
+\[
+\frac{f(a)}a=\frac{f(b)}b
+\]
+for all distinct positive integers $a,b$. Therefore
+\[
+f(n)=kn
+\]
+for a fixed positive integer $k$.
+
+SOLUTION 4:
+Let
+\[
+\Gamma=\{(a,f(a)):a\in\mathbb Z_{>0}\}.
+\]
+For a point
+\[
+A=(a,f(a))\in\Gamma,
+\]
+define
+\[
+A'=\left(-f(a),-\frac{f(a)^2}{a}\right).
+\]
+Let
+\[
+\Gamma'=\{A':A\in\Gamma\}.
+\]
+
+We use the upper bound
+\[
+f(t)\le f(1)t
+\tag{2}
+\]
+for all sufficiently large $t$, obtained by setting $a=1$ in (1).
+
+\textbf{Claim.}
+For every point $A\in\Gamma$, the set $\Gamma$ is contained in finitely many lines through $A'$.
+
+\textit{Proof.}
+Fix
+\[
+A=(a,f(a)).
+\]
+Interchanging $a$ and $b$ in (1), we have, for all sufficiently large $b$,
+\[
+b+f(a)\mid b^2+a f(b).
+\]
+Subtracting $b(b+f(a))$ gives
+\[
+b+f(a)\mid a f(b)-b f(a).
+\]
+Thus there is an integer $m$ such that
+\[
+a f(b)-f(a)b=m(b+f(a)).
+\tag{3}
+\]
+Geometrically, the point
+\[
+B=(b,f(b))
+\]
+lies on the line
+\[
+ay-f(a)x=m(x+f(a)),
+\]
+which passes through
+\[
+A'=\left(-f(a),-\frac{f(a)^2}{a}\right).
+\]
+
+Apart from finitely many exceptional points, $\Gamma$ lies in the region
+\[
+0<y\le f(1)x.
+\]
+Since $A'$ lies in the lower-left quadrant, only finitely many of the integer-slope parameters $m$ in (3) can produce a line through $A'$ meeting this region. Adding the finitely many exceptional points proves the claim. $\square$
+
+Take two distinct points $A,B\in\Gamma$. Then $A'\ne B'$. By the claim, $\Gamma$ is covered by finitely many lines through $A'$ and also by finitely many lines through $B'$. Two such lines have at most one common point unless they coincide. Hence all but finitely many points of $\Gamma$ lie on the unique line
+\[
+A'B'.
+\]
+
+Now take any third point $C\in\Gamma$. The same argument shows that all but finitely many points of $\Gamma$ lie on the line $A'C'$. Therefore
+\[
+A'B'=A'C'.
+\]
+Thus all points of $\Gamma'$ lie on a single line $\ell$, and all but finitely many points of $\Gamma$ lie on $\ell$ as well.
+
+For each $A\in\Gamma$, the points
+\[
+A,\quad (0,0),\quad A'
+\]
+are collinear. Choose one of the infinitely many points $A\in\Gamma\cap\ell$. Then both $A$ and $A'$ lie on $\ell$, so
+\[
+(0,0)\in\ell.
+\]
+For an arbitrary point $A\in\Gamma$, we have $A'\in\ell$ and $(0,0)\in\ell$. Since $A,A',(0,0)$ are collinear,
+\[
+A\in\ell.
+\]
+Therefore all of $\Gamma$ lies on a line through the origin. Hence
+\[
+f(a)=ka
+\]
+for some positive constant $k$. Since $k=f(1)$, it is a positive integer.
+
+Thus every solution has the form
+\[
+\boxed{f(n)=kn}.
+\]

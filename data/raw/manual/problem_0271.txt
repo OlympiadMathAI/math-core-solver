@@ -1,0 +1,157 @@
+ID: 0271
+
+SOURCE: IMO Shortlist
+
+YEAR: 2019
+
+TOPIC: Algebra
+
+SUBTOPICS: Lagrange Interpolation, Symmetric Polynomials, Roots of Unity, Rational Identities
+
+STATEMENT:
+Let $x_1,x_2,\ldots,x_n$ be distinct real numbers. Prove that
+\[
+\sum_{i=1}^{n}
+\prod_{\substack{1\le j\le n\\j\ne i}}
+\frac{1-x_i x_j}{x_i-x_j}
+=
+\begin{cases}
+0,&n\text{ is even},\\
+1,&n\text{ is odd}.
+\end{cases}
+\]
+
+SOLUTION 1:
+Denote the expression on the left by $G$. Since both sides are rational functions of the variables, it is enough to prove the identity when none of the $x_i$ equals $1$ or $-1$.
+
+Define
+\[
+f(t)=\prod_{i=1}^{n}(1-x_i t).
+\]
+Using the $n+2$ interpolation nodes
+\[
+1,-1,x_1,x_2,\ldots,x_n,
+\]
+the Lagrange interpolation formula gives
+\[
+\begin{aligned}
+f(t)
+={}&\sum_{i=1}^{n}
+f(x_i)
+\frac{(t-1)(t+1)\prod_{j\ne i}(t-x_j)}
+{(x_i-1)(x_i+1)\prod_{j\ne i}(x_i-x_j)}\\
+&+f(1)\frac{(t+1)\prod_{j=1}^{n}(t-x_j)}
+{2\prod_{j=1}^{n}(1-x_j)}\\
+&+f(-1)\frac{(t-1)\prod_{j=1}^{n}(t-x_j)}
+{-2\prod_{j=1}^{n}(-1-x_j)}.
+\end{aligned}
+\tag{1}
+\]
+Although the right side has apparent degree $n+1$, it equals the degree-$n$ polynomial $f$.
+
+Compare the coefficients of $t^{n+1}$ in (1). Since
+\[
+f(x_i)=(1-x_i^2)\prod_{j\ne i}(1-x_i x_j),
+\]
+the contribution of the $i$th term is
+\[
+-\prod_{j\ne i}\frac{1-x_i x_j}{x_i-x_j}.
+\]
+The node $1$ contributes $1/2$, while the node $-1$ contributes $(-1)^{n+1}/2$. Therefore
+\[
+0=-G+\frac12+\frac{(-1)^{n+1}}2.
+\]
+Hence
+\[
+G=\frac{1+(-1)^{n+1}}2,
+\]
+which is $0$ for even $n$ and $1$ for odd $n$.
+
+SOLUTION 2:
+Let
+\[
+G(x_1,\ldots,x_n)=
+\sum_{i=1}^{n}
+\prod_{j\ne i}\frac{1-x_i x_j}{x_i-x_j}
+\]
+and let
+\[
+V=\prod_{1\le i<j\le n}(x_j-x_i).
+\]
+Then $F=GV$ is a polynomial. It is alternating, because $G$ is symmetric and $V$ is alternating. Hence $F$ vanishes whenever two variables are equal, so every factor $x_j-x_i$ divides $F$. Their product $V$ therefore divides $F$, and consequently $G$ is itself a symmetric polynomial.
+
+For nonzero variables, set $y_i=1/x_i$. Then
+\[
+\frac{1-y_i y_j}{y_i-y_j}
+=
+\frac{1-x_i x_j}{x_i-x_j},
+\]
+so
+\[
+G\left(\frac1{x_1},\ldots,\frac1{x_n}\right)
+=G(x_1,\ldots,x_n).
+\tag{1}
+\]
+This forces the polynomial $G$ to be constant. Indeed, if its highest nonzero homogeneous component had positive degree, choose pairwise distinct nonzero numbers $c_i$ at which that component does not vanish. Then $G(tc_1,\ldots,tc_n)$ would be unbounded as $t\to\infty$, whereas by (1) it equals
+\[
+G\left(\frac1{tc_1},\ldots,\frac1{tc_n}\right),
+\]
+which tends to $G(0,\ldots,0)$.
+
+It remains to identify the constant. The polynomial identity extends to complex values. Let $\zeta$ be a primitive $n$th root of unity and take
+\[
+x_i=\zeta^{i-1}
+\qquad(1\le i\le n).
+\]
+For a fixed $i$, the numerator of the corresponding term vanishes unless $x_i=x_i^{-1}$.
+
+The term with $x_i=1$ equals $1$. If $n$ is odd, it is the only nonzero term, so $G=1$. If $n$ is even, there is one additional term with $x_i=-1$. Each of its $n-1$ factors equals $-1$, so that term is
+\[
+(-1)^{n-1}=-1.
+\]
+Thus $G=0$ when $n$ is even.
+
+SOLUTION 3:
+Regard the expression
+\[
+G=G(x_1,\ldots,x_n)
+\]
+as a rational function of $x_n$, with the other variables fixed. Put
+\[
+D(t)=\prod_{j=1}^{n-1}(t-x_j).
+\]
+Then
+\[
+G(x_1,\ldots,x_{n-1},t)=\frac{P(t)}{D(t)},
+\]
+where
+\[
+\begin{aligned}
+P(t)
+={}&\prod_{j=1}^{n-1}(1-tx_j)\\
+&+\sum_{i=1}^{n-1}(x_i t-1)
+\prod_{\substack{1\le j\le n-1\\j\ne i}}(t-x_j)
+\prod_{\substack{1\le j\le n-1\\j\ne i}}
+\frac{1-x_i x_j}{x_i-x_j}.
+\end{aligned}
+\tag{1}
+\]
+The polynomial $P$ has degree at most $n-1$.
+
+For any $k<n$, substitute $t=x_k$ into (1). In the sum, every term except the one with $i=k$ vanishes. Hence
+\[
+\begin{aligned}
+P(x_k)
+={}&(1-x_k^2)
+\prod_{\substack{j<n\\j\ne k}}(1-x_kx_j)\\
+&+(x_k^2-1)
+\prod_{\substack{j<n\\j\ne k}}(1-x_kx_j)=0.
+\end{aligned}
+\]
+Thus $P$ has the same $n-1$ distinct roots as $D$, and both have degree at most $n-1$. Therefore
+\[
+P(t)=cD(t)
+\]
+for some constant $c$ independent of $t$. Hence $G$ is independent of $x_n$. Since $G$ is symmetric in all its variables, it is independent of every variable and is therefore a constant depending only on $n$.
+
+Evaluating this constant at the $n$th roots of unity exactly as in Solution 2 gives $1$ for odd $n$ and $0$ for even $n$.

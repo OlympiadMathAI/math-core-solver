@@ -1,0 +1,95 @@
+ID: 0281
+
+SOURCE: IMO Shortlist
+
+YEAR: 2019
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Tournaments, Adaptive Algorithms, Query Complexity, Directed Graphs
+
+STATEMENT:
+Wonderland consists of $n\ge2$ towns. For every pair of towns, there is a road joining them, and every road is one-way. Alice does not know any of the directions. In one question, she names a pair of towns and the King of Hearts tells her the direction of the road between them.
+
+Alice wants to determine whether there is at least one town with at most one outgoing road. Prove that she can always do this using at most $4n$ questions.
+
+SOLUTION 1:
+We prove the stronger upper bound
+\[
+\boxed{4n-7}.
+\]
+For $n\le3$, every tournament has a town with at most one outgoing road, so no questions are needed. Assume henceforth that $n\ge4$.
+
+During the strategy, let $S$ be the set of towns not yet known to have at least two outgoing roads.
+
+\textbf{Phase 1.}
+Alice asks about an arbitrary pair $A,B$. Suppose, without loss of generality, that
+\[
+A\longrightarrow B.
+\]
+She has asked one question.
+
+\textbf{Phase 2.}
+Maintain a town $T$ which has a known incoming road but no known outgoing road. Initially $T=B$. For each of the other $n-2$ towns $X$, ask about the road between $T$ and $X$.
+
+If $X\to T$, retain the same $T$. If $T\to X$, replace $T$ by $X$. At the end, Alice has asked $n-1$ questions. The final $T$ has no known outgoing road, while every other town has exactly one known outgoing road. The undirected graph formed by the queried roads is a tree.
+
+\textbf{Phase 3.}
+Ask about all as-yet-unqueried roads incident with $T$, stopping as soon as two outgoing roads from $T$ have been found.
+
+If this never happens, every road incident with $T$ is known and $T$ has at most one outgoing road, so the answer is yes. At most
+\[
+(n-1)+(n-2)=2n-3
+\]
+questions have then been used.
+
+Otherwise, suppose that the second outgoing road is found on the $k$th question of this phase. Then
+\[
+2\le k\le n-2.
+\]
+Whenever a queried road points toward $T$, its other endpoint is removed from $S$, since that town already had one known outgoing road. On the last question, $T$ itself is removed from $S$. Hence
+\[
+|S|=n-k+1,
+\tag{1}
+\]
+and the total number of questions so far is
+\[
+n+k-1.
+\tag{2}
+\]
+Every town in $S$ has exactly one known outgoing road. Moreover, the graph of known roads whose two endpoints both lie in $S$ is acyclic: before this phase the known graph was a tree, and all new roads had endpoint $T$, which is no longer in $S$.
+
+\textbf{Phase 4.}
+While there are more than two towns in $S$, choose a pair in $S$ whose connecting road has not yet been queried. Such a pair exists, because otherwise the known graph on at least three vertices would be complete and would contain a cycle.
+
+Query that road. Its tail now has a second known outgoing road, so remove the tail from $S$. The known graph induced by the remaining set remains acyclic. Continue until $t\in\{1,2\}$ towns remain. If two remain and their mutual road has not yet been queried, query it and remove its tail; thus, when $t=2$, their mutual road is known.
+
+By (1), this phase uses
+\[
+n-k+1-t
+\]
+questions. Together with (2), the total is now
+\[
+2n-t.
+\tag{3}
+\]
+
+\textbf{Phase 5.}
+Ask every still-unknown road incident with one of the $t$ remaining towns. All removed towns are already known to have at least two outgoing roads, and afterward the complete outdegree of every remaining town is known. Alice can therefore answer the original question.
+
+There are at most
+\[
+t(n-t)-1
+\tag{4}
+\]
+such questions. Indeed, the road between the two survivors is already known when $t=2$, and at least one road joining the surviving set to its complement was queried in Phases 1--2, because those queried roads formed a tree on $n>2$ vertices.
+
+From (3)--(4), if $t=1$ the total is at most
+\[
+2n-1+(n-1)-1=3n-3,
+\]
+and if $t=2$ it is at most
+\[
+2n-2+2(n-2)-1=4n-7.
+\]
+Thus Alice always succeeds with fewer than $4n$ questions.

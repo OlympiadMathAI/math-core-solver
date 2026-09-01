@@ -1,0 +1,137 @@
+ID: 0270
+
+SOURCE: IMO Shortlist
+
+YEAR: 2019
+
+TOPIC: Algebra
+
+SUBTOPICS: Inequalities, Sign Partitions, Ordered-Pair Sums, Extremal Arguments
+
+STATEMENT:
+Let $n\ge2$, and let $a_1,a_2,\ldots,a_n$ be real numbers such that
+\[
+a_1+a_2+\cdots+a_n=0.
+\]
+Define
+\[
+A=\{(i,j):1\le i<j\le n,\ |a_i-a_j|\ge1\}.
+\]
+Prove that, if $A$ is nonempty, then
+\[
+\sum_{(i,j)\in A}a_i a_j<0.
+\]
+
+SOLUTION 1:
+Define sets of ordered pairs
+\[
+B=\{(i,j):1\le i,j\le n,\ |a_i-a_j|\ge1\}
+\]
+and
+\[
+C=\{(i,j):1\le i,j\le n,\ |a_i-a_j|<1\}.
+\]
+Since every unordered pair in $A$ appears twice in $B$,
+\[
+\sum_{(i,j)\in A}a_i a_j
+=\frac12\sum_{(i,j)\in B}a_i a_j.
+\tag{1}
+\]
+Also,
+\[
+\sum_{1\le i,j\le n}a_i a_j
+=\left(\sum_{i=1}^n a_i\right)^2=0.
+\]
+Therefore
+\[
+\sum_{(i,j)\in B}a_i a_j
+=-\sum_{(i,j)\in C}a_i a_j.
+\tag{2}
+\]
+It remains to prove that the last sum in (2) is positive.
+
+Partition the indices into
+\[
+\begin{aligned}
+P&=\{i:a_i\le-1\},&
+Q&=\{i:-1<a_i\le0\},\\
+R&=\{i:0<a_i<1\},&
+S&=\{i:a_i\ge1\}.
+\end{aligned}
+\]
+We have
+\[
+\begin{aligned}
+\sum_{(i,j)\in C}a_i a_j
+&\ge
+\sum_{i\in P\cup S}a_i^2
++
+\sum_{i,j\in Q\cup R}a_i a_j\\
+&=
+\sum_{i\in P\cup S}a_i^2
++
+\left(\sum_{i\in Q\cup R}a_i\right)^2\\
+&\ge0.
+\end{aligned}
+\tag{3}
+\]
+Every positive term on the right occurs on the left, while any negative term on the right that is missing from the left only makes the right side smaller.
+
+If equality held throughout (3), then $P=S=\varnothing$, and every pair of indices in $Q\cup R$ with negative product would have distance less than $1$. The same-sign differences inside $Q$ and inside $R$ are automatically less than $1$, so all pairwise differences would be less than $1$, giving $A=\varnothing$. Since $A$ is nonempty, (3) is strict:
+\[
+\sum_{(i,j)\in C}a_i a_j>0.
+\]
+Equations (1)-(2) now give the result.
+
+SOLUTION 2:
+Use the same partition $P,Q,R,S$, and put
+\[
+p=\sum_{i\in P}a_i,
+\qquad
+q=\sum_{i\in Q}a_i,
+\qquad
+r=\sum_{i\in R}a_i,
+\qquad
+s=\sum_{i\in S}a_i.
+\]
+Then
+\[
+p+q+r+s=0.
+\tag{1}
+\]
+Let $t_+$ be the sum of $a_i a_j$ over pairs $(i,j)\in A$ with nonnegative product, and let $t_-$ be the corresponding sum over pairs with nonpositive product.
+
+All positive contributions are bounded above by including every possible same-sign product:
+\[
+t_+\le
+\frac{p^2}{2}+pq+rs+\frac{s^2}{2}.
+\tag{2}
+\]
+This inequality is strict unless
+\[
+p=s=0,
+\tag{3}
+\]
+because $p^2/2$ and $s^2/2$ include positive square terms.
+
+Every pair from $P\times R$, $P\times S$, or $Q\times S$ belongs to $A$. Any additional pair from $Q\times R$ has negative product, so
+\[
+t_-\le pr+ps+qs.
+\tag{4}
+\]
+Combining (2) and (4), and using (1),
+\[
+\begin{aligned}
+t_++t_-
+&\le
+\frac{p^2+s^2}{2}+pq+pr+ps+qs+rs\\
+&=
+\frac{(p+q+r+s)^2-(q+r)^2}{2}\\
+&=-\frac{(q+r)^2}{2}\le0.
+\end{aligned}
+\tag{5}
+\]
+If equality held in (5), then (3) would give $P=S=\varnothing$. Since $A$ is nonempty, there would then be a pair with one index in $Q$ and one in $R$ whose values differ by at least $1$; its negative product makes (4) strict. Therefore equality is impossible, and
+\[
+t_++t_-<0.
+\]

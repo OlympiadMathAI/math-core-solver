@@ -1,0 +1,224 @@
+ID: 0288
+
+SOURCE: IMO Shortlist
+
+YEAR: 2019
+
+TOPIC: Geometry
+
+SUBTOPICS: Incircle Contact Triangle, Spiral Similarity, Harmonic Division, Polar Lines, Inversion, Projective Geometry
+
+STATEMENT:
+Let $I$ be the incentre of an acute triangle $ABC$. The incircle touches $BC,CA,AB$ at $D,E,F$, respectively. The line $EF$ meets the circumcircle of $ABC$ at $P$ and $Q$, labelled so that $F$ lies between $E$ and $P$. Prove that
+\[
+\angle DPA+\angle AQD=\angle QIP.
+\]
+
+SOLUTION 1:
+Let $N$ and $M$ be the midpoints of the arcs $BC$ of the circumcircle which contain and do not contain $A$, respectively. The right-angled kites
+\[
+AFIE
+\qquad\text{and}\qquad
+NBMC
+\]
+are similar, because
+\[
+\angle FAE=\angle BAC=\angle BNC.
+\]
+Let $\varphi$ be the corresponding spiral similarity, with
+\[
+A\mapsto N,
+\quad F\mapsto B,
+\quad I\mapsto M,
+\quad E\mapsto C.
+\]
+The change of direction under $\varphi$ is the same as
+\[
+\angle(AF,NB)=\angle(AP,NP)=\angle(AQ,NQ).
+\]
+Thus $\varphi$ sends $AP,AQ,EF$ to $NP,NQ,BC$, respectively. Put
+\[
+P'=NP\cap BC,
+\qquad
+Q'=NQ\cap BC.
+\]
+Then $\varphi(P)=P'$ and $\varphi(Q)=Q'$.
+
+Let $L$ be the midpoint of $BC$. We claim that $P,Q,D,L$ are concyclic. Put
+\[
+Z=PQ\cap BC.
+\]
+Menelaus' theorem in triangle $ABC$, applied to the line $EFZ$, together with the tangent-length equalities
+\[
+BF=BD,
+\qquad
+CE=CD,
+\]
+gives
+\[
+\frac{BD}{DC}
+=\frac{BF}{FA}\cdot\frac{AE}{EC}
+=-\frac{BZ}{ZC}.
+\]
+Hence $(B,C;D,Z)$ is a harmonic quadruple. A standard metric property of a harmonic division with $L$ the midpoint of $BC$ is
+\[
+ZB\cdot ZC=ZD\cdot ZL.
+\tag{1}
+\]
+On the other hand, by the power of $Z$ with respect to the circumcircle of $ABC$,
+\[
+ZB\cdot ZC=ZP\cdot ZQ.
+\tag{2}
+\]
+Equations (1)--(2) prove the claim.
+
+The points $M$ and $N$ are antipodal on the circumcircle, so
+\[
+\angle MPP'=\angle MQQ'=90^\circ.
+\]
+Also $ML\perp BC$, and therefore
+\[
+\angle MLP'=\angle MLQ'=90^\circ.
+\]
+Thus $M,L,P,P'$ and $M,L,Q,Q'$ are cyclic.
+
+Using directed angles, the desired identity follows as
+\[
+\begin{aligned}
+\angle DPA+\angle AQD
+&=360^\circ-\angle PAQ-\angle QDP\\
+&=360^\circ-\angle PNQ-\angle QLP\\
+&=\angle LPN+\angle NQL\\
+&=\angle P'ML+\angle LMQ'\\
+&=\angle P'MQ'\\
+&=\angle PIQ.
+\end{aligned}
+\]
+The last equality follows because $\varphi$ sends $P,I,Q$ to $P',M,Q'$; the ordinary angles $\angle PIQ$ and $\angle QIP$ are equal as unsigned angles.
+
+SOLUTION 2:
+Let $M$ and the spiral similarity $\varphi$ be as in Solution 1. The centre of the spiral similarity sending $F,E$ to $B,C$ is the Miquel point of the four lines $EF,BC,BF,CE$; equivalently, it is the second intersection $S$ of the circumcircles of $ABC$ and $AEF$.
+
+The similarities
+\[
+\triangle SBF\sim\triangle SCE
+\]
+give
+\[
+\frac{SB}{SC}=\frac{BF}{CE}=\frac{BD}{CD}.
+\]
+By the converse of the angle-bisector theorem, $SD$ bisects $\angle BSC$. Since $M$ is the midpoint of the arc $BC$ opposite $A$, the same angle bisector passes through $M$; hence $S,D,M$ are collinear.
+
+Let
+\[
+K=EF\cap SI.
+\]
+The map $\varphi$ sends
+\[
+S,F,E,I,K
+\quad\text{to}\quad
+S,B,C,M,D.
+\]
+In particular,
+\[
+KD\parallel IM.
+\tag{1}
+\]
+
+We claim that
+\[
+\triangle SPI\sim\triangle SDQ
+\qquad\text{and}\qquad
+\triangle SPD\sim\triangle SIQ.
+\tag{2}
+\]
+Let the ray $SI$ meet the circumcircle of $ABC$ again at $L$. Since $EF$ is perpendicular to the angle bisector $AM$, one obtains
+\[
+\angle AML=\angle ASL=\angle ASI=90^\circ,
+\]
+and hence
+\[
+ML\parallel PQ.
+\tag{3}
+\]
+The parallelism (3) implies equality of the arcs $PL$ and $MQ$, so
+\[
+\angle PSL=\angle MSQ=\angle DSQ.
+\tag{4}
+\]
+Furthermore,
+\[
+\angle QPS=\angle QMS,
+\]
+so triangles $SPK$ and $SMQ$ are similar. Using this similarity and the scale factor of $\varphi$,
+\[
+\frac{SP}{SI}
+=\frac{SP}{SK}\cdot\frac{SK}{SI}
+=\frac{SM}{SQ}\cdot\frac{SD}{SM}
+=\frac{SD}{SQ}.
+\]
+Together with (4), this proves the first similarity in (2). The second is obtained analogously.
+
+Finally,
+\[
+\begin{aligned}
+\angle DPA+\angle AQD
+&=\angle DPS+\angle SQD\\
+&=\angle QIS+\angle SIP\\
+&=\angle QIP,
+\end{aligned}
+\]
+as required.
+
+SOLUTION 3:
+Let $\Gamma$ be the circumcircle of $ABC$. Let the rays $PD$ and $QD$ meet $\Gamma$ again at $V$ and $U$, respectively. We prove
+\[
+AU\perp IP,
+\qquad
+AV\perp IQ.
+\tag{1}
+\]
+These perpendicularities immediately imply
+\[
+\begin{aligned}
+\angle DPA+\angle AQD
+&=\angle VUA+\angle AVU\\
+&=180^\circ-\angle UAV\\
+&=\angle QIP.
+\end{aligned}
+\]
+
+Let $M$ be the midpoint of the arc $BC$ containing $U,V$, and let $N$ be the midpoint of the arc $CAB$. The lines $AIM$ and $AN$ are the internal and external angle bisectors of $\angle BAC$, so
+\[
+AM\perp AN.
+\tag{2}
+\]
+Let the tangents to $\Gamma$ at $B,C$ meet at $R$. Let $PQ$ meet $AU,AI,AV,BC$ at $X,T,Y,Z$, respectively.
+
+As in Solution 1, the pairs $(B,C)$ and $(D,Z)$ are harmonic. Projecting from $Q$ onto $\Gamma$ shows that $(B,C;U,P)$ is harmonic. Similarly, $(B,C;V,Q)$ is harmonic.
+
+Invert about the circle centred at $R$ through $B,C$. On $\Gamma$, this inversion exchanges each point with its harmonic conjugate relative to $B,C$. Therefore it maps
+\[
+B,C,N,U,V
+\quad\text{to}\quad
+B,C,M,P,Q.
+\]
+Now project from $A$ onto the line $PQ$. The points $B,C,M,P,Q$ go to $F,E,T,P,Q$, respectively. Hence the composition gives a projectivity between the two pencils
+\[
+AB,AC,AN,AU,AV
+\]
+and
+\[
+IF,IE,IT,IP,IQ,
+\]
+respectively.
+
+The first three pairs of corresponding lines are perpendicular:
+\[
+AB\perp IF,
+\qquad
+AC\perp IE,
+\qquad
+AN\perp IT
+\]
+(the last one follows from (2), since $T\in AI$). A projectivity between two pencils is determined by three corresponding lines; therefore this projectivity is precisely the perpendicularity correspondence. Consequently the remaining corresponding pairs are also perpendicular, proving (1).

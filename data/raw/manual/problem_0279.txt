@@ -1,0 +1,85 @@
+ID: 0279
+
+SOURCE: IMO Shortlist
+
+YEAR: 2019
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Euclidean Geometry, Signed Angles, Cyclic Orderings, Continuity, Adjacent Transpositions
+
+STATEMENT:
+Let $n>1$. In the plane, $2n$ points are given, with no three collinear. Label them in some order $A_1,A_2,\ldots,A_{2n}$ and consider the cyclic list of angles
+\[
+\angle A_{i-1}A_iA_{i+1}\qquad(i\bmod 2n),
+\]
+each measured as the smaller positive angle. Prove that the points can be ordered so that these $2n$ angles can be divided into two groups having equal sums.
+
+SOLUTION 1:
+Choose a direction in which the projections of all $2n$ points are distinct, and place a line $\ell$ perpendicular to it between the $n$th and $(n+1)$st projected points. Then exactly $n$ points lie on each side. Order them so that odd-indexed and even-indexed points lie on opposite sides.
+
+Start with the unoriented line $s=A_{2n}A_1$. Rotate it about $A_1$ until it becomes $A_1A_2$, choosing the direction that never makes it parallel to $\ell$. Continue cyclically around each $A_i$ until $s$ returns to its initial position. At each vertex, both neighboring points lie on the side of $\ell$ opposite the vertex, so the chosen rotation has magnitude exactly the angle in the problem.
+
+The total directed rotation is a multiple of $180^\circ$. Yet the line never passes through the direction parallel to $\ell$, so its direction modulo $180^\circ$ cannot wind nontrivially. The total rotation is therefore zero. The anticlockwise and clockwise rotation angles have equal sums.
+
+SOLUTION 2:
+For a cyclic ordering, let $\theta_i$ be the signed exterior turn at $A_i$, positive for a left turn and negative for a right turn, and let
+\[
+\phi_i=\angle A_{i-1}A_iA_{i+1}=180^\circ-|\theta_i|.
+\]
+If $L,R$ are the sets of left and right turns, put
+\[
+S=\sum_{i\in L}\phi_i-\sum_{i\in R}\phi_i.
+\]
+Since $\sum_i\theta_i=360^\circ q$ for some integer $q$,
+\[
+S=180^\circ(|L|-|R|)-360^\circ q.
+\]
+Because $|L|+|R|=2n$ is even, $S$ is a multiple of $360^\circ$.
+
+Choose a separating line with $n$ points on each side as in Solution 1 and label the points alternately by side. First place the points on each side in two sufficiently small, generic clusters around points $P$ and $Q$ on opposite sides of the line. Every angle can then be made arbitrarily small. Since $S$ is a multiple of $360^\circ$, choosing the clusters small enough forces $S=0$.
+
+Move the clustered points continuously to their prescribed positions, keeping each point on its original side and making an arbitrarily small perturbation whenever necessary to avoid a forbidden collinearity. The integer multiple $S/360^\circ$ can change only if one of the angles passes through $180^\circ$. This is impossible for three consecutive alternating-side points: a straight segment joining opposite sides of the separating line cannot go to the other side and return without crossing the line twice. Thus $S$ remains zero.
+
+SOLUTION 3:
+Choose a separating line as in Solution 1 and rotate the plane so it is horizontal. Name the upper points $P_1,\ldots,P_n$ and lower points $Q_1,\ldots,Q_n$. Let $I_{ij}=P_iQ_j\cap\ell$.
+
+For $j<k$, assign a positive sign to $\angle Q_jP_iQ_k$ when $i$ is odd and $I_{ij}$ lies left of $I_{ik}$, or when $i$ is even and it lies right; otherwise assign a negative sign. Define signs at $Q_i$ analogously. These signed angles satisfy additivity in the ordered endpoint:
+\[
+\angle Q_{j_1}P_iQ_{j_3}
+=
+\angle Q_{j_1}P_iQ_{j_2}+
+\angle Q_{j_2}P_iQ_{j_3}
+\tag{1}
+\]
+for $j_1<j_2<j_3$, and similarly at a $Q_i$.
+
+Use the ordering
+\[
+\begin{cases}
+A_i=P_i,
+\ A_{2n+1-i}=Q_i,&i\le n\text{ odd},\\
+A_i=Q_i,
+\ A_{2n+1-i}=P_i,&i\le n\text{ even}.
+\end{cases}
+\tag{2}
+\]
+We prove by induction that the sum of the $2n$ signed angles is zero. For $n=2$, this is the elementary four-point identity: in the convex case the four cross-segments form a self-intersecting quadrilateral and the two positive angles sum to the magnitudes of the two negative ones; if one point lies inside the triangle of the other three, the largest relevant angle equals the sum of the other three. Relabelling the $P$'s or $Q$'s preserves the identity.
+
+When $P_{k+1},Q_{k+1}$ are added to the ordering for $k$, only the angles at $P_k,Q_k$ change and two new angles appear. By (1), the total change is
+\[
+\angle Q_kP_kQ_{k+1}+
+\angle P_kQ_kP_{k+1}+
+\angle Q_kP_{k+1}Q_{k+1}+
+\angle P_kQ_{k+1}P_{k+1},
+\]
+which is zero by the $n=2$ case. The induction follows.
+
+SOLUTION 4:
+For any cyclic ordering, weight an angle $+1$ at a left turn and $-1$ at a right turn. As in Solution 2, the weighted sum $W$ is a multiple of $360^\circ$.
+
+\textbf{Lemma.} Interchanging two consecutive points changes $W$ by $0$ or $\pm360^\circ$.
+
+\textit{Proof.} Only a local chain of four consecutive points is affected. Reversing the central segment and replacing its two neighbors changes the directed-angle sum by the sums around two triangles. Each contributes $\pm180^\circ$, so the total is $0$ or $\pm360^\circ$. $\square$
+
+If an ordering has $W=360^\circ q$, its reverse has $W=-360^\circ q$. Reverse it through adjacent transpositions. The integer $W/360^\circ$ changes each time by $-1,0$, or $1$, so it must equal zero at some stage. At that ordering, the angles at left turns and right turns form the required two equal-sum groups.

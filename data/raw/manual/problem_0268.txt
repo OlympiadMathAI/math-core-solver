@@ -1,0 +1,135 @@
+ID: 0268
+
+SOURCE: IMO Shortlist
+
+YEAR: 2019
+
+TOPIC: Algebra
+
+SUBTOPICS: Inequalities, Convexity, Extremal Values, Cauchy-Schwarz
+
+STATEMENT:
+Let $u_1,u_2,\ldots,u_{2019}$ be real numbers satisfying
+\[
+u_1+u_2+\cdots+u_{2019}=0
+\]
+and
+\[
+u_1^2+u_2^2+\cdots+u_{2019}^2=1.
+\]
+Let
+\[
+a=\min(u_1,u_2,\ldots,u_{2019}),
+\qquad
+b=\max(u_1,u_2,\ldots,u_{2019}).
+\]
+Prove that
+\[
+ab\le-\frac1{2019}.
+\]
+
+SOLUTION 1:
+The numbers $u_i$ are not all zero, and their sum is zero. Hence
+\[
+a<0<b.
+\]
+Let
+\[
+P=\{i:u_i>0\},
+\qquad
+N=\{i:u_i\le0\},
+\]
+and write
+\[
+p=|P|,
+\qquad
+q=|N|.
+\]
+Then $p+q=2019$. Since the total sum is zero,
+\[
+\sum_{i\in P}u_i=\sum_{i\in N}|u_i|.
+\tag{1}
+\]
+
+For $i\in P$, we have $0<u_i\le b$, and therefore
+\[
+u_i^2\le bu_i.
+\]
+Using (1),
+\[
+\sum_{i\in P}u_i^2
+\le b\sum_{i\in P}u_i
+=b\sum_{i\in N}|u_i|
+\le bq|a|
+=-qab.
+\tag{2}
+\]
+Similarly, for $i\in N$ we have $|u_i|\le|a|$, so
+\[
+\sum_{i\in N}u_i^2
+\le |a|\sum_{i\in N}|u_i|
+=|a|\sum_{i\in P}u_i
+\le |a|pb
+=-pab.
+\tag{3}
+\]
+Adding (2) and (3),
+\[
+1=\sum_{i=1}^{2019}u_i^2
+\le-(p+q)ab
+=-2019ab.
+\]
+Thus
+\[
+ab\le-\frac1{2019}.
+\]
+
+SOLUTION 2:
+Again, $a<0<b$. Every $u_i$ is a convex combination of $a$ and $b$, so there are numbers $x_i,y_i\in[0,1]$ with
+\[
+x_i+y_i=1
+\]
+and
+\[
+u_i=x_i a+y_i b.
+\]
+Put
+\[
+X=\sum_{i=1}^{2019}x_i,
+\qquad
+Y=\sum_{i=1}^{2019}y_i.
+\]
+The conditions $\sum u_i=0$ and $\sum(x_i+y_i)=2019$ give
+\[
+|a|X=bY,
+\qquad
+X+Y=2019.
+\]
+Solving,
+\[
+X=\frac{2019b}{|a|+b},
+\qquad
+Y=\frac{2019|a|}{|a|+b}.
+\tag{1}
+\]
+
+Since the function $t\mapsto t^2$ is convex,
+\[
+u_i^2=(x_i a+y_i b)^2\le x_i a^2+y_i b^2.
+\]
+Therefore, by (1),
+\[
+\begin{aligned}
+1
+&=\sum_{i=1}^{2019}u_i^2\\
+&\le Xa^2+Yb^2\\
+&=\frac{2019b}{|a|+b}|a|^2
+ +\frac{2019|a|}{|a|+b}b^2\\
+&=2019|a|b
+=-2019ab.
+\end{aligned}
+\]
+Hence
+\[
+ab\le-\frac1{2019}.
+\]

@@ -1,0 +1,490 @@
+ID: 0290
+
+SOURCE: IMO Shortlist
+
+YEAR: 2019
+
+TOPIC: Geometry
+
+SUBTOPICS: Circle Families, Miquel's Theorem, Directed Angles, Projective Geometry, Compactness, Tangency
+
+STATEMENT:
+Let $\mathcal L$ be the set of all lines in the plane. A function $f$ assigns to every line $\ell\in\mathcal L$ a point $f(\ell)\in\ell$. Suppose that for every point $X$ and every three lines $\ell_1,\ell_2,\ell_3$ through $X$, the four points
+\[
+X,
+\quad f(\ell_1),
+\quad f(\ell_2),
+\quad f(\ell_3)
+\]
+are concyclic. Prove that there is a unique point $P$ such that
+\[
+f(\ell)=P
+\]
+for every line $\ell$ through $P$.
+
+SOLUTION 1:
+For every point $X$, choose a circle $g(X)$ through $X$ which contains $f(\ell)$ for every line $\ell$ through $X$. Such a circle exists by the hypothesis; in the degenerate cases where it is not uniquely determined, choose any one that works.
+
+Uniqueness of the desired point is immediate. If two distinct points $P,Q$ had the stated property, then the line $PQ$ would satisfy both $f(PQ)=P$ and $f(PQ)=Q$.
+
+We prove existence by first describing all possible functions $f$. For directed line angles modulo $\pi$, fix a point $P$ and an angle
+\[
+0<\alpha<\pi.
+\]
+For a line $\ell$, let $\ell'$ be the line through $P$ such that
+\[
+\angle(\ell',\ell)=\alpha,
+\]
+and define
+\[
+h_{P,\alpha}(\ell)=\ell\cap\ell'.
+\]
+We shall prove that $f=h_{P,\alpha}$ for a suitable pair $(P,\alpha)$.
+
+Call a line $\ell$ \emph{$(P,\alpha)$-good} if
+\[
+f(\ell)=h_{P,\alpha}(\ell).
+\]
+Call a point $X\ne P$ \emph{$(P,\alpha)$-good} if $g(X)$ passes through $P$ and, for one point $Y\in g(X)\setminus\{P,X\}$,
+\[
+\angle(PY,YX)=\alpha.
+\]
+By the inscribed-angle theorem, this equality then holds for every permissible $Y$ on $g(X)$.
+
+We need several lemmas.
+
+\textbf{Lemma 1.}
+If $X$ is good and $\ell$ passes through $X$, then either
+\[
+f(\ell)=X
+\]
+or $\ell$ is good.
+
+\textit{Proof.}
+The line $\ell$ meets $g(X)$ at $X$ and at $h_{P,\alpha}(\ell)$. Since $f(\ell)$ lies on both $\ell$ and $g(X)$, it is one of these two points. $\square$
+
+\textbf{Lemma 2.}
+The line joining two distinct good points is good.
+
+\textit{Proof.}
+If $X,Y$ are good but $XY$ is not, Lemma 1 gives
+\[
+f(XY)=X
+\qquad\text{and}\qquad
+f(XY)=Y,
+\]
+a contradiction. $\square$
+
+\textbf{Lemma 3.}
+Let two distinct good lines $\ell_1,\ell_2$ meet at $X\ne P$. Then at least one of the following holds:
+\[
+f(\ell_1)=X,
+\qquad
+f(\ell_2)=X,
+\qquad
+X\text{ is good}.
+\]
+
+\textit{Proof.}
+If neither image is $X$, then $g(X)$ is the circumcircle of
+\[
+X,
+\quad f(\ell_1),
+\quad f(\ell_2).
+\]
+For $i=1,2$,
+\[
+\angle\bigl(Pf(\ell_i),f(\ell_i)X\bigr)=\alpha.
+\]
+Thus $P\in g(X)$, and $X$ is good. $\square$
+
+\textbf{Lemma 4.}
+If three distinct good lines meet at $X\ne P$, then $X$ is good.
+
+\textit{Proof.}
+For a fixed point $X\ne P$, at most one good line through $X$ can satisfy $f(\ell)=X$. Apply Lemma 3 to a pair among the three for which neither image is $X$. $\square$
+
+\textbf{Lemma 5.}
+Suppose $ABC$ is a triangle and the six points
+\[
+A,B,C,
+\quad f(AB),f(AC),f(BC)
+\]
+are pairwise distinct. Then there are $P$ and $\alpha$ for which the three vertices and the three sidelines of $ABC$ are all $(P,\alpha)$-good.
+
+\textit{Proof.}
+Put
+\[
+D=f(BC),
+\qquad
+E=f(AC),
+\qquad
+F=f(AB).
+\]
+Then
+\[
+g(A)=(AEF),
+\qquad
+g(B)=(BDF),
+\qquad
+g(C)=(CDE).
+\]
+Let $P\ne F$ be the second intersection of $g(A)$ and $g(B)$; when the two circles are tangent at $F$, take $P=F$. By Miquel's theorem, $P\in g(C)$ as well. The cyclic quadrilaterals give a common directed angle
+\[
+\angle(PD,DC)
+=\angle(PF,FB)
+=\angle(PE,EA)
+=\alpha.
+\]
+Hence $AB,BC,CA$ are good. Lemma 3 then shows that $A,B,C$ are good. The tangent interpretation is used in the limiting cases $P=D,E,$ or $F$. $\square$
+
+We now produce one global pair $(P,\alpha)$. Let
+\[
+\Omega=\{(x,y)\in\mathbb Z^2:1\le x,y\le1000\}.
+\]
+Let $\mathcal L_\Omega$ be the horizontal, vertical, and slope-$\pm1$ diagonal lines containing points of $\Omega$. There are
+\[
+1000+1000+1999+1999=5998
+\]
+such lines. Colour every point $f(\ell)$, $\ell\in\mathcal L_\Omega$, red. There are at most $5998$ red points.
+
+Partition $\Omega$ into $10000$ disjoint $10\times10$ blocks. At least one block $\Omega_{10}$ contains no red point. Let $(m,n)$ be its lower-left point. The triangle with vertices
+\[
+(m,n),
+\quad(m+1,n),
+\quad(m,n+1)
+\]
+satisfies Lemma 5. Fix the resulting pair $(P,\alpha)$, and henceforth call points and lines simply \emph{good}.
+
+Using Lemmas 1 and 3 repeatedly, one propagates goodness throughout the block. For example, the two initially good adjacent vertices force the lines $x=m+1$ and $y=n+1$ to be good, because their $f$-images are not red points of the block. Their intersection is good by Lemma 3. This forces the next diagonal, then the next horizontal and vertical lines, and so on. Induction over the rows and columns gives:
+\[
+\text{every point of }\Omega_{10}\text{ is good}.
+\tag{1}
+\]
+
+We next prove that every point $S\ne P$ in the plane is good. If $S\in\Omega_{10}$, this is already known. Otherwise, the circle $g(S)$ contains at most two points of $\Omega_{10}$ on each of its ten vertical lines, hence at most $20$ points of the block. Also, any line through $S$ contains at most $10$ points of the block. Therefore there are at least eight distinct lines through $S$ which contain a point
+\[
+Q\in\Omega_{10}\setminus g(S).
+\]
+For each such line $\ell=SQ$, we have $f(\ell)\ne Q$, because $f(\ell)\in g(S)$. Since $Q$ is good by (1), Lemma 1 forces $\ell$ to be good. Thus at least three good lines pass through $S$, and Lemma 4 gives that $S$ is good.
+
+Hence every point other than $P$ is good. Lemma 2 now implies that every line is good. In particular, if $\ell$ passes through $P$, then
+\[
+f(\ell)=h_{P,\alpha}(\ell)=P.
+\]
+This proves existence and completes the solution.
+
+SOLUTION 2:
+Again, for each point $X$, choose a circle $g(X)$ through $X$ containing $f(\ell)$ for every line $\ell$ through $X$.
+
+For distinct points $X,Y$, the circles $g(X)$ and $g(Y)$ share the point $f(XY)$ on the line $XY$. Denote their other intersection by
+\[
+s(X,Y).
+\]
+
+\textbf{Lemma.}
+Suppose $X,Y,Z$ are noncollinear and
+\[
+f(XY)\notin\{X,Y\},
+\quad
+f(YZ)\notin\{Y,Z\},
+\quad
+f(ZX)\notin\{Z,X\}.
+\]
+Then
+\[
+s(X,Y)=s(Y,Z)=s(Z,X).
+\]
+
+\textit{Proof.}
+The circles $g(X),g(Y),g(Z)$ pass through the vertices of triangle $XYZ$ and meet pairwise on its corresponding sidelines. Miquel's theorem gives a common second intersection. $\square$
+
+Choose an arbitrary line $\ell$ and six distinct points
+\[
+Y_1,\ldots,Y_6\in\ell\setminus\{f(\ell)\}.
+\]
+Choose a point $X$ outside $\ell$ and outside all six circles $g(Y_i)$. Since the circle $g(X)$ meets $\ell$ in at most two points, after relabelling we may assume
+\[
+Y_1,Y_2,Y_3,Y_4\notin g(X).
+\]
+For $1\le i\le4$, the point $f(XY_i)$ is neither $X$ nor $Y_i$: the first exclusion follows from $X\notin g(Y_i)$, and the second from $Y_i\notin g(X)$. Applying the lemma to the triangles $XY_iY_j$ shows that all points
+\[
+s(Y_i,Y_j),
+\qquad
+s(X,Y_i)
+\qquad(1\le i<j\le4)
+\]
+coincide; call the common point $O$.
+
+Because $O\in g(Y_i)\cap g(Y_j)$, either $O\notin\ell$ or
+\[
+O=f(\ell).
+\tag{1}
+\]
+Now take any point $X'$ outside $\ell$ and outside the four circles $g(Y_i)$, $1\le i\le4$. At least two of the $Y_i$ do not lie on $g(X')$. Applying the lemma to the corresponding triangle $X'Y_iY_j$ gives
+\[
+O\in g(X').
+\tag{2}
+\]
+
+We prove that every line through $O$ is mapped to $O$. If $O\in\ell$, this is already true for $\ell$ by (1). Let $\ell'\ne\ell$ be any line through $O$. Choose a variable point
+\[
+X'\in\ell'\setminus\{O\}
+\]
+avoiding $\ell$ and the four circles $g(Y_i)$. From (2),
+\[
+f(\ell')\in g(X')\cap\ell'=\{X',O\}.
+\]
+The left side is fixed while $X'$ can be chosen in more than one way, so necessarily
+\[
+f(\ell')=O.
+\]
+Thus $O$ has the required property. Uniqueness was noted at the beginning of Solution 1.
+
+SOLUTION 3:
+For every point $X$, choose a circle $g(X)$ as in the preceding solutions. Any two circles $g(X),g(Y)$ meet at least at the point $f(XY)$.
+
+We say that two circles \emph{cut} if they cross in two distinct points; tangent or coincident circles are not said to cut.
+
+\textbf{Lemma 1.}
+If every circle $g(X)$ passes through one point $P$, then $P$ has the required property.
+
+\textit{Proof.}
+Let $\ell$ pass through $P$. If $f(\ell)\ne P$, choose
+\[
+X\in\ell\setminus\{P,f(\ell)\}.
+\]
+Then the circle $g(X)$ contains three distinct collinear points $P,f(\ell),X$, impossible. Thus $f(\ell)=P$. $\square$
+
+\textbf{Lemma 2.}
+Suppose that for every $\varepsilon>0$ there is a point $P_\varepsilon$ such that the radius of $g(P_\varepsilon)$ is at most $\varepsilon$. Then a point with the required property exists.
+
+\textit{Proof.}
+Choose $\varepsilon_i=2^{-i}$ and corresponding points $P_i=P_{\varepsilon_i}$. Since the circles $g(P_i)$ and $g(P_j)$ meet, the distance between $P_i$ and $P_j$ is at most
+\[
+2\varepsilon_i+2\varepsilon_j.
+\]
+Thus $(P_i)$ is Cauchy and converges to some point $P$.
+
+Every circle $g(X)$ meets every $g(P_i)$. Hence it contains points whose distances from $P$ tend to $0$. Since a circle is closed, $P\in g(X)$ for every $X$. Lemma 1 finishes the proof. $\square$
+
+\textbf{Lemma 3.}
+If no two circles $g(X)$ cut, then the required point exists.
+
+\textit{Proof.}
+Take a circle $g(X)$ of radius $r$ and let $Y$ be its centre. The circle $g(Y)$ passes through $Y$ and meets $g(X)$ without cutting it, so it is internally tangent to $g(X)$ and has radius $r/2$. Repeating the construction produces circles of arbitrarily small radius. Apply Lemma 2. $\square$
+
+\textbf{Lemma 4.}
+Suppose there are six points
+\[
+A,B_1,B_2,B_3,B_4,B_5
+\]
+such that no three are collinear, no four are concyclic, and all five circles $g(B_i)$ cut pairwise at $A$. Then the required point exists.
+
+\textit{Proof.}
+Choose a line through $A$ which passes through none of the $B_i$ and is tangent to none of the circles $g(B_i)$. Let $X_\varepsilon$ tend to $A$ along this line, omitting the finitely many positions lying on one of the $g(B_i)$.
+
+For each $\varepsilon$, at most three of the points $B_i$ lie on $g(X_\varepsilon)$, because no four of them are concyclic. Passing to a sequence $\varepsilon\to0$, assume that the same two points, say $B_1,B_2$, never lie on $g(X_\varepsilon)$.
+
+Then $f(X_\varepsilon B_i)$ is the second intersection of the line $X_\varepsilon B_i$ with $g(B_i)$ for $i=1,2$. As $\varepsilon\to0$, these two points and $X_\varepsilon$ form a triangle whose side lengths are $O(\varepsilon)$, while its angle at $X_\varepsilon$ tends to the nonzero angle $\angle B_1AB_2$. Hence the circumradius of this triangle, which is the radius of $g(X_\varepsilon)$, is $O(\varepsilon)$. Lemma 2 applies. $\square$
+
+\textbf{Lemma 5.}
+If two circles $g(A)$ and $g(B)$ cut, then the required point exists.
+
+\textit{Proof.}
+Let the circles cut at $C,D$, with
+\[
+C=f(AB)\in AB.
+\]
+
+First suppose $D\notin AB$. Take points $X_\varepsilon\to D$ along a line tangent to neither circle, making arbitrarily small perturbations so that no three of $A,B,X_\varepsilon$ are collinear and no four relevant points are concyclic. Each of $f(X_\varepsilon A)$ and $f(X_\varepsilon B)$ is either the corresponding endpoint $A$ or $B$, or the other intersection of the line with $g(A)$ or $g(B)$.
+
+If, along a sequence $\varepsilon\to0$, both are the latter intersections, the small-triangle argument of Lemma 4 gives circles of arbitrarily small radius. Otherwise infinitely many of the circles $g(X_\varepsilon)$ pass through $A$ or infinitely many pass through $B$; assume the former.
+
+We then construct points $B_1,\ldots,B_5$ satisfying Lemma 4 with common point $A$. Take $B_1$ among the above $X_\varepsilon$. Inductively choose a new line through $A$, different from the previous ones and tangent to none of the circles already chosen, on which $f$ takes the value $A$. Every circle $g(Y)$ with $Y$ on this line passes through $A$. If such circles have arbitrarily small radii, Lemma 2 applies. Otherwise, as $Y\to A$, they cannot remain tangent at $A$ to any previously chosen circle, because the radius of a circle through $Y$ tangent there would tend to $0$. Hence one can choose $Y$ so that its circle cuts all the previous circles at $A$, while also preserving the required genericity conditions. This produces the five points and invokes Lemma 4.
+
+Now suppose $D\in AB$. Since $g(A)$ and $g(B)$ both meet the line $AB$ at their defining points and at $f(AB)$, the two common intersections are $A$ and $B$. Choose $X_\varepsilon\to B$ from inside both circles, with the angle between $X_\varepsilon B$ and the tangent to $g(B)$ at $B$ tending to $0$. If both $f(X_\varepsilon A)$ and $f(X_\varepsilon B)$ are the second intersections with the respective circles along a sequence, the angle at $X_\varepsilon$ tends to the nonzero angle between $AB$ and that tangent, while all side lengths tend to $0$. Thus the radii of $g(X_\varepsilon)$ tend to $0$. Otherwise infinitely many of these circles pass through $A$ or $B$, and the preceding construction reduces the problem to Lemma 4. $\square$
+
+If no two circles cut, Lemma 3 applies. If some two cut, Lemma 5 applies. Thus in every case the desired point exists, and Lemma 1 proves its required property.
+
+SOLUTION 4:
+For each point $X$, choose a circle $g(X)$ as before, and let $t(X)$ be its tangent at $X$. Since $t(X)$ meets $g(X)$ only at $X$,
+\[
+f(t(X))=X.
+\tag{1}
+\]
+
+\textbf{Step 1: Finding a point with two preimage lines.}
+
+We first find a point $P$ for which two distinct lines $p_1,p_2$ satisfy
+\[
+f(p_1)=f(p_2)=P.
+\tag{2}
+\]
+Choose any point $X$. If it already has this property, we are done. Otherwise choose
+\[
+Y\in g(X)\setminus\{X\}.
+\]
+The line $XY$ cannot be mapped to $X$, because together with $t(X)$ that would give two lines mapped to $X$. Hence
+\[
+f(XY)=Y.
+\]
+If $Y$ does not have the required property, then by (1) its unique preimage line is
+\[
+t(Y)=XY.
+\]
+The circles $g(X),g(Y)$ meet again at a point $Z$. The two distinct lines $XZ,YZ$ are both mapped to $Z$, so $Z$ has the required property. Fix such a point $P$ and lines $p_1,p_2$ as in (2).
+
+We prove that $P$ is the desired point. Suppose, for contradiction, that some line $\ell$ through $P$ satisfies
+\[
+f(\ell)=Q\ne P.
+\tag{3}
+\]
+Then $Q\in g(P)$.
+
+\textbf{Step 2: Proving that $P\in g(Q)$.}
+
+Assume temporarily that
+\[
+P\notin g(Q).
+\tag{4}
+\]
+Choose a variable point
+\[
+X\in\ell\setminus\{P,Q\}.
+\]
+We show that all possible positions of the tangent $t(X)$ lead either directly to $P\in g(Q)$ or to only finitely many choices of $X$, contradicting the variability of $X$.
+
+\emph{Case 2.1: $t(X)$ is parallel to one of $p_1,p_2$, say $p_1$.}
+
+Let
+\[
+R=t(X)\cap p_2.
+\]
+By (1)--(2), the circle $g(R)$ is the circumcircle of $P,R,X$. Let $RQ$ meet it again at $S$. Since
+\[
+f(RQ)\in g(R)\cap g(Q)\cap RQ,
+\]
+either $R\in g(Q)$ or $S\in g(Q)$.
+
+If $R\in g(Q)$, there are only finitely many choices for $R$ on $p_2$, and each determines $X$ uniquely. If $S\in g(Q)$, then
+\[
+\angle(QS,SP)
+=\angle(RS,SP)
+=\angle(RX,XP)
+=\angle(p_1,\ell)
+\]
+is fixed. Thus all such $S$ lie on a fixed circle through $P,Q$. By (4), that circle is different from $g(Q)$, so only finitely many $S$, and hence only finitely many $X$, are possible.
+
+\emph{Case 2.2: $t(X)$ meets $p_1,p_2$ at $R_1,R_2$.}
+
+The two points are distinct, because $g(X)$ meets $\ell$ only at $X,Q$. For $i=1,2$, the circle $g(R_i)$ is the circumcircle of $P,X,R_i$. Let $R_iQ$ meet it again at $S_i$. Then
+\[
+f(R_iQ)\in\{R_i,S_i\}\cap g(Q).
+\]
+There are three subcases.
+
+If both $S_1,S_2$ lie on $g(Q)$, then
+\[
+\begin{aligned}
+0
+&=\angle(R_1X,XP)+\angle(XP,R_2X)\\
+&=\angle(R_1S_1,S_1P)+\angle(S_2P,S_2R_2)\\
+&=\angle(QS_1,S_1P)+\angle(S_2P,S_2Q),
+\end{aligned}
+\]
+which gives $P\in g(Q)$, contrary to (4).
+
+If both $R_1,R_2$ lie on $g(Q)$, there are at most four possibilities, because
+\[
+R_i\in p_i\cap g(Q).
+\]
+
+In the mixed case, say $S_1\in g(Q)$ and $R_2\in g(Q)$, there are at most two possibilities for $R_2$. Fix one. The successive constructions
+\[
+X\in\ell
+\longmapsto R_1\in p_1
+\longmapsto S_1\in g(Q)
+\longmapsto X\in\ell
+\]
+are projective. If three different points $X$ satisfied the subcase, the resulting projectivity of $\ell$ would be the identity. But applying it to $X=Q$ does not return $Q$, a contradiction. Thus this subcase also occurs only finitely often.
+
+Under assumption (4), every possible case occurs for only finitely many $X$, impossible. Hence
+\[
+P\in g(Q).
+\tag{5}
+\]
+
+\textbf{Step 3: Proving that $f(PQ)=P$.}
+
+We still have the contradictory assumption (3), so $\ell=PQ$ is mapped to $Q$. We again let $X$ vary on
+\[
+\ell\setminus\{P,Q\}
+\]
+and derive that only finitely many positions are possible.
+
+\emph{Case 3.1: $t(Q)$ is parallel to one of $p_1,p_2$, say $p_1$.}
+
+Let
+\[
+R=t(Q)\cap p_2.
+\]
+Then $g(R)$ is the circumcircle of $P,R,Q$. Let $RX$ meet it again at $S$. Since
+\[
+f(RX)\in\{R,S\}\cap g(X),
+\]
+we distinguish two subcases.
+
+If $S\in g(X)$, then
+\[
+\angle(t(X),QX)
+=\angle(SX,SQ)
+=\angle(SR,SQ)
+=\angle(PR,PQ)
+=\angle(p_2,\ell),
+\]
+so $t(X)\parallel p_2$. Apply the construction of Case 2.1 with the roles of $p_1,p_2$ interchanged: let $R_1=t(X)\cap p_1$, and let $R_1Q$ meet $(PR_1X)$ again at $S_1$. Apart from finitely many exceptional $X$, one has $S_1=f(R_1Q)\in g(Q)$. Then
+\[
+\angle(t(Q),PQ)
+=\angle(QS_1,S_1P)
+=\angle(R_1X,XP)
+=\angle(p_2,\ell),
+\]
+so $t(Q)\parallel p_2$, contradicting $t(Q)\parallel p_1$.
+
+If $R\in g(X)$, then
+\[
+\angle(t(X),\ell)=\angle(RX,RQ)=\angle(RX,p_1).
+\]
+Let $R_1=t(X)\cap p_1$. For all but finitely many $X$, the second intersection $S_1$ of $R_1Q$ with $(PR_1X)$ belongs to $g(Q)$. The resulting fixed-angle relation determines at most one position of $X$. Thus Case 3.1 occurs only finitely often.
+
+\emph{Case 3.2: $t(Q)$ meets $p_1,p_2$ at $R_1,R_2$.}
+
+By Step 2, $R_1\ne R_2$. For $i=1,2$, the circle $g(R_i)$ is $(PQR_i)$. Let $R_iX$ meet it again at $S_i$. Then
+\[
+f(R_iX)\in\{R_i,S_i\}\cap g(X).
+\]
+
+If both $S_1,S_2$ belong to $g(X)$, the same angle sum as in Case 2.2 gives
+\[
+P\in g(X).
+\]
+But $P,Q,X$ are three distinct collinear points of $g(X)$, impossible.
+
+If both $R_1,R_2$ belong to $g(X)$, then the three distinct collinear points $R_1,R_2,Q$ lie on $g(X)$, again impossible.
+
+In the mixed case, say $S_1\in g(X)$ and $R_2\in g(X)$,
+\[
+\angle(XR_2,R_2Q)
+=\angle(XS_1,S_1Q)
+=\angle(R_1S_1,S_1Q)
+=\angle(R_1P,PQ)
+=\angle(p_1,\ell).
+\]
+This determines a unique position of $X$. The symmetric mixed case is identical.
+
+Thus Case 3.2 also permits only finitely many $X$. Since the line $\ell$ contains infinitely many choices, assumption (3) is impossible. Therefore every line through $P$ satisfies
+\[
+f(\ell)=P.
+\]
+As observed at the beginning, such a point is unique.

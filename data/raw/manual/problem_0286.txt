@@ -1,0 +1,210 @@
+ID: 0286
+
+SOURCE: IMO Shortlist
+
+YEAR: 2019
+
+TOPIC: Geometry
+
+SUBTOPICS: Cevians, Circumcircles, Trigonometric Ratios, Isogonal Lines, Barycentric Coordinates, Vector Geometry
+
+STATEMENT:
+Let $P$ be a point inside triangle $ABC$. The lines $AP,BP,CP$ meet $BC,CA,AB$ at $A_1,B_1,C_1$, respectively. Let $A_2,B_2,C_2$ be defined so that $A_1,B_1,C_1$ are the midpoints of $PA_2,PB_2,PC_2$, respectively. Prove that $A_2,B_2,C_2$ cannot all lie strictly inside the circumcircle of $ABC$.
+
+SOLUTION 1:
+We have
+\[
+\angle APB+\angle BPC+\angle CPA=2\pi
+=(\pi-C)+(\pi-A)+(\pi-B).
+\]
+Hence at least one of
+\[
+\angle APB\ge\pi-C,
+\quad
+\angle BPC\ge\pi-A,
+\quad
+\angle CPA\ge\pi-B
+\]
+holds. Without loss of generality,
+\[
+\angle BPC\ge\pi-A.
+\tag{1}
+\]
+Because $P$ lies inside $ABC$, $\angle BPC>A$. Thus
+\[
+\angle BPC\ge\max\{A,\pi-A\},
+\]
+which implies
+\[
+\sin\angle BPC\le\sin A.
+\tag{2}
+\]
+
+Let the rays $AP,BP,CP$ meet the circumcircle $\Omega$ of $ABC$ again at $A_3,B_3,C_3$, respectively. We show that at least one of
+\[
+\frac{PB_1}{B_1B_3},
+\qquad
+\frac{PC_1}{C_1C_3}
+\]
+is at least $1$.
+
+The triangles $CB_1B_3$ and $BB_1A$ are similar, so
+\[
+\frac{CB_1}{B_1B_3}=\frac{BB_1}{B_1A}.
+\]
+Using the sine rule in the relevant triangles,
+\[
+\frac{PB_1}{B_1B_3}
+=\frac{\sin\angle ACP}{\sin\angle BPC}
+ \cdot
+ \frac{\sin A}{\sin\angle PBA}.
+\tag{3}
+\]
+Similarly,
+\[
+\frac{PC_1}{C_1C_3}
+=\frac{\sin\angle PBA}{\sin\angle BPC}
+ \cdot
+ \frac{\sin A}{\sin\angle ACP}.
+\tag{4}
+\]
+Multiplying (3) and (4), and using (2), gives
+\[
+\frac{PB_1}{B_1B_3}\cdot
+\frac{PC_1}{C_1C_3}
+=\frac{\sin^2 A}{\sin^2\angle BPC}\ge1.
+\]
+Thus one of the two ratios is at least $1$. Suppose, for example, that $PB_1\ge B_1B_3$. On the ray from $P$ through $B_1$, the point $B_2$ satisfies $B_1B_2=PB_1$, so $B_2$ is on or beyond $B_3$. Hence $B_2$ is not strictly inside $\Omega$. The other case is identical.
+
+SOLUTION 2:
+Let $A_3,B_3,C_3$ be as in Solution 1, and assume for contradiction that all three of $A_2,B_2,C_2$ lie strictly inside the circumcircle. Then
+\[
+PA_1<A_1A_3,
+\qquad
+PB_1<B_1B_3,
+\qquad
+PC_1<C_1C_3.
+\tag{1}
+\]
+
+The triangles $PBC_3$ and $PCB_3$ are similar. Let $X\in PB_3$ correspond to $C_1\in PC_3$ under this similarity, so
+\[
+\frac{PX}{XB_3}=\frac{PC_1}{C_1C_3}.
+\]
+Then
+\[
+\angle XCP
+=\angle PBC_1
+=\angle B_3BA
+=\angle B_3CB_1.
+\]
+Thus the lines $CX$ and $CB_1$ are isogonal in triangle $PCB_3$.
+
+Let $Y$ be the point where the internal bisector of $\angle B_3CP$ meets $PB_3$. From (1),
+\[
+PX<XB_3.
+\]
+Also $PB_1<B_1B_3$, and the isogonality just obtained places $Y$ between $X$ and $B_1$. Hence
+\[
+PY<YB_3.
+\]
+By the angle-bisector theorem in triangle $PCB_3$,
+\[
+\frac{PY}{YB_3}=\frac{PC}{CB_3},
+\]
+so $PC<CB_3$. Consequently,
+\[
+\angle PB_3C<\angle CPB_3.
+\]
+But
+\[
+\angle PB_3C=\angle BB_3C=A,
+\]
+and therefore
+\[
+A<\angle CPB_3.
+\tag{2}
+\]
+Cyclically applying the same argument gives
+\[
+B<\angle APC_3,
+\qquad
+C<\angle BPA_3.
+\tag{3}
+\]
+The three angles on the right of (2)--(3) sum to $\pi$, whereas $A+B+C=\pi$. Adding the strict inequalities gives $\pi<\pi$, a contradiction.
+
+SOLUTION 3:
+Place the circumcentre of $ABC$ at the origin and normalize the circumradius to $1$. Regard points as vectors, so
+\[
+|A|^2=|B|^2=|C|^2=1.
+\]
+Because $P$ lies inside the triangle, there are positive numbers $\alpha,\beta,\gamma$ with
+\[
+\alpha+\beta+\gamma=1,
+\qquad
+P=\alpha A+\beta B+\gamma C.
+\]
+We have
+\[
+A_1=\frac{\beta B+\gamma C}{\beta+\gamma}
+=\frac{P-\alpha A}{1-\alpha},
+\]
+and hence
+\[
+A_2=2A_1-P
+=\frac{1+\alpha}{1-\alpha}P
+ -\frac{2\alpha}{1-\alpha}A.
+\]
+It follows that
+\[
+\frac{(1-\alpha)^2}{2(1+\alpha)}|A_2|^2
+=\frac{1+\alpha}{2}|P|^2
+ +\frac{2\alpha^2}{1+\alpha}
+ -2\alpha A\cdot P.
+\tag{1}
+\]
+The analogous identities hold for $B_2,C_2$.
+
+Summing the three identities, the terms involving $|P|^2$ and the scalar products cancel, because
+\[
+\sum_{\rm cyc}\frac{1+\alpha}{2}=2
+\]
+and
+\[
+\alpha A\cdot P+\beta B\cdot P+\gamma C\cdot P=P\cdot P.
+\]
+Therefore
+\[
+\sum_{\rm cyc}
+\frac{(1-\alpha)^2}{2(1+\alpha)}|A_2|^2
+=
+\sum_{\rm cyc}\frac{2\alpha^2}{1+\alpha}.
+\tag{2}
+\]
+For every $\alpha$,
+\[
+\frac{2\alpha^2}{1+\alpha}
+=\frac{3\alpha-1}{2}
+ +\frac{(1-\alpha)^2}{2(1+\alpha)}.
+\]
+Since
+\[
+\sum_{\rm cyc}\frac{3\alpha-1}{2}=0,
+\]
+equation (2) becomes
+\[
+\sum_{\rm cyc}
+\frac{(1-\alpha)^2}{2(1+\alpha)}|A_2|^2
+=
+\sum_{\rm cyc}
+\frac{(1-\alpha)^2}{2(1+\alpha)}.
+\tag{3}
+\]
+All three coefficients in (3) are positive. Hence at least one of
+\[
+|A_2|^2,
+\quad |B_2|^2,
+\quad |C_2|^2
+\]
+is at least $1$. The unit circle is the circumcircle of $ABC$, so the corresponding point is not strictly inside it.

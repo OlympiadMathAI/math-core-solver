@@ -1,0 +1,16 @@
+{
+  "id": "0274",
+  "source": "IMO Shortlist",
+  "year": "2019",
+  "topic": "Combinatorics",
+  "subtopics": [
+    "Binomial Coefficients",
+    "Induction",
+    "Multisets",
+    "Unimodality"
+  ],
+  "statement": "The infinite sequence $a_0,a_1,a_2,\\ldots$ of not necessarily distinct integers satisfies\n\\[\n0\\le a_i\\le i\n\\qquad(i\\ge0)\n\\]\nand\n\\[\n\\binom{k}{a_0}+\\binom{k}{a_1}+\\cdots+\\binom{k}{a_k}=2^k\n\\qquad(k\\ge0).\n\\]\nProve that every nonnegative integer occurs in the sequence; that is, for every $N\\ge0$ there is an index $i\\ge0$ such that $a_i=N$.",
+  "solutions": [
+    "We prove the following stronger description by induction on $k$:\n\nFor some integer $\\ell\\ge0$ satisfying $2\\ell\\le k+1$, the multiset\n\\[\n\\{a_0,a_1,\\ldots,a_k\\}\n\\]\nis\n\\[\n\\{0,1,\\ldots,\\ell-1\\}\\mathbin{\\uplus}\n\\{0,1,\\ldots,k-\\ell\\},\n\\tag{1}\n\\]\nwhere $\\uplus$ denotes multiset union.\n\nFor $k=0$, the given inequalities force $a_0=0$, so (1) holds with $\\ell=0$.\n\nAssume that (1) holds for $k=m$. Thus the already known terms contribute\n\\[\n2\\sum_{r=0}^{\\ell-1}\\binom{m+1}{r}\n+\n\\sum_{r=\\ell}^{m-\\ell}\\binom{m+1}{r}\n\\]\nto the equation for $k=m+1$. Comparing this with\n\\[\n\\sum_{r=0}^{m+1}\\binom{m+1}{r}=2^{m+1}\n\\]\nand using\n\\[\n\\binom{m+1}{r}=\\binom{m+1}{m+1-r},\n\\]\nwe obtain\n\\[\n\\binom{m+1}{a_{m+1}}=\\binom{m+1}{\\ell}.\n\\tag{2}\n\\]\nThe binomial coefficients in a fixed row strictly increase up to the middle and then decrease symmetrically. Since $0\\le a_{m+1}\\le m+1$, equation (2) gives\n\\[\na_{m+1}=\\ell\n\\qquad\\text{or}\\qquad\na_{m+1}=m+1-\\ell.\n\\]\nIn the second case, the second interval in (1) is extended by one term. In the first case, if the two alternatives are distinct then the old second interval already contains $\\ell$, so the new copy of $\\ell$ gives the same description with $\\ell$ replaced by $\\ell+1$. If the alternatives coincide, then $m+1=2\\ell$ and the same description remains valid with $\\ell$ unchanged. Thus (1) also holds for $m+1$.\n\nNow take any $N\\ge0$ and apply (1) with $k=2N$. Since $2\\ell\\le2N+1$, we have\n\\[\n2N-\\ell\\ge N.\n\\]\nTherefore the second interval in (1) contains $N$, so one of\n\\[\na_0,a_1,\\ldots,a_{2N}\n\\]\nequals $N$. Hence every nonnegative integer occurs."
+  ]
+}

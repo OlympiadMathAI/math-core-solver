@@ -1,0 +1,113 @@
+ID: 0267
+
+SOURCE: IMO Shortlist
+
+YEAR: 2019
+
+TOPIC: Algebra
+
+SUBTOPICS: Functional Equations, Integer-Valued Functions, Additive Functions
+
+STATEMENT:
+Let $\mathbb Z$ be the set of integers. Determine all functions
+\[
+f:\mathbb Z\to\mathbb Z
+\]
+such that
+\[
+f(2a)+2f(b)=f(f(a+b))
+\tag{1}
+\]
+for all integers $a,b$.
+
+SOLUTION 1:
+The solutions are
+\[
+\boxed{f(n)=0}
+\]
+and
+\[
+\boxed{f(n)=2n+K\quad(K\in\mathbb Z)}.
+\]
+
+Substitute $(a,b)=(0,n+1)$ and $(a,b)=(1,n)$ into (1). Both right-hand sides are $f(f(n+1))$, so
+\[
+f(0)+2f(n+1)=f(2)+2f(n).
+\]
+Hence
+\[
+f(n+1)-f(n)=\frac{f(2)-f(0)}2
+\]
+is independent of $n$. Since the left-hand side is an integer, there is an integer $M$ such that
+\[
+f(n+1)-f(n)=M
+\]
+for all $n\in\mathbb Z$. Induction in both directions gives
+\[
+f(n)=Mn+K
+\]
+for some $K\in\mathbb Z$.
+
+Substituting this expression into (1), we obtain
+\[
+2Ma+K+2(Mb+K)=M(M(a+b)+K)+K,
+\]
+which is equivalent to
+\[
+(M-2)(M(a+b)+K)=0
+\]
+for all integers $a,b$.
+
+If $M=2$, then $K$ is arbitrary and $f(n)=2n+K$. If $M\ne2$, then
+\[
+M(a+b)+K=0
+\]
+for every $a,b$, forcing $M=K=0$. Thus $f\equiv0$.
+
+A direct substitution verifies that all the listed functions satisfy (1).
+
+SOLUTION 2:
+Put
+\[
+K=f(0).
+\]
+Setting $a=0$ in (1) gives
+\[
+f(f(b))=2f(b)+K.
+\tag{2}
+\]
+Setting $b=0$ in (1) and then using (2), we get
+\[
+f(2a)+2K=f(f(a))=2f(a)+K,
+\]
+so
+\[
+f(2a)=2f(a)-K.
+\tag{3}
+\]
+
+Now use (2) and (3) in the original equation:
+\[
+2f(a)-K+2f(b)=2f(a+b)+K.
+\]
+Therefore
+\[
+f(a)+f(b)=f(a+b)+K.
+\]
+Define
+\[
+g(n)=f(n)-K.
+\]
+Then
+\[
+g(a+b)=g(a)+g(b)
+\]
+for all integers $a,b$. Every additive function on $\mathbb Z$ is linear, so
+\[
+g(n)=Mn
+\]
+for some integer $M$. Hence
+\[
+f(n)=Mn+K.
+\]
+Substitution into (1), exactly as in Solution 1, yields either $M=2$ with arbitrary $K$, or $M=K=0$. These and only these functions work.

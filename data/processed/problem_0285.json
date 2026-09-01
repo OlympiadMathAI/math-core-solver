@@ -1,0 +1,18 @@
+{
+  "id": "0285",
+  "source": "IMO Shortlist",
+  "year": "2019",
+  "topic": "Geometry",
+  "subtopics": [
+    "Directed Angles",
+    "Cyclic Quadrilaterals",
+    "Pappus' Theorem",
+    "Radical Axis",
+    "Isosceles Trapezoids"
+  ],
+  "statement": "In triangle $ABC$, let $A_1$ and $B_1$ lie on $BC$ and $AC$, respectively. Let $P\\in AA_1$ and $Q\\in BB_1$ satisfy\n\\[\nPQ\\parallel AB.\n\\]\nOn the ray $PB_1$ beyond $B_1$, choose $P_1$ so that\n\\[\n\\angle PP_1C=\\angle BAC.\n\\]\nOn the ray $QA_1$ beyond $A_1$, choose $Q_1$ so that\n\\[\n\\angle CQ_1Q=\\angle CBA.\n\\]\nProve that $P,Q,P_1,Q_1$ are concyclic.",
+  "solutions": [
+    "All angles are directed modulo $\\pi$.\n\nLet the rays $AA_1$ and $BB_1$ meet the circumcircle of $ABC$ again at $A_2$ and $B_2$, respectively. Since $PQ\\parallel AB$,\n\\[\n\\angle QPA_2\n=\\angle BAA_2\n=\\angle BB_2A_2\n=\\angle QB_2A_2.\n\\]\nThus $P,Q,A_2,B_2$ lie on one circle; call it $\\omega$.\n\nFurthermore,\n\\[\n\\angle CA_2A_1\n=\\angle CA_2A\n=\\angle CBA\n=\\angle CQ_1Q\n=\\angle CQ_1A_1.\n\\]\nHence $C,Q_1,A_2,A_1$ are concyclic. It follows that\n\\[\n\\begin{aligned}\n\\angle QQ_1A_2\n&=\\angle A_1Q_1A_2\\\\\n&=\\angle A_1CA_2\\\\\n&=\\angle BCA_2\\\\\n&=\\angle BAA_2\\\\\n&=\\angle QPA_2.\n\\end{aligned}\n\\]\nTherefore $Q_1\\in\\omega$. By the same argument with $A$ and $B$ interchanged, $P_1\\in\\omega$. Hence\n\\[\nP,Q,P_1,Q_1\n\\]\nare concyclic.",
+    "First suppose that the lines $PP_1$ and $QQ_1$ meet at a finite point $R$.\n\nLet $PQ$ meet $AC$ and $BC$ at $E$ and $F$, respectively. Since\n\\[\n\\angle PP_1C=\\angle BAC=\\angle PEC,\n\\]\nthe points $C,E,P,P_1$ are concyclic; denote their circle by $\\omega_P$. Similarly, $C,F,Q,Q_1$ lie on a circle $\\omega_Q$.\n\nLet\n\\[\nT=AQ\\cap BP.\n\\]\nApply Pappus' theorem to the two collinear triples\n\\[\nA,A_1,P\n\\qquad\\text{and}\\qquad\nB,B_1,Q.\n\\]\nThe three intersections of corresponding cross-lines are\n\\[\nC=AB_1\\cap BA_1,\n\\quad\nR=A_1Q\\cap B_1P,\n\\quad\nT=AQ\\cap BP,\n\\]\nso $C,R,T$ are collinear.\n\nLet this line meet $PQ$ and $AB$ at $S$ and $U$, respectively. Since $PQ\\parallel AB$, elementary projective ratios give\n\\[\n\\frac{SP}{SQ}=\\frac{UB}{UA}=\\frac{SF}{SE}.\n\\]\nTherefore\n\\[\nSP\\cdot SE=SQ\\cdot SF.\n\\tag{1}\n\\]\nThe left side of (1) is the power of $S$ with respect to $\\omega_P$, and the right side is its power with respect to $\\omega_Q$. Hence $S$ lies on the radical axis of these two circles. Their common point $C$ also lies on this radical axis, so the radical axis is the line $CR$. Thus $R$ has equal powers to the two circles:\n\\[\nRP\\cdot RP_1=RQ\\cdot RQ_1.\n\\]\nThis is exactly the criterion that $P,P_1,Q,Q_1$ be concyclic.\n\nIt remains to treat the case $PP_1\\parallel QQ_1$. Pappus' theorem in its limiting form gives\n\\[\nCT\\parallel PP_1\\parallel QQ_1.\n\\]\nDefine $S,U,E,F$ as above. Equation (1) is unchanged, so $CT$ is the radical axis of $\\omega_P$ and $\\omega_Q$. Let $\\ell$ be the line joining the centres of these circles. Then\n\\[\nCT\\perp\\ell,\n\\]\nand therefore both chords $PP_1$ and $QQ_1$ are perpendicular to $\\ell$. Since $\\ell$ passes through both circle centres, it is the perpendicular bisector of both chords. Reflection in $\\ell$ interchanges $P$ with $P_1$ and $Q$ with $Q_1$. Thus $PP_1Q_1Q$ is an isosceles trapezoid, and hence it is cyclic."
+  ]
+}

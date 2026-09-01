@@ -1,0 +1,17 @@
+{
+  "id": "0270",
+  "source": "IMO Shortlist",
+  "year": "2019",
+  "topic": "Algebra",
+  "subtopics": [
+    "Inequalities",
+    "Sign Partitions",
+    "Ordered-Pair Sums",
+    "Extremal Arguments"
+  ],
+  "statement": "Let $n\\ge2$, and let $a_1,a_2,\\ldots,a_n$ be real numbers such that\n\\[\na_1+a_2+\\cdots+a_n=0.\n\\]\nDefine\n\\[\nA=\\{(i,j):1\\le i<j\\le n,\\ |a_i-a_j|\\ge1\\}.\n\\]\nProve that, if $A$ is nonempty, then\n\\[\n\\sum_{(i,j)\\in A}a_i a_j<0.\n\\]",
+  "solutions": [
+    "Define sets of ordered pairs\n\\[\nB=\\{(i,j):1\\le i,j\\le n,\\ |a_i-a_j|\\ge1\\}\n\\]\nand\n\\[\nC=\\{(i,j):1\\le i,j\\le n,\\ |a_i-a_j|<1\\}.\n\\]\nSince every unordered pair in $A$ appears twice in $B$,\n\\[\n\\sum_{(i,j)\\in A}a_i a_j\n=\\frac12\\sum_{(i,j)\\in B}a_i a_j.\n\\tag{1}\n\\]\nAlso,\n\\[\n\\sum_{1\\le i,j\\le n}a_i a_j\n=\\left(\\sum_{i=1}^n a_i\\right)^2=0.\n\\]\nTherefore\n\\[\n\\sum_{(i,j)\\in B}a_i a_j\n=-\\sum_{(i,j)\\in C}a_i a_j.\n\\tag{2}\n\\]\nIt remains to prove that the last sum in (2) is positive.\n\nPartition the indices into\n\\[\n\\begin{aligned}\nP&=\\{i:a_i\\le-1\\},&\nQ&=\\{i:-1<a_i\\le0\\},\\\\\nR&=\\{i:0<a_i<1\\},&\nS&=\\{i:a_i\\ge1\\}.\n\\end{aligned}\n\\]\nWe have\n\\[\n\\begin{aligned}\n\\sum_{(i,j)\\in C}a_i a_j\n&\\ge\n\\sum_{i\\in P\\cup S}a_i^2\n+\n\\sum_{i,j\\in Q\\cup R}a_i a_j\\\\\n&=\n\\sum_{i\\in P\\cup S}a_i^2\n+\n\\left(\\sum_{i\\in Q\\cup R}a_i\\right)^2\\\\\n&\\ge0.\n\\end{aligned}\n\\tag{3}\n\\]\nEvery positive term on the right occurs on the left, while any negative term on the right that is missing from the left only makes the right side smaller.\n\nIf equality held throughout (3), then $P=S=\\varnothing$, and every pair of indices in $Q\\cup R$ with negative product would have distance less than $1$. The same-sign differences inside $Q$ and inside $R$ are automatically less than $1$, so all pairwise differences would be less than $1$, giving $A=\\varnothing$. Since $A$ is nonempty, (3) is strict:\n\\[\n\\sum_{(i,j)\\in C}a_i a_j>0.\n\\]\nEquations (1)-(2) now give the result.",
+    "Use the same partition $P,Q,R,S$, and put\n\\[\np=\\sum_{i\\in P}a_i,\n\\qquad\nq=\\sum_{i\\in Q}a_i,\n\\qquad\nr=\\sum_{i\\in R}a_i,\n\\qquad\ns=\\sum_{i\\in S}a_i.\n\\]\nThen\n\\[\np+q+r+s=0.\n\\tag{1}\n\\]\nLet $t_+$ be the sum of $a_i a_j$ over pairs $(i,j)\\in A$ with nonnegative product, and let $t_-$ be the corresponding sum over pairs with nonpositive product.\n\nAll positive contributions are bounded above by including every possible same-sign product:\n\\[\nt_+\\le\n\\frac{p^2}{2}+pq+rs+\\frac{s^2}{2}.\n\\tag{2}\n\\]\nThis inequality is strict unless\n\\[\np=s=0,\n\\tag{3}\n\\]\nbecause $p^2/2$ and $s^2/2$ include positive square terms.\n\nEvery pair from $P\\times R$, $P\\times S$, or $Q\\times S$ belongs to $A$. Any additional pair from $Q\\times R$ has negative product, so\n\\[\nt_-\\le pr+ps+qs.\n\\tag{4}\n\\]\nCombining (2) and (4), and using (1),\n\\[\n\\begin{aligned}\nt_++t_-\n&\\le\n\\frac{p^2+s^2}{2}+pq+pr+ps+qs+rs\\\\\n&=\n\\frac{(p+q+r+s)^2-(q+r)^2}{2}\\\\\n&=-\\frac{(q+r)^2}{2}\\le0.\n\\end{aligned}\n\\tag{5}\n\\]\nIf equality held in (5), then (3) would give $P=S=\\varnothing$. Since $A$ is nonempty, there would then be a pair with one index in $Q$ and one in $R$ whose values differ by at least $1$; its negative product makes (4) strict. Therefore equality is impossible, and\n\\[\nt_++t_-<0.\n\\]"
+  ]
+}

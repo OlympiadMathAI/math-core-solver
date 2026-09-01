@@ -1,0 +1,144 @@
+ID: 0276
+
+SOURCE: IMO Shortlist
+
+YEAR: 2019
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Combinatorial Processes, Binary Strings, Invariants, Expected Value, Bijections
+
+STATEMENT:
+Let $n$ be a positive integer. Harry has $n$ coins arranged in a row, each showing heads $H$ or tails $T$. He repeatedly performs the following operation: if exactly $k>0$ coins show heads, he flips the $k$th coin; if no coin shows heads, he stops.
+
+For an initial configuration $C$, let $\ell(C)$ be the number of steps before all coins show tails. Prove that $\ell(C)$ is finite for every $C$, and determine the average value of $\ell(C)$ over all $2^n$ initial configurations.
+
+SOLUTION 1:
+The average is
+\[
+\boxed{\frac{n(n+1)}4}.
+\]
+Let $G_n$ be the directed graph whose vertices are the length-$n$ strings in $H,T$, with an edge from every nonterminal string to its successor. We describe $G_n$ recursively from two copies of $G_{n-1}$.
+
+Let $X$ contain the strings $s_1\cdots s_{n-1}T$. Appending a final $T$ does not alter any move, so $X$ is a copy of $G_{n-1}$. Let $Y$ contain
+\[
+\overline{s}_{n-1}\overline{s}_{n-2}\cdots\overline{s}_1H,
+\]
+where $\overline H=T$ and $\overline T=H$. If the original string has $k$ heads, its image has $n-k$ heads. Reversal and complementation convert each original move into the corresponding move in the image, so $Y$ is another copy of $G_{n-1}$. Its terminal vertex is $H^n$. Finally,
+\[
+H^n\longrightarrow H^{n-1}T,
+\]
+and from $H^{n-1}T$ exactly $n-1$ further moves lead to $T^n$. Thus every path starting in $Y$ uses $n$ more moves than its corresponding path in $G_{n-1}$.
+
+Let $E_n$ be the average of $\ell(C)$. Then
+\[
+E_n=\frac12E_{n-1}+\frac12(E_{n-1}+n)=E_{n-1}+\frac n2.
+\]
+Since $E_0=0$,
+\[
+E_n=\frac12(1+2+\cdots+n)=\frac{n(n+1)}4.
+\]
+The recursive graph also proves termination.
+
+SOLUTION 2:
+Let $E_n$ denote the required average. Finiteness follows by induction from these observations:
+\begin{itemize}
+\item If a configuration begins with $H$, the last $n-1$ coins evolve independently until all are tails, after which the first coin is flipped once.
+\item If it ends with $T$, that coin is never flipped, and the first $n-1$ coins evolve independently.
+\item If it begins with $T$ and ends with $H$, the middle $n-2$ coins first evolve to all tails. From $T^{n-1}H$, the process takes $2n-1$ further moves.
+\end{itemize}
+For $A,B\in\{H,T,*\}$, let $E_{AB}(n)$ be the average under the indicated endpoint restrictions. Then
+\[
+\begin{aligned}
+E_{H*}(n)&=E_{n-1}+1,&E_{*T}(n)&=E_{n-1},\\
+E_{HT}(n)&=E_{n-2}+1,&E_{TH}(n)&=E_{n-2}+2n-1.
+\end{aligned}
+\]
+Thus
+\[
+E_{HH}(n)=2E_{n-1}-E_{n-2}+1,
+\qquad
+E_{TT}(n)=2E_{n-1}-E_{n-2}-1.
+\]
+Averaging the four endpoint types gives
+\[
+E_n=E_{n-1}+\frac n2.
+\]
+With $E_0=0$ and $E_1=1/2$, this yields $E_n=n(n+1)/4$.
+
+SOLUTION 3:
+For a configuration, let $H_i$ be the number of heads among the first $i$ coins, let $H_n$ be the total number of heads, and put $I_i=1$ if coin $i$ is heads and $I_i=0$ otherwise. Define
+\[
+t_i=I_i+2\bigl(\min(i,H_n)-H_i\bigr).
+\tag{1}
+\]
+This is a nonnegative integer. We claim $t_i$ is the number of future flips of coin $i$. If the current number of heads is $k$, the move flips coin $k$. For $i<k$, the quantities in (1) are unchanged; for $i>k$, $H_i$ and $H_n$ change equally; and for $i=k$, a direct check whether the coin is $H$ or $T$ shows that $t_k$ decreases by exactly $1$. Thus each move decreases $\sum_i t_i$ by one, and the terminal configuration has sum zero. Hence the process terminates and
+\[
+\ell(C)=\sum_{i=1}^n t_i.
+\tag{2}
+\]
+For a uniformly random configuration,
+\[
+\mathbb E\sum I_i=\frac n2,
+\qquad
+\mathbb E\left(-2\sum H_i\right)=-\frac{n(n+1)}2.
+\]
+If $H=H_n$, then
+\[
+\sum_{i=1}^n\min(i,H)=nH-\binom H2.
+\]
+Since $H\sim\operatorname{Bin}(n,1/2)$,
+\[
+\mathbb EH=\frac n2,
+\qquad
+\mathbb E\binom H2=\frac14\binom n2.
+\]
+Therefore
+\[
+\mathbb E\left(2\sum_{i=1}^n\min(i,H)\right)=n^2-\frac{n(n-1)}4.
+\]
+Taking expectations in (1)-(2) gives $E_n=n(n+1)/4$.
+
+SOLUTION 4:
+Imagine a machine whose position is the current number of heads. Position $0$ means the process has stopped. At a positive position $i$, if coin $i$ is $H$, the machine flips it and moves left; if it is $T$, the machine flips it and moves right.
+
+Break the motion into maximal runs in one direction. A run of $a$ rightward moves is followed by at least $a+1$ leftward moves, because those $a$ flips have produced $a$ heads and the next coin is also a head. The symmetric statement holds after a leftward run. Thus the run lengths form a strictly increasing sequence
+\[
+a_1<a_2<\cdots<a_t\le n.
+\]
+So the process terminates.
+
+Conversely, every strictly increasing sequence selected from $\{1,\ldots,n\}$ determines exactly one initial configuration by reversing the runs from the all-tail terminal state. Hence configurations are in bijection with subsets of $\{1,\ldots,n\}$, and the number of moves is the sum of the elements of the corresponding subset. Each $i$ occurs in half of all subsets, so
+\[
+E_n=\frac12\sum_{i=1}^n i=\frac{n(n+1)}4.
+\]
+
+SOLUTION 5:
+Suppose the heads initially occur at
+\[
+1\le c_1<c_2<\cdots<c_k\le n.
+\]
+When there are $k$ heads, let $c_i$ be the first head position with $c_i\ge k$. The next moves flip
+\[
+k,k+1,\ldots,c_i,c_i-1,\ldots,k.
+\]
+After $2(c_i-k)+1$ moves, the head at $c_i$ has disappeared while all other original heads remain. Repeating proves termination.
+
+If the original heads disappear in order $c_{i_1},\ldots,c_{i_k}$, then
+\[
+\begin{aligned}
+\ell(C)
+&=\sum_{j=1}^k\left(2\bigl(c_{i_j}-(k+1-j)\bigr)+1\right)\\
+&=2\sum_{j=1}^k c_j-k^2.
+\end{aligned}
+\tag{1}
+\]
+Each position is initially a head with probability $1/2$, so
+\[
+\mathbb E\left(2\sum c_j\right)=\sum_{i=1}^n i=\frac{n(n+1)}2.
+\]
+Also $k\sim\operatorname{Bin}(n,1/2)$, whence
+\[
+\mathbb E(k^2)=\frac n4+\frac{n^2}4=\frac{n(n+1)}4.
+\]
+Taking expectations in (1) gives $E_n=n(n+1)/4$.

@@ -1,0 +1,262 @@
+ID: 0272
+
+SOURCE: IMO Shortlist
+
+YEAR: 2019
+
+TOPIC: Algebra
+
+SUBTOPICS: Polynomial Invariants, Vieta Involutions, Induction on Degree, Markov Surface
+
+STATEMENT:
+A polynomial $P(x,y,z)$ in three variables with real coefficients satisfies
+\[
+P(x,y,z)=P(x,y,xy-z)=P(x,xz-y,z)=P(yz-x,y,z).
+\tag{1}
+\]
+Prove that there is a one-variable polynomial $F(t)$ such that
+\[
+P(x,y,z)=F(x^2+y^2+z^2-xyz).
+\]
+
+SOLUTION 1:
+Put
+\[
+Q=x^2+y^2+z^2-xyz.
+\]
+Each of the three substitutions in (1) leaves $Q$ unchanged.
+
+Call a polynomial weakly symmetric if it is invariant under
+\[
+z\longmapsto xy-z.
+\]
+We first describe all weakly symmetric polynomials.
+
+Define
+\[
+P_1(x,y,u)=P\left(x,y,u+\frac{xy}{2}\right).
+\]
+Weak symmetry gives
+\[
+P_1(x,y,u)=P_1(x,y,-u),
+\]
+so $P_1$ is a polynomial in $x,y,u^2$. Since
+\[
+\left(z-\frac{xy}{2}\right)^2
+=-z(xy-z)+\frac{x^2y^2}{4},
+\]
+every weakly symmetric polynomial is a polynomial in
+\[
+x,\qquad y,\qquad z(xy-z).
+\tag{2}
+\]
+The converse is immediate.
+
+Write a weakly symmetric polynomial as
+\[
+P(x,y,z)=\sum_{i,j,k}\mu_{ijk}x^iy^j\bigl(z(xy-z)\bigr)^k.
+\tag{3}
+\]
+Let
+\[
+m=\max_{\mu_{ijk}\ne0}(i+j+3k).
+\]
+For every triple with $i+j+3k=m$, the corresponding summand in (3) has the unique leading monomial
+\[
+\mu_{ijk}x^{i+k}y^{j+k}z^k.
+\]
+No two different triples produce the same monomial. Hence every monomial $x^ay^bz^c$ in the highest homogeneous part of a weakly symmetric polynomial satisfies
+\[
+a\ge c,
+\qquad
+b\ge c.
+\tag{4}
+\]
+
+Now let $P$ satisfy all three symmetries. Applying (4) to each variable in turn gives
+\[
+a,b\ge c,
+\qquad
+a,c\ge b,
+\qquad
+b,c\ge a.
+\]
+Thus
+\[
+a=b=c.
+\]
+Consequently, the highest homogeneous part of $P$ consists of a single monomial
+\[
+\mu(xyz)^c.
+\]
+The invariant polynomial
+\[
+xyz-x^2-y^2-z^2=-Q
+\]
+has leading term $xyz$. Therefore
+\[
+P_0=P-\mu(-Q)^c
+\]
+still satisfies (1) and has smaller total degree.
+
+Induction on $\deg P$ now proves that $P_0$ is a polynomial in $Q$. Hence $P$ is also a polynomial in $Q$, as required.
+
+SOLUTION 2:
+Put
+\[
+Q=x^2+y^2+z^2-xyz
+\]
+and
+\[
+T=Q-4.
+\]
+We use the identity
+\[
+\cos^2u+\cos^2v+\cos^2w-2\cos u\cos v\cos w=1
+\]
+whenever
+\[
+u+v+w=0.
+\tag{2}
+\]
+Thus $T$ vanishes on the surface
+\[
+\mathcal S=
+\{(2\cos u,2\cos v,2\cos w):u+v+w=0\}.
+\]
+
+We first show that $P$ is constant on $\mathcal S$. Define
+\[
+G(u,v,w)=P(2\cos u,2\cos v,2\cos w).
+\]
+On the plane $u+v+w=0$, the three Vieta involutions in (1) act on the angle triples. For example,
+\[
+4\cos v\cos w-2\cos u=2\cos(v-w),
+\]
+so replacing $x$ by $yz-x$ replaces $(u,v,w)$ by $(v-w,-v,w)$. Combining pairs of the three involutions gives
+\[
+G(u,v,w)=G(u+2kv,v,w-2kv)
+\qquad(k\in\mathbb Z)
+\tag{3}
+\]
+and
+\[
+G(u,v,w)=G(u,v-2\ell u,w+2\ell u)
+\qquad(\ell\in\mathbb Z).
+\tag{4}
+\]
+We may also add multiples of $2\pi$ to the angles without changing $G$.
+
+Choose nonzero $u,v$ such that $u,v,\pi$ are linearly independent over $\mathbb Q$. By (3), the first coordinate can be shifted by arbitrary multiples of $2v$ while the second is fixed; since $v/\pi$ is irrational, these shifts are dense modulo $2\pi$. For every resulting first coordinate, its ratio to $\pi$ remains irrational, so (4) then makes the second coordinate dense modulo $2\pi$ while fixing the first. Together with the $2\pi$-periodicity, this produces a dense orbit in the plane $u+v+w=0$. Since $G$ is continuous and constant on this orbit, it is constant on the whole plane. Hence $P$ is constant on $\mathcal S$.
+
+We next prove that
+\[
+T\mid P(x,y,z)-P(2,2,2).
+\tag{5}
+\]
+Divide the polynomial on the right of (5) by the monic quadratic $T$, considered as a polynomial in $x$. There exist polynomials $R(x,y,z)$, $A(y,z)$, and $B(y,z)$ such that
+\[
+P(x,y,z)-P(2,2,2)=T(x,y,z)R(x,y,z)+A(y,z)x+B(y,z).
+\tag{6}
+\]
+On $\mathcal S$, the left side and $T$ both vanish, so
+\[
+A(y,z)x+B(y,z)=0.
+\tag{7}
+\]
+For
+\[
+\frac\pi3<v,w<\frac{2\pi}3,
+\]
+the fixed values
+\[
+y=2\cos v,
+\qquad
+z=2\cos w
+\]
+correspond to two distinct points of $\mathcal S$, with
+\[
+x_1=2\cos(v+w)<0,
+\qquad
+x_2=2\cos(v-w)>0.
+\]
+Thus (7) holds for two distinct values of $x$, forcing
+\[
+A(y,z)=B(y,z)=0.
+\]
+This is true on an open set of pairs $(y,z)$, so the polynomials $A$ and $B$ vanish identically. This proves (5).
+
+The quotient
+\[
+R=\frac{P-P(2,2,2)}{T}
+\]
+has smaller degree than $P$ and satisfies the same three invariances, because both the numerator and $T$ are invariant. By induction on the degree, $R$ is a polynomial in $Q$. Equation (6) now shows that $P$ is a polynomial in $Q$ as well.
+
+SOLUTION 3:
+This solution uses standard facts from algebraic geometry.
+
+Let
+\[
+Q=x^2+y^2+z^2-xyz
+\]
+and, for $t\in\mathbb C$, let
+\[
+V_t=\{(x,y,z)\in\mathbb C^3:Q(x,y,z)=t\}.
+\]
+A direct calculation of the simultaneous equations
+\[
+Q=t,
+\qquad
+\frac{\partial Q}{\partial x}=
+\frac{\partial Q}{\partial y}=
+\frac{\partial Q}{\partial z}=0
+\]
+shows that $V_t$ is smooth except that $V_0$ has the single singular point $(0,0,0)$ and $V_4$ has the four singular points
+\[
+(\pm2,\pm2,\pm2)
+\quad\text{with }xyz=8.
+\]
+The polynomial $Q-t$ is irreducible in $\mathbb C[x,y,z]$; regarding it as a quadratic in $x$, one checks that its discriminant is not a square in $\mathbb C[y,z]$.
+
+Let $\Gamma$ be the group generated by the three Vieta involutions
+\[
+\begin{aligned}
+\iota_1(x,y,z)&=(x,y,xy-z),\\
+\iota_2(x,y,z)&=(x,xz-y,z),\\
+\iota_3(x,y,z)&=(yz-x,y,z).
+\end{aligned}
+\]
+They preserve every surface $V_t$. Let $U$ be the $\Gamma$-orbit of $(3,3,3)$ in $V_0$.
+
+The composition $\iota_3\circ\iota_2$ fixes $z$ and acts on the pair $(x,y)$ by
+\[
+M_z=
+\begin{pmatrix}
+z^2-1&-z\\
+z&-1
+\end{pmatrix}.
+\]
+Here
+\[
+\det M_z=1,
+\qquad
+\operatorname{tr}M_z=z^2-2.
+\]
+For $|z|>2$, its eigenvalues do not have absolute value $1$, so every nonzero orbit of the group generated by $M_z$ is unbounded. In particular, with $F_0=0$, $F_1=1$ denoting the Fibonacci sequence extended to all integer indices,
+\[
+(3F_{2k+1},3F_{2k-1},3)\in U
+\qquad(k\in\mathbb Z).
+\tag{8}
+\]
+
+Starting from any point in (8), repeated application of $\iota_1\circ\iota_2$ gives infinitely many distinct points on the irreducible conic
+\[
+V_0\cap\{x=3F_{2k+1}\}.
+\]
+An infinite subset of an irreducible algebraic curve is Zariski dense in that curve. Hence the Zariski closure of $U$ contains infinitely many distinct curves in the irreducible surface $V_0$. A proper algebraic subset of an irreducible surface has only finitely many irreducible curve components, so the Zariski closure of $U$ is all of $V_0$.
+
+If $P$ satisfies (1), it is constant on $U$. Therefore
+\[
+P-P(3,3,3)
+\]
+vanishes on the Zariski-dense subset $U$ of $V_0$, and hence on all of $V_0$. By Hilbert's Nullstellensatz and the irreducibility of $Q$, the polynomial $Q$ divides $P-P(3,3,3)$. The quotient has smaller degree and is again invariant under all three involutions. Induction on the degree shows that the quotient is a polynomial in $Q$, and therefore so is $P$.

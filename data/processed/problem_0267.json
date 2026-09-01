@@ -1,0 +1,16 @@
+{
+  "id": "0267",
+  "source": "IMO Shortlist",
+  "year": "2019",
+  "topic": "Algebra",
+  "subtopics": [
+    "Functional Equations",
+    "Integer-Valued Functions",
+    "Additive Functions"
+  ],
+  "statement": "Let $\\mathbb Z$ be the set of integers. Determine all functions\n\\[\nf:\\mathbb Z\\to\\mathbb Z\n\\]\nsuch that\n\\[\nf(2a)+2f(b)=f(f(a+b))\n\\tag{1}\n\\]\nfor all integers $a,b$.",
+  "solutions": [
+    "The solutions are\n\\[\n\\boxed{f(n)=0}\n\\]\nand\n\\[\n\\boxed{f(n)=2n+K\\quad(K\\in\\mathbb Z)}.\n\\]\n\nSubstitute $(a,b)=(0,n+1)$ and $(a,b)=(1,n)$ into (1). Both right-hand sides are $f(f(n+1))$, so\n\\[\nf(0)+2f(n+1)=f(2)+2f(n).\n\\]\nHence\n\\[\nf(n+1)-f(n)=\\frac{f(2)-f(0)}2\n\\]\nis independent of $n$. Since the left-hand side is an integer, there is an integer $M$ such that\n\\[\nf(n+1)-f(n)=M\n\\]\nfor all $n\\in\\mathbb Z$. Induction in both directions gives\n\\[\nf(n)=Mn+K\n\\]\nfor some $K\\in\\mathbb Z$.\n\nSubstituting this expression into (1), we obtain\n\\[\n2Ma+K+2(Mb+K)=M(M(a+b)+K)+K,\n\\]\nwhich is equivalent to\n\\[\n(M-2)(M(a+b)+K)=0\n\\]\nfor all integers $a,b$.\n\nIf $M=2$, then $K$ is arbitrary and $f(n)=2n+K$. If $M\\ne2$, then\n\\[\nM(a+b)+K=0\n\\]\nfor every $a,b$, forcing $M=K=0$. Thus $f\\equiv0$.\n\nA direct substitution verifies that all the listed functions satisfy (1).",
+    "Put\n\\[\nK=f(0).\n\\]\nSetting $a=0$ in (1) gives\n\\[\nf(f(b))=2f(b)+K.\n\\tag{2}\n\\]\nSetting $b=0$ in (1) and then using (2), we get\n\\[\nf(2a)+2K=f(f(a))=2f(a)+K,\n\\]\nso\n\\[\nf(2a)=2f(a)-K.\n\\tag{3}\n\\]\n\nNow use (2) and (3) in the original equation:\n\\[\n2f(a)-K+2f(b)=2f(a+b)+K.\n\\]\nTherefore\n\\[\nf(a)+f(b)=f(a+b)+K.\n\\]\nDefine\n\\[\ng(n)=f(n)-K.\n\\]\nThen\n\\[\ng(a+b)=g(a)+g(b)\n\\]\nfor all integers $a,b$. Every additive function on $\\mathbb Z$ is linear, so\n\\[\ng(n)=Mn\n\\]\nfor some integer $M$. Hence\n\\[\nf(n)=Mn+K.\n\\]\nSubstitution into (1), exactly as in Solution 1, yields either $M=2$ with arbitrary $K$, or $M=K=0$. These and only these functions work."
+  ]
+}

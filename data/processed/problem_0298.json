@@ -1,0 +1,17 @@
+{
+  "id": "0298",
+  "source": "IMO Shortlist",
+  "year": "2019",
+  "topic": "Number Theory",
+  "subtopics": [
+    "Ceiling Function",
+    "Infinite Descent",
+    "Vieta Jumping",
+    "Diophantine Equations"
+  ],
+  "statement": "Let $a$ and $b$ be positive integers. Prove that the integer\n\\[\na^2+\\left\\lceil\\frac{4a^2}{b}\\right\\rceil\n\\]\nis not a perfect square.",
+  "solutions": [
+    "Suppose, for contradiction, that\n\\[\na^2+\\left\\lceil\\frac{4a^2}{b}\\right\\rceil=(a+k)^2\n\\]\nfor some positive integer $k$. Then\n\\[\n\\left\\lceil\\frac{4a^2}{b}\\right\\rceil=(2a+k)k.\n\\]\nPutting\n\\[\nc=2a,\n\\]\nwe obtain a positive integer solution $(c,k)$ of\n\\[\n\\left\\lceil\\frac{c^2}{b}\\right\\rceil=(c+k)k,\n\\tag{1}\n\\]\nwith $c$ even.\n\nAmong all positive integer solutions of (1), without imposing any parity condition on $c$, choose one for which $k$ is minimal.\n\nSince\n\\[\n\\frac{c^2}{b}\n>\n\\left\\lceil\\frac{c^2}{b}\\right\\rceil-1\n=ck+k^2-1\n\\ge ck,\n\\]\nwe have\n\\[\nc>bk.\n\\tag{2}\n\\]\nAlso,\n\\[\n\\frac{(c-k)(c+k)}b\n<\n\\frac{c^2}{b}\n\\le\n\\left\\lceil\\frac{c^2}{b}\\right\\rceil\n=(c+k)k.\n\\]\nCancelling $c+k$,\n\\[\nc-k<bk.\n\\tag{3}\n\\]\nFrom (2)--(3), there is an integer $r$ with\n\\[\nc=bk+r,\n\\qquad\n0<r<k.\n\\tag{4}\n\\]\n\nSubstitute (4) into (1):\n\\[\n\\begin{aligned}\n\\left\\lceil\\frac{(bk+r)^2}{b}\\right\\rceil\n&=\nbk^2+2kr+\\left\\lceil\\frac{r^2}{b}\\right\\rceil,\\\\\n(c+k)k\n&=\nbk^2+2kr+k(k-r).\n\\end{aligned}\n\\]\nTherefore\n\\[\n\\left\\lceil\\frac{r^2}{b}\\right\\rceil=k(k-r).\n\\tag{5}\n\\]\n\nEquation (5) is another solution of (1), now with\n\\[\nc'=r,\n\\qquad\nk'=k-r.\n\\]\nBoth are positive, and\n\\[\n0<k'<k,\n\\]\ncontradicting the minimality of $k$.\n\nHence the stated integer cannot be a square.",
+    "Suppose, for contradiction, that\n\\[\na^2+\\left\\lceil\\frac{4a^2}{b}\\right\\rceil=c^2\n\\]\nfor some positive integer $c>a$.\n\nThe defining property of the ceiling function gives\n\\[\nc^2-1\n<\na^2+\\frac{4a^2}{b}\n\\le\nc^2.\n\\]\nMultiplying by $b$,\n\\[\n0\\le bc^2-a^2(b+4)<b.\n\\tag{1}\n\\]\nPut\n\\[\nd=bc^2-a^2(b+4),\n\\qquad\nx=c+a,\n\\qquad\ny=c-a.\n\\]\nThen\n\\[\n0\\le d<b,\n\\qquad\nx,y\\in\\mathbb Z_{>0},\n\\]\nand\n\\[\nc=\\frac{x+y}{2},\n\\qquad\na=\\frac{x-y}{2}.\n\\]\nEquation (1) becomes\n\\[\nx^2-(b+2)xy+y^2+d=0.\n\\tag{2}\n\\]\n\nFix $b$ and $d$, and among all positive integer solutions $(x,y)$ of (2), choose one minimizing\n\\[\nx+y.\n\\]\nBy symmetry, assume\n\\[\nx\\ge y.\n\\]\n\nRegard (2) as a quadratic equation in $x$. Let $z$ be its other root. By Vieta's formulas,\n\\[\nx+z=(b+2)y\n\\]\nand\n\\[\nxz=y^2+d.\n\\]\nThus\n\\[\nz=(b+2)y-x=\\frac{y^2+d}{x}.\n\\]\nThe first expression shows that $z$ is an integer, and the second that $z>0$. Therefore $(z,y)$ is another positive integer solution of (2).\n\nWe now prove that $z<x$. First, $x>1$; otherwise $x=y=1$, and (2) would give $d=b$, contrary to $d<b$. Moreover,\n\\[\n\\begin{aligned}\n(x-1)(z-1)\n&=xz-(x+z)+1\\\\\n&=y^2+d-(b+2)y+1\\\\\n&<y^2+b-(b+2)y+1\\\\\n&=(y-1)^2-b(y-1)\\\\\n&\\le(y-1)^2\\\\\n&\\le(x-1)^2.\n\\end{aligned}\n\\]\nSince $x-1>0$, this implies\n\\[\nz<x.\n\\]\nHence\n\\[\nz+y<x+y,\n\\]\ncontradicting the minimality of $(x,y)$.\n\nTherefore\n\\[\na^2+\\left\\lceil\\frac{4a^2}{b}\\right\\rceil\n\\]\nis never a perfect square."
+  ]
+}

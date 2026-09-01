@@ -1,0 +1,201 @@
+ID: 0298
+
+SOURCE: IMO Shortlist
+
+YEAR: 2019
+
+TOPIC: Number Theory
+
+SUBTOPICS: Ceiling Function, Infinite Descent, Vieta Jumping, Diophantine Equations
+
+STATEMENT:
+Let $a$ and $b$ be positive integers. Prove that the integer
+\[
+a^2+\left\lceil\frac{4a^2}{b}\right\rceil
+\]
+is not a perfect square.
+
+SOLUTION 1:
+Suppose, for contradiction, that
+\[
+a^2+\left\lceil\frac{4a^2}{b}\right\rceil=(a+k)^2
+\]
+for some positive integer $k$. Then
+\[
+\left\lceil\frac{4a^2}{b}\right\rceil=(2a+k)k.
+\]
+Putting
+\[
+c=2a,
+\]
+we obtain a positive integer solution $(c,k)$ of
+\[
+\left\lceil\frac{c^2}{b}\right\rceil=(c+k)k,
+\tag{1}
+\]
+with $c$ even.
+
+Among all positive integer solutions of (1), without imposing any parity condition on $c$, choose one for which $k$ is minimal.
+
+Since
+\[
+\frac{c^2}{b}
+>
+\left\lceil\frac{c^2}{b}\right\rceil-1
+=ck+k^2-1
+\ge ck,
+\]
+we have
+\[
+c>bk.
+\tag{2}
+\]
+Also,
+\[
+\frac{(c-k)(c+k)}b
+<
+\frac{c^2}{b}
+\le
+\left\lceil\frac{c^2}{b}\right\rceil
+=(c+k)k.
+\]
+Cancelling $c+k$,
+\[
+c-k<bk.
+\tag{3}
+\]
+From (2)--(3), there is an integer $r$ with
+\[
+c=bk+r,
+\qquad
+0<r<k.
+\tag{4}
+\]
+
+Substitute (4) into (1):
+\[
+\begin{aligned}
+\left\lceil\frac{(bk+r)^2}{b}\right\rceil
+&=
+bk^2+2kr+\left\lceil\frac{r^2}{b}\right\rceil,\\
+(c+k)k
+&=
+bk^2+2kr+k(k-r).
+\end{aligned}
+\]
+Therefore
+\[
+\left\lceil\frac{r^2}{b}\right\rceil=k(k-r).
+\tag{5}
+\]
+
+Equation (5) is another solution of (1), now with
+\[
+c'=r,
+\qquad
+k'=k-r.
+\]
+Both are positive, and
+\[
+0<k'<k,
+\]
+contradicting the minimality of $k$.
+
+Hence the stated integer cannot be a square.
+
+SOLUTION 2:
+Suppose, for contradiction, that
+\[
+a^2+\left\lceil\frac{4a^2}{b}\right\rceil=c^2
+\]
+for some positive integer $c>a$.
+
+The defining property of the ceiling function gives
+\[
+c^2-1
+<
+a^2+\frac{4a^2}{b}
+\le
+c^2.
+\]
+Multiplying by $b$,
+\[
+0\le bc^2-a^2(b+4)<b.
+\tag{1}
+\]
+Put
+\[
+d=bc^2-a^2(b+4),
+\qquad
+x=c+a,
+\qquad
+y=c-a.
+\]
+Then
+\[
+0\le d<b,
+\qquad
+x,y\in\mathbb Z_{>0},
+\]
+and
+\[
+c=\frac{x+y}{2},
+\qquad
+a=\frac{x-y}{2}.
+\]
+Equation (1) becomes
+\[
+x^2-(b+2)xy+y^2+d=0.
+\tag{2}
+\]
+
+Fix $b$ and $d$, and among all positive integer solutions $(x,y)$ of (2), choose one minimizing
+\[
+x+y.
+\]
+By symmetry, assume
+\[
+x\ge y.
+\]
+
+Regard (2) as a quadratic equation in $x$. Let $z$ be its other root. By Vieta's formulas,
+\[
+x+z=(b+2)y
+\]
+and
+\[
+xz=y^2+d.
+\]
+Thus
+\[
+z=(b+2)y-x=\frac{y^2+d}{x}.
+\]
+The first expression shows that $z$ is an integer, and the second that $z>0$. Therefore $(z,y)$ is another positive integer solution of (2).
+
+We now prove that $z<x$. First, $x>1$; otherwise $x=y=1$, and (2) would give $d=b$, contrary to $d<b$. Moreover,
+\[
+\begin{aligned}
+(x-1)(z-1)
+&=xz-(x+z)+1\\
+&=y^2+d-(b+2)y+1\\
+&<y^2+b-(b+2)y+1\\
+&=(y-1)^2-b(y-1)\\
+&\le(y-1)^2\\
+&\le(x-1)^2.
+\end{aligned}
+\]
+Since $x-1>0$, this implies
+\[
+z<x.
+\]
+Hence
+\[
+z+y<x+y,
+\]
+contradicting the minimality of $(x,y)$.
+
+Therefore
+\[
+a^2+\left\lceil\frac{4a^2}{b}\right\rceil
+\]
+is never a perfect square.

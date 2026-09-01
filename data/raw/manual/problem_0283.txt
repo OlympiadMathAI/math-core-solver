@@ -1,0 +1,42 @@
+ID: 0283
+
+SOURCE: IMO Shortlist
+
+YEAR: 2019
+
+TOPIC: Geometry
+
+SUBTOPICS: Tangent-Chord Theorem, Cyclic Quadrilaterals, Congruent Triangles, Parallel Lines
+
+STATEMENT:
+Let $ABC$ be a triangle. A circle $\Gamma$ passes through $A$, meets the segments $AB$ and $AC$ again at $D$ and $E$, respectively, and intersects the segment $BC$ at $F$ and $G$, where $F$ lies between $B$ and $G$. The tangent at $F$ to the circumcircle of $BDF$ and the tangent at $G$ to the circumcircle of $CEG$ meet at $T$. Suppose that $A\ne T$. Prove that
+\[
+AT\parallel BC.
+\]
+
+SOLUTION 1:
+We use directed angles modulo $\pi$.
+
+By the tangent-chord theorem at $F$,
+\[
+\angle(TF,FB)=\angle(FD,DA).
+\]
+Since $A,D,F,G$ lie on $\Gamma$, and since $B,F,G,C$ are collinear,
+\[
+\angle(FD,DA)=\angle(CG,GA).
+\]
+Thus
+\[
+\angle(TF,FB)=\angle(CG,GA).
+\tag{1}
+\]
+Similarly, the tangent-chord theorem at $G$, followed by cyclicity of $A,E,F,G$, gives
+\[
+\angle(TG,GB)=\angle(CF,FA).
+\tag{2}
+\]
+
+Equations (1) and (2) show that the triangles $FGA$ and $GFT$ have equal angles at the endpoints of their common side $FG$. Therefore they are congruent by ASA. In particular, the directed perpendicular distances from $A$ and $T$ to the line $FG$ are equal. Since $A\ne T$, this implies that the line $AT$ is parallel to $FG$. Hence
+\[
+AT\parallel BC.
+\]

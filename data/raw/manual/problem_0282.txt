@@ -1,0 +1,142 @@
+ID: 0282
+
+SOURCE: IMO Shortlist
+
+YEAR: 2019
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Metric Scales, Induction, Weighted Counting, Extremal Set Theory
+
+STATEMENT:
+For two distinct real numbers $x,y$, define $D(x,y)$ to be the unique integer $d$ satisfying
+\[
+2^d\le |x-y|<2^{d+1}.
+\]
+Given a set $F$ of real numbers and an element $x\in F$, the \emph{scales of $x$ in $F$} are the values
+\[
+D(x,y)
+\qquad(y\in F,\ y\ne x).
+\]
+Let $k$ be a positive integer. Suppose that every member of $F$ has at most $k$ different scales in $F$. Determine the maximum possible value of $|F|$.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{2^k}.
+\]
+
+The bound is attained by
+\[
+F=\{0,1,2,\ldots,2^k-1\}.
+\]
+Every nonzero distance between two members lies between $1$ and $2^k-1$, so every scale belongs to
+\[
+\{0,1,\ldots,k-1\}.
+\]
+
+We prove the upper bound. It is enough to consider finite sets: if an infinite set, or a finite set larger than $2^k$, satisfied the condition, then any finite subset of more than $2^k$ elements would still give each of its members at most $k$ scales.
+
+For a finite set $S$ and $x\in S$, let $r_S(x)$ be the number of scales of $x$ in $S$. Define
+\[
+w(S)=\sum_{x\in S}2^{-r_S(x)}.
+\]
+We prove the following lemma.
+
+\textbf{Lemma.} For every nonempty finite set $S$ of real numbers,
+\[
+w(S)\le1.
+\tag{1}
+\]
+
+\textit{Proof.}
+We use induction on $|S|$. If $S=\{x\}$, then $r_S(x)=0$ and $w(S)=1$.
+
+Now let
+\[
+x_1<x_2<\cdots<x_m
+\]
+be the elements of $S$, with $m\ge2$, and let $d$ be the smallest scale occurring between two members of $S$. Some adjacent pair has scale $d$. Furthermore, if $j-i>1$, then
+\[
+|x_j-x_i|
+=(x_{i+1}-x_i)+(x_j-x_{i+1})
+\ge2^d+2^d=2^{d+1},
+\]
+so
+\[
+D(x_i,x_j)>d.
+\tag{2}
+\]
+
+Choose a maximal consecutive block
+\[
+x_p,x_{p+1},\ldots,x_q
+\]
+such that every adjacent gap inside the block has scale $d$. Let $E$ consist of the elements of this block with even indices, let $O$ consist of those with odd indices, and let
+\[
+R=S\setminus(E\cup O).
+\]
+Put
+\[
+S_E=R\cup E,
+\qquad
+S_O=R\cup O.
+\]
+Both are proper subsets of $S$, so the induction hypothesis applies to them.
+
+For $x\in R$, deleting points cannot create a new scale, and therefore
+\[
+r_{S_E}(x)\le r_S(x),
+\qquad
+r_{S_O}(x)\le r_S(x).
+\]
+Thus
+\[
+2^{-r_S(x)}
+\le
+\frac12\left(2^{-r_{S_E}(x)}+2^{-r_{S_O}(x)}\right).
+\tag{3}
+\]
+
+For $x\in O$, every point at scale $d$ from $x$ is an adjacent member of the chosen block, and hence belongs to $E$ by (2) and maximality. Thus scale $d$ disappears in $S_O$, so
+\[
+r_{S_O}(x)\le r_S(x)-1
+\]
+and
+\[
+2^{-r_S(x)}\le\frac12\,2^{-r_{S_O}(x)}.
+\tag{4}
+\]
+Similarly, for $x\in E$,
+\[
+2^{-r_S(x)}\le\frac12\,2^{-r_{S_E}(x)}.
+\tag{5}
+\]
+
+Summing (3)--(5),
+\[
+\begin{aligned}
+w(S)
+&\le
+\frac12\left(
+\sum_{x\in S_O}2^{-r_{S_O}(x)}
++
+\sum_{x\in S_E}2^{-r_{S_E}(x)}
+\right)\\
+&=\frac12\bigl(w(S_O)+w(S_E)\bigr)\\
+&\le1.
+\end{aligned}
+\]
+This proves the lemma. $\square$
+
+Apply the lemma to $F$. Since $r_F(x)\le k$ for every $x\in F$,
+\[
+1\ge w(F)
+=\sum_{x\in F}2^{-r_F(x)}
+\ge |F|\,2^{-k}.
+\]
+Therefore
+\[
+|F|\le2^k.
+\]
+Together with the construction, the maximum is $2^k$.

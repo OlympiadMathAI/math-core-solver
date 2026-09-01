@@ -1,0 +1,242 @@
+ID: 0297
+
+SOURCE: IMO Shortlist
+
+YEAR: 2019
+
+TOPIC: Number Theory
+
+SUBTOPICS: Pairwise Coprime Powers, Chinese Remainder Theorem, Euler Totient Function, Prime Number Theorem
+
+STATEMENT:
+Prove that there exists a constant $c>0$ and infinitely many positive integers $n$ with the following property:
+
+There are infinitely many positive integers that cannot be expressed as the sum of fewer than
+\[
+cn\log n
+\]
+pairwise coprime $n$th powers.
+
+SOLUTION 1:
+We first give a general residue-class argument.
+
+Suppose that positive integers $n$ and $N$ have the following property:
+\[
+\varphi(p^e)\mid n
+\qquad
+\text{for every prime power }p^e\Vert N.
+\tag{1}
+\]
+Let $k$ be the number of distinct prime factors of $N$.
+
+Modulo any prime power $p^e\Vert N$, every $n$th power is congruent to either $0$ or $1$. Indeed, condition (1) implies $n\ge e$, so the residue is $0$ if the base is divisible by $p$; otherwise Euler's theorem and (1) give the residue $1$.
+
+Now consider a sum of $r$ pairwise coprime $n$th powers. At most one of their bases is divisible by $p$, so modulo $p^e$ the sum is congruent to either
+\[
+r
+\qquad\text{or}\qquad
+r-1.
+\]
+Therefore, for a fixed $r$, there are at most $2^k$ possible residue classes modulo $N$ for such sums. Consequently, sums of at most $m$ pairwise coprime $n$th powers occupy at most
+\[
+m2^k
+\]
+residue classes modulo $N$.
+
+Thus, if
+\[
+N>m2^k,
+\tag{2}
+\]
+some residue class modulo $N$ is not represented. Every positive integer in that class is then not expressible as a sum of at most $m$ pairwise coprime $n$th powers.
+
+We now construct suitable $n$ and $N$. Fix a positive integer $t$. Choose primes
+\[
+p\mid 2^{2^{t-1}}+1
+\qquad\text{and}\qquad
+q\mid 2^{2^t}+1.
+\]
+The multiplicative orders of $2$ modulo $p$ and $q$ are respectively
+\[
+2^t
+\qquad\text{and}\qquad
+2^{t+1}.
+\]
+Hence
+\[
+2^t\mid p-1
+\qquad\text{and}\qquad
+2^{t+1}\mid q-1.
+\]
+Set
+\[
+N=pq,
+\qquad
+n=\frac{(p-1)(q-1)}{2^t}.
+\tag{3}
+\]
+Then both $p-1$ and $q-1$ divide $n$, so condition (1) holds. Here
+\[
+k=2.
+\]
+
+We estimate the sizes. Since
+\[
+p-1\le2^{2^{t-1}}
+\qquad\text{and}\qquad
+q-1\le2^{2^t},
+\]
+we have
+\[
+\log_2 n
+\le
+2^{t-1}+2^t-t
+<
+2^{t+1}.
+\tag{4}
+\]
+On the other hand,
+\[
+\frac Nn
+=
+\frac{2^tpq}{(p-1)(q-1)}
+>
+2^t.
+\]
+Combining this with (4),
+\[
+\log_2 n<\frac{2N}{n},
+\]
+and therefore
+\[
+N>\frac n2\log_2 n
+=
+\frac{n\log n}{2\log2}.
+\tag{5}
+\]
+
+Choose any constant
+\[
+0<c<\frac1{8\log2}.
+\]
+If
+\[
+m<cn\log n,
+\]
+then, by (5),
+\[
+m2^k=4m<N.
+\]
+Condition (2) applies, so infinitely many positive integers are not sums of at most $m$ pairwise coprime $n$th powers.
+
+The values of $n$ in (3) are unbounded as $t$ grows, because
+\[
+p\ge2^t+1,
+\qquad
+q\ge2^{t+1}+1.
+\]
+Thus there are infinitely many such $n$, completing the proof.
+
+SOLUTION 2:
+We use the same residue-class principle as in Solution 1: if
+\[
+\varphi(p^e)\mid n
+\qquad(p^e\Vert N)
+\tag{1}
+\]
+and $k$ is the number of distinct prime factors of $N$, then sums of at most $m$ pairwise coprime $n$th powers occupy at most
+\[
+m2^k
+\]
+residue classes modulo $N$. Hence it is enough to construct infinitely many pairs $(n,N)$ satisfying (1) with
+\[
+N>m2^k
+\]
+for some $m$ much larger than a constant multiple of $n\log n$.
+
+Fix an integer $x\ge4$, and define
+\[
+N=\operatorname{lcm}(1,2,\ldots,2x),
+\qquad
+n=2\operatorname{lcm}(1,2,\ldots,x).
+\tag{2}
+\]
+If $p^e\Vert N$, then
+\[
+\frac{\varphi(p^e)}2\le x.
+\]
+Except for the trivial case $p^e=2$, the number $\varphi(p^e)/2$ is a positive integer not exceeding $x$, and hence divides $\operatorname{lcm}(1,\ldots,x)$. The case $p^e=2$ is immediate because $\varphi(2)=1$. Therefore
+\[
+\varphi(p^e)\mid n,
+\]
+so (1) holds.
+
+Let
+\[
+k=\pi(2x),
+\]
+the number of primes not exceeding $2x$. The quotient
+\[
+\frac{2N}{n}
+\]
+is the product of all primes that have some power in the interval $(x,2x]$. In particular, it contains every prime in $(x,2x]$, and hence
+\[
+\frac{2N}{n}
+>
+x^{\,\pi(2x)-\pi(x)}.
+\tag{3}
+\]
+
+By the Prime Number Theorem,
+\[
+\pi(t)\sim\frac{t}{\log t}.
+\]
+Using (3),
+\[
+\begin{aligned}
+\log\left(\frac{2N}{2^k n}\right)
+&>
+\bigl(\pi(2x)-\pi(x)\bigr)\log x-\pi(2x)\log2\\
+&\sim x.
+\end{aligned}
+\tag{4}
+\]
+Also,
+\[
+\log n
+\le
+\log2+\pi(x)\log x
+\sim x.
+\tag{5}
+\]
+Equations (4)--(5) imply that, for every fixed $\varepsilon>0$ and all sufficiently large $x$,
+\[
+\log\left(\frac{N}{2^k n}\right)
+>
+(1-\varepsilon)\log n.
+\]
+Thus
+\[
+N>2^k n^{2-\varepsilon}.
+\tag{6}
+\]
+
+Taking, for example, $\varepsilon=1/2$, equation (6) gives
+\[
+N>2^k n^{3/2}.
+\]
+For every fixed positive constant $c$ and all sufficiently large $n$,
+\[
+n^{3/2}>cn\log n.
+\]
+Hence
+\[
+N>2^k cn\log n.
+\]
+The residue-class argument now shows that infinitely many positive integers cannot be written as sums of fewer than
+\[
+cn\log n
+\]
+pairwise coprime $n$th powers.
+
+Since the values of $n$ in (2) are unbounded, this proves the required assertion for infinitely many $n$.

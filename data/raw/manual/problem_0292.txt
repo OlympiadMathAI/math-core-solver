@@ -1,0 +1,335 @@
+ID: 0292
+
+SOURCE: IMO Shortlist
+
+YEAR: 2019
+
+TOPIC: Number Theory
+
+SUBTOPICS: Diophantine Equations, Inequalities, Divisibility, Unimodal Polynomials
+
+STATEMENT:
+Find all triples $(a,b,c)$ of positive integers satisfying
+\[
+a^3+b^3+c^3=(abc)^2.
+\]
+
+SOLUTION 1:
+The equation is symmetric, so assume
+\[
+a\ge b\ge c.
+\]
+We prove that
+\[
+(a,b,c)=(3,2,1).
+\]
+
+First,
+\[
+3a^3\ge a^3+b^3+c^3=(abc)^2>a^3,
+\]
+so
+\[
+3a\ge b^2c^2>a.
+\tag{1}
+\]
+Also,
+\[
+b^3+c^3
+=a^2(b^2c^2-a)
+\ge a^2.
+\]
+Therefore
+\[
+18b^3
+\ge9(b^3+c^3)
+\ge9a^2
+\ge b^4c^4
+\ge b^3c^5,
+\]
+where the penultimate inequality follows from (1), and the last from $b\ge c$. Hence
+\[
+c^5\le18,
+\]
+so
+\[
+c=1.
+\]
+
+The equation becomes
+\[
+a^3+b^3+1=a^2b^2.
+\tag{2}
+\]
+We cannot have $a=b$, because then
+\[
+2b^3+1=b^4,
+\]
+which has no positive integer solution. Thus $a>b$.
+
+From (2),
+\[
+2a^3>a^3+b^3+1=a^2b^2>a^3,
+\]
+and hence
+\[
+2a>b^2>a.
+\tag{3}
+\]
+Furthermore,
+\[
+4(1+b^3)
+=
+4a^2(b^2-a)
+\ge4a^2>b^4.
+\]
+Thus
+\[
+4>b^3(b-4),
+\]
+which gives
+\[
+b\le4.
+\]
+The case $b=1$ is impossible in (2), so $2\le b\le4$.
+
+For these three possibilities, equation (2) becomes
+\[
+\begin{array}{ll}
+b=2:&a^3-4a^2+9=0,\\
+b=3:&a^3-9a^2+28=0,\\
+b=4:&a^3-16a^2+65=0.
+\end{array}
+\]
+The only positive integer root satisfying $a\ge b$ is
+\[
+a=3,\qquad b=2.
+\]
+Therefore the only ordered solution under $a\ge b\ge c$ is $(3,2,1)$, and all solutions are the six permutations of
+\[
+\boxed{(1,2,3)}.
+\]
+
+SOLUTION 2:
+Assume again that
+\[
+a\ge b\ge c.
+\]
+
+We first prove that $c=1$. If $c\ge2$, then
+\[
+a^3+b^3+c^3\le3a^3,
+\]
+so
+\[
+b^2c^2\le3a.
+\]
+Since $c\ge2$,
+\[
+b\le\sqrt{\frac{3a}{4}}.
+\]
+The right side of the original equation is divisible by $a^2$, and hence
+\[
+a^2\le b^3+c^3\le2b^3
+\le2\left(\frac{3a}{4}\right)^{3/2}.
+\]
+After cancelling $a^{3/2}$, this gives
+\[
+a\le\frac{27}{16}<2,
+\]
+contradicting $a\ge c\ge2$. Hence
+\[
+c=1.
+\]
+
+Now
+\[
+a^3+b^3+1=a^2b^2.
+\tag{1}
+\]
+We have $a\ge2$. Since $a^2\mid b^3+1$,
+\[
+b^3+1\ge a^2.
+\tag{2}
+\]
+Also,
+\[
+b^2
+=
+a+\frac{b^3+1}{a^2}
+\le
+2a+\frac1{a^2}.
+\]
+As $b^2$ is an integer,
+\[
+b^2\le2a.
+\tag{3}
+\]
+Combining (2) and (3),
+\[
+(2a)^{3/2}+1\ge b^3+1\ge a^2.
+\]
+This inequality fails for every $a\ge9$, so
+\[
+2\le a\le8.
+\]
+
+Checking these seven values in (1), the only possibility with $a\ge b$ is
+\[
+(a,b)=(3,2).
+\]
+Thus the solutions are precisely the permutations of
+\[
+\boxed{(1,2,3)}.
+\]
+
+SOLUTION 3:
+Assume
+\[
+a\ge b\ge c.
+\]
+Set
+\[
+k=\frac{b^3+c^3}{a^2}.
+\]
+The original equation shows that $k$ is a positive integer and
+\[
+a+k=b^2c^2.
+\tag{1}
+\]
+Also,
+\[
+k\le2a.
+\tag{2}
+\]
+
+For positive integers $u,v$,
+\[
+uv\ge u+v-1.
+\]
+Applying this to $u=b^3$ and $v=c^3$ gives
+\[
+(bc)^3\ge b^3+c^3-1=ka^2-1.
+\]
+Using (1),
+\[
+a+k=(bc)^2\ge(ka^2-1)^{2/3}.
+\]
+Cubing and rearranging,
+\[
+k^2a^4-a^3-5ka^2-3k^2a-(k^3-1)\le0.
+\tag{3}
+\]
+
+Divide the left side of (3) by $k^2$. Since $k\ge1$ and $k\le2a$,
+\[
+\begin{aligned}
+\frac{
+k^2a^4-a^3-5ka^2-3k^2a-(k^3-1)
+}{k^2}
+&\ge
+a^4-a^3-5a^2-3a-k\\
+&\ge
+a^4-a^3-5a^2-5a.
+\end{aligned}
+\]
+The last expression is positive for every $a\ge4$, contradicting (3). Hence
+\[
+a\le3.
+\]
+
+There are only ten triples with
+\[
+3\ge a\ge b\ge c\ge1.
+\]
+Checking them gives the unique possibility
+\[
+(a,b,c)=(3,2,1).
+\]
+Therefore all solutions are the permutations of
+\[
+\boxed{(1,2,3)}.
+\]
+
+SOLUTION 4:
+Assume
+\[
+a\ge b\ge c.
+\]
+From
+\[
+b^3+c^3=a^2(b^2c^2-a)
+\]
+we obtain
+\[
+b\le a\le b^2c^2-1.
+\tag{1}
+\]
+
+Define
+\[
+F(x)=x^2(b^2c^2-x).
+\]
+On the interval
+\[
+[0,b^2c^2-1],
+\]
+the function $F$ increases up to $2b^2c^2/3$ and then decreases. Hence, by (1),
+\[
+b^3+c^3=F(a)
+\ge
+\min\{F(b),F(b^2c^2-1)\}.
+\tag{2}
+\]
+
+Suppose first that
+\[
+b^3+c^3\ge F(b^2c^2-1)=(b^2c^2-1)^2.
+\]
+Then
+\[
+\begin{aligned}
+2b^3
+&\ge b^3+c^3\\
+&\ge(b^2c^2-1)^2\\
+&>b^4c^4-2b^2c^2\\
+&\ge b^4c^4-2b^3c^4.
+\end{aligned}
+\]
+Therefore
+\[
+(b-2)c^4<2.
+\]
+Since $b\ge c$, this leaves only
+\[
+(b,c)=(2,2)
+\quad\text{or}\quad
+c=1,\ b\le3.
+\]
+Checking these cases in the original equation gives only
+\[
+(a,b,c)=(3,2,1).
+\]
+
+Otherwise, by (2),
+\[
+b^3+c^3\ge F(b)=b^2(b^2c^2-b).
+\]
+Thus
+\[
+2b^3\ge b^2(b^2c^2-b),
+\]
+so
+\[
+bc^2\le3.
+\]
+If $b\ne c$, the first inequality is strict, and hence $bc^2<3$. This forces
+\[
+c=1,\qquad b\le2.
+\]
+These cases have already been checked and again yield only $(3,2,1)$.
+
+Thus all positive integer solutions are the permutations of
+\[
+\boxed{(1,2,3)}.
+\]

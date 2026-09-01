@@ -1,0 +1,60 @@
+ID: 0278
+
+SOURCE: IMO Shortlist
+
+YEAR: 2019
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Graph Transformations, Degree Parity, Connectivity, Trees
+
+STATEMENT:
+A social network has $2019$ users and a symmetric friendship relation. Initially, $1010$ users have exactly $1009$ friends each, while the other $1009$ users have exactly $1010$ friends each.
+
+The following event may be performed repeatedly. If $A$ is friends with both $B$ and $C$, while $B$ and $C$ are not friends, then the friendships $AB$ and $AC$ are deleted and the friendship $BC$ is created.
+
+Prove that some sequence of such events leaves every user with at most one friend.
+
+SOLUTION 1:
+Use graph terminology. A permitted operation, called a \emph{refriending}, removes $AB,AC$ and adds $BC$.
+
+The initial graph is connected. Indeed, two nonadjacent vertices have degree sum at least $2018$, while only $2017$ other vertices are available, so they have a common neighbor.
+
+The initial graph satisfies:
+\begin{quote}
+\textbf{(P)} Every connected component with at least three vertices is noncomplete and contains a vertex of odd degree.
+\end{quote}
+It is noncomplete because every degree is below $2018$, and it has odd-degree vertices because $1009$ is odd. A refriending preserves the parity of every degree.
+
+We show that whenever a graph satisfies (P) and has a vertex of degree at least $2$, a refriending preserving (P) exists. Choose a component $H$ with such a vertex. We may choose a vertex $A$ having two nonadjacent neighbors: take a maximal clique in $H$; because $H$ is connected and noncomplete, some $A$ in the clique has a neighbor outside it, which is nonadjacent to another vertex of the clique.
+
+Delete $A$ temporarily, obtaining components $H_1,\ldots,H_t$.
+
+\textbf{Case 1: $t\ge2$, and $A$ has at least two neighbors in some $H_i$.}
+Choose $B\in H_i$ adjacent to $A$ and choose $C$ adjacent to $A$ in another component. Then $B,C$ are nonadjacent. Refriending at $A$ keeps $H$ connected; the missing edges $AB,AC$ keep it noncomplete, and degree parity is preserved.
+
+\textbf{Case 2: $t\ge2$, and $A$ has exactly one neighbor in each $H_i$.}
+In the graph induced by $H_i\cup\{A\}$, the vertex $A$ has degree $1$. By the handshaking lemma, $H_i$ contains a vertex of odd degree. Refriend any two distinct neighbors $B,C$ of $A$. Every new component of size at least three contains an odd-degree vertex and is visibly noncomplete, so (P) is preserved.
+
+\textbf{Case 3: $t=1$, and $A$ has at least three neighbors.}
+Choose nonadjacent neighbors $B,C$. The refriending keeps the component connected, and Case 1 applies.
+
+\textbf{Case 4: $t=1$, and $A$ has exactly two neighbors $B,C$.}
+They are nonadjacent. The obvious refriending isolates $A$ and leaves another component with an odd-degree vertex. The only problem would be if this second component became complete on at least three vertices. Then $H-A$ was a complete graph with only $BC$ missing. It has at least four vertices; with three, the original component would be a $4$-cycle and have no odd-degree vertex. Choose a third vertex $D$ of $H-A$. Refriend at $B$ using the nonadjacent neighbors $A,D$: remove $BA,BD$ and add $AD$. The component remains connected and noncomplete, and parity is preserved.
+
+Every refriending decreases the number of edges by one. Repeating the construction must terminate, and termination is possible only when every degree is at most $1$.
+
+SOLUTION 2:
+The initial graph is connected, noncomplete, and has an odd-degree vertex. Refriending preserves degree parity and reduces the number of edges.
+
+\textbf{Stage 1: reduce the graph to a tree while keeping it connected.}
+Suppose a cycle remains. We find a cycle $Z$, an edge $AB$ of $Z$, and a vertex $C\notin Z$ adjacent to $A$ but not $B$. Then replacing $AB,AC$ by $BC$ keeps the graph connected: the rest of $Z$ still joins $A$ to $B$, and the new edge reconnects the part containing $C$.
+
+If the graph contains a triangle, take a maximal clique $K$. Since the graph is connected and noncomplete, some $A\in K$ has a neighbor $C\notin K$. Maximality gives $B\in K$ not adjacent to $C$, and a cycle in $K$ can be chosen through $AB$.
+
+If the graph is triangle-free, take a shortest cycle $Z$. It cannot contain all vertices, for then it would have no chord and the whole graph would be that cycle, making every degree even. Choose $C\notin Z$ adjacent to $A\in Z$ and let $B$ be a neighbor of $A$ on $Z$. Triangle-freeness gives $BC\notin E$.
+
+Each connected refriending removes one edge, so eventually the graph becomes a tree.
+
+\textbf{Stage 2: reduce the tree to a matching.}
+A refriending in a forest cannot create a cycle: removing $AB,AC$ separates the branches through $B,C$, and the new edge $BC$ merely reconnects those two branches. Continue until no operation is possible. If a final vertex had two neighbors, those neighbors would be nonadjacent in a forest and another refriending would be possible. Hence the final graph is a disjoint union of isolated vertices and single edges.
