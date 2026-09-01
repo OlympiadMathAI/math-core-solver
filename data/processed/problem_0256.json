@@ -1,0 +1,16 @@
+{
+  "id": "0256",
+  "source": "IMO Shortlist",
+  "year": "2018",
+  "topic": "Geometry",
+  "subtopics": [
+    "Reflections",
+    "Directed Angles",
+    "Spiral Similarity",
+    "Concurrency"
+  ],
+  "statement": "A point $T$ is chosen inside a triangle $A B C$. Let $A_{1}, B_{1}$, and $C_{1}$ be the\nreflections of $T$ in $B C, C A$, and $A B$, respectively. Let $\\Omega$ be the circumcircle\nof the triangle $A_{1} B_{1} C_{1}$. The lines $A_{1} T, B_{1} T$, and $C_{1} T$ meet\n$\\Omega$ again at $A_{2}, B_{2}$, and $C_{2}$, respectively. Prove that the lines $A A_{2},\nB B_{2}$, and $C C_{2}$ are concurrent on $\\Omega$.",
+  "solutions": [
+    "By $\\measuredangle(\\ell, n)$ we always mean the directed angle of the lines $\\ell$ and $n$, taken\nmodulo $180^{\\circ}$.\n\nLet $C C_{2}$ meet $\\Omega$ again at $K$ (as usual, if $C C_{2}$ is tangent to $\\Omega$, we\nset $K=C_{2}$ ). We show that the line $B B_{2}$ contains $K$; similarly, $A A_{2}$ will\nalso pass through $K$. For this purpose, it suffices to prove that\n\n\\[\n\\measuredangle\\left(C_{2} C, C_{2} A_{1}\\right)=\\measuredangle\\left(B_{2} B, B_{2} A_{1}\\right) .\n\\tag{1}\n\\]\n\nBy the problem condition, $C B$ and $C A$ are the perpendicular bisectors of $T A_{1}$ and\n$T B_{1}$, respectively. Hence, $C$ is the circumcentre of the triangle $A_{1} T B_{1}$.\nTherefore,\n\n\\[\n\\measuredangle\\left(C A_{1}, C B\\right)=\\measuredangle(C B, C T)=\\measuredangle\\left(B_{1} A_{1}, B_{1} T\\right)=\\measuredangle\\left(B_{1} A_{1}, B_{1} B_{2}\\right) .\n\\]\n\nIn circle $\\Omega$ we have $\\measuredangle\\left(B_{1} A_{1}, B_{1}\nB_{2}\\right)=\\measuredangle\\left(C_{2} A_{1}, C_{2} B_{2}\\right)$. Thus,\n\n\\[\n\\measuredangle\\left(C A_{1}, C B\\right)=\\measuredangle\\left(B_{1} A_{1}, B_{1} B_{2}\\right)=\\measuredangle\\left(C_{2} A_{1}, C_{2} B_{2}\\right) .\n\\tag{2}\n\\]\n\nSimilarly, we get\n\n\\[\n\\measuredangle\\left(B A_{1}, B C\\right)=\\measuredangle\\left(C_{1} A_{1}, C_{1} C_{2}\\right)=\\measuredangle\\left(B_{2} A_{1}, B_{2} C_{2}\\right) .\n\\tag{3}\n\\]\n\nThe two obtained relations yield that the triangles $A_{1} B C$ and $A_{1} B_{2} C_{2}$ are\nsimilar and equioriented, hence\n\n\\[\n\\frac{A_{1} B_{2}}{A_{1} B}=\\frac{A_{1} C_{2}}{A_{1} C} \\quad \\text { and } \\quad \\measuredangle\\left(A_{1} B, A_{1} C\\right)=\\measuredangle\\left(A_{1} B_{2}, A_{1} C_{2}\\right)\n\\]\n\nThe second equality may be rewritten as $\\measuredangle\\left(A_{1} B, A_{1}\nB_{2}\\right)=\\measuredangle\\left(A_{1} C, A_{1} C_{2}\\right)$, so the triangles $A_{1} B B_{2}$\nand $A_{1} C C_{2}$ are also similar and equioriented. This establishes (1)."
+  ]
+}

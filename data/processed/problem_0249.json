@@ -1,0 +1,15 @@
+{
+  "id": "0249",
+  "source": "IMO Shortlist",
+  "year": "2018",
+  "topic": "Combinatorics",
+  "subtopics": [
+    "Extremal Combinatorics",
+    "Permutations",
+    "Anti-Pascal Arrays"
+  ],
+  "statement": "An anti-Pascal pyramid is a finite set of numbers, placed in a triangle-shaped array so that\nthe first row of the array contains one number, the second row contains two numbers, the\nthird row contains three numbers and so on; and, except for the numbers in the bottom row,\neach number equals the absolute value of the difference of the two numbers below it. For\ninstance, the triangle below is an anti-Pascal pyramid with four rows, in which every\ninteger from 1 to $1+2+3+4=10$ occurs exactly once:\n\n\\[\n\\begin{array}{ccccccc}\n&&&4&&&\\\\\n&&2&&6&&\\\\\n&5&&7&&1&\\\\\n8&&3&&10&&9\n\\end{array}\n\\]\n\nIs it possible to form an anti-Pascal pyramid with 2018 rows, using every integer from 1 to\n$1+2+\\cdots+2018$ exactly once?",
+  "solutions": [
+    "Answer: No, it is not possible.\n\nLet $T$ be an anti-Pascal pyramid with $n$ rows, containing every integer from 1 to\n$1+2+\\cdots+n$, and let $a_{1}$ be the topmost number in $T$. The two numbers below $a_{1}$\nare some $a_{2}$ and $b_{2}=a_{1}+a_{2}$, the two numbers below $b_{2}$ are some $a_{3}$ and\n$b_{3}=a_{1}+a_{2}+a_{3}$, and so on and so forth all the way down to the bottom row, where\nsome $a_{n}$ and $b_{n}=a_{1}+a_{2}+\\cdots+a_{n}$ are the two neighbours below\n$b_{n-1}=a_{1}+a_{2}+\\cdots+a_{n-1}$. Since the $a_{k}$ are $n$ pairwise distinct positive\nintegers whose sum does not exceed the largest number in $T$, which is $1+2+\\cdots+n$, it\nfollows that they form a permutation of $1,2, \\ldots, n$.\n\nConsider now the two 'equilateral' subtriangles of $T$ whose bottom rows contain the numbers\nto the left, respectively right, of the pair $a_{n}, b_{n}$. (One of these subtriangles may\nvery well be empty.) At least one of these subtriangles, say $T^{\\prime}$, has side length\n$\\ell \\geqslant\\lceil(n-2) / 2\\rceil$. Since $T^{\\prime}$ obeys the anti-Pascal rule, it\ncontains $\\ell$ pairwise distinct positive integers $a_{1}^{\\prime}, a_{2}^{\\prime}, \\ldots,\na_{\\ell}^{\\prime}$, where $a_{1}^{\\prime}$ is at the apex, and $a_{k}^{\\prime}$ and\n$b_{k}^{\\prime}=a_{1}^{\\prime}+a_{2}^{\\prime}+\\cdots+a_{k}^{\\prime}$ are the two neighbours\nbelow $b_{k-1}^{\\prime}$ for each $k=2,3 \\ldots, \\ell$. Since the $a_{k}$ all lie outside\n$T^{\\prime}$, and they form a permutation of $1,2, \\ldots, n$, the $a_{k}^{\\prime}$ are all\ngreater than $n$. Consequently,\n\n\\[\n\\begin{array}{r}\nb_{\\ell}^{\\prime} \\geqslant(n+1)+(n+2)+\\cdots+(n+\\ell)=\\frac{\\ell(2 n+\\ell+1)}{2} \\\\\n\\geqslant \\frac{1}{2} \\cdot \\frac{n-2}{2}\\left(2 n+\\frac{n-2}{2}+1\\right)=\\frac{5 n(n-2)}{8},\n\\end{array}\n\\]\n\nwhich is greater than $1+2+\\cdots+n=n(n+1) / 2$ for $n=2018$. A contradiction."
+  ]
+}

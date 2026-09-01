@@ -1,0 +1,129 @@
+ID: 0261
+
+SOURCE: IMO Shortlist
+
+YEAR: 2018
+
+TOPIC: Number Theory
+
+SUBTOPICS: Modular Arithmetic, Symmetric Sums, Congruences
+
+STATEMENT:
+Let $n>1$ be a positive integer. Each cell of an $n \times n$ table contains an integer.
+Suppose that the following conditions are satisfied:
+
+(i) Each number in the table is congruent to 1 modulo $n$;
+
+(ii) The sum of numbers in any row, as well as the sum of numbers in any column, is
+congruent to $n$ modulo $n^{2}$.
+
+Let $R_{i}$ be the product of the numbers in the $i^{\text {th }}$ row, and $C_{j}$ be the
+product of the numbers in the $j^{\text {th }}$ column. Prove that the sums
+$R_{1}+\cdots+R_{n}$ and $C_{1}+\cdots+C_{n}$ are congruent modulo $n^{4}$.
+
+SOLUTION 1:
+Let $A_{i, j}$ be the entry in the $i^{\text {th }}$ row and the $j^{\text {th }}$ column;
+let $P$ be the product of all $n^{2}$ entries. For convenience, denote $a_{i, j}=A_{i, j}-1$
+and $r_{i}=R_{i}-1$. We show that
+
+\[
+\sum_{i=1}^{n} R_{i} \equiv(n-1)+P \quad\left(\bmod n^{4}\right)
+\tag{1}
+\]
+
+Due to symmetry of the problem conditions, the sum of all the $C_{j}$ is also congruent to
+$(n-1)+P$ modulo $n^{4}$, whence the conclusion.
+
+By condition $(i)$, the number $n$ divides $a_{i, j}$ for all $i$ and $j$. So, every product
+of at least two of the $a_{i, j}$ is divisible by $n^{2}$, hence
+
+$R_{i}=\prod_{j=1}^{n}\left(1+a_{i, j}\right)=1+\sum_{j=1}^{n} a_{i, j}+\sum_{1 \leqslant
+j_{1}<j_{2} \leqslant n} a_{i, j_{1}} a_{i, j_{2}}+\cdots \equiv 1+\sum_{j=1}^{n} a_{i, j}
+\equiv 1-n+\sum_{j=1}^{n} A_{i, j} \quad\left(\bmod n^{2}\right)$
+
+for every index $i$. Using condition (ii), we obtain $R_{i} \equiv 1\left(\bmod
+n^{2}\right)$, and so $n^{2} \mid r_{i}$.
+
+Therefore, every product of at least two of the $r_{i}$ is divisible by $n^{4}$. Repeating
+the same argument, we obtain
+
+\[
+P=\prod_{i=1}^{n} R_{i}=\prod_{i=1}^{n}\left(1+r_{i}\right) \equiv 1+\sum_{i=1}^{n} r_{i} \quad\left(\bmod n^{4}\right)
+\]
+
+whence
+
+\[
+\sum_{i=1}^{n} R_{i}=n+\sum_{i=1}^{n} r_{i} \equiv n+(P-1) \quad\left(\bmod n^{4}\right)
+\]
+
+as desired.
+
+SOLUTION 2:
+We present a more straightforward (though lengthier) way to establish (1). We also use the
+notation of $a_{i, j}$.
+
+By condition (i), all the $a_{i, j}$ are divisible by $n$. Therefore, we have
+
+\[
+\begin{aligned}
+P=\prod_{i=1}^{n} \prod_{j=1}^{n}\left(1+a_{i, j}\right) \equiv 1+\sum_{(i, j)} a_{i, j} & +\sum_{\left(i_{1}, j_{1}\right),\left(i_{2}, j_{2}\right)} a_{i_{1}, j_{1}} a_{i_{2}, j_{2}} \\
+& +\sum_{\left(i_{1}, j_{1}\right),\left(i_{2}, j_{2}\right),\left(i_{3}, j_{3}\right)} a_{i_{1}, j_{1}} a_{i_{2}, j_{2}} a_{i_{3}, j_{3}}\left(\bmod n^{4}\right),
+\end{aligned}
+\]
+
+where the last two sums are taken over all unordered pairs/triples of pairwise different
+pairs $(i, j)$; such conventions are applied throughout the solution.
+
+Similarly,
+
+\[
+\sum_{i=1}^{n} R_{i}=\sum_{i=1}^{n} \prod_{j=1}^{n}\left(1+a_{i, j}\right) \equiv n+\sum_{i} \sum_{j} a_{i, j}+\sum_{i} \sum_{j_{1}, j_{2}} a_{i, j_{1}} a_{i, j_{2}}+\sum_{i} \sum_{j_{1}, j_{2}, j_{3}} a_{i, j_{1}} a_{i, j_{2}} a_{i, j_{3}} \quad\left(\bmod n^{4}\right)
+\]
+
+Therefore,
+
+\[
+\begin{aligned}
+P+(n-1)-\sum_{i} R_{i} \equiv \sum_{\substack{\left(i_{1}, j_{1}\right),\left(i_{2}, j_{2}\right) \\
+i_{1} \neq i_{2}}} a_{i_{1}, j_{1}} a_{i_{2}, j_{2}} & +\sum_{\substack{\left(i_{1}, j_{1}\right),\left(i_{2}, j_{2}\right),\left(i_{3}, j_{3}\right) \\
+i_{1} \neq i_{2} \neq i_{3} \neq i_{1}}} a_{i_{1}, j_{1}} a_{i_{2}, j_{2}} a_{i_{3}, j_{3}} \\
+& +\sum_{\substack{\left(i_{1}, j_{1}\right),\left(i_{2}, j_{2}\right),\left(i_{3}, j_{3}\right) \\
+i_{1} \neq i_{2}=i_{3}}} a_{i_{1}, j_{1}} a_{i_{2}, j_{2}} a_{i_{3}, j_{3}}\left(\bmod n^{4}\right) .
+\end{aligned}
+\]
+
+We show that in fact each of the three sums appearing in the right-hand part of this
+congruence is divisible by $n^{4}$; this yields (1). Denote those three sums by $\Sigma_{1},
+\Sigma_{2}$, and $\Sigma_{3}$ in order of appearance. Recall that by condition (ii) we have
+
+\[
+\sum_{j} a_{i, j} \equiv 0 \quad\left(\bmod n^{2}\right) \quad \text { for all indices } i
+\]
+
+For every two indices $i_{1}<i_{2}$ we have
+
+\[
+\sum_{j_{1}} \sum_{j_{2}} a_{i_{1}, j_{1}} a_{i_{2}, j_{2}}=\left(\sum_{j_{1}} a_{i_{1}, j_{1}}\right) \cdot\left(\sum_{j_{2}} a_{i_{2}, j_{2}}\right) \equiv 0 \quad\left(\bmod n^{4}\right)
+\]
+
+since each of the two factors is divisible by $n^{2}$. Summing over all pairs $\left(i_{1},
+i_{2}\right)$ we obtain $n^{4} \mid \Sigma_{1}$.
+
+Similarly, for every three indices $i_{1}<i_{2}<i_{3}$ we have
+
+\[
+\sum_{j_{1}} \sum_{j_{2}} \sum_{j_{3}} a_{i_{1}, j_{1}} a_{i_{2}, j_{2}} a_{i_{3}, j_{3}}=\left(\sum_{j_{1}} a_{i_{1}, j_{1}}\right) \cdot\left(\sum_{j_{2}} a_{i_{2}, j_{2}}\right) \cdot\left(\sum_{j_{3}} a_{i_{3}, j_{3}}\right)
+\]
+
+which is divisible even by $n^{6}$. Hence $n^{4} \mid \Sigma_{2}$.
+
+Finally, for every indices $i_{1} \neq i_{2}=i_{3}$ and $j_{2}<j_{3}$ we have
+
+\[
+a_{i_{2}, j_{2}} \cdot a_{i_{2}, j_{3}} \cdot \sum_{j_{1}} a_{i_{1}, j_{1}} \equiv 0 \quad\left(\bmod n^{4}\right)
+\]
+
+since the three factors are divisible by $n, n$, and $n^{2}$, respectively. Summing over all
+4-tuples of indices $\left(i_{1}, i_{2}, j_{2}, j_{3}\right)$ we get $n^{4} \mid
+\Sigma_{3}$.

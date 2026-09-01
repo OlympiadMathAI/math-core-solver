@@ -1,0 +1,203 @@
+ID: 0242
+
+SOURCE: IMO Shortlist
+
+YEAR: 2018
+
+TOPIC: Algebra
+
+SUBTOPICS: Sequences, Averages, Optimization, Extremal Principle
+
+STATEMENT:
+Let $a_{0}, a_{1}, a_{2}, \ldots$ be a sequence of real numbers such that $a_{0}=0,
+a_{1}=1$, and for every $n \geqslant 2$ there exists $1 \leqslant k \leqslant n$ satisfying
+
+\[
+a_{n}=\frac{a_{n-1}+\cdots+a_{n-k}}{k}
+\]
+
+Find the maximal possible value of $a_{2018}-a_{2017}$.
+
+SOLUTION 1:
+Answer: The maximal value is $\frac{2016}{2017^{2}}$.
+
+The claimed maximal value is achieved at
+
+\[
+\begin{gathered}
+a_{1}=a_{2}=\cdots=a_{2016}=1, \quad a_{2017}=\frac{a_{2016}+\cdots+a_{0}}{2017}=1-\frac{1}{2017}, \\
+a_{2018}=\frac{a_{2017}+\cdots+a_{1}}{2017}=1-\frac{1}{2017^{2}} .
+\end{gathered}
+\]
+
+Now we need to show that this value is optimal. For brevity, we use the notation
+
+\[
+S(n, k)=a_{n-1}+a_{n-2}+\cdots+a_{n-k} \quad \text { for nonnegative integers } k \leqslant n \text {. }
+\]
+
+In particular, $S(n, 0)=0$ and $S(n, 1)=a_{n-1}$. In these terms, for every integer $n
+\geqslant 2$ there exists a positive integer $k \leqslant n$ such that $a_{n}=S(n, k) / k$.
+
+For every integer $n \geqslant 1$ we define
+
+\[
+M_{n}=\max _{1 \leqslant k \leqslant n} \frac{S(n, k)}{k}, \quad m_{n}=\min _{1 \leqslant k \leqslant n} \frac{S(n, k)}{k}, \quad \text { and } \quad \Delta_{n}=M_{n}-m_{n} \geqslant 0.
+\]
+
+By definition, $a_{n} \in\left[m_{n}, M_{n}\right]$ for all $n \geqslant 2$; on the other
+hand, $a_{n-1}=S(n, 1) / 1 \in\left[m_{n}, M_{n}\right]$. Therefore,
+
+\[
+a_{2018}-a_{2017} \leqslant M_{2018}-m_{2018}=\Delta_{2018},
+\]
+
+and we are interested in an upper bound for $\Delta_{2018}$.
+
+Also by definition, for any $0<k \leqslant n$ we have $k m_{n} \leqslant S(n, k) \leqslant k
+M_{n}$; notice that these inequalities are also valid for $k=0$.
+
+Claim 1. For every $n>2$, we have $\Delta_{n} \leqslant \frac{n-1}{n} \Delta_{n-1}$.
+
+Proof. Choose positive integers $k, \ell \leqslant n$ such that $M_{n}=S(n, k) / k$ and
+$m_{n}=S(n, \ell) / \ell$. We have $S(n, k)=a_{n-1}+S(n-1, k-1)$, so
+
+\[
+k\left(M_{n}-a_{n-1}\right)=S(n, k)-k a_{n-1}=S(n-1, k-1)-(k-1) a_{n-1} \leqslant(k-1)\left(M_{n-1}-a_{n-1}\right),
+\]
+
+since $S(n-1, k-1) \leqslant(k-1) M_{n-1}$. Similarly, we get
+
+\[
+\ell\left(a_{n-1}-m_{n}\right)=(\ell-1) a_{n-1}-S(n-1, \ell-1) \leqslant(\ell-1)\left(a_{n-1}-m_{n-1}\right) .
+\]
+
+Since $m_{n-1} \leqslant a_{n-1} \leqslant M_{n-1}$ and $k, \ell \leqslant n$, the obtained
+inequalities yield
+
+\[
+\begin{array}{ll}
+M_{n}-a_{n-1} \leqslant \frac{k-1}{k}\left(M_{n-1}-a_{n-1}\right) \leqslant \frac{n-1}{n}\left(M_{n-1}-a_{n-1}\right) \quad \text { and } \\
+a_{n-1}-m_{n} \leqslant \frac{\ell-1}{\ell}\left(a_{n-1}-m_{n-1}\right) \leqslant \frac{n-1}{n}\left(a_{n-1}-m_{n-1}\right) .
+\end{array}
+\]
+
+Therefore,
+
+\[
+\Delta_{n}=\left(M_{n}-a_{n-1}\right)+\left(a_{n-1}-m_{n}\right) \leqslant \frac{n-1}{n}\left(\left(M_{n-1}-a_{n-1}\right)+\left(a_{n-1}-m_{n-1}\right)\right)=\frac{n-1}{n} \Delta_{n-1} .
+\]
+
+Back to the problem, if $a_{n}=1$ for all $n \leqslant 2017$, then $a_{2018} \leqslant 1$
+and hence $a_{2018}-a_{2017} \leqslant 0$. Otherwise, let $2 \leqslant q \leqslant 2017$ be
+the minimal index with $a_{q}<1$. We have $S(q, i)=i$ for all $i=1,2, \ldots, q-1$, while
+$S(q, q)=q-1$. Therefore, $a_{q}<1$ yields $a_{q}=S(q, q) / q=1-\frac{1}{q}$.
+
+Now we have $S(q+1, i)=i-\frac{1}{q}$ for $i=1,2, \ldots, q$, and $S(q+1,
+q+1)=q-\frac{1}{q}$. This gives us
+
+\[
+m_{q+1}=\frac{S(q+1,1)}{1}=\frac{S(q+1, q+1)}{q+1}=\frac{q-1}{q} \quad \text { and } \quad M_{q+1}=\frac{S(q+1, q)}{q}=\frac{q^{2}-1}{q^{2}}
+\]
+
+so $\Delta_{q+1}=M_{q+1}-m_{q+1}=(q-1) / q^{2}$. Denoting $N=2017 \geqslant q$ and using
+Claim 1 for $n=q+2, q+3, \ldots, N+1$ we finally obtain
+
+\[
+\Delta_{N+1} \leqslant \frac{q-1}{q^{2}} \cdot \frac{q+1}{q+2} \cdot \frac{q+2}{q+3} \cdots \frac{N}{N+1}=\frac{1}{N+1}\left(1-\frac{1}{q^{2}}\right) \leqslant \frac{1}{N+1}\left(1-\frac{1}{N^{2}}\right)=\frac{N-1}{N^{2}}
+\]
+
+as required.
+
+SOLUTION 2:
+We present a different proof of the estimate $a_{2018}-a_{2017} \leqslant
+\frac{2016}{2017^{2}}$. We keep the same notations of $S(n, k), m_{n}$ and $M_{n}$ from the
+previous solution.
+
+Notice that $S(n, n)=S(n, n-1)$, as $a_{0}=0$. Also notice that for $0 \leqslant k \leqslant
+\ell \leqslant n$ we have $S(n, \ell)=S(n, k)+S(n-k, \ell-k)$.
+
+Claim 2. For every integer $n \geqslant 2$, we have $m_{n} \leqslant m_{n+1}$ and $M_{n+1}
+\leqslant M_{n}$, so the segment $\left[m_{n+1}, M_{n+1}\right]$ is contained in
+$\left[m_{n}, M_{n}\right]$.
+
+Proof. Choose a positive integer $k \leqslant n+1$ such that $m_{n+1}=S(n+1, k) / k$. Then
+we have
+
+\[
+k m_{n+1}=S(n+1, k)=a_{n}+S(n, k-1) \geqslant m_{n}+(k-1) m_{n}=k m_{n},
+\]
+
+which establishes the first inequality in the Claim. The proof of the second inequality is
+similar.
+
+Claim 3. For all integers $k \geqslant n \geqslant 2$, we have $m_{n} \leqslant a_{k}
+\leqslant M_{n}$.
+
+Proof. By Claim 2, we have $\left[m_{k}, M_{k}\right] \subseteq\left[m_{k-1}, M_{k-1}\right]
+\subseteq \cdots \subseteq\left[m_{n}, M_{n}\right]$. Since $a_{k} \in\left[m_{k},
+M_{k}\right]$, the claim follows.
+
+Claim 4. For every integer $n \geqslant 2$, we have $M_{n}=S(n, n-1) /(n-1)$ and $m_{n}=S(n,
+n) / n$.
+
+Proof. We use induction on $n$. The base case $n=2$ is routine. To perform the induction
+step, we need to prove the inequalities
+
+\[
+\frac{S(n, n)}{n} \leqslant \frac{S(n, k)}{k} \quad \text { and } \quad \frac{S(n, k)}{k} \leqslant \frac{S(n, n-1)}{n-1}
+\tag{1}
+\]
+
+for every positive integer $k \leqslant n$. Clearly, these inequalities hold for $k=n$ and
+$k=n-1$, as $S(n, n)=S(n, n-1)>0$. In the sequel, we assume that $k<n-1$.
+
+Now the first inequality in (1) rewrites as $n S(n, k) \geqslant k S(n, n)=k(S(n, k)+S(n-k,
+n-k))$, or, cancelling the terms occurring on both parts, as
+
+\[
+(n-k) S(n, k) \geqslant k S(n-k, n-k) \Longleftrightarrow S(n, k) \geqslant k \cdot \frac{S(n-k, n-k)}{n-k}
+\]
+
+By the induction hypothesis, we have $S(n-k, n-k) /(n-k)=m_{n-k}$. By Claim 3, we get
+$a_{n-i} \geqslant m_{n-k}$ for all $i=1,2, \ldots, k$. Summing these $k$ inequalities we
+obtain
+
+\[
+S(n, k) \geqslant k m_{n-k}=k \cdot \frac{S(n-k, n-k)}{n-k}
+\]
+
+as required.
+
+The second inequality in (1) is proved similarly. Indeed, this inequality is equivalent to
+
+\[
+\begin{aligned}
+(n-1) S(n, k) \leqslant k S(n, n-1) & \Longleftrightarrow(n-k-1) S(n, k) \leqslant k S(n-k, n-k-1) \\
+& \Longleftrightarrow S(n, k) \leqslant k \cdot \frac{S(n-k, n-k-1)}{n-k-1}=k M_{n-k} ;
+\end{aligned}
+\]
+
+the last inequality follows again from Claim 3, as each term in $S(n, k)$ is at most
+$M_{n-k}$.
+
+Now we can prove the required estimate for $a_{2018}-a_{2017}$. Set $N=2017$. By Claim 4,
+
+\[
+\begin{aligned}
+a_{N+1}-a_{N} \leqslant M_{N+1}-a_{N}=\frac{S(N+1, N)}{N}-a_{N} & =\frac{a_{N}+S(N, N-1)}{N}-a_{N} \\
+& =\frac{S(N, N-1)}{N}-\frac{N-1}{N} \cdot a_{N} .
+\end{aligned}
+\]
+
+On the other hand, the same Claim yields
+
+\[
+a_{N} \geqslant m_{N}=\frac{S(N, N)}{N}=\frac{S(N, N-1)}{N} .
+\]
+
+By Claim 3 with $n=2$, every $a_j$ with $j\geqslant2$ is at most $M_2=1$; also $a_1=1$. Hence each term in $S(N,N-1)$ is at most $1$, so $S(N,N-1)\leqslant N-1$. We finally obtain
+
+\[
+a_{N+1}-a_{N} \leqslant \frac{S(N, N-1)}{N}-\frac{N-1}{N} \cdot \frac{S(N, N-1)}{N}=\frac{S(N, N-1)}{N^{2}} \leqslant \frac{N-1}{N^{2}} .
+\]

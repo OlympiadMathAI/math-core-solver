@@ -1,0 +1,140 @@
+ID: 0251
+
+SOURCE: IMO Shortlist
+
+YEAR: 2018
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Invariants, Monovariants, Termination Processes
+
+STATEMENT:
+Let $a$ and $b$ be distinct positive integers. The following infinite process takes place on
+an initially empty board.
+
+(i) If there is at least a pair of equal numbers on the board, we choose such a pair and
+increase one of its components by $a$ and the other by $b$.
+
+(ii) If no such pair exists, we write down two times the number 0.
+
+Prove that, no matter how we make the choices in $(i)$, operation (ii) will be performed
+only finitely many times.
+
+SOLUTION 1:
+We may assume $\operatorname{gcd}(a, b)=1$; otherwise we work in the same way with multiples
+of $d=\operatorname{gcd}(a, b)$.
+
+Suppose that after $N$ moves of type (ii) and some moves of type $(i)$ we have to add two
+new zeros. For each integer $k$, denote by $f(k)$ the number of times that the number $k$
+appeared on the board up to this moment. Then $f(0)=2 N$ and $f(k)=0$ for $k<0$. Since the
+board contains at most one $k-a$, every second occurrence of $k-a$ on the board produced, at
+some moment, an occurrence of $k$; the same stands for $k-b$. Therefore,
+
+\[
+f(k)=\left\lfloor\frac{f(k-a)}{2}\right\rfloor+\left\lfloor\frac{f(k-b)}{2}\right\rfloor
+\tag{1}
+\]
+
+yielding
+
+\[
+f(k) \geqslant \frac{f(k-a)+f(k-b)}{2}-1
+\tag{2}
+\]
+
+Since $\operatorname{gcd}(a, b)=1$, every integer $x>a b-a-b$ is expressible in the form
+$x=s a+t b$, with integer $s, t \geqslant 0$.
+
+We will prove by induction on $s+t$ that if $x=s a+b t$, with $s, t$ nonnegative integers,
+then
+
+\[
+f(x)>\frac{f(0)}{2^{s+t}}-2.
+\tag{3}
+\]
+
+The base case $s+t=0$ is trivial. Assume now that (3) is true for $s+t=v$. Then, if
+$s+t=v+1$ and $x=s a+t b$, at least one of the numbers $s$ and $t$ - say $s$ - is positive,
+hence by (2),
+
+\[
+f(x)=f(s a+t b) \geqslant \frac{f((s-1) a+t b)}{2}-1>\frac{1}{2}\left(\frac{f(0)}{2^{s+t-1}}-2\right)-1=\frac{f(0)}{2^{s+t}}-2.
+\]
+
+Assume now that we must perform moves of type (ii) ad infinitum. Take $n=a b-a-b$ and
+suppose $b>a$. Since each of the numbers $n+1, n+2, \ldots, n+b$ can be expressed in the
+form $s a+t b$, with $0 \leqslant s \leqslant b$ and $0 \leqslant t \leqslant a$, after
+moves of type (ii) have been performed $2^{a+b+1}$ times and we have to add a new pair of
+zeros, each $f(n+k), k=1,2, \ldots, b$, is at least 2. In this case (1) yields inductively
+$f(n+k) \geqslant 2$ for all $k \geqslant 1$. But this is absurd: after a finite number of
+moves, $f$ cannot attain nonzero values at infinitely many points.
+
+SOLUTION 2:
+As in Solution 1, we may assume $\gcd(a,b)=1$, since dividing every number on the board and both increments by $\gcd(a,b)$ preserves the process.
+
+We start by showing that the result of the process in the problem does not depend on the way
+the operations are performed. For that purpose, it is convenient to modify the process a
+bit.
+
+Claim 1. Suppose that the board initially contains a finite number of nonnegative integers,
+and one starts performing type $(i)$ moves only. Assume that one had applied $k$ moves which
+led to a final arrangement where no more type (i) moves are possible. Then, if one starts
+from the same initial arrangement, performing type (i) moves in an arbitrary fashion, then
+the process will necessarily stop at the same final arrangement
+
+Proof. Throughout this proof, all moves are supposed to be of type (i).
+
+Induct on $k$; the base case $k=0$ is trivial, since no moves are possible. Assume now that
+$k \geqslant 1$. Fix some canonical process, consisting of $k$ moves $M_{1}, M_{2}, \ldots,
+M_{k}$, and reaching the final arrangement $A$. Consider any sample process $m_{1}, m_{2},
+\ldots$ starting with the same initial arrangement and proceeding as long as possible;
+clearly, it contains at least one move. We need to show that this process stops at $A$.
+
+Let move $m_{1}$ consist in replacing two copies of $x$ with $x+a$ and $x+b$. If move
+$M_{1}$ does the same, we may apply the induction hypothesis to the arrangement appearing
+after $m_{1}$. Otherwise, the canonical process should still contain at least one move
+consisting in replacing $(x, x) \mapsto(x+a, x+b)$, because the initial arrangement contains
+at least two copies of $x$, while the final one contains at most one such.
+
+Let $M_{i}$ be the first such move. Since the copies of $x$ are indistinguishable and no
+other copy of $x$ disappeared before $M_{i}$ in the canonical process, the moves in this
+process can be permuted as $M_{i}, M_{1}, \ldots, M_{i-1}, M_{i+1}, \ldots, M_{k}$, without
+affecting the final arrangement. Now it suffices to perform the move $m_{1}=M_{i}$ and apply
+the induction hypothesis as above.
+
+Claim 2. Consider any process starting from the empty board, which involved exactly $n$
+moves of type (ii) and led to a final arrangement where all the numbers are distinct. Assume
+that one starts with the board containing $2 n$ zeroes (as if $n$ moves of type (ii) were
+made in the beginning), applying type ( $i$ ) moves in an arbitrary way. Then this process
+will reach the same final arrangement.
+
+Proof. Starting with the board with $2 n$ zeros, one may indeed model the first process
+mentioned in the statement of the claim, omitting the type (ii) moves. This way, one reaches
+the same final arrangement. Now, Claim 1 yields that this final arrangement will be obtained
+when type (i) moves are applied arbitrarily.
+
+Claim 2 reduces the problem to finding one integer $n_0$ such that, from a board containing $2n_0$ zeroes, type (i) moves can be continued indefinitely. Indeed, if the original process performed $n_0$ moves of type (ii) and later reached another position with all entries distinct, Claim 2 would force every type-(i)-only process from those $2n_0$ zeroes to terminate, a contradiction.
+
+We first note that for every pair of nonnegative integers $(s,t)$, a sufficiently large finite collection of zeroes can produce a copy of $sa+tb$. More precisely, $2^{s+t}$ zeroes suffice. This follows by induction on $s+t$: two copies of $sa+tb$, constructed from two disjoint groups, may be paired to produce $(s+1)a+tb$ and $sa+(t+1)b$.
+
+Assume $a<b$ and put $N=ab-a-b$. Every integer $N+k$ with $1\le k\le b$ is nonnegative and is representable as $sa+tb$ with $s,t\ge0$; for $N+k>0$ this is the Frobenius theorem, while the possible value $0$ has the trivial representation. Since only finitely many copies are needed, disjoint groups of zeroes allow us to place simultaneously one copy of each number in each of the two lists
+\[
+N+1,N+2,\ldots,N+a
+\qquad\text{and}\qquad
+N+1,N+2,\ldots,N+b.
+\]
+The entries in the overlap occur twice.
+
+From this point on, type (i) moves can be made forever. More generally, suppose that for some $n\ge N$ the board contains one copy of every number in each of the lists
+\[
+n+1,n+2,\ldots,n+a
+\qquad\text{and}\qquad
+n+1,n+2,\ldots,n+b.
+\]
+There are two copies of $n+1$. Replacing this pair by $n+a+1$ and $n+b+1$ leaves precisely one copy of every number in the two shifted lists
+\[
+n+2,n+3,\ldots,n+a+1
+\qquad\text{and}\qquad
+n+2,n+3,\ldots,n+b+1.
+\]
+Thus the same move can be repeated indefinitely.

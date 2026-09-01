@@ -1,0 +1,54 @@
+ID: 0247
+
+SOURCE: IMO Shortlist
+
+YEAR: 2018
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Games, Chessboard Coloring, Pairing Strategy
+
+STATEMENT:
+Queenie and Horst play a game on a $20 \times 20$ chessboard. In the beginning the board is
+empty. In every turn, Horst places a black knight on an empty square in such a way that his
+new knight does not attack any previous knights. Then Queenie places a white queen on an
+empty square. The game gets finished when somebody cannot move.
+
+Find the maximal positive $K$ such that, regardless of the strategy of Queenie, Horst can
+put at least $K$ knights on the board.
+
+SOLUTION 1:
+Answer: $K=20^{2} / 4=100$. In case of a $4 N \times 4 M$ board, the answer is $K=4 N M$.
+
+We show two strategies, one for Horst to place at least 100 knights, and another strategy
+for Queenie that prevents Horst from putting more than 100 knights on the board.
+
+A strategy for Horst: Put knights only on black squares, until all black squares get
+occupied.
+
+Colour the squares of the board black and white in the usual way, such that the white and
+black squares alternate, and let Horst put his knights on black squares as long as it is
+possible. Two knights on squares of the same colour never attack each other. The number of
+black squares is $20^{2} / 2=200$. The two players occupy the squares in turn, so Horst will
+surely find empty black squares in his first 100 steps.
+
+A strategy for Queenie: Group the squares into cycles of length 4, and after each step of
+Horst, occupy the opposite square in the same cycle.
+
+Consider the squares of the board as vertices of a graph, joining two squares when knights on them attack each other. In a $4\times4$ block, number rows and columns locally by $1,2,3,4$. Its sixteen squares are partitioned into the following four knight-move cycles:
+\[
+\begin{aligned}
+&(1,1),(2,3),(4,4),(3,2);\\
+&(1,2),(3,1),(4,3),(2,4);\\
+&(1,3),(3,4),(4,2),(2,1);\\
+&(1,4),(2,2),(4,1),(3,3).
+\end{aligned}
+\]
+Consecutive entries, including the last and first, differ by a knight move. Divide the $20\times20$ board into twenty-five $4\times4$ blocks and use this partition in each block. In this way the 400 squares are partitioned into 100 cycles.
+
+The strategy of Queenie can be as follows: Whenever Horst puts a new knight to a certain
+square $A$, which is part of some cycle $A-B-C-D-A$, let Queenie put her queen on the
+opposite square $C$ in that cycle. From this point, Horst cannot put any knight on $A$ or
+$C$ because those squares are already occupied, neither on $B$ or $D$ because those squares
+are attacked by the knight standing on $A$. Hence, Horst can put at most one knight on each
+cycle, that is at most 100 knights in total.

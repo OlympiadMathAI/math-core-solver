@@ -1,0 +1,147 @@
+ID: 0258
+
+SOURCE: IMO Shortlist
+
+YEAR: 2018
+
+TOPIC: Geometry
+
+SUBTOPICS: Similarity, Isogonal Conjugacy, Directed Angles
+
+STATEMENT:
+A convex quadrilateral $A B C D$ satisfies $A B \cdot C D=B C \cdot D A$. A point $X$ is
+chosen inside the quadrilateral so that $\angle X A B=\angle X C D$ and $\angle X B C=\angle
+X D A$. Prove that $\angle A X B+ \angle C X D=180^{\circ}$.
+
+SOLUTION 1:
+Let $B^{\prime}$ be the reflection of $B$ in the internal angle bisector of $\angle A X C$,
+so that $\angle A X B^{\prime}=\angle C X B$ and $\angle C X B^{\prime}=\angle A X B$. If
+$X, D$, and $B^{\prime}$ are collinear, then we are done. Now assume the contrary.
+
+On the ray $X B^{\prime}$ take a point $E$ such that $X E \cdot X B=X A \cdot X C$, so that
+$\triangle A X E \sim \triangle B X C$ and $\triangle C X E \sim \triangle B X A$. We have
+$\angle X C E+\angle X C D=\angle X B A+\angle X A B<180^{\circ}$ and $\angle X A E+\angle X
+A D=\angle X D A+\angle X A D<180^{\circ}$, which proves that $X$ lies inside the angles
+$\angle E C D$ and $\angle E A D$ of the quadrilateral $E A D C$. Moreover, $X$ lies in the
+interior of exactly one of the two triangles $E A D, E C D$ (and in the exterior of the
+other).
+
+The similarities mentioned above imply $X A \cdot B C=X B \cdot A E$ and $X B \cdot C E=X C
+\cdot A B$. Multiplying these equalities with the given equality $A B \cdot C D=B C \cdot D
+A$, we obtain $X A \cdot C D \cdot C E=X C \cdot A D \cdot A E$, or, equivalently,
+
+\[
+\frac{X A \cdot D E}{A D \cdot A E}=\frac{X C \cdot D E}{C D \cdot C E}
+\tag{*}
+\]
+
+Lemma. Let $P Q R$ be a triangle, and let $X$ be a point in the interior of the angle $Q P
+R$ such that $\angle Q P X=\angle P R X$. Then $\frac{P X \cdot Q R}{P Q \cdot P R}<1$ if
+and only if $X$ lies in the interior of the triangle $P Q R$. Proof. The locus of points $X$
+with $\angle Q P X=\angle P R X$ lying inside the angle $Q P R$ is an arc $\alpha$ of the
+circle $\gamma$ through $R$ tangent to $P Q$ at $P$. Let $\gamma$ intersect the line $Q R$
+again at $Y$ (if $\gamma$ is tangent to $Q R$, then set $Y=R)$. The similarity $\triangle Q
+P Y \sim \triangle Q R P$ yields $P Y=\frac{P Q \cdot P R}{Q R}$. Now it suffices to show
+that $P X<P Y$ if and only if $X$ lies in the interior of the triangle $P Q R$. Let $m$ be a
+line through $Y$ parallel to $P Q$. Notice that the points $Z$ of $\gamma$ satisfying $P Z<P
+Y$ are exactly those between the lines $m$ and $P Q$.
+
+Case 1: $Y$ lies in the segment $Q R$.
+
+In this case $Y$ splits $\alpha$ into the two arcs $\widehat{P Y}$ and
+$\widehat{Y R}$. The arc $\widehat{P Y}$ lies inside the triangle $P Q R$ and between $m$
+and $P Q$, hence $P X<P Y$ for $X \in \widehat{P Y}$. The other arc $\widehat{Y R}$ lies
+outside the triangle $P Q R$ and on the opposite side of $m$ from $P$, hence $P X>P Y$ for
+$X \in \widehat{Y R}$.
+
+Case 2: $Y$ lies on the ray $Q R$ beyond $R$.
+
+In this case the whole arc $\alpha$ lies inside triangle $P Q R$, and between $m$ and $P Q$,
+thus $P X< P Y$ for all $X \in \alpha$.
+
+Applying the Lemma (to $\triangle E A D$ with the point $X$, and to $\triangle E C D$ with
+the point $X$ ), we obtain that exactly one of two expressions $\frac{X A \cdot D E}{A D
+\cdot A E}$ and $\frac{X C \cdot D E}{C D \cdot C E}$ is less than 1 , which contradicts
+$(*)$.
+
+SOLUTION 2:
+The solution consists of two parts. In Part 1 we show that it suffices to prove that
+
+\[
+\frac{X B}{X D}=\frac{A B}{C D}
+\tag{1}
+\]
+
+and
+
+\[
+\frac{X A}{X C}=\frac{D A}{B C}
+\tag{2}
+\]
+
+In Part 2 we establish these equalities.
+
+Part 1. Using the sine law and applying (1) we obtain
+
+\[
+\frac{\sin \angle A X B}{\sin \angle X A B}=\frac{A B}{X B}=\frac{C D}{X D}=\frac{\sin \angle C X D}{\sin \angle X C D}
+\]
+
+so $\sin \angle A X B=\sin \angle C X D$ by the problem conditions. Similarly, (2) yields
+$\sin \angle D X A= \sin \angle B X C$. If at least one of the pairs $(\angle A X B, \angle
+C X D)$ and $(\angle B X C, \angle D X A)$ consists of supplementary angles, then we are
+done. Otherwise, $\angle A X B=\angle C X D$ and $\angle D X A=\angle B X C$. In this case
+$X=A C \cap B D$, and the problem conditions yield that $A B C D$ is a parallelogram and
+hence a rhombus. In this last case the claim also holds.
+
+Part 2. To prove the desired equality (1), invert $A B C D$ at centre $X$ with unit radius;
+the images of points are denoted by primes.
+
+We have
+
+\[
+\angle A^{\prime} B^{\prime} C^{\prime}=\angle X B^{\prime} A^{\prime}+\angle X B^{\prime} C^{\prime}=\angle X A B+\angle X C B=\angle X C D+\angle X C B=\angle B C D .
+\]
+
+Similarly, the corresponding angles of quadrilaterals $A B C D$ and $D^{\prime} A^{\prime}
+B^{\prime} C^{\prime}$ are equal.
+
+Moreover, we have
+
+\[
+A^{\prime} B^{\prime} \cdot C^{\prime} D^{\prime}=\frac{A B}{X A \cdot X B} \cdot \frac{C D}{X C \cdot X D}=\frac{B C}{X B \cdot X C} \cdot \frac{D A}{X D \cdot X A}=B^{\prime} C^{\prime} \cdot D^{\prime} A^{\prime}
+\]
+
+Now we need the following Lemma.
+
+Lemma. Assume that the corresponding angles of convex quadrilaterals $X Y Z T$ and
+$X^{\prime} Y^{\prime} Z^{\prime} T^{\prime}$ are equal, and that $X Y \cdot Z T=Y Z \cdot T
+X$ and $X^{\prime} Y^{\prime} \cdot Z^{\prime} T^{\prime}=Y^{\prime} Z^{\prime} \cdot
+T^{\prime} X^{\prime}$. Then the two quadrilaterals are similar.
+
+Proof. Take the quadrilateral $X Y Z_{1} T_{1}$ similar to $X^{\prime} Y^{\prime} Z^{\prime}
+T^{\prime}$ and sharing the side $X Y$ with $X Y Z T$, such that $Z_{1}$ and $T_{1}$ lie on
+the rays $Y Z$ and $X T$, respectively, and $Z_{1} T_{1} \| Z T$. We need to prove that
+$Z_{1}=Z$ and $T_{1}=T$. Assume the contrary. Without loss of generality, $T X>X T_{1}$. Let
+segments $X Z$ and $Z_{1} T_{1}$ intersect at $U$. We have
+
+\[
+\frac{T_{1} X}{T_{1} Z_{1}}<\frac{T_{1} X}{T_{1} U}=\frac{T X}{Z T}=\frac{X Y}{Y Z}<\frac{X Y}{Y Z_{1}}
+\]
+
+thus $T_{1} X \cdot Y Z_{1}<T_{1} Z_{1} \cdot X Y$. A contradiction.
+
+It follows from the Lemma that the quadrilaterals $A B C D$ and $D^{\prime} A^{\prime}
+B^{\prime} C^{\prime}$ are similar, hence
+
+\[
+\frac{B C}{A B}=\frac{A^{\prime} B^{\prime}}{D^{\prime} A^{\prime}}=\frac{A B}{X A \cdot X B} \cdot \frac{X D \cdot X A}{D A}=\frac{A B}{A D} \cdot \frac{X D}{X B}
+\]
+
+and therefore
+
+\[
+\frac{X B}{X D}=\frac{A B^{2}}{B C \cdot A D}=\frac{A B^{2}}{A B \cdot C D}=\frac{A B}{C D}
+\]
+
+We obtain (1), as desired; (2) is proved similarly.

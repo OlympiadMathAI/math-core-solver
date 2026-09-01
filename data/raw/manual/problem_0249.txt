@@ -1,0 +1,61 @@
+ID: 0249
+
+SOURCE: IMO Shortlist
+
+YEAR: 2018
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Extremal Combinatorics, Permutations, Anti-Pascal Arrays
+
+STATEMENT:
+An anti-Pascal pyramid is a finite set of numbers, placed in a triangle-shaped array so that
+the first row of the array contains one number, the second row contains two numbers, the
+third row contains three numbers and so on; and, except for the numbers in the bottom row,
+each number equals the absolute value of the difference of the two numbers below it. For
+instance, the triangle below is an anti-Pascal pyramid with four rows, in which every
+integer from 1 to $1+2+3+4=10$ occurs exactly once:
+
+\[
+\begin{array}{ccccccc}
+&&&4&&&\\
+&&2&&6&&\\
+&5&&7&&1&\\
+8&&3&&10&&9
+\end{array}
+\]
+
+Is it possible to form an anti-Pascal pyramid with 2018 rows, using every integer from 1 to
+$1+2+\cdots+2018$ exactly once?
+
+SOLUTION 1:
+Answer: No, it is not possible.
+
+Let $T$ be an anti-Pascal pyramid with $n$ rows, containing every integer from 1 to
+$1+2+\cdots+n$, and let $a_{1}$ be the topmost number in $T$. The two numbers below $a_{1}$
+are some $a_{2}$ and $b_{2}=a_{1}+a_{2}$, the two numbers below $b_{2}$ are some $a_{3}$ and
+$b_{3}=a_{1}+a_{2}+a_{3}$, and so on and so forth all the way down to the bottom row, where
+some $a_{n}$ and $b_{n}=a_{1}+a_{2}+\cdots+a_{n}$ are the two neighbours below
+$b_{n-1}=a_{1}+a_{2}+\cdots+a_{n-1}$. Since the $a_{k}$ are $n$ pairwise distinct positive
+integers whose sum does not exceed the largest number in $T$, which is $1+2+\cdots+n$, it
+follows that they form a permutation of $1,2, \ldots, n$.
+
+Consider now the two 'equilateral' subtriangles of $T$ whose bottom rows contain the numbers
+to the left, respectively right, of the pair $a_{n}, b_{n}$. (One of these subtriangles may
+very well be empty.) At least one of these subtriangles, say $T^{\prime}$, has side length
+$\ell \geqslant\lceil(n-2) / 2\rceil$. Since $T^{\prime}$ obeys the anti-Pascal rule, it
+contains $\ell$ pairwise distinct positive integers $a_{1}^{\prime}, a_{2}^{\prime}, \ldots,
+a_{\ell}^{\prime}$, where $a_{1}^{\prime}$ is at the apex, and $a_{k}^{\prime}$ and
+$b_{k}^{\prime}=a_{1}^{\prime}+a_{2}^{\prime}+\cdots+a_{k}^{\prime}$ are the two neighbours
+below $b_{k-1}^{\prime}$ for each $k=2,3 \ldots, \ell$. Since the $a_{k}$ all lie outside
+$T^{\prime}$, and they form a permutation of $1,2, \ldots, n$, the $a_{k}^{\prime}$ are all
+greater than $n$. Consequently,
+
+\[
+\begin{array}{r}
+b_{\ell}^{\prime} \geqslant(n+1)+(n+2)+\cdots+(n+\ell)=\frac{\ell(2 n+\ell+1)}{2} \\
+\geqslant \frac{1}{2} \cdot \frac{n-2}{2}\left(2 n+\frac{n-2}{2}+1\right)=\frac{5 n(n-2)}{8},
+\end{array}
+\]
+
+which is greater than $1+2+\cdots+n=n(n+1) / 2$ for $n=2018$. A contradiction.

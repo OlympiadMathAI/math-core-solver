@@ -1,0 +1,15 @@
+{
+  "id": "0254",
+  "source": "IMO Shortlist",
+  "year": "2018",
+  "topic": "Geometry",
+  "subtopics": [
+    "Cyclic Quadrilaterals",
+    "Isosceles Triangles",
+    "Miquel Point"
+  ],
+  "statement": "Let $A B C$ be a triangle with $A B=A C$, and let $M$ be the midpoint of $B C$. Let $P$ be a\npoint such that $P B<P C$ and $P A$ is parallel to $B C$. Let $X$ and $Y$ be points on the\nlines $P B$ and $P C$, respectively, so that $B$ lies on the segment $P X, C$ lies on the\nsegment $P Y$, and $\\angle P X M=\\angle P Y M$. Prove that the quadrilateral $A P X Y$ is\ncyclic.",
+  "solutions": [
+    "Since $A B=A C, A M$ is the perpendicular bisector of $B C$, hence $\\angle P A M= \\angle A M\nC=90^{\\circ}$.\n\nNow let $Z$ be the common point of $A M$ and the perpendicular through $Y$ to $P C$ (notice\nthat $Z$ lies on to the ray $A M$ beyond $M$ ). We have $\\angle P A Z=\\angle P Y\nZ=90^{\\circ}$. Thus the points $P, A, Y$, and $Z$ are concyclic.\n\nSince $\\angle C M Z=\\angle C Y Z=90^{\\circ}$, the quadrilateral $C Y Z M$ is cyclic, hence\n$\\angle C Z M= \\angle C Y M$. By the condition in the statement, $\\angle C Y M=\\angle B X\nM$, and, by symmetry in $Z M$, $\\angle C Z M=\\angle B Z M$. Therefore, $\\angle B X M=\\angle\nB Z M$. It follows that the points $B, X, Z$, and $M$ are concyclic, hence $\\angle B X\nZ=180^{\\circ}-\\angle B M Z=90^{\\circ}$.\n\nFinally, we have $\\angle P X Z=\\angle P Y Z=\\angle P A Z=90^{\\circ}$, hence the five points\n$P, A, X, Y, Z$ are concyclic. In particular, the quadrilateral $A P X Y$ is cyclic, as\nrequired."
+  ]
+}

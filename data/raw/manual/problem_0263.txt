@@ -1,0 +1,103 @@
+ID: 0263
+
+SOURCE: IMO Shortlist
+
+YEAR: 2018
+
+TOPIC: Number Theory
+
+SUBTOPICS: Divisibility, Prime Valuations, Sequences
+
+STATEMENT:
+Let $a_{1}, a_{2}, \ldots, a_{n}, \ldots$ be a sequence of positive integers such that
+
+\[
+\frac{a_{1}}{a_{2}}+\frac{a_{2}}{a_{3}}+\cdots+\frac{a_{n-1}}{a_{n}}+\frac{a_{n}}{a_{1}}
+\]
+
+is an integer for all $n \geqslant k$, where $k$ is some positive integer. Prove that there
+exists a positive integer $m$ such that $a_{n}=a_{n+1}$ for all $n \geqslant m$.
+
+SOLUTION 1:
+The argument hinges on the following two facts: Let $a, b, c$ be positive integers such that
+$N=b / c+(c-b) / a$ is an integer.
+
+(1) If $\operatorname{gcd}(a, c)=1$, then $c$ divides $b$; and
+
+(2) If $\operatorname{gcd}(a, b, c)=1$, then $\operatorname{gcd}(a, b)=1$.
+
+To prove (1), write $a b=c(a N+b-c)$. Since $\operatorname{gcd}(a, c)=1$, it follows that
+$c$ divides $b$. To prove (2), write $c^{2}-b c=a(c N-b)$ to infer that $a$ divides $c^{2}-b
+c$. Letting $d=\operatorname{gcd}(a, b)$, it follows that $d$ divides $c^{2}$, and since the
+two are relatively prime by hypothesis, $d=1$.
+
+Now, let $s_{n}=a_{1} / a_{2}+a_{2} / a_{3}+\cdots+a_{n-1} / a_{n}+a_{n} / a_{1}$, let
+$\delta_{n}=\operatorname{gcd}\left(a_{1}, a_{n}, a_{n+1}\right)$ and write
+
+\[
+s_{n+1}-s_{n}=\frac{a_{n}}{a_{n+1}}+\frac{a_{n+1}-a_{n}}{a_{1}}=\frac{a_{n} / \delta_{n}}{a_{n+1} / \delta_{n}}+\frac{a_{n+1} / \delta_{n}-a_{n} / \delta_{n}}{a_{1} / \delta_{n}} .
+\]
+
+Let $n \geqslant k$. Since $\operatorname{gcd}\left(a_{1} / \delta_{n}, a_{n} / \delta_{n},
+a_{n+1} / \delta_{n}\right)=1$, it follows by (2) that $\operatorname{gcd}\left(a_{1} /
+\delta_{n}, a_{n} / \delta_{n}\right)=1$. Let $d_{n}=\operatorname{gcd}\left(a_{1},
+a_{n}\right)$. Then $d_{n}=\delta_{n} \cdot \operatorname{gcd}\left(a_{1} / \delta_{n},
+a_{n} / \delta_{n}\right)=\delta_{n}$, so $d_{n}$ divides $a_{n+1}$, and therefore $d_{n}$
+divides $d_{n+1}$.
+
+Consequently, from some rank on, the $d_{n}$ form a nondecreasing sequence of integers not
+exceeding $a_{1}$, so $d_{n}=d$ for all $n \geqslant \ell$, where $\ell$ is some positive
+integer.
+
+Finally, since $\operatorname{gcd}\left(a_{1} / d, a_{n+1} / d\right)=1$, it follows by (1)
+that $a_{n+1} / d$ divides $a_{n} / d$, so $a_{n} \geqslant a_{n+1}$ for all $n \geqslant
+\ell$. A nonincreasing sequence of positive integers is eventually constant, so $a_n=a_{n+1}$ from some index onward.
+
+SOLUTION 2:
+We use the same notation $s_{n}$. This time, we explore the exponents of primes in the prime
+factorizations of the $a_{n}$ for $n \geqslant k$.
+
+To start, for every $n \geqslant k$, we know that the number
+
+\[
+s_{n+1}-s_{n}=\frac{a_{n}}{a_{n+1}}+\frac{a_{n+1}}{a_{1}}-\frac{a_{n}}{a_{1}}
+\tag{*}
+\]
+
+is integer. Multiplying it by $a_{1}$ we obtain that $a_{1} a_{n} / a_{n+1}$ is integer as
+well, so that $a_{n+1} \mid a_{1} a_{n}$. This means that $a_{n} \mid a_{1}^{n-k} a_{k}$, so
+all prime divisors of $a_{n}$ are among those of $a_{1} a_{k}$. There are finitely many such
+primes; therefore, it suffices to prove that the exponent of each of them in the prime
+factorization of $a_{n}$ is eventually constant.
+
+Choose any prime $p \mid a_{1} a_{k}$. Recall that $v_{p}(q)$ is the standard notation for
+the exponent of $p$ in the prime factorization of a nonzero rational number $q$. Say that an
+index $n \geqslant k$ is large if $v_{p}\left(a_{n}\right) \geqslant
+v_{p}\left(a_{1}\right)$. We separate two cases.
+
+Case 1: There exists a large index $n$.
+
+If $v_{p}\left(a_{n+1}\right)<v_{p}\left(a_{1}\right)$, then $v_{p}\left(a_{n} /
+a_{n+1}\right)$ and $v_{p}\left(a_{n} / a_{1}\right)$ are nonnegative, while
+$v_{p}\left(a_{n+1} / a_{1}\right)<0$; hence $(*)$ cannot be an integer. This contradiction
+shows that index $n+1$ is also large.
+
+On the other hand, if $v_{p}\left(a_{n+1}\right)>v_{p}\left(a_{n}\right)$, then
+$v_{p}\left(a_{n} / a_{n+1}\right)<0$, while $v_{p}\left(\left(a_{n+1}-a_{n}\right) /
+a_{1}\right) \geqslant 0$, so $(*)$ is not integer again. Thus, $v_{p}\left(a_{1}\right)
+\leqslant v_{p}\left(a_{n+1}\right) \leqslant v_{p}\left(a_{n}\right)$.
+
+The above arguments can now be applied successively to indices $n+1, n+2, \ldots$, showing
+that all the indices greater than $n$ are large, and the sequence $v_{p}\left(a_{n}\right),
+v_{p}\left(a_{n+1}\right), v_{p}\left(a_{n+2}\right), \ldots$ is nonincreasing - hence
+eventually constant.
+
+Case 2: There is no large index.
+
+We have $v_{p}\left(a_{1}\right)>v_{p}\left(a_{n}\right)$ for all $n \geqslant k$. If we had
+$v_{p}\left(a_{n+1}\right)<v_{p}\left(a_{n}\right)$ for some $n \geqslant k$, then
+$v_{p}\left(a_{n+1} / a_{1}\right)<v_{p}\left(a_{n} / a_{1}\right)<0<v_{p}\left(a_{n} /
+a_{n+1}\right)$ which would also yield that $(*)$ is not integer. Therefore, in this case
+the sequence $v_{p}\left(a_{k}\right), v_{p}\left(a_{k+1}\right), v_{p}\left(a_{k+2}\right),
+\ldots$ is nondecreasing and bounded by $v_{p}\left(a_{1}\right)$ from above; hence it is
+also eventually constant.

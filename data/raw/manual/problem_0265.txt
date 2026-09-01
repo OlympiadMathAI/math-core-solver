@@ -1,0 +1,145 @@
+ID: 0265
+
+SOURCE: IMO Shortlist
+
+YEAR: 2018
+
+TOPIC: Number Theory
+
+SUBTOPICS: Divisibility, Functional Equations, Greatest Common Divisors
+
+STATEMENT:
+Let $f:\{1,2,3, \ldots\} \rightarrow\{2,3, \ldots\}$ be a function such that $f(m+n) \mid
+f(m)+f(n)$ for all pairs $m, n$ of positive integers. Prove that there exists a positive
+integer $c>1$ which divides all values of $f$.
+
+SOLUTION 1:
+For every positive integer $m$, define $S_{m}=\{n: m \mid f(n)\}$.
+
+Lemma. If the set $S_{m}$ is infinite, then $S_{m}=\{d, 2 d, 3 d, \ldots\}=d \cdot
+\mathbb{Z}_{>0}$ for some positive integer $d$. Proof. Let $d=\min S_{m}$; the definition of
+$S_{m}$ yields $m \mid f(d)$.
+
+Whenever $n \in S_{m}$ and $n>d$, we have $m\mid f(n)$ and $f(n)\mid f(n-d)+f(d)$, so $m \mid f(n-d)$ and
+therefore $n-d \in S_{m}$. Let $r \leqslant d$ be the least positive integer with $n \equiv
+r(\bmod d)$; repeating the same step, we can see that $n-d, n-2 d, \ldots, r \in S_{m}$. By
+the minimality of $d$, this shows $r=d$ and therefore $d \mid n$.
+
+Conversely, fix any positive integer $q$. Since $S_m$ is infinite, choose $n\in S_m$ with $n\ge qd$. We already know that $d\mid n$, and repeated subtraction of $d$ from $n$ shows that $qd\in S_m$. Thus every positive multiple of $d$ belongs to $S_m$.
+
+The solution for the problem will be split into two cases.
+
+Case 1: The function $f$ is bounded.
+
+Call a prime $p$ frequent if the set $S_{p}$ is infinite, i.e., if $p$ divides $f(n)$ for
+infinitely many positive integers $n$; otherwise call $p$ sporadic. Since the function $f$
+is bounded, there are only a finite number of primes that divide at least one $f(n)$; so
+altogether there are finitely many numbers $n$ such that $f(n)$ has a sporadic prime
+divisor. Let $N$ be a positive integer, greater than all those numbers $n$.
+
+Let $p_{1}, \ldots, p_{k}$ be the frequent primes. By the lemma we have $S_{p_{i}}=d_{i}
+\cdot \mathbb{Z}_{>0}$ for some $d_{i}$. Consider the number
+
+\[
+n=N d_{1} d_{2} \cdots d_{k}+1
+\]
+
+Due to $n>N$, all prime divisors of $f(n)$ are frequent primes. Let $p_{i}$ be any frequent
+prime divisor of $f(n)$. Then $n \in S_{p_{i}}$, and therefore $d_{i} \mid n$. But $n \equiv
+1\left(\bmod d_{i}\right)$, which means $d_{i}=1$. Hence $S_{p_{i}}=1 \cdot
+\mathbb{Z}_{>0}=\mathbb{Z}_{>0}$ and therefore $p_{i}$ is a common divisor of all values
+$f(n)$.
+
+Case 2: $f$ is unbounded.
+
+We prove that $f(1)$ divides all $f(n)$.
+
+Let $a=f(1)$. Since $1 \in S_{a}$, by the lemma it suffices to prove that $S_{a}$ is an
+infinite set.
+
+Set $p_1=1$. Since $f$ is unbounded, we can list recursively the later record indices $p_2<p_3<\cdots$, where $f(p_i)>\max\{f(1),\ldots,f(p_i-1)\}$ for every $i\ge2$. Put $h_k=f(p_k)$. Notice that for any peak $p_{i}$ and for any
+$k<p_{i}$, we have $f\left(p_{i}\right) \mid f(k)+f\left(p_{i}-k\right)< 2
+f\left(p_{i}\right)$, hence
+
+\[
+f(k)+f\left(p_{i}-k\right)=f\left(p_{i}\right)=h_{i} .
+\tag{1}
+\]
+
+By the pigeonhole principle, among the numbers $h_{1}, h_{2}, \ldots$ there are infinitely
+many that are congruent modulo $a$. Let $k_{0}<k_{1}<k_{2}<\ldots$ be an infinite sequence
+of positive integers such that $h_{k_{0}} \equiv h_{k_{1}} \equiv \ldots(\bmod a)$. Notice
+that
+
+\[
+f\left(p_{k_{i}}-p_{k_{0}}\right)=f\left(p_{k_{i}}\right)-f\left(p_{k_{0}}\right)=h_{k_{i}}-h_{k_{0}} \equiv 0 \quad(\bmod a),
+\]
+
+so $p_{k_{i}}-p_{k_{0}} \in S_{a}$ for all $i=1,2, \ldots$ This provides infinitely many
+elements in $S_{a}$.
+
+Hence, $S_{a}$ is an infinite set, and therefore $f(1)=a$ divides $f(n)$ for every $n$.
+
+SOLUTION 2:
+Let $d_{n}=\operatorname{gcd}(f(n), f(1))$. From $d_{n+1} \mid f(1)$ and $d_{n+1}|f(n+1)|
+f(n)+f(1)$, we can see that $d_{n+1} \mid f(n)$; then $d_{n+1} \mid \operatorname{gcd}(f(n),
+f(1))=d_{n}$. So the sequence $d_{1}, d_{2}, \ldots$ is nonincreasing in the sense that
+every element is a divisor of the previous elements. Let $d=\min \left(d_{1}, d_{2},
+\ldots\right)=\operatorname{gcd}\left(d_{1}, d_{2}, \ldots\right)=\operatorname{gcd}(f(1), f(2), \ldots)$; we have to prove $d \geqslant 2$.
+
+For the sake of contradiction, suppose that the statement is wrong, so $d=1$; that means
+there is some index $n_{0}$ such that $d_{n}=1$ for every $n \geqslant n_{0}$, i.e., $f(n)$
+is coprime with $f(1)$.
+
+Claim 1. If $2^{k} \geqslant n_{0}$ then $f\left(2^{k}\right) \leqslant 2^{k}$.
+
+Proof. By the condition, $f(2 n) \mid 2 f(n)$; a trivial induction yields
+$f\left(2^{k}\right) \mid 2^{k} f(1)$. If $2^{k} \geqslant n_{0}$ then $f\left(2^{k}\right)$
+is coprime with $f(1)$, so $f\left(2^{k}\right)$ is a divisor of $2^{k}$.
+
+Claim 2. There is a constant $C$ such that $f(n)<n+C$ for every $n$.
+
+Proof. Take the first power of 2 which is greater than or equal to $n_{0}$ : let $K=2^{k}
+\geqslant n_{0}$. By Claim 1, we have $f(K) \leqslant K$. Notice that $f(n+K) \mid
+f(n)+f(K)$ implies $f(n+K) \leqslant f(n)+f(K) \leqslant f(n)+K$. If $n=t K+r$ for some $t
+\geqslant 0$ and $1 \leqslant r \leqslant K$, then we conclude
+
+$f(n) \leqslant K+f(n-K) \leqslant 2 K+f(n-2 K) \leqslant \ldots \leqslant t K+f(r)<n+\max
+(f(1), f(2), \ldots, f(K))$,
+
+so the claim is true with $C=\max (f(1), \ldots, f(K))$.
+
+Claim 3. If $a, b \in \mathbb{Z}_{>0}$ are coprime then $\operatorname{gcd}(f(a), f(b)) \mid
+f(1)$. In particular, if $a, b \geqslant n_{0}$ are coprime then $f(a)$ and $f(b)$ are
+coprime.
+
+Proof. Let $d=\operatorname{gcd}(f(a), f(b))$. We can replicate Euclid's algorithm.
+Formally, apply induction on $a+b$. If $a=1$ or $b=1$ then we already have $d \mid f(1)$.
+
+Without loss of generality, suppose $1<a<b$. Then $d\mid f(a)$, $d\mid f(b)$, and $f(b)\mid f(a)+f(b-a)$. Hence $d\mid f(b-a)$. Therefore $d$ divides $\operatorname{gcd}(f(a), f(b-a))$ which is a
+divisor of $f(1)$ by the induction hypothesis.
+
+Let $p_{1}<p_{2}<\ldots$ be the sequence of all prime numbers; for every $k$, let $q_{k}$ be
+the lowest power of $p_{k}$ with $q_{k} \geqslant n_{0}$. (Notice that there are only
+finitely many positive integers with $q_{k} \neq p_{k}$.)
+
+Take a positive integer $N$, and consider the numbers
+
+\[
+f(1), f\left(q_{1}\right), f\left(q_{2}\right), \ldots, f\left(q_{N}\right)
+\]
+
+Here we have $N+1$ numbers, each being greater than 1 , and they are pairwise coprime by
+Claim 3. Therefore, they have at least $N+1$ different prime divisors in total, and their
+greatest prime divisor is at least $p_{N+1}$. Hence, $\max \left(f(1), f\left(q_{1}\right),
+\ldots, f\left(q_{N}\right)\right) \geqslant p_{N+1}$.
+
+Choose $N$ such that $\max \left(q_{1}, \ldots, q_{N}\right)=p_{N}$ (this is achieved if $N$
+is sufficiently large), and $p_{N+1}-p_{N}>C$ (that is possible, because there are
+arbitrarily long gaps between the primes). Then we establish a contradiction
+
+\[
+p_{N+1} \leqslant \max \left(f(1), f\left(q_{1}\right), \ldots, f\left(q_{N}\right)\right)<\max \left(1+C, q_{1}+C, \ldots, q_{N}+C\right)=p_{N}+C<p_{N+1}
+\]
+
+which proves the statement.

@@ -1,0 +1,136 @@
+ID: 0252
+
+SOURCE: IMO Shortlist
+
+YEAR: 2018
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Planar Arrangements, Graph Coloring, Extremal Combinatorics
+
+STATEMENT:
+Consider 2018 pairwise crossing circles no three of which are concurrent. These circles
+subdivide the plane into regions bounded by circular edges that meet at vertices. Notice
+that there are an even number of vertices on each circle. Given the circle, alternately
+colour the vertices on that circle red and blue. In doing so for each circle, every vertex
+is coloured twice once for each of the two circles that cross at that point. If the two
+colourings agree at a vertex, then it is assigned that colour; otherwise, it becomes yellow.
+Show that, if some circle contains at least 2061 yellow points, then the vertices of some
+region are all yellow.
+
+SOLUTION 1:
+Letting $n=2018$, we will show that, if every region has at least one non-yellow vertex,
+then every circle contains at most $n+\lfloor\sqrt{n-2}\rfloor-2$ yellow points. In the case
+at hand, the latter equals $2018+44-2=2060$, contradicting the hypothesis.
+
+Consider the natural geometric graph $G$ associated with the configuration of $n$ circles.
+Fix any circle $C$ in the configuration, let $k$ be the number of yellow points on $C$, and
+find a suitable lower bound for the total number of yellow vertices of $G$ in terms of $k$
+and $n$. It turns out that $k$ is even, and $G$ has at least
+
+\[
+k+2\left(\begin{array}{c}
+k / 2 \\
+2
+\end{array}\right)+2\left(\begin{array}{c}
+n-k / 2-1 \\
+2
+\end{array}\right)=\frac{k^{2}}{2}-(n-2) k+(n-2)(n-1)
+\tag{*}
+\]
+
+yellow vertices. The proof hinges on the two lemmata below.
+
+Lemma 1. Let two circles in the configuration cross at $x$ and $y$. Then $x$ and $y$ are
+either both yellow or both non-yellow.
+
+Proof. This is because the numbers of interior vertices on the four arcs $x$ and $y$
+determine on the two circles have like parities.
+
+In particular, each circle in the configuration contains an even number of yellow vertices.
+
+Lemma 2. If $\overrightarrow{x y}, \overrightarrow{y z}$, and $\overrightarrow{z x}$ are
+circular arcs of three pairwise distinct circles in the configuration, then the number of
+yellow vertices in the set $\{x, y, z\}$ is odd.
+
+Proof. Let $C_{1}, C_{2}, C_{3}$ be the three circles under consideration. Assume, without
+loss of generality, that $C_{2}$ and $C_{3}$ cross at $x, C_{3}$ and $C_{1}$ cross at $y$,
+and $C_{1}$ and $C_{2}$ cross at $z$. Let $k_{1}$, $k_{2}, k_{3}$ be the numbers of interior
+vertices on the three circular arcs under consideration. Since each circle in the
+configuration, different from the $C_{i}$, crosses the cycle $\widehat{x y} \cup \widehat{y
+z} \cup \widehat{z x}$ at an even number of points (recall that no three circles are
+concurrent), and self-crossings are counted twice, the sum $k_{1}+k_{2}+k_{3}$ is even.
+
+Let $Z_{1}$ be the colour $z$ gets from $C_{1}$ and define the other colours similarly. By
+the preceding, the number of bichromatic pairs in the list $\left(Z_{1},
+Y_{1}\right),\left(X_{2}, Z_{2}\right),\left(Y_{3}, X_{3}\right)$ is odd. Since the total
+number of colour changes in a cycle $Z_{1}-Y_{1}-Y_{3}-X_{3}-X_{2}-Z_{2}-Z_{1}$ is even, the
+number of bichromatic pairs in the list $\left(X_{2}, X_{3}\right),\left(Y_{1},
+Y_{3}\right),\left(Z_{1}, Z_{2}\right)$ is odd, and the lemma follows.
+
+We are now in a position to prove that $(*)$ bounds the total number of yellow vertices from
+below. Refer to Lemma 1 to infer that the $k$ yellow vertices on $C$ pair off to form the
+pairs of points where $C$ is crossed by $k / 2$ circles in the configuration. By Lemma 2,
+these circles cross pairwise to account for another $2\left(\begin{array}{c}k / 2 \\
+2\end{array}\right)$ yellow vertices. Finally, the remaining $n-k / 2-1$ circles in the
+configuration cross $C$ at non-yellow vertices, by Lemma 1, and Lemma 2 applies again to
+show that these circles cross pairwise to account for yet another
+$2\left(\begin{array}{c}n-k / 2-1 \\ 2\end{array}\right)$ yellow vertices. Consequently,
+there are at least (*) yellow vertices.
+
+Next, notice that $G$ is a plane graph on $n(n-1)$ degree 4 vertices, having exactly $2
+n(n-1)$ edges and exactly $n(n-1)+2$ faces (regions), the outer face inclusive (by Euler's
+formula for planar graphs).
+
+Lemma 3. Each face of $G$ has equally many red and blue vertices. In particular, each face
+has an even number of non-yellow vertices.
+
+Proof. Trace the boundary of a face once in circular order, and consider the colours each
+vertex is assigned in the colouring of the two circles that cross at that vertex, to infer
+that colours of non-yellow vertices alternate.
+
+Consequently, if each region has at least one non-yellow vertex, then it has at least two
+such. Since each vertex of $G$ has degree 4, consideration of vertex-face incidences shows
+that $G$ has at least $n(n-1) / 2+1$ non-yellow vertices, and hence at most $n(n-1) / 2-1$
+yellow vertices. (In fact, Lemma 3 shows that there are at least $n(n-1) / 4+1 / 2$ red,
+respectively blue, vertices.)
+
+Finally, recall the lower bound (*) for the total number of yellow vertices in $G$, to write
+$n(n-1) / 2-1 \geqslant k^{2} / 2-(n-2) k+(n-2)(n-1)$, and conclude that $k \leqslant
+n+\lfloor\sqrt{n-2}\rfloor-2$, as claimed in the first paragraph.
+
+SOLUTION 2:
+The first two lemmata in Solution 1 show that the circles in the configuration split into
+two classes: Consider any circle $C$ along with all circles that cross $C$ at yellow points
+to form one class; the remaining circles then form the other class. Lemma 2 shows that any
+pair of circles in the same class cross at yellow points; otherwise, they cross at
+non-yellow points.
+
+Call the circles from the two classes white and black, respectively. Call a region yellow if
+its vertices are all yellow. Let $w$ and $b$ be the numbers of white and black circles,
+respectively; clearly, $w+b=n$. Assume that $w \geqslant b$, and that there is no yellow
+region. Clearly, $b \geqslant 1$, otherwise each region is yellow. The white circles
+subdivide the plane into $w(w-1)+2$ larger regions - call them white. The white regions (or
+rather their boundaries) subdivide each black circle into black arcs. Since there are no
+yellow regions, each white region contains at least one black arc.
+
+Consider any white region; let it contain $t \geqslant 1$ black arcs. We claim that the
+number of points at which these $t$ arcs cross does not exceed $t-1$. To prove this,
+consider a multigraph whose vertices are these black arcs, two vertices being joined by an
+edge for each point at which the corresponding arcs cross. If this graph had more than $t-1$
+edges, it would contain a cycle, since it has $t$ vertices; this cycle would correspond to a
+closed contour formed by black sub-arcs, lying inside the region under consideration. This
+contour would, in turn, define at least one yellow region, which is impossible.
+
+Let $t_{i}$ be the number of black arcs inside the $i^{\text {th }}$ white region. The total
+number of black arcs is $\sum_{i} t_{i}=2 w b$, and they cross at $2\left(\begin{array}{l}b
+\\ 2\end{array}\right)=b(b-1)$ points. By the preceding,
+
+\[
+b(b-1) \leqslant \sum_{i=1}^{w^{2}-w+2}\left(t_{i}-1\right)=\sum_{i=1}^{w^{2}-w+2} t_{i}-\left(w^{2}-w+2\right)=2 w b-\left(w^{2}-w+2\right)
+\]
+
+or, equivalently, $(w-b)^{2} \leqslant w+b-2=n-2$, which is the case if and only if $w-b
+\leqslant\lfloor\sqrt{n-2}\rfloor$. Consequently, $b \leqslant w
+\leqslant(n+\lfloor\sqrt{n-2}\rfloor) / 2$, so there are at most $2(w-1) \leqslant
+n+\lfloor\sqrt{n-2}\rfloor-2$ yellow vertices on each circle - a contradiction.

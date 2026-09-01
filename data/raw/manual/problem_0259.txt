@@ -1,0 +1,70 @@
+ID: 0259
+
+SOURCE: IMO Shortlist
+
+YEAR: 2018
+
+TOPIC: Geometry
+
+SUBTOPICS: Circumcentres, Miquel Point, Orthogonal Circles, Tangency
+
+STATEMENT:
+Let $O$ be the circumcentre, and $\Omega$ be the circumcircle of an acute-angled triangle $A
+B C$. Let $P$ be an arbitrary point on $\Omega$, distinct from $A, B, C$, and their
+antipodes in $\Omega$. Denote the circumcentres of the triangles $A O P, B O P$, and $C O P$
+by $O_{A}, O_{B}$, and $O_{C}$, respectively. The lines $\ell_{A}, \ell_{B}$, and $\ell_{C}$
+perpendicular to $B C, C A$, and $A B$ pass through $O_{A}, O_{B}$, and $O_{C}$,
+respectively. Prove that the circumcircle of the triangle formed by $\ell_{A}, \ell_{B}$,
+and $\ell_{C}$ is tangent to the line $O P$.
+
+SOLUTION 1:
+As usual, we denote the directed angle between the lines $a$ and $b$ by $\measuredangle(a, b)$.
+We frequently use the fact that $a_{1} \perp a_{2}$ and $b_{1} \perp b_{2}$ yield
+$\measuredangle\left(a_{1}, b_{1}\right)=\measuredangle\left(a_{2}, b_{2}\right)$.
+
+Let the lines $\ell_{B}$ and $\ell_{C}$ meet at $L_{A}$; define the points $L_{B}$ and
+$L_{C}$ similarly. Note that the sidelines of the triangle $L_{A} L_{B} L_{C}$ are
+perpendicular to the corresponding sidelines of $A B C$. Points $O_{A}, O_{B}, O_{C}$ are
+located on the corresponding sidelines of $L_{A} L_{B} L_{C}$; moreover, $O_{A}, O_{B}$,
+$O_{C}$ all lie on the perpendicular bisector of $O P$.
+
+Claim 1. The points $L_{B}, P, O_{A}$, and $O_{C}$ are concyclic.
+
+Proof. Since $O$ is symmetric to $P$ in $O_{A} O_{C}$, we have
+
+\[
+\measuredangle\left(O_{A} P, O_{C} P\right)=\measuredangle\left(O_{C} O, O_{A} O\right)=\measuredangle(C P, A P)=\measuredangle(C B, A B)=\measuredangle\left(O_{A} L_{B}, O_{C} L_{B}\right) .
+\]
+
+Denote the circle through $L_{B}, P, O_{A}$, and $O_{C}$ by $\omega_{B}$. Define the circles
+$\omega_{A}$ and $\omega_{C}$ similarly. Claim 2. The circumcircle of the triangle $L_{A}
+L_{B} L_{C}$ passes through $P$.
+
+Proof. From cyclic quadruples of points in the circles $\omega_{B}$ and $\omega_{C}$, we
+have
+
+\[
+\begin{aligned}
+\measuredangle\left(L_{C} L_{A}, L_{C} P\right) & =\measuredangle\left(L_{C} O_{B}, L_{C} P\right)=\measuredangle\left(O_{A} O_{B}, O_{A} P\right) \\
+& =\measuredangle\left(O_{A} O_{C}, O_{A} P\right)=\measuredangle\left(L_{B} O_{C}, L_{B} P\right)=\measuredangle\left(L_{B} L_{A}, L_{B} P\right) .
+\end{aligned}
+\]
+
+Claim 3. The points $P, L_{C}$, and $C$ are collinear.
+
+Proof. We have $\measuredangle\left(P L_{C}, L_{C} L_{A}\right)=\measuredangle\left(P L_{C}, L_{C}
+O_{B}\right)=\measuredangle\left(P O_{A}, O_{A} O_{B}\right)$. Further, since $O_{A}$ is the
+centre of the circle $A O P, \measuredangle\left(P O_{A}, O_{A} O_{B}\right)=\measuredangle(P A, A
+O)$. As $O$ is the circumcentre of the triangle $P C A, \measuredangle(P A, A O)=\pi /
+2-\measuredangle(C A, C P)=\measuredangle\left(C P, L_{C} L_{A}\right)$. We obtain $\measuredangle\left(P
+L_{C}, L_{C} L_{A}\right)= \measuredangle\left(C P, L_{C} L_{A}\right)$, which shows that $P \in
+C L_{C}$.
+
+Similarly, the points $P, L_{A}, A$ are collinear, and the points $P, L_{B}, B$ are also
+collinear. Finally, the computation above also shows that
+
+\[
+\measuredangle\left(O P, P L_{A}\right)=\measuredangle(P A, A O)=\measuredangle\left(P L_{C}, L_{C} L_{A}\right)
+\]
+
+which means that $O P$ is tangent to the circle $P L_{A} L_{B} L_{C}$.

@@ -1,0 +1,151 @@
+ID: 0257
+
+SOURCE: IMO Shortlist
+
+YEAR: 2018
+
+TOPIC: Geometry
+
+SUBTOPICS: Homothety, Incircle Geometry, Simson Line, Tangency
+
+STATEMENT:
+Let $A B C$ be a triangle with circumcircle $\omega$ and incentre $I$. A line $\ell$
+intersects the lines $A I, B I$, and $C I$ at points $D, E$, and $F$, respectively, distinct
+from the points $A, B, C$, and $I$. The perpendicular bisectors $x, y$, and $z$ of the
+segments $A D, B E$, and $C F$, respectively determine a triangle $\Theta$. Show that the
+circumcircle of the triangle $\Theta$ is tangent to $\omega$.
+
+SOLUTION 1:
+Preamble. Let $X=y \cap z, Y=x \cap z, Z=x \cap y$ and let $\Omega$ denote the circumcircle
+of the triangle $X Y Z$. Denote by $X_{0}, Y_{0}$, and $Z_{0}$ the second intersection
+points of $A I, B I$ and $C I$, respectively, with $\omega$. It is known that $Y_{0} Z_{0}$
+is the perpendicular bisector of $A I, Z_{0} X_{0}$ is the perpendicular bisector of $B I$,
+and $X_{0} Y_{0}$ is the perpendicular bisector of $C I$. In particular, the triangles $X Y
+Z$ and $X_{0} Y_{0} Z_{0}$ are homothetic, because their corresponding sides are parallel.
+
+The solutions below mostly exploit the following approach. Consider the triangles $X Y Z$
+and $X_{0} Y_{0} Z_{0}$, or some other pair of homothetic triangles $\Delta$ and $\delta$
+inscribed into $\Omega$ and $\omega$, respectively. In order to prove that $\Omega$ and
+$\omega$ are tangent, it suffices to show that the centre $T$ of the homothety taking
+$\Delta$ to $\delta$ lies on $\omega$ (or $\Omega$ ), or, in other words, to show that
+$\Delta$ and $\delta$ are perspective (i.e., the lines joining corresponding vertices are
+concurrent), with their perspector lying on $\omega$ (or $\Omega$ ).
+
+We use directed angles throughout all the solutions.
+
+Claim 1. The reflections $\ell_{a}, \ell_{b}$ and $\ell_{c}$ of the line $\ell$ in the lines
+$x, y$, and $z$, respectively, are concurrent at a point $T$ which belongs to $\omega$.
+
+Proof. Notice that $\measuredangle\left(\ell_{b}, \ell_{c}\right)=\measuredangle\left(\ell_{b},
+\ell\right)+\measuredangle\left(\ell, \ell_{c}\right)=2 \measuredangle(y, \ell)+2 \measuredangle(\ell, z)=2
+\measuredangle(y, z)$. But $y \perp B I$ and $z \perp C I$ implies $\measuredangle(y, z)=\measuredangle(B
+I, I C)$, so, since $2 \measuredangle(B I, I C)=\measuredangle(B A, A C)$, we obtain
+
+\[
+\measuredangle\left(\ell_{b}, \ell_{c}\right)=\measuredangle(B A, A C) .
+\tag{1}
+\]
+
+Since $A$ is the reflection of $D$ in $x$, $A$ belongs to $\ell_{a}$; similarly, $B$ belongs
+to $\ell_{b}$. Then (1) shows that the common point $T^{\prime}$ of $\ell_{a}$ and
+$\ell_{b}$ lies on $\omega$; similarly, the common point $T^{\prime \prime}$ of $\ell_{c}$
+and $\ell_{b}$ lies on $\omega$.
+
+If $B \notin \ell_{a}$ and $B \notin \ell_{c}$, then $T^{\prime}$ and $T^{\prime \prime}$
+are the second point of intersection of $\ell_{b}$ and $\omega$, hence they coincide.
+Otherwise, if, say, $B \in \ell_{c}$, then $\ell_{c}=B C$, so $\measuredangle(B A, A
+C)=\measuredangle\left(\ell_{b}, \ell_{c}\right)=\measuredangle\left(\ell_{b}, B C\right)$, which
+shows that $\ell_{b}$ is tangent at $B$ to $\omega$ and $T^{\prime}=T^{\prime \prime}=B$. So
+$T^{\prime}$ and $T^{\prime \prime}$ coincide in all the cases, and the conclusion of the
+claim follows.
+
+Now we prove that $X, X_{0}, T$ are collinear. Denote by $D_{b}$ and $D_{c}$ the reflections
+of the point $D$ in the lines $y$ and $z$, respectively. Then $D_{b}$ lies on $\ell_{b},
+D_{c}$ lies on $\ell_{c}$, and
+
+\[
+\begin{aligned}
+\measuredangle\left(D_{b} X, X D_{c}\right) & =\measuredangle\left(D_{b} X, D X\right)+\measuredangle\left(D X, X D_{c}\right)=2 \measuredangle(y, D X)+2 \measuredangle(D X, z)=2 \measuredangle(y, z) \\
+& =\measuredangle(B A, A C)=\measuredangle(B T, T C),
+\end{aligned}
+\]
+
+hence the quadrilateral $X D_{b} T D_{c}$ is cyclic. Notice also that since $X D_{b}=X D=X
+D_{c}$, the points $D, D_{b}, D_{c}$ lie on a circle with centre $X$. Using in this circle
+the diameter $D_{c} D_{c}^{\prime}$ yields $\measuredangle\left(D_{b} D_{c}, D_{c}
+X\right)=90^{\circ}+\measuredangle\left(D_{b} D_{c}^{\prime}, D_{c}^{\prime}
+X\right)=90^{\circ}+\measuredangle\left(D_{b} D, D D_{c}\right)$. Therefore,
+
+\[
+\begin{gathered}
+\measuredangle\left(\ell_{b}, X T\right)=\measuredangle\left(D_{b} T, X T\right)=\measuredangle\left(D_{b} D_{c}, D_{c} X\right)=90^{\circ}+\measuredangle\left(D_{b} D, D D_{c}\right) \\
+=90^{\circ}+\measuredangle(B I, I C)=\measuredangle(B A, A I)=\measuredangle\left(B A, A X_{0}\right)=\measuredangle\left(B T, T X_{0}\right)=\measuredangle\left(\ell_{b}, X_{0} T\right)
+\end{gathered}
+\]
+
+so the points $X, X_{0}, T$ are collinear. By a similar argument, $Y, Y_{0}, T$ and $Z,
+Z_{0}, T$ are collinear. As mentioned in the preamble, the statement of the problem follows.
+
+SOLUTION 2:
+As mentioned in the preamble, it is sufficient to prove that the centre $T$ of the homothety
+taking $X Y Z$ to $X_{0} Y_{0} Z_{0}$ belongs to $\omega$. Thus, it suffices to prove that
+$\measuredangle\left(T X_{0}, T Y_{0}\right)= \measuredangle\left(Z_{0} X_{0}, Z_{0} Y_{0}\right)$,
+or, equivalently, $\measuredangle\left(X X_{0}, Y Y_{0}\right)=\measuredangle\left(Z_{0} X_{0}, Z_{0}
+Y_{0}\right)$.
+
+Recall that $Y Z$ and $Y_{0} Z_{0}$ are the perpendicular bisectors of $A D$ and $A I$,
+respectively. Then, the vector $\vec{x}$ perpendicular to $Y Z$ and shifting the line $Y_{0}
+Z_{0}$ to $Y Z$ is equal to $\frac{1}{2} \overrightarrow{I D}$. Define the shifting vectors
+$\vec{y}=\frac{1}{2} \overrightarrow{I E}, \vec{z}=\frac{1}{2} \overrightarrow{I F}$
+similarly. Consider now the triangle $U V W$ formed by the perpendiculars to $A I, B I$, and
+$C I$ through $D, E$, and $F$, respectively. This is another triangle whose sides are
+parallel to the corresponding sides of $X Y Z$.
+
+Claim 2. $\overrightarrow{I U}=2 \overrightarrow{X_{0} X}, \overrightarrow{I V}=2
+\overrightarrow{Y_{0} Y}, \overrightarrow{I W}=2 \overrightarrow{Z_{0} Z}$.
+
+Proof. We prove one of the relations, the other proofs being similar. To prove the equality
+of two vectors it suffices to project them onto two non-parallel axes and check that their
+projections are equal.
+
+The projection of $\overrightarrow{X_{0} X}$ onto $I B$ equals $\vec{y}$, while the
+projection of $\overrightarrow{I U}$ onto $I B$ is $\overrightarrow{I E}=2 \vec{y}$. The
+projections onto the other axis $I C$ are $\vec{z}$ and $\overrightarrow{I F}=2 \vec{z}$.
+Then $\overrightarrow{I U}=2 \overrightarrow{X_{0} X}$ follows.
+
+Notice that the line $\ell$ is the Simson line of the point $I$ with respect to the triangle
+$U V W$; thus $U, V, W$, and $I$ are concyclic. It follows from Claim 2 that
+$\measuredangle\left(X X_{0}, Y Y_{0}\right)=\measuredangle(I U, I V)= \measuredangle(W U, W
+V)=\measuredangle\left(Z_{0} X_{0}, Z_{0} Y_{0}\right)$, and we are done.
+
+SOLUTION 3:
+Let $I_{a}, I_{b}$, and $I_{c}$ be the excentres of triangle $A B C$ corresponding to $A,
+B$, and $C$, respectively. Also, let $u, v$, and $w$ be the lines through $D, E$, and $F$
+which are perpendicular to $A I, B I$, and $C I$, respectively, and let $U V W$ be the
+triangle determined by these lines, where $u=V W, v=U W$ and $w=U V$.
+
+Notice that the line $u$ is the reflection of $I_{b} I_{c}$ in the line $x$, because $u, x$,
+and $I_{b} I_{c}$ are perpendicular to $A D$ and $x$ is the perpendicular bisector of $A D$.
+Likewise, $v$ and $I_{a} I_{c}$ are reflections of each other in $y$, while $w$ and $I_{a}
+I_{b}$ are reflections of each other in $z$. It follows that $X, Y$, and $Z$ are the
+midpoints of $U I_{a}, V I_{b}$ and $W I_{c}$, respectively, and that the triangles $U V W$,
+$X Y Z$ and $I_{a} I_{b} I_{c}$ are either translates of each other or homothetic with a
+common homothety centre.
+
+Construct the points $T$ and $S$ such that the quadrilaterals $U V I W, X Y T Z$ and $I_{a}
+I_{b} S I_{c}$ are homothetic. Then $T$ is the midpoint of $I S$. Moreover, note that $\ell$
+is the Simson line of the point $I$ with respect to the triangle $U V W$, hence $I$ belongs
+to the circumcircle of the triangle $U V W$, therefore $T$ belongs to $\Omega$.
+
+Consider now the homothety or translation $h_{1}$ that maps $X Y Z T$ to $I_{a} I_{b} I_{c}
+S$ and the homothety $h_{2}$ with centre $I$ and factor $\frac{1}{2}$. Furthermore, let
+$h=h_{2} \circ h_{1}$. The transform $h$ can be a homothety or a translation, and
+
+\[
+h(T)=h_{2}\left(h_{1}(T)\right)=h_{2}(S)=T
+\]
+
+hence $T$ is a fixed point of $h$. So, $h$ is a homothety with centre $T$. Note that $h_{2}$
+maps the excentres $I_{a}, I_{b}, I_{c}$ to $X_{0}, Y_{0}, Z_{0}$ defined in the preamble.
+Thus the centre $T$ of the homothety taking $X Y Z$ to $X_{0} Y_{0} Z_{0}$ belongs to
+$\Omega$, and this completes the proof.

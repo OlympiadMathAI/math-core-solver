@@ -1,0 +1,134 @@
+ID: 0243
+
+SOURCE: IMO Shortlist
+
+YEAR: 2018
+
+TOPIC: Algebra
+
+SUBTOPICS: Functional Equations, Linear Recurrences, Linear Algebra
+
+STATEMENT:
+Determine all functions $f:(0, \infty) \rightarrow \mathbb{R}$ satisfying
+
+\[
+\left(x+\frac{1}{x}\right) f(y)=f(x y)+f\left(\frac{y}{x}\right)
+\tag{1}
+\]
+
+for all $x, y>0$.
+
+SOLUTION 1:
+Answer: $f(x)=C_{1} x+\frac{C_{2}}{x}$ with arbitrary constants $C_{1}$ and $C_{2}$.
+
+Fix a real number $a>1$, and take a new variable $t$. For the values $f(t),
+f\left(t^{2}\right)$, $f(a t)$ and $f\left(a^{2} t^{2}\right)$, the relation (1) provides a
+system of linear equations:
+
+\[
+\begin{array}{llll}
+x=y=t: & \left(t+\frac{1}{t}\right) f(t) & =f\left(t^{2}\right)+f(1) \\
+x=\frac{t}{a}, y=a t: & \left(\frac{t}{a}+\frac{a}{t}\right) f(a t) & =f\left(t^{2}\right)+f\left(a^{2}\right) \\
+x=a^{2} t, y=t: & \left(a^{2} t+\frac{1}{a^{2} t}\right) f(t) & =f\left(a^{2} t^{2}\right)+f\left(\frac{1}{a^{2}}\right) \\
+x=y=a t: & \left(a t+\frac{1}{a t}\right) f(a t) & =f\left(a^{2} t^{2}\right)+f(1)
+\end{array}
+\]
+
+In order to eliminate $f\left(t^{2}\right)$, take the difference of (2a) and (2b); from (2c)
+and (2d) eliminate $f\left(a^{2} t^{2}\right)$; then by taking a linear combination,
+eliminate $f(a t)$ as well:
+
+\[
+\begin{gathered}
+\left(t+\frac{1}{t}\right) f(t)-\left(\frac{t}{a}+\frac{a}{t}\right) f(a t)=f(1)-f\left(a^{2}\right) \text { and } \\
+\left(a^{2} t+\frac{1}{a^{2} t}\right) f(t)-\left(a t+\frac{1}{a t}\right) f(a t)=f\left(1 / a^{2}\right)-f(1), \text { so } \\
+\left(\left(a t+\frac{1}{a t}\right)\left(t+\frac{1}{t}\right)-\left(\frac{t}{a}+\frac{a}{t}\right)\left(a^{2} t+\frac{1}{a^{2} t}\right)\right) f(t) \\
+=\left(a t+\frac{1}{a t}\right)\left(f(1)-f\left(a^{2}\right)\right)-\left(\frac{t}{a}+\frac{a}{t}\right)\left(f\left(1 / a^{2}\right)-f(1)\right) .
+\end{gathered}
+\]
+
+Notice that on the left-hand side, the coefficient of $f(t)$ is nonzero and does not depend
+on $t$ :
+
+\[
+\left(a t+\frac{1}{a t}\right)\left(t+\frac{1}{t}\right)-\left(\frac{t}{a}+\frac{a}{t}\right)\left(a^{2} t+\frac{1}{a^{2} t}\right)=a+\frac{1}{a}-\left(a^{3}+\frac{1}{a^{3}}\right)<0.
+\]
+
+After dividing by this fixed number, we get
+
+\[
+f(t)=C_{1} t+\frac{C_{2}}{t}
+\tag{3}
+\]
+
+where the numbers $C_{1}$ and $C_{2}$ are expressed in terms of $a, f(1),
+f\left(a^{2}\right)$ and $f\left(1 / a^{2}\right)$, and they do not depend on $t$.
+
+The functions of the form (3) satisfy the equation:
+
+\[
+\left(x+\frac{1}{x}\right) f(y)=\left(x+\frac{1}{x}\right)\left(C_{1} y+\frac{C_{2}}{y}\right)=\left(C_{1} x y+\frac{C_{2}}{x y}\right)+\left(C_{1} \frac{y}{x}+C_{2} \frac{x}{y}\right)=f(x y)+f\left(\frac{y}{x}\right) .
+\]
+
+SOLUTION 2:
+We start with an observation. If we substitute $x=a \neq 1$ and $y=a^{n}$ in (1), we obtain
+
+\[
+f\left(a^{n+1}\right)-\left(a+\frac{1}{a}\right) f\left(a^{n}\right)+f\left(a^{n-1}\right)=0.
+\]
+
+For the sequence $z_{n}=f(a^{n})$, this is a homogeneous linear recurrence of the second order,
+and its characteristic polynomial is $t^{2}-\left(a+\frac{1}{a}\right)
+t+1=(t-a)\left(t-\frac{1}{a}\right)$ with two distinct nonzero roots, namely $a$ and $1 /
+a$. As is well-known, the general solution is $z_{n}=C_{1} a^{n}+C_{2}(1 / a)^{n}$ where the
+index $n$ can be as well positive as negative. Of course, the numbers $C_{1}$ and $C_{2}$
+may depend of the choice of $a$, so in fact we have two functions, $C_{1}$ and $C_{2}$, such
+that
+
+\[
+f\left(a^{n}\right)=C_{1}(a) \cdot a^{n}+\frac{C_{2}(a)}{a^{n}} \quad \text { for every } a \neq 1 \text { and every integer } n \text {. }
+\tag{4}
+\]
+
+Formula (4) suggests that the coefficients should not depend on the chosen base $a$. We now prove this directly. As shown in the previous solution, once the coefficients are constant, the resulting functions do satisfy (1).
+
+The equation (1) is linear in $f$; so if some functions $f_{1}$ and $f_{2}$ satisfy (1) and
+$c_{1}, c_{2}$ are real numbers, then $c_{1} f_{1}(x)+c_{2} f_{2}(x)$ is also a solution of
+(1). In order to make our formulas simpler, define
+
+\[
+f_{0}(x)=f(x)-f(1) \cdot x \text {. }
+\]
+
+This function is another one satisfying (1) and the extra constraint $f_{0}(1)=0$. Repeating
+the same argument on linear recurrences, we can write $f_{0}(a^{n})=K(a)
+a^{n}+\frac{L(a)}{a^{n}}$ with some functions $K$ and $L$. By substituting $n=0$, we can see
+that $K(a)+L(a)=f_{0}(1)=0$ for every $a$. Hence,
+
+\[
+f_{0}\left(a^{n}\right)=K(a)\left(a^{n}-\frac{1}{a^{n}}\right)
+\]
+
+Now take two numbers $a>b>1$ arbitrarily and substitute $x=(a / b)^{n}$ and $y=(a b)^{n}$ in
+(1):
+
+\[
+\begin{aligned}
+\left(\frac{a^{n}}{b^{n}}+\frac{b^{n}}{a^{n}}\right) f_{0}\left((a b)^{n}\right) & =f_{0}\left(a^{2 n}\right)+f_{0}\left(b^{2 n}\right), \quad \text { so } \\
+\left(\frac{a^{n}}{b^{n}}+\frac{b^{n}}{a^{n}}\right) K(a b)\left((a b)^{n}-\frac{1}{(a b)^{n}}\right) & =K(a)\left(a^{2 n}-\frac{1}{a^{2 n}}\right)+K(b)\left(b^{2 n}-\frac{1}{b^{2 n}}\right), \quad \text { or equivalently } \\
+K(a b)\left(a^{2 n}-\frac{1}{a^{2 n}}+b^{2 n}-\frac{1}{b^{2 n}}\right) & =K(a)\left(a^{2 n}-\frac{1}{a^{2 n}}\right)+K(b)\left(b^{2 n}-\frac{1}{b^{2 n}}\right) .
+\end{aligned}
+\tag{5}
+\]
+
+By dividing (5) by $a^{2 n}$ and then taking limit with $n \rightarrow+\infty$ we get $K(a
+b)=K(a)$. Then (5) reduces to $K(a)=K(b)$. Hence, $K(a)=K(b)$ for all $a>b>1$.
+
+Fix $a>1$. For every $x>0$ there are a number $b$ with $1<b<a$ and an integer $n$ such that $x=b^n$: take $n>0$ sufficiently large when $x>1$, take $n<0$ with sufficiently large absolute value when $0<x<1$, and take $n=0$ when $x=1$. Then
+
+\[
+f_{0}(x)=f_{0}\left(b^{n}\right)=K(b)\left(b^{n}-\frac{1}{b^{n}}\right)=K(a)\left(x-\frac{1}{x}\right) .
+\]
+
+Hence, we have $f(x)=f_{0}(x)+f(1) x=C_{1} x+\frac{C_{2}}{x}$ with $C_{1}=K(a)+f(1)$ and
+$C_{2}=-K(a)$.

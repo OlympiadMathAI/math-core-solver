@@ -1,0 +1,14 @@
+{
+  "id": "0246",
+  "source": "IMO Shortlist",
+  "year": "2018",
+  "topic": "Combinatorics",
+  "subtopics": [
+    "Constructive Combinatorics",
+    "Equal-Sum Partitions"
+  ],
+  "statement": "Let $n \\geqslant 3$ be an integer. Prove that there exists a set $S$ of $2 n$ positive\nintegers satisfying the following property: For every $m=2,3, \\ldots, n$ the set $S$ can be\npartitioned into two subsets with equal sums of elements, with one of subsets of cardinality\n$m$.",
+  "solutions": [
+    "We show that one of possible examples is the set\n\n\\[\nS=\\left\\{1 \\cdot 3^{k}, 2 \\cdot 3^{k}: k=1,2, \\ldots, n-1\\right\\} \\cup\\left\\{1, \\frac{3^{n}+9}{2}-1\\right\\}\n\\]\n\nIt is readily verified that all the numbers listed above are distinct (notice that the last\ntwo are not divisible by 3 ).\n\nThe sum of elements in $S$ is\n\n\\[\n\\Sigma=1+\\left(\\frac{3^{n}+9}{2}-1\\right)+\\sum_{k=1}^{n-1}\\left(1 \\cdot 3^{k}+2 \\cdot 3^{k}\\right)=\\frac{3^{n}+9}{2}+\\sum_{k=1}^{n-1} 3^{k+1}=\\frac{3^{n}+9}{2}+\\frac{3^{n+1}-9}{2}=2 \\cdot 3^{n}\n\\]\n\nHence, in order to show that this set satisfies the problem requirements, it suffices to\npresent, for every $m=2,3, \\ldots, n$, an $m$-element subset $A_{m} \\subset S$ whose sum of\nelements equals $3^{n}$.\n\nSuch a subset is\n\n\\[\nA_{m}=\\left\\{2 \\cdot 3^{k}: k=n-m+1, n-m+2, \\ldots, n-1\\right\\} \\cup\\left\\{1 \\cdot 3^{n-m+1}\\right\\} .\n\\]\n\nClearly, $\\left|A_{m}\\right|=m$. The sum of elements in $A_{m}$ is\n\n\\[\n3^{n-m+1}+\\sum_{k=n-m+1}^{n-1} 2 \\cdot 3^{k}=3^{n-m+1}+\\frac{2 \\cdot 3^{n}-2 \\cdot 3^{n-m+1}}{2}=3^{n}\n\\]\n\nas required."
+  ]
+}

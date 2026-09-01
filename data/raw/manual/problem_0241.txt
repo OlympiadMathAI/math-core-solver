@@ -1,0 +1,90 @@
+ID: 0241
+
+SOURCE: IMO Shortlist
+
+YEAR: 2018
+
+TOPIC: Algebra
+
+SUBTOPICS: Reciprocal Sums, Finite Subsets, Rational Numbers, Density Arguments
+
+STATEMENT:
+Given any set $S$ of positive integers, show that at least one of the following two
+assertions holds:
+
+(1) There exist distinct finite subsets $F$ and $G$ of $S$ such that $\sum_{x \in F} 1 /
+x=\sum_{x \in G} 1 / x$;
+
+(2) There exists a positive rational number $r<1$ such that $\sum_{x \in F} 1 / x \neq r$
+for all finite subsets $F$ of $S$.
+
+SOLUTION 1:
+Argue indirectly. Agree, as usual, that the empty sum is 0 to consider rationals in $[0,1)$;
+adjoining 0 causes no harm, since $\sum_{x \in F} 1 / x=0$ for no nonempty finite subset $F$
+of $S$. For every rational $r$ in $[0,1)$, let $F_{r}$ be the unique finite subset of $S$
+such that $\sum_{x \in F_{r}} 1 / x=r$. The argument hinges on the lemma below.
+
+Lemma. If $x$ is a member of $S$ and $q$ and $r$ are rationals in $[0,1)$ such that $q-r=1 /
+x$, then $x$ is a member of $F_{q}$ if and only if it is not one of $F_{r}$.
+
+Proof. If $x$ is a member of $F_{q}$, then
+
+\[
+\sum_{y \in F_{q} \backslash\{x\}} \frac{1}{y}=\sum_{y \in F_{q}} \frac{1}{y}-\frac{1}{x}=q-\frac{1}{x}=r=\sum_{y \in F_{r}} \frac{1}{y}
+\]
+
+so $F_{r}=F_{q} \backslash\{x\}$, and $x$ is not a member of $F_{r}$. Conversely, if $x$ is
+not a member of $F_{r}$, then
+
+\[
+\sum_{y \in F_{r} \cup\{x\}} \frac{1}{y}=\sum_{y \in F_{r}} \frac{1}{y}+\frac{1}{x}=r+\frac{1}{x}=q=\sum_{y \in F_{q}} \frac{1}{y}
+\]
+
+so $F_{q}=F_{r} \cup\{x\}$, and $x$ is a member of $F_{q}$.
+
+Consider now an element $x$ of $S$ and a positive rational $r<1$. Let $n=\lfloor r x\rfloor$
+and consider the sets $F_{r-k / x}, k=0, \ldots, n$. Since $0 \leqslant r-n / x<1 / x$, the
+set $F_{r-n / x}$ does not contain $x$, and a repeated application of the lemma shows that
+the $F_{r-(n-2 k) / x}$ do not contain $x$, whereas the $F_{r-(n-2 k-1) / x}$ do.
+Consequently, $x$ is a member of $F_{r}$ if and only if $n$ is odd.
+
+Finally, consider $F_{2 / 3}$. By the preceding, $\lfloor 2 x / 3\rfloor$ is odd for each
+$x$ in $F_{2 / 3}$, so $2 x / 3$ is not integral. Since $F_{2 / 3}$ is finite, there exists
+a sufficiently small positive rational $\varepsilon<2/3$ such that $\lfloor(2 / 3-\varepsilon) x\rfloor=\lfloor 2 x
+/ 3\rfloor$ for all $x$ in $F_{2 / 3}$. This implies that $F_{2 / 3}$ is a subset of $F_{2 /
+3-\varepsilon}$ which is impossible.
+
+SOLUTION 2:
+A finite $S$ clearly satisfies (2), so let $S$ be infinite. If $S$ fails both conditions, so
+does $S \backslash\{1\}$. We may and will therefore assume that $S$ consists of integers
+greater than 1. Label the elements of $S$ increasingly $x_{1}<x_{2}<\cdots$, where $x_{1}
+\geqslant 2$.
+
+We first show that $S$ satisfies (2) if $x_{n+1} \geqslant 2 x_{n}$ for all $n$. In this
+case, $x_{n} \geqslant 2^{n-1} x_{1}$ for all $n$, so
+
+\[
+s=\sum_{n \geqslant 1} \frac{1}{x_{n}} \leqslant \sum_{n \geqslant 1} \frac{1}{2^{n-1} x_{1}}=\frac{2}{x_{1}}
+\]
+
+If $x_{1} \geqslant 3$, or $x_{1}=2$ and $x_{n+1}>2 x_{n}$ for some $n$, then $\sum_{x \in
+F} 1 / x<s<1$ for every finite subset $F$ of $S$, so $S$ satisfies (2); and if $x_{1}=2$ and
+$x_{n+1}=2 x_{n}$ for all $n$, that is, $x_{n}=2^{n}$ for all $n$, then every finite subset
+$F$ of $S$ consists of powers of 2 , so $\sum_{x \in F} 1 / x \neq 1 / 3$ and again $S$
+satisfies (2).
+
+Finally, we deal with the case where $x_{n+1}<2 x_{n}$ for some $n$. Consider the positive
+rational $r=1 / x_{n}-1 / x_{n+1}<1 / x_{n+1}$. If $r=\sum_{x \in F} 1 / x$ for no finite
+subset $F$ of $S$, then $S$ satisfies (2).
+
+We now assume that $r=\sum_{x \in F_{0}} 1 / x$ for some finite subset $F_{0}$ of $S$, and
+show that $S$ satisfies (1). Since $\sum_{x \in F_{0}} 1 / x=r<1 / x_{n+1}$, it follows that
+$x_{n+1}$ is not a member of $F_{0}$, so
+
+\[
+\sum_{x \in F_{0} \cup\left\{x_{n+1}\right\}} \frac{1}{x}=\sum_{x \in F_{0}} \frac{1}{x}+\frac{1}{x_{n+1}}=r+\frac{1}{x_{n+1}}=\frac{1}{x_{n}}
+\]
+
+Consequently, $F=F_{0} \cup\left\{x_{n+1}\right\}$ and $G=\left\{x_{n}\right\}$ are distinct
+finite subsets of $S$ such that $\sum_{x \in F} 1 / x=\sum_{x \in G} 1 / x$, and $S$
+satisfies (1).

@@ -1,0 +1,130 @@
+ID: 0264
+
+SOURCE: IMO Shortlist
+
+YEAR: 2018
+
+TOPIC: Number Theory
+
+SUBTOPICS: Diophantine Equations, Perfect Squares, Factorization
+
+STATEMENT:
+Four positive integers $x, y, z$, and $t$ satisfy the relations
+
+\[
+x y-z t=x+y=z+t .
+\tag{*}
+\]
+
+Is it possible that both $x y$ and $z t$ are perfect squares?
+
+SOLUTION 1:
+Answer: No.
+
+Arguing indirectly, assume that $x y=a^{2}$ and $z t=c^{2}$ with $a, c>0$.
+
+Suppose that the number $x+y=z+t$ is odd. Then $x$ and $y$ have opposite parity, as well as
+$z$ and $t$. This means that both $x y$ and $z t$ are even, as well as $x y-z t=x+y$; a
+contradiction. Thus, $x+y$ is even, so the number $s=\frac{x+y}{2}=\frac{z+t}{2}$ is a
+positive integer.
+
+Next, we set $b=\frac{|x-y|}{2}, d=\frac{|z-t|}{2}$. Now the problem conditions yield
+
+\[
+s^{2}=a^{2}+b^{2}=c^{2}+d^{2}
+\tag{1}
+\]
+
+and
+
+\[
+2 s=a^{2}-c^{2}=d^{2}-b^{2}
+\tag{2}
+\]
+
+(the last equality in (2) follows from (1)). We readily get from (2) that $a, d>0$.
+
+In the sequel we will use only the relations (1) and (2), along with the fact that $a, d, s$
+are positive integers, while $b$ and $c$ are nonnegative integers, at most one of which may
+be zero. Since both relations are symmetric with respect to the simultaneous swappings $a
+\leftrightarrow d$ and $b \leftrightarrow c$, we assume, without loss of generality, that $b
+\geqslant c$ (and hence $b>0$ ). Therefore, $d^{2}=2 s+b^{2}>c^{2}$, whence
+
+\[
+d^{2}>\frac{c^{2}+d^{2}}{2}=\frac{s^{2}}{2}
+\tag{3}
+\]
+
+On the other hand, since $d^{2}-b^{2}$ is even by (2), the numbers $b$ and $d$ have the same
+parity, so $0<b \leqslant d-2$. Therefore,
+
+\[
+2 s=d^{2}-b^{2} \geqslant d^{2}-(d-2)^{2}=4(d-1), \quad \text { i.e., } \quad d \leqslant \frac{s}{2}+1
+\tag{4}
+\]
+
+Combining (3) and (4) we obtain
+
+\[
+2 s^{2}<4 d^{2} \leqslant 4\left(\frac{s}{2}+1\right)^{2}, \quad \text { or } \quad(s-2)^{2}<8
+\]
+
+which yields $s \leqslant 4$.
+
+Finally, an easy check shows that each number of the form $s^{2}$ with $1 \leqslant s
+\leqslant 4$ has a unique representation as a sum of two squares, namely
+$s^{2}=s^{2}+0^{2}$. Thus, (1) along with $a, d>0$ imply $b=c=0$, which is impossible.
+
+SOLUTION 2:
+We start with a complete description of all 4-tuples $(x, y, z, t)$ of positive integers
+satisfying (*). As in the solution above, we notice that the numbers
+
+\[
+s=\frac{x+y}{2}=\frac{z+t}{2}, \quad p=\frac{x-y}{2}, \quad \text { and } \quad q=\frac{z-t}{2}
+\]
+
+are integers (we may, and will, assume that $p, q \geqslant 0$ ). We have
+
+\[
+2 s=x y-z t=(s+p)(s-p)-(s+q)(s-q)=q^{2}-p^{2}
+\]
+
+so $p$ and $q$ have the same parity, and $q>p$.
+
+Set now $k=\frac{q-p}{2}, \ell=\frac{q+p}{2}$. Then we have $s=\frac{q^{2}-p^{2}}{2}=2 k
+\ell$ and hence
+
+\[
+\begin{array}{rlrl}
+x & =s+p=2 k \ell-k+\ell, & y & =s-p=2 k \ell+k-\ell, \\
+z & =s+q=2 k \ell+k+\ell, & t=s-q=2 k \ell-k-\ell .
+\end{array}
+\tag{5}
+\]
+
+Recall here that $\ell \geqslant k>0$ and, moreover, $(k, \ell) \neq(1,1)$, since otherwise
+$t=0$.
+
+Assume now that both $x y$ and $z t$ are squares. Then $x y z t$ is also a square. On the
+other hand, we have
+
+\[
+\begin{aligned}
+x y z t=(2 k \ell-k+\ell) & (2 k \ell+k-\ell)(2 k \ell+k+\ell)(2 k \ell-k-\ell) \\
+& =\left(4 k^{2} \ell^{2}-(k-\ell)^{2}\right)\left(4 k^{2} \ell^{2}-(k+\ell)^{2}\right)=\left(4 k^{2} \ell^{2}-k^{2}-\ell^{2}\right)^{2}-4 k^{2} \ell^{2}
+\end{aligned}
+\tag{6}
+\]
+
+Denote $D=4 k^{2} \ell^{2}-k^{2}-\ell^{2}>0$. From (6) we get $D^{2}>x y z t$. On the other
+hand,
+
+\[
+\begin{array}{r}
+(D-1)^{2}=D^{2}-2\left(4 k^{2} \ell^{2}-k^{2}-\ell^{2}\right)+1=\left(D^{2}-4 k^{2} \ell^{2}\right)-\left(2 k^{2}-1\right)\left(2 \ell^{2}-1\right)+2 \\
+=x y z t-\left(2 k^{2}-1\right)\left(2 \ell^{2}-1\right)+2<x y z t
+\end{array}
+\]
+
+since $\ell \geqslant 2$ and $k \geqslant 1$. Thus $(D-1)^{2}<x y z t<D^{2}$, and $x y z t$
+cannot be a perfect square; a contradiction.

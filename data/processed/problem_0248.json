@@ -1,0 +1,15 @@
+{
+  "id": "0248",
+  "source": "IMO Shortlist",
+  "year": "2018",
+  "topic": "Combinatorics",
+  "subtopics": [
+    "Invariants",
+    "Double Counting",
+    "Harmonic Sums"
+  ],
+  "statement": "Let $n$ be a given positive integer. Sisyphus performs a sequence of turns on a board\nconsisting of $n+1$ squares in a row, numbered 0 to $n$ from left to right. Initially, $n$\nstones are put into square 0, and the other squares are empty. At every turn, Sisyphus\nchooses any nonempty square, say with $k$ stones, takes one of those stones and moves it to\nthe right by at most $k$ squares (the stone should stay within the board). Sisyphus' aim is\nto move all $n$ stones to square $n$.\n\nProve that Sisyphus cannot reach the aim in less than\n\n\\[\n\\left\\lceil\\frac{n}{1}\\right\\rceil+\\left\\lceil\\frac{n}{2}\\right\\rceil+\\left\\lceil\\frac{n}{3}\\right\\rceil+\\cdots+\\left\\lceil\\frac{n}{n}\\right\\rceil\n\\]\n\nturns. (As usual, $\\lceil x\\rceil$ stands for the least integer not smaller than $x$.)",
+  "solutions": [
+    "The stones are indistinguishable, and all have the same origin and the same final position.\nSo, at any turn we can prescribe which stone from the chosen square to move. We do it in the\nfollowing manner. Number the stones from 1 to $n$. At any turn, after choosing a square,\nSisyphus moves the stone with the largest number from this square.\n\nThis way, when stone $k$ is moved from some square, that square contains not more than $k$\nstones (since all their numbers are at most $k$ ). Therefore, stone $k$ is moved by at most\n$k$ squares at each turn. Since the total shift of the stone is exactly $n$, at least\n$\\lceil n / k\\rceil$ moves of stone $k$ should have been made, for every $k=1,2, \\ldots, n$.\n\nBy summing up over all $k=1,2, \\ldots, n$, we get the required estimate."
+  ]
+}

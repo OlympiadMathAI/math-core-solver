@@ -1,0 +1,18 @@
+{
+  "id": "0253",
+  "source": "IMO Shortlist",
+  "year": "2018",
+  "topic": "Geometry",
+  "subtopics": [
+    "Circle Geometry",
+    "Arc Midpoints",
+    "Similarity",
+    "Parallel Lines"
+  ],
+  "statement": "Let $A B C$ be an acute-angled triangle with circumcircle $\\Gamma$. Let $D$ and $E$ be\npoints on the segments $A B$ and $A C$, respectively, such that $A D=A E$. The perpendicular\nbisectors of the segments $B D$ and $C E$ intersect the small arcs $\\widehat{A B}$ and\n$\\widehat{A C}$ at points $F$ and $G$ respectively. Prove that $D E \\| F G$.",
+  "solutions": [
+    "In the sequel, all the considered arcs are small arcs.\n\nLet $P$ be the midpoint of the $\\operatorname{arc} \\widehat{B C}$. Then $A P$ is the\nbisector of $\\angle B A C$, hence, in the isosceles triangle $A D E, A P \\perp D E$. So, the\nstatement of the problem is equivalent to $A P \\perp F G$.\n\nIn order to prove this, let $K$ be the second intersection of $\\Gamma$ with $F D$. Then the\ntriangle $F B D$ is isosceles, therefore\n\n\\[\n\\angle A K F=\\angle A B F=\\angle F D B=\\angle A D K\n\\]\n\nyielding $A K=A D$. In the same way, denoting by $L$ the second intersection of $\\Gamma$\nwith $G E$, we get $A L=A E$. This shows that $A K=A L$.\n\nNow $\\angle F B D=\\angle F D B$ gives $\\widehat{A F}=\\widehat{B F}+\\widehat{A\nK}=\\widehat{B F}+\\widehat{A L}$, hence $\\widehat{B F}=\\widehat{L F}$. In a similar\nway, we get $\\widehat{C G}=\\widehat{G K}$. This yields\n\n\\[\n\\angle(A P, F G)=\\frac{\\widehat{A F}+\\widehat{P G}}{2}=\\frac{\\widehat{A L}+\\widehat{L F}+\\widehat{P C}+\\widehat{C G}}{2}=\\frac{\\widehat{K L}+\\widehat{L B}+\\widehat{B C}+\\widehat{C K}}{4}=90^{\\circ} .\n\\]",
+    "Let $Z=A B \\cap F G, T=A C \\cap F G$. It suffices to prove that $\\angle A T Z=\\angle A Z T$.\n\nLet $X$ be the point for which $F X A D$ is a parallelogram. Then\n\n\\[\n\\angle F X A=\\angle F D A=180^{\\circ}-\\angle F D B=180^{\\circ}-\\angle F B D,\n\\]\n\nwhere in the last equality we used that $F D=F B$. It follows that the quadrilateral $B F X\nA$ is cyclic, so $X$ lies on $\\Gamma$.\n\nAnalogously, if $Y$ is the point for which $G Y A E$ is a parallelogram, then $Y$ lies on\n$\\Gamma$. So the quadrilateral $X F G Y$ is cyclic and $F X=A D=A E=G Y$, hence $X F G Y$ is\nan isosceles trapezoid.\n\nNow, by $X F \\| A Z$ and $Y G \\| A T$, it follows that $\\angle A T Z=\\angle Y G F=\\angle X F\nG=\\angle A Z T$.",
+    "As in the first solution, we prove that $F G \\perp A P$, where $P$ is the midpoint of the\nsmall arc $\\widehat{B C}$.\n\nLet $O$ be the circumcentre of the triangle $A B C$, and let $M$ and $N$ be the midpoints of\nthe small arcs $\\widehat{A B}$ and $\\widehat{A C}$, respectively. Then $O M$ and $O N$\nare the perpendicular bisectors of $A B$ and $A C$, respectively.\n\nThe distance $d$ between $O M$ and the perpendicular bisector of $B D$ is $\\frac{1}{2} A\nB-\\frac{1}{2} B D=\\frac{1}{2} A D$, hence it is equal to the distance between $O N$ and the\nperpendicular bisector of $C E$.\n\nThis shows that the isosceles trapezoid determined by the diameter $\\delta$ of $\\Gamma$\nthrough $M$ and the chord parallel to $\\delta$ through $F$ is congruent to the isosceles\ntrapezoid determined by the diameter $\\delta^{\\prime}$ of $\\Gamma$ through $N$ and the chord\nparallel to $\\delta^{\\prime}$ through $G$. Therefore $M F=N G$, yielding $M N \\| F G$.\n\nNow\n\n\\[\n\\angle(M N, A P)=\\frac{1}{2}(\\widehat{A M}+\\widehat{P C}+\\widehat{C N})=\\frac{1}{4}(\\widehat{A B}+\\widehat{B C}+\\widehat{C A})=90^{\\circ}\n\\]\n\nhence $M N \\perp A P$, and the conclusion follows."
+  ]
+}
