@@ -1,0 +1,105 @@
+ID: 0424
+
+SOURCE: IMO Shortlist
+
+YEAR: 2023
+
+TOPIC: Number Theory
+
+SUBTOPICS: Square-Free Integers, Divisibility, Rational Identities, Parametric Constructions
+
+STATEMENT:
+Let $a,b,c,d$ be positive integers satisfying
+\[
+\frac{ab}{a+b}
++
+\frac{cd}{c+d}
+=
+\frac{(a+b)(c+d)}{a+b+c+d}.
+\]
+Determine all possible values of
+\[
+a+b+c+d.
+\]
+
+SOLUTION 1:
+The possible values are exactly the positive integers that are not square-free.
+
+First, let $k,\ell$ be positive integers and take
+\[
+a=\ell,\qquad
+b=k\ell,\qquad
+c=k\ell,\qquad
+d=k^2\ell.
+\]
+Then
+\[
+\frac{ab}{a+b}
++
+\frac{cd}{c+d}
+=
+\frac{k\ell}{k+1}
++
+\frac{k^2\ell}{k+1}
+=
+k\ell,
+\]
+while
+\[
+\frac{(a+b)(c+d)}{a+b+c+d}
+=
+\frac{(k+1)\ell\cdot k(k+1)\ell}{(k+1)^2\ell}
+=
+k\ell.
+\]
+Thus the equality holds, and
+\[
+a+b+c+d=\ell(k+1)^2.
+\]
+Every non-square-free positive integer has this form: if
+\[
+p^2\mid N
+\]
+for some prime $p$, take
+\[
+k=p-1,\qquad \ell=\frac{N}{p^2}.
+\]
+Hence every non-square-free integer is attainable.
+
+Conversely, suppose the displayed equality holds, and write
+\[
+S=a+b+c+d.
+\]
+After clearing denominators,
+\[
+\bigl(ab(c+d)+cd(a+b)\bigr)S
+=
+(a+b)^2(c+d)^2.
+\tag{1}
+\]
+
+Assume for contradiction that $S$ is square-free. Let $p$ be any prime divisor of $S$. Equation (1) implies
+\[
+p\mid(a+b)(c+d).
+\]
+If $p\mid a+b$, then
+\[
+p\mid S-(a+b)=c+d;
+\]
+and the same conclusion follows if $p\mid c+d$. Thus every prime divisor of $S$ divides both
+\[
+a+b
+\qquad\text{and}\qquad
+c+d.
+\]
+Since $S$ is square-free, this implies
+\[
+S\mid a+b.
+\]
+But
+\[
+0<a+b<S,
+\]
+a contradiction.
+
+Therefore $S$ is not square-free, and the stated set of values is complete.

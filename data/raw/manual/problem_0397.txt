@@ -1,0 +1,282 @@
+ID: 0397
+
+SOURCE: IMO Shortlist
+
+YEAR: 2023
+
+TOPIC: Algebra
+
+SUBTOPICS: Functional Inequalities, Sign Analysis, Symmetry, Contrapositive
+
+STATEMENT:
+Let
+\[
+f:\mathbb R\to\mathbb R
+\]
+satisfy
+\[
+f(x+y)f(x-y)\ge f(x)^2-f(y)^2
+\tag{1}
+\]
+for all real numbers $x,y$. Assume that (1) is strict for at least one pair $(x_0,y_0)$.
+
+Prove that either
+\[
+f(x)\ge0
+\qquad\text{for every }x\in\mathbb R,
+\]
+or
+\[
+f(x)\le0
+\qquad\text{for every }x\in\mathbb R.
+\]
+
+SOLUTION 1:
+Put
+\[
+s=x+y,
+\qquad
+t=x-y.
+\]
+Then (1) becomes
+\[
+f(s)f(t)
+\ge
+f\left(\frac{s+t}{2}\right)^2
+-
+f\left(\frac{s-t}{2}\right)^2.
+\tag{2}
+\]
+Replacing $t$ by $-t$ gives
+\[
+f(s)f(-t)
+\ge
+f\left(\frac{s-t}{2}\right)^2
+-
+f\left(\frac{s+t}{2}\right)^2.
+\tag{3}
+\]
+Adding (2) and (3),
+\[
+f(s)\bigl(f(t)+f(-t)\bigr)\ge0
+\tag{4}
+\]
+for all $s,t\in\mathbb R$.
+
+For
+\[
+s_0=x_0+y_0,
+\qquad
+t_0=x_0-y_0,
+\]
+inequality (2) is strict. Therefore (4) is strict at $(s_0,t_0)$, so
+\[
+f(t_0)+f(-t_0)\ne0.
+\]
+Fixing $t=t_0$ in (4), we see that every value $f(s)$ has the same weak sign as the nonzero constant
+\[
+f(t_0)+f(-t_0).
+\]
+Thus $f$ has constant sign.
+
+SOLUTION 2:
+If
+\[
+f(0)\ne0,
+\]
+then substituting $y=x$ into (1) gives
+\[
+f(2x)f(0)\ge0
+\qquad(x\in\mathbb R).
+\]
+Since $2x$ ranges over all real numbers, $f$ has constant sign.
+
+Assume now that
+\[
+f(0)=0.
+\tag{2}
+\]
+Substituting $y=-x$ into (1) gives
+\[
+f(-x)^2\ge f(x)^2.
+\]
+Replacing $x$ by $-x$ yields the reverse inequality, and hence
+\[
+f(-x)^2=f(x)^2
+\qquad(x\in\mathbb R).
+\tag{3}
+\]
+
+Using the variables
+\[
+s=x+y,\qquad t=x-y,
+\]
+we have
+\[
+f(s)f(t)
+\ge
+f\left(\frac{s+t}{2}\right)^2
+-
+f\left(\frac{s-t}{2}\right)^2.
+\tag{4}
+\]
+Replace $s$ by $-s$ and use (3):
+\[
+f(-s)f(t)
+\ge
+f\left(\frac{s-t}{2}\right)^2
+-
+f\left(\frac{s+t}{2}\right)^2.
+\tag{5}
+\]
+Adding (4) and (5),
+\[
+\bigl(f(s)+f(-s)\bigr)f(t)\ge0.
+\tag{6}
+\]
+
+At the transformed pair corresponding to $(x_0,y_0)$, inequality (4) is strict; hence (6) is strict there. Thus there is some $s_0$ for which
+\[
+f(s_0)+f(-s_0)\ne0.
+\]
+Fixing this $s_0$ in (6) shows that all values of $f$ have the same weak sign.
+
+SOLUTION 3:
+We prove the contrapositive. Suppose that $f$ takes both signs, so there are real numbers $a,b$ with
+\[
+f(a)<0<f(b).
+\tag{2}
+\]
+We shall prove that (1) is always an equality.
+
+For arbitrary $u$, substitute
+\[
+x=\frac{a+u}{2},
+\qquad
+y=\frac{a-u}{2}
+\]
+into (1). This gives
+\[
+f(a)f(u)
+\ge
+f\left(\frac{a+u}{2}\right)^2
+-
+f\left(\frac{a-u}{2}\right)^2.
+\]
+Replace $u$ by $-u$ and add. We obtain
+\[
+f(a)\bigl(f(u)+f(-u)\bigr)\ge0.
+\]
+Since $f(a)<0$,
+\[
+f(u)+f(-u)\le0.
+\]
+Repeating the same argument with $b$ in place of $a$ and using $f(b)>0$, we obtain the reverse inequality. Therefore
+\[
+f(-u)=-f(u)
+\qquad(u\in\mathbb R);
+\]
+that is, $f$ is odd.
+
+Apply (1) first to $(x,y)$ and then to $(y,x)$. Oddness gives
+\[
+\begin{aligned}
+f(x)^2-f(y)^2
+&\le f(x+y)f(x-y)\\
+&=-f(y+x)f(y-x)\\
+&\le f(x)^2-f(y)^2.
+\end{aligned}
+\]
+Thus equality holds throughout:
+\[
+f(x+y)f(x-y)=f(x)^2-f(y)^2
+\]
+for all $x,y$. Hence, if $f$ does not have constant sign, the original inequality is never strict. This proves the contrapositive.
+
+SOLUTION 4:
+Again suppose that $f$ takes both signs. Choose $a,b$ such that
+\[
+f(a)f(b)<0.
+\tag{2}
+\]
+
+We first prove
+\[
+f(b)f(-b)<0.
+\tag{3}
+\]
+Put
+\[
+x_1=\frac{a+b}{2},
+\qquad
+y_1=\frac{a-b}{2}.
+\]
+Then
+\[
+f(a)f(b)
+\ge
+f(x_1)^2-f(y_1)^2.
+\]
+The left side is negative, so
+\[
+f(x_1)^2-f(y_1)^2<0.
+\tag{4}
+\]
+Applying (1) to $(y_1,x_1)$ gives
+\[
+f(a)f(-b)\ge f(y_1)^2-f(x_1)^2>0.
+\]
+Together with (2), this proves (3).
+
+Next, $f(0)=0$. Indeed, if $f(0)\ne0$, the substitution $y=x$ would force every value of $f$ to have the same sign. With $f(0)=0$, the substitution $y=-x$, followed by replacing $x$ by $-x$, gives
+\[
+f(x)^2=f(-x)^2
+\qquad(x\in\mathbb R).
+\tag{5}
+\]
+
+In the variables $s=x+y$ and $t=x-y$, inequality (1) becomes
+\[
+f(s)f(t)\ge\Delta,
+\qquad
+\Delta=
+f\left(\frac{s+t}{2}\right)^2
+-
+f\left(\frac{s-t}{2}\right)^2.
+\tag{6}
+\]
+Replacing both $s$ and $t$ by their negatives and using (5),
+\[
+f(-s)f(-t)\ge\Delta.
+\tag{7}
+\]
+After replacing $t$ by $-t$ when necessary, we may assume $\Delta\ge0$. Multiplying (6) and (7) gives
+\[
+f(s)f(-s)f(t)f(-t)\ge0
+\qquad(s,t\in\mathbb R).
+\]
+Hence the function
+\[
+g(s)=f(s)f(-s)
+\]
+has constant weak sign. By (3), this sign is nonpositive:
+\[
+f(s)f(-s)\le0
+\qquad(s\in\mathbb R).
+\]
+Together with (5), this yields
+\[
+f(-s)=-f(s),
+\]
+so $f$ is odd.
+
+Apply (1) to $(x,y)$ and to $(y,x)$. Using oddness,
+\[
+\begin{aligned}
+f(x)^2-f(y)^2
+&\le f(x+y)f(x-y)\\
+&=-f(y+x)f(y-x)\\
+&\le f(x)^2-f(y)^2.
+\end{aligned}
+\]
+Thus (1) is an equality for every pair $(x,y)$. A sign-changing function therefore cannot satisfy the assumed strict inequality, completing the proof.

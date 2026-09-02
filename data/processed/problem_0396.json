@@ -1,0 +1,17 @@
+{
+  "id": "0396",
+  "source": "IMO Shortlist",
+  "year": "2023",
+  "topic": "Algebra",
+  "subtopics": [
+    "Rounding",
+    "Fractional Parts",
+    "Optimization",
+    "Probabilistic Method"
+  ],
+  "statement": "Professor Oak is feeding his $100$ Pokemon. Each Pokemon has a bowl whose capacity is a positive real number of kilograms. The total capacity of all bowls is $100$ kilograms.\n\nProfessor Oak distributes $100$ kilograms of food so that each Pokemon receives a nonnegative integer number of kilograms. The dissatisfaction of a Pokemon receiving $N$ kilograms whose bowl has capacity $C$ kilograms is\n\\[\n|N-C|.\n\\]\n\nFind the smallest real number $D$ such that, for every choice of bowl capacities, Professor Oak can distribute the food so that the total dissatisfaction is at most $D$.",
+  "solutions": [
+    "The answer is\n\\[\n\\boxed{D=50}.\n\\]\n\nFor the lower bound, take $99$ bowl capacities equal to $1/2$ and the remaining capacity equal to $101/2$. Every integer differs from each of these half-integers by at least $1/2$. Hence every distribution has total dissatisfaction at least\n\\[\n100\\cdot\\frac12=50.\n\\]\nThus\n\\[\nD\\ge50.\n\\]\n\nWe now prove the matching upper bound. Let the capacities be\n\\[\nC_1,C_2,\\ldots,C_{100},\n\\qquad\nC_1+\\cdots+C_{100}=100,\n\\]\nand write\n\\[\nC_i=\\lfloor C_i\\rfloor+F_i,\n\\qquad\n0\\le F_i<1.\n\\]\nAfter relabelling, assume\n\\[\nF_1\\le F_2\\le\\cdots\\le F_{100}.\n\\]\n\nSet\n\\[\nR=100-\\sum_{i=1}^{100}\\lfloor C_i\\rfloor\n=\\sum_{i=1}^{100}F_i.\n\\]\nThe number $R$ is an integer. Give $\\lfloor C_i\\rfloor$ kilograms to every Pokemon, and give one additional kilogram to the $R$ Pokemon with the largest fractional parts.\n\nThe resulting total dissatisfaction is\n\\[\n\\begin{aligned}\nd\n&=\nF_1+\\cdots+F_{100-R}\n+(1-F_{100-R+1})+\\cdots+(1-F_{100})\\\\\n&=\n2(F_1+\\cdots+F_{100-R}).\n\\end{aligned}\n\\tag{1}\n\\]\nBecause the first $100-R$ fractional parts have average at most the average of all $100$ fractional parts,\n\\[\nF_1+\\cdots+F_{100-R}\n\\le\n\\frac{100-R}{100}(F_1+\\cdots+F_{100})\n=\n\\frac{R(100-R)}{100}.\n\\]\nTogether with (1),\n\\[\nd\\le\\frac{2R(100-R)}{100}\\le50.\n\\]\nTherefore $D\\le50$, and hence\n\\[\n\\boxed{D=50}.\n\\]",
+    "Again,\n\\[\n\\boxed{D=50}.\n\\]\n\nThe example with $99$ capacities equal to $1/2$ and one equal to $101/2$ proves\n\\[\nD\\ge50.\n\\]\n\nFor the upper bound, write\n\\[\nC_i=\\lfloor C_i\\rfloor+F_i,\n\\qquad\nR=\\sum_{i=1}^{100}F_i.\n\\]\nAs\n\\[\nR=100-\\sum_{i=1}^{100}\\lfloor C_i\\rfloor,\n\\]\nthe number $R$ is an integer.\n\nChoose uniformly at random an $R$-element subset of the $100$ Pokemon. Give one extra kilogram, in addition to $\\lfloor C_i\\rfloor$, precisely to the chosen Pokemon.\n\nFor each fixed $i$, the probability of receiving the extra kilogram is $R/100$. Thus its expected dissatisfaction is\n\\[\n\\frac{100-R}{100}F_i+\\frac{R}{100}(1-F_i).\n\\]\nThe expected total dissatisfaction is therefore\n\\[\n\\begin{aligned}\n\\sum_{i=1}^{100}\n\\left(\n\\frac{100-R}{100}F_i+\\frac{R}{100}(1-F_i)\n\\right)\n&=\n\\frac{100-R}{100}R+\\frac{R}{100}(100-R)\\\\\n&=\n\\frac{2R(100-R)}{100}\\\\\n&\\le50.\n\\end{aligned}\n\\]\nHence at least one of the possible distributions has total dissatisfaction at most $50$. This proves the upper bound and completes the solution."
+  ]
+}

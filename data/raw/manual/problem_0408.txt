@@ -1,0 +1,108 @@
+ID: 0408
+
+SOURCE: IMO Shortlist
+
+YEAR: 2023
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Monotone Grid Paths, Geometric Packing, Reflection Arguments, Induction
+
+STATEMENT:
+Let $N$ be a positive integer. A \emph{right-down path} in an $N\times N$ grid is a sequence of cells in which every cell after the first is immediately to the right of or immediately below the preceding cell.
+
+A \emph{right-up path} is defined analogously, with every step going immediately to the right or immediately above.
+
+Prove that the cells of the grid cannot be partitioned into fewer than $N$ right-down or right-up paths.
+
+SOLUTION 1:
+We translate the problem into a packing problem.
+
+Split unit cells along diagonals into isosceles right triangles. A \emph{good parallelogram} is the union of two such half-cells in adjacent unit squares, in one of the four orientations obtained by joining two congruent right triangles along a leg.
+
+There is an elementary local correspondence between path partitions and packings by good parallelograms. For every step between consecutive cells of a path, place a good parallelogram across their common side. At an internal cell, choose the two local orientations so that the parallelogram belonging to the entering step uses one half-cell and the parallelogram belonging to the leaving step uses the other; a direct check covers the straight and turning cases for both path types. Endpoint cells use only one half-cell. Thus a path with $r$ cells produces $r-1$ disjoint good parallelograms, of total area $r-1$, and leaves area exactly $1$. Different paths use disjoint half-cells. Hence a partition into $q$ paths produces a packing leaving total area $q$ uncovered.
+
+It is therefore enough to show that every such packing in an $N\times N$ square leaves area at least $N$.
+
+In each unit cell, draw a diagonal whose interior does not meet any packed parallelogram. Regard these diagonals as mirrors. Launch a laser ray perpendicularly inward from each of the $4N$ unit boundary edges. The mirrors pair the boundary edges into $2N$ nonintersecting laser trajectories.
+
+Passing through a packed good parallelogram causes two reflections, after which the ray has its original direction again. Therefore:
+
+\begin{itemize}
+\item if a trajectory joins a vertical boundary edge to a horizontal one, it passes through at least one uncovered half-cell;
+\item if it joins two edges on the same side of the square, it passes through at least two uncovered half-cells.
+\end{itemize}
+
+Classify the $2N$ boundary-edge pairs into three types:
+
+\[
+\begin{array}{ll}
+\text{Type 1:}&\text{one vertical and one horizontal edge},\\
+\text{Type 2:}&\text{two edges on the same side},\\
+\text{Type 3:}&\text{two edges on opposite sides}.
+\end{array}
+\]
+
+Nonintersecting trajectories cannot include both a vertical type-3 pair and a horizontal type-3 pair. Thus, without loss of generality, suppose that there are $t$ type-3 pairs and all of them use vertical edges.
+
+After these pairs are removed, all $2N$ horizontal boundary edges remain, while only $2N-2t$ vertical boundary edges remain. Consequently, at least $t$ of the horizontal pairs must be of type 2. If there are $u\ge t$ type-2 pairs, then there are
+\[
+2N-t-u
+\]
+type-1 pairs.
+
+Distinct trajectories use disjoint uncovered half-cells. Hence the number of uncovered half-cells is at least
+\[
+(2N-t-u)+2u
+=
+2N-t+u
+\ge2N.
+\]
+Each half-cell has area $1/2$, so the uncovered area is at least
+\[
+N.
+\]
+Therefore the original partition has at least $N$ paths.
+
+SOLUTION 2:
+We use induction on $N$. The case $N=1$ is immediate.
+
+Let $P$ be the path containing the upper-left cell.
+
+If $P$ is a right-up path, then every cell of $P$ lies in the top row or the leftmost column. The lower-right $(N-1)\times(N-1)$ subgrid is partitioned by the intersections of the other paths with it. By induction, at least $N-1$ paths meet this subgrid. Together with $P$, the original partition has at least $N$ paths.
+
+Now suppose that $P$ is a right-down path. Orient it from the upper-left cell and extend it to a right-down path $Q$ ending at the lower-right cell.
+
+Initially set
+\[
+Q=P.
+\]
+Let $A$ be the last cell of the current $Q$. If it is not the lower-right cell, let $B$ be the cell immediately below $A$, when it exists, and let $C$ be the cell immediately to the right, when it exists. Maintain the condition that $B$ and $C$ do not belong to the same original path as $A$.
+
+Extend $Q$ according to the first applicable rule:
+
+\begin{enumerate}
+\item If $B$ lies on a right-down path $R$, append the part of $R$ from $B$ to the end of $R$.
+\item If $C$ lies on a right-down path $R$, append the part of $R$ from $C$ to the end of $R$.
+\item If $B$ lies on a right-up path $R$ whose endpoint is $B$, append, in reverse order from $B$ downward, the portion of $R$ lying in the column of $B$.
+\item If $C$ lies on a right-up path $R$ whose starting point is $C$, append the portion of $R$ lying in the row of $C$.
+\item In every remaining case, $B$ and $C$ lie on the same right-up path. Append $B$ and the cell immediately to the right of $B$.
+\end{enumerate}
+
+If $B$ does not exist, rule 4 applies; if $C$ does not exist, rule 3 applies. A direct check in each case shows that the enlarged $Q$ is still right-down and again satisfies the maintained condition at its new endpoint. Thus the process reaches the lower-right cell.
+
+The staircase $Q$ separates the remaining cells into a region above it and a region below it. Remove $Q$ and glue these two regions together along the staircase. The result is an $(N-1)\times(N-1)$ grid.
+
+We verify that the remaining pieces of the original paths still form right-down or right-up paths after this gluing.
+
+\begin{itemize}
+\item In rules 1 and 2, $Q$ removes a terminal segment of a right-down path, so the remainder is still right-down.
+\item In rules 3 and 4, it removes an end segment of a right-up path, so the remainder is still right-up.
+\item In rule 5, it removes exactly two adjacent cells of one right-up path; the two remaining portions are joined by the gluing and become one right-up path.
+\end{itemize}
+
+Hence the smaller grid inherits a valid path partition. By induction, it contains at least $N-1$ paths. The original path $P$ is contained in $Q$ and is not among those remaining paths, so the original partition contains at least
+\[
+(N-1)+1=N
+\]
+paths.

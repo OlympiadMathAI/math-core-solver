@@ -1,0 +1,112 @@
+ID: 0400
+
+SOURCE: IMO Shortlist
+
+YEAR: 2023
+
+TOPIC: Algebra
+
+SUBTOPICS: Permutations, Triangle Inequality, Extremal Sums, Graceful Permutations
+
+STATEMENT:
+Let
+\[
+a_1,a_2,\ldots,a_{2023}
+\]
+be positive integers such that
+
+\begin{itemize}
+\item $a_1,a_2,\ldots,a_{2023}$ is a permutation of $1,2,\ldots,2023$;
+\item
+\[
+|a_1-a_2|,|a_2-a_3|,\ldots,|a_{2022}-a_{2023}|
+\]
+is a permutation of $1,2,\ldots,2022$.
+\end{itemize}
+
+Prove that
+\[
+\max(a_1,a_{2023})\ge507.
+\]
+
+SOLUTION 1:
+We prove the following more general statement.
+
+Let $N$ be a positive integer, and let
+\[
+a_1,a_2,\ldots,a_{2N-1}
+\]
+be a permutation of $1,2,\ldots,2N-1$ whose consecutive absolute differences are a permutation of
+\[
+1,2,\ldots,2N-2.
+\]
+Then
+\[
+a_1+a_{2N-1}\ge N+1.
+\tag{1}
+\]
+
+For
+\[
+a\in\{1,2,\ldots,2N-1\},
+\]
+define its score by
+\[
+s(a)=|a-N|.
+\]
+The triangle inequality gives
+\[
+|a-b|\le s(a)+s(b).
+\]
+Therefore
+\[
+\begin{aligned}
+(N-1)(2N-1)
+&=
+\sum_{i=1}^{2N-2}|a_i-a_{i+1}|\\
+&\le
+2\sum_{i=1}^{2N-1}s(a_i)
+-s(a_1)-s(a_{2N-1}).
+\end{aligned}
+\tag{2}
+\]
+The scores form the multiset
+\[
+0,1,1,2,2,\ldots,N-1,N-1,
+\]
+so
+\[
+\sum_{i=1}^{2N-1}s(a_i)=N(N-1).
+\]
+Substituting this into (2),
+\[
+s(a_1)+s(a_{2N-1})\le N-1.
+\tag{3}
+\]
+Since
+\[
+N-a\le|a-N|=s(a)
+\]
+for every $a$, equation (3) gives
+\[
+(N-a_1)+(N-a_{2N-1})\le N-1.
+\]
+This is equivalent to (1).
+
+For the problem, take
+\[
+2N-1=2023,
+\qquad N=1012.
+\]
+Then
+\[
+a_1+a_{2023}\ge1013,
+\]
+and hence
+\[
+\max(a_1,a_{2023})
+\ge
+\left\lceil\frac{1013}{2}\right\rceil
+=
+507.
+\]

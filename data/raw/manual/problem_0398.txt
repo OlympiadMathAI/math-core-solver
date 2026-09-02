@@ -1,0 +1,203 @@
+ID: 0398
+
+SOURCE: IMO Shortlist
+
+YEAR: 2023
+
+TOPIC: Algebra
+
+SUBTOPICS: Cauchy-Schwarz Inequality, AM-GM Inequality, Integer Sequences, Gap Estimates
+
+STATEMENT:
+Let
+\[
+x_1,x_2,\ldots,x_{2023}
+\]
+be distinct positive real numbers. For
+\[
+n=1,2,\ldots,2023,
+\]
+define
+\[
+a_n=
+\sqrt{
+(x_1+x_2+\cdots+x_n)
+\left(
+\frac1{x_1}+\frac1{x_2}+\cdots+\frac1{x_n}
+\right)
+}.
+\]
+Assume that every $a_n$ is an integer.
+
+Prove that
+\[
+a_{2023}\ge3034.
+\]
+
+SOLUTION 1:
+Put
+\[
+S_n=x_1+\cdots+x_n,
+\qquad
+T_n=\frac1{x_1}+\cdots+\frac1{x_n}.
+\]
+Then
+\[
+a_n^2=S_nT_n.
+\]
+
+For every $n<2023$,
+\[
+\begin{aligned}
+a_{n+1}^2
+&=(S_n+x_{n+1})
+\left(T_n+\frac1{x_{n+1}}\right)\\
+&=
+a_n^2+1+\frac{S_n}{x_{n+1}}+x_{n+1}T_n\\
+&\ge
+a_n^2+1+2\sqrt{S_nT_n}\\
+&=(a_n+1)^2.
+\end{aligned}
+\tag{1}
+\]
+Thus
+\[
+a_{n+1}\ge a_n+1.
+\]
+Also,
+\[
+a_1=1,
+\]
+while Cauchy-Schwarz and $x_1\ne x_2$ give
+\[
+a_2>2,
+\]
+so
+\[
+a_2\ge3.
+\tag{2}
+\]
+
+We claim that two consecutive increments cannot both equal $1$. Suppose
+\[
+a_{n+1}=a_n+1.
+\]
+Equality must then hold in the AM-GM step in (1), so
+\[
+\frac{S_n}{x_{n+1}}=x_{n+1}T_n.
+\tag{3}
+\]
+If also
+\[
+a_{n+2}=a_{n+1}+1,
+\]
+the analogous equality gives
+\[
+\frac{S_n+x_{n+1}}{x_{n+2}}
+=
+x_{n+2}
+\left(T_n+\frac1{x_{n+1}}\right).
+\tag{4}
+\]
+Using (3), both sides of (4) contain the common positive factor
+\[
+x_{n+1}T_n+1,
+\]
+and (4) reduces to
+\[
+\frac{x_{n+1}}{x_{n+2}}
+=
+\frac{x_{n+2}}{x_{n+1}}.
+\]
+Hence
+\[
+x_{n+1}=x_{n+2},
+\]
+contrary to distinctness.
+
+Therefore, among every two consecutive increments
+\[
+a_{j+1}-a_j,
+\]
+at least one is at least $2$, and the first increment is already at least $2$ by (2). Pairing the $2022$ increments gives
+\[
+a_{2023}
+\ge
+1+1011(2+1)
+=
+3034.
+\]
+
+SOLUTION 2:
+With
+\[
+S_n=x_1+\cdots+x_n,
+\qquad
+T_n=\frac1{x_1}+\cdots+\frac1{x_n},
+\]
+we have
+\[
+a_n^2=S_nT_n.
+\]
+
+Fix $n\le2021$, and put
+\[
+u=x_{n+1},
+\qquad
+v=x_{n+2}.
+\]
+Expanding,
+\[
+\begin{aligned}
+a_{n+2}^2
+&=
+a_n^2
++
+(u+v)\left(\frac1u+\frac1v\right)
++
+S_n\left(\frac1u+\frac1v\right)
++
+(u+v)T_n\\
+&\ge
+a_n^2
++
+(u+v)\left(\frac1u+\frac1v\right)\\
+&\quad+
+2a_n
+\sqrt{
+(u+v)\left(\frac1u+\frac1v\right)
+}.
+\end{aligned}
+\]
+Thus
+\[
+a_{n+2}
+\ge
+a_n+
+\sqrt{
+(u+v)\left(\frac1u+\frac1v\right)
+}.
+\tag{1}
+\]
+Since $u\ne v$,
+\[
+(u+v)\left(\frac1u+\frac1v\right)>4.
+\]
+Therefore
+\[
+a_{n+2}>a_n+2.
+\]
+Both sides are integers, so
+\[
+a_{n+2}\ge a_n+3.
+\tag{2}
+\]
+
+Starting from $a_1=1$ and applying (2) to the odd-indexed terms,
+\[
+a_{2k+1}\ge1+3k.
+\]
+Taking $k=1011$ gives
+\[
+a_{2023}\ge1+3\cdot1011=3034.
+\]

@@ -1,0 +1,380 @@
+ID: 0415
+
+SOURCE: IMO Shortlist
+
+YEAR: 2023
+
+TOPIC: Geometry
+
+SUBTOPICS: Homothety, Menelaus' Theorem, Spiral Similarity, Inversion, Harmonic Cross Ratios
+
+STATEMENT:
+Let $ABC$ be an acute triangle with circumcircle $\omega$. A circle $\Gamma$ is internally tangent to $\omega$ at $A$ and tangent to $BC$ at $D$.
+
+The lines $AB$ and $AC$ meet $\Gamma$ again at $P$ and $Q$, respectively. Choose $M,N$ on line $BC$ so that $B$ is the midpoint of $DM$ and $C$ is the midpoint of $DN$.
+
+The lines $MP$ and $NQ$ meet at $K$ and meet $\Gamma$ again at $I$ and $J$, respectively. The ray $KA$ meets the circumcircle of triangle $IJK$ again at $X\ne K$.
+
+Prove that
+\[
+\angle BXP=\angle CXQ.
+\]
+
+SOLUTION 1:
+Let
+\[
+K_1=MP\cap AD,
+\qquad
+K_2=NQ\cap AD.
+\]
+Applying Menelaus' theorem to triangle $ABD$ and the transversal $M,P,K_1$ gives
+\[
+\frac{AK_1}{K_1D}
+=
+\frac{AP}{PB}\cdot\frac{BM}{MD}
+=
+\frac{AP}{2PB},
+\tag{1}
+\]
+because $B$ is the midpoint of $DM$. Similarly,
+\[
+\frac{AK_2}{K_2D}
+=
+\frac{AQ}{2QC}.
+\tag{2}
+\]
+
+The homothety centred at $A$ which sends $\Gamma$ to $\omega$ sends
+\[
+P\longmapsto B,
+\qquad
+Q\longmapsto C.
+\]
+It also sends $D$ to the midpoint of arc $BC$ not containing $A$: the tangent at the image of $D$ is parallel to the tangent $BC$ at $D$. Consequently,
+\[
+PQ\parallel BC
+\tag{3}
+\]
+and
+\[
+AD
+\]
+is the internal angle bisector of $\angle BAC$.
+
+If the homothety ratio is $\lambda$, then
+\[
+AB=\lambda AP,
+\qquad
+AC=\lambda AQ.
+\]
+Hence
+\[
+PB=(\lambda-1)AP,
+\qquad
+QC=(\lambda-1)AQ,
+\]
+so
+\[
+\frac{AP}{PB}=\frac{AQ}{QC}.
+\]
+Equations (1)-(2) yield
+\[
+K_1=K_2.
+\]
+Therefore
+\[
+K\in AD.
+\tag{4}
+\]
+
+Since $K,X,A,D$ are collinear and $I,J,K,X$ are cyclic,
+\[
+\begin{aligned}
+\angle JXD
+&=\angle JXK\\
+&=\angle JIK\\
+&=\angle JIP\\
+&=\angle JQP\\
+&=\angle JND.
+\end{aligned}
+\tag{5}
+\]
+Here $I,K,P$ are collinear, $J,K,Q,N$ are collinear, the points $P,Q,I,J$ lie on $\Gamma$, and the last equality uses (3).
+
+Equation (5) gives
+\[
+J,X,N,D
+\]
+cyclic. Therefore
+\[
+\angle DXN
+=
+\angle DJN
+=
+\angle DJQ
+=
+\angle DAQ
+=
+\angle DAC.
+\]
+Thus
+\[
+XN\parallel AC.
+\tag{6}
+\]
+In triangle $DXN$, the point $C$ is the midpoint of $DN$. The line through $C$ parallel to $XN$ meets $DX$ at $A$, so the midpoint theorem and (6) show that
+\[
+A
+\]
+is the midpoint of $DX$. In particular,
+\[
+XA=AD.
+\tag{7}
+\]
+
+The homothety above makes triangles $APQ$ and $ABC$ similar. Hence
+\[
+\angle AQP=\angle ACB.
+\]
+Because $A,P,Q,D$ lie on $\Gamma$,
+\[
+\angle ADP=\angle AQP=\angle ACB=\angle ACD.
+\]
+Together with
+\[
+\angle PAD=\angle DAC,
+\]
+this gives
+\[
+\triangle APD\sim\triangle ADC.
+\]
+Therefore
+\[
+\frac{CD}{DP}
+=
+\frac{AD}{AP}
+=
+\frac{XA}{AP},
+\tag{8}
+\]
+where (7) was used.
+
+Since $BC$ is tangent to $\Gamma$ at $D$, the tangent-chord theorem gives
+\[
+\angle PDB=\angle PAD.
+\]
+The rays $DB$ and $DC$ are opposite, as are $AD$ and $AX$. Thus
+\[
+\angle CDP
+=
+180^\circ-\angle PDB
+=
+180^\circ-\angle PAD
+=
+\angle XAP.
+\tag{9}
+\]
+Equations (8)-(9) imply
+\[
+\triangle PDC\sim\triangle PAX.
+\]
+Hence $P$ is the centre of a spiral similarity sending
+\[
+CD\longmapsto XA.
+\]
+A standard consequence is
+\[
+\triangle PXC\sim\triangle PAD,
+\]
+and therefore
+\[
+\angle PXC=\angle PAD=\frac12\angle BAC.
+\tag{10}
+\]
+
+It follows that
+\[
+\angle BXP
+=
+\angle BXC-\frac12\angle BAC.
+\tag{11}
+\]
+The whole construction and the argument are symmetric under
+\[
+(B,P,M,I)\longleftrightarrow(C,Q,N,J),
+\]
+while $A,D,K,X$ remain fixed. Thus the same reasoning gives
+\[
+\angle CXQ
+=
+\angle BXC-\frac12\angle BAC.
+\tag{12}
+\]
+Equations (11)-(12) prove the result.
+
+SOLUTION 2:
+The homothety centred at $A$ taking $\Gamma$ to $\omega$ gives
+\[
+PQ\parallel BC
+\]
+and shows that $AD$ is the internal angle bisector of $\angle BAC$. Applying Menelaus' theorem exactly as follows,
+\[
+\frac{A(MP\cap AD)}{(MP\cap AD)D}
+=
+\frac{AP}{2PB},
+\qquad
+\frac{A(NQ\cap AD)}{(NQ\cap AD)D}
+=
+\frac{AQ}{2QC},
+\]
+and using
+\[
+\frac{AP}{PB}=\frac{AQ}{QC},
+\]
+we obtain
+\[
+K\in AD.
+\tag{1}
+\]
+
+Put
+\[
+A^*=PQ\cap AD.
+\]
+Because $C$ is the midpoint of $DN$, the quadruple on line $BC$ is harmonic:
+\[
+(C,\infty_{BC};N,D)=-1.
+\]
+Projecting from $Q$ first to line $AD$ and then to the circle $\Gamma$ gives
+\[
+-1
+=
+(A,A^*;K,D)
+=
+(A,P;J,D).
+\tag{2}
+\]
+Indeed,
+\[
+C\mapsto A,\quad
+\infty_{BC}\mapsto A^*,\quad
+N\mapsto K,\quad
+D\mapsto D,
+\]
+and then
+\[
+A\mapsto A,\quad
+A^*\mapsto P,\quad
+K\mapsto J,\quad
+D\mapsto D.
+\]
+Similarly, using that $B$ is the midpoint of $DM$ and projecting from $P$,
+\[
+(A,Q;I,D)=-1.
+\tag{3}
+\]
+
+The tangent $BC$ at $D$ is parallel to chord $PQ$, so $D$ is the midpoint of an arc $PQ$ of $\Gamma$. Hence
+\[
+DP=DQ.
+\tag{4}
+\]
+Invert about $D$ with radius $DP$, and write $U^*$ for the inverse of $U$. The points $P$ and $Q$ are fixed. The circle $\Gamma=(DAPQ)$ and line $PQ$ are interchanged, so the inverse of $A$ is precisely the point $A^*$ defined above.
+
+Apply inversion to the harmonic relations (2)-(3). Since $D$ goes to the point at infinity,
+\[
+I^*,\ J^*,\ K^*
+\]
+are respectively the midpoints of
+\[
+A^*Q,\qquad A^*P,\qquad A^*A.
+\tag{5}
+\]
+
+The circle $(IJKX)$ inverts to the circle $(I^*J^*K^*X^*)$. The homothety of ratio $2$ centred at $A^*$ sends
+\[
+I^*\longmapsto Q,\qquad
+J^*\longmapsto P,\qquad
+K^*\longmapsto A.
+\]
+It therefore sends the circle $(I^*J^*K^*)$ to $\Gamma$. Its two intersections with $AD$ correspond to the two intersections $A,D$ of $\Gamma$ with $AD$. Since $K^*$ maps to $A$, the other intersection $X^*$ maps to $D$. Thus
+\[
+X^*\ \text{is the midpoint of }A^*D.
+\tag{6}
+\]
+
+Standard angle relations under inversion, together with the tangent-chord theorem, give
+\[
+\angle PDB
+=
+\angle BAD
+=
+\angle DAC
+=
+\angle DC^*A^*.
+\]
+Hence
+\[
+DP\parallel C^*A^*.
+\]
+Also,
+\[
+A^*P\subset PQ\parallel BC=DC^*.
+\]
+Therefore
+\[
+PA^*C^*D
+\]
+is a parallelogram. Similarly,
+\[
+QA^*B^*D
+\]
+is a parallelogram.
+
+By (6), $X^*$ is the midpoint of the diagonal $A^*D$ of each parallelogram. Consequently,
+\[
+B^*,X^*,Q\ \text{are collinear},
+\qquad
+C^*,X^*,P\ \text{are collinear}.
+\tag{7}
+\]
+
+We now compare the desired angles. The standard formula for angles under inversion gives
+\[
+\begin{aligned}
+\angle BXP-\angle CXQ
+&=
+(\angle BXD-\angle PXD)
+-
+(\angle DXC-\angle DXQ)\\
+&=
+(\angle DB^*X^*-\angle DPX^*)
+-
+(\angle X^*C^*D-\angle X^*QD).
+\end{aligned}
+\tag{8}
+\]
+Because $DP=DQ$, triangle $DPQ$ is isosceles. Using this and (7), expression (8) becomes
+\[
+\begin{aligned}
+&
+\bigl(\angle DB^*X^*+\angle X^*PQ\bigr)
+-
+\bigl(\angle X^*C^*D+\angle PQX^*\bigr)\\
+&=
+\bigl(\angle DB^*Q-\angle PQB^*\bigr)
+-
+\bigl(\angle PC^*D-\angle C^*PQ\bigr).
+\end{aligned}
+\]
+Now
+\[
+DB^*\parallel PQ
+\qquad\text{and}\qquad
+DC^*\parallel PQ,
+\]
+because $B^*,C^*,D$ lie on $BC$. Both parentheses are therefore $0$. Hence
+\[
+\angle BXP-\angle CXQ=0,
+\]
+which is the required equality.

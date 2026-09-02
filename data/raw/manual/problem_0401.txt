@@ -1,0 +1,430 @@
+ID: 0401
+
+SOURCE: IMO Shortlist
+
+YEAR: 2023
+
+TOPIC: Algebra
+
+SUBTOPICS: Polynomial Sequences, Monotonicity, Extremal Principle, Polynomial Factorization
+
+STATEMENT:
+Let $k\ge2$ be an integer. Determine all sequences of positive integers
+\[
+a_1,a_2,a_3,\ldots
+\]
+for which there exists a monic polynomial $P$ of degree $k$ with nonnegative integer coefficients such that
+\[
+P(a_n)=a_{n+1}a_{n+2}\cdots a_{n+k}
+\tag{1}
+\]
+for every integer $n\ge1$.
+
+SOLUTION 1:
+The required sequences are precisely the arithmetic progressions of positive integers with nonnegative common difference. More explicitly,
+\[
+\boxed{a_n=a_1+(n-1)d\quad(n\ge1)}
+\]
+for some integer $d\ge0$, and the corresponding polynomial is
+\[
+\boxed{P(x)=(x+d)(x+2d)\cdots(x+kd)}.
+\]
+
+Every such sequence and polynomial clearly satisfy (1). We prove the converse.
+
+Because $P$ is monic and has nonnegative coefficients, it is strictly increasing on the positive real axis.
+
+If $(a_n)$ is eventually constant, say equal to $c$, then
+\[
+P(c)=c^k.
+\]
+Since
+\[
+P(x)=x^k+\text{terms with nonnegative coefficients},
+\]
+this forces
+\[
+P(x)=x^k.
+\]
+Equation (1), used backwards, then shows that every $a_n=c$. This is the case $d=0$.
+
+Assume from now on that the sequence is not eventually constant. Comparing (1) for $n$ and $n+1$ gives
+\[
+\begin{aligned}
+a_n<a_{n+1}
+&\Longleftrightarrow
+a_{n+1}<a_{n+k+1},\\
+a_n>a_{n+1}
+&\Longleftrightarrow
+a_{n+1}>a_{n+k+1},\\
+a_n=a_{n+1}
+&\Longleftrightarrow
+a_{n+1}=a_{n+k+1}.
+\end{aligned}
+\tag{2}
+\]
+
+We first show that $(a_n)$ is nondecreasing. Suppose that
+\[
+a_{r-1}>a_r
+\]
+for some $r\ge2$. By (2),
+\[
+a_r>a_{r+k}.
+\]
+Starting with $r_0=r$, choose $r_{j+1}$ to be the smallest index greater than $r_j$ such that
+\[
+a_{r_{j+1}}<a_{r_j}.
+\]
+Then
+\[
+r_j<r_{j+1}\le r_j+k.
+\]
+By minimality,
+\[
+a_{r_{j+1}-1}>a_{r_{j+1}},
+\]
+and the values
+\[
+a_{r_0}>a_{r_1}>a_{r_2}>\cdots
+\]
+form an infinite strictly decreasing sequence of positive integers, a contradiction.
+
+Thus $(a_n)$ is nondecreasing. If
+\[
+a_n=a_{n+1}
+\]
+for some $n$, then (2) and monotonicity give
+\[
+a_n=a_{n+1}=\cdots=a_{n+k+1}.
+\]
+Repeating the argument makes the sequence eventually constant, contrary to assumption. Hence
+\[
+a_n<a_{n+1}
+\qquad(n\ge1).
+\tag{3}
+\]
+
+Write
+\[
+P(x)=x^k+bx^{k-1}+\text{terms of degree at most }k-2,
+\]
+where $b$ is a nonnegative integer.
+
+We need a uniform comparison. There exists $A>0$ such that, for every $k$-tuple of positive integers
+\[
+(c_1,\ldots,c_k),
+\]
+and every $x\ge A$,
+
+\[
+c_1+\cdots+c_k>b
+\quad\Longrightarrow\quad
+P(x)<\prod_{i=1}^k(x+c_i),
+\tag{4}
+\]
+and
+\[
+c_1+\cdots+c_k<b
+\quad\Longrightarrow\quad
+P(x)>\prod_{i=1}^k(x+c_i).
+\tag{5}
+\]
+
+For (5), there are only finitely many positive integer tuples whose sum is smaller than $b$, and each comparison follows from the coefficient of $x^{k-1}$.
+
+For (4), if $b+1\ge k$, reduce the $c_i$, if necessary, to positive integers $d_i\le c_i$ with
+\[
+d_1+\cdots+d_k=b+1.
+\]
+There are only finitely many such tuples, and for each one the product has $x^{k-1}$-coefficient $b+1>b$. If $b+1<k$, simply use
+\[
+\prod_{i=1}^k(x+c_i)\ge(x+1)^k,
+\]
+whose $x^{k-1}$-coefficient $k$ is greater than $b$. This proves the uniform comparison.
+
+By (3), $a_n\to\infty$. For sufficiently large $n$, put
+\[
+c_i=a_{n+i}-a_n
+\qquad(1\le i\le k).
+\]
+Equation (1) reads
+\[
+P(a_n)=\prod_{i=1}^k(a_n+c_i).
+\]
+The comparisons (4)-(5) force
+\[
+\sum_{i=1}^k(a_{n+i}-a_n)=b
+\tag{6}
+\]
+for all sufficiently large $n$.
+
+Subtracting (6) at $n$ from the same equality at $n+1$ gives
+\[
+a_{n+k+1}-a_{n+1}
+=
+k(a_{n+1}-a_n).
+\tag{7}
+\]
+Let
+\[
+d=\min\{a_{n+1}-a_n:n\ge N\},
+\]
+where $N$ is large enough for (7) to hold, and choose $n\ge N$ attaining this minimum. Equation (7) becomes
+\[
+\sum_{i=1}^k(a_{n+i+1}-a_{n+i})=kd.
+\]
+Every summand is at least $d$, so all of them equal $d$. Repeating this argument,
+\[
+a_{m+1}-a_m=d
+\qquad(m\ge n).
+\tag{8}
+\]
+
+For infinitely many values $x=a_m$, equation (1) and (8) give
+\[
+P(x)=(x+d)(x+2d)\cdots(x+kd).
+\]
+Hence this is an identity of polynomials.
+
+Finally, we extend (8) backwards. Suppose the arithmetic progression has already been established from $a_n$ onward. Equation (1) at $n-1$ gives
+\[
+\prod_{i=1}^k(a_{n-1}+id)
+=
+\prod_{i=0}^{k-1}(a_n+id).
+\]
+Since $0<a_{n-1}<a_n$, termwise comparison shows that equality is possible only when
+\[
+a_{n-1}=a_n-d.
+\]
+Descending induction proves that the whole sequence is the required arithmetic progression.
+
+SOLUTION 2:
+We again prove that every nonconstant solution is an arithmetic progression.
+
+The eventually constant case is immediate: if the tail is constantly $c$, then $P(c)=c^k$, so the nonnegative lower coefficients of $P$ all vanish. Thus $P(x)=x^k$, and (1) forces the whole sequence to be constant.
+
+Assume that the sequence is not eventually constant.
+
+\textbf{Claim 1.}
+There are infinitely many indices $n$ such that
+\[
+a_n\le\min(a_{n+1},\ldots,a_{n+k}).
+\tag{2}
+\]
+
+Indeed, otherwise every sufficiently large $a_n$ would be larger than at least one of the next $k$ terms. Repeatedly moving to such a smaller later term would produce an infinite strictly decreasing sequence of positive integers.
+
+If
+\[
+P(x)=x^k,
+\]
+then at every index satisfying (2), equation (1) and the inequalities $a_{n+i}\ge a_n$ force
+\[
+a_n=a_{n+1}=\cdots=a_{n+k}.
+\]
+The recurrence then makes the sequence eventually constant, a contradiction. Therefore
+\[
+P(x)>x^k
+\qquad(x>0).
+\tag{3}
+\]
+
+\textbf{Claim 2.}
+For every $M>0$, all sufficiently large terms satisfy
+\[
+a_n>M.
+\tag{4}
+\]
+
+Suppose instead that $a_i\le M$ for infinitely many $i$. For each such $i$,
+\[
+a_{i+1}\cdots a_{i+k}=P(a_i)\le P(M),
+\]
+so the $k$-tuple
+\[
+(a_{i+1},\ldots,a_{i+k})
+\]
+has only finitely many possible values. Two such tuples must coincide. Since each following term is uniquely determined by the preceding $k$ terms and (1), the sequence is eventually periodic.
+
+Multiply
+\[
+a_n^k<P(a_n)=a_{n+1}\cdots a_{n+k}
+\]
+over one full period. By periodicity, the products on the two sides are equal, a contradiction. This proves (4).
+
+Write
+\[
+P(x)=x^k+bx^{k-1}+Q(x),
+\qquad
+\deg Q\le k-2.
+\]
+Choose $M$ so large that
+\[
+Q(x)<x^{k-1}
+\qquad(x>M).
+\tag{5}
+\]
+By Claims 1 and 2, infinitely many indices $n$ satisfy both (2) and $a_n>M$. Call them good indices.
+
+For a good index, if some
+\[
+a_{n+i}\ge a_n+b+1,
+\]
+then all the other $k-1$ factors are at least $a_n$, and
+\[
+P(a_n)=a_{n+1}\cdots a_{n+k}
+\ge
+(a_n+b+1)a_n^{k-1}
+>
+a_n^k+ba_n^{k-1}+Q(a_n),
+\]
+contradicting (5). Hence
+\[
+a_n\le a_{n+i}\le a_n+b
+\qquad(1\le i\le k).
+\tag{6}
+\]
+
+There are only finitely many possible difference tuples
+\[
+(a_{n+1}-a_n,\ldots,a_{n+k}-a_n).
+\]
+Thus, for infinitely many good indices, one fixed tuple
+\[
+(b_1,\ldots,b_k),
+\qquad
+0\le b_i\le b,
+\]
+occurs. For these indices,
+\[
+a_{n+i}=a_n+b_i
+\qquad(1\le i\le k),
+\]
+and
+\[
+P(a_n)=\prod_{i=1}^k(a_n+b_i).
+\]
+Because the values $a_n$ are unbounded, we obtain the polynomial identity
+\[
+P(x)=\prod_{i=1}^k(x+b_i).
+\tag{7}
+\]
+
+We now determine the $b_i$. Fix
+\[
+1\le i<j\le k
+\]
+and an index belonging to the infinite family above. The term
+\[
+a_{n+j}=a_n+b_j
+\]
+is one of the factors in
+\[
+P(a_{n+i})
+=
+\prod_{\ell=1}^k(a_n+b_i+b_\ell).
+\]
+Therefore
+\[
+a_n+b_j
+\mid
+\prod_{\ell=1}^k(b_i+b_\ell-b_j).
+\]
+Since $a_n$ is unbounded, the product on the right must be $0$. Hence
+\[
+b_j=b_i+b_\ell
+\tag{8}
+\]
+for some $\ell$.
+
+In particular, the tuple $(b_1,\ldots,b_k)$ is nondecreasing.
+
+If $b_1=0$, then at every selected index
+\[
+a_{n+1}=a_n.
+\]
+The identity
+\[
+a_{n+k+1}P(a_n)=a_{n+1}P(a_{n+1})
+\]
+gives
+\[
+a_{n+k+1}=a_n.
+\]
+For every $i$, the integer $a_n$ then divides
+\[
+P(a_{n+i})=\prod_{\ell=1}^k(a_n+b_i+b_\ell).
+\]
+Reducing modulo $a_n$ and using unboundedness, we get
+\[
+b_i+b_\ell=0
+\]
+for some $\ell$. Since all $b_i$ are nonnegative, every $b_i=0$, so $P(x)=x^k$, contrary to (3). Therefore
+\[
+b_1>0.
+\]
+
+Equation (8) now shows that
+\[
+b_1<b_2<\cdots<b_k.
+\]
+For each $j=2,\ldots,k$,
+\[
+b_j=b_1+b_\ell
+\]
+for some $\ell\le k-1$, since $\ell=k$ would make the right side larger than $b_k$. The $k-1$ values
+\[
+b_2,\ldots,b_k
+\]
+are therefore exactly
+\[
+b_1+b_1,\ b_1+b_2,\ldots,b_1+b_{k-1}.
+\]
+Comparing them in increasing order gives
+\[
+b_i=ib_1
+\qquad(1\le i\le k).
+\tag{9}
+\]
+
+Set
+\[
+d=b_1.
+\]
+Then
+\[
+P(x)=(x+d)(x+2d)\cdots(x+kd),
+\]
+and infinitely many length-$k+1$ blocks of the sequence are arithmetic progressions with common difference $d$.
+
+Starting from any such block, equation (1) at $n+1$ gives
+\[
+a_{n+k+1}=a_n+(k+1)d.
+\]
+Thus the arithmetic progression extends forwards.
+
+For the backward step, put
+\[
+x=a_{n-1},
+\qquad
+y=a_n.
+\]
+Equation (1) at $n-1$ becomes
+\[
+\prod_{i=1}^k(x+id)
+=
+\prod_{i=0}^{k-1}(y+id).
+\tag{10}
+\]
+If $x\ge y$, every factor on the left is strictly larger than the corresponding factor on the right, so this is impossible. Hence $x<y$.
+
+If $x>y-d$, every left-hand factor in (10) is larger than its corresponding right-hand factor; if $x<y-d$, every one is smaller. Equality is therefore possible only for
+\[
+x=y-d.
+\]
+Thus
+\[
+a_{n-1}=a_n-d.
+\]
+The arithmetic progression extends both forwards and backwards through the whole sequence. This proves the classification.

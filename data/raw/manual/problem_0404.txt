@@ -1,0 +1,140 @@
+ID: 0404
+
+SOURCE: IMO Shortlist
+
+YEAR: 2023
+
+TOPIC: Combinatorics
+
+SUBTOPICS: 2-Adic Valuation, Signed Sums, Partial Sums, Pigeonhole Principle
+
+STATEMENT:
+Determine the maximum possible length $L$ of a sequence
+\[
+a_1,a_2,\ldots,a_L
+\]
+of positive integers satisfying both conditions:
+
+\begin{itemize}
+\item every term is at most $2^{2023}$;
+\item there is no consecutive subsequence
+\[
+a_i,a_{i+1},\ldots,a_j
+\]
+and no choice of signs
+\[
+\varepsilon_i,\varepsilon_{i+1},\ldots,\varepsilon_j\in\{-1,1\}
+\]
+for which
+\[
+\varepsilon_i a_i+\varepsilon_{i+1}a_{i+1}
++\cdots+\varepsilon_j a_j=0.
+\]
+\end{itemize}
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{L=2^{2024}-1}.
+\]
+
+We prove the more general statement in which the terms are at most
+\[
+n=2^k.
+\]
+The maximum length is then
+\[
+2n-1=2^{k+1}-1.
+\]
+
+For the construction, define
+\[
+a_i=2^{k-v_2(i)}
+\qquad(1\le i\le2n-1),
+\tag{1}
+\]
+where $v_2(i)$ is the exponent of $2$ in $i$. Since
+\[
+1\le i\le2^{k+1}-1,
+\]
+we have $0\le v_2(i)\le k$, and therefore every $a_i$ is a positive integer at most $2^k=n$.
+
+Consider any interval of indices
+\[
+r,r+1,\ldots,s.
+\]
+Among these integers, there is a unique index $x$ at which $v_2$ is maximal. Indeed, if two indices in the interval had the same maximal valuation $v$, then between two consecutive such multiples of $2^v$ there would be a multiple of $2^{v+1}$, contradicting maximality.
+
+Put
+\[
+v=v_2(x).
+\]
+Then
+\[
+a_x=2^{k-v},
+\]
+whereas every other $a_i$ in the interval is divisible by
+\[
+2^{k-v+1}.
+\]
+Consequently, for any signs $\varepsilon_i\in\{-1,1\}$,
+\[
+\sum_{i=r}^s\varepsilon_i a_i
+\equiv
+\pm2^{k-v}
+\not\equiv0
+\pmod{2^{k-v+1}}.
+\]
+Thus the sequence in (1), of length $2n-1$, has the required property.
+
+We now prove that length $2n$ is impossible. Let
+\[
+a_1,\ldots,a_L
+\]
+be any sequence with
+\[
+1\le a_i\le n
+\qquad\text{and}\qquad
+L\ge2n.
+\]
+Choose signs recursively. Put $b_0=0$, and after $b_{i-1}$ has been defined, set
+\[
+\varepsilon_i=
+\begin{cases}
+1,&b_{i-1}\le0,\\
+-1,&b_{i-1}\ge1,
+\end{cases}
+\qquad
+b_i=b_{i-1}+\varepsilon_i a_i.
+\]
+We claim that
+\[
+-n+1\le b_i\le n
+\qquad(0\le i\le L).
+\tag{2}
+\]
+This follows immediately by induction: from a nonpositive partial sum we add a number between $1$ and $n$, while from a positive partial sum we subtract such a number.
+
+The interval in (2) contains exactly $2n$ integers, but
+\[
+b_0,b_1,\ldots,b_L
+\]
+contains at least $2n+1$ terms. Hence two are equal:
+\[
+b_{i-1}=b_j
+\]
+for some $1\le i\le j\le L$. Subtracting gives
+\[
+\varepsilon_i a_i+\varepsilon_{i+1}a_{i+1}
++\cdots+\varepsilon_j a_j=0.
+\]
+Thus no sequence of length at least $2n$ works.
+
+Taking
+\[
+n=2^{2023}
+\]
+gives
+\[
+L=2n-1=2^{2024}-1.
+\]

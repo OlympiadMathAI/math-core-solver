@@ -1,0 +1,17 @@
+{
+  "id": "0398",
+  "source": "IMO Shortlist",
+  "year": "2023",
+  "topic": "Algebra",
+  "subtopics": [
+    "Cauchy-Schwarz Inequality",
+    "AM-GM Inequality",
+    "Integer Sequences",
+    "Gap Estimates"
+  ],
+  "statement": "Let\n\\[\nx_1,x_2,\\ldots,x_{2023}\n\\]\nbe distinct positive real numbers. For\n\\[\nn=1,2,\\ldots,2023,\n\\]\ndefine\n\\[\na_n=\n\\sqrt{\n(x_1+x_2+\\cdots+x_n)\n\\left(\n\\frac1{x_1}+\\frac1{x_2}+\\cdots+\\frac1{x_n}\n\\right)\n}.\n\\]\nAssume that every $a_n$ is an integer.\n\nProve that\n\\[\na_{2023}\\ge3034.\n\\]",
+  "solutions": [
+    "Put\n\\[\nS_n=x_1+\\cdots+x_n,\n\\qquad\nT_n=\\frac1{x_1}+\\cdots+\\frac1{x_n}.\n\\]\nThen\n\\[\na_n^2=S_nT_n.\n\\]\n\nFor every $n<2023$,\n\\[\n\\begin{aligned}\na_{n+1}^2\n&=(S_n+x_{n+1})\n\\left(T_n+\\frac1{x_{n+1}}\\right)\\\\\n&=\na_n^2+1+\\frac{S_n}{x_{n+1}}+x_{n+1}T_n\\\\\n&\\ge\na_n^2+1+2\\sqrt{S_nT_n}\\\\\n&=(a_n+1)^2.\n\\end{aligned}\n\\tag{1}\n\\]\nThus\n\\[\na_{n+1}\\ge a_n+1.\n\\]\nAlso,\n\\[\na_1=1,\n\\]\nwhile Cauchy-Schwarz and $x_1\\ne x_2$ give\n\\[\na_2>2,\n\\]\nso\n\\[\na_2\\ge3.\n\\tag{2}\n\\]\n\nWe claim that two consecutive increments cannot both equal $1$. Suppose\n\\[\na_{n+1}=a_n+1.\n\\]\nEquality must then hold in the AM-GM step in (1), so\n\\[\n\\frac{S_n}{x_{n+1}}=x_{n+1}T_n.\n\\tag{3}\n\\]\nIf also\n\\[\na_{n+2}=a_{n+1}+1,\n\\]\nthe analogous equality gives\n\\[\n\\frac{S_n+x_{n+1}}{x_{n+2}}\n=\nx_{n+2}\n\\left(T_n+\\frac1{x_{n+1}}\\right).\n\\tag{4}\n\\]\nUsing (3), both sides of (4) contain the common positive factor\n\\[\nx_{n+1}T_n+1,\n\\]\nand (4) reduces to\n\\[\n\\frac{x_{n+1}}{x_{n+2}}\n=\n\\frac{x_{n+2}}{x_{n+1}}.\n\\]\nHence\n\\[\nx_{n+1}=x_{n+2},\n\\]\ncontrary to distinctness.\n\nTherefore, among every two consecutive increments\n\\[\na_{j+1}-a_j,\n\\]\nat least one is at least $2$, and the first increment is already at least $2$ by (2). Pairing the $2022$ increments gives\n\\[\na_{2023}\n\\ge\n1+1011(2+1)\n=\n3034.\n\\]",
+    "With\n\\[\nS_n=x_1+\\cdots+x_n,\n\\qquad\nT_n=\\frac1{x_1}+\\cdots+\\frac1{x_n},\n\\]\nwe have\n\\[\na_n^2=S_nT_n.\n\\]\n\nFix $n\\le2021$, and put\n\\[\nu=x_{n+1},\n\\qquad\nv=x_{n+2}.\n\\]\nExpanding,\n\\[\n\\begin{aligned}\na_{n+2}^2\n&=\na_n^2\n+\n(u+v)\\left(\\frac1u+\\frac1v\\right)\n+\nS_n\\left(\\frac1u+\\frac1v\\right)\n+\n(u+v)T_n\\\\\n&\\ge\na_n^2\n+\n(u+v)\\left(\\frac1u+\\frac1v\\right)\\\\\n&\\quad+\n2a_n\n\\sqrt{\n(u+v)\\left(\\frac1u+\\frac1v\\right)\n}.\n\\end{aligned}\n\\]\nThus\n\\[\na_{n+2}\n\\ge\na_n+\n\\sqrt{\n(u+v)\\left(\\frac1u+\\frac1v\\right)\n}.\n\\tag{1}\n\\]\nSince $u\\ne v$,\n\\[\n(u+v)\\left(\\frac1u+\\frac1v\\right)>4.\n\\]\nTherefore\n\\[\na_{n+2}>a_n+2.\n\\]\nBoth sides are integers, so\n\\[\na_{n+2}\\ge a_n+3.\n\\tag{2}\n\\]\n\nStarting from $a_1=1$ and applying (2) to the odd-indexed terms,\n\\[\na_{2k+1}\\ge1+3k.\n\\]\nTaking $k=1011$ gives\n\\[\na_{2023}\\ge1+3\\cdot1011=3034.\n\\]"
+  ]
+}

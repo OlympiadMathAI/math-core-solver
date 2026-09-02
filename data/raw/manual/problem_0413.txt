@@ -1,0 +1,369 @@
+ID: 0413
+
+SOURCE: IMO Shortlist
+
+YEAR: 2023
+
+TOPIC: Geometry
+
+SUBTOPICS: Homothety, Pascal's Theorem, Projective Cross Ratios, Tangent-Chord Theorem
+
+STATEMENT:
+Let $ABC$ be an acute triangle with
+\[
+AB<AC.
+\]
+Let $\Omega$ be its circumcircle, and let $S$ be the midpoint of arc $CAB$ of $\Omega$.
+
+The altitude from $A$ to $BC$ meets $BS$ at $D$ and meets $\Omega$ again at $E\ne A$. The line through $D$ parallel to $BC$ meets $BE$ at $L$. Let
+\[
+\omega=(BDL),
+\]
+and let $\omega$ meet $\Omega$ again at $P\ne B$.
+
+Prove that the tangent to $\omega$ at $P$ and the line $BS$ intersect on the internal angle bisector of $\angle BAC$.
+
+SOLUTION 1:
+Let $S'$ be the midpoint of arc $BC$ not containing $A$. Then $S'$ is diametrically opposite $S$ on $\Omega$, and
+\[
+AS'
+\]
+is the internal angle bisector of $\angle BAC$.
+
+Let the tangent to $\omega$ at $P$ meet $\Omega$ again at $Q\ne P$. Since $SS'$ is a diameter,
+\[
+\angle SQS'=90^\circ.
+\tag{1}
+\]
+
+We prove that triangles $APD$ and $S'QS$ have pairwise parallel corresponding sides.
+
+First,
+\[
+AP\perp DP.
+\tag{2}
+\]
+Indeed, the cyclic quadrilaterals $APBE$ and $BDLP$ give
+\[
+\begin{aligned}
+\angle PAD
+&=\angle PAE\\
+&=180^\circ-\angle EBP\\
+&=\angle PBL\\
+&=\angle PDL.
+\end{aligned}
+\]
+Because $DL\parallel BC$ and $AD\perp BC$,
+\[
+\angle PDL=90^\circ-\angle ADP.
+\]
+Thus
+\[
+\angle PAD+\angle ADP=90^\circ,
+\]
+which proves (2).
+
+Next,
+\[
+AD\parallel S'S,
+\tag{3}
+\]
+because both lines are perpendicular to $BC$.
+
+By the tangent-chord theorem in $\omega$,
+\[
+\angle DPQ=\angle DBP.
+\]
+Since $B,D,S$ are collinear and $B,P,Q,S$ lie on $\Omega$,
+\[
+\angle DBP=\angle SBP=\angle SQP.
+\]
+Therefore
+\[
+PD\parallel QS.
+\tag{4}
+\]
+
+Finally, (1), (2), and (4) give
+\[
+AP\parallel S'Q.
+\tag{5}
+\]
+
+Equations (3)-(5) show that triangles $APD$ and $S'QS$ have corresponding sides parallel. They are homothetic rather than translates, because the corresponding sides $AD$ and $S'S$ have opposite directions. Hence the lines joining corresponding vertices,
+\[
+AS',
+\qquad
+PQ,
+\qquad
+DS,
+\]
+are concurrent.
+
+Now $PQ$ is the tangent to $\omega$ at $P$, $DS=BS$, and $AS'$ is the internal angle bisector of $\angle BAC$. This proves the assertion.
+
+SOLUTION 2:
+Let $S'$ be the point of $\Omega$ diametrically opposite $S$. Then
+\[
+AS'
+\]
+is the internal angle bisector of $\angle BAC$, and $AE\parallel SS'$.
+
+Define
+\[
+T=AE\cap PS',
+\qquad
+M=AP\cap S'B.
+\]
+We shall prove
+\[
+L,P,S\ \text{are collinear}
+\tag{1}
+\]
+and
+\[
+T,M\in\omega.
+\tag{2}
+\]
+
+For (1), the cyclic quadrilateral $BDLP$ and the geometry of $\Omega$ give
+\[
+\begin{aligned}
+\angle LPB
+&=\angle LDB\\
+&=90^\circ-\angle BDE\\
+&=90^\circ-\angle BSS'\\
+&=\angle SS'B\\
+&=180^\circ-\angle BPS.
+\end{aligned}
+\]
+Thus $\angle LPB+\angle BPS=180^\circ$, proving (1).
+
+Since $SS'$ is a diameter, $PS\perp PS'$. By (1),
+\[
+LP\perp PT.
+\]
+Also,
+\[
+LD\parallel BC\perp AE=DT.
+\]
+Hence
+\[
+\angle LPT=\angle LDT=90^\circ,
+\]
+so $L,P,D,T$ are concyclic. Since $L,P,D$ lie on $\omega$,
+\[
+T\in\omega.
+\]
+
+Furthermore,
+\[
+\angle LPM
+=
+\angle SPA
+=
+\angle SEA
+=
+\angle EAS'
+=
+\angle EBS'
+=
+\angle LBM.
+\]
+Thus $L,P,M,B$ are concyclic, and hence
+\[
+M\in\omega.
+\]
+This proves (2).
+
+Let $X$ be the intersection of line $BDS=BS$ with the tangent to $\omega$ at $P$. Apply Pascal's theorem to the degenerate hexagon
+\[
+P,P,M,B,D,T
+\]
+inscribed in $\omega$, where the side $PP$ is the tangent at $P$.
+
+The three intersections of opposite sides are
+\[
+PP\cap BD=X,
+\]
+\[
+PM\cap DT=AP\cap AE=A,
+\]
+and
+\[
+MB\cap TP=S'B\cap S'P=S'.
+\]
+Pascal's theorem gives
+\[
+X,A,S'\ \text{collinear}.
+\]
+Therefore $X$ lies on the internal angle bisector $AS'$ of $\angle BAC$.
+
+SOLUTION 3:
+Let $A'$ and $S'$ be the points of $\Omega$ diametrically opposite $A$ and $S$, respectively. The points $E$ and $A'$ are reflections in the diameter $SS'$, and hence $AS'$ bisects
+\[
+\angle EAA'.
+\tag{1}
+\]
+
+Define
+\[
+T=AE\cap PS'.
+\]
+We first record three facts.
+
+First,
+\[
+\angle DPA=90^\circ.
+\tag{2}
+\]
+The proof is the same direct angle chase:
+\[
+\angle PAD
+=
+\angle PAE
+=
+180^\circ-\angle EBP
+=
+\angle PBL
+=
+\angle PDL
+=
+90^\circ-\angle ADP.
+\]
+
+Second,
+\[
+L,P,S
+\]
+are collinear, because
+\[
+\angle LPB+\angle BPS=180^\circ
+\]
+as in the computation
+\[
+\angle LPB
+=
+\angle LDB
+=
+90^\circ-\angle BDE
+=
+90^\circ-\angle BSS'
+=
+\angle SS'B.
+\tag{3}
+\]
+
+Third,
+\[
+T\in\omega.
+\tag{4}
+\]
+Indeed, (3) and the diameter $SS'$ give $LP\perp PT$, while $LD\perp DT$.
+
+By (2), the line $PDA'$ is straight. Let
+\[
+R=AS'\cap PDA'.
+\]
+An angle chase gives
+\[
+\begin{aligned}
+\angle ARP
+&=
+\angle AS'P+\angle S'PA'\\
+&=
+\angle AEP+\angle EPS'\\
+&=
+\angle ATP.
+\end{aligned}
+\]
+Therefore
+\[
+A,P,T,R
+\]
+are concyclic; call their circle $\gamma$. Since
+\[
+\angle RPA=90^\circ,
+\]
+the segment $AR$ is a diameter of $\gamma$.
+
+We next prove that $\gamma$ and $\omega$ are orthogonal. Let line $LPS$ meet $\gamma$ again at $U\ne P$. The triangles $PLT$ and $PTU$ are similar, because
+\[
+\angle LPT=\angle TPU=90^\circ
+\]
+and
+\[
+\begin{aligned}
+\angle PTL
+&=\angle PBL\\
+&=180^\circ-\angle EBP\\
+&=\angle PAE\\
+&=\angle PAT\\
+&=\angle PUT.
+\end{aligned}
+\]
+The spiral similarity taking triangle $PLT$ to triangle $PTU$ has rotation angle $90^\circ$ and maps $\omega=(PLT)$ to $\gamma=(PTU)$. Thus the two circles are orthogonal.
+
+Let
+\[
+X=BS\cap AS'.
+\]
+We prove that $X$ is the midpoint of $AR$. It will then be the centre of $\gamma$, so orthogonality will imply that $PX$ is tangent to $\omega$.
+
+Let $t$ be the tangent to $\omega$ at $D$. From the tangent-chord theorem and (1),
+\[
+\angle(DT,t)
+=
+\angle TPD
+=
+\angle S'PA'
+=
+\angle EAS',
+\]
+so
+\[
+t\parallel AS'.
+\]
+Let $I$ be the ideal point common to these parallel lines, and let
+\[
+V=LP\cap AE.
+\]
+
+We use directed projective cross ratios. Projection from $D$ sends the quadruple
+\[
+(A,R;X,I)
+\]
+on $AS'$ to
+\[
+(T,P;B,D)
+\]
+on $\omega$. Projection from $L$ sends the latter to
+\[
+(T,V;E,D)
+\]
+on line $AE$, and projection from $P$ sends this quadruple to
+\[
+(S',S;E,A')
+\]
+on $\Omega$. Hence
+\[
+(A,R;X,I)
+=
+(T,P;B,D)
+=
+(T,V;E,D)
+=
+(S',S;E,A').
+\tag{5}
+\]
+Because $E$ and $A'$ are reflections in the diameter $SS'$,
+\[
+(S',S;E,A')=-1.
+\]
+Thus (5) gives
+\[
+(A,R;X,I)=-1.
+\]
+With $I$ the point at infinity of $AR$, this says exactly that $X$ is the midpoint of $AR$.
+
+Therefore $X$ is the centre of $\gamma$. Since $\gamma\perp\omega$, the line joining the centre $X$ of $\gamma$ to their common point $P$ is tangent to $\omega$ at $P$. Thus the tangent at $P$ meets $BS$ at the point $X\in AS'$, as required.

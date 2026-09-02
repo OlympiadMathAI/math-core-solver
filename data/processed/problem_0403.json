@@ -1,0 +1,16 @@
+{
+  "id": "0403",
+  "source": "IMO Shortlist",
+  "year": "2023",
+  "topic": "Combinatorics",
+  "subtopics": [
+    "Grid Colourings",
+    "Parity Invariants",
+    "Constructive Moves",
+    "Modular Arithmetic"
+  ],
+  "statement": "Let $m,n>1$ be positive integers. Every unit square of an $m\\times n$ grid contains a coin, initially showing tails.\n\nA move consists of the following steps:\n\n\\begin{enumerate}\n\\item select a $2\\times2$ subgrid;\n\\item flip the coins in its top-left and bottom-right squares;\n\\item flip the coin in exactly one of its top-right and bottom-left squares.\n\\end{enumerate}\n\nDetermine all pairs $(m,n)$ for which it is possible, after finitely many moves, to make every coin show heads.",
+  "solutions": [
+    "The answer is\n\\[\n\\boxed{3\\mid mn}.\n\\]\n\nWe first prove sufficiency. By symmetry, assume\n\\[\n3\\mid m.\n\\]\nNumber the rows and columns from top to bottom and from left to right.\n\nFor\n\\[\n1\\le i<m,\\qquad 1\\le j<n,\n\\]\nlet $A(i,j)$ be the move that flips\n\\[\n(i,j),\\qquad(i,j+1),\\qquad(i+1,j+1),\n\\]\nand let $B(i,j)$ be the move that flips\n\\[\n(i,j),\\qquad(i+1,j),\\qquad(i+1,j+1).\n\\]\n\nSuppose first that $n$ is even. For every\n\\[\n1\\le r\\le\\frac m3,\n\\qquad\n1\\le s\\le\\frac n2,\n\\]\nperform\n\\[\nA(3r-2,2s-1)\n\\qquad\\text{and}\\qquad\nB(3r-1,2s-1).\n\\]\nInside each corresponding $3\\times2$ block, these two moves flip every coin exactly once. Hence all coins end showing heads.\n\nNow suppose that $n$ is odd. Apply the preceding construction to the first $n-1$ columns. At that point precisely the coins in the last column still show tails. For each\n\\[\n1\\le r\\le\\frac m3,\n\\]\nperform\n\\[\nA(3r-2,n-1),\\qquad\nA(3r-1,n-1),\\qquad\nB(3r-2,n-1).\n\\]\nWithin the $3\\times2$ block formed by rows $3r-2,3r-1,3r$ and columns $n-1,n$, every coin in column $n-1$ is flipped an even number of times, while every coin in column $n$ is flipped an odd number of times. Thus all coins now show heads.\n\nWe next prove necessity. Label square $(i,j)$ by\n\\[\ni+j-2\\pmod3.\n\\]\nFor $r\\in\\{0,1,2\\}$, let $T_r$ be the number of head-up coins in squares labelled $r$.\n\nEvery legal move flips exactly one square of each label. Consequently, the parities of\n\\[\nT_0-T_1\n\\qquad\\text{and}\\qquad\nT_1-T_2\n\\]\nare invariant. Initially\n\\[\nT_0=T_1=T_2=0,\n\\]\nso every reachable configuration must satisfy\n\\[\nT_0\\equiv T_1\\equiv T_2\\pmod2.\n\\tag{1}\n\\]\n\nIn the all-head configuration, $T_r$ equals the number of squares with label $r$. If neither $m$ nor $n$ is divisible by $3$, these three numbers are as follows:\n\n\\[\n\\begin{array}{c|c}\n(m\\bmod3,n\\bmod3)&(T_0,T_1,T_2)\\\\ \\hline\n(1,1)&\n\\left(\\dfrac{mn+2}{3},\\dfrac{mn-1}{3},\\dfrac{mn-1}{3}\\right)\\\\[2mm]\n(1,2)\\text{ or }(2,1)&\n\\left(\\dfrac{mn+1}{3},\\dfrac{mn+1}{3},\\dfrac{mn-2}{3}\\right)\\\\[2mm]\n(2,2)&\n\\left(\\dfrac{mn-1}{3},\\dfrac{mn+2}{3},\\dfrac{mn-1}{3}\\right).\n\\end{array}\n\\]\nIn every case, two displayed values differ by $1$, so they cannot all have the same parity. This contradicts (1).\n\nTherefore at least one of $m,n$ is divisible by $3$, which is equivalent to\n\\[\n3\\mid mn.\n\\]"
+  ]
+}

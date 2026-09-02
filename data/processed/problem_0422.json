@@ -1,0 +1,16 @@
+{
+  "id": "0422",
+  "source": "IMO Shortlist",
+  "year": "2023",
+  "topic": "Number Theory",
+  "subtopics": [
+    "Divisibility Sequences",
+    "Prime Factors",
+    "Auxiliary Quotients",
+    "Unbounded Sequences"
+  ],
+  "statement": "Let\n\\[\na_1<a_2<a_3<\\cdots\n\\]\nbe positive integers such that\n\\[\na_{k+1}\\mid2(a_1+a_2+\\cdots+a_k)\n\\]\nfor every $k\\ge1$.\n\nSuppose that infinitely many primes divide at least one term of the sequence. Prove that for every positive integer $n$, there exists an index $k$ such that\n\\[\nn\\mid a_k.\n\\]",
+  "solutions": [
+    "For every $k\\ge2$, define\n\\[\nb_k=\\frac{2(a_1+a_2+\\cdots+a_{k-1})}{a_k}.\n\\]\nBy the hypothesis, every $b_k$ is a positive integer.\n\nWe first establish two properties of the sequence $(b_k)$.\n\n\\textbf{Claim 1.}\nFor every $k\\ge2$,\n\\[\nb_{k+1}\\le b_k+1.\n\\tag{1}\n\\]\n\nIndeed,\n\\[\nb_{k+1}a_{k+1}\n=\n2(a_1+\\cdots+a_k)\n=\nb_ka_k+2a_k\n=\n(b_k+2)a_k.\n\\tag{2}\n\\]\nSince $a_{k+1}>a_k$, equality (2) gives\n\\[\nb_{k+1}<b_k+2.\n\\]\nBoth sides are integers, so (1) follows.\n\n\\textbf{Claim 2.}\nThe sequence $(b_k)$ is unbounded.\n\nFrom (2),\n\\[\na_{k+1}\n=\na_k\\frac{b_k+2}{b_{k+1}},\n\\]\nand in particular\n\\[\na_{k+1}\\mid a_k(b_k+2).\n\\tag{3}\n\\]\nIf all $b_k$ were bounded by some $B$, then (3), used inductively, would show that every prime divisor of every $a_k$ belongs to the finite set consisting of the prime divisors of $a_1a_2$ together with the primes not exceeding $B+2$. This contradicts the assumption that infinitely many primes divide terms of the sequence. Hence $(b_k)$ is unbounded.\n\nNow fix a positive integer $n_0$. Choose a positive multiple $n$ of $n_0$ such that\n\\[\nn>b_2.\n\\]\nIt is enough to find a term divisible by this $n$, since that term will also be divisible by $n_0$.\nBy Claim 2, choose the smallest $k\\ge2$ such that\n\\[\nb_{k+1}\\ge n.\n\\]\nThen\n\\[\nb_k<n.\n\\]\nClaim 1 forces\n\\[\nb_k=n-1,\n\\qquad\nb_{k+1}=n.\n\\]\nUsing (2),\n\\[\nna_{k+1}=(n+1)a_k.\n\\]\nSince\n\\[\n\\gcd(n,n+1)=1,\n\\]\nwe conclude that\n\\[\nn\\mid a_k.\n\\]\nHence $n_0\\mid a_k$, proving the assertion."
+  ]
+}

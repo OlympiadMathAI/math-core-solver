@@ -1,0 +1,234 @@
+ID: 0418
+
+SOURCE: IMO Shortlist
+
+YEAR: 2023
+
+TOPIC: Number Theory
+
+SUBTOPICS: Divisor Sequences, Prime Powers, Divisibility, p-Adic Valuations
+
+STATEMENT:
+Determine all positive composite integers $n$ with the following property:
+
+If the positive divisors of $n$ are
+\[
+1=d_1<d_2<\cdots<d_k=n,
+\]
+then
+\[
+d_i\mid d_{i+1}+d_{i+2}
+\qquad(1\le i\le k-2).
+\]
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{n=p^r},
+\]
+where $p$ is prime and $r\ge2$.
+
+Every such prime power works. Indeed, its divisors are
+\[
+d_i=p^{i-1}
+\qquad(1\le i\le r+1),
+\]
+and
+\[
+d_{i+1}+d_{i+2}=p^i+p^{i+1}
+\]
+is divisible by $d_i=p^{i-1}$.
+
+Conversely, suppose that $n$ satisfies the condition and has at least two distinct prime divisors. Let
+\[
+p<q
+\]
+be the two smallest prime divisors of $n$. All divisors of $n$ smaller than $q$ are powers of $p$. Hence, for some $j\ge1$, the divisor list contains
+\[
+d_{j+1}=p^j,
+\qquad
+d_{j+2}=q.
+\]
+Since divisors pair symmetrically,
+\[
+d_i d_{k+1-i}=n.
+\]
+Therefore
+\[
+d_{k-j-1}=\frac nq,
+\qquad
+d_{k-j}=\frac{n}{p^j},
+\qquad
+d_{k-j+1}=\frac{n}{p^{j-1}}.
+\]
+Applying the given condition at index $k-j-1$,
+\[
+\frac nq
+\mid
+\frac{n}{p^j}+\frac{n}{p^{j-1}}
+=
+\frac{n(p+1)}{p^j}.
+\]
+After cancellation,
+\[
+p^j\mid q(p+1).
+\]
+This is impossible because
+\[
+p\nmid q
+\qquad\text{and}\qquad
+p\nmid p+1.
+\]
+Thus $n$ has only one prime divisor and is a prime power.
+
+SOLUTION 2:
+Again, prime powers clearly satisfy the condition. We prove that no other composite integer does.
+
+For every $i$,
+\[
+d_i d_{k+1-i}=n.
+\]
+Apply the original condition to the divisors symmetric to
+\[
+d_i,\ d_{i+1},\ d_{i+2}.
+\]
+We obtain
+\[
+\frac{n}{d_{i+2}}
+\mid
+\frac{n}{d_{i+1}}+\frac{n}{d_i}.
+\]
+Multiplying by
+\[
+\frac{d_i d_{i+1}d_{i+2}}n
+\]
+gives
+\[
+d_i d_{i+1}
+\mid
+d_i d_{i+2}+d_{i+1}d_{i+2}.
+\]
+In particular,
+\[
+d_i\mid d_{i+1}d_{i+2}.
+\tag{1}
+\]
+
+The given condition also gives
+\[
+d_i\mid d_{i+1}+d_{i+2}.
+\]
+Multiplying this divisibility by $d_{i+1}$ and using (1),
+\[
+d_i\mid d_{i+1}^2
+\qquad(1\le i\le k-2).
+\tag{2}
+\]
+
+Let
+\[
+d_2=p,
+\]
+the smallest prime divisor of $n$. We prove inductively that
+\[
+p\mid d_i
+\qquad(2\le i\le k-1).
+\]
+The statement is clear for $i=2$. If $p\mid d_i$, then (2) gives
+\[
+p\mid d_i\mid d_{i+1}^2,
+\]
+so $p\mid d_{i+1}$.
+
+If $n$ had another prime divisor $q\ne p$, then $q$ would occur among
+\[
+d_2,\ldots,d_{k-1},
+\]
+and the preceding conclusion would give $p\mid q$, impossible. Hence $n$ is a prime power.
+
+SOLUTION 3:
+We first prove that
+\[
+d_i\mid d_{i+1}
+\qquad(1\le i\le k-1).
+\tag{1}
+\]
+
+The case $i=1$ is immediate. Suppose $2\le i\le k-1$ and that
+\[
+d_{i-1}\mid d_i.
+\]
+The original condition at index $i-1$ gives
+\[
+d_{i-1}\mid d_i+d_{i+1},
+\]
+and hence
+\[
+d_{i-1}\mid d_{i+1}.
+\tag{2}
+\]
+
+Apply the condition to the symmetric divisors:
+\[
+\frac{n}{d_{i+1}}
+\mid
+\frac{n}{d_i}+\frac{n}{d_{i-1}}.
+\]
+Dividing by $n/d_{i+1}$, we find that
+\[
+\frac{d_{i+1}}{d_i}
++
+\frac{d_{i+1}}{d_{i-1}}
+\]
+is an integer. The second term is an integer by (2), so
+\[
+\frac{d_{i+1}}{d_i}
+\]
+is also an integer. This proves (1) by induction.
+
+Now let $p$ be the smallest prime divisor of $n$. Since $p=d_2$, relation (1) shows that $p$ divides every divisor after $d_2$. If $q$ were a second prime divisor of $n$, then $p\mid q$, a contradiction. Thus $n$ is a prime power.
+
+Conversely, if $n=p^r$ with $r\ge2$, then its divisors are $1,p,\ldots,p^r$, and
+\[
+p^{i-1}\mid p^i+p^{i+1}.
+\]
+Thus every composite prime power works.
+
+SOLUTION 4:
+Prime powers satisfy the condition, so only necessity remains.
+
+Assume that $n$ has two distinct prime divisors, and let
+\[
+p<q
+\]
+be the two smallest ones. For some $j\ge1$, the consecutive divisors immediately before and at $q$ are
+\[
+p^j,\qquad q.
+\]
+By the symmetry of the divisor list, the condition gives
+\[
+\frac nq
+\mid
+\frac{n}{p^j}+\frac{n}{p^{j-1}}
+=
+\frac{n(p+1)}{p^j}.
+\tag{1}
+\]
+
+Take $p$-adic valuations in (1). Since
+\[
+p\nmid q(p+1),
+\]
+the valuation of the divisor on the left is
+\[
+v_p\left(\frac nq\right)=v_p(n),
+\]
+whereas the valuation of the expression on the right is
+\[
+v_p\left(\frac{n(p+1)}{p^j}\right)=v_p(n)-j.
+\]
+This is impossible because a divisor cannot have larger $p$-adic valuation than its multiple. Therefore $n$ has only one prime divisor, and
+\[
+n=p^r
+\qquad(r\ge2).
+\]

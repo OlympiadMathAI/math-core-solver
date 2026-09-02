@@ -1,0 +1,283 @@
+ID: 0405
+
+SOURCE: IMO Shortlist
+
+YEAR: 2023
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Dynamic Programming, Posets, Chain Decompositions, Binary Growth
+
+STATEMENT:
+For a positive integer $n$, arrange
+\[
+1+2+\cdots+n
+\]
+circles in a triangular array with $n$ rows, the $i$th row containing $i$ circles.
+
+A \emph{ninja-path} is a sequence obtained by repeatedly moving from a circle to one of the two circles directly below it.
+
+Exactly one circle in each row is coloured red. Determine, in terms of $n$, the largest integer $k$ such that one can always find a ninja-path containing at least $k$ red circles.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{k=1+\lfloor\log_2 n\rfloor}.
+\]
+
+Put
+\[
+N=\lfloor\log_2 n\rfloor,
+\qquad
+2^N\le n\le2^{N+1}-1.
+\]
+
+We first give a colouring for which every ninja-path contains at most $N+1$ red circles. For every row written uniquely as
+\[
+i=2^a+b,
+\qquad
+0\le a\le N,\qquad0\le b<2^a,
+\]
+colour the $(2b+1)$st circle of that row red.
+
+Fix $a$. Suppose a ninja-path met red circles in two rows
+\[
+2^a+b
+\qquad\text{and}\qquad
+2^a+c,
+\qquad b<c.
+\]
+Between these rows, its position can increase by at most $c-b$, whereas the red position increases from $2b+1$ to $2c+1$, a difference of $2(c-b)$. This is impossible. Hence a ninja-path meets at most one red circle among the rows
+\[
+2^a,2^a+1,\ldots,2^{a+1}-1.
+\]
+There are $N+1$ such blocks, so the upper bound follows.
+
+We now prove that every colouring admits a path with at least $N+1$ red circles. Assign to each circle $C$ the maximum number of red circles on a ninja-path from the top circle to $C$.
+
+Let the assigned numbers in row $r$ be
+\[
+v_1,v_2,\ldots,v_r,
+\]
+and let
+\[
+v_m=\max(v_1,\ldots,v_r).
+\]
+Ignoring the red circle in the next row for a moment, the assigned numbers there are at least
+\[
+v_1,\ldots,v_{m-1},v_m,v_m,v_{m+1},\ldots,v_r.
+\]
+Since exactly one circle in the next row is red, one of these lower bounds increases by $1$. Therefore, if $\sigma_r$ is the sum of the assigned numbers in row $r$, then
+\[
+\sigma_{r+1}\ge\sigma_r+\max(v_1,\ldots,v_r)+1.
+\tag{1}
+\]
+
+We claim that
+\[
+\sigma_{2^j}\ge j2^j+1
+\qquad(0\le j\le N).
+\tag{2}
+\]
+For $j=0$, the top circle is red and has assigned number $1$.
+
+Assume (2) holds for $j$. Some circle in row $2^j$ then has assigned number at least
+\[
+\left\lceil\frac{j2^j+1}{2^j}\right\rceil=j+1.
+\]
+The maximum assigned number cannot decrease in later rows. Hence, for every
+\[
+2^j\le r<2^{j+1},
+\]
+equation (1) gives
+\[
+\sigma_{r+1}\ge\sigma_r+j+2.
+\]
+Summing these $2^j$ inequalities,
+\[
+\begin{aligned}
+\sigma_{2^{j+1}}
+&\ge
+j2^j+1+2^j(j+2)\\
+&=(j+1)2^{j+1}+1.
+\end{aligned}
+\]
+This proves (2).
+
+For $j=N$, some circle in row $2^N$ has assigned number at least $N+1$. By definition of the assignment, a ninja-path containing at least $N+1$ red circles exists.
+
+SOLUTION 2:
+Let
+\[
+N=\lfloor\log_2 n\rfloor.
+\]
+The colouring
+\[
+\text{row }2^a+b:\quad\text{red position }2b+1
+\]
+for
+\[
+0\le a\le N,\qquad0\le b<2^a
+\]
+shows, exactly as follows, that no path need contain more than $N+1$ red circles: inside one block of rows
+\[
+2^a,\ldots,2^{a+1}-1,
+\]
+two red positions move apart twice as fast as a ninja-path can move sideways.
+
+It remains to prove the lower bound.
+
+Assign to every circle the maximum number of red circles on a ninja-path from the top to that circle. For $i\ge1$, let $e_i$ be the number of red circles assigned the value $i$.
+
+We need a useful bound. Represent a circle by coordinates
+\[
+(u,v)\in\mathbb Z_{\ge0}^2,
+\qquad
+u+v\le n-1,
+\]
+where its row is $u+v+1$. A downward ninja move increases exactly one of $u,v$ by $1$. Thus one circle can reach another precisely when both coordinates weakly increase.
+
+Suppose a red circle
+\[
+C=(u_0,v_0)
+\]
+lies in row
+\[
+\ell=u_0+v_0+1
+\]
+and is assigned the value $i$. No other red circle of value $i$ lies in the descendant cone
+\[
+u\ge u_0,\qquad v\ge v_0,
+\]
+because a path through both red circles would give the lower one value at least $i+1$.
+
+The complement of this cone is partitioned into the following $\ell-1$ chains:
+
+\[
+u=r\quad(0\le r<u_0),
+\]
+and
+\[
+v=s,\quad u\ge u_0\quad(0\le s<v_0).
+\]
+Within each chain, all circles are comparable by a ninja-path, so it contains at most one red circle of value $i$. Including the cone itself, we obtain
+\[
+e_i\le\ell.
+\tag{1}
+\]
+
+We claim that
+\[
+e_i\le2^{i-1}
+\qquad(i\ge1).
+\tag{2}
+\]
+For $i=1$, only the top red circle has value $1$.
+
+Assume (2) holds up to $i=j-1$. If $e_j=0$, there is nothing to prove. Otherwise, let $\ell$ be the first row containing a red circle of value $j$. Every red circle in the preceding $\ell-1$ rows has value below $j$, so
+\[
+\ell-1
+\le
+e_1+\cdots+e_{j-1}
+\le
+1+2+\cdots+2^{j-2}
+=
+2^{j-1}-1.
+\]
+Thus
+\[
+\ell\le2^{j-1},
+\]
+and (1) gives
+\[
+e_j\le\ell\le2^{j-1}.
+\]
+This proves (2).
+
+Consequently,
+\[
+e_1+\cdots+e_N
+\le
+1+2+\cdots+2^{N-1}
+=
+2^N-1
+<n.
+\]
+There are $n$ red circles in total, so some red circle has assigned value at least $N+1$. Hence a path with at least $N+1$ red circles exists.
+
+SOLUTION 3:
+Again put
+\[
+N=\lfloor\log_2 n\rfloor.
+\]
+The explicit colouring
+\[
+\text{row }2^a+b:\quad\text{red position }2b+1
+\]
+shows that $N+1$ is an upper bound.
+
+For a different lower-bound proof, assign to each circle $C$ the maximum number of red circles on a ninja-path that starts at $C$, counting $C$ itself when it is red. For $i\ge1$, let $f_i$ be the number of red circles assigned the value $i$.
+
+We first note the following analogue of (1) from the preceding argument:
+
+If a red circle in row $\ell$ has assigned value at most $i$, then
+\[
+f_i\le\ell.
+\tag{1}
+\]
+
+Indeed, use coordinates $(u,v)$ as above. The descendant cone contains at most one red circle of value $i$. If the starting circle itself has value $i$, no later red circle on a path can also have value $i$; if its value is smaller than $i$, the cone contains no red circle of value $i$, because such a descendant would make the starting value at least $i+1$. The complement of the cone splits into $\ell-1$ coordinate chains, each containing at most one red circle of value $i$. This proves (1).
+
+We claim that
+\[
+f_1+f_2+\cdots+f_i
+\le
+n-\left\lceil\frac{n}{2^i}\right\rceil
+\qquad(0\le i\le N).
+\tag{2}
+\]
+For $i=0$, both sides are $0$.
+
+Assume the claim for $i-1$, where $i\ge1$. If no red circle has assigned value at most $i$, the claim is immediate. Otherwise, let $\ell$ be the first row whose red circle has assigned value at most $i$. Then all red circles counted by
+\[
+f_1+\cdots+f_i
+\]
+lie in rows $\ell,\ell+1,\ldots,n$, so
+\[
+f_1+\cdots+f_i\le n-\ell+1.
+\tag{3}
+\]
+On the other hand, the induction hypothesis and (1) give
+\[
+f_1+\cdots+f_i
+\le
+n-\left\lceil\frac{n}{2^{i-1}}\right\rceil+\ell.
+\tag{4}
+\]
+Averaging (3) and (4),
+\[
+f_1+\cdots+f_i
+\le
+n-\frac12\left\lceil\frac{n}{2^{i-1}}\right\rceil+\frac12.
+\]
+The left side is an integer, hence
+\[
+f_1+\cdots+f_i
+\le
+n-
+\left\lceil
+\frac12\left\lceil\frac{n}{2^{i-1}}\right\rceil
+\right\rceil
+=
+n-\left\lceil\frac{n}{2^i}\right\rceil.
+\]
+This proves (2).
+
+Taking $i=N$,
+\[
+f_1+\cdots+f_N
+\le
+n-\left\lceil\frac{n}{2^N}\right\rceil
+<n.
+\]
+Thus some red circle has assigned value at least $N+1$, yielding a ninja-path with at least $N+1$ red circles.

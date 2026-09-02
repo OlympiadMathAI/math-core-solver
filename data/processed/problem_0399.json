@@ -1,0 +1,17 @@
+{
+  "id": "0399",
+  "source": "IMO Shortlist",
+  "year": "2023",
+  "topic": "Algebra",
+  "subtopics": [
+    "Functional Inequalities",
+    "Iteration",
+    "Telescoping Sums",
+    "Multiplicative Invariants"
+  ],
+  "statement": "Determine all functions\n\\[\nf:\\mathbb R_{>0}\\to\\mathbb R_{>0}\n\\]\nsuch that\n\\[\nx\\bigl(f(x)+f(y)\\bigr)\n\\ge\n\\bigl(f(f(x))+y\\bigr)f(y)\n\\tag{1}\n\\]\nfor all positive real numbers $x,y$.",
+  "solutions": [
+    "The solutions are\n\\[\n\\boxed{f(x)=\\frac{c}{x}}\n\\]\nfor arbitrary constants $c>0$.\n\nLet $f^m$ denote the $m$-fold iterate of $f$, with $f^0(x)=x$.\n\nSetting $y=x$ in (1) and dividing by $f(x)>0$ gives\n\\[\nx\\ge f^2(x).\n\\tag{2}\n\\]\nSetting $x=f(y)$ gives\n\\[\nf(y)+f^2(y)\\ge y+f^3(y),\n\\]\nor\n\\[\nf(y)-f^3(y)\\ge y-f^2(y).\n\\tag{3}\n\\]\nReplacing $y$ by $f^{n-1}(y)$ in (3),\n\\[\nf^n(y)-f^{n+2}(y)\n\\ge\nf^{n-1}(y)-f^{n+1}(y).\n\\]\nUsing (2), induction gives\n\\[\nf^n(y)-f^{n+2}(y)\n\\ge\ny-f^2(y)\n\\ge0\n\\qquad(n\\ge1).\n\\tag{4}\n\\]\n\nFor $m\\ge1$, telescope the even iterates:\n\\[\n\\begin{aligned}\ny-f^{2m}(y)\n&=\n\\sum_{i=0}^{m-1}\n\\left(f^{2i}(y)-f^{2i+2}(y)\\right)\\\\\n&\\ge\nm\\bigl(y-f^2(y)\\bigr).\n\\end{aligned}\n\\]\nSince $f^{2m}(y)>0$, the left side is smaller than $y$. Letting $m$ be arbitrarily large forces\n\\[\nf^2(y)=y\n\\qquad(y>0).\n\\tag{5}\n\\]\n\nSubstituting (5) into (1),\n\\[\nx\\bigl(f(x)+f(y)\\bigr)\\ge(x+y)f(y),\n\\]\nso\n\\[\nxf(x)\\ge yf(y)\n\\qquad(x,y>0).\n\\]\nInterchanging $x$ and $y$ shows equality:\n\\[\nxf(x)=yf(y).\n\\]\nThus $xf(x)$ is a positive constant $c$, and\n\\[\nf(x)=\\frac{c}{x}.\n\\]\n\nConversely, every function $f(x)=c/x$ satisfies $f(f(x))=x$, and both sides of (1) differ only by the equality\n\\[\nxf(x)=yf(y)=c.\n\\]\nHence all such functions work.",
+    "We again write $f^m$ for the $m$-fold iterate.\n\nAs in the direct substitutions below,\n\\[\nx\\ge f^2(x)\n\\tag{2}\n\\]\nand\n\\[\nf^n(x)\\ge f^{n+2}(x)\n\\qquad(n\\ge0).\n\\tag{3}\n\\]\nIndeed, (2) follows by setting $y=x$ in (1), while setting $x=f(y)$ gives\n\\[\nf(y)-f^3(y)\\ge y-f^2(y),\n\\]\nfrom which (3) follows inductively.\n\nSince all values are positive, (3) yields the decreasing chain\n\\[\nxf(x)\n\\ge\nf(x)f^2(x)\n\\ge\nf^2(x)f^3(x)\n\\ge\\cdots.\n\\tag{4}\n\\]\n\nReplace $x$ in (1) by $f^n(x)$. Rearranging gives\n\\[\nf^n(x)-f^{n+2}(x)\n\\ge\n\\frac{\nyf(y)-f^n(x)f^{n+1}(x)\n}{f(y)}.\n\\]\nUsing (4),\n\\[\nf^n(x)-f^{n+2}(x)\n\\ge\n\\frac{yf(y)-xf(x)}{f(y)}.\n\\tag{5}\n\\]\n\nSum (5) for\n\\[\nn=0,2,4,\\ldots,2m-2.\n\\]\nThen\n\\[\nx-f^{2m}(x)\n\\ge\nm\\frac{yf(y)-xf(x)}{f(y)}.\n\\]\nThe left side is smaller than $x$. Therefore the right side cannot be positive for arbitrarily large $m$, so\n\\[\nyf(y)\\le xf(x)\n\\qquad(x,y>0).\n\\]\nInterchanging $x$ and $y$ gives equality. Hence\n\\[\nxf(x)=c\n\\]\nfor a constant $c>0$, and\n\\[\nf(x)=\\frac{c}{x}.\n\\]\n\nConversely, for this function,\n\\[\nf(f(x))=x\n\\qquad\\text{and}\\qquad\nxf(x)=yf(y)=c.\n\\]\nAfter substitution, inequality (1) holds with equality. Thus all and only the displayed functions are solutions."
+  ]
+}

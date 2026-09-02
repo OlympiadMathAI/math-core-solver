@@ -1,0 +1,16 @@
+{
+  "id": "0404",
+  "source": "IMO Shortlist",
+  "year": "2023",
+  "topic": "Combinatorics",
+  "subtopics": [
+    "2-Adic Valuation",
+    "Signed Sums",
+    "Partial Sums",
+    "Pigeonhole Principle"
+  ],
+  "statement": "Determine the maximum possible length $L$ of a sequence\n\\[\na_1,a_2,\\ldots,a_L\n\\]\nof positive integers satisfying both conditions:\n\n\\begin{itemize}\n\\item every term is at most $2^{2023}$;\n\\item there is no consecutive subsequence\n\\[\na_i,a_{i+1},\\ldots,a_j\n\\]\nand no choice of signs\n\\[\n\\varepsilon_i,\\varepsilon_{i+1},\\ldots,\\varepsilon_j\\in\\{-1,1\\}\n\\]\nfor which\n\\[\n\\varepsilon_i a_i+\\varepsilon_{i+1}a_{i+1}\n+\\cdots+\\varepsilon_j a_j=0.\n\\]\n\\end{itemize}",
+  "solutions": [
+    "The answer is\n\\[\n\\boxed{L=2^{2024}-1}.\n\\]\n\nWe prove the more general statement in which the terms are at most\n\\[\nn=2^k.\n\\]\nThe maximum length is then\n\\[\n2n-1=2^{k+1}-1.\n\\]\n\nFor the construction, define\n\\[\na_i=2^{k-v_2(i)}\n\\qquad(1\\le i\\le2n-1),\n\\tag{1}\n\\]\nwhere $v_2(i)$ is the exponent of $2$ in $i$. Since\n\\[\n1\\le i\\le2^{k+1}-1,\n\\]\nwe have $0\\le v_2(i)\\le k$, and therefore every $a_i$ is a positive integer at most $2^k=n$.\n\nConsider any interval of indices\n\\[\nr,r+1,\\ldots,s.\n\\]\nAmong these integers, there is a unique index $x$ at which $v_2$ is maximal. Indeed, if two indices in the interval had the same maximal valuation $v$, then between two consecutive such multiples of $2^v$ there would be a multiple of $2^{v+1}$, contradicting maximality.\n\nPut\n\\[\nv=v_2(x).\n\\]\nThen\n\\[\na_x=2^{k-v},\n\\]\nwhereas every other $a_i$ in the interval is divisible by\n\\[\n2^{k-v+1}.\n\\]\nConsequently, for any signs $\\varepsilon_i\\in\\{-1,1\\}$,\n\\[\n\\sum_{i=r}^s\\varepsilon_i a_i\n\\equiv\n\\pm2^{k-v}\n\\not\\equiv0\n\\pmod{2^{k-v+1}}.\n\\]\nThus the sequence in (1), of length $2n-1$, has the required property.\n\nWe now prove that length $2n$ is impossible. Let\n\\[\na_1,\\ldots,a_L\n\\]\nbe any sequence with\n\\[\n1\\le a_i\\le n\n\\qquad\\text{and}\\qquad\nL\\ge2n.\n\\]\nChoose signs recursively. Put $b_0=0$, and after $b_{i-1}$ has been defined, set\n\\[\n\\varepsilon_i=\n\\begin{cases}\n1,&b_{i-1}\\le0,\\\\\n-1,&b_{i-1}\\ge1,\n\\end{cases}\n\\qquad\nb_i=b_{i-1}+\\varepsilon_i a_i.\n\\]\nWe claim that\n\\[\n-n+1\\le b_i\\le n\n\\qquad(0\\le i\\le L).\n\\tag{2}\n\\]\nThis follows immediately by induction: from a nonpositive partial sum we add a number between $1$ and $n$, while from a positive partial sum we subtract such a number.\n\nThe interval in (2) contains exactly $2n$ integers, but\n\\[\nb_0,b_1,\\ldots,b_L\n\\]\ncontains at least $2n+1$ terms. Hence two are equal:\n\\[\nb_{i-1}=b_j\n\\]\nfor some $1\\le i\\le j\\le L$. Subtracting gives\n\\[\n\\varepsilon_i a_i+\\varepsilon_{i+1}a_{i+1}\n+\\cdots+\\varepsilon_j a_j=0.\n\\]\nThus no sequence of length at least $2n$ works.\n\nTaking\n\\[\nn=2^{2023}\n\\]\ngives\n\\[\nL=2n-1=2^{2024}-1.\n\\]"
+  ]
+}

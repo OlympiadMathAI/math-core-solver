@@ -1,0 +1,183 @@
+ID: 0399
+
+SOURCE: IMO Shortlist
+
+YEAR: 2023
+
+TOPIC: Algebra
+
+SUBTOPICS: Functional Inequalities, Iteration, Telescoping Sums, Multiplicative Invariants
+
+STATEMENT:
+Determine all functions
+\[
+f:\mathbb R_{>0}\to\mathbb R_{>0}
+\]
+such that
+\[
+x\bigl(f(x)+f(y)\bigr)
+\ge
+\bigl(f(f(x))+y\bigr)f(y)
+\tag{1}
+\]
+for all positive real numbers $x,y$.
+
+SOLUTION 1:
+The solutions are
+\[
+\boxed{f(x)=\frac{c}{x}}
+\]
+for arbitrary constants $c>0$.
+
+Let $f^m$ denote the $m$-fold iterate of $f$, with $f^0(x)=x$.
+
+Setting $y=x$ in (1) and dividing by $f(x)>0$ gives
+\[
+x\ge f^2(x).
+\tag{2}
+\]
+Setting $x=f(y)$ gives
+\[
+f(y)+f^2(y)\ge y+f^3(y),
+\]
+or
+\[
+f(y)-f^3(y)\ge y-f^2(y).
+\tag{3}
+\]
+Replacing $y$ by $f^{n-1}(y)$ in (3),
+\[
+f^n(y)-f^{n+2}(y)
+\ge
+f^{n-1}(y)-f^{n+1}(y).
+\]
+Using (2), induction gives
+\[
+f^n(y)-f^{n+2}(y)
+\ge
+y-f^2(y)
+\ge0
+\qquad(n\ge1).
+\tag{4}
+\]
+
+For $m\ge1$, telescope the even iterates:
+\[
+\begin{aligned}
+y-f^{2m}(y)
+&=
+\sum_{i=0}^{m-1}
+\left(f^{2i}(y)-f^{2i+2}(y)\right)\\
+&\ge
+m\bigl(y-f^2(y)\bigr).
+\end{aligned}
+\]
+Since $f^{2m}(y)>0$, the left side is smaller than $y$. Letting $m$ be arbitrarily large forces
+\[
+f^2(y)=y
+\qquad(y>0).
+\tag{5}
+\]
+
+Substituting (5) into (1),
+\[
+x\bigl(f(x)+f(y)\bigr)\ge(x+y)f(y),
+\]
+so
+\[
+xf(x)\ge yf(y)
+\qquad(x,y>0).
+\]
+Interchanging $x$ and $y$ shows equality:
+\[
+xf(x)=yf(y).
+\]
+Thus $xf(x)$ is a positive constant $c$, and
+\[
+f(x)=\frac{c}{x}.
+\]
+
+Conversely, every function $f(x)=c/x$ satisfies $f(f(x))=x$, and both sides of (1) differ only by the equality
+\[
+xf(x)=yf(y)=c.
+\]
+Hence all such functions work.
+
+SOLUTION 2:
+We again write $f^m$ for the $m$-fold iterate.
+
+As in the direct substitutions below,
+\[
+x\ge f^2(x)
+\tag{2}
+\]
+and
+\[
+f^n(x)\ge f^{n+2}(x)
+\qquad(n\ge0).
+\tag{3}
+\]
+Indeed, (2) follows by setting $y=x$ in (1), while setting $x=f(y)$ gives
+\[
+f(y)-f^3(y)\ge y-f^2(y),
+\]
+from which (3) follows inductively.
+
+Since all values are positive, (3) yields the decreasing chain
+\[
+xf(x)
+\ge
+f(x)f^2(x)
+\ge
+f^2(x)f^3(x)
+\ge\cdots.
+\tag{4}
+\]
+
+Replace $x$ in (1) by $f^n(x)$. Rearranging gives
+\[
+f^n(x)-f^{n+2}(x)
+\ge
+\frac{
+yf(y)-f^n(x)f^{n+1}(x)
+}{f(y)}.
+\]
+Using (4),
+\[
+f^n(x)-f^{n+2}(x)
+\ge
+\frac{yf(y)-xf(x)}{f(y)}.
+\tag{5}
+\]
+
+Sum (5) for
+\[
+n=0,2,4,\ldots,2m-2.
+\]
+Then
+\[
+x-f^{2m}(x)
+\ge
+m\frac{yf(y)-xf(x)}{f(y)}.
+\]
+The left side is smaller than $x$. Therefore the right side cannot be positive for arbitrarily large $m$, so
+\[
+yf(y)\le xf(x)
+\qquad(x,y>0).
+\]
+Interchanging $x$ and $y$ gives equality. Hence
+\[
+xf(x)=c
+\]
+for a constant $c>0$, and
+\[
+f(x)=\frac{c}{x}.
+\]
+
+Conversely, for this function,
+\[
+f(f(x))=x
+\qquad\text{and}\qquad
+xf(x)=yf(y)=c.
+\]
+After substitution, inequality (1) holds with equality. Thus all and only the displayed functions are solutions.

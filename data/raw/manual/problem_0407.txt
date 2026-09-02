@@ -1,0 +1,348 @@
+ID: 0407
+
+SOURCE: IMO Shortlist
+
+YEAR: 2023
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Online Strategies, Majorization, Invariants, Adversarial Processes
+
+STATEMENT:
+Elisa has $2023$ treasure chests, all initially unlocked and empty. Each day, Elisa puts one new gem into an unlocked chest of her choice. Afterwards, a fairy acts as follows:
+
+\begin{itemize}
+\item if more than one chest is unlocked, the fairy locks one unlocked chest;
+\item if exactly one chest is unlocked, the fairy unlocks all the chests.
+\end{itemize}
+
+The process continues forever. Prove that there is a constant $C$ such that Elisa can ensure that the numbers of gems in any two chests always differ by at most $C$, regardless of the fairy's choices.
+
+SOLUTION 1:
+We prove the stronger statement for every odd number $n$ of chests. Elisa can take
+\[
+C=n-1.
+\]
+For the problem, this gives
+\[
+C=2022.
+\]
+
+Elisa always places the new gem into an unlocked chest having the fewest gems.
+
+At the end of day $t$, write the chest contents in nondecreasing order:
+\[
+a_1^t\le a_2^t\le\cdots\le a_n^t.
+\]
+Thus
+\[
+a_1^0=\cdots=a_n^0=0,
+\qquad
+a_1^t+\cdots+a_n^t=t.
+\]
+
+Since one gem is added each day, there is a unique index $m=m(t)$ such that the sorted vector at time $t+1$ is obtained from the sorted vector at time $t$ by increasing the $m$th entry by $1$. We use two observations.
+
+First,
+\[
+a_j^t>a_m^t
+\qquad(j>m).
+\tag{1}
+\]
+Indeed, after the increment, the new value $a_m^t+1$ still occurs no later than position $m$, while the later entries are unchanged.
+
+Second, let
+\[
+r\equiv t\pmod n,
+\qquad
+0\le r<n.
+\]
+Exactly $r$ chests are locked at the end of day $t$. If $j>r$, then among the $j$ chests with the fewest gems, at least one is unlocked. Elisa chooses a minimum among all unlocked chests, and hence
+\[
+a_j^t\ge a_m^t
+\qquad(j>r).
+\tag{2}
+\]
+
+We compare $(a_i^t)$ with an explicit sequence. Since $n$ is odd, define
+\[
+b_i^0=i-\frac{n+1}{2}
+\qquad(1\le i\le n),
+\]
+and for $t\ge0$ let
+\[
+b_i^t
+=
+b_i^0+
+\left\lfloor\frac{t+n-i}{n}\right\rfloor.
+\tag{3}
+\]
+Thus, when $t$ changes to $t+1$, precisely the coordinate
+\[
+i\equiv t+1\pmod n,
+\qquad1\le i\le n,
+\]
+increases by $1$. We have
+\[
+b_1^t\le\cdots\le b_n^t,
+\qquad
+b_1^t+\cdots+b_n^t=t,
+\tag{4}
+\]
+and
+\[
+b_i^t<b_{i+1}^t
+\quad\text{unless}\quad
+t\equiv i\pmod n.
+\tag{5}
+\]
+
+For nondecreasing sequences $x_1\le\cdots\le x_n$ and
+$y_1\le\cdots\le y_n$ with equal total sum, say that $x$ majorizes $y$ if
+\[
+x_1+\cdots+x_k\le y_1+\cdots+y_k
+\qquad(1\le k<n).
+\]
+
+We claim that
+\[
+(b_1^t,\ldots,b_n^t)
+\quad\text{majorizes}\quad
+(a_1^t,\ldots,a_n^t)
+\tag{6}
+\]
+for every $t$.
+
+For $t=0$,
+\[
+b_1^0+\cdots+b_k^0
+=
+\frac{k(k-n)}2
+\le0
+=
+a_1^0+\cdots+a_k^0,
+\]
+so the claim holds.
+
+Assume it holds at time $t$ and suppose it fails at time $t+1$ for some $k<n$. Let
+\[
+j\equiv t+1\pmod n,
+\qquad1\le j\le n.
+\]
+For a partial-sum inequality to change from true to false, all of the following must hold:
+
+\[
+b_1^t+\cdots+b_k^t
+=
+a_1^t+\cdots+a_k^t,
+\tag{7}
+\]
+\[
+j\le k,
+\tag{8}
+\]
+and
+\[
+m(t)>k.
+\tag{9}
+\]
+
+From (7) and the majorization inequality at $k-1$,
+\[
+b_k^t\ge a_k^t.
+\tag{10}
+\]
+Condition (8) says that $r=t\bmod n$ satisfies $r<k$, so (2) gives
+\[
+a_k^t\ge a_m^t.
+\]
+Together with (9) and the sorted order, this forces
+\[
+a_k^t=a_{k+1}^t=\cdots=a_m^t.
+\tag{11}
+\]
+Moreover, $r\ne k$, so (5) gives
+\[
+b_k^t<b_{k+1}^t.
+\]
+Using (7), (10), and (11),
+\[
+\begin{aligned}
+b_1^t+\cdots+b_{k+1}^t
+&>
+a_1^t+\cdots+a_k^t+a_{k+1}^t\\
+&=
+a_1^t+\cdots+a_{k+1}^t,
+\end{aligned}
+\]
+contradicting the induction hypothesis. Thus (6) holds for all $t$.
+
+Taking $k=1$ in (6) gives
+\[
+b_1^t\le a_1^t.
+\]
+Taking $k=n-1$ and using equality of total sums gives
+\[
+a_n^t\le b_n^t.
+\]
+Therefore
+\[
+a_n^t-a_1^t
+\le
+b_n^t-b_1^t
+\le
+b_n^0-b_1^0
+=
+n-1.
+\]
+Hence Elisa's strategy keeps the difference between any two chests at most $n-1$ forever.
+
+SOLUTION 2:
+We give another strategy that works for any positive integer $n$ of chests.
+
+Divide time into blocks of $n$ days. At the beginning of day $nt+1$, label the chests
+\[
+C_1^t,C_2^t,\ldots,C_n^t
+\]
+so that their numbers of gems satisfy
+\[
+c_1^t\le c_2^t\le\cdots\le c_n^t.
+\]
+During the next $n$ days, Elisa always adds a gem to the unlocked chest $C_i^t$ with the smallest possible index $i$.
+
+Let $\delta_i^t$ be the number of gems added to $C_i^t$ during this block. Then
+\[
+\delta_1^t+\cdots+\delta_n^t=n.
+\tag{1}
+\]
+Moreover,
+\[
+\delta_1^t+\cdots+\delta_k^t\ge k
+\qquad(1\le k\le n).
+\tag{2}
+\]
+Indeed, before the additions in one complete block, the number of locked chests successively takes the values
+\[
+0,1,\ldots,n-1.
+\]
+On each of the $k$ days when fewer than $k$ chests are locked, at least one of
+\[
+C_1^t,\ldots,C_k^t
+\]
+is unlocked, and Elisa chooses among these first $k$ chests.
+
+At the next block boundary, the sorted sequence
+\[
+(c_i^{t+1})
+\]
+is a permutation of
+\[
+c_1^t+\delta_1^t,\ldots,c_n^t+\delta_n^t.
+\tag{3}
+\]
+
+Define a comparison sequence
+\[
+d_i^0=3n\left(i-\frac{n+1}{2}\right),
+\qquad
+d_i^t=d_i^0+t.
+\tag{4}
+\]
+Both $(c_i^t)$ and $(d_i^t)$ have total sum $nt$.
+
+We claim that, in the ascending majorization convention,
+\[
+d_1^t+\cdots+d_k^t
+\le
+c_1^t+\cdots+c_k^t
+\qquad(1\le k<n)
+\tag{5}
+\]
+for every $t$. We interpret a partial sum with zero terms as $0$; for $k=n$, the two total sums are equal. The claim is clear for $t=0$.
+
+Assume (5) at time $t$, and fix $k<n$. Write
+\[
+x_i=c_i^t+\delta_i^t.
+\]
+
+If the $k$ smallest numbers among the $x_i$ are exactly
+\[
+x_1,\ldots,x_k,
+\]
+then by (2),
+\[
+\begin{aligned}
+c_1^{t+1}+\cdots+c_k^{t+1}
+&=
+c_1^t+\cdots+c_k^t
++\delta_1^t+\cdots+\delta_k^t\\
+&\ge
+d_1^t+\cdots+d_k^t+k\\
+&=
+d_1^{t+1}+\cdots+d_k^{t+1}.
+\end{aligned}
+\]
+
+Otherwise, there are indices
+\[
+i\le k<j
+\]
+such that
+\[
+x_i>x_j.
+\]
+Since every $\delta_i^t\le n$,
+\[
+c_{k+1}^t-c_k^t<n.
+\tag{6}
+\]
+Adding nonnegative quantities to the coordinates and then sorting cannot decrease any order statistic, so
+\[
+c_1^{t+1}+\cdots+c_k^{t+1}
+\ge
+c_1^t+\cdots+c_k^t.
+\]
+Using (6),
+\[
+\begin{aligned}
+c_1^t+\cdots+c_k^t
+&>
+c_1^t+\cdots+c_{k-1}^t
++\frac{c_k^t+c_{k+1}^t}{2}
+-\frac n2\\
+&=
+\frac12\left(c_1^t+\cdots+c_{k-1}^t\right)
++
+\frac12\left(c_1^t+\cdots+c_{k+1}^t\right)
+-\frac n2\\
+&\ge
+\frac12\left(d_1^t+\cdots+d_{k-1}^t\right)
++
+\frac12\left(d_1^t+\cdots+d_{k+1}^t\right)
+-\frac n2.
+\end{aligned}
+\]
+Consecutive terms of $(d_i^t)$ differ by $3n$, so the last expression equals
+\[
+d_1^t+\cdots+d_k^t+n
+\ge
+d_1^t+\cdots+d_k^t+k
+=
+d_1^{t+1}+\cdots+d_k^{t+1}.
+\]
+This proves (5) by induction.
+
+As in the first solution, (5) implies
+\[
+c_n^t-c_1^t
+\le
+d_n^t-d_1^t
+=
+3n(n-1)
+\tag{7}
+\]
+at every block boundary. During a block of $n$ days, any one chest gains at most $n$ gems, while no chest loses gems. Hence at every time the difference between the fullest and emptiest chest is at most
+\[
+3n(n-1)+n.
+\]
+For $n=2023$, this is a fixed constant independent of the fairy's play, completing the proof.

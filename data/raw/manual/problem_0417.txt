@@ -1,0 +1,357 @@
+ID: 0417
+
+SOURCE: IMO Shortlist
+
+YEAR: 2023
+
+TOPIC: Geometry
+
+SUBTOPICS: Equilateral Triangles, Circumcentres, Radical Axes, Coaxial Circles, Directed Angles
+
+STATEMENT:
+Let $ABC$ be an equilateral triangle. Points $A_1,B_1,C_1$ lie inside $ABC$ such that triangle $A_1B_1C_1$ is scalene and
+\[
+BA_1=A_1C,
+\qquad
+CB_1=B_1A,
+\qquad
+AC_1=C_1B,
+\]
+while
+\[
+\angle BA_1C+\angle CB_1A+\angle AC_1B=480^\circ.
+\]
+
+Define
+\[
+A_2=BC_1\cap CB_1,
+\qquad
+B_2=CA_1\cap AC_1,
+\qquad
+C_2=AB_1\cap BA_1.
+\]
+
+Prove that the circumcircles of triangles
+\[
+AA_1A_2,\qquad BB_1B_2,\qquad CC_1C_2
+\]
+have two common points.
+
+SOLUTION 1:
+Let
+\[
+\delta_A=(AA_1A_2),\qquad
+\delta_B=(BB_1B_2),\qquad
+\delta_C=(CC_1C_2).
+\]
+We construct two distinct points having equal powers with respect to all three circles.
+
+\textbf{Claim 1.}
+The point $A_1$ is the circumcentre of triangle $A_2BC$. Cyclically, $B_1$ and $C_1$ are the circumcentres of triangles $B_2CA$ and $C_2AB$.
+
+Because
+\[
+BA_1=A_1C,
+\]
+the point $A_1$ lies on the perpendicular bisector of $BC$. It lies inside triangle $BA_2C$, so it remains to show
+\[
+\angle BA_1C=2\angle BA_2C.
+\]
+Using $A_2B=BC_1$ as a line and $A_2C=CB_1$ as a line,
+\[
+\begin{aligned}
+\angle BA_2C
+&=
+\angle A_2BA+\angle BAC+\angle ACA_2\\
+&=
+\frac12\bigl(180^\circ-\angle AC_1B\bigr)
++60^\circ
++\frac12\bigl(180^\circ-\angle CB_1A\bigr)\\
+&=
+240^\circ
+-\frac12\bigl(\angle AC_1B+\angle CB_1A\bigr)\\
+&=
+\frac12\angle BA_1C.
+\end{aligned}
+\]
+This proves the claim.
+
+Claim 1 gives
+\[
+\begin{aligned}
+\angle B_1B_2C_1
+&=\angle B_1B_2A\\
+&=\angle B_2AB_1\\
+&=\angle C_1AC_2\\
+&=\angle AC_2C_1\\
+&=\angle B_1C_2C_1.
+\end{aligned}
+\]
+Hence
+\[
+B_1,C_1,B_2,C_2
+\]
+are concyclic. Cyclically,
+\[
+\begin{gathered}
+C_1,A_1,C_2,A_2\ \text{are cyclic},\\
+A_1,B_1,A_2,B_2\ \text{are cyclic}.
+\end{gathered}
+\tag{1}
+\]
+
+The six points
+\[
+A_1,B_2,C_1,A_2,B_1,C_2
+\]
+do not lie on one circle. Indeed, if they did, the sum of the three alternate angles
+\[
+\angle C_2A_1B_2
++
+\angle B_2C_1A_2
++
+\angle A_2B_1C_2
+\]
+would be $360^\circ$. These angles are respectively
+\[
+\angle BA_1C,\qquad
+\angle AC_1B,\qquad
+\angle CB_1A,
+\]
+whose sum is $480^\circ$.
+
+Apply the radical-axis theorem to the three circles in (1). Their pairwise radical axes are
+\[
+A_1A_2,\qquad B_1B_2,\qquad C_1C_2.
+\]
+Since the three circles are not identical, these lines concur at a point $X$.
+
+Because
+\[
+X\in A_1A_2\cap B_1B_2\cap C_1C_2,
+\]
+the equal-power relation for the three auxiliary circles is
+\[
+XA_1\cdot XA_2
+=
+XB_1\cdot XB_2
+=
+XC_1\cdot XC_2.
+\]
+These three products are precisely the powers of $X$ with respect to
+\[
+\delta_A,\qquad\delta_B,\qquad\delta_C.
+\]
+Thus
+\[
+\operatorname{Pow}_{\delta_A}(X)
+=
+\operatorname{Pow}_{\delta_B}(X)
+=
+\operatorname{Pow}_{\delta_C}(X).
+\tag{2}
+\]
+
+We now construct a second equal-power point.
+
+Let the circle $(A_2BC)$ meet $\delta_A$ again at
+\[
+A_3\ne A_2.
+\]
+Define $B_3,C_3$ cyclically:
+\[
+B_3\in(B_2CA)\cap\delta_B,
+\qquad
+C_3\in(C_2AB)\cap\delta_C.
+\]
+
+\textbf{Claim 2.}
+The points
+\[
+B,C,B_3,C_3
+\]
+are concyclic.
+
+We use directed angles. Since
+\[
+B,C_2,A,C_3
+\]
+are cyclic and
+\[
+C,C_1,C_2,C_3
+\]
+are cyclic,
+\[
+\begin{aligned}
+\measuredangle BC_3C
+&=
+\measuredangle BC_3C_2
++
+\measuredangle C_2C_3C\\
+&=
+\measuredangle BAC_2
++
+\measuredangle C_2C_1C.
+\end{aligned}
+\]
+The line $CC_1$ is perpendicular to $AB$, because $C_1$ lies on the perpendicular bisector of $AB$. Also $A,C_2,B_1$ are collinear. Hence
+\[
+\measuredangle BC_3C
+=
+90^\circ+\measuredangle C_1C_2B_1.
+\tag{3}
+\]
+
+Similarly,
+\[
+\measuredangle BB_3C
+=
+90^\circ+\measuredangle C_1B_2B_1.
+\tag{4}
+\]
+The cyclic quadrilateral $B_1C_1B_2C_2$ gives
+\[
+\measuredangle C_1B_2B_1
+=
+\measuredangle C_1C_2B_1.
+\]
+Equations (3)-(4) prove Claim 2.
+
+Cyclically,
+\[
+\begin{gathered}
+C,A,C_3,A_3\ \text{are cyclic},\\
+A,B,A_3,B_3\ \text{are cyclic}.
+\end{gathered}
+\tag{5}
+\]
+
+The six points
+\[
+A,C_3,B,A_3,C,B_3
+\]
+are not concyclic. Otherwise $A,B,C,B_3$ would lie on one circle, namely the circumcircle of $ABC$. But $A,C,B_2,B_3$ are cyclic by the definition of $B_3$, so this would force
+\[
+B_2
+\]
+onto the circumcircle of $ABC$, impossible because $B_2$ lies inside triangle $ABC$.
+
+Apply the radical-axis theorem to the three circles in (5). Their pairwise radical axes are
+\[
+AA_3,\qquad BB_3,\qquad CC_3,
+\]
+so these lines concur at a point $Y$. As before,
+\[
+YA\cdot YA_3
+=
+YB\cdot YB_3
+=
+YC\cdot YC_3,
+\]
+and these are the powers of $Y$ with respect to $\delta_A,\delta_B,\delta_C$. Therefore
+\[
+\operatorname{Pow}_{\delta_A}(Y)
+=
+\operatorname{Pow}_{\delta_B}(Y)
+=
+\operatorname{Pow}_{\delta_C}(Y).
+\tag{6}
+\]
+
+It remains to show that
+\[
+X\ne Y
+\tag{7}
+\]
+and that the common radical axis through them meets the circles in two real points.
+
+Let $O$ be the centre of the equilateral triangle $ABC$. Since the other two angles in the given sum are each smaller than $180^\circ$,
+\[
+\angle BA_1C>120^\circ.
+\]
+The point $A_1$ lies on the perpendicular bisector $AO$ of $BC$, so this inequality places $A_1$ inside triangle $BOC$. Cyclically,
+\[
+B_1\in\triangle COA,
+\qquad
+C_1\in\triangle AOB.
+\]
+The three triangles
+\[
+BA_1C,\qquad CB_1A,\qquad AC_1B
+\]
+therefore have disjoint interiors. It follows that
+\[
+A_1B_2C_1A_2B_1C_2
+\]
+is a convex hexagon. Its three main diagonals
+\[
+A_1A_2,\qquad B_1B_2,\qquad C_1C_2
+\]
+meet at $X$, so
+\[
+X\in A_1A_2.
+\]
+In particular,
+\[
+X\ \text{lies inside each of }\delta_A,\delta_B,\delta_C.
+\tag{8}
+\]
+
+By Claim 1, $A_1$ is the centre of $(A_2BC)$. Since both $A_2$ and $A_3$ lie on this circle,
+\[
+A_1A_2=A_1A_3.
+\tag{9}
+\]
+The four points $A,A_2,A_1,A_3$ lie on $\delta_A$. Equality (9) implies that the lines
+\[
+AA_2
+\qquad\text{and}\qquad
+AA_3=AY
+\]
+are reflections of each other in line $AA_1$, which is the perpendicular bisector of $BC$.
+
+We make the required reflection observation explicit. Choose coordinates with $AA_1$ as the vertical axis and write
+\[
+A=(0,a),\qquad A_1=(0,h),\qquad A_2=(u,v),
+\]
+where $a>h$ and $v<a$ because $A_1,A_2$ lie inside triangle $ABC$. If $u\ne0$, the reflection of line $AA_2$ in $AA_1$ is the line through
+\[
+A
+\qquad\text{and}\qquad
+(-u,v).
+\]
+Its intersection with line $A_1A_2$ has the form
+\[
+A_1+t(A_2-A_1),
+\qquad
+t=\frac{a-h}{2v-a-h}.
+\]
+If the denominator is nonpositive, then $t\le0$; if it is positive, then
+\[
+2v-a-h<a-h
+\]
+because $v<a$, and hence $t>1$. Thus this reflected line never meets the segment $A_1A_2$ when $u\ne0$.
+
+Since $X\in A_1A_2$ and $Y\in AA_3$, equality $X=Y$ can therefore occur only if $u=0$, that is,
+\[
+A_2\in AA_1.
+\]
+In that case $A_2$ lies on the perpendicular bisector of $BC$. The lines
+\[
+BA_2=BC_1
+\qquad\text{and}\qquad
+CA_2=CB_1
+\]
+are then reflections of one another in this perpendicular bisector, so $B_1$ and $C_1$ are reflections of one another. Because $A_1$ lies on the axis,
+\[
+A_1B_1=A_1C_1,
+\]
+contradicting the assumption that $A_1B_1C_1$ is scalene. This proves (7).
+
+By (2) and (6), the distinct points $X,Y$ lie on the common radical axis of
+\[
+\delta_A,\delta_B,\delta_C.
+\]
+By (8), $X$ is inside each circle. Hence this common radical axis cuts $\delta_A$ in two real points. At either intersection the common power is $0$, so the point also lies on $\delta_B$ and $\delta_C$.
+
+Therefore the three circles have two common points.

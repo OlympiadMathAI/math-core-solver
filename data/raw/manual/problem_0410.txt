@@ -1,0 +1,284 @@
+ID: 0410
+
+SOURCE: IMO Shortlist
+
+YEAR: 2023
+
+TOPIC: Geometry
+
+SUBTOPICS: Cyclic Quadrilaterals, Area Ratios, Similar Triangles, Spiral Similarity
+
+STATEMENT:
+Let $ABCDE$ be a convex pentagon such that
+\[
+\angle ABC=\angle AED=90^\circ.
+\]
+Suppose that the midpoint of $CD$ is the circumcentre of triangle $ABE$. Let $O$ be the circumcentre of triangle $ACD$.
+
+Prove that line $AO$ passes through the midpoint of segment $BE$.
+
+SOLUTION 1:
+Let
+\[
+M
+\]
+be the midpoint of $CD$, and put
+\[
+X=BC\cap ED.
+\]
+Since
+\[
+\angle ABX=\angle AEX=90^\circ,
+\]
+the segment $AX$ is a diameter of the circumcircle of triangle $ABE$. Its midpoint is therefore the circumcentre of triangle $ABE$, namely $M$. Hence $M$ is the midpoint of both $AX$ and $CD$, so
+\[
+ACXD
+\]
+is a parallelogram. In particular,
+\[
+AD\parallel BC,
+\qquad
+AC\parallel ED.
+\tag{1}
+\]
+
+Let $N=AO\cap BE$. It is enough to show that $N$ is the midpoint of $BE$.
+
+Let $C_1$ and $D_1$ be the midpoints of $AC$ and $AD$, respectively. Since $O$ is the circumcentre of triangle $ACD$,
+\[
+OC_1\perp AC,
+\qquad
+OD_1\perp AD.
+\]
+Using (1) together with
+\[
+AB\perp BC
+\qquad\text{and}\qquad
+AE\perp ED,
+\]
+we obtain
+\[
+OD_1\parallel AB,
+\qquad
+OC_1\parallel AE.
+\tag{2}
+\]
+
+Write $[UVW]$ for the ordinary area of triangle $UVW$. From the first parallelism in (2),
+\[
+[OAB]=[D_1AB].
+\]
+The triangles $D_1AB$ and $D_1AC$ have equal areas, because $B$ and $C$ lie on the line $BC\parallel AD_1$. Moreover, $D_1$ is the midpoint of $AD$. Consequently,
+\[
+[OAB]
+=
+[D_1AB]
+=
+[D_1AC]
+=
+\frac12[ACD].
+\tag{3}
+\]
+
+Similarly,
+\[
+[OAE]
+=
+[C_1AE]
+=
+[C_1AD]
+=
+\frac12[ACD].
+\tag{4}
+\]
+Equations (3)-(4) give
+\[
+[OAB]=[OAE].
+\]
+The points $B$ and $E$ lie on opposite sides of $AO$ in the convex configuration. Thus their perpendicular distances from $AO$ are equal, and line $AO$ bisects $BE$. Therefore
+\[
+N
+\]
+is the midpoint of $BE$.
+
+SOLUTION 2:
+Let
+\[
+M
+\]
+be the midpoint of $CD$, and let
+\[
+X=BC\cap ED.
+\]
+The right angles
+\[
+\angle ABX=\angle AEX=90^\circ
+\]
+show that $AX$ is a diameter of the circumcircle of triangle $ABE$. Since $M$ is its centre, $M$ is the midpoint of $AX$. As $M$ is also the midpoint of $CD$, the quadrilateral $ACXD$ is a parallelogram. Hence
+\[
+AD\parallel BC,
+\qquad
+AC\parallel ED.
+\tag{1}
+\]
+
+Let $N$ be the midpoint of $BE$. We prove that
+\[
+A,N,O
+\]
+are collinear.
+
+The quadrilateral $ABXE$ is cyclic. Therefore
+\[
+\angle ABE=\angle AXE=\angle XAC
+\]
+and
+\[
+\angle BEA=\angle BXA=\angle CXA.
+\]
+It follows that
+\[
+\triangle ABE\sim\triangle CAX.
+\]
+Under this similarity, the side $BE$ corresponds to $AX$. Hence their midpoints $N$ and $M$ correspond, and
+\[
+\angle NAB=\angle ACM.
+\tag{2}
+\]
+
+Because $AD\parallel BC$ and $AB\perp BC$,
+\[
+\angle DAB=90^\circ.
+\]
+Thus
+\[
+\angle OAB=90^\circ-\angle DAO.
+\tag{3}
+\]
+In the isosceles triangle $AOD$,
+\[
+OA=OD.
+\]
+Moreover,
+\[
+\angle AOD=2\angle ACD,
+\]
+so
+\[
+\angle DAO=90^\circ-\angle ACD.
+\]
+Substituting into (3),
+\[
+\angle OAB=\angle ACD=\angle ACM.
+\]
+Together with (2), this gives
+\[
+\angle OAB=\angle NAB,
+\]
+and therefore $A,N,O$ are collinear.
+
+SOLUTION 3:
+Let $N$ be the midpoint of $BE$. Let $F$ and $G$ be the perpendicular projections of $C$ and $D$ onto $AD$ and $AC$, respectively.
+
+Since
+\[
+\angle CFD=\angle CGD=90^\circ,
+\]
+the points
+\[
+C,G,F,D
+\]
+are concyclic. Hence
+\[
+\angle AGF
+=
+\angle CDF
+=
+\angle CDA.
+\]
+Because $O$ is the circumcentre of triangle $ACD$,
+\[
+\angle CDA=90^\circ-\angle OAC.
+\]
+Therefore
+\[
+AO\perp FG.
+\tag{1}
+\]
+
+It remains to prove
+\[
+AN\perp FG.
+\tag{2}
+\]
+
+As in the elementary construction below, let
+\[
+X=BC\cap ED.
+\]
+The segment $AX$ is a diameter of the circumcircle of triangle $ABE$, and the given midpoint of $CD$ is the midpoint of $AX$. Thus
+\[
+AD\parallel BC,
+\qquad
+AC\parallel ED.
+\tag{3}
+\]
+It follows that
+\[
+AEDG
+\qquad\text{and}\qquad
+AFCB
+\]
+are rectangles.
+
+The rectangles give
+\[
+\angle AGE=\angle DAG=\angle FAC=\angle BFA.
+\]
+Thus
+\[
+\triangle GAE\sim\triangle FAB.
+\tag{4}
+\]
+
+Let $F'$ be the reflection of $F$ in $A$. Since reversing the ray $AF$ changes both corresponding orientations, (4) shows that there is a direct spiral similarity centred at $A$ which sends
+\[
+F'\longmapsto G,
+\qquad
+B\longmapsto E.
+\tag{5}
+\]
+
+Let $P$ be the midpoint of $F'G$. With $A$ as the origin, write the complex multiplier of the similarity in (5) as $\lambda$. Then
+\[
+G=\lambda F',
+\qquad
+E=\lambda B,
+\]
+while
+\[
+P=\frac{F'+G}{2}
+=\frac{1+\lambda}{2}F',
+\qquad
+N=\frac{B+E}{2}
+=\frac{1+\lambda}{2}B.
+\]
+Consequently,
+\[
+\triangle APN\sim\triangle AGE.
+\]
+Since $AEDG$ is a rectangle,
+\[
+\angle GAE=90^\circ,
+\]
+and therefore
+\[
+\angle PAN=90^\circ.
+\tag{6}
+\]
+
+Finally, $A$ is the midpoint of $FF'$, while $P$ is the midpoint of $F'G$. In triangle $F'FG$, the midpoint theorem gives
+\[
+AP\parallel FG.
+\]
+Together with (6), this proves (2). Combining (1) and (2), the lines $AO$ and $AN$ coincide. Hence $AO$ passes through the midpoint $N$ of $BE$.

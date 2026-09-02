@@ -1,0 +1,16 @@
+{
+  "id": "0400",
+  "source": "IMO Shortlist",
+  "year": "2023",
+  "topic": "Algebra",
+  "subtopics": [
+    "Permutations",
+    "Triangle Inequality",
+    "Extremal Sums",
+    "Graceful Permutations"
+  ],
+  "statement": "Let\n\\[\na_1,a_2,\\ldots,a_{2023}\n\\]\nbe positive integers such that\n\n\\begin{itemize}\n\\item $a_1,a_2,\\ldots,a_{2023}$ is a permutation of $1,2,\\ldots,2023$;\n\\item\n\\[\n|a_1-a_2|,|a_2-a_3|,\\ldots,|a_{2022}-a_{2023}|\n\\]\nis a permutation of $1,2,\\ldots,2022$.\n\\end{itemize}\n\nProve that\n\\[\n\\max(a_1,a_{2023})\\ge507.\n\\]",
+  "solutions": [
+    "We prove the following more general statement.\n\nLet $N$ be a positive integer, and let\n\\[\na_1,a_2,\\ldots,a_{2N-1}\n\\]\nbe a permutation of $1,2,\\ldots,2N-1$ whose consecutive absolute differences are a permutation of\n\\[\n1,2,\\ldots,2N-2.\n\\]\nThen\n\\[\na_1+a_{2N-1}\\ge N+1.\n\\tag{1}\n\\]\n\nFor\n\\[\na\\in\\{1,2,\\ldots,2N-1\\},\n\\]\ndefine its score by\n\\[\ns(a)=|a-N|.\n\\]\nThe triangle inequality gives\n\\[\n|a-b|\\le s(a)+s(b).\n\\]\nTherefore\n\\[\n\\begin{aligned}\n(N-1)(2N-1)\n&=\n\\sum_{i=1}^{2N-2}|a_i-a_{i+1}|\\\\\n&\\le\n2\\sum_{i=1}^{2N-1}s(a_i)\n-s(a_1)-s(a_{2N-1}).\n\\end{aligned}\n\\tag{2}\n\\]\nThe scores form the multiset\n\\[\n0,1,1,2,2,\\ldots,N-1,N-1,\n\\]\nso\n\\[\n\\sum_{i=1}^{2N-1}s(a_i)=N(N-1).\n\\]\nSubstituting this into (2),\n\\[\ns(a_1)+s(a_{2N-1})\\le N-1.\n\\tag{3}\n\\]\nSince\n\\[\nN-a\\le|a-N|=s(a)\n\\]\nfor every $a$, equation (3) gives\n\\[\n(N-a_1)+(N-a_{2N-1})\\le N-1.\n\\]\nThis is equivalent to (1).\n\nFor the problem, take\n\\[\n2N-1=2023,\n\\qquad N=1012.\n\\]\nThen\n\\[\na_1+a_{2023}\\ge1013,\n\\]\nand hence\n\\[\n\\max(a_1,a_{2023})\n\\ge\n\\left\\lceil\\frac{1013}{2}\\right\\rceil\n=\n507.\n\\]"
+  ]
+}

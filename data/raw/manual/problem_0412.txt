@@ -1,0 +1,271 @@
+ID: 0412
+
+SOURCE: IMO Shortlist
+
+YEAR: 2023
+
+TOPIC: Geometry
+
+SUBTOPICS: Arc Midpoints, Parallelograms, Homothety, Distance Ratios
+
+STATEMENT:
+Let $ABCD$ be a cyclic quadrilateral satisfying
+\[
+\angle BAD<\angle ADC.
+\]
+Let $M$ be the midpoint of the arc $CD$ not containing $A$.
+
+Suppose that there is a point $P$ inside $ABCD$ such that
+\[
+\angle ADB=\angle CPD
+\qquad\text{and}\qquad
+\angle ADP=\angle PCB.
+\]
+
+Prove that the lines
+\[
+AD,\qquad PM,\qquad BC
+\]
+are concurrent.
+
+SOLUTION 1:
+Let
+\[
+X=AM\cap PD,
+\qquad
+Y=BM\cap PC.
+\]
+Since $A,B,C,D,M$ lie on the same circle and
+\[
+CM=MD,
+\]
+we have
+\[
+\angle XAD
+=
+\angle MAD
+=
+\angle CBM
+=
+\angle CBY.
+\tag{1}
+\]
+The hypothesis also gives
+\[
+\angle ADX=\angle YCB.
+\tag{2}
+\]
+Equations (1)-(2) imply
+\[
+\angle DXA=\angle BYC.
+\]
+Using the collinearities
+\[
+A,X,M,
+\qquad
+B,Y,M,
+\qquad
+D,X,P,
+\qquad
+C,Y,P,
+\]
+this becomes
+\[
+\angle PXM=\angle MYP.
+\tag{3}
+\]
+
+Furthermore,
+\[
+\angle YPX
+=
+\angle CPD
+=
+\angle ADB
+=
+\angle AMB
+=
+\angle XMY.
+\tag{4}
+\]
+Thus both pairs of opposite angles of quadrilateral $MXPY$ are equal. Hence $MXPY$ is a parallelogram, and therefore
+\[
+AM\parallel PC,
+\qquad
+BM\parallel PD.
+\tag{5}
+\]
+
+Let
+\[
+R=AM\cap BC,
+\qquad
+S=BM\cap AD.
+\]
+By (5),
+\[
+\angle ASB
+=
+\angle ADP
+=
+\angle PCB
+=
+\angle ARB.
+\]
+Consequently,
+\[
+A,B,R,S
+\]
+are concyclic. Hence
+\[
+\angle SRB
+=
+180^\circ-\angle BAS
+=
+180^\circ-\angle BAD
+=
+\angle DCB,
+\]
+where the last equality uses the cyclic quadrilateral $ABCD$. Since $R,B,C$ are collinear,
+\[
+SR\parallel CD.
+\tag{6}
+\]
+
+Now the corresponding sides of triangles $PCD$ and $MRS$ are parallel:
+\[
+PC\parallel MR,
+\qquad
+PD\parallel MS,
+\qquad
+CD\parallel RS.
+\]
+The two triangles are therefore homothetic. The lines joining corresponding vertices,
+\[
+PM,\qquad CR=BC,\qquad DS=AD,
+\]
+pass through the centre of this homothety. Thus $AD$, $PM$, and $BC$ are concurrent.
+
+SOLUTION 2:
+Let
+\[
+T=AD\cap BC.
+\]
+For a point $Z$, denote by
+\[
+d_a(Z)
+\qquad\text{and}\qquad
+d_b(Z)
+\]
+its perpendicular distances from the lines $TA=AD$ and $TB=BC$, respectively.
+
+The points $P$ and $M$ lie in the same angle formed by these two lines. Within this angle, the ratio
+\[
+\frac{d_a(Z)}{d_b(Z)}
+\]
+determines the ray $TZ$. Hence it is enough to prove
+\[
+\frac{d_a(P)}{d_b(P)}
+=
+\frac{d_a(M)}{d_b(M)}.
+\tag{1}
+\]
+
+Introduce the angles
+\[
+\alpha=\angle BAC=\angle BDC,
+\qquad
+\beta=\angle DBA=\angle DCA,
+\]
+\[
+\mu=\angle ADB=\angle AMB=\angle ACB=\angle CPD,
+\qquad
+\nu=\angle ADP=\angle PCB,
+\]
+and
+\[
+\chi
+=
+\angle MAD
+=
+\angle CAM
+=
+\angle MBD
+=
+\angle CBM.
+\]
+The equalities involving $\chi$ follow from the fact that $M$ is the midpoint of arc $CD$.
+
+Using the two equal angles $\nu$,
+\[
+\frac{d_a(P)}{d_b(P)}
+=
+\frac{PD\sin\nu}{PC\sin\nu}
+=
+\frac{PD}{PC}.
+\tag{2}
+\]
+Similarly,
+\[
+\frac{d_a(M)}{d_b(M)}
+=
+\frac{MA\sin\chi}{MB\sin\chi}
+=
+\frac{MA}{MB}.
+\tag{3}
+\]
+Thus it remains to prove
+\[
+\frac{PD}{PC}=\frac{MA}{MB}.
+\tag{4}
+\]
+
+We show that
+\[
+\triangle PDC\sim\triangle MAB.
+\]
+Both triangles have the same angle
+\[
+\angle DPC=\angle AMB=\mu.
+\]
+For the other two angles, an angle chase in the cyclic quadrilateral gives
+\[
+\angle PDC+\angle DCP=180^\circ-\mu
+\tag{5}
+\]
+and
+\[
+\angle PDC-\angle DCP
+=
+(\alpha+\mu-\nu)-(\beta+\mu-\nu)
+=
+\alpha-\beta.
+\tag{6}
+\]
+On the other hand,
+\[
+\angle BAM+\angle MBA=180^\circ-\mu
+\tag{7}
+\]
+and
+\[
+\angle BAM-\angle MBA
+=
+(\alpha+\chi)-(\beta+\chi)
+=
+\alpha-\beta.
+\tag{8}
+\]
+Equations (5)-(8) imply
+\[
+\angle PDC=\angle BAM,
+\qquad
+\angle DCP=\angle MBA.
+\]
+Hence the triangles are similar, which proves (4).
+
+Combining (2)-(4) gives (1), so
+\[
+T,P,M
+\]
+are collinear. Since $T$ already lies on $AD$ and $BC$, the required concurrency follows.

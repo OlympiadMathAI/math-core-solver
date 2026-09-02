@@ -1,0 +1,107 @@
+ID: 0422
+
+SOURCE: IMO Shortlist
+
+YEAR: 2023
+
+TOPIC: Number Theory
+
+SUBTOPICS: Divisibility Sequences, Prime Factors, Auxiliary Quotients, Unbounded Sequences
+
+STATEMENT:
+Let
+\[
+a_1<a_2<a_3<\cdots
+\]
+be positive integers such that
+\[
+a_{k+1}\mid2(a_1+a_2+\cdots+a_k)
+\]
+for every $k\ge1$.
+
+Suppose that infinitely many primes divide at least one term of the sequence. Prove that for every positive integer $n$, there exists an index $k$ such that
+\[
+n\mid a_k.
+\]
+
+SOLUTION 1:
+For every $k\ge2$, define
+\[
+b_k=\frac{2(a_1+a_2+\cdots+a_{k-1})}{a_k}.
+\]
+By the hypothesis, every $b_k$ is a positive integer.
+
+We first establish two properties of the sequence $(b_k)$.
+
+\textbf{Claim 1.}
+For every $k\ge2$,
+\[
+b_{k+1}\le b_k+1.
+\tag{1}
+\]
+
+Indeed,
+\[
+b_{k+1}a_{k+1}
+=
+2(a_1+\cdots+a_k)
+=
+b_ka_k+2a_k
+=
+(b_k+2)a_k.
+\tag{2}
+\]
+Since $a_{k+1}>a_k$, equality (2) gives
+\[
+b_{k+1}<b_k+2.
+\]
+Both sides are integers, so (1) follows.
+
+\textbf{Claim 2.}
+The sequence $(b_k)$ is unbounded.
+
+From (2),
+\[
+a_{k+1}
+=
+a_k\frac{b_k+2}{b_{k+1}},
+\]
+and in particular
+\[
+a_{k+1}\mid a_k(b_k+2).
+\tag{3}
+\]
+If all $b_k$ were bounded by some $B$, then (3), used inductively, would show that every prime divisor of every $a_k$ belongs to the finite set consisting of the prime divisors of $a_1a_2$ together with the primes not exceeding $B+2$. This contradicts the assumption that infinitely many primes divide terms of the sequence. Hence $(b_k)$ is unbounded.
+
+Now fix a positive integer $n_0$. Choose a positive multiple $n$ of $n_0$ such that
+\[
+n>b_2.
+\]
+It is enough to find a term divisible by this $n$, since that term will also be divisible by $n_0$.
+By Claim 2, choose the smallest $k\ge2$ such that
+\[
+b_{k+1}\ge n.
+\]
+Then
+\[
+b_k<n.
+\]
+Claim 1 forces
+\[
+b_k=n-1,
+\qquad
+b_{k+1}=n.
+\]
+Using (2),
+\[
+na_{k+1}=(n+1)a_k.
+\]
+Since
+\[
+\gcd(n,n+1)=1,
+\]
+we conclude that
+\[
+n\mid a_k.
+\]
+Hence $n_0\mid a_k$, proving the assertion.

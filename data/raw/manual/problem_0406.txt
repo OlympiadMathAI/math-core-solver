@@ -1,0 +1,227 @@
+ID: 0406
+
+SOURCE: IMO Shortlist
+
+YEAR: 2023
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Eulerian Graphs, Cutting and Rearrangement, Circular Strips, Induction
+
+STATEMENT:
+Let $n\ge2$. Paul has a $1\times n^2$ strip consisting of $n^2$ consecutive unit squares, labelled
+\[
+1,2,\ldots,n^2
+\]
+from left to right.
+
+He cuts the strip into pieces, each consisting of consecutive squares, and translates the pieces, without rotating or reflecting them, to form an $n\times n$ square. If the label in row $i$ and column $j$ of the square is $a_{ij}$, the arrangement must satisfy
+\[
+a_{ij}\equiv i+j-1\pmod n.
+\]
+
+Determine the minimum possible number of pieces.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{2n-1}.
+\]
+
+We first give a construction. For each
+\[
+r=1,2,\ldots,n-1,
+\]
+cut off a piece $P_r$ of length $n$, followed by a singleton $S_r$. The one remaining square is a final singleton $S_n$. Thus the piece lengths are
+\[
+n,1,n,1,\ldots,n,1,1,
+\]
+and there are $2n-1$ pieces.
+
+The first label of $P_r$ is
+\[
+1+(r-1)(n+1)\equiv r\pmod n.
+\]
+Hence the residues along $P_r$ are
+\[
+r,r+1,\ldots,r+n-1,
+\]
+so $P_r$ forms row $r$. The singleton $S_r$ has residue $r$, while $S_n$ has residue $0$. Arrange
+\[
+S_n,S_1,S_2,\ldots,S_{n-1}
+\]
+as the final row. Its residues are
+\[
+0,1,\ldots,n-1,
+\]
+exactly as required.
+
+We now prove the lower bound. Since only residues modulo $n$ matter, regard labels as elements of the cyclic group $\mathbb Z/n\mathbb Z$.
+
+Reverse the construction. Begin with the $n$ target rows. Row $r$ contains the cyclic sequence
+\[
+r,r+1,\ldots,r+n-1.
+\]
+After cutting a row, every resulting piece has the form
+\[
+a,a+1,\ldots,b-1
+\]
+with cyclic residues. Represent this piece by an edge joining the vertices $a$ and $b$ in an undirected multigraph $\Gamma$ on the $n$ residue classes. Loops and parallel edges are allowed.
+
+The pieces cut from row $r$ form a cycle $\gamma_r$ through vertex $r$. These $n$ cycles are edge-disjoint. On the other hand, arranging all pieces back into the original strip orders every edge in one closed trail: before the first label and after the last label the residue is the same. Hence $\Gamma$ has an Eulerian circuit and is connected.
+
+Let $E$ be the number of edges, equivalently the number of pieces. Delete one edge from each cycle $\gamma_r$. Connectivity is preserved. Indeed, a deleted non-loop edge still has its endpoints joined by the rest of its own cycle, and the cycles are edge-disjoint, so none of these replacement routes uses another deleted edge; deleting a loop never affects connectivity.
+
+The remaining graph has
+\[
+E-n
+\]
+edges and is connected on $n$ vertices. Therefore
+\[
+E-n\ge n-1,
+\]
+and hence
+\[
+E\ge2n-1.
+\]
+Together with the construction, this proves the answer.
+
+SOLUTION 2:
+The construction with piece lengths
+\[
+n,1,n,1,\ldots,n,1,1
+\]
+again gives $2n-1$ pieces. We prove that fewer cannot suffice by using circular strips.
+
+Glue the two ends of the original $1\times n^2$ strip. Its labels then repeat cyclically as
+\[
+1,2,\ldots,n,1,2,\ldots,n,\ldots.
+\]
+A decomposition into $p$ linear pieces corresponds to making $p$ cuts in this circular strip.
+
+Suppose these pieces have been translated into the target square. A \emph{seam} is an internal boundary between two horizontally adjacent cells of a row that belong to different pieces.
+
+We repeatedly remove seams while modifying the circular source strips.
+
+Consider a seam $S\mid T$.
+
+If $S$ and $T$ were already adjacent in the same circular strip, then the cut between them was unnecessary; erase it.
+
+Otherwise, in the source strips there are cuts
+\[
+S\mid Y
+\qquad\text{and}\qquad
+X\mid T.
+\]
+Cut at these two places and reconnect crosswise as
+\[
+S\mid T
+\qquad\text{and}\qquad
+X\mid Y.
+\]
+This operation either merges two circular strips or splits one circular strip into two, so the number of circular strips changes by at most $1$. The cut $S\mid T$ can now be erased, eliminating the chosen seam and reducing the number of cuts by $1$.
+
+Continue until no internal seam remains. Then every row of the final square is one unbroken strip of length $n$. Glue the two ends of each row. Row $r$ has cyclic residue sequence
+\[
+r,r+1,\ldots,r+n-1,
+\]
+so after its last residue the only possible next residue is again $r$, the first residue of that same row. Therefore two distinct rows cannot belong to one circular strip while preserving the label order. The seam-free state consequently consists of exactly $n$ circular strips, one for each row. At least one cut in each is still required to open it, so at least $n$ cuts remain.
+
+We started with one circular strip and ended with $n$. Since each seam-removal operation changes their number by at most $1$, at least
+\[
+n-1
+\]
+seams had to be removed. Consequently, the initial number of cuts was at least
+\[
+n+(n-1)=2n-1.
+\]
+Thus at least $2n-1$ pieces are necessary.
+
+SOLUTION 3:
+We again use the construction above for the upper bound. For the lower bound, we prove a more general statement.
+
+Suppose we start with $k$ circular strips, each having length divisible by $n$, with labels repeating cyclically
+\[
+1,2,\ldots,n.
+\]
+Assume that the total number of cells is $n^2$. Then forming the required $n\times n$ square needs at least
+\[
+2n-k
+\tag{1}
+\]
+cuts. Since cutting a circular strip at least once produces as many pieces as cuts, this is also a lower bound for the number of pieces.
+
+We prove (1) by induction on $n$. For $n=1$, necessarily $k=1$, and one cut is required.
+
+Assume $n\ge2$. For each residue $i$, let $a_i$ be the number of cuts between a cell labelled $i$ and the following cell labelled $i+1$, with indices read cyclically. In the final square, one row begins immediately after a boundary of each residue type, so
+\[
+a_i\ge1
+\qquad(1\le i\le n).
+\]
+If all $a_i\ge2$, then the total number of cuts is at least $2n$, and there is nothing to prove.
+
+Choose $m$ such that
+\[
+a_m=1.
+\]
+The unique cut of this type supplies the two ends of the row
+\[
+m+1,m+2,\ldots,m+n
+\]
+in the final square. Let this row consist of $\ell$ pieces.
+
+\textbf{Case 1: $\ell=1$.}
+
+This row comes from one entire circular strip of length $n$. Remove that strip and that row. In the remaining construction, no boundary between labels $m$ and $m+1$ is cut. Merge every adjacent pair
+\[
+m,m+1
+\]
+into one new symbol. The remaining $n-1$ rows and $k-1$ circular strips become an instance of the same problem of size $n-1$.
+
+By induction, the remaining part needs at least
+\[
+2(n-1)-(k-1)
+\]
+cuts. Adding the one cut used for the removed row gives
+\[
+1+2(n-1)-(k-1)=2n-k.
+\]
+
+\textbf{Case 2: $\ell\ge2$.}
+
+Write the row pieces in order as
+\[
+C_1,C_2,\ldots,C_\ell.
+\]
+Because the cut of type $m$ is unique, the end pieces $C_\ell$ and $C_1$ are consecutive around one source circle. Thus the cells of the removed row occupy only $\ell-1$ separate circular blocks.
+
+Cut at the endpoints of those blocks and remove the row. Removing $\ell-1$ blocks from $k$ circles leaves at most
+\[
+k+\ell-2
+\]
+connected components. Reconnect these components, without introducing new cuts, into
+\[
+k'\le k+\ell-2
+\]
+circular strips. As in Case 1, merge every remaining uncut pair $m,m+1$. This produces an $(n-1)\times(n-1)$ instance.
+
+By induction, the remaining construction requires at least
+\[
+2(n-1)-k'
+\]
+pieces. Including the $\ell$ pieces of the removed row, the original number of pieces is at least
+\[
+\begin{aligned}
+\ell+2(n-1)-k'
+&\ge
+\ell+2(n-1)-(k+\ell-2)\\
+&=2n-k.
+\end{aligned}
+\]
+This completes the induction.
+
+Taking $k=1$ proves that the original strip requires at least
+\[
+2n-1
+\]
+pieces.

@@ -1,0 +1,459 @@
+ID: 0414
+
+SOURCE: IMO Shortlist
+
+YEAR: 2023
+
+TOPIC: Geometry
+
+SUBTOPICS: Reflections, Similar Triangles, Inversion, Orthocentre, Spiral Similarity
+
+STATEMENT:
+Let $ABC$ be an acute triangle with circumcircle $\omega$ and circumcentre $O$. Let
+\[
+D\ne B,\qquad E\ne C
+\]
+be points on $\omega$ such that
+\[
+BD\perp AC,
+\qquad
+CE\perp AB.
+\]
+Let
+\[
+X=CO\cap AB,
+\qquad
+Y=BO\cap AC.
+\]
+
+Prove that the circumcircles of triangles $BXD$ and $CYE$ have a common point on line $AO$.
+
+SOLUTION 1:
+Let $\ell$ be the line through $O$ parallel to $AC$. Since
+\[
+BD\perp AC
+\]
+and $O$ is equidistant from $B$ and $D$, the line $\ell$ is the perpendicular bisector of $BD$. Reflection $\sigma$ in $\ell$ therefore swaps
+\[
+B\longleftrightarrow D.
+\tag{1}
+\]
+
+Because $OA=OC$, the line through $O$ parallel to the base $AC$ is the external angle bisector of the two lines $OA$ and $OC$. Hence $\sigma$ also swaps the lines
+\[
+AO\longleftrightarrow CO=XO.
+\tag{2}
+\]
+
+Let $\gamma_B=(BXD)$, and let $P\ne X$ be the second intersection of $\gamma_B$ with line $CO$. The centre of $\gamma_B$ lies on the perpendicular bisector $\ell$ of $BD$, so $\gamma_B$ is invariant under $\sigma$. Put
+\[
+Z=\sigma(P).
+\]
+By (2),
+\[
+Z\in AO,
+\]
+and by invariance,
+\[
+Z\in\gamma_B.
+\tag{3}
+\]
+
+We now identify $Z$ independently of the reflection. From (1)-(2) and the cyclicity of $B,D,X,P$,
+\[
+\begin{aligned}
+\angle OZB
+&=\angle OPD\\
+&=\angle XPD\\
+&=\angle XBD\\
+&=90^\circ-\angle BAC.
+\end{aligned}
+\]
+In the isosceles triangle $BOC$,
+\[
+\angle OCB=90^\circ-\angle BAC.
+\]
+Thus
+\[
+\angle OZB=\angle OCB,
+\]
+so
+\[
+B,O,C,Z
+\]
+are concyclic. Therefore $Z$ is the second intersection, other than $O$, of line $AO$ with the fixed circle $(BOC)$.
+
+Applying the same argument with
+\[
+(B,D,X,AC)\longleftrightarrow(C,E,Y,AB)
+\]
+shows that this same second intersection $Z$ belongs to
+\[
+(CYE).
+\]
+Together with (3), $Z$ is the required common point on $AO$.
+
+SOLUTION 2:
+Let $B'$ be the reflection of $B$ in line $AC$, and let
+\[
+Z\ne O
+\]
+be the second intersection of line $AO$ with the circle $(OBC)$.
+
+We first show that
+\[
+Z,C,B'
+\]
+are collinear. Since $B'$ is the reflection of $B$ in $AC$,
+\[
+\angle B'CA=\angle BCA.
+\]
+Moreover,
+\[
+\angle ACZ=\angle ACB+\angle BCZ.
+\]
+Because $B,C,O,Z$ are cyclic,
+\[
+\angle BCZ=\angle BOZ.
+\]
+The points $A,O,Z$ are collinear, and $\angle AOB=2\angle ACB$, so
+\[
+\angle BOZ=180^\circ-2\angle ACB.
+\]
+Consequently,
+\[
+\angle B'CA+\angle ACZ=180^\circ,
+\]
+as claimed.
+
+We prove that
+\[
+\triangle ZXA\sim\triangle ZDB'.
+\tag{1}
+\]
+Since $X\in AB$, $D\in BB'$, and $Z\in CB'$,
+\[
+\angle XAZ
+=
+\angle BAO
+=
+90^\circ-\angle ACB
+=
+\angle CBB'
+=
+\angle DB'Z.
+\tag{2}
+\]
+
+It remains to compare the adjacent sides. The triangles $ZAB'$ and $CXB$ are similar, because
+\[
+\angle B'ZA=\angle CZO=\angle CBO=\angle XCB
+\]
+and
+\[
+\angle AB'Z=\angle AB'C=\angle CBA=\angle CBX.
+\]
+Hence
+\[
+\frac{B'Z}{AZ}=\frac{BC}{CX}.
+\tag{3}
+\]
+
+Let $H$ be the orthocentre of triangle $ABC$. The reflection of $H$ in $AC$ is the point $D$, so reflection in $AC$ gives
+\[
+B'D=BH.
+\tag{4}
+\]
+Applying the sine rule in triangles $ACX$ and $BHC$,
+\[
+\begin{aligned}
+\frac{AX}{CX}
+&=
+\frac{\sin\angle ACX}{\sin\angle XAC}\\
+&=
+\frac{\sin(90^\circ-\angle CBA)}{\sin\angle BAC}\\
+&=
+\frac{\sin\angle HCB}{\sin\angle BHC}\\
+&=
+\frac{BH}{BC}
+=
+\frac{B'D}{BC}.
+\end{aligned}
+\tag{5}
+\]
+Multiplying (3) and (5) yields
+\[
+\frac{B'Z}{B'D}=\frac{AZ}{AX}.
+\]
+Together with (2), this proves (1).
+
+The similarity now gives
+\[
+\angle ZDB'= \angle ZXA.
+\]
+Since $B,D,B'$ and $B,X,A$ are collinear,
+\[
+\angle BDZ
+=
+180^\circ-\angle ZDB'
+=
+180^\circ-\angle ZXA
+=
+\angle BXZ.
+\]
+Therefore
+\[
+B,X,D,Z
+\]
+are concyclic.
+
+The same argument after interchanging $B$ and $C$ shows that
+\[
+C,Y,E,Z
+\]
+are concyclic. Thus the two required circumcircles meet at $Z\in AO$.
+
+SOLUTION 3:
+Let $\Phi$ be the composition of
+
+\begin{itemize}
+\item inversion with centre $A$ and radius $\sqrt{AB\cdot AC}$;
+\item reflection in the internal angle bisector of $\angle BAC$.
+\end{itemize}
+
+For a point $U$, write $U^*=\Phi(U)$. The transformation is involutive and swaps
+\[
+B\longleftrightarrow C.
+\]
+It sends the circumcircle $\omega$, which passes through $A$, to line $BC$. Hence
+\[
+D^*\in BC.
+\]
+It sends line $AB$ to line $AC$, so
+\[
+X^*\in AC.
+\]
+
+Let $H$ be the orthocentre of $ABC$, let $K$ be the foot of the altitude from $A$ to $BC$, and let $L$ be the foot of the altitude from $B$ to $AC$. Denote
+\[
+\alpha=\angle BAC,\qquad
+\beta=\angle CBA,\qquad
+\gamma=\angle ACB,
+\]
+and let $R$ be the circumradius of $ABC$.
+
+The lines $AH$ and $AO$ are isogonal in $\angle BAC$. Therefore
+\[
+H^*\in AO.
+\tag{1}
+\]
+
+We prove that
+\[
+D^*,H,C,X^*
+\]
+are concyclic.
+
+Reflection in the angle bisector sends the ray $AD$ to the ray $AD^*$ and the ray $AO$ to the ray $AH=AK$. Hence
+\[
+\angle D^*AK=\angle OAD.
+\]
+By the tangent-chord relation for chord $AD$,
+\[
+\angle OAD
+=
+90^\circ-\angle DBA
+=
+\alpha,
+\]
+because $BD\perp AC$. Since $D^*,K,C$ are collinear,
+\[
+D^*K=AK\tan\alpha.
+\]
+Using the standard altitude formulas,
+\[
+AK=2R\sin\beta\sin\gamma,
+\qquad
+HK=2R\cos\beta\cos\gamma.
+\]
+Thus
+\[
+\frac{D^*K}{HK}
+=
+\tan\alpha\tan\beta\tan\gamma.
+\tag{2}
+\]
+
+Similarly, conformality of $\Phi$ gives
+\[
+\angle AX^*B=\angle ACX=\angle ACO=90^\circ-\beta.
+\]
+As $X^*,L,C$ are collinear,
+\[
+X^*L=BL\tan\beta.
+\]
+Now
+\[
+BL=2R\sin\alpha\sin\gamma,
+\qquad
+HL=2R\cos\alpha\cos\gamma,
+\]
+and hence
+\[
+\frac{X^*L}{HL}
+=
+\tan\alpha\tan\beta\tan\gamma.
+\tag{3}
+\]
+
+The triangles $D^*HK$ and $X^*HL$ are right-angled at $K$ and $L$, respectively. Equations (2)-(3) make them similar. Therefore
+\[
+\angle KD^*H=\angle LX^*H.
+\]
+Since $C,D^*,K$ and $C,X^*,L$ are collinear,
+\[
+\angle CD^*H=\angle CX^*H.
+\]
+Thus
+\[
+D^*,H,C,X^*
+\]
+are cyclic.
+
+Apply the inverse transformation $\Phi$. The four points become
+\[
+D,\ H^*,\ B,\ X,
+\]
+so
+\[
+D,H^*,B,X
+\]
+are cyclic. Therefore
+\[
+H^*\in(BXD).
+\tag{4}
+\]
+
+The same argument with $B$ and $C$ interchanged gives
+\[
+H^*\in(CYE).
+\tag{5}
+\]
+By (1), the point $H^*$ lies on $AO$. Equations (4)-(5) prove the result.
+
+SOLUTION 4:
+Let $F$ be the point of $\omega$ diametrically opposite $A$, and define
+\[
+J=DF\cap CO.
+\]
+Invert about the circle $\omega$, whose centre is $O$, and write $U'$ for the inverse of $U$.
+
+Since $X\in CO$,
+\[
+X'\in CO.
+\]
+Also,
+\[
+OX\cdot OX'=R^2=OB^2.
+\]
+Thus triangles $OBX$ and $OX'B$ give
+\[
+\angle BX'O=\angle OBX.
+\]
+Using $X\in AB$, $A,O,F$ collinear, and $D,F,J$ collinear,
+\[
+\begin{aligned}
+\angle BX'J
+&=\angle BX'O\\
+&=\angle OBX\\
+&=\angle OBA\\
+&=\angle BAO\\
+&=\angle BAF\\
+&=\angle BDF\\
+&=\angle BDJ.
+\end{aligned}
+\]
+Hence
+\[
+B,X',D,J\ \text{are concyclic}.
+\tag{1}
+\]
+
+Let
+\[
+K=AF\cap BC.
+\]
+We show that triangles $BOK$ and $DOJ$ are congruent. First,
+\[
+OB=OD.
+\]
+Furthermore,
+\[
+\angle KBO
+=
+90^\circ-\angle BAC
+=
+\angle DBA
+=
+\angle DFA
+=
+\angle DFO
+=
+\angle ODJ,
+\tag{2}
+\]
+and
+\[
+\angle BOK
+=
+2\angle OBA
+=
+2\angle CBD
+=
+\angle COD
+=
+\angle JOD.
+\tag{3}
+\]
+Thus
+\[
+\triangle BOK\cong\triangle DOJ.
+\]
+In particular,
+\[
+BK=DJ.
+\tag{4}
+\]
+Equations (2)-(3) also give
+\[
+\angle KBD
+=
+\angle KBO+\angle OBD
+=
+\angle ODJ+\angle BDO
+=
+\angle BDJ.
+\tag{5}
+\]
+The quadrilateral $BDJK$ is therefore an isosceles trapezoid, and hence it is cyclic. Together with (1),
+\[
+B,X',D,J,K
+\]
+lie on one circle.
+
+Invert back. Since $B$ and $D$ lie on $\omega$, they are fixed, while $X'$ maps to $X$ and $K$ maps to $K'$. We obtain
+\[
+B,X,D,K'\ \text{are cyclic}.
+\tag{6}
+\]
+
+Repeating the argument with $B$ and $C$ interchanged yields
+\[
+C,Y,E,K'\ \text{are cyclic}.
+\tag{7}
+\]
+Finally, $K\in AF=AO$, so inversion centred at $O$ also gives
+\[
+K'\in AO.
+\]
+Equations (6)-(7) show that $K'$ is the desired common point.

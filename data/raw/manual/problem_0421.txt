@@ -1,0 +1,231 @@
+ID: 0421
+
+SOURCE: IMO Shortlist
+
+YEAR: 2023
+
+TOPIC: Number Theory
+
+SUBTOPICS: Arithmetic Progressions, Greatest Common Divisors, Products, Rational Recurrences
+
+STATEMENT:
+Let
+\[
+a_1,a_2,\ldots,a_n,b_1,b_2,\ldots,b_n
+\]
+be $2n$ positive integers such that the following $n+1$ products form a strictly increasing arithmetic progression in the displayed order:
+\[
+a_1a_2\cdots a_n,
+\]
+\[
+b_1a_2\cdots a_n,
+\]
+\[
+b_1b_2a_3\cdots a_n,
+\]
+\[
+\ldots,
+\]
+\[
+b_1b_2\cdots b_n.
+\]
+
+Determine the smallest possible positive common difference.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{n!}.
+\]
+
+Let $D$ be the common difference. Then
+\[
+\begin{aligned}
+D
+&=(b_1-a_1)a_2a_3\cdots a_n\\
+&=b_1(b_2-a_2)a_3\cdots a_n\\
+&=\cdots\\
+&=b_1b_2\cdots b_{n-1}(b_n-a_n).
+\end{aligned}
+\tag{1}
+\]
+Since the progression is strictly increasing,
+\[
+b_i>a_i
+\qquad(1\le i\le n).
+\tag{2}
+\]
+
+If
+\[
+g_i=\gcd(a_i,b_i)>1,
+\]
+divide both $a_i$ and $b_i$ by $g_i$. Every one of the $n+1$ products is then divided by $g_i$, so the new common difference is $D/g_i$. Repeating this reduction, it is enough to prove the lower bound under the assumptions
+\[
+\gcd(a_i,b_i)=1
+\qquad(1\le i\le n).
+\tag{3}
+\]
+
+Equating two consecutive expressions in (1),
+\[
+(b_i-a_i)a_{i+1}
+=
+b_i(b_{i+1}-a_{i+1})
+\qquad(1\le i<n).
+\tag{4}
+\]
+By (3),
+\[
+\gcd(b_i-a_i,b_i)=1
+\]
+and
+\[
+\gcd(a_{i+1},b_{i+1}-a_{i+1})=1.
+\]
+Equation (4) therefore implies
+\[
+a_{i+1}=b_i
+\]
+and
+\[
+b_{i+1}-a_{i+1}=b_i-a_i.
+\]
+Thus
+\[
+a_1,b_1=a_2,b_2=a_3,\ldots,b_{n-1}=a_n,b_n
+\]
+is an arithmetic progression with a positive integer common difference $t$.
+
+In particular,
+\[
+a_i=a_1+(i-1)t\ge i.
+\]
+Using the first expression in (1),
+\[
+D=t\,a_2a_3\cdots a_n
+\ge
+1\cdot2\cdot3\cdots n
+=
+n!.
+\]
+
+Equality is attained by
+\[
+a_i=i,
+\qquad
+b_i=i+1.
+\]
+Indeed, the successive products then differ by exactly $n!$. Hence the minimum is $n!$.
+
+SOLUTION 2:
+For $n=1$, the common difference is $b_1-a_1\ge1=1!$, and equality is attainable. Assume henceforth that $n\ge2$.
+
+Let
+\[
+P_i=b_1b_2\cdots b_i\,a_{i+1}\cdots a_n
+\qquad(0\le i\le n).
+\]
+Thus
+\[
+P_0,P_1,\ldots,P_n
+\]
+is a strictly increasing arithmetic progression.
+
+Divide each pair $(a_i,b_i)$ by its gcd. This divides all the $P_j$ and the common difference by the same integer, so it is enough to consider the case
+\[
+\gcd(a_i,b_i)=1
+\qquad(1\le i\le n).
+\tag{1}
+\]
+
+For $0\le i\le n-2$, the arithmetic-progression relation gives
+\[
+P_{i+2}=2P_{i+1}-P_i.
+\]
+Hence
+\[
+\begin{aligned}
+\frac{b_{i+2}}{a_{i+2}}
+&=
+\frac{P_{i+2}}{P_{i+1}}\\
+&=
+2-\frac{P_i}{P_{i+1}}\\
+&=
+2-\frac{a_{i+1}}{b_{i+1}}\\
+&=
+\frac{2b_{i+1}-a_{i+1}}{b_{i+1}}.
+\end{aligned}
+\tag{2}
+\]
+Both fractions in (2) are reduced by (1). Therefore
+\[
+a_{i+2}=b_{i+1},
+\qquad
+b_{i+2}=2b_{i+1}-a_{i+1}.
+\tag{3}
+\]
+Starting with $i=0$, relation (3) shows inductively that
+\[
+a_1,b_1=a_2,b_2=a_3,\ldots,a_n,b_n
+\]
+is an arithmetic progression with positive integer common difference $t$.
+
+Thus $a_i\ge i$, and the common difference of the product progression is
+\[
+D=(b_1-a_1)a_2\cdots a_n
+=t\,a_2\cdots a_n
+\ge n!.
+\]
+The choice $a_i=i$, $b_i=i+1$ gives equality.
+
+SOLUTION 3:
+Let $D$ be the common difference. Equality of consecutive expressions for $D$ gives
+\[
+(b_i-a_i)a_{i+1}
+=
+b_i(b_{i+1}-a_{i+1})
+\qquad(1\le i<n).
+\tag{1}
+\]
+Rearranging,
+\[
+\frac{a_{i+1}}{b_{i+1}-a_{i+1}}
+=
+\frac{b_i}{b_i-a_i}
+=
+1+\frac{a_i}{b_i-a_i}.
+\]
+Therefore
+\[
+\frac{a_i}{b_i-a_i}
+=
+\frac{a_1}{b_1-a_1}+i-1
+>
+i-1.
+\]
+Since $b_i-a_i$ is a positive integer,
+\[
+a_i>(i-1)(b_i-a_i)\ge i-1,
+\]
+and hence
+\[
+a_i\ge i
+\qquad(1\le i\le n).
+\tag{2}
+\]
+
+Now
+\[
+D=(b_1-a_1)a_2a_3\cdots a_n.
+\]
+Using (2) and $b_1-a_1\ge1$,
+\[
+D\ge1\cdot2\cdot3\cdots n=n!.
+\]
+
+The construction
+\[
+a_i=i,\qquad b_i=i+1
+\]
+has common difference $n!$, so the bound is sharp.

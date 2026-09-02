@@ -1,0 +1,826 @@
+ID: 0425
+
+SOURCE: IMO Shortlist
+
+YEAR: 2023
+
+TOPIC: Number Theory
+
+SUBTOPICS: Functional Equations, Iteration, Injectivity, Divisibility Posets, Arithmetic Progressions
+
+STATEMENT:
+Let $\mathbb Z_{>0}$ be the set of positive integers. Determine all functions
+\[
+f:\mathbb Z_{>0}\to\mathbb Z_{>0}
+\]
+such that
+\[
+f^{\,b f(a)}(a+1)=(a+1)f(b)
+\tag{1}
+\]
+for all positive integers $a,b$, where $f^k$ denotes the $k$-fold iterate of $f$ and
+\[
+f^0(x)=x.
+\]
+
+SOLUTION 1:
+The only solution is
+\[
+\boxed{f(n)=n+1}.
+\]
+
+For convenience, write $P(a,b)$ for equation (1).
+
+\textbf{Step 1: $f$ is injective.}
+
+We first prove that, for every $a\ge2$, the forward orbit
+\[
+a,f(a),f^2(a),\ldots
+\]
+is infinite.
+
+From $P(a,1)$,
+\[
+f^{f(a)}(a+1)=(a+1)f(1).
+\]
+As $a$ varies, the right-hand side takes infinitely many values. Hence the range of $f$ is infinite.
+
+Now fix $a\ge2$. From $P(a-1,b)$,
+\[
+f^{\,b f(a-1)}(a)=a f(b).
+\tag{2}
+\]
+As $b$ varies, the right-hand side takes infinitely many values, so the orbit of $a$ is infinite. In particular,
+\[
+f^r(a)\ne a
+\qquad(a\ge2,\ r\ge1).
+\tag{3}
+\]
+
+Suppose
+\[
+f(b)=f(c)
+\]
+for some $b<c$. For every $a$,
+\[
+\begin{aligned}
+(a+1)f(c)
+&=f^{\,c f(a)}(a+1)\\
+&=
+f^{(c-b)f(a)}
+\left(f^{\,b f(a)}(a+1)\right)\\
+&=
+f^{(c-b)f(a)}\bigl((a+1)f(b)\bigr)\\
+&=
+f^{(c-b)f(a)}\bigl((a+1)f(c)\bigr).
+\end{aligned}
+\]
+Thus the integer $(a+1)f(c)\ge2$ is periodic under $f$, contradicting (3). Hence $f$ is injective.
+
+\textbf{Step 2: the range of $f$ is exactly $\{2,3,4,\ldots\}$.}
+
+First,
+\[
+1\notin f(\mathbb Z_{>0}).
+\tag{4}
+\]
+Indeed, if $f(b)=1$, then $P(a,b)$ gives
+\[
+f^{\,b f(a)}(a+1)=a+1,
+\]
+contradicting (3).
+
+Call $x$ a \emph{descendant} of $y$ if
+\[
+x=f^r(y)
+\]
+for some $r\ge1$. Two distinct integers at least $2$ cannot be descendants of one another in both directions, by (3).
+
+We claim that for any $a,b\ge2$, either $a=b$, or one is a descendant of the other. Fix $c\ge2$ and put
+\[
+u=f^{\,c f(a-1)-1}(a),
+\qquad
+v=f^{\,c f(b-1)-1}(b).
+\]
+By (2),
+\[
+f(u)=a f(c),
+\qquad
+f(v)=b f(c).
+\]
+Applying (2) once more,
+\[
+\begin{aligned}
+f^{\,v f(a-1)}(a)
+&=a f(v)
+=abf(c),\\
+f^{\,u f(b-1)}(b)
+&=b f(u)
+=abf(c).
+\end{aligned}
+\]
+After cancelling equal iterates by injectivity, either $a=b$, or one of $a,b$ is a positive iterate of the other.
+
+Let
+\[
+q=f(1).
+\]
+By (4), $q\ge2$. For any $a\ge2$, comparability applies to $a$ and $q$. The point $q$ cannot be a descendant of $a$: if
+\[
+f^r(a)=f(1),
+\]
+then injectivity gives $a=1$ when $r=1$, while for $r\ge2$ it gives $1$ in the range of $f$. Therefore $a$ is a descendant of $q$. Hence every $a\ge2$ lies in the range of $f$.
+
+Together with (4),
+\[
+f(\mathbb Z_{>0})=\{2,3,4,\ldots\}.
+\tag{5}
+\]
+
+\textbf{Step 3: $f(1)=2$.}
+
+From (2) and (5), for all $a,n\ge2$ the number
+\[
+na
+\]
+is a descendant of $a$: choose $m$ with $f(m)=n$, and use
+\[
+f^{\,m f(a-1)}(a)=af(m)=an.
+\tag{6}
+\]
+
+In particular, every even integer at least $4$ is a descendant of $2$. By (5), there is some $t$ with
+\[
+f(t)=2.
+\]
+The integer $t$ cannot be even, because then $t$ and $2$ would be descendants of one another, contradicting (3). Hence
+\[
+t=2k+1
+\]
+for some $k\ge0$.
+
+We show that
+\[
+f(2k+1)\ge f(1).
+\tag{7}
+\]
+For $k=0$ this is immediate. Suppose $k\ge1$. Choose $r$ such that
+\[
+f^r(2)=2k+2,
+\]
+which is possible by (6). For every sufficiently large $b$, equations $P(1,b)$ and $P(2k+1,b)$ give
+\[
+f^{\,b f(1)-r}(2k+2)=2f(b)
+\]
+and
+\[
+f^{\,b f(2k+1)}(2k+2)=(2k+2)f(b).
+\]
+The second target is a proper descendant of the first by (6). Since an orbit has no repetitions,
+\[
+b f(2k+1)>b f(1)-r.
+\]
+Letting $b$ grow proves (7).
+
+But
+\[
+f(2k+1)=2,
+\]
+while (4) gives $f(1)\ge2$. Therefore
+\[
+f(1)=2.
+\tag{8}
+\]
+
+\textbf{Step 4: $f(2)=3$ and $f(3)=4$.}
+
+From $P(1,b)$ and (8),
+\[
+f^{2b}(2)=2f(b).
+\tag{9}
+\]
+Taking $b=1$,
+\[
+f^2(2)=4.
+\tag{10}
+\]
+Put
+\[
+p=f(2).
+\]
+Taking $b=p$ in (9),
+\[
+f^{2p}(2)=2f(p)=2f^2(2)=8.
+\]
+Together with (10),
+\[
+f^{2p-2}(4)=8.
+\tag{11}
+\]
+
+On the other hand, $P(3,1)$ gives
+\[
+f^{f(3)}(4)=4f(1)=8.
+\]
+The orbit of $4$ has no repetitions, so
+\[
+f(3)=2p-2.
+\tag{12}
+\]
+
+We need one divisibility observation.
+
+\textbf{Claim.}
+If
+\[
+f(m)\mid f(n),
+\]
+then
+\[
+m\le n.
+\]
+
+If $f(m)=f(n)$, this follows from injectivity. Otherwise, write
+\[
+f(n)=qf(m)
+\qquad(q\ge2).
+\]
+For any $a$, the values given by $P(a,m)$ and $P(a,n)$ are
+\[
+(a+1)f(m)
+\qquad\text{and}\qquad
+q(a+1)f(m).
+\]
+By (6), the second is a descendant of the first. Hence
+\[
+n f(a)>m f(a),
+\]
+so $n>m$.
+
+Every divisor of $p=f(2)$ which is at least $2$ belongs to the range of $f$, and the claim shows that it must be either
+\[
+f(1)=2
+\qquad\text{or}\qquad
+f(2)=p.
+\]
+Therefore $p$ is either an odd prime or $4$. The case $p=4$ is impossible because (10) would give
+\[
+f(4)=4,
+\]
+contradicting (3). Thus $p$ is an odd prime.
+
+By (12),
+\[
+f(3)=2(p-1).
+\]
+The divisor $p-1\ge2$ of $f(3)$ must equal one of
+\[
+f(1)=2,\qquad f(2)=p,\qquad f(3)=2(p-1).
+\]
+Only the first is possible, so
+\[
+p-1=2.
+\]
+Hence
+\[
+f(2)=3,
+\qquad
+f(3)=4.
+\tag{13}
+\]
+
+\textbf{Step 5: determination of all values.}
+
+We first prove
+\[
+f\bigl(2f(b)-1\bigr)=2b+2
+\qquad(b\ge1).
+\tag{14}
+\]
+By (9) and (10),
+\[
+f^{2b-2}(4)=2f(b).
+\]
+Then $P(2f(b)-1,1)$ gives
+\[
+f^{\,f(2f(b)-1)}(2f(b))=4f(b),
+\]
+whereas $P(3,b)$ and (13) give
+\[
+f^{4b}(4)=4f(b).
+\]
+Comparing the two iterate counts along the orbit of $4$,
+\[
+2b-2+f(2f(b)-1)=4b,
+\]
+which proves (14).
+
+We now use induction. Suppose
+\[
+f(n)=n+1
+\qquad(1\le n\le2b+1).
+\]
+Replacing $b$ by $b+1$ in (14),
+\[
+f(2b+3)
+=
+f\bigl(2f(b+1)-1\bigr)
+=
+2b+4.
+\tag{15}
+\]
+
+The induction hypothesis gives
+\[
+f^b(b+2)=2b+2.
+\]
+Therefore
+\[
+f(f(2b+2))
+=
+f^{b+2}(b+2).
+\]
+By $P(b+1,1)$,
+\[
+f^{b+2}(b+2)=2(b+2)=2b+4=f(2b+3).
+\]
+Injectivity and (15) yield
+\[
+f(2b+2)=2b+3.
+\]
+Starting from (8) and (13), induction proves
+\[
+f(n)=n+1
+\qquad(n\ge1).
+\]
+
+Finally, this function works because
+\[
+f^r(x)=x+r,
+\]
+so
+\[
+f^{\,b f(a)}(a+1)
+=
+a+1+b(a+1)
+=
+(a+1)(b+1)
+=
+(a+1)f(b).
+\]
+
+SOLUTION 2:
+We first establish three foundational facts.
+
+For every $a\ge2$, the orbit of $a$ is infinite. Indeed, $P(a,1)$ shows that the range of $f$ is infinite, and then
+\[
+P(a-1,b):
+\qquad
+f^{\,b f(a-1)}(a)=af(b)
+\]
+shows that the orbit of $a$ contains infinitely many values. Hence no positive iterate fixes an integer at least $2$.
+
+If $f(b)=f(c)$ with $b<c$, comparing $P(a,b)$ and $P(a,c)$ would make $(a+1)f(c)$ periodic. Thus $f$ is injective.
+
+Also, $1$ is not in the range of $f$, because $f(b)=1$ would make $a+1$ periodic through $P(a,b)$. For $a,b\ge2$, fix $c\ge2$ and set
+\[
+u=f^{\,c f(a-1)-1}(a),
+\qquad
+v=f^{\,c f(b-1)-1}(b).
+\]
+Then
+\[
+f(u)=af(c),\qquad f(v)=bf(c),
+\]
+and
+\[
+f^{\,v f(a-1)}(a)=abf(c)=f^{\,u f(b-1)}(b).
+\]
+Injectivity shows that one of $a,b$ is an iterate of the other, unless they are equal.
+
+Take one of the two integers to be $f(1)$. The value $f(1)$ cannot be a descendant of an integer $a\ge2$: if
+\[
+f^r(a)=f(1),
+\]
+then injectivity gives $a=1$ when $r=1$, while for $r\ge2$ it gives $1$ in the range of $f$. Therefore every integer at least $2$ is a descendant of $f(1)$ and hence of $1$. Consequently,
+\[
+f:\mathbb Z_{>0}\longrightarrow\{2,3,4,\ldots\}
+\]
+is a bijection, and no positive iterate fixes any positive integer.
+
+Define
+\[
+g(n)=f(f(n)-1).
+\]
+Using $P(f(a)-1,b)$,
+\[
+f^{\,b g(a)+1}(a)=f(a)f(b).
+\]
+By symmetry in $a,b$ and injectivity,
+\[
+f^{\,b g(a)}(a)=f^{\,a g(b)}(b).
+\tag{1}
+\]
+
+Because every positive integer lies on the orbit of $1$, define $r(a)$ by
+\[
+f^{r(a)}(1)=a.
+\]
+Equation (1) gives
+\[
+r(a)+bg(a)=r(b)+ag(b).
+\]
+Adding the three corresponding identities cyclically for $a,b,c$,
+\[
+(b-c)g(a)+(c-a)g(b)+(a-b)g(c)=0.
+\tag{2}
+\]
+
+Take
+\[
+(a,b,c)=(n,n+1,n+2).
+\]
+Then (2) becomes
+\[
+g(n+2)-g(n+1)=g(n+1)-g(n).
+\]
+Thus
+\[
+g(n)=Cn+D
+\]
+for integers $C,D$.
+
+The map
+\[
+n\longmapsto f(n)-1
+\]
+is a bijection of the positive integers, and $f$ is a bijection onto $\{2,3,\ldots\}$. Hence $g$ is also a bijection
+\[
+\mathbb Z_{>0}\longrightarrow\{2,3,4,\ldots\}.
+\]
+The only arithmetic progression with this image is
+\[
+g(n)=n+1.
+\tag{3}
+\]
+
+Substituting (3) into (1),
+\[
+f^{\,b(a+1)}(a)=f^{\,a(b+1)}(b).
+\]
+Cancel the common $ab$ iterates:
+\[
+f^b(a)=f^a(b).
+\tag{4}
+\]
+Taking $a=1$ and $b=n$,
+\[
+f^n(1)=f(n).
+\]
+Injectivity gives
+\[
+f^{n-1}(1)=n,
+\]
+and therefore
+\[
+f(n)=n+1.
+\]
+For this function, $f^r(x)=x+r$, so
+\[
+f^{\,b f(a)}(a+1)
+=
+a+1+b(a+1)
+=
+(a+1)f(b).
+\]
+
+SOLUTION 3:
+We begin with the same elementary foundation, proved here for completeness.
+
+The equations
+\[
+P(a,1)
+\qquad\text{and}\qquad
+P(a-1,b)
+\]
+show that the range of $f$ and every orbit beginning at an integer at least $2$ are infinite. Thus no positive iterate fixes such an integer.
+
+If $f(b)=f(c)$ for $b<c$, comparison of $P(a,b)$ and $P(a,c)$ produces a periodic integer at least $2$, so $f$ is injective. Also, $1$ is not in the range: if $f(b)=1$, then $P(a,b)$ makes $a+1$ periodic.
+
+For $a,b\ge2$, define
+\[
+u=f^{\,c f(a-1)-1}(a),
+\qquad
+v=f^{\,c f(b-1)-1}(b)
+\]
+with any fixed $c\ge2$. Then
+\[
+f(u)=af(c),\qquad f(v)=bf(c),
+\]
+and
+\[
+f^{\,v f(a-1)}(a)=abf(c)=f^{\,u f(b-1)}(b).
+\]
+Injectivity implies that $a=b$ or one is a forward iterate of the other.
+
+Take $b=f(1)$. The value $f(1)$ cannot be a descendant of $a\ge2$, because injectivity would then force either $a=1$ or the value $1$ to lie in the range of $f$. Hence every integer at least $2$ is a descendant of $f(1)$ and therefore of $1$. All positive integers lie in the single nonperiodic orbit of $1$.
+
+Define
+\[
+g(n)=f(f(n)-1).
+\]
+The substitution $P(f(a)-1,b)$ gives
+\[
+f^{\,b g(a)}(a)=f^{\,a g(b)}(b).
+\tag{1}
+\]
+
+Suppose
+\[
+b=f^k(a)
+\qquad(k\ge1).
+\]
+Then (1) becomes
+\[
+f^{\,b g(a)}(a)
+=
+f^{\,a g(b)+k}(a).
+\]
+The orbit has no repetitions, so
+\[
+b\,g(a)=a\,g(b)+k.
+\tag{2}
+\]
+
+Put
+\[
+A_n=f^n(1)
+\qquad(n\ge0).
+\]
+Applying (2) to the pairs
+\[
+(A_n,A_{n+1}),\qquad
+(A_{n+1},A_{n+2}),\qquad
+(A_n,A_{n+2}),
+\]
+gives
+\[
+A_{n+1}g(A_n)=A_ng(A_{n+1})+1,
+\tag{3}
+\]
+\[
+A_{n+2}g(A_{n+1})=A_{n+1}g(A_{n+2})+1,
+\tag{4}
+\]
+and
+\[
+A_{n+2}g(A_n)=A_ng(A_{n+2})+2.
+\tag{5}
+\]
+
+Multiply (3) by $A_{n+2}$ and (4) by $A_n$, then add. Using (5), we get
+\[
+2A_{n+1}=A_n+A_{n+2}.
+\]
+Thus $(A_n)$ is an arithmetic progression. Since
+\[
+A_0=1
+\]
+and the orbit contains every positive integer, its common difference must be $1$. Therefore
+\[
+f^n(1)=n+1.
+\]
+In particular,
+\[
+f(n)=f\bigl(f^{n-1}(1)\bigr)=f^n(1)=n+1.
+\]
+Again $f^r(x)=x+r$, and direct substitution gives
+\[
+f^{\,b f(a)}(a+1)=(a+1)f(b).
+\]
+
+SOLUTION 4:
+We first record the basic consequences of the equation.
+
+The range of $f$ is infinite by $P(a,1)$, and then $P(a-1,b)$ shows that every orbit beginning at an integer at least $2$ is infinite. Hence such an integer is never periodic.
+
+If $f(b)=f(c)$ for $b<c$, comparison of $P(a,b)$ and $P(a,c)$ produces a periodic value, so $f$ is injective. The value $1$ is not in the range, since $f(b)=1$ would make $a+1$ periodic through $P(a,b)$.
+
+For $a,b\ge2$, choose
+\[
+u=f^{\,c f(a-1)-1}(a),
+\qquad
+v=f^{\,c f(b-1)-1}(b).
+\]
+Then
+\[
+f(u)=af(c),\qquad f(v)=bf(c),
+\]
+and
+\[
+f^{\,v f(a-1)}(a)=abf(c)=f^{\,u f(b-1)}(b).
+\]
+Thus one of $a,b$ is a descendant of the other. For $a\ge2$, the value $f(1)$ cannot be a descendant of $a$, because injectivity would force either $a=1$ or $1$ to belong to the range of $f$. Therefore $a$ is a descendant of $f(1)$ and hence of $1$. Consequently,
+\[
+f:\mathbb Z_{>0}\to\{2,3,4,\ldots\}
+\]
+is a bijection.
+
+For $a\ge2$, define $G(a)$ and $H(a)$ by
+\[
+f^{G(a)}(1)=a,
+\qquad
+H(a)=f(a-1).
+\]
+Then
+\[
+G:\{2,3,\ldots\}\to\mathbb Z_{>0}
+\]
+and
+\[
+H:\{2,3,\ldots\}\to\{2,3,\ldots\}
+\]
+are bijections.
+
+Apply $P(a-1,b-1)$ for $a,b\ge2$. Since
+\[
+f^{G(a)}(1)=a,
+\]
+we obtain
+\[
+G\bigl(aH(b)\bigr)
+=
+G(a)+(b-1)H(a).
+\tag{1}
+\]
+
+For fixed $a\ge2$, consider
+\[
+S_a=\{G(at):t\ge1\}.
+\]
+As $H(b)$ runs through all integers at least $2$, equation (1) gives
+\[
+S_a=G(a)+H(a)\mathbb Z_{\ge0}.
+\tag{2}
+\]
+
+Since the positive common multiples of $a$ and $b$ are precisely the multiples of $\operatorname{lcm}(a,b)$,
+\[
+S_a\cap S_b=S_{\operatorname{lcm}(a,b)}.
+\]
+Comparing common differences in (2),
+\[
+H(\operatorname{lcm}(a,b))
+=
+\operatorname{lcm}(H(a),H(b)).
+\tag{3}
+\]
+It follows that
+\[
+a\mid b
+\quad\Longleftrightarrow\quad
+H(a)\mid H(b).
+\tag{4}
+\]
+
+Extend $H$ by $H(1)=1$. Relation (4) shows that $H$ maps primes bijectively to primes. It also maps the divisor chain
+\[
+1,p,p^2,\ldots,p^e
+\]
+onto the full divisor chain of $H(p^e)$, so
+\[
+H(p^e)=H(p)^e.
+\]
+Therefore, if
+\[
+n=\prod_i p_i^{e_i},
+\]
+then
+\[
+H(n)=\prod_i H(p_i)^{e_i}.
+\tag{5}
+\]
+In particular, $H$ is completely multiplicative and preserves gcd and lcm.
+
+We next prove
+\[
+H(H(n))=n
+\qquad(n\ge2).
+\tag{6}
+\]
+It is enough to prove this for primes. Let $p\ne q$ be primes. Since $H(p)$ and $H(q)$ are distinct primes, they are coprime. The corresponding linear Diophantine equation has integer solutions, and by shifting a solution we may choose integers $x,y\ge2$ such that
+\[
+G(p)+(x-1)H(p)
+=
+G(q)+(y-1)H(q).
+\tag{7}
+\]
+For every $k\ge0$, equation (1) and (7) give
+\[
+G\bigl(pH(x+kH(q))\bigr)
+=
+G\bigl(qH(y+kH(p))\bigr).
+\]
+Since $G$ is injective,
+\[
+pH(x+kH(q))
+=
+qH(y+kH(p)).
+\tag{8}
+\]
+Thus $p$ divides
+\[
+H(y+kH(p))
+\]
+for $k=0,1$. Let $r$ be the prime with
+\[
+H(r)=p.
+\]
+By (4),
+\[
+r\mid y
+\qquad\text{and}\qquad
+r\mid y+H(p).
+\]
+Hence
+\[
+r\mid H(p).
+\]
+Both numbers are prime, so
+\[
+r=H(p),
+\]
+which means
+\[
+H(H(p))=p.
+\]
+Equation (6) follows from complete multiplicativity.
+
+Replace $b$ by $H(b)$ in (1). Using (6),
+\[
+G(ab)=G(a)+(H(b)-1)H(a).
+\tag{9}
+\]
+Interchanging $a$ and $b$ in (9),
+\[
+G(a)-H(a)=G(b)-H(b).
+\]
+Thus $G-H$ is constant. The image of $G$ is
+\[
+\{1,2,3,\ldots\},
+\]
+whereas the image of $H$ is
+\[
+\{2,3,4,\ldots\}.
+\]
+Therefore
+\[
+G(a)=H(a)-1.
+\tag{10}
+\]
+
+Using (6) and (10),
+\[
+G(H(a))=H(H(a))-1=a-1.
+\]
+By the definitions of $G$ and $H$,
+\[
+f(a-1)
+=
+H(a)
+=
+f^{G(H(a))}(1)
+=
+f^{a-1}(1).
+\]
+Injectivity gives
+\[
+f^{a-2}(1)=a-1
+\qquad(a\ge2).
+\]
+Hence
+\[
+f^n(1)=n+1
+\qquad(n\ge0),
+\]
+and therefore
+\[
+f(n)=n+1
+\]
+for every positive integer $n$.
+
+For this function,
+\[
+f^r(x)=x+r,
+\]
+and therefore
+\[
+f^{\,b f(a)}(a+1)
+=
+a+1+b(a+1)
+=
+(a+1)(b+1)
+=
+(a+1)f(b).
+\]
+Thus the function indeed satisfies the equation.

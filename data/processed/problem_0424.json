@@ -1,0 +1,16 @@
+{
+  "id": "0424",
+  "source": "IMO Shortlist",
+  "year": "2023",
+  "topic": "Number Theory",
+  "subtopics": [
+    "Square-Free Integers",
+    "Divisibility",
+    "Rational Identities",
+    "Parametric Constructions"
+  ],
+  "statement": "Let $a,b,c,d$ be positive integers satisfying\n\\[\n\\frac{ab}{a+b}\n+\n\\frac{cd}{c+d}\n=\n\\frac{(a+b)(c+d)}{a+b+c+d}.\n\\]\nDetermine all possible values of\n\\[\na+b+c+d.\n\\]",
+  "solutions": [
+    "The possible values are exactly the positive integers that are not square-free.\n\nFirst, let $k,\\ell$ be positive integers and take\n\\[\na=\\ell,\\qquad\nb=k\\ell,\\qquad\nc=k\\ell,\\qquad\nd=k^2\\ell.\n\\]\nThen\n\\[\n\\frac{ab}{a+b}\n+\n\\frac{cd}{c+d}\n=\n\\frac{k\\ell}{k+1}\n+\n\\frac{k^2\\ell}{k+1}\n=\nk\\ell,\n\\]\nwhile\n\\[\n\\frac{(a+b)(c+d)}{a+b+c+d}\n=\n\\frac{(k+1)\\ell\\cdot k(k+1)\\ell}{(k+1)^2\\ell}\n=\nk\\ell.\n\\]\nThus the equality holds, and\n\\[\na+b+c+d=\\ell(k+1)^2.\n\\]\nEvery non-square-free positive integer has this form: if\n\\[\np^2\\mid N\n\\]\nfor some prime $p$, take\n\\[\nk=p-1,\\qquad \\ell=\\frac{N}{p^2}.\n\\]\nHence every non-square-free integer is attainable.\n\nConversely, suppose the displayed equality holds, and write\n\\[\nS=a+b+c+d.\n\\]\nAfter clearing denominators,\n\\[\n\\bigl(ab(c+d)+cd(a+b)\\bigr)S\n=\n(a+b)^2(c+d)^2.\n\\tag{1}\n\\]\n\nAssume for contradiction that $S$ is square-free. Let $p$ be any prime divisor of $S$. Equation (1) implies\n\\[\np\\mid(a+b)(c+d).\n\\]\nIf $p\\mid a+b$, then\n\\[\np\\mid S-(a+b)=c+d;\n\\]\nand the same conclusion follows if $p\\mid c+d$. Thus every prime divisor of $S$ divides both\n\\[\na+b\n\\qquad\\text{and}\\qquad\nc+d.\n\\]\nSince $S$ is square-free, this implies\n\\[\nS\\mid a+b.\n\\]\nBut\n\\[\n0<a+b<S,\n\\]\na contradiction.\n\nTherefore $S$ is not square-free, and the stated set of values is complete."
+  ]
+}

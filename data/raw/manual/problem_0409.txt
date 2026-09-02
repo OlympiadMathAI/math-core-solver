@@ -1,0 +1,346 @@
+ID: 0409
+
+SOURCE: IMO Shortlist
+
+YEAR: 2023
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Hamiltonian Paths, Edge Colourings, Recolouring Lemmas, Extremal Graph Theory
+
+STATEMENT:
+The Imomi archipelago consists of $n\ge2$ islands. Between every pair of distinct islands there is one ferry line running in both directions, and each ferry line is operated by one of $k$ companies.
+
+It is known that if any one company closes all of its ferry lines, then it becomes impossible for a traveller, regardless of the starting island, to visit every island exactly once.
+
+Determine the maximum possible value of $k$ in terms of $n$.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{k=\lfloor\log_2 n\rfloor}.
+\]
+
+We regard the islands as the vertices of the complete graph $K_n$, and companies as edge colours. The condition says that every Hamiltonian path contains at least one edge of every colour. Call such a colouring \emph{good}.
+
+\textbf{Construction.}
+
+Put
+\[
+k=\lfloor\log_2 n\rfloor.
+\]
+Label the vertices
+\[
+A_1,A_2,\ldots,A_n.
+\]
+Assign vertex $A_r$ the colour
+\[
+c_r=
+\min\bigl(\lfloor\log_2 r\rfloor+1,k\bigr).
+\]
+For $r<s$, colour edge $A_rA_s$ with colour $c_r$.
+
+We show that every Hamiltonian path contains every colour.
+
+There are
+\[
+n-2^{k-1}+1
+\]
+vertices of vertex-colour $k$, and only
+\[
+2^{k-1}-1
+\]
+other vertices. Since $n\ge2^k$, two vertices of colour $k$ must be adjacent in every Hamiltonian path. Their connecting edge has colour $k$.
+
+Now fix $i<k$. There are
+\[
+2^{i-1}
+\]
+vertices of vertex-colour $i$, and
+\[
+2^{i-1}-1
+\]
+vertices of smaller colour. An edge incident with a vertex of colour $i$ avoids edge-colour $i$ only when its other endpoint has smaller vertex-colour. Therefore, if a Hamiltonian path avoided colour $i$, its colour-$i$ vertices would have to alternate with all the smaller-coloured vertices, beginning and ending with colour $i$. This already uses all those vertices and leaves no place for any vertex of colour greater than $i$, which exists because $i<k$. This is impossible.
+
+Thus the construction is good and proves
+\[
+k\ge\lfloor\log_2 n\rfloor.
+\]
+
+\textbf{Upper bound.}
+
+Consider an arbitrary good colouring of $K_n$ with colours
+\[
+1,2,\ldots,k.
+\]
+For a vertex $v$, let
+\[
+d_i(v)
+\]
+be the number of incident edges of colour $i$, and put
+\[
+m(v)=\max_i d_i(v).
+\]
+
+We first establish three recolouring lemmas.
+
+\textbf{Lemma 1.}
+Let $AB$ be an edge of colour $i$. If
+\[
+d_i(A)+d_i(B)\le n-1,
+\tag{1}
+\]
+then recolouring $AB$ with any other colour preserves goodness.
+
+\textit{Proof.}
+Suppose recolouring $AB$ destroys goodness. Then, in the new colouring, there is a Hamiltonian path missing colour $i$. In the original colouring, $AB$ was therefore the unique edge of colour $i$ on this path.
+
+Write the path as
+\[
+A_s-\cdots-A_1-A_0-B_0-B_1-\cdots-B_t,
+\]
+where
+\[
+A_0=A,\qquad B_0=B,\qquad s+t+2=n.
+\]
+
+The edge $B_0A_s$ must have colour $i$; otherwise
+\[
+A_0-A_1-\cdots-A_s-B_0-B_1-\cdots-B_t
+\]
+would be a Hamiltonian path with no edge of colour $i$. Similarly, $A_0B_t$ has colour $i$.
+
+For each $0\le p<s$, at least one of
+\[
+B_0A_p,\qquad A_0A_{p+1}
+\]
+has colour $i$. Otherwise, reversing the initial portion of the path and reconnecting through these two edges produces a Hamiltonian path avoiding colour $i$.
+
+Likewise, for each $0\le q<t$, at least one of
+\[
+A_0B_q,\qquad B_0B_{q+1}
+\]
+has colour $i$.
+
+These requirements involve every edge incident with $A_0$ or $B_0$ exactly once, with the common edge $A_0B_0$ counted once from each endpoint. Summing them gives
+\[
+d_i(A)+d_i(B)\ge(s+1)+(t+1)=n,
+\]
+contradicting (1). $\square$
+
+\textbf{Lemma 2.}
+Let $AB$ have colour $j$. Suppose
+\[
+m(A)\ge m(B)
+\]
+and, for some colour $i\ne j$,
+\[
+d_i(A)=m(A).
+\]
+Then recolouring $AB$ with colour $i$ preserves goodness.
+
+\textit{Proof.}
+Since colour $i$ already contributes $m(A)$ edges at $A$,
+\[
+d_j(A)\le n-1-m(A),
+\]
+while
+\[
+d_j(B)\le m(B).
+\]
+Hence
+\[
+d_j(A)+d_j(B)
+\le
+n-1-m(A)+m(B)
+\le n-1.
+\]
+Lemma 1 applies. $\square$
+
+\textbf{Lemma 3.}
+Let $S$ be a nonempty set of vertices. Choose $A\in S$ with
+\[
+m(A)\ge m(B)
+\qquad(B\in S),
+\]
+and choose a colour $i$ satisfying
+\[
+d_i(A)=m(A).
+\]
+One may recolour every edge $AB$ with
+\[
+B\in S\setminus\{A\}
+\]
+to colour $i$ while preserving goodness.
+
+\textit{Proof.}
+Recolour the relevant edges one at a time. Lemma 2 applies at every step. Each recolouring increases both $m(A)$ and $d_i(A)$ by $1$, while every other $m(B)$ increases by at most $1$. Thus $A$ remains a maximizer of $m$ on $S$, and colour $i$ continues to attain $m(A)$. $\square$
+
+Apply Lemma 3 first to all vertices. We obtain a vertex $A_1$ all of whose incident edges have one colour $c_1$. Next apply the lemma to the remaining vertices, obtaining $A_2$ and a colour $c_2$, without changing edges incident with $A_1$. Continue.
+
+At the end, the vertices are ordered
+\[
+A_1,A_2,\ldots,A_n
+\]
+and assigned colours
+\[
+c_1,c_2,\ldots,c_n
+\]
+so that
+\[
+\text{edge }A_uA_v\text{ has colour }c_u
+\qquad(u<v).
+\tag{2}
+\]
+The colouring is still good.
+
+Fix an edge-colour $i$. We claim that some initial segment
+\[
+A_1,\ldots,A_p
+\]
+contains more than $p/2$ vertices whose assigned colour is $i$.
+
+Suppose not. Let
+\[
+A_{x_1},\ldots,A_{x_t}
+\]
+be the vertices assigned colour $i$, with
+\[
+x_1<\cdots<x_t,
+\]
+and let
+\[
+A_{y_1},\ldots,A_{y_s}
+\]
+be all other vertices, with
+\[
+y_1<\cdots<y_s.
+\]
+The assumption gives
+\[
+t\le s
+\qquad\text{and}\qquad
+y_j<x_j
+\quad(1\le j\le t).
+\]
+Then
+\[
+A_{x_1}-A_{y_1}-A_{x_2}-A_{y_2}-\cdots
+-A_{x_t}-A_{y_t}-A_{y_{t+1}}-\cdots-A_{y_s}
+\]
+is a Hamiltonian path containing no edge of colour $i$: by (2), every edge in this path receives the assigned colour of a smaller-indexed vertex, which is never $i$. This contradicts goodness.
+
+For each colour $i$, let $p_i$ be the smallest positive integer for which more than half of
+\[
+A_1,\ldots,A_{p_i}
+\]
+have assigned colour $i$. At the first such index, $A_{p_i}$ itself has colour $i$, so the $p_i$ are pairwise distinct. Relabel the edge-colours so that
+\[
+p_1<p_2<\cdots<p_k.
+\tag{3}
+\]
+
+For every $j\le i$, the first $p_i$ vertices contain at least
+\[
+\left\lceil\frac{p_j+1}{2}\right\rceil
+\]
+vertices of colour $j$. These colour classes are disjoint, so
+\[
+p_i
+\ge
+\sum_{j=1}^i
+\left\lceil\frac{p_j+1}{2}\right\rceil.
+\tag{4}
+\]
+Induction on $i$ now gives
+\[
+p_i\ge2^i-1.
+\tag{5}
+\]
+For $i=1$, this is clear. Assume it holds for all smaller indices. From (4),
+\[
+p_i-
+\left\lceil\frac{p_i+1}{2}\right\rceil
+\ge
+\sum_{j=1}^{i-1}
+\left\lceil\frac{p_j+1}{2}\right\rceil
+\ge
+1+2+\cdots+2^{i-2}
+=
+2^{i-1}-1.
+\]
+The left-hand side is
+\[
+\left\lfloor\frac{p_i-1}{2}\right\rfloor,
+\]
+which forces
+\[
+p_i\ge2^i-1.
+\]
+
+Thus
+\[
+n\ge p_k\ge2^k-1.
+\tag{6}
+\]
+
+It remains to exclude equality
+\[
+n=2^k-1.
+\]
+Suppose equality held. Then
+\[
+p_k=2^k-1.
+\]
+In (4) with $i=k$, the final summand equals $2^{k-1}$. The lower bounds (5) give
+\[
+\left\lceil\frac{p_j+1}{2}\right\rceil\ge2^{j-1}
+\qquad(j<k).
+\]
+Since these lower bounds already sum to $2^{k-1}-1$, equality must hold for every $j<k$. Together with (5), this yields
+\[
+p_i=2^i-1
+\qquad(1\le i\le k).
+\]
+Moreover, equality in (4) for every prefix forces the assigned colours to occur in consecutive blocks:
+\[
+\begin{aligned}
+& A_1 &&\text{has colour }1,\\
+& A_2,A_3 &&\text{have colour }2,\\
+& A_4,\ldots,A_7 &&\text{have colour }3,\\
+&\ \vdots\\
+& A_{2^{i-1}},\ldots,A_{2^i-1}
+&&\text{have colour }i.
+\end{aligned}
+\tag{7}
+\]
+This follows inductively because, in the prefix of length $2^i-1$, the required minimum numbers
+\[
+1,2,4,\ldots,2^{i-1}
+\]
+already sum to the full prefix length.
+
+Let
+\[
+h=2^{k-1}.
+\]
+Using (7), the Hamiltonian path
+\[
+A_h-A_1-A_{h+1}-A_2-\cdots
+-A_{2h-2}-A_{h-1}-A_{2h-1}
+\]
+alternates vertices of colour $k$ with smaller-coloured vertices. Every edge receives the colour of its smaller-indexed endpoint, so this path has no edge of colour $k$. This contradicts goodness.
+
+Therefore equality in (6) is impossible, and
+\[
+n\ge2^k.
+\]
+Hence
+\[
+k\le\lfloor\log_2 n\rfloor.
+\]
+
+Combining the upper construction and lower bound gives
+\[
+\boxed{k=\lfloor\log_2 n\rfloor}.
+\]

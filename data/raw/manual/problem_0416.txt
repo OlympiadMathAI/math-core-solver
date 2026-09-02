@@ -1,0 +1,482 @@
+ID: 0416
+
+SOURCE: IMO Shortlist
+
+YEAR: 2023
+
+TOPIC: Geometry
+
+SUBTOPICS: Reflections, Direct and Opposite Similarity, Apollonius Circles, Orthocentre, Circumcentre
+
+STATEMENT:
+Let $ABC$ be an acute scalene triangle with orthocentre $H$.
+
+Let $\ell_a$ be the line through the reflection of $B$ in $CH$ and the reflection of $C$ in $BH$. Define $\ell_b$ and $\ell_c$ cyclically. Suppose that
+\[
+\ell_a,\ell_b,\ell_c
+\]
+form a nondegenerate triangle $\mathcal T$.
+
+Prove that the orthocentre of $\mathcal T$, the circumcentre of $\mathcal T$, and $H$ are collinear.
+
+SOLUTION 1:
+Let
+
+\[
+A_b,\ A_c
+\]
+be the reflections of $A$ in $BH$ and $CH$, respectively;
+
+\[
+B_c,\ B_a
+\]
+the reflections of $B$ in $CH$ and $AH$; and
+
+\[
+C_a,\ C_b
+\]
+the reflections of $C$ in $AH$ and $BH$.
+
+Then
+\[
+\ell_a=B_cC_b,
+\qquad
+\ell_b=C_aA_c,
+\qquad
+\ell_c=A_bB_a.
+\]
+Put
+\[
+A_1=\ell_b\cap\ell_c,\qquad
+B_1=\ell_c\cap\ell_a,\qquad
+C_1=\ell_a\cap\ell_b.
+\]
+Let $H_1$ and $O_1$ be the orthocentre and circumcentre of triangle
+\[
+A_1B_1C_1.
+\]
+
+We use directed angles. Write
+\[
+\triangle U_1U_2U_3\sim_+\triangle V_1V_2V_3
+\]
+for direct similarity and
+\[
+\triangle U_1U_2U_3\sim_-\triangle V_1V_2V_3
+\]
+for opposite similarity.
+
+\textbf{Claim 1.}
+\[
+\triangle AA_bA_c\sim_-\triangle ABC.
+\tag{1}
+\]
+
+Let
+\[
+P=BH\cap AC,
+\qquad
+Q=CH\cap AB.
+\]
+The standard altitude-angle relations give
+\[
+\triangle APQ\sim_-\triangle ABC.
+\]
+Since $P$ and $Q$ are the feet of the perpendiculars from $A$ to $BH$ and $CH$, respectively, the dilation of ratio $2$ centred at $A$ sends
+\[
+P\longmapsto A_b,
+\qquad
+Q\longmapsto A_c.
+\]
+This proves (1).
+
+\textbf{Claim 2.}
+The triangles
+\[
+AA_bA_c
+\qquad\text{and}\qquad
+AB_aC_a
+\]
+are directly similar, and
+\[
+A_1\in(AA_bA_c).
+\tag{2}
+\]
+Moreover, the circle in (2) has centre $H$.
+
+Indeed, triangle $AB_aC_a$ is the reflection of triangle $ABC$ in $AH$, so
+\[
+\triangle AB_aC_a\sim_-\triangle ABC.
+\]
+Together with Claim 1, this gives the direct similarity
+\[
+\triangle AA_bA_c\sim_+\triangle AB_aC_a,
+\]
+with $A$ as its spiral-similarity centre. Since
+\[
+A_1=A_cC_a\cap A_bB_a,
+\]
+the spiral-similarity angle gives
+\[
+\measuredangle A_cA_1A_b
+=
+\measuredangle A_cAA_b.
+\]
+Thus $A,A_b,A_c,A_1$ are cyclic.
+
+Reflection fixes $H$, so
+\[
+HA_b=HA=HA_c.
+\]
+Hence $H$ is the centre of this circle. In particular,
+\[
+HA_1=HA.
+\tag{3}
+\]
+Cyclically,
+\[
+HB_1=HB,
+\qquad
+HC_1=HC.
+\tag{4}
+\]
+
+\textbf{Claim 3.}
+\[
+\triangle A_1B_1C_1\sim_-\triangle ABC.
+\tag{5}
+\]
+
+Using Claim 2 and the definitions of the three sidelines,
+\[
+\begin{aligned}
+\measuredangle C_1A_1B_1
+&=
+\measuredangle A_cA_1A_b\\
+&=
+\measuredangle A_cAA_b\\
+&=
+-\measuredangle CAB.
+\end{aligned}
+\]
+The two cyclic analogues give
+\[
+\measuredangle A_1B_1C_1=-\measuredangle ABC,
+\qquad
+\measuredangle B_1C_1A_1=-\measuredangle BCA.
+\]
+This proves (5).
+
+Let $\lambda>0$ be the similarity ratio in (5). Opposite similarity sends orthocentres to orthocentres, so
+\[
+\lambda
+=
+\frac{H_1A_1}{HA}
+=
+\frac{H_1B_1}{HB}
+=
+\frac{H_1C_1}{HC}.
+\]
+Using (3)-(4),
+\[
+\frac{H_1A_1}{HA_1}
+=
+\frac{H_1B_1}{HB_1}
+=
+\frac{H_1C_1}{HC_1}
+=
+\lambda.
+\tag{6}
+\]
+
+If $H_1=H$, the conclusion is immediate. Assume $H_1\ne H$. If $\lambda=1$, equation (6) would place the three noncollinear points $A_1,B_1,C_1$ on the perpendicular bisector of $HH_1$, which is impossible. Hence $\lambda\ne1$.
+
+Equation (6) now says that $A_1,B_1,C_1$ lie on the Apollonius circle of segment $HH_1$ with ratio $\lambda$. Therefore their circumcircle is that Apollonius circle, whose centre lies on
+\[
+HH_1.
+\]
+Thus
+\[
+H,\ O_1,\ H_1
+\]
+are collinear.
+
+SOLUTION 2:
+Use the reflection notation
+\[
+A_b,A_c,B_c,B_a,C_a,C_b
+\]
+defined as follows:
+\[
+A_b=\operatorname{refl}_{BH}(A),\quad
+A_c=\operatorname{refl}_{CH}(A),
+\]
+and cyclically. Put
+\[
+\ell_a=B_cC_b,\qquad
+\ell_b=C_aA_c,\qquad
+\ell_c=A_bB_a,
+\]
+and
+\[
+A_1=\ell_b\cap\ell_c,\qquad
+B_1=\ell_c\cap\ell_a,\qquad
+C_1=\ell_a\cap\ell_b.
+\]
+Let $O_1,H_1$ be the circumcentre and orthocentre of $A_1B_1C_1$, and let $O$ be the circumcentre of $ABC$.
+
+We first establish three elementary facts.
+
+\textbf{Fact 1.}
+\[
+\triangle AA_bA_c\sim_-\triangle ABC.
+\]
+Indeed, if
+\[
+P=BH\cap AC,\qquad Q=CH\cap AB,
+\]
+then $\triangle APQ\sim_-\triangle ABC$, while the dilation of ratio $2$ centred at $A$ sends $P,Q$ to $A_b,A_c$.
+
+\textbf{Fact 2.}
+The point $A_1$ lies on the circle
+\[
+(AA_bA_c),
+\]
+and this circle has centre $H$.
+
+The triangle $AB_aC_a$ is the reflection of $ABC$ in $AH$, so it is oppositely similar to $ABC$. Combining this with Fact 1 gives a direct spiral similarity centred at $A$ from $AA_bA_c$ to $AB_aC_a$. Since
+\[
+A_1=A_cC_a\cap A_bB_a,
+\]
+we obtain
+\[
+\measuredangle A_cA_1A_b=\measuredangle A_cAA_b,
+\]
+and hence the cyclicity. The equalities
+\[
+HA_b=HA=HA_c
+\]
+show that the centre is $H$.
+
+Cyclically,
+\[
+HA_1=HA,\qquad HB_1=HB,\qquad HC_1=HC.
+\tag{1}
+\]
+
+\textbf{Fact 3.}
+\[
+\triangle A_1B_1C_1\sim_-\triangle ABC.
+\tag{2}
+\]
+For example,
+\[
+\measuredangle C_1A_1B_1
+=
+\measuredangle A_cA_1A_b
+=
+\measuredangle A_cAA_b
+=
+-\measuredangle CAB,
+\]
+and the other two angles follow cyclically.
+
+Now let $A_2$ be the reflection of $A_1$ in $AH$. Since the circle $(AA_bA_c)$ is centred at $H$, it contains $A_2$ as well.
+
+The direct similarity used in Fact 2 also gives
+\[
+\measuredangle B_aA_1C_a
+=
+\measuredangle A_bA_1A_c
+=
+\measuredangle A_bAA_c
+=
+\measuredangle B_aAC_a.
+\]
+Hence
+\[
+A_1\in(AB_aC_a).
+\]
+Reflecting this circle in $AH$ shows that
+\[
+A_2\in(ABC).
+\]
+Thus $A$ and $A_2$ are the two common points of a circle centred at $H$ and the circumcircle centred at $O$. Their common chord $AA_2$ is perpendicular to $OH$, so $A$ and $A_2$ are reflections in line $OH$.
+
+Define $B_2,C_2$ cyclically. Then
+\[
+\triangle A_2B_2C_2
+\]
+is the reflection of $\triangle ABC$ in $OH$, and
+\[
+(A_2B_2C_2)=(ABC).
+\tag{3}
+\]
+
+\textbf{Claim 1.}
+The lines
+\[
+A_1A_2,\qquad B_1B_2,\qquad C_1C_2
+\]
+are concurrent at a point $T\in(ABC)$.
+
+Because $A_2$ is the reflection of $A_1$ in $AH$,
+\[
+A_1A_2\parallel BC.
+\]
+Similarly,
+\[
+B_1B_2\parallel CA,
+\qquad
+C_1C_2\parallel AB.
+\]
+Let
+\[
+T=A_1A_2\cap B_1B_2.
+\]
+Using (3),
+\[
+\measuredangle A_2TB_2
+=
+\measuredangle BCA
+=
+\measuredangle A_2C_2B_2.
+\]
+Hence $T\in(A_2B_2C_2)=(ABC)$. The same argument with $A_1A_2$ and $C_1C_2$ shows that $C_1C_2$ also passes through $T$.
+
+\textbf{Claim 2.}
+The point $T$ lies on $(A_1B_1C_1)$, and the opposite similarity in (2) fixes $T$.
+
+From Claim 1 and (3),
+\[
+\begin{aligned}
+\measuredangle B_1TC_1
+&=
+\measuredangle B_2TC_2\\
+&=
+\measuredangle B_2A_2C_2\\
+&=
+-\measuredangle BAC\\
+&=
+\measuredangle B_1A_1C_1.
+\end{aligned}
+\]
+Thus
+\[
+T\in(A_1B_1C_1).
+\]
+To identify its image under the similarity, use
+\[
+\begin{aligned}
+\measuredangle A_1B_1T
+&=
+\measuredangle A_1B_1B_2\\
+&=
+\measuredangle A_1A_bA\\
+&=
+\measuredangle A_1A_2A\\
+&=
+-\measuredangle AA_2T\\
+&=
+-\measuredangle ABT.
+\end{aligned}
+\]
+Together with the corresponding cyclic-angle relation, this shows that the similarity maps $T$ to itself.
+
+\textbf{Claim 3.}
+The circumradius of triangle $A_1B_1C_1$ is
+\[
+HO.
+\tag{4}
+\]
+
+The two circles centred at $H$ which cut line $\ell_c=A_bB_a$ in
+\[
+A_1,A_b
+\qquad\text{and}\qquad
+B_1,B_a
+\]
+have the same perpendicular from $H$ to $\ell_c$. Therefore the two chords have the same midpoint, and
+\[
+A_1B_1=A_bB_a.
+\tag{5}
+\]
+
+Let $O_a$ be the circumcentre of triangle $AB_aC_a$. It is the reflection of $O$ in $AH$, so
+\[
+HO_a=HO.
+\]
+The direct spiral similarity centred at $A$ from $AA_bA_c$ to $AB_aC_a$ sends their circumcentres
+\[
+H\longmapsto O_a.
+\]
+Consequently,
+\[
+\frac{AA_b}{B_aA_b}
+=
+\frac{AH}{HO_a}
+=
+\frac{AH}{HO},
+\]
+or
+\[
+\frac{AH}{AA_b}
+=
+\frac{HO}{A_bB_a}.
+\tag{6}
+\]
+
+Furthermore, triangles $A_1O_1B_1$ and $AHA_b$ are directly similar, since each is oppositely similar to $AOB$. Hence
+\[
+\frac{A_1O_1}{A_1B_1}
+=
+\frac{AH}{AA_b}.
+\]
+Using (5)-(6),
+\[
+A_1O_1=HO.
+\]
+This proves (4).
+
+Since $T$ lies on $(A_1B_1C_1)$,
+\[
+O_1T=HO.
+\tag{7}
+\]
+
+The opposite similarity from Claim 2 sends
+\[
+A_1\longmapsto A,\qquad O_1\longmapsto O,\qquad T\longmapsto T.
+\]
+Using $T,A,A_2\in(ABC)$ and $OH\perp AA_2$, the corresponding directed angles give
+\[
+\begin{aligned}
+\measuredangle(TA_1,TO_1)
+&=
+\measuredangle(TO,TA)\\
+&=
+90^\circ+\measuredangle(TA_1,AA_2)\\
+&=
+\measuredangle(TA_1,OH).
+\end{aligned}
+\]
+Therefore
+\[
+O_1T\parallel HO.
+\tag{8}
+\]
+Equations (7)-(8) show that $O_1TOH$ is a parallelogram.
+
+Finally, the same opposite similarity sends $H_1$ to $H$. Hence
+\[
+\measuredangle H_1O_1T=\measuredangle TOH.
+\]
+The parallelogram gives
+\[
+\measuredangle TOH=\measuredangle HO_1T.
+\]
+Thus
+\[
+H_1,O_1,H
+\]
+are collinear, as required.
