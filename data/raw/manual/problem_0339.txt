@@ -1,0 +1,97 @@
+ID: 0339
+
+SOURCE: IMO Shortlist
+
+YEAR: 2021
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Infinite Graphs, Edge Colourings, Greatest Common Divisors, Pigeonhole Principle
+
+STATEMENT:
+Let $S$ be an infinite set of positive integers. Suppose that there exist four pairwise distinct elements
+\[
+a,b,c,d\in S
+\]
+such that
+\[
+\gcd(a,b)\ne\gcd(c,d).
+\]
+Prove that there exist three pairwise distinct elements
+\[
+x,y,z\in S
+\]
+such that
+\[
+\gcd(x,y)=\gcd(y,z)\ne\gcd(z,x).
+\]
+
+SOLUTION 1:
+View the elements of $S$ as the vertices of a complete graph, and colour the edge joining $u$ and $v$ by
+\[
+\gcd(u,v).
+\]
+The hypothesis says that at least two colours occur.
+
+There is a vertex $\alpha\in S$ whose incident edges do not all have the same colour. Indeed, if every vertex had only one incident colour, then the colour of an edge would force the incident colours of both its endpoints to be equal; since the complete graph is connected, every edge would then have the same colour.
+
+The possible values of
+\[
+\gcd(\alpha,s),
+\qquad s\in S\setminus\{\alpha\},
+\]
+are divisors of $\alpha$, so there are only finitely many of them. Hence one value, say $e$, occurs for infinitely many $s$. Put
+\[
+B=\{\beta\in S\setminus\{\alpha\}:\gcd(\alpha,\beta)=e\}.
+\]
+Choose
+\[
+\gamma\in S\setminus\{\alpha\}
+\]
+such that
+\[
+\gcd(\alpha,\gamma)\ne e.
+\tag{1}
+\]
+
+The numbers $\gcd(\gamma,\beta)$, with $\beta\in B$, are divisors of $\gamma$. By the pigeonhole principle, there are distinct
+\[
+\beta_1,\beta_2\in B\setminus\{\gamma\}
+\]
+such that
+\[
+\gcd(\gamma,\beta_1)=\gcd(\gamma,\beta_2)=e'
+\tag{2}
+\]
+for some divisor $e'$ of $\gamma$.
+
+If $e=e'$, then
+\[
+\gcd(\alpha,\beta_1)=\gcd(\beta_1,\gamma)=e
+\ne\gcd(\gamma,\alpha),
+\]
+so the triple
+\[
+(\alpha,\beta_1,\gamma)
+\]
+works.
+
+Suppose now that $e\ne e'$, and put
+\[
+h=\gcd(\beta_1,\beta_2).
+\]
+If $h\ne e$, then
+\[
+\gcd(\beta_1,\alpha)=\gcd(\alpha,\beta_2)=e\ne h,
+\]
+so
+\[
+(\beta_1,\alpha,\beta_2)
+\]
+works. If $h=e$, then $h\ne e'$, and (2) shows that
+\[
+(\beta_1,\gamma,\beta_2)
+\]
+works.
+
+Thus the required three elements always exist.

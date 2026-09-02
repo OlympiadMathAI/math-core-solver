@@ -1,0 +1,16 @@
+{
+  "id": "0341",
+  "source": "IMO Shortlist",
+  "year": "2021",
+  "topic": "Combinatorics",
+  "subtopics": [
+    "Circular Arrangements",
+    "Two-Colourings",
+    "Invariants",
+    "Parity"
+  ],
+  "statement": "A thimblerigger has $2021$ thimbles numbered\n\\[\n1,2,\\ldots,2021,\n\\]\narranged in a circle in an arbitrary order. He performs $2021$ moves. In the $k$th move, he swaps the positions of the two thimbles adjacent to thimble $k$.\n\nProve that, for some $k$, the two thimbles swapped in the $k$th move have numbers $a$ and $b$ satisfying\n\\[\na<k<b.\n\\]",
+  "solutions": [
+    "Suppose, for contradiction, that the conclusion never holds. Then, in every move $k$, the two swapped thimbles are either both smaller than $k$ or both larger than $k$.\n\nCall the position occupied by thimble $k$ during the $k$th move the \\emph{central position} of that move.\n\n\\textbf{Step 1: a black-and-white colouring.}\n\nInitially colour every thimble white. After move $k$, recolour the central thimble $k$ black.\n\nBefore move $k$, the thimbles numbered below $k$ are black and those numbered above $k$ are white. By the contrary assumption, the two thimbles swapped in that move have the same colour. Consequently, swapping them does not change the colours assigned to their positions. The only position whose colour changes is the central position, which changes from white to black.\n\nAfter all $2021$ moves, every thimble, and hence every position, is black. Since exactly one position changes colour in each move, every position is the central position of exactly one move.\n\n\\textbf{Step 2: a red-and-green colouring of the positions.}\n\nColour a position red if, in the move for which it is central, the two swapped thimbles are both smaller than the central thimble. Colour it green if the two swapped thimbles are both larger.\n\nWe claim that adjacent positions always receive different colours. Let adjacent positions $U$ and $V$ be central in moves $u$ and $v$, respectively, where\n\\[\nu<v.\n\\]\nDuring move $u$, position $V$ has not yet changed from white to black. Hence the thimble at $V$ has number greater than $u$. It is one of the two thimbles adjacent to thimble $u$, so both swapped thimbles are greater than $u$. Therefore $U$ is green.\n\nAfter move $u$, position $U$ remains black. During move $v$, it therefore contains a thimble whose number is smaller than $v$. Since it is adjacent to the central position $V$, both thimbles swapped in move $v$ are smaller than $v$. Thus $V$ is red.\n\nWe have obtained a proper red-and-green colouring of the positions around a cycle of odd length $2021$. This is impossible. The contradiction proves that some move $k$ swaps thimbles $a,b$ with\n\\[\na<k<b.\n\\]"
+  ]
+}

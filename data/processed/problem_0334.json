@@ -1,0 +1,17 @@
+{
+  "id": "0334",
+  "source": "IMO Shortlist",
+  "year": "2021",
+  "topic": "Algebra",
+  "subtopics": [
+    "Inequalities",
+    "Concavity",
+    "Induction",
+    "Fourier Integrals"
+  ],
+  "statement": "Prove that, for all real numbers\n\\[\nx_1,x_2,\\ldots,x_n,\n\\]\nwe have\n\\[\n\\sum_{i=1}^{n}\\sum_{j=1}^{n}\\sqrt{|x_i-x_j|}\n\\le\n\\sum_{i=1}^{n}\\sum_{j=1}^{n}\\sqrt{|x_i+x_j|}.\n\\]",
+  "solutions": [
+    "We use induction on $n$. The cases $n=0$ and $n=1$ are immediate.\n\nLet\n\\[\nL=\n\\sum_{i=1}^{n}\\sum_{j=1}^{n}\\sqrt{|x_i-x_j|}.\n\\]\nIf the same real number $t$ is added to every $x_i$, then $L$ does not change, while the right-hand side becomes\n\\[\nH(t)=\n\\sum_{i=1}^{n}\\sum_{j=1}^{n}\n\\sqrt{|x_i+x_j+2t|}.\n\\tag{1}\n\\]\n\nChoose $T>0$ so large that\n\\[\nH(-T)>L\n\\qquad\\text{and}\\qquad\nH(T)>L.\n\\]\nThe numbers\n\\[\n-\\frac{x_i+x_j}{2}\n\\]\ntogether with $-T$ and $T$ partition the interval $[-T,T]$ into subintervals. On each such subinterval, every summand in (1) has the form\n\\[\n\\sqrt{\\pm(\\lambda+2t)}\n\\]\nwith fixed sign, and is concave. Hence $H$ is concave there. Consequently, at any point inside a subinterval, $H$ is at least the smaller of its values at the two endpoints.\n\nIt therefore suffices to prove\n\\[\nH\\left(-\\frac{x_i+x_j}{2}\\right)\\ge L\n\\tag{2}\n\\]\nfor every pair $i,j$. After shifting the variables by the corresponding value of $t$, condition (2) is exactly the original inequality in a situation where two of the shifted variables have sum zero.\n\nSuppose first that one shifted variable is $0$. Removing it decreases each side of the desired inequality by\n\\[\n2\\sum_k\\sqrt{|x_k|}.\n\\]\nThe result follows from the induction hypothesis for the remaining $n-1$ variables.\n\nSuppose instead that two distinct shifted variables are opposites, say\n\\[\nx_r=u,\n\\qquad\nx_s=-u.\n\\]\nRemove both. The contribution to either double sum from all ordered pairs involving $r$ or $s$ is\n\\[\n2\\sqrt{2|u|}\n+\n2\\sum_{k\\ne r,s}\n\\left(\n\\sqrt{|x_k-u|}+\\sqrt{|x_k+u|}\n\\right).\n\\]\nThus both sides decrease by the same amount, and the induction hypothesis applies to the remaining $n-2$ variables.\n\nHence every breakpoint satisfies (2). Concavity on the interval containing $0$ now gives\n\\[\nH(0)\\ge L,\n\\]\nwhich is the required inequality.",
+    "For real $p$, define\n\\[\nI(p)=\n\\int_0^\\infty\n\\frac{1-\\cos(px)}{x^{3/2}}\\,dx.\n\\]\nThe integral converges, and\n\\[\nI(p)>0\n\\qquad(p\\ne0).\n\\]\nThe substitution $y=|p|x$ gives\n\\[\nI(p)=\\sqrt{|p|}\\,I(1).\n\\tag{1}\n\\]\n\nFor arbitrary real $a,b$, equation (1) and\n\\[\n\\cos(\\alpha-\\beta)-\\cos(\\alpha+\\beta)\n=\n2\\sin\\alpha\\sin\\beta\n\\]\nyield\n\\[\n\\begin{aligned}\n\\sqrt{|a+b|}-\\sqrt{|a-b|}\n&=\n\\frac{I(a+b)-I(a-b)}{I(1)}\\\\\n&=\n\\frac{2}{I(1)}\n\\int_0^\\infty\n\\frac{\\sin(ax)\\sin(bx)}{x^{3/2}}\\,dx.\n\\end{aligned}\n\\tag{2}\n\\]\n\nSum (2) over all ordered pairs\n\\[\n(a,b)=(x_i,x_j).\n\\]\nWe obtain\n\\[\n\\begin{aligned}\n&\\sum_{i,j}\\sqrt{|x_i+x_j|}\n-\n\\sum_{i,j}\\sqrt{|x_i-x_j|}\\\\\n&\\qquad=\n\\frac{2}{I(1)}\n\\int_0^\\infty\n\\frac{\\left(\\sum_{i=1}^{n}\\sin(x_ix)\\right)^2}{x^{3/2}}\\,dx\n\\ge0.\n\\end{aligned}\n\\]\nThis proves the inequality."
+  ]
+}

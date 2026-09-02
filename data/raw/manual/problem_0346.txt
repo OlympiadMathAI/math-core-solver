@@ -1,0 +1,253 @@
+ID: 0346
+
+SOURCE: IMO Shortlist
+
+YEAR: 2021
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Permutations, Coding Theory, Parity, Pigeonhole Principle
+
+STATEMENT:
+Determine the largest integer $N$ for which there exists a table $T$ with $N$ rows and $100$ columns satisfying:
+
+\begin{enumerate}
+\item[(i)] every row contains the numbers
+\[
+1,2,\ldots,100
+\]
+in some order;
+\item[(ii)] for every two distinct rows $r,s$, there is a column $c$ such that
+\[
+|T(r,c)-T(s,c)|\ge2.
+\]
+\end{enumerate}
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{\frac{100!}{2^{50}}}.
+\]
+
+\textbf{Upper bound.}
+
+In any row, replace the two numbers
+\[
+2k-1,\ 2k
+\]
+by one symbol $x_k$, for each $k=1,\ldots,50$. The resulting \emph{pattern} is an arrangement of the multiset
+\[
+\{x_1,x_1,x_2,x_2,\ldots,x_{50},x_{50}\}.
+\]
+There are
+\[
+\frac{100!}{2^{50}}
+\tag{1}
+\]
+different patterns.
+
+If two rows have the same pattern, then in every column their entries belong to the same pair
+\[
+\{2k-1,2k\},
+\]
+and hence differ by at most $1$. This violates condition (ii). Therefore all rows have distinct patterns, and (1) is an upper bound.
+
+\textbf{Construction.}
+
+For every pattern, construct one row by replacing its symbols with numbers. Process
+\[
+x_1,x_2,\ldots,x_{50}
+\]
+in this order.
+
+For $x_1$, put $1$ in its left occurrence and $2$ in its right occurrence.
+
+Suppose $k\ge2$. The number $2k-2$ has already been placed. Insert $2k-1$ and $2k$ into the two positions occupied by $x_k$ so that, from left to right, the three numbers
+\[
+2k-2,\ 2k-1,\ 2k
+\]
+occur in one of the three cyclic orders
+\[
+\begin{aligned}
+&2k-2,\ 2k-1,\ 2k,\\
+&2k,\ 2k-2,\ 2k-1,\\
+&2k-1,\ 2k,\ 2k-2.
+\end{aligned}
+\tag{2}
+\]
+This is always possible, according as the already placed number $2k-2$ lies before, between, or after the two occurrences of $x_k$.
+
+We prove that the resulting rows satisfy condition (ii). Take two distinct rows $r,s$, arising from patterns $P_r,P_s$. Call $x_i$ \emph{aligned} if its two occurrences occupy the same two columns in both patterns. Let $k$ be the largest index for which $x_k$ is not aligned. Necessarily
+\[
+k\ge2.
+\]
+
+Let $c_r$ be the column containing $2k$ in row $r$, and let $c_s$ be the column containing $2k$ in row $s$. Because every $x_i$ with $i>k$ is aligned,
+\[
+T(r,c_s)\le2k,
+\qquad
+T(s,c_r)\le2k.
+\tag{3}
+\]
+
+If
+\[
+T(r,c_s)\le2k-2
+\]
+or
+\[
+T(s,c_r)\le2k-2,
+\]
+condition (ii) already holds. If
+\[
+T(r,c_s)=T(s,c_r)=2k-1,
+\]
+then the two positions occupied by $x_k$ are the same in both patterns, contrary to the choice of $k$. The only remaining possibility is
+\[
+c_r=c_s=:c,
+\qquad
+T(r,c)=T(s,c)=2k.
+\tag{4}
+\]
+
+Let $d_r$ and $d_s$ be the columns containing $2k-1$ in rows $r$ and $s$, respectively. Since $x_k$ is not aligned,
+\[
+d_r\ne d_s.
+\]
+As in (3),
+\[
+T(r,d_s)\le2k-2,
+\qquad
+T(s,d_r)\le2k-2.
+\tag{5}
+\]
+If either value in (5) is at most $2k-3$, condition (ii) holds. Hence the only remaining case is
+\[
+T(r,d_s)=T(s,d_r)=2k-2.
+\tag{6}
+\]
+
+In row $r$, the locations of
+\[
+2k-2,\ 2k-1,\ 2k
+\]
+are respectively
+\[
+d_s,\ d_r,\ c,
+\]
+whereas in row $s$ they are
+\[
+d_r,\ d_s,\ c.
+\]
+These two orders have opposite parity, so they cannot both belong to the three cyclic orders in (2). This contradiction proves condition (ii).
+
+Thus the construction supplies one valid row for every pattern, giving exactly
+\[
+\frac{100!}{2^{50}}
+\]
+rows. Together with the upper bound, this proves the answer.
+
+SOLUTION 2:
+The upper bound is again
+\[
+\frac{100!}{2^{50}},
+\]
+by replacing each pair $\{2k-1,2k\}$ with a symbol $x_k$.
+
+We construct one row for every pattern in a parity form equivalent to the construction in Solution 1. Require that each row induce an even permutation on each of the following sets:
+\[
+\{1,2\},\quad
+\{2,3,4\},\quad
+\{4,5,6\},\quad\ldots,\quad
+\{98,99,100\}.
+\tag{1}
+\]
+Here the induced permutation on a subset is obtained by deleting all entries not belonging to that subset.
+
+There is exactly one way to orient the pairs in any fixed pattern so that all conditions in (1) hold. First, the condition on $\{1,2\}$ uniquely decides which occurrence of $x_1$ is $1$. Inductively, after the number $2k-2$ has been placed, exactly one of the two assignments of
+\[
+2k-1,\ 2k
+\]
+to the occurrences of $x_k$ makes the induced order on
+\[
+\{2k-2,2k-1,2k\}
+\]
+even. Hence this construction gives
+\[
+100!/2^{50}
+\]
+rows.
+
+We show that any two distinct constructed rows satisfy condition (ii).
+
+\textbf{Lemma.}
+Let $\pi_1,\pi_2$ be permutations of $\{1,\ldots,n\}$ such that
+\[
+|\pi_1(i)-\pi_2(i)|\le1
+\qquad(1\le i\le n).
+\]
+Then $\pi_2$ is obtained from $\pi_1$ by swapping some pairwise disjoint pairs of consecutive values
+\[
+(j,j+1).
+\]
+
+\textit{Proof.}
+Reorder the columns so that $\pi_1(i)=i$. We prove the result by induction on $n$.
+
+If $\pi_2(n)=n$, apply the induction hypothesis to the first $n-1$ positions. Otherwise the hypothesis forces
+\[
+\pi_2(n)=n-1.
+\]
+The value $n$ can then occur only in position $n-1$, so $\pi_2$ swaps $n-1$ and $n$. Remove those two positions and apply induction. $\square$
+
+Suppose two distinct rows $\pi_1,\pi_2$ differed by at most $1$ in every column. By the lemma, there is a nonempty set
+\[
+S\subseteq\{1,\ldots,99\}
+\]
+whose elements differ pairwise by at least $2$, such that $\pi_2$ is obtained from $\pi_1$ by swapping every pair
+\[
+(j,j+1),
+\qquad j\in S.
+\]
+Let
+\[
+r=\min S.
+\]
+
+If $r=2k-1$ is odd, then the induced orders on
+\[
+\{2k-2,2k-1,2k\}
+\]
+have opposite parity; for $r=1$, use the set $\{1,2\}$. This contradicts (1). Hence
+\[
+r=2k
+\]
+is even.
+
+The swap $(2k,2k+1)$ reverses the parity of the induced order on
+\[
+\{2k,2k+1,2k+2\}.
+\]
+Because $2k$ is the smallest element of $S$ and the transpositions are disjoint, every other transposition leaves all three of these values fixed, except possibly
+\[
+(2k+2,2k+3).
+\]
+Therefore, to restore the parity required in (1), the set $S$ must also contain
+\[
+2k+2.
+\]
+Repeating the same argument gives
+\[
+2k,2k+2,2k+4,\ldots,98\in S.
+\]
+But then the swap $(98,99)$ reverses the parity of the induced order on
+\[
+\{98,99,100\},
+\]
+and there is no further swap available to restore it. This is a contradiction.
+
+Therefore two distinct constructed rows cannot differ by at most $1$ in every column. The table is valid and has
+\[
+\boxed{\frac{100!}{2^{50}}}
+\]
+rows.

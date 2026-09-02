@@ -1,0 +1,16 @@
+{
+  "id": "0356",
+  "source": "IMO Shortlist",
+  "year": "2021",
+  "topic": "Number Theory",
+  "subtopics": [
+    "Two-Colourings",
+    "Perfect Squares",
+    "Pigeonhole Principle",
+    "Overlapping Intervals"
+  ],
+  "statement": "Let $n\\ge100$ be an integer. The numbers\n\\[\nn,n+1,\\ldots,2n\n\\]\nare written on $n+1$ cards, one number on each card. The cards are shuffled and divided into two piles.\n\nProve that one of the piles contains two cards whose numbers have a perfect-square sum.",
+  "solutions": [
+    "It is enough to find three cards whose three pairwise sums are perfect squares. Among three cards, two must belong to the same pile.\n\nFor a positive integer $k$, consider\n\\[\na=2k^2-4k,\\qquad\nb=2k^2+1,\\qquad\nc=2k^2+4k.\n\\]\nTheir pairwise sums are\n\\[\na+b=(2k-1)^2,\n\\]\n\\[\na+c=(2k)^2,\n\\]\nand\n\\[\nb+c=(2k+1)^2.\n\\tag{1}\n\\]\n\nThe three numbers $a,b,c$ all lie in the interval $[n,2n]$ provided that\n\\[\nn\\le2k^2-4k\n\\qquad\\text{and}\\qquad\n2k^2+4k\\le2n.\n\\]\nEquivalently,\n\\[\nk^2+2k\\le n\\le2k^2-4k.\n\\tag{2}\n\\]\n\nFor $k\\ge9$, the integer intervals\n\\[\nI_k=\n\\bigl[k^2+2k,\\;2k^2-4k\\bigr]\\cap\\mathbb Z\n\\]\nand $I_{k+1}$ have no gap between them. Indeed,\n\\[\n(k+1)^2+2(k+1)\n\\le\n2k^2-4k+1.\n\\tag{3}\n\\]\nAlso,\n\\[\nI_9=[99,126]\\cap\\mathbb Z.\n\\]\nIt follows from (3) that\n\\[\nI_9\\cup I_{10}\\cup I_{11}\\cup\\cdots\n=\n\\{99,100,101,\\ldots\\}.\n\\]\nThus, for every $n\\ge100$, there is an integer $k\\ge9$ satisfying (2).\n\nFor this $k$, the cards numbered $a,b,c$ are present, and by (1) every pair among them has a perfect-square sum. Two of the three cards lie in the same pile, and that pair proves the assertion."
+  ]
+}

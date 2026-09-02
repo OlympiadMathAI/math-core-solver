@@ -1,0 +1,16 @@
+{
+  "id": "0340",
+  "source": "IMO Shortlist",
+  "year": "2021",
+  "topic": "Combinatorics",
+  "subtopics": [
+    "Circular Colourings",
+    "Extremal Construction",
+    "Pigeonhole Principle",
+    "Gap Arguments"
+  ],
+  "statement": "Let $n\\ge3$ be an integer. An integer $m\\ge n+1$ is called \\emph{$n$-colourful} if, given infinitely many marbles in each of $n$ colours\n\\[\nC_1,C_2,\\ldots,C_n,\n\\]\nit is possible to place $m$ marbles around a circle so that every group of $n+1$ consecutive marbles contains at least one marble of each colour.\n\nProve that only finitely many positive integers are not $n$-colourful, and determine the largest one.",
+  "solutions": [
+    "The largest integer that is not $n$-colourful is\n\\[\n\\boxed{n^2-n-1}.\n\\]\n\nFirst take\n\\[\nm=n(n-1)-1.\n\\]\nIn any colouring of these $m$ marbles with $n$ colours, some colour, say blue, occurs at most\n\\[\n\\left\\lfloor\\frac{m}{n}\\right\\rfloor=n-2\n\\]\ntimes.\n\nThe blue marbles split the non-blue marbles into at most $n-2$ circular blocks. The number of non-blue marbles is at least\n\\[\nm-(n-2)\n=\nn(n-1)-1-(n-2)\n=\n(n-1)^2.\n\\]\nSince\n\\[\n(n-1)^2=n(n-2)+1,\n\\]\none of those blocks contains at least $n+1$ consecutive non-blue marbles. Hence this arrangement cannot be $n$-colourful. Therefore\n\\[\nn^2-n-1\n\\]\nis not $n$-colourful.\n\nWe now construct a valid arrangement for every\n\\[\nm\\ge n(n-1).\n\\]\nWrite\n\\[\nm=nk+j,\n\\qquad\nk\\ge n-1,\n\\qquad\n0\\le j\\le n-1.\n\\]\nAround the circle, place\n\n\\begin{itemize}\n\\item $k-j$ copies of the block\n\\[\n1,2,\\ldots,n,\n\\]\nfollowed by\n\\item $j$ copies of the block\n\\[\n1,1,2,\\ldots,n.\n\\]\n\\end{itemize}\n\nThe total number of marbles is\n\\[\nn(k-j)+(n+1)j=nk+j=m.\n\\]\n\nFor every colour $r\\in\\{2,\\ldots,n\\}$, the cyclic distance between consecutive occurrences of $r$ is either $n$ or $n+1$, according to the types of the two adjacent blocks. For colour $1$, that distance is at most $n$. Therefore every group of $n+1$ consecutive marbles contains every colour.\n\nThus every integer at least $n(n-1)$ is $n$-colourful, while\n\\[\nn(n-1)-1=n^2-n-1\n\\]\nis not. This proves the answer."
+  ]
+}

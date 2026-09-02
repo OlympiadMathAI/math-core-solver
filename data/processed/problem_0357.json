@@ -1,0 +1,16 @@
+{
+  "id": "0357",
+  "source": "IMO Shortlist",
+  "year": "2021",
+  "topic": "Number Theory",
+  "subtopics": [
+    "Divisors",
+    "Prefix Sums",
+    "Perfect Squares",
+    "Induction"
+  ],
+  "statement": "Find all positive integers $n$ with the following property:\n\nIf the positive divisors of $n$ are\n\\[\nd_1,d_2,\\ldots,d_k\n\\]\nin some order, then the order can be chosen so that\n\\[\nd_1+d_2+\\cdots+d_i\n\\]\nis a perfect square for every\n\\[\ni=1,2,\\ldots,k.\n\\]",
+  "solutions": [
+    "The answer is\n\\[\n\\boxed{n=1\\ \\text{or}\\ n=3}.\n\\]\n\nSuppose that an ordering with the required property exists. Write\n\\[\nd_1+d_2+\\cdots+d_i=s_i^2\n\\qquad(1\\le i\\le k),\n\\]\nwhere each $s_i$ is a positive integer, and set\n\\[\ns_0=0.\n\\]\nSince every $d_i$ is positive,\n\\[\n0=s_0<s_1<s_2<\\cdots<s_k.\n\\]\nHence\n\\[\ns_i\\ge i.\n\\]\nMoreover,\n\\[\n\\begin{aligned}\nd_i\n&=s_i^2-s_{i-1}^2\\\\\n&=(s_i-s_{i-1})(s_i+s_{i-1})\\\\\n&\\ge s_i+s_{i-1}\\\\\n&\\ge2i-1.\n\\end{aligned}\n\\tag{1}\n\\]\n\nThe divisor $1$ occurs among the $d_i$. By (1), it can only be $d_1$. Thus\n\\[\nd_1=1,\\qquad s_1=1.\n\\]\n\nNow\n\\[\nd_2=s_2^2-1=(s_2-1)(s_2+1).\n\\]\nSince $d_2\\mid n$, both $s_2-1$ and $s_2+1$ divide $n$.\n\nLet $d_j=s_2+1$. By (1),\n\\[\ns_2+1=d_j\\ge s_j+s_{j-1},\n\\]\nwhich forces $j\\le2$. Similarly, if $d_\\ell=s_2-1$, then $\\ell\\ge2$ would give\n\\[\ns_2-1=d_\\ell\\ge s_\\ell+s_{\\ell-1}\\ge s_2+s_1=s_2+1,\n\\]\nwhich is impossible. Hence\n\\[\ns_2-1=d_1=1.\n\\]\nTherefore\n\\[\ns_2=2,\\qquad d_2=3.\n\\]\n\nWe now prove by induction that\n\\[\ns_i=i\n\\qquad\\text{and}\\qquad\nd_i=2i-1\n\\tag{2}\n\\]\nfor every $i$.\n\nAssume that (2) holds up to an index $i<k$. Then\n\\[\nd_{i+1}\n=\ns_{i+1}^2-i^2\n=\n(s_{i+1}-i)(s_{i+1}+i).\n\\]\nThus $s_{i+1}+i$ is a divisor of $n$; write\n\\[\nd_j=s_{i+1}+i.\n\\]\nAs in the preceding argument,\n\\[\nd_j\\ge s_j+s_{j-1}\n\\]\nforces\n\\[\nj\\le i+1.\n\\]\nOn the other hand,\n\\[\nd_j=s_{i+1}+i\\ge2i+1>d_i,\n\\]\nso the induction hypothesis excludes every $j\\le i$. Therefore\n\\[\nj=i+1.\n\\]\nHence\n\\[\ns_{i+1}+i=d_{i+1}\n=(s_{i+1}-i)(s_{i+1}+i).\n\\]\nSince $s_{i+1}+i>0$,\n\\[\ns_{i+1}-i=1.\n\\]\nThus\n\\[\ns_{i+1}=i+1,\\qquad d_{i+1}=2i+1,\n\\]\ncompleting the induction.\n\nConsequently, the full list of positive divisors of $n$ is\n\\[\n1,3,5,\\ldots,2k-1,\n\\]\nand\n\\[\nn=2k-1.\n\\]\nIf $k=1$, then $n=1$. If $k\\ge2$, the second-largest divisor is\n\\[\nn-2,\n\\]\nso\n\\[\nn-2\\mid n.\n\\]\nTherefore\n\\[\nn-2\\mid2.\n\\]\nSince $n$ is odd, this gives\n\\[\nn-2=1,\n\\qquad n=3.\n\\]\n\nFinally,\n\\[\nn=1\n\\]\nworks with the ordering $(1)$, and\n\\[\nn=3\n\\]\nworks with the ordering $(1,3)$, whose prefix sums are\n\\[\n1=1^2,\\qquad1+3=4=2^2.\n\\]"
+  ]
+}

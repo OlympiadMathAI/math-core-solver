@@ -1,0 +1,196 @@
+ID: 0342
+
+SOURCE: IMO Shortlist
+
+YEAR: 2021
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Tournaments, Edge-Disjoint Paths, Menger Theorem, Network Cuts
+
+STATEMENT:
+The kingdom of Anisotropy consists of $n$ cities. Between every two cities there is exactly one direct one-way road.
+
+A path from a city $X$ to a city $Y$ is a sequence of roads along which one can travel from $X$ to $Y$ without visiting a city more than once. A collection of paths is called \emph{diverse} if no road belongs to two paths in the collection.
+
+Fix two distinct cities $A$ and $B$. Let $N_{AB}$ be the maximum number of paths in a diverse collection from $A$ to $B$, and define $N_{BA}$ analogously.
+
+Prove that
+\[
+N_{AB}=N_{BA}
+\]
+if and only if the outdegrees of $A$ and $B$ are equal.
+
+SOLUTION 1:
+We prove the stronger identity
+\[
+N_{BA}-N_{AB}=d^+(B)-d^+(A),
+\tag{1}
+\]
+where $d^+(V)$ denotes the number of roads leaving city $V$.
+
+Write
+\[
+X\to Y
+\]
+when the road between $X$ and $Y$ is directed from $X$ to $Y$. By interchanging $A$ and $B$ if necessary, assume
+\[
+A\to B.
+\]
+
+Partition the other cities into four classes:
+\[
+\begin{aligned}
+\mathcal I&=\{C:A\to C\leftarrow B\},\\
+\mathcal O&=\{C:A\leftarrow C\to B\},\\
+\mathcal A&=\{C:A\to C\to B\},\\
+\mathcal B&=\{C:A\leftarrow C\leftarrow B\}.
+\end{aligned}
+\tag{2}
+\]
+Call a path \emph{short} if it contains one or two roads.
+
+We first prove a lemma.
+
+\textbf{Lemma.}
+Every diverse collection of $p$ paths from $A$ to $B$ can be replaced by a diverse collection of at least $p$ such paths which contains every short path from $A$ to $B$.
+
+\textit{Proof.}
+If the one-road path $A\to B$ is absent, add it; no longer $A$-to-$B$ path can use this edge.
+
+Now fix $C\in\mathcal A$ for which the path
+\[
+A\to C\to B
+\]
+is absent. If at most one current path uses one of the two edges
+\[
+A\to C,\qquad C\to B,
+\]
+remove that path if necessary and insert the short path.
+
+Otherwise, two paths have the forms
+\[
+A\to C\rightsquigarrow B
+\qquad\text{and}\qquad
+A\rightsquigarrow C\to B.
+\]
+Replace them by
+\[
+A\to C\to B
+\]
+and the route obtained by concatenating the remaining part from $A$ to $C$ with the remaining part from $C$ to $B$. Delete any directed cycles from this route to obtain a path. No road is duplicated, and the number of paths does not decrease.
+
+Doing this for every $C\in\mathcal A$ proves the lemma. $\square$
+
+Start with a maximum diverse collection of $N_{AB}$ paths and apply the lemma. Let the resulting collection be $\mathcal P$. It contains the
+\[
+|\mathcal A|+1
+\]
+short paths from $A$ to $B$.
+
+Every non-short path in $\mathcal P$ has the form
+\[
+A\to C\rightsquigarrow D\to B,
+\qquad
+C\in\mathcal I,\quad D\in\mathcal O.
+\]
+Replace it by
+\[
+B\to C\rightsquigarrow D\to A.
+\]
+These new paths are mutually edge-disjoint. Add all
+\[
+|\mathcal B|
+\]
+short paths
+\[
+B\to C\to A,
+\qquad C\in\mathcal B.
+\]
+No path from $A$ to $B$ could have used an edge leaving $B$ or entering $A$, so the resulting collection from $B$ to $A$ is diverse. Its size is at least
+\[
+N_{AB}-(|\mathcal A|+1)+|\mathcal B|.
+\tag{3}
+\]
+
+Let
+\[
+a=d^+(A),
+\qquad
+b=d^+(B).
+\]
+From (2) and $A\to B$,
+\[
+a=|\mathcal I|+|\mathcal A|+1,
+\qquad
+b=|\mathcal I|+|\mathcal B|.
+\]
+Thus (3) gives
+\[
+N_{BA}\ge N_{AB}+b-a.
+\]
+Interchanging $A$ and $B$ yields the reverse inequality, so (1) follows.
+
+Therefore
+\[
+N_{AB}=N_{BA}
+\quad\Longleftrightarrow\quad
+d^+(A)=d^+(B).
+\]
+
+SOLUTION 2:
+We again prove
+\[
+N_{BA}-N_{AB}=d^+(B)-d^+(A).
+\tag{1}
+\]
+
+We use the edge form of Menger's theorem: in a finite directed graph, the maximum number of pairwise edge-disjoint paths from $s$ to $t$ equals the minimum number of edges directed from $S$ to $V\setminus S$, where $S$ ranges over all vertex sets containing $s$ but not $t$.
+
+For a vertex set $S$ in a tournament, let
+\[
+e(S,V\setminus S)
+\]
+be the number of roads directed from $S$ to its complement. Since every pair of vertices of $S$ contributes exactly one internal road,
+\[
+e(S,V\setminus S)
+=
+\sum_{v\in S}d^+(v)-\binom{|S|}{2}.
+\tag{2}
+\]
+
+Take any $(A,B)$-cut
+\[
+V=S_A\sqcup T_A,
+\qquad
+A\in S_A,\quad B\in T_A.
+\]
+Form the corresponding $(B,A)$-cut by swapping $A$ and $B$:
+\[
+S_B=(S_A\setminus\{A\})\cup\{B\},
+\qquad
+T_B=(T_A\setminus\{B\})\cup\{A\}.
+\]
+The sets $S_A$ and $S_B$ have the same size. Hence (2) gives
+\[
+e(S_B,T_B)
+=
+e(S_A,T_A)+d^+(B)-d^+(A).
+\tag{3}
+\]
+
+Choose $(S_A,T_A)$ to be a minimum $(A,B)$-cut. By Menger's theorem and (3),
+\[
+N_{BA}
+\le
+N_{AB}+d^+(B)-d^+(A).
+\tag{4}
+\]
+Applying the same argument with $A$ and $B$ interchanged gives
+\[
+N_{AB}
+\le
+N_{BA}+d^+(A)-d^+(B).
+\tag{5}
+\]
+Equations (4)--(5) force (1), and the required equivalence follows immediately.

@@ -1,0 +1,91 @@
+ID: 0340
+
+SOURCE: IMO Shortlist
+
+YEAR: 2021
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Circular Colourings, Extremal Construction, Pigeonhole Principle, Gap Arguments
+
+STATEMENT:
+Let $n\ge3$ be an integer. An integer $m\ge n+1$ is called \emph{$n$-colourful} if, given infinitely many marbles in each of $n$ colours
+\[
+C_1,C_2,\ldots,C_n,
+\]
+it is possible to place $m$ marbles around a circle so that every group of $n+1$ consecutive marbles contains at least one marble of each colour.
+
+Prove that only finitely many positive integers are not $n$-colourful, and determine the largest one.
+
+SOLUTION 1:
+The largest integer that is not $n$-colourful is
+\[
+\boxed{n^2-n-1}.
+\]
+
+First take
+\[
+m=n(n-1)-1.
+\]
+In any colouring of these $m$ marbles with $n$ colours, some colour, say blue, occurs at most
+\[
+\left\lfloor\frac{m}{n}\right\rfloor=n-2
+\]
+times.
+
+The blue marbles split the non-blue marbles into at most $n-2$ circular blocks. The number of non-blue marbles is at least
+\[
+m-(n-2)
+=
+n(n-1)-1-(n-2)
+=
+(n-1)^2.
+\]
+Since
+\[
+(n-1)^2=n(n-2)+1,
+\]
+one of those blocks contains at least $n+1$ consecutive non-blue marbles. Hence this arrangement cannot be $n$-colourful. Therefore
+\[
+n^2-n-1
+\]
+is not $n$-colourful.
+
+We now construct a valid arrangement for every
+\[
+m\ge n(n-1).
+\]
+Write
+\[
+m=nk+j,
+\qquad
+k\ge n-1,
+\qquad
+0\le j\le n-1.
+\]
+Around the circle, place
+
+\begin{itemize}
+\item $k-j$ copies of the block
+\[
+1,2,\ldots,n,
+\]
+followed by
+\item $j$ copies of the block
+\[
+1,1,2,\ldots,n.
+\]
+\end{itemize}
+
+The total number of marbles is
+\[
+n(k-j)+(n+1)j=nk+j=m.
+\]
+
+For every colour $r\in\{2,\ldots,n\}$, the cyclic distance between consecutive occurrences of $r$ is either $n$ or $n+1$, according to the types of the two adjacent blocks. For colour $1$, that distance is at most $n$. Therefore every group of $n+1$ consecutive marbles contains every colour.
+
+Thus every integer at least $n(n-1)$ is $n$-colourful, while
+\[
+n(n-1)-1=n^2-n-1
+\]
+is not. This proves the answer.

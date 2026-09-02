@@ -1,0 +1,146 @@
+ID: 0334
+
+SOURCE: IMO Shortlist
+
+YEAR: 2021
+
+TOPIC: Algebra
+
+SUBTOPICS: Inequalities, Concavity, Induction, Fourier Integrals
+
+STATEMENT:
+Prove that, for all real numbers
+\[
+x_1,x_2,\ldots,x_n,
+\]
+we have
+\[
+\sum_{i=1}^{n}\sum_{j=1}^{n}\sqrt{|x_i-x_j|}
+\le
+\sum_{i=1}^{n}\sum_{j=1}^{n}\sqrt{|x_i+x_j|}.
+\]
+
+SOLUTION 1:
+We use induction on $n$. The cases $n=0$ and $n=1$ are immediate.
+
+Let
+\[
+L=
+\sum_{i=1}^{n}\sum_{j=1}^{n}\sqrt{|x_i-x_j|}.
+\]
+If the same real number $t$ is added to every $x_i$, then $L$ does not change, while the right-hand side becomes
+\[
+H(t)=
+\sum_{i=1}^{n}\sum_{j=1}^{n}
+\sqrt{|x_i+x_j+2t|}.
+\tag{1}
+\]
+
+Choose $T>0$ so large that
+\[
+H(-T)>L
+\qquad\text{and}\qquad
+H(T)>L.
+\]
+The numbers
+\[
+-\frac{x_i+x_j}{2}
+\]
+together with $-T$ and $T$ partition the interval $[-T,T]$ into subintervals. On each such subinterval, every summand in (1) has the form
+\[
+\sqrt{\pm(\lambda+2t)}
+\]
+with fixed sign, and is concave. Hence $H$ is concave there. Consequently, at any point inside a subinterval, $H$ is at least the smaller of its values at the two endpoints.
+
+It therefore suffices to prove
+\[
+H\left(-\frac{x_i+x_j}{2}\right)\ge L
+\tag{2}
+\]
+for every pair $i,j$. After shifting the variables by the corresponding value of $t$, condition (2) is exactly the original inequality in a situation where two of the shifted variables have sum zero.
+
+Suppose first that one shifted variable is $0$. Removing it decreases each side of the desired inequality by
+\[
+2\sum_k\sqrt{|x_k|}.
+\]
+The result follows from the induction hypothesis for the remaining $n-1$ variables.
+
+Suppose instead that two distinct shifted variables are opposites, say
+\[
+x_r=u,
+\qquad
+x_s=-u.
+\]
+Remove both. The contribution to either double sum from all ordered pairs involving $r$ or $s$ is
+\[
+2\sqrt{2|u|}
++
+2\sum_{k\ne r,s}
+\left(
+\sqrt{|x_k-u|}+\sqrt{|x_k+u|}
+\right).
+\]
+Thus both sides decrease by the same amount, and the induction hypothesis applies to the remaining $n-2$ variables.
+
+Hence every breakpoint satisfies (2). Concavity on the interval containing $0$ now gives
+\[
+H(0)\ge L,
+\]
+which is the required inequality.
+
+SOLUTION 2:
+For real $p$, define
+\[
+I(p)=
+\int_0^\infty
+\frac{1-\cos(px)}{x^{3/2}}\,dx.
+\]
+The integral converges, and
+\[
+I(p)>0
+\qquad(p\ne0).
+\]
+The substitution $y=|p|x$ gives
+\[
+I(p)=\sqrt{|p|}\,I(1).
+\tag{1}
+\]
+
+For arbitrary real $a,b$, equation (1) and
+\[
+\cos(\alpha-\beta)-\cos(\alpha+\beta)
+=
+2\sin\alpha\sin\beta
+\]
+yield
+\[
+\begin{aligned}
+\sqrt{|a+b|}-\sqrt{|a-b|}
+&=
+\frac{I(a+b)-I(a-b)}{I(1)}\\
+&=
+\frac{2}{I(1)}
+\int_0^\infty
+\frac{\sin(ax)\sin(bx)}{x^{3/2}}\,dx.
+\end{aligned}
+\tag{2}
+\]
+
+Sum (2) over all ordered pairs
+\[
+(a,b)=(x_i,x_j).
+\]
+We obtain
+\[
+\begin{aligned}
+&\sum_{i,j}\sqrt{|x_i+x_j|}
+-
+\sum_{i,j}\sqrt{|x_i-x_j|}\\
+&\qquad=
+\frac{2}{I(1)}
+\int_0^\infty
+\frac{\left(\sum_{i=1}^{n}\sin(x_ix)\right)^2}{x^{3/2}}\,dx
+\ge0.
+\end{aligned}
+\]
+This proves the inequality.

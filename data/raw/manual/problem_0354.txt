@@ -1,0 +1,284 @@
+ID: 0354
+
+SOURCE: IMO Shortlist
+
+YEAR: 2021
+
+TOPIC: Geometry
+
+SUBTOPICS: Excircles, Brianchon's Theorem, Inversion, Spiral Similarity, Circle Tangency
+
+STATEMENT:
+Let $\omega$ be the circumcircle of triangle $ABC$, and let $\Omega_A$ be its $A$-excircle, which is tangent to segment $BC$. Let $X$ and $Y$ be the intersection points of $\omega$ and $\Omega_A$.
+
+Let $P$ and $Q$ be the projections of $A$ onto the tangent lines to $\Omega_A$ at $X$ and $Y$, respectively. The tangent at $P$ to the circumcircle of triangle $APX$ meets the tangent at $Q$ to the circumcircle of triangle $AQY$ at $R$.
+
+Prove that
+\[
+AR\perp BC.
+\]
+
+SOLUTION 1:
+Let $D$ be the point where $\Omega_A$ touches $BC$, and let $D_1$ be the point diametrically opposite $D$ on $\Omega_A$.
+
+Let $R_1$ be the intersection of the line through $A$ perpendicular to $BC$ and the line through $D_1$ parallel to $BC$. We prove that
+\[
+R_1=R.
+\]
+
+Let the tangent line $PX$ meet $AB$ at $S$ and $D_1R_1$ at $T$. Let $U$ be the point at infinity in the common direction of
+\[
+BC\parallel D_1R_1.
+\]
+
+The degenerate hexagon
+\[
+A,S,X,T,U,C
+\]
+is circumscribed about $\Omega_A$: its sides lie successively on the tangent lines $AB$, the tangent at $X$ twice, the tangent at $D_1$, the tangent $BC$, and the tangent $CA$.
+
+By Brianchon's theorem, the three main diagonals
+\[
+AT,\qquad SU,\qquad XC
+\]
+are concurrent. Let their common point be $V$. Since $U$ is the point at infinity in the direction of $BC$,
+\[
+SV\parallel BC.
+\tag{1}
+\]
+
+The points $A,B,C,X$ lie on $\omega$. Hence
+\[
+\measuredangle(SV,VX)
+=
+\measuredangle(BC,CX)
+=
+\measuredangle(BA,AX).
+\]
+Thus
+\[
+A,X,S,V
+\]
+are concyclic. Consequently,
+\[
+\measuredangle(PX,XA)
+=
+\measuredangle(SV,VA)
+=
+\measuredangle(R_1T,TA).
+\tag{2}
+\]
+
+We have
+\[
+\angle APT=90^\circ
+\qquad\text{and}\qquad
+\angle AR_1T=90^\circ,
+\]
+so
+\[
+A,P,R_1,T
+\]
+are concyclic. Using (2),
+\[
+\begin{aligned}
+\measuredangle(XA,AP)
+&=
+90^\circ-\measuredangle(PX,XA)\\
+&=
+90^\circ-\measuredangle(R_1T,TA)\\
+&=
+\measuredangle(TA,AR_1)\\
+&=
+\measuredangle(TP,PR_1).
+\end{aligned}
+\]
+By the tangent--chord theorem,
+\[
+PR_1
+\]
+is tangent at $P$ to the circle $(APX)$.
+
+The same argument with $Y,Q$ in place of $X,P$ shows that
+\[
+QR_1
+\]
+is tangent at $Q$ to the circle $(AQY)$. Thus the two tangents meet at $R_1$, so
+\[
+R=R_1.
+\]
+By the definition of $R_1$,
+\[
+AR\perp BC.
+\]
+
+SOLUTION 2:
+Let $J$ and $r$ be the centre and radius of the $A$-excircle $\Omega_A$. Let $O$ be the centre of $\omega$, and let
+\[
+d=2R_\omega
+\]
+be the diameter of $\omega$.
+
+Euler's formula for the distance between the circumcentre and the $A$-excentre gives
+\[
+OJ^2=\left(\frac d2\right)^2+dr.
+\]
+Hence the power of $J$ with respect to $\omega$ is
+\[
+dr.
+\tag{1}
+\]
+
+Let the line $JX$ meet $\omega$ again at $L$. Since
+\[
+JX=r,
+\]
+equation (1) gives
+\[
+JL=d.
+\tag{2}
+\]
+Let $LK$ be a diameter of $\omega$, and let $M$ be the midpoint of $JK$. From (2),
+\[
+JL=LK.
+\]
+Thus the median $LM$ in triangle $JLK$ is perpendicular to $JK$, so
+\[
+\angle LMK=90^\circ.
+\]
+Since $LK$ is a diameter of $\omega$,
+\[
+M\in\omega.
+\tag{3}
+\]
+
+Let $R'$ be the intersection of the tangent at $P$ to $(APX)$ with the line through $A$ perpendicular to $BC$. The line $AR'$ is the reflection of $AO$ in the angle-bisector line $AJ$.
+
+We need the following lemma.
+
+\textbf{Lemma.}
+Let $M$ be the midpoint of $JK$ in a triangle $AJK$. Suppose
+\[
+X\in(AMK)
+\qquad\text{and}\qquad
+\angle JXK=90^\circ.
+\]
+Then there is a point $T\in KX$ such that
+\[
+\triangle AKJ\sim\triangle AJT
+\]
+with the same orientation.
+
+\textit{Proof.}
+Since $M$ is the midpoint of the hypotenuse $JK$ of the right triangle $JXK$,
+\[
+MX=MJ=MK.
+\]
+Construct the parallelogram $AJNK$. Choose $T\in KX$ so that
+\[
+\measuredangle(NJ,JA)=\measuredangle(KJ,JT).
+\]
+Because $A,M,N$ are collinear and $A,K,M,X$ are concyclic,
+\[
+\begin{aligned}
+\measuredangle(JN,NA)
+&=\measuredangle(KA,AM)\\
+&=\measuredangle(KX,XM)\\
+&=\measuredangle(MK,KX)\\
+&=\measuredangle(JK,KT).
+\end{aligned}
+\]
+Hence a spiral similarity centred at $J$ maps triangle $AJN$ to triangle $TJK$. Since $AJNK$ is a parallelogram, this gives
+\[
+\triangle AKJ\sim\triangle AJT
+\]
+with the same orientation. $\square$
+
+In our configuration, (3) gives
+\[
+A,M,K,X\in\omega.
+\]
+Also, $J,X,L$ are collinear and $LK$ is a diameter, so
+\[
+\angle JXK=\angle LXK=90^\circ.
+\]
+Apply the lemma and obtain $T\in KX$.
+
+Let $\varphi$ be the composition of the inversion centred at $A$ with radius $AJ$ and reflection in the line $AJ$. For any points $E,F$, the triangles
+\[
+AEF
+\qquad\text{and}\qquad
+A\varphi(F)\varphi(E)
+\]
+are directly similar. The similarity supplied by the lemma therefore gives
+\[
+\varphi(K)=T,
+\qquad
+\varphi(T)=K.
+\tag{4}
+\]
+
+Put
+\[
+P^*=\varphi(P),
+\qquad
+R^*=\varphi(R').
+\]
+The line
+\[
+TK=KX=PX
+\]
+is mapped by $\varphi$ to the circle with diameter $AP^*$, because $AP\perp PX$.
+
+Let $AA'$ be a diameter of $\omega$. Since $K$ lies on the circle with diameter $AP^*$,
+\[
+P^*K\perp AK.
+\]
+Also,
+\[
+A'K\perp AK.
+\]
+Therefore
+\[
+P^*,K,A'
+\]
+are collinear.
+
+The direct similarity
+\[
+\triangle AR'P\sim\triangle AP^*R^*
+\]
+and the tangent--chord theorem at $P$ give
+\[
+\begin{aligned}
+\measuredangle(AA',A'P^*)
+&=\measuredangle(AA',A'K)\\
+&=\measuredangle(AX,XP)\\
+&=\measuredangle(AP,PR')\\
+&=\measuredangle(AR^*,R^*P^*).
+\end{aligned}
+\]
+Thus
+\[
+A,A',R^*,P^*
+\]
+are concyclic.
+
+The point $R'$ lies on the altitude from $A$, which is the reflection of $AO$ in $AJ$. Hence $R^*$ lies on $AO$. The line $AO$ meets the circle $(AA'R^*P^*)$ at $A$ and $A'$, so
+\[
+R^*=A'.
+\]
+Therefore
+\[
+R'=\varphi(A').
+\tag{5}
+\]
+
+Repeating the same argument with $Y,Q$ in place of $X,P$ shows that the tangent at $Q$ to $(AQY)$ also passes through the same point $\varphi(A')$. By (5), this point is $R'$. Hence
+\[
+R=R'.
+\]
+Since $AR'$ is the altitude from $A$,
+\[
+AR\perp BC.
+\]

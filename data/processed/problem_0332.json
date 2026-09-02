@@ -1,0 +1,17 @@
+{
+  "id": "0332",
+  "source": "IMO Shortlist",
+  "year": "2021",
+  "topic": "Algebra",
+  "subtopics": [
+    "Floor Sums",
+    "Greatest Common Divisors",
+    "Modular Arithmetic",
+    "Primality Characterization"
+  ],
+  "statement": "For an integer $n\\ge1$, consider the $n\\times n$ table whose entry in row $i$ and column $j$ is\n\\[\n\\left\\lfloor\\frac{ij}{n+1}\\right\\rfloor\n\\qquad(1\\le i,j\\le n).\n\\]\nDetermine all $n$ for which the sum of the $n^2$ entries is\n\\[\n\\frac14n^2(n-1).\n\\]",
+  "solutions": [
+    "The answer is\n\\[\n\\boxed{n+1\\text{ is prime}.}\n\\]\n\nLet\n\\[\nS=\\sum_{i=1}^{n}\\sum_{j=1}^{n}\n\\left\\lfloor\\frac{ij}{n+1}\\right\\rfloor.\n\\]\nIf two real numbers $x,y$ have integral sum, then\n\\[\n\\lfloor x\\rfloor+\\lfloor y\\rfloor\\ge x+y-1,\n\\tag{1}\n\\]\nwith equality unless both $x$ and $y$ are integers.\n\nReplacing $i$ by $n+1-i$ in one copy of the sum gives\n\\[\n\\begin{aligned}\n2S\n&=\n\\sum_{i=1}^{n}\\sum_{j=1}^{n}\n\\left(\n\\left\\lfloor\\frac{ij}{n+1}\\right\\rfloor+\n\\left\\lfloor\\frac{(n+1-i)j}{n+1}\\right\\rfloor\n\\right)\\\\\n&\\ge\n\\sum_{i=1}^{n}\\sum_{j=1}^{n}(j-1)\\\\\n&=\n\\frac12n^2(n-1).\n\\end{aligned}\n\\tag{2}\n\\]\nThus\n\\[\nS\\ge\\frac14n^2(n-1).\n\\tag{3}\n\\]\n\nEquality in (3) holds exactly when none of the numbers\n\\[\n\\frac{ij}{n+1},\n\\qquad 1\\le i,j\\le n,\n\\]\nis an integer.\n\nIf $n+1$ is composite, write\n\\[\nn+1=ab\n\\]\nwith\n\\[\n2\\le a,b\\le n.\n\\]\nThen $ij/(n+1)$ is integral for $i=a,j=b$, so the inequality in (2) is strict.\n\nConversely, if $n+1$ is prime, it cannot divide any product $ij$ with\n\\[\n1\\le i,j\\le n.\n\\]\nHence equality holds in every application of (1), and\n\\[\nS=\\frac14n^2(n-1).\n\\]\n\nTherefore the required integers are precisely those for which $n+1$ is prime.",
+    "Again let $S_i$ be the sum of row $i$, and add a phantom column $j=0$, whose entry is $0$.\n\nFix $i\\in\\{1,\\ldots,n\\}$, and put\n\\[\nd=\\gcd(i,n+1),\n\\qquad\nq=\\frac{n+1}{d}.\n\\]\nFor $j=0,1,\\ldots,n$, let $r_j$ be the least nonnegative residue of $ij$ modulo $n+1$.\n\nFor each\n\\[\ng=1,2,\\ldots,d,\n\\]\nthe $q$ residues corresponding to\n\\[\n(g-1)q\\le j\\le gq-1\n\\]\nare a permutation of\n\\[\n0,d,2d,\\ldots,(q-1)d.\n\\tag{1}\n\\]\nIndeed, all of them are multiples of $d$. If two were equal, then\n\\[\nn+1\\mid i(j_1-j_2),\n\\]\nso\n\\[\nq\\mid j_1-j_2.\n\\]\nWithin one block of $q$ consecutive indices this forces $j_1=j_2$, proving (1).\n\nIt follows that\n\\[\n\\begin{aligned}\n\\sum_{j=0}^{n}r_j\n&=\nd\\sum_{\\ell=0}^{q-1}\\ell d\\\\\n&=\n\\frac{(n+1-d)(n+1)}2.\n\\end{aligned}\n\\tag{2}\n\\]\nTherefore\n\\[\n\\begin{aligned}\nS_i\n&=\n\\sum_{j=0}^{n}\\left\\lfloor\\frac{ij}{n+1}\\right\\rfloor\\\\\n&=\n\\sum_{j=0}^{n}\\frac{ij-r_j}{n+1}\\\\\n&=\n\\frac{in-n-1+d}{2}.\n\\end{aligned}\n\\tag{3}\n\\]\nSince $d\\ge1$,\n\\[\nS_i\\ge\\frac{n(i-1)}2,\n\\tag{4}\n\\]\nand equality holds exactly when\n\\[\n\\gcd(i,n+1)=1.\n\\]\n\nSumming (4) over all rows gives\n\\[\nS\\ge\n\\sum_{i=1}^{n}\\frac{n(i-1)}2\n=\n\\frac14n^2(n-1).\n\\]\nEquality holds exactly when every integer\n\\[\n1\\le i\\le n\n\\]\nis coprime to $n+1$, which is equivalent to $n+1$ being prime."
+  ]
+}

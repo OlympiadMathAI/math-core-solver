@@ -1,0 +1,204 @@
+ID: 0359
+
+SOURCE: IMO Shortlist
+
+YEAR: 2021
+
+TOPIC: Number Theory
+
+SUBTOPICS: Factorials, Prime Valuations, LTE, AM-GM Inequality, Parity
+
+STATEMENT:
+Prove that there are only finitely many quadruples
+\[
+(a,b,c,n)
+\]
+of positive integers satisfying
+\[
+n!=a^{n-1}+b^{n-1}+c^{n-1}.
+\]
+
+SOLUTION 1:
+For each fixed $n$, there are only finitely many possibilities for $a,b,c$. It is therefore enough to prove that no solution exists for all sufficiently large $n$. We show that there is no solution when
+\[
+n>100.
+\]
+
+Assume, for contradiction, that $n>100$ and
+\[
+n!=a^{n-1}+b^{n-1}+c^{n-1}.
+\tag{1}
+\]
+
+First we obtain an upper bound for $a,b,c$. By AM-GM,
+\[
+\begin{aligned}
+n!
+&=
+2n(n-1)(n-2)(n-3)\cdot(3\cdot4\cdots(n-4))\\
+&\le
+2(n-1)^4
+\left(\frac{3+4+\cdots+(n-4)}{n-6}\right)^{n-6}\\
+&=
+2(n-1)^4
+\left(\frac{n-1}{2}\right)^{n-6}\\
+&<
+\left(\frac{n-1}{2}\right)^{n-1}.
+\end{aligned}
+\tag{2}
+\]
+The final inequality follows from $n-1>64$. Equation (1) and (2) give
+\[
+a,b,c<\frac{n-1}{2}.
+\tag{3}
+\]
+
+For a prime $p$, write $v_p(x)$ for the exponent of $p$ in a nonzero integer $x$. Legendre's formula implies
+\[
+v_p(n!)
+=
+\sum_{j\ge1}
+\left\lfloor\frac{n}{p^j}\right\rfloor
+<
+\sum_{j\ge1}\frac{n}{p^j}
+=
+\frac{n}{p-1}.
+\tag{4}
+\]
+
+Suppose first that $n$ is odd. Then $n-1$ is even, so the three terms on the right side of (1) are squares. Since $4\mid n!$, reducing (1) modulo $4$ shows that $a,b,c$ are all even. Hence
+\[
+2^{n-1}\mid n!.
+\]
+But $n$ is odd, and therefore
+\[
+v_2(n!)=v_2((n-1)!)<n-1
+\]
+by (4), a contradiction.
+
+Thus $n$ is even.
+
+Assume first that all three numbers
+\[
+a+b,\qquad b+c,\qquad c+a
+\]
+are powers of $2$. Since each is at least $2$, they are even, and hence $a,b,c$ have the same parity.
+
+The integers $a,b,c$ cannot all be odd, because the right side of (1) would then be odd. If
+\[
+4\mid a,\qquad4\mid b,\qquad4\mid c,
+\]
+then
+\[
+2^{2(n-1)}\mid n!,
+\]
+contradicting (4). Thus one of them, say $a$, is even but not divisible by $4$.
+
+Now
+\[
+2a=(a+b)+(a+c)-(b+c)
+\]
+is not divisible by $8$. Since all three pairwise sums are powers of $2$ and are at least $4$, one of them must equal $4$. The two numbers in that sum are positive even integers, so they are both $2$. Relabelling if necessary, let
+\[
+a=b=2.
+\]
+Then
+\[
+a+c=b+c=2^r
+\]
+for some $r$, and hence
+\[
+c=2^r-2.
+\]
+By (3), $c<n$, so $c\mid n!$. Reducing (1) modulo $c$ gives
+\[
+c\mid2^{n}.
+\]
+Thus $2^r-2$ is a power of $2$, which forces
+\[
+r=2,\qquad c=2.
+\]
+Equation (1) would then become
+\[
+n!=3\cdot2^{n-1},
+\]
+which is impossible modulo $5$ because $n>100$.
+
+We may therefore assume that at least one pairwise sum, say
+\[
+a+b,
+\]
+is not a power of $2$. It has an odd prime divisor $p$. By (3),
+\[
+p\le a+b<n-1<n.
+\tag{5}
+\]
+Since $n!$ and $a^{n-1}+b^{n-1}$ are divisible by $p$, equation (1) gives
+\[
+p\mid c.
+\tag{6}
+\]
+
+If $p$ divided both $a$ and $b$, then (6) and (1) would give
+\[
+p^{n-1}\mid n!,
+\]
+contradicting (4). Hence
+\[
+p\nmid ab.
+\]
+Because $n-1$ is odd, the lifting-the-exponent lemma gives
+\[
+v_p(a^{n-1}+b^{n-1})
+=
+v_p(a+b)+v_p(n-1).
+\tag{7}
+\]
+
+By (6),
+\[
+v_p(c^{n-1})\ge n-1.
+\]
+On the other hand, since $p$ is odd, (4) gives
+\[
+v_p(n!)<\frac n2<n-1.
+\]
+Therefore
+\[
+v_p(n!-c^{n-1})=v_p(n!).
+\]
+Using (1) and (7),
+\[
+v_p(n!)
+=
+v_p(a+b)+v_p(n-1).
+\tag{8}
+\]
+
+The left side of (8) is
+\[
+v_p(1)+v_p(2)+\cdots+v_p(n).
+\]
+The two terms on the right are the contributions of the distinct integers
+\[
+a+b
+\qquad\text{and}\qquad
+n-1,
+\]
+where $a+b<n-1$ by (3). Since every valuation is nonnegative, equality (8) implies that no other integer in
+\[
+\{1,2,\ldots,n\}
+\]
+is divisible by $p$.
+
+But (3) and (6) give
+\[
+p\le c<\frac n2.
+\]
+Thus both $p$ and $2p$ lie in $\{1,\ldots,n\}$. They must therefore be exactly the two multiples listed above:
+\[
+a+b=p,\qquad n-1=2p.
+\]
+This is impossible because $n-1$ is odd while $2p$ is even.
+
+We have reached a contradiction in every case. Hence no solution exists for $n>100$. Since only finitely many triples $(a,b,c)$ are possible for each of the finitely many remaining values of $n$, there are only finitely many quadruples in total.

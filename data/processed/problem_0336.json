@@ -1,0 +1,16 @@
+{
+  "id": "0336",
+  "source": "IMO Shortlist",
+  "year": "2021",
+  "topic": "Algebra",
+  "subtopics": [
+    "Pigeonhole Principle",
+    "Base Expansions",
+    "Subset Sums",
+    "Counting"
+  ],
+  "statement": "Let $A$ be a finite set of integers, and let $m\\ge2$ be an integer. Suppose there are nonempty subsets\n\\[\nB_1,B_2,\\ldots,B_m\n\\]\nof $A$ whose element sums are respectively\n\\[\nm^1,m^2,\\ldots,m^m.\n\\]\nProve that\n\\[\n|A|\\ge\\frac m2.\n\\]",
+  "solutions": [
+    "Write\n\\[\nA=\\{a_1,a_2,\\ldots,a_k\\}\n\\]\nand suppose, for contradiction, that\n\\[\nk<\\frac m2.\n\\tag{1}\n\\]\nLet\n\\[\ns_i=\\sum_{a_j\\in B_i}a_j=m^i\n\\qquad(1\\le i\\le m).\n\\]\n\nConsider all expressions\n\\[\nF(c_1,\\ldots,c_m)\n=\nc_1s_1+c_2s_2+\\cdots+c_ms_m,\n\\]\nwhere\n\\[\nc_i\\in\\{0,1,\\ldots,m-1\\}.\n\\]\nThere are exactly\n\\[\nm^m\n\\]\nchoices of the vector $(c_1,\\ldots,c_m)$.\n\nOn the other hand, after expanding each $s_i$ as a sum of elements of $A$, every value of $F$ has the form\n\\[\n\\alpha_1a_1+\\cdots+\\alpha_ka_k,\n\\]\nwhere\n\\[\n0\\le\\alpha_j\\le m(m-1).\n\\]\nThus the number of possible values of $F$ is at most\n\\[\n\\bigl(m(m-1)+1\\bigr)^k\n<\n(m^2)^k\n=\nm^{2k}\n<\nm^m\n\\]\nby (1).\n\nThe pigeonhole principle therefore gives two distinct digit vectors\n\\[\n(c_1,\\ldots,c_m)\\ne(d_1,\\ldots,d_m)\n\\]\nwith the same value of $F$. Since $s_i=m^i$, this says\n\\[\n\\sum_{i=1}^{m}c_im^i\n=\n\\sum_{i=1}^{m}d_im^i.\n\\]\nBut all the digits $c_i,d_i$ lie in\n\\[\n\\{0,1,\\ldots,m-1\\},\n\\]\nso uniqueness of base-$m$ representation forces\n\\[\nc_i=d_i\n\\qquad(1\\le i\\le m),\n\\]\na contradiction.\n\nHence\n\\[\n|A|\\ge\\frac m2.\n\\]"
+  ]
+}

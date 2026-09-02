@@ -1,0 +1,249 @@
+ID: 0347
+
+SOURCE: IMO Shortlist
+
+YEAR: 2021
+
+TOPIC: Geometry
+
+SUBTOPICS: Parallelograms, Cyclic Quadrilaterals, Radical Axes, Pascal's Theorem
+
+STATEMENT:
+Let $ABCD$ be a parallelogram such that
+\[
+AC=BC.
+\]
+A point $P$ is chosen on the extension of segment $AB$ beyond $B$. The circumcircle of triangle $ACD$ meets segment $PD$ again at $Q$, and the circumcircle of triangle $APQ$ meets segment $PC$ again at $R$.
+
+Prove that the lines
+\[
+CD,\qquad AQ,\qquad BR
+\]
+are concurrent.
+
+SOLUTION 1:
+Since $ABCD$ is a parallelogram and $AC=BC$, we have
+\[
+AC=BC=AD
+\]
+and therefore
+\[
+\angle ABC=\angle BAC=\angle ACD=\angle ADC.
+\tag{1}
+\]
+
+The quadrilaterals $APRQ$ and $AQCD$ are cyclic. Using the collinearities
+\[
+P,R,C
+\qquad\text{and}\qquad
+P,Q,D,
+\]
+we obtain
+\[
+\begin{aligned}
+\angle CRA
+&=180^\circ-\angle ARP\\
+&=180^\circ-\angle AQP\\
+&=\angle DQA\\
+&=\angle DCA\\
+&=\angle CBA.
+\end{aligned}
+\]
+Hence
+\[
+A,B,C,R
+\]
+are concyclic; denote their circle by $\gamma$.
+
+Let
+\[
+X=AQ\cap CD.
+\]
+We shall prove that $B,R,X$ are collinear.
+
+From the cyclic quadrilateral $APRQ$ and the parallelism $AB\parallel CD$,
+\[
+\angle RQX
+=
+180^\circ-\angle AQR
+=
+\angle RPA
+=
+\angle RCX.
+\]
+Thus
+\[
+C,Q,R,X
+\]
+are concyclic. Consequently,
+\[
+\begin{aligned}
+\angle XRC
+&=\angle XQC\\
+&=180^\circ-\angle CQA\\
+&=\angle ADC\\
+&=\angle BAC\\
+&=180^\circ-\angle CRB,
+\end{aligned}
+\]
+where the last equality follows from the cyclic quadrilateral $ABCR$.
+
+Therefore the rays $RX$ and $RB$ are opposite, so
+\[
+B,R,X
+\]
+are collinear. Since $X\in AQ\cap CD$, the three required lines are concurrent at $X$.
+
+SOLUTION 2:
+Since $AC=BC=AD$,
+\[
+\angle ABC=\angle BAC=\angle ACD=\angle ADC.
+\]
+The cyclic quadrilaterals $APRQ$ and $AQCD$, together with the collinearities $P,R,C$ and $P,Q,D$, give
+\[
+\angle CRA
+=
+180^\circ-\angle ARP
+=
+180^\circ-\angle AQP
+=
+\angle DQA
+=
+\angle DCA
+=
+\angle CBA.
+\]
+Hence the points
+\[
+A,B,C,R
+\]
+lie on a circle $\gamma$.
+
+Let
+\[
+\alpha=(APQR).
+\]
+We first show that $AC$ is tangent to $\alpha$ at $A$. Indeed,
+\[
+\angle CAP
+=
+\angle ACD
+=
+\angle AQD
+=
+180^\circ-\angle AQP.
+\]
+This is precisely the tangent--chord criterion.
+
+Let $Y\ne A$ be the second intersection of $AD$ with $\alpha$. Using the circle $\gamma$ and the tangency of $AC$ to $\alpha$,
+\[
+\angle ARY
+=
+\angle CAD
+=
+\angle ACB
+=
+\angle ARB.
+\]
+Hence
+\[
+Y,B,R
+\]
+are collinear.
+
+Apply Pascal's theorem to the degenerate hexagon
+\[
+A,A,Y,R,P,Q
+\]
+inscribed in $\alpha$, where the side $AA$ is interpreted as the tangent to $\alpha$ at $A$. The three intersections of opposite sides are
+
+\[
+AA\cap RP=AC\cap PC=C,
+\]
+\[
+AY\cap PQ=AD\cap PD=D,
+\]
+and
+\[
+YR\cap QA=BR\cap AQ.
+\]
+
+Pascal's theorem says that these three points are collinear. Therefore
+\[
+BR\cap AQ\in CD,
+\]
+which proves the required concurrency.
+
+SOLUTION 3:
+As $AC=BC=AD$,
+\[
+\angle ABC=\angle BAC=\angle ACD=\angle ADC.
+\]
+Using the cyclic quadrilaterals $APRQ$ and $AQCD$ as in the angle chain
+\[
+\angle CRA
+=
+180^\circ-\angle ARP
+=
+180^\circ-\angle AQP
+=
+\angle DQA
+=
+\angle DCA
+=
+\angle CBA,
+\]
+we obtain a circle $\gamma$ through
+\[
+A,B,C,R.
+\]
+Let
+\[
+\alpha=(APQR),
+\qquad
+X=AQ\cap CD.
+\]
+
+Let $Y\ne R$ be the second intersection of $BR$ with $\alpha$. By (1),
+\[
+\angle DCA=\angle CBA,
+\]
+so the tangent--chord theorem shows that $CD$ is tangent to $\gamma$ at $C$. Therefore, using the circle $\alpha$, the parallelism $AB\parallel CD$, and this tangency,
+\[
+\angle RYA
+=
+\angle RPA
+=
+\angle RCX
+=
+\angle RBC.
+\tag{2}
+\]
+It follows that
+\[
+AY\parallel BC.
+\]
+Since $AD\parallel BC$ and both lines pass through $A$, we get
+\[
+Y\in AD.
+\]
+
+Equation (2) also gives
+\[
+\angle RYD=\angle RCX,
+\]
+so
+\[
+C,D,Y,R
+\]
+are concyclic; denote this circle by $\beta$.
+
+Now consider the three circles
+\[
+(AQCD),\qquad \alpha,\qquad \beta.
+\]
+Their pairwise radical axes are respectively
+\[
+AQ,\qquad CD,\qquad YR=BR.
+\]
+By the radical-axis theorem, these three lines are concurrent.

@@ -1,0 +1,305 @@
+ID: 0351
+
+SOURCE: IMO Shortlist
+
+YEAR: 2021
+
+TOPIC: Geometry
+
+SUBTOPICS: Angle Bisectors, Homothety, Pascal's Theorem, Radical Axes, Circle Centres
+
+STATEMENT:
+Let $ABCD$ be a cyclic quadrilateral whose four sides have pairwise different lengths, and let $O$ be its circumcentre.
+
+The internal angle bisectors of $\angle ABC$ and $\angle ADC$ meet $AC$ at $B_1$ and $D_1$, respectively. Let $O_B$ be the centre of the circle that passes through $B$ and is tangent to $AC$ at $D_1$. Similarly, let $O_D$ be the centre of the circle that passes through $D$ and is tangent to $AC$ at $B_1$.
+
+Assume that
+\[
+BD_1\parallel DB_1.
+\]
+Prove that
+\[
+O\in O_BO_D.
+\]
+
+SOLUTION 1:
+Let
+\[
+\Omega=(ABCD),
+\]
+and let $\gamma_B,\gamma_D$ be the circles with centres $O_B,O_D$, respectively.
+
+Assume without loss of generality that
+\[
+AB>BC.
+\]
+The hypothesis then forces
+\[
+AD<DC.
+\tag{1}
+\]
+Indeed, if also $AD>DC$, the two internal angle-bisector rays $BB_1$ and $DD_1$ lie on the same side of $BD$, whereas the parallelism
+\[
+BD_1\parallel DB_1
+\]
+forces $B_1$ and $D_1$ to be separated by
+\[
+H=AC\cap BD.
+\]
+This is impossible.
+
+Let $\gamma_B$ meet $\Omega$ again at $T_B$, and let $\gamma_D$ meet $\Omega$ again at $T_D$. Their common chords give
+\[
+BT_B\perp OO_B,
+\qquad
+DT_D\perp OO_D.
+\]
+Consequently, it is enough to prove
+\[
+BT_B\parallel DT_D.
+\tag{2}
+\]
+
+Let
+\[
+H=AC\cap BD,
+\]
+and let $h$ be the homothety centred at $H$ that sends $B$ to $D$. Since
+\[
+BD_1\parallel DB_1,
+\]
+the triangles $HBD_1$ and $HDB_1$ are homothetic, and therefore
+\[
+h(D_1)=B_1.
+\tag{3}
+\]
+
+Let the tangents to $\Omega$ at $B$ and $D$ meet $AC$ at $L_B$ and $L_D$, respectively.
+
+We first show that
+\[
+L_BB=L_BB_1.
+\tag{4}
+\]
+Indeed,
+\[
+\begin{aligned}
+\angle L_BBB_1
+&=\angle L_BBC+\angle CBB_1\\
+&=\angle BAL_B+\angle B_1BA\\
+&=\angle BB_1L_B.
+\end{aligned}
+\]
+Thus triangle $L_BBB_1$ is isosceles.
+
+The power of $L_B$ with respect to $\Omega$ is
+\[
+L_BB^2,
+\]
+while its power with respect to $\gamma_D$, which is tangent to $AC$ at $B_1$, is
+\[
+L_BB_1^2.
+\]
+By (4), the powers are equal. Hence $L_B$ lies on the radical axis of $\Omega$ and $\gamma_D$, so
+\[
+D,T_D,L_B
+\]
+are collinear. Similarly,
+\[
+B,T_B,L_D
+\]
+are collinear.
+
+We now prove that
+\[
+h(L_D)=L_B.
+\tag{5}
+\]
+Apply the sine rule in triangles $BHL_B$ and $DHL_D$. Using (4) and its analogous relation
+\[
+L_DD=L_DD_1,
+\]
+we obtain
+\[
+\frac{HL_B}{\sin\angle HBL_B}
+=
+\frac{B_1L_B}{\sin\angle BHL_B}
+\]
+and
+\[
+\frac{HL_D}{\sin\angle HDL_D}
+=
+\frac{D_1L_D}{\sin\angle DHL_D}.
+\]
+The angles at $H$ have equal sines. Moreover, the tangents at $B$ and $D$ form equal angles with the chord $BD$, so
+\[
+\sin\angle HBL_B=\sin\angle HDL_D.
+\]
+Therefore, using directed lengths on $AC$,
+\[
+\frac{HL_B}{HL_D}
+=
+\frac{B_1L_B}{D_1L_D}
+=
+\frac{HL_B-B_1L_B}{HL_D-D_1L_D}
+=
+\frac{HB_1}{HD_1}.
+\tag{6}
+\]
+By (3), the last ratio is the ratio of the homothety $h$. Hence (6) proves (5).
+
+The homothety $h$ maps the line $BL_D$ to the line $DL_B$, so these lines are parallel. Since
+\[
+B,L_D,T_B
+\qquad\text{and}\qquad
+D,L_B,T_D
+\]
+are collinear, we obtain (2). It follows that
+\[
+OO_B\parallel OO_D.
+\]
+Both lines pass through $O$, so they coincide, and therefore
+\[
+O\in O_BO_D.
+\]
+
+SOLUTION 2:
+Let
+\[
+\Omega=(ABCD),
+\]
+and let $\gamma_B,\gamma_D$ be the circles with centres $O_B,O_D$, respectively. Let $\gamma_B$ meet $\Omega$ again at $T_B$, and let $\gamma_D$ meet $\Omega$ again at $T_D$.
+
+The common chords satisfy
+\[
+BT_B\perp OO_B,
+\qquad
+DT_D\perp OO_D.
+\]
+Thus it is enough to prove
+\[
+BT_B\parallel DT_D.
+\tag{1}
+\]
+
+Let the line $BD_1$ meet $\Omega$ again at $X_B$, and let the line $T_BD_1$ meet $\Omega$ again at $Y_B$. The tangent--chord theorem for $\gamma_B$, followed by the cyclicity of $\Omega$, gives
+\[
+\angle BD_1C
+=
+\angle BT_BD_1
+=
+\angle BT_BY_B
+=
+\angle BX_BY_B.
+\]
+Since $B,D_1,X_B$ are collinear, this shows that
+\[
+X_BY_B\parallel AC.
+\tag{2}
+\]
+
+Similarly, let $DB_1$ and $T_DB_1$ meet $\Omega$ again at $X_D$ and $Y_D$, respectively. Then
+\[
+X_DY_D\parallel AC.
+\tag{3}
+\]
+
+Let $M_D$ and $M_B$ be the midpoints of the arcs $ABC$ and $ADC$ of $\Omega$, respectively. Then
+\[
+D,D_1,M_D
+\qquad\text{and}\qquad
+B,B_1,M_B
+\]
+are collinear. Let $K$ be the midpoint of $AC$; then
+\[
+K\in M_BM_D.
+\]
+
+Apply Pascal's theorem to the hexagon
+\[
+M_D,D,X_D,X_B,B,M_B
+\]
+inscribed in $\Omega$. The intersections of two pairs of opposite sides are
+\[
+M_DD\cap X_BB=D_1
+\]
+and
+\[
+DX_D\cap BM_B=B_1.
+\]
+The third intersection is therefore on the line $D_1B_1=AC$. Since it also lies on $M_BM_D$, it is $K$. Hence
+\[
+K\in X_BX_D.
+\tag{4}
+\]
+
+By (2)--(3), the quadrilateral
+\[
+X_BY_BX_DY_D
+\]
+is an isosceles trapezoid inscribed in $\Omega$. Its symmetry axis is $M_BM_D$. Its diagonals meet on that axis, and (4) shows that their intersection is $K$. Therefore
+\[
+K\in Y_BY_D
+\]
+as well.
+
+Let $b$ and $d$ be the distances from the lines $X_BY_B$ and $X_DY_D$, respectively, to $AC$. The similar triangles with vertex $K$ give
+\[
+\frac{X_BY_B}{X_DY_D}=\frac bd.
+\tag{5}
+\]
+The assumption
+\[
+BD_1\parallel DB_1
+\]
+means
+\[
+D_1X_B\parallel B_1X_D.
+\]
+Measuring these two transversals between the parallel lines in (2)--(3) and $AC$, we also have
+\[
+\frac{D_1X_B}{B_1X_D}=\frac bd.
+\tag{6}
+\]
+Equations (5)--(6) imply
+\[
+\triangle D_1X_BY_B
+\sim
+\triangle B_1X_DY_D.
+\tag{7}
+\]
+
+Because $B,T_B,X_B,Y_B$ lie on $\Omega$ and the two secants through $D_1$ are
+\[
+D_1BX_B
+\qquad\text{and}\qquad
+D_1T_BY_B,
+\]
+the secant theorem gives
+\[
+\triangle D_1T_BB
+\sim
+\triangle D_1X_BY_B.
+\tag{8}
+\]
+Similarly,
+\[
+\triangle B_1T_DD
+\sim
+\triangle B_1X_DY_D.
+\tag{9}
+\]
+Combining (7)--(9),
+\[
+\triangle D_1T_BB
+\sim
+\triangle B_1T_DD.
+\]
+The corresponding sides $D_1B$ and $B_1D$ are parallel by hypothesis. Hence this similarity has no rotational component and is a homothety. The other corresponding sides are therefore parallel:
+\[
+BT_B\parallel DT_D.
+\]
+By the reduction at the beginning, this proves
+\[
+O\in O_BO_D.
+\]

@@ -1,0 +1,94 @@
+ID: 0348
+
+SOURCE: IMO Shortlist
+
+YEAR: 2021
+
+TOPIC: Geometry
+
+SUBTOPICS: Tangential Quadrilaterals, Arc Midpoints, Reflections, Similar Triangles
+
+STATEMENT:
+Let $ABCD$ be a convex quadrilateral circumscribed about a circle with centre $I$. Let $\omega$ be the circumcircle of triangle $ACI$.
+
+The extensions of $BA$ and $BC$ beyond $A$ and $C$ meet $\omega$ at $X$ and $Z$, respectively. The extensions of $AD$ and $CD$ beyond $D$ meet $\omega$ at $Y$ and $T$, respectively.
+
+Prove that the perimeters of the possibly self-intersecting quadrilaterals
+\[
+ADTX
+\qquad\text{and}\qquad
+CDYZ
+\]
+are equal.
+
+SOLUTION 1:
+Because $CI$ bisects the angle formed by $CB$ and $CD$, it is the external angle bisector of $\angle TCZ$. Since
+\[
+C,I,T,Z
+\]
+lie on $\omega$, the point $I$ is the midpoint of the corresponding arc $TZ$. Hence
+\[
+IT=IZ.
+\tag{1}
+\]
+Similarly,
+\[
+IX=IY.
+\tag{2}
+\]
+
+Let $O$ be the centre of $\omega$. Since both $O$ and $I$ are equidistant from $X$ and $Y$, the line $OI$ is the perpendicular bisector of $XY$. Likewise, it is the perpendicular bisector of $TZ$. Reflection in $OI$ therefore sends
+\[
+X\longleftrightarrow Y
+\qquad\text{and}\qquad
+T\longleftrightarrow Z.
+\]
+Consequently,
+\[
+XT=YZ.
+\tag{3}
+\]
+
+Let the incircle of $ABCD$ touch
+\[
+AB,\ BC,\ CD,\ DA
+\]
+at
+\[
+P,\ Q,\ R,\ S,
+\]
+respectively.
+
+The triangles $IXP$ and $IYS$ are right triangles. By (2) and
+\[
+IP=IS,
+\]
+they are congruent, so
+\[
+XP=YS.
+\tag{4}
+\]
+Similarly, the right triangles $IRT$ and $IQZ$ are congruent by (1), and hence
+\[
+RT=QZ.
+\tag{5}
+\]
+
+Using equal tangent lengths from the same vertex,
+\[
+AP=AS,\qquad CQ=CR,\qquad DS=DR.
+\tag{6}
+\]
+Therefore
+\[
+\begin{aligned}
+\operatorname{Per}(ADTX)
+&=XT+XA+AD+DT\\
+&=XT+XA+AS+SD+DT\\
+&=XT+XP+RT\\
+&=YZ+YS+QZ\\
+&=YZ+YD+DR+RC+CZ\\
+&=\operatorname{Per}(CDYZ),
+\end{aligned}
+\]
+where we used (3)--(6). This proves the assertion.

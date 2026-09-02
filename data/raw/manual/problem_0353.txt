@@ -1,0 +1,512 @@
+ID: 0353
+
+SOURCE: IMO Shortlist
+
+YEAR: 2021
+
+TOPIC: Geometry
+
+SUBTOPICS: Isogonal Conjugates, Inversion, Radical Axes, Circumcentres, Directed Angles
+
+STATEMENT:
+Let $D$ be a point inside an acute triangle $ABC$ with
+\[
+AB>AC
+\]
+and
+\[
+\angle BAD=\angle DAC.
+\]
+A point $E$ is chosen on segment $AC$ so that
+\[
+\angle ADE=\angle DCB.
+\]
+Similarly, a point $F$ is chosen on segment $AB$ so that
+\[
+\angle ADF=\angle DBC.
+\]
+A point $X$ is chosen on line $AC$ so that
+\[
+CX=BX.
+\]
+
+Let $O_1$ and $O_2$ be the circumcentres of triangles $ADC$ and $DXE$, respectively. Prove that the lines
+\[
+BC,\qquad EF,\qquad O_1O_2
+\]
+are concurrent.
+
+SOLUTION 1:
+We use directed angles modulo $180^\circ$.
+
+Let $Q$ be the isogonal conjugate of $D$ with respect to triangle $ABC$. Since $D$ lies on the internal angle bisector of $\angle BAC$, the point $Q$ also lies on $AD$.
+
+By isogonality and the defining condition for $F$,
+\[
+\angle QBA=\angle DBC=\angle ADF.
+\]
+As $A,B,F$ are collinear and $A,D,Q$ are collinear, this gives
+\[
+Q,D,F,B
+\]
+concyclic. Similarly,
+\[
+Q,D,E,C
+\]
+are concyclic. Taking powers from $A$,
+\[
+AF\cdot AB=AD\cdot AQ=AE\cdot AC,
+\]
+so
+\[
+B,C,E,F
+\]
+are concyclic.
+
+Put
+\[
+T=BC\cap EF.
+\]
+
+We need the following claim:
+\[
+TD^2=TB\cdot TC=TE\cdot TF.
+\tag{1}
+\]
+
+To prove it, observe first that the circles
+\[
+(DEF)
+\qquad\text{and}\qquad
+(DBC)
+\]
+are tangent at $D$. Indeed, an angle chase gives
+\[
+\begin{aligned}
+\angle BDF
+&=\angle AFD-\angle ABD\\
+&=180^\circ-\angle FAD-\angle ADF
+  -(\angle ABC-\angle DBC)\\
+&=180^\circ-\angle FAD-\angle ABC\\
+&=180^\circ-\angle DAE-\angle FEA\\
+&=\angle FED+\angle ADE\\
+&=\angle FED+\angle DCB.
+\end{aligned}
+\]
+This is exactly the equality of the tangent directions at $D$.
+
+Since $B,C,E,F$ are concyclic,
+\[
+TB\cdot TC=TE\cdot TF.
+\]
+Thus $T$ has equal powers with respect to the two tangent circles above. Their radical axis is their common tangent at $D$, so $T$ lies on that tangent and (1) follows.
+
+Let $TA$ meet the circumcircle $(ABC)$ again at $M$. By (1),
+\[
+TM\cdot TA=TB\cdot TC=TE\cdot TF=TD^2.
+\tag{2}
+\]
+The equality
+\[
+TM\cdot TA=TE\cdot TF
+\]
+also shows that
+\[
+A,M,E,F
+\]
+are concyclic.
+
+Perform the inversion $\iota$ centred at $T$ with radius $TD$. Equation (2) shows that
+\[
+\iota(M)=A,\qquad \iota(B)=C,
+\]
+while $D$ is fixed. Hence $\iota$ maps the circle $(MBD)$ to the circle $(ACD)$.
+
+Let $K\ne D$ be the second intersection of these two circles. Since the inversion swaps the two circles and fixes their common point $D$, it also fixes $K$. Therefore
+\[
+TK=TD.
+\tag{3}
+\]
+Thus $T$ and the circumcentre $O_1$ of $(ADCK)$ both lie on the perpendicular bisector of $DK$.
+
+It remains to prove that
+\[
+D,K,E,X
+\]
+are concyclic, because then $O_2$ also lies on that same perpendicular bisector.
+
+The lines
+\[
+BM,\qquad DK,\qquad AC
+\]
+are the pairwise radical axes of the circles
+\[
+(ABCM),\qquad (ACDK),\qquad (BMDK).
+\]
+They are therefore concurrent; call their common point $P$.
+
+We next show that
+\[
+M,E,X,B
+\]
+are concyclic. Since $E,C,X$ are collinear and $CX=BX$,
+\[
+\begin{aligned}
+\measuredangle(EX,XB)
+&=\measuredangle(CX,XB)\\
+&=\measuredangle(XC,CB)+\measuredangle(BC,BX)\\
+&=2\measuredangle(AC,CB).
+\end{aligned}
+\tag{4}
+\]
+Because $B,C,E,F$ are concyclic and $A,B,F$ are collinear,
+\[
+\measuredangle(EF,FA)=\measuredangle(AC,CB).
+\tag{5}
+\]
+Furthermore, from the circles $(ABCM)$ and $(AEFM)$,
+\[
+\measuredangle(AM,BM)=\measuredangle(AC,CB)
+\]
+and
+\[
+\measuredangle(EM,MA)=\measuredangle(EF,FA).
+\]
+Combining these equalities with (4)--(5),
+\[
+\measuredangle(EX,XB)=\measuredangle(EM,BM),
+\]
+which proves the cyclicity of $M,E,X,B$.
+
+Taking powers from $P$,
+\[
+PE\cdot PX
+=
+PM\cdot PB
+=
+PK\cdot PD.
+\]
+Hence
+\[
+D,K,E,X
+\]
+are concyclic.
+
+By (3), the points
+\[
+T,\ O_1,\ O_2
+\]
+all lie on the perpendicular bisector of $DK$. Therefore
+\[
+T\in O_1O_2.
+\]
+Since $T=BC\cap EF$, the three required lines are concurrent.
+
+SOLUTION 2:
+Let $Q$ be the isogonal conjugate of $D$ with respect to triangle $ABC$. Because $D$ lies on the angle bisector of $\angle BAC$, the point $Q$ lies on $AD$. Isogonality and the definitions of $E,F$ give
+\[
+Q,D,F,B
+\qquad\text{and}\qquad
+Q,D,E,C
+\]
+cyclic. Hence
+\[
+AF\cdot AB=AD\cdot AQ=AE\cdot AC,
+\]
+so
+\[
+B,C,E,F
+\]
+are cyclic. Put
+\[
+T=BC\cap EF.
+\]
+
+Let the circle $(CDE)$ meet $BC$ again at $E_1$. Since
+\[
+\angle E_1CQ=\angle DCE,
+\]
+the arcs $DE$ and $QE_1$ of the circle $(CDQE)$ are equal. It follows that
+\[
+DQ\parallel EE_1.
+\tag{1}
+\]
+The cyclicity of $B,C,E,F$ shows that $AD$ forms equal angles with the lines $BC$ and $EF$. By (1), the same is true of $EE_1$. Hence triangle $EE_1T$ is isosceles:
+\[
+TE=TE_1.
+\]
+Thus $T$ lies on the perpendicular bisector of $EE_1$. Since $EE_1$ and $DQ$ are parallel chords of the same circle $(CDQE)$, their perpendicular bisectors coincide. Therefore $T$ also lies on the perpendicular bisector of $DQ$.
+
+Let
+\[
+U=\text{centre of }(ADE),
+\qquad
+V=\text{centre of }(CDQE).
+\]
+The points
+\[
+U,V,O_2
+\]
+all lie on the perpendicular bisector of $DE$. Also,
+\[
+UO_1\perp AD
+\]
+because $AD$ is the common chord of $(ADE)$ and $(ADC)$, while
+\[
+VT\perp DQ.
+\]
+Since $D,Q,A$ are collinear,
+\[
+UO_1\parallel VT.
+\tag{2}
+\]
+
+We prove
+\[
+\frac{O_2U}{O_2V}
+=
+\frac{O_1U}{TV}.
+\tag{3}
+\]
+Together with the collinearity of $U,O_2,V$ and the parallelism (2), this makes the triangles
+\[
+O_2UO_1
+\qquad\text{and}\qquad
+O_2VT
+\]
+similar, and hence gives
+\[
+T,O_1,O_2
+\]
+collinear.
+
+Denote the angles of triangle $ABC$ by
+\[
+\alpha=\angle A,\qquad
+\beta=\angle B,\qquad
+\gamma=\angle C.
+\]
+
+Use directed lengths in the following projection computations. Project the collinear points $O_2,U,V$ orthogonally onto $AC$. Since the projections of circle centres onto chords are the corresponding chord midpoints,
+\[
+\frac{O_2U}{O_2V}
+=
+\frac{(XE-AE)/2}{(XE+EC)/2}
+=
+\frac{AX}{CX}.
+\]
+Because $CX=BX$, the sine rule in triangle $ABX$ gives
+\[
+\frac{AX}{CX}
+=
+\frac{AX}{BX}
+=
+\frac{\sin(\gamma-\beta)}{\sin\alpha}.
+\tag{4}
+\]
+
+The projection of $O_1U$ onto $AC$ has length
+\[
+\frac{EC}{2}.
+\]
+The angle between $O_1U$ and $AC$ is
+\[
+90^\circ-\frac{\alpha}{2},
+\]
+and therefore
+\[
+\frac{O_1U}{EC}
+=
+\frac{1}{2\sin(\alpha/2)}.
+\tag{5}
+\]
+
+We next note that
+\[
+E,V,C,T
+\]
+are concyclic. The line $TV$ is the common perpendicular bisector of the parallel chords $EE_1$ and $DQ$. Since $EE_1$ forms equal angles with $TC=BC$ and $TF=EF$, its perpendicular $TV$ is the internal angle bisector of $\angle CTF$. The point $V$ also lies on the perpendicular bisector of $CE$. Hence $V$ is the midpoint of the corresponding arc $CE$ of the circle $(TCE)$.
+
+The relevant angles are
+\[
+\angle EVC=180^\circ-(\gamma-\beta)
+\]
+and
+\[
+\angle VET=90^\circ-\frac{\alpha}{2}.
+\]
+The sine rule in the cyclic quadrilateral gives
+\[
+\frac{EC}{TV}
+=
+\frac{\sin(\gamma-\beta)}{\cos(\alpha/2)}.
+\tag{6}
+\]
+
+Multiplying (5) and (6),
+\[
+\frac{O_1U}{TV}
+=
+\frac{1}{2\sin(\alpha/2)}
+\cdot
+\frac{\sin(\gamma-\beta)}{\cos(\alpha/2)}
+=
+\frac{\sin(\gamma-\beta)}{\sin\alpha}.
+\]
+Together with (4), this proves (3). Hence
+\[
+T\in O_1O_2,
+\]
+and the desired concurrency follows.
+
+SOLUTION 3:
+Let $Q$ be the isogonal conjugate of $D$ with respect to triangle $ABC$. Then $Q\in AD$, and the angle conditions give
+\[
+Q,D,F,B
+\qquad\text{and}\qquad
+Q,D,E,C
+\]
+cyclic. It follows from powers at $A$ that
+\[
+B,C,E,F
+\]
+are cyclic.
+
+Put
+\[
+T=BC\cap EF.
+\]
+An angle chase shows that the circles $(DEF)$ and $(DBC)$ are tangent at $D$. Since
+\[
+TB\cdot TC=TE\cdot TF,
+\]
+the point $T$ lies on their common tangent at $D$. Therefore
+\[
+TD^2=TB\cdot TC=TE\cdot TF.
+\tag{1}
+\]
+
+If $D$ is replaced by $Q$ in the construction, the points $E,F,T$ remain unchanged, because
+\[
+\angle AQE=\angle QCB
+\qquad\text{and}\qquad
+\angle AQF=\angle QBC.
+\]
+Applying (1) to $Q$ gives
+\[
+TQ^2=TB\cdot TC=TD^2.
+\]
+Thus there is a circle $\Gamma$ centred at $T$ and passing through $D$ and $Q$.
+
+Let $K\ne D$ be the second intersection of $\Gamma$ and the circle $(ADC)$. Let the circle $(DEK)$ meet $AC$ again at $Y$. We prove that
+\[
+Y=X.
+\tag{2}
+\]
+Once this is done, the points $D,K,E,X$ are concyclic. Moreover,
+\[
+TD=TK,
+\]
+so $T$, $O_1$, and $O_2$ all lie on the perpendicular bisector of $DK$.
+
+Let
+\[
+L=AD\cap BC.
+\]
+Invert about a circle centred at $C$, and denote images by primes.
+
+The images $A',D',Q',L'$ lie with $C$ on the circle
+\[
+\Omega=(A'L'C),
+\]
+and the angle conditions give
+\[
+A'L'\parallel D'Q'.
+\tag{3}
+\]
+The point
+\[
+E'=A'C\cap D'Q'
+\]
+is the image of $E$.
+
+The image $\Gamma'$ of $\Gamma$ is a circle through $D'$ and $Q'$ whose centre lies on $CL'$. We claim that its centre is $B'$. Indeed,
+\[
+\angle A'B'C
+=
+\angle BAC
+=
+2\angle LAC
+=
+2\angle A'L'C,
+\]
+so
+\[
+B'A'=B'L'.
+\]
+Thus $B'$ lies on the perpendicular bisector of $A'L'$. Because the two chords in (3) are parallel chords of $\Omega$, this is also the perpendicular bisector of $D'Q'$. Hence $B'$ is the centre of $\Gamma'$.
+
+The point $K'$ is the second intersection of $A'D'$ with $\Gamma'$. Let $Y'$ be the second intersection of $A'E'$ with the circle $(D'K'E')$.
+
+We have
+\[
+\measuredangle(Y'K',K'A')
+=
+\measuredangle(Y'E',E'D')
+=
+\measuredangle(Y'A',A'L').
+\]
+Therefore $A'L'$ is tangent at $A'$ to the circle
+\[
+\omega=(Y'A'K').
+\]
+
+Let $O$ and $O^*$ be the centres of $\Omega$ and $\omega$, respectively. Both vectors
+\[
+\overrightarrow{O^*A'}
+\qquad\text{and}\qquad
+\overrightarrow{B'O}
+\]
+are perpendicular to $A'L'$, hence parallel.
+
+Project these vectors onto the line $K'D'=A'D'$. The projection of $\overrightarrow{O^*A'}$ is
+\[
+\frac12\overrightarrow{K'A'},
+\]
+because the projection of $O^*$ onto the chord $A'K'$ is its midpoint. The projection of $\overrightarrow{B'O}$ is also
+\[
+\frac12\overrightarrow{K'A'},
+\]
+because the projections of $B'$ and $O$ are the midpoints of $D'K'$ and $D'A'$, respectively. Thus
+\[
+\overrightarrow{O^*A'}=\overrightarrow{B'O},
+\]
+or equivalently,
+\[
+\overrightarrow{A'O}=\overrightarrow{O^*B'}.
+\tag{4}
+\]
+
+Project (4) onto $A'C$. The projection of $O$ is the midpoint of $A'C$, and the projection of $O^*$ is the midpoint of $A'Y'$. Hence the projection of $B'$ onto $A'C$ is the midpoint of $CY'$. It follows that
+\[
+B'C=B'Y',
+\]
+so
+\[
+\angle B'Y'C=\angle B'CY'.
+\]
+After inverting back, this becomes
+\[
+\angle CBY=\angle BCY.
+\]
+Therefore
+\[
+BY=CY.
+\]
+Since $Y\in AC$, the defining property of $X$ gives $Y=X$, proving (2).
+
+Hence the perpendicular bisector of $DK$ contains
+\[
+T,\ O_1,\ O_2.
+\]
+Thus $BC$, $EF$, and $O_1O_2$ are concurrent at $T$.

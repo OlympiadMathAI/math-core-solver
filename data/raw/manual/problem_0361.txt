@@ -1,0 +1,153 @@
+ID: 0361
+
+SOURCE: IMO Shortlist
+
+YEAR: 2021
+
+TOPIC: Number Theory
+
+SUBTOPICS: Divisibility Sequences, Boundedness, Arithmetic Progressions, Eventual Periodicity
+
+STATEMENT:
+Let
+\[
+a_1,a_2,a_3,\ldots
+\]
+be an infinite sequence of positive integers such that
+\[
+a_{n+2m}\mid a_n+a_{n+m}
+\]
+for all positive integers $n,m$.
+
+Prove that the sequence is eventually periodic: there exist positive integers $N,d$ such that
+\[
+a_{n+d}=a_n
+\qquad\text{for all }n>N.
+\]
+
+SOLUTION 1:
+We begin with a simple propagation observation.
+
+\textbf{Lemma 1.}
+Suppose $n>2m$.
+
+\begin{enumerate}
+\item If a positive integer $d$ divides both $a_n$ and $a_{n-m}$, then it divides $a_{n-2m}$.
+\item If $d$ divides both $a_n$ and $a_{n-2m}$, then it divides $a_{n-m}$.
+\end{enumerate}
+
+\textit{Proof.}
+The original condition, applied to the indices $n-2m$ and $m$, gives
+\[
+a_n\mid a_{n-2m}+a_{n-m}.
+\]
+Thus $d$ divides the sum on the right, and either assertion follows after subtracting the summand already known to be divisible by $d$. $\square$
+
+We first prove that the sequence is bounded. Suppose otherwise. Then there are arbitrarily large indices $n>10$ for which
+\[
+a_n=k
+\]
+is greater than every preceding term.
+
+For every positive integer $s<n/2$,
+\[
+a_n\mid a_{n-2s}+a_{n-s}.
+\]
+Both summands are positive and smaller than $k$, so their sum is a positive multiple of $k$ smaller than $2k$. Hence
+\[
+a_{n-2s}+a_{n-s}=k.
+\tag{1}
+\]
+
+Taking $s=1,2,4$ in (1),
+\[
+k=a_{n-1}+a_{n-2}
+  =a_{n-2}+a_{n-4}
+  =a_{n-4}+a_{n-8}.
+\]
+Therefore
+\[
+a_{n-1}=a_{n-4},
+\qquad
+a_{n-2}=a_{n-8}.
+\tag{2}
+\]
+
+By Lemma 1, the first equality in (2) implies that
+\[
+a_{n-1}\mid a_{n-1-3t}
+\]
+whenever the index is positive. Similarly,
+\[
+a_{n-2}\mid a_{n-2-6t}.
+\]
+At least one of $a_{n-1},a_{n-2}$ is at least $k/2$, by the first equality in (1). Propagating that divisor backwards produces an index
+\[
+i\le6
+\]
+such that
+\[
+a_i\ge\frac k2.
+\]
+But $k$ can be arbitrarily large, whereas the first six terms are fixed. This contradiction proves that $(a_n)$ is bounded.
+
+Only finitely many values occur. Discard a finite initial segment after the last occurrence of every value that occurs only finitely often. The shifted sequence still satisfies the given divisibility condition, and now every value that occurs does so infinitely many times.
+
+We next study the indices at which a fixed divisor occurs.
+
+\textbf{Lemma 2.}
+Let $d$ be a positive integer dividing at least one term of the shifted sequence. Then the set
+\[
+I_d=\{i:d\mid a_i\}
+\]
+is an infinite arithmetic progression whose common difference is odd.
+
+\textit{Proof.}
+The value divisible by $d$ occurs infinitely often, so $I_d$ is infinite. Write
+\[
+i_1<i_2<i_3<\cdots
+\]
+for its elements.
+
+If $i_j+i_{j+1}$ were even, then Lemma 1 applied to the two endpoints would show that
+\[
+d\mid a_{(i_j+i_{j+1})/2},
+\]
+contradicting the fact that $i_j,i_{j+1}$ are consecutive elements of $I_d$. Hence consecutive indices have opposite parity, so every difference
+\[
+i_{j+1}-i_j
+\]
+is odd.
+
+Now $i_j$ and $i_{j+2}$ have the same parity. Lemma 1 gives
+\[
+d\mid a_{(i_j+i_{j+2})/2}.
+\]
+The midpoint lies strictly between them, and the only element of $I_d$ there is $i_{j+1}$. Thus
+\[
+i_{j+1}=\frac{i_j+i_{j+2}}2.
+\]
+All consecutive differences are equal, proving the lemma. $\square$
+
+Because the sequence is bounded, only finitely many positive integers divide its terms. For each such divisor $d$, let
+\[
+q_d
+\]
+be the odd common difference supplied by Lemma 2, and let
+\[
+Q=\prod_d q_d.
+\]
+Choose $N$ larger than the first term of every progression $I_d$.
+
+For every $n>N$ and every divisor $d$ occurring in the sequence,
+\[
+d\mid a_n
+\quad\Longleftrightarrow\quad
+d\mid a_{n+Q},
+\]
+because $Q$ is a multiple of the common difference of $I_d$. Hence $a_n$ and $a_{n+Q}$ have exactly the same positive divisors. Positive integers with the same divisor set are equal, so
+\[
+a_{n+Q}=a_n
+\qquad(n>N).
+\]
+Thus the sequence is eventually periodic.

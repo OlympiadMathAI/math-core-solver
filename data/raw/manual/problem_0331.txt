@@ -1,0 +1,130 @@
+ID: 0331
+
+SOURCE: IMO Shortlist
+
+YEAR: 2021
+
+TOPIC: Algebra
+
+SUBTOPICS: Extremal Sets, Pigeonhole Principle, Geometric Progressions, Contradiction
+
+STATEMENT:
+Let $n$ be a positive integer, and let
+\[
+A\subseteq\{0,1,2,\ldots,5^n\}
+\]
+contain $4n+2$ numbers. Prove that there exist
+\[
+a,b,c\in A
+\]
+such that
+\[
+a<b<c
+\qquad\text{and}\qquad
+c+2a>3b.
+\]
+
+SOLUTION 1:
+Assume, for contradiction, that no such triple exists. Write the elements of $A$ in increasing order:
+\[
+x_0<x_1<\cdots<x_{4n+1}.
+\]
+For every $i=0,1,\ldots,4n-1$, the triple
+\[
+x_i<x_{i+1}<x_{4n+1}
+\]
+must violate the desired inequality. Hence
+\[
+x_{4n+1}+2x_i\le3x_{i+1},
+\]
+or equivalently,
+\[
+x_{4n+1}-x_i
+\ge
+\frac32\bigl(x_{4n+1}-x_{i+1}\bigr).
+\tag{1}
+\]
+
+Iterating (1) gives
+\[
+x_{4n+1}-x_i
+\ge
+\left(\frac32\right)^{4n-i}
+\bigl(x_{4n+1}-x_{4n}\bigr).
+\]
+Taking $i=0$ and using the fact that two distinct integers differ by at least $1$, we obtain
+\[
+\begin{aligned}
+x_{4n+1}-x_0
+&\ge
+\left(\frac32\right)^{4n}
+\bigl(x_{4n+1}-x_{4n}\bigr)\\
+&\ge
+\left(\frac{81}{16}\right)^n
+>
+5^n.
+\end{aligned}
+\]
+However, both $x_0$ and $x_{4n+1}$ belong to
+\[
+\{0,1,\ldots,5^n\},
+\]
+so
+\[
+x_{4n+1}-x_0\le5^n,
+\]
+a contradiction.
+
+Therefore the required three elements exist.
+
+SOLUTION 2:
+Let
+\[
+c=\max A.
+\]
+For each
+\[
+k=0,1,\ldots,4n-1,
+\]
+define
+\[
+A_k=
+\left\{
+x\in A:
+\left(1-\left(\frac23\right)^k\right)c
+\le x<
+\left(1-\left(\frac23\right)^{k+1}\right)c
+\right\}.
+\tag{1}
+\]
+
+We claim that these $4n$ sets cover $A\setminus\{c\}$. Their intervals begin at $0$, and the last upper endpoint is
+\[
+\begin{aligned}
+\left(1-\left(\frac23\right)^{4n}\right)c
+&=
+c-\left(\frac{16}{81}\right)^n c\\
+&>
+c-\left(\frac15\right)^n c\\
+&\ge c-1.
+\end{aligned}
+\]
+Every integer in $A$ smaller than $c$ is at most $c-1$, so it belongs to one of the sets in (1).
+
+Now $A\setminus\{c\}$ has $4n+1$ elements distributed among only $4n$ sets. By the pigeonhole principle, some $A_k$ contains two elements
+\[
+a<b.
+\]
+Then $a<b<c$, and
+\[
+\begin{aligned}
+c+2a
+&\ge
+c+2\left(1-\left(\frac23\right)^k\right)c\\
+&=
+3\left(1-\left(\frac23\right)^{k+1}\right)c\\
+&>
+3b.
+\end{aligned}
+\]
+Thus $a,b,c$ have the required properties.

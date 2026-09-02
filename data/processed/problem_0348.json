@@ -1,0 +1,16 @@
+{
+  "id": "0348",
+  "source": "IMO Shortlist",
+  "year": "2021",
+  "topic": "Geometry",
+  "subtopics": [
+    "Tangential Quadrilaterals",
+    "Arc Midpoints",
+    "Reflections",
+    "Similar Triangles"
+  ],
+  "statement": "Let $ABCD$ be a convex quadrilateral circumscribed about a circle with centre $I$. Let $\\omega$ be the circumcircle of triangle $ACI$.\n\nThe extensions of $BA$ and $BC$ beyond $A$ and $C$ meet $\\omega$ at $X$ and $Z$, respectively. The extensions of $AD$ and $CD$ beyond $D$ meet $\\omega$ at $Y$ and $T$, respectively.\n\nProve that the perimeters of the possibly self-intersecting quadrilaterals\n\\[\nADTX\n\\qquad\\text{and}\\qquad\nCDYZ\n\\]\nare equal.",
+  "solutions": [
+    "Because $CI$ bisects the angle formed by $CB$ and $CD$, it is the external angle bisector of $\\angle TCZ$. Since\n\\[\nC,I,T,Z\n\\]\nlie on $\\omega$, the point $I$ is the midpoint of the corresponding arc $TZ$. Hence\n\\[\nIT=IZ.\n\\tag{1}\n\\]\nSimilarly,\n\\[\nIX=IY.\n\\tag{2}\n\\]\n\nLet $O$ be the centre of $\\omega$. Since both $O$ and $I$ are equidistant from $X$ and $Y$, the line $OI$ is the perpendicular bisector of $XY$. Likewise, it is the perpendicular bisector of $TZ$. Reflection in $OI$ therefore sends\n\\[\nX\\longleftrightarrow Y\n\\qquad\\text{and}\\qquad\nT\\longleftrightarrow Z.\n\\]\nConsequently,\n\\[\nXT=YZ.\n\\tag{3}\n\\]\n\nLet the incircle of $ABCD$ touch\n\\[\nAB,\\ BC,\\ CD,\\ DA\n\\]\nat\n\\[\nP,\\ Q,\\ R,\\ S,\n\\]\nrespectively.\n\nThe triangles $IXP$ and $IYS$ are right triangles. By (2) and\n\\[\nIP=IS,\n\\]\nthey are congruent, so\n\\[\nXP=YS.\n\\tag{4}\n\\]\nSimilarly, the right triangles $IRT$ and $IQZ$ are congruent by (1), and hence\n\\[\nRT=QZ.\n\\tag{5}\n\\]\n\nUsing equal tangent lengths from the same vertex,\n\\[\nAP=AS,\\qquad CQ=CR,\\qquad DS=DR.\n\\tag{6}\n\\]\nTherefore\n\\[\n\\begin{aligned}\n\\operatorname{Per}(ADTX)\n&=XT+XA+AD+DT\\\\\n&=XT+XA+AS+SD+DT\\\\\n&=XT+XP+RT\\\\\n&=YZ+YS+QZ\\\\\n&=YZ+YD+DR+RC+CZ\\\\\n&=\\operatorname{Per}(CDYZ),\n\\end{aligned}\n\\]\nwhere we used (3)--(6). This proves the assertion."
+  ]
+}

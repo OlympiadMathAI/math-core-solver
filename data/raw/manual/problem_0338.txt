@@ -1,0 +1,375 @@
+ID: 0338
+
+SOURCE: IMO Shortlist
+
+YEAR: 2021
+
+TOPIC: Algebra
+
+SUBTOPICS: Functional Equations, Injectivity, Multiplicative Functions, Cauchy Equation
+
+STATEMENT:
+Determine all functions
+\[
+f:\mathbb R\to\mathbb R
+\]
+satisfying
+\[
+\begin{aligned}
+&(f(a)-f(b))(f(b)-f(c))(f(c)-f(a))\\
+&\qquad=
+f(ab^2+bc^2+ca^2)
+-
+f(a^2b+b^2c+c^2a)
+\end{aligned}
+\tag{1}
+\]
+for all real numbers $a,b,c$.
+
+SOLUTION 1:
+The solutions are
+\[
+\boxed{f(x)=\alpha x+\beta}
+\]
+and
+\[
+\boxed{f(x)=\alpha x^3+\beta},
+\]
+where
+\[
+\alpha\in\{-1,0,1\},
+\qquad
+\beta\in\mathbb R.
+\]
+
+The identities
+\[
+\begin{aligned}
+&ab^2+bc^2+ca^2-(a^2b+b^2c+c^2a)\\
+&\qquad=(a-b)(b-c)(c-a)
+\end{aligned}
+\tag{2}
+\]
+and
+\[
+\begin{aligned}
+&(ab^2+bc^2+ca^2)^3-(a^2b+b^2c+c^2a)^3\\
+&\qquad=(a^3-b^3)(b^3-c^3)(c^3-a^3)
+\end{aligned}
+\tag{3}
+\]
+show directly that all the listed functions work.
+
+Adding a constant to a solution preserves (1), so we may assume during the proof that
+\[
+f(0)=0.
+\tag{4}
+\]
+
+We first prove a structural lemma.
+
+\textbf{Lemma 1.}
+Under normalization (4), either
+\[
+f\equiv0
+\]
+or $f$ is injective.
+
+\textit{Proof.}
+Let
+\[
+\Theta=\{(u,v)\in\mathbb R^2:f(u)=f(v)\}.
+\]
+If $(a,b)\in\Theta$, then applying (1) to $(a,b,x)$ gives
+\[
+H_{a,b}(x)\in\Theta
+\]
+for every real $x$, where
+\[
+H_{a,b}(x)=
+\left(
+ab^2+bx^2+xa^2,\,
+a^2b+b^2x+x^2a
+\right).
+\tag{5}
+\]
+
+Suppose that $(a,b)\in\Theta$ with $a\ne b$. The difference and sum of the two coordinates in (5) are
+\[
+(a-b)(b-x)(x-a)
+\]
+and
+\[
+(x^2+ab)(a+b)+x(a^2+b^2).
+\]
+Neither is the zero polynomial in $x$, so we can choose $x$ for which both are nonzero. We thereby obtain
+\[
+(\alpha,\beta)\in\Theta
+\]
+with
+\[
+\alpha\ne\beta
+\qquad\text{and}\qquad
+\alpha\ne-\beta.
+\]
+
+Compare (1) for $(\alpha,1,0)$ and $(\beta,1,0)$. Their left sides are equal, and so
+\[
+f(\alpha^2)=f(\beta^2).
+\]
+Thus $\Theta$ contains two distinct nonnegative numbers. Repeatedly squaring and interchanging them if necessary, we obtain
+\[
+(\gamma,\delta)\in\Theta
+\qquad\text{with}\qquad
+\delta>5\gamma\ge0.
+\]
+
+If $\gamma=0$, then $\Theta$ already contains $(0,\delta)$ with $\delta\ne0$. Otherwise choose a real root $x<0$ of
+\[
+\delta\gamma^2+\gamma x^2+x\delta^2=0.
+\]
+Such a root exists because the discriminant
+\[
+\delta^4-4\delta\gamma^3
+\]
+is positive. Formula (5) gives
+\[
+H_{\delta,\gamma}(x)=(0,r)\in\Theta.
+\]
+Moreover,
+\[
+-r
+=
+(\delta-\gamma)(\gamma-x)(x-\delta)<0,
+\]
+so $r\ne0$.
+
+Now $(0,r)\in\Theta$ implies, through (5),
+\[
+f(rx^2)=f(r^2x)
+\qquad(x\in\mathbb R).
+\]
+Replacing $x$ by $-x$ shows
+\[
+f(r^2x)=f(-r^2x),
+\]
+and hence $f$ is even.
+
+Apply (5) to $(a,-a)$ and choose
+\[
+x=\frac{1+\sqrt5}{2}a.
+\]
+The resulting pair is
+\[
+\left(0,(1+\sqrt5)a^3\right)\in\Theta.
+\]
+As $a$ ranges over the reals, the second coordinate ranges over all of $\mathbb R$. Thus
+\[
+f(y)=f(0)=0
+\]
+for every real $y$. This proves the lemma. $\square$
+
+Assume from now on that $f$ is injective. Taking $c=0$ in (1) gives
+\[
+f(a)f(b)(f(a)-f(b))
+=
+f(a^2b)-f(ab^2).
+\tag{6}
+\]
+Put
+\[
+\kappa=f(1)\ne0.
+\]
+Setting $b=1$ in (6),
+\[
+\kappa f(a)(f(a)-\kappa)
+=
+f(a^2)-f(a).
+\tag{7}
+\]
+
+Subtract the version of (7) for $-a$ from the version for $a$. For $a\ne0$, injectivity gives
+\[
+f(a)\ne f(-a),
+\]
+and hence
+\[
+f(a)+f(-a)
+=
+\kappa-\kappa^{-1}
+=:\lambda.
+\tag{8}
+\]
+Use (6) for $(a,b)$ and $(-a,-b)$, together with (8). For nonzero $a\ne b$, we obtain
+\[
+(f(a)-f(b))
+\left(
+f(a)f(b)-f(-a)f(-b)
+\right)=0.
+\]
+Injectivity removes the first factor, so
+\[
+f(a)f(b)
+=
+(\lambda-f(a))(\lambda-f(b)).
+\]
+If $\lambda\ne0$, this implies
+\[
+f(a)+f(b)=\lambda
+\]
+for every pair of distinct nonzero $a,b$, contradicting injectivity. Therefore
+\[
+\lambda=0,
+\qquad
+\kappa=\pm1.
+\]
+Thus $f$ is odd. Replacing $f$ by $-f$ if necessary, we may assume
+\[
+f(1)=1.
+\tag{9}
+\]
+
+Equation (7) now gives
+\[
+f(a^2)=f(a)^2.
+\tag{10}
+\]
+Adding equation (6) for $(a,b)$ and for $(a,-b)$, and using oddness, gives
+\[
+f(a)f(b)^2=f(ab^2).
+\]
+Together with (10), this yields
+\[
+f(ax)=f(a)f(x)
+\]
+first for $x\ge0$, and then, by oddness, for every real $x$. Hence $f$ is multiplicative. Also,
+\[
+f(x)>0
+\qquad(x>0),
+\tag{11}
+\]
+because $f(x)=f(\sqrt x)^2$ and injectivity excludes the value $0$.
+
+We shall use the following standard fact.
+
+\textbf{Lemma 2.}
+A positive multiplicative function
+\[
+g:(0,\infty)\to(0,\infty)
+\]
+either has the form
+\[
+g(x)=x^\tau
+\]
+for some real constant $\tau$, or its graph is dense in
+\[
+(0,\infty)^2.
+\]
+
+\textit{Proof.}
+Define
+\[
+h(t)=\log g(e^t).
+\]
+Then $h$ is additive. If $h(t)=\tau t$ for every $t$, the first alternative follows. Otherwise there are $u,v$ such that the vectors
+\[
+(u,h(u))
+\qquad\text{and}\qquad
+(v,h(v))
+\]
+are linearly independent. The graph of $h$ contains every rational linear combination of these two vectors, and is therefore dense in $\mathbb R^2$. Applying the coordinatewise exponential map proves the second alternative. $\square$
+
+We exclude both a dense graph and a negative exponent. In either of those two cases, choose
+\[
+0<b<\frac1{10}
+\qquad\text{with}\qquad
+f(b)>1.
+\]
+Apply (1) to $(1,b,x)$. Put
+\[
+B=f(b)>1.
+\]
+Since
+\[
+x^2+b^2x+b>0
+\]
+for every real $x$, equation (1) gives
+\[
+\begin{aligned}
+f(b^2+bx^2+x)
+&=
+f(x^2+b^2x+b)\\
+&\quad+
+(B-1)(f(x)-B)(f(x)-1)\\
+&\ge
+-\frac{(B-1)^3}{4}.
+\end{aligned}
+\tag{12}
+\]
+The quadratic
+\[
+b^2+bx^2+x
+\]
+takes every value in
+\[
+\left[b^2-\frac1{4b},\infty\right).
+\]
+Thus $f$ is bounded below on this interval. Since $f$ is odd, it is bounded above on the nonempty interval
+\[
+\left(0,\frac1{4b}-b^2\right).
+\]
+This contradicts density of the graph. It also contradicts
+\[
+f(x)=x^\tau
+\]
+when $\tau<0$, since that function is unbounded near $0$.
+
+Therefore
+\[
+f(x)=x^\tau
+\qquad(x>0)
+\]
+for some $\tau\ge0$. Injectivity gives
+\[
+\tau>0.
+\tag{13}
+\]
+
+Finally, divide (1) by
+\[
+(a-b)(b-c)(c-a)
+=
+ab^2+bc^2+ca^2-(a^2b+b^2c+c^2a)
+\]
+and let the three distinct positive numbers $a,b,c$ tend to $1$. Using (13), the left side tends to
+\[
+\tau^3,
+\]
+while the right side tends to
+\[
+\tau\,3^{\tau-1}.
+\]
+Hence
+\[
+\tau^2=3^{\tau-1}.
+\tag{14}
+\]
+Equivalently,
+\[
+3^{\tau/2-1/2}-\tau=0.
+\]
+The function on the left is strictly convex, so it has at most two positive zeros. Since
+\[
+\tau=1
+\qquad\text{and}\qquad
+\tau=3
+\]
+both satisfy (14), these are the only possibilities.
+
+Under normalization (4), the injective solutions are therefore
+\[
+f(x)=\pm x
+\qquad\text{and}\qquad
+f(x)=\pm x^3,
+\]
+while the noninjective solution is $f\equiv0$. Restoring the arbitrary additive constant gives exactly the functions stated at the beginning.

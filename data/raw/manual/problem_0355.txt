@@ -1,0 +1,112 @@
+ID: 0355
+
+SOURCE: IMO Shortlist
+
+YEAR: 2021
+
+TOPIC: Number Theory
+
+SUBTOPICS: Cube-Free Integers, Modular Arithmetic, Prime Valuations, Divisibility
+
+STATEMENT:
+Determine all integers $n\ge1$ for which there exist positive integers $a,b$ such that no cube of a prime divides
+\[
+a^2+b+3
+\]
+and
+\[
+\frac{ab+3b+8}{a^2+b+3}=n.
+\]
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{n=2}.
+\]
+
+Put
+\[
+D=a^2+b+3.
+\]
+Because
+\[
+b\equiv-a^2-3\pmod D,
+\]
+we have
+\[
+\begin{aligned}
+ab+3b+8
+&\equiv
+a(-a^2-3)+3(-a^2-3)+8\\
+&=-(a+1)^3
+\pmod D.
+\end{aligned}
+\]
+Thus, if the displayed fraction is an integer, then
+\[
+D\mid(a+1)^3.
+\tag{1}
+\]
+
+No prime cube divides $D$. Hence, for every prime $p$, the exponent of $p$ in $D$ is at most $2$. From (1), it follows prime by prime that
+\[
+D\mid(a+1)^2.
+\tag{2}
+\]
+Indeed, if $p^e\mid D$ with $e\in\{1,2\}$, then
+\[
+3v_p(a+1)\ge e,
+\]
+so $v_p(a+1)\ge1$ and therefore
+\[
+2v_p(a+1)\ge e.
+\]
+
+Furthermore,
+\[
+0<(a+1)^2<2D,
+\]
+because
+\[
+2D-(a+1)^2=(a-1)^2+2b+4>0.
+\]
+Together with (2), this forces
+\[
+(a+1)^2=D=a^2+b+3.
+\]
+Consequently,
+\[
+b=2(a-1).
+\]
+Substituting this into the numerator,
+\[
+ab+3b+8
+=
+2(a-1)(a+3)+8
+=
+2(a+1)^2
+=
+2D.
+\]
+Therefore
+\[
+n=2.
+\]
+
+Conversely, take
+\[
+(a,b)=(2,2).
+\]
+Then
+\[
+a^2+b+3=9,
+\]
+which is not divisible by the cube of any prime, and
+\[
+\frac{ab+3b+8}{a^2+b+3}
+=
+\frac{18}{9}
+=
+2.
+\]
+Hence $n=2$ is indeed attainable.

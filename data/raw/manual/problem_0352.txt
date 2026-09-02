@@ -1,0 +1,183 @@
+ID: 0352
+
+SOURCE: IMO Shortlist
+
+YEAR: 2021
+
+TOPIC: Geometry
+
+SUBTOPICS: Equilateral Triangles, Convex Polygons, Perimeter Monotonicity, Extremal Diagonals
+
+STATEMENT:
+Determine all integers $n\ge3$ with the following property:
+
+Every convex $n$-gon whose sides all have length $1$ contains an equilateral triangle of side length $1$.
+
+Every polygon is understood to contain its boundary.
+
+SOLUTION 1:
+The required integers are exactly
+\[
+\boxed{\text{all odd }n\ge3}.
+\]
+
+We first construct a counterexample for every even $n$.
+
+Let
+\[
+n=2h.
+\]
+Choose a regular $q$-gon
+\[
+A_0A_1\cdots A_{q-1}
+\]
+of side length $1$, where $q$ is sufficiently large and $q>h$. For
+\[
+1\le i<h,
+\]
+let $B_i$ be the reflection of $A_i$ in the line $A_0A_h$.
+
+Then
+\[
+A_0A_1\cdots A_hB_{h-1}B_{h-2}\cdots B_1
+\]
+is a convex $n$-gon, and every one of its sides has length $1$. Since $h$ is fixed, as $q$ tends to infinity this polygon is contained in a strip of arbitrarily small width. Choose $q$ so large that the width is less than $1/2$.
+
+The minimum, over all directions, of the width of an equilateral triangle of side $1$ is its altitude
+\[
+\frac{\sqrt3}{2}.
+\]
+Hence such a triangle cannot be contained in a strip of width $1/2$. Thus no even $n$ has the required property.
+
+Now let
+\[
+n=2k+1.
+\]
+For $k=1$, the polygon itself is an equilateral triangle, so assume
+\[
+k\ge2.
+\]
+
+Let
+\[
+\mathcal P=A_0A_1\cdots A_{2k}
+\]
+be a convex $(2k+1)$-gon with all sides equal to $1$. Choose a longest diagonal, and label the vertices so that it is
+\[
+A_0A_\ell
+\]
+and the boundary chain
+\[
+A_0A_1\cdots A_\ell
+\]
+has at least $k+1$ edges. Thus
+\[
+\ell\ge k+1.
+\tag{1}
+\]
+
+Suppose first that
+\[
+\angle A_\ell A_0A_1\ge60^\circ.
+\]
+Since $A_0A_\ell$ is a longest diagonal,
+\[
+A_1A_\ell\le A_0A_\ell.
+\]
+Therefore, in triangle $A_0A_1A_\ell$,
+\[
+\angle A_0A_1A_\ell
+\ge
+\angle A_\ell A_0A_1
+\ge60^\circ.
+\]
+The unit equilateral triangle erected on $A_0A_1$ toward the interior of $\mathcal P$ is consequently contained in triangle $A_0A_1A_\ell$, and hence in $\mathcal P$.
+
+The same argument works if
+\[
+\angle A_{\ell-1}A_\ell A_0\ge60^\circ.
+\]
+We may therefore assume
+\[
+\angle A_\ell A_0A_1<60^\circ,
+\qquad
+\angle A_{\ell-1}A_\ell A_0<60^\circ.
+\tag{2}
+\]
+
+Construct an isosceles trapezoid
+\[
+A_0YZA_\ell
+\]
+on the same side of $A_0A_\ell$ as the chain, such that
+\[
+A_0A_\ell\parallel YZ,
+\qquad
+A_0Y=ZA_\ell=1,
+\]
+and
+\[
+\angle A_\ell A_0Y=\angle ZA_\ell A_0=60^\circ.
+\tag{3}
+\]
+
+Assume for a moment that the whole chain
+\[
+A_0A_1\cdots A_\ell
+\]
+is contained in this trapezoid. The convex polygon formed by this chain and the segment $A_\ell A_0$ has perimeter
+\[
+\ell+A_0A_\ell.
+\]
+The trapezoid has perimeter
+\[
+2A_0A_\ell+1.
+\]
+The perimeter of a convex polygon contained in another convex polygon cannot exceed the perimeter of the latter, so
+\[
+\ell+A_0A_\ell\le2A_0A_\ell+1,
+\]
+or
+\[
+\ell-1\le A_0A_\ell.
+\tag{4}
+\]
+
+On the other hand, the complementary boundary chain has
+\[
+2k+1-\ell
+\]
+unit edges. By the strict triangle inequality,
+\[
+A_0A_\ell<2k+1-\ell.
+\]
+Using (1),
+\[
+2k+1-\ell\le\ell-1,
+\]
+contradicting (4). Hence some vertex $A_m$ of the chain lies outside the trapezoid.
+
+Let $U$ be the perpendicular projection of $A_m$ onto $A_0A_\ell$. Conditions (2)--(3) imply
+\[
+UA_m\ge\frac{\sqrt3}{2},
+\qquad
+A_0U>\frac12,
+\qquad
+UA_\ell>\frac12.
+\tag{5}
+\]
+Choose points
+\[
+Q\in A_0U,\qquad R\in UA_\ell,\qquad S\in UA_m
+\]
+such that
+\[
+UQ=UR=\frac12,
+\qquad
+US=\frac{\sqrt3}{2}.
+\]
+Then $QRS$ is an equilateral triangle of side length $1$.
+
+The segment $A_0A_\ell$ and the vertex $A_m$ lie in the convex polygon $\mathcal P$, so the entire triangle $QRS$ lies in $\mathcal P$. Thus every odd-sided equilateral convex polygon contains a unit equilateral triangle.
+
+Therefore the answer is precisely all odd integers $n\ge3$.

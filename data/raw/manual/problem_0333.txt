@@ -1,0 +1,290 @@
+ID: 0333
+
+SOURCE: IMO Shortlist
+
+YEAR: 2021
+
+TOPIC: Algebra
+
+SUBTOPICS: Permutations, Floor Function, Binary Decomposition, Induction
+
+STATEMENT:
+Given a positive integer $n$, determine the smallest possible value of
+\[
+\left\lfloor\frac{a_1}{1}\right\rfloor+
+\left\lfloor\frac{a_2}{2}\right\rfloor+
+\cdots+
+\left\lfloor\frac{a_n}{n}\right\rfloor,
+\]
+where
+\[
+(a_1,a_2,\ldots,a_n)
+\]
+ranges over all permutations of
+\[
+(1,2,\ldots,n).
+\]
+
+SOLUTION 1:
+The minimum is
+\[
+\boxed{\lfloor\log_2 n\rfloor+1}.
+\]
+
+Choose the integer $k\ge0$ such that
+\[
+2^k\le n<2^{k+1}.
+\]
+
+We first construct a permutation attaining $k+1$. Use the blocks
+\[
+(a_1)=(1),
+\]
+\[
+(a_2,a_3)=(3,2),
+\]
+\[
+(a_4,a_5,a_6,a_7)=(7,4,5,6),
+\]
+and in general
+\[
+(a_{2^j},\ldots,a_{2^{j+1}-1})
+=
+(2^{j+1}-1,2^j,2^j+1,\ldots,2^{j+1}-2)
+\]
+for
+\[
+0\le j<k.
+\]
+For the last, possibly incomplete, block, set
+\[
+(a_{2^k},\ldots,a_n)
+=
+(n,2^k,2^k+1,\ldots,n-1).
+\]
+Each block has the form
+\[
+(a_p,\ldots,a_q)=(q,p,p+1,\ldots,q-1)
+\]
+with
+\[
+q<2p.
+\]
+Consequently,
+\[
+\sum_{i=p}^{q}\left\lfloor\frac{a_i}{i}\right\rfloor
+=
+\left\lfloor\frac qp\right\rfloor+
+\sum_{i=p+1}^{q}\left\lfloor\frac{i-1}{i}\right\rfloor
+=1.
+\]
+There are $k+1$ blocks, so the value $k+1$ is attainable.
+
+We now prove the lower bound.
+
+\textbf{Claim.}
+If
+\[
+b_1,b_2,\ldots,b_{2^r}
+\]
+are distinct positive integers, then
+\[
+\sum_{i=1}^{2^r}\left\lfloor\frac{b_i}{i}\right\rfloor
+\ge r+1.
+\tag{1}
+\]
+
+We use induction on $r$. For $r=0$, the assertion is
+\[
+\lfloor b_1\rfloor\ge1.
+\]
+
+Assume (1) for $r$ and consider
+\[
+b_1,\ldots,b_{2^{r+1}}.
+\]
+If some
+\[
+2^r<j\le2^{r+1}
+\]
+satisfies $b_j\ge j$, then the first $2^r$ terms contribute at least $r+1$ by induction, while the $j$th term contributes at least $1$. Hence the full sum is at least $r+2$.
+
+Suppose instead that
+\[
+b_j<j
+\qquad(2^r<j\le2^{r+1}).
+\tag{2}
+\]
+Among the $2^{r+1}$ distinct positive integers $b_i$, at least one is at least $2^{r+1}$. By (2), such a term must be $b_m$ with
+\[
+m\le2^r.
+\]
+Replace $b_m$ among the first $2^r$ terms by $b_{2^r+1}$, obtaining distinct positive integers
+\[
+c_1,\ldots,c_{2^r}.
+\]
+Since $b_{2^r+1}<2^r+1$ and $m\le2^r$,
+\[
+b_{2^r+1}+m\le2^{r+1}.
+\]
+Therefore
+\[
+\begin{aligned}
+\left\lfloor\frac{b_m}{m}\right\rfloor
+&\ge
+\left\lfloor\frac{2^{r+1}}{m}\right\rfloor\\
+&\ge
+\left\lfloor\frac{b_{2^r+1}+m}{m}\right\rfloor\\
+&=
+\left\lfloor\frac{c_m}{m}\right\rfloor+1.
+\end{aligned}
+\]
+The induction hypothesis applied to the $c_i$ now gives
+\[
+\sum_{i=1}^{2^{r+1}}\left\lfloor\frac{b_i}{i}\right\rfloor
+\ge
+\sum_{i=1}^{2^r}\left\lfloor\frac{c_i}{i}\right\rfloor+1
+\ge r+2.
+\]
+This proves the claim.
+
+Applying the claim to the first $2^k$ entries of any permutation gives a lower bound of $k+1$. Together with the construction, the minimum is $k+1$.
+
+SOLUTION 2:
+The construction in Solution 1 proves that the answer is at most
+\[
+\lfloor\log_2 n\rfloor+1.
+\]
+We give another proof of the lower bound.
+
+Let
+\[
+2^k\le n<2^{k+1}
+\]
+and let
+\[
+\mathcal P=\{1,2,4,\ldots,2^k\}
+\]
+be the powers of $2$ not exceeding $n$.
+
+Call an index $i$ \emph{good} if
+\[
+a_i\ge i,
+\]
+and associate to it the interval
+\[
+[i,a_i].
+\]
+
+\textbf{Lemma 1.}
+The intervals belonging to good indices cover every integer in
+\[
+\{1,2,\ldots,n\}.
+\]
+
+\textit{Proof.}
+View the permutation as the map $i\mapsto a_i$. Fix $x$, and follow the cycle containing $x$:
+\[
+x,\ a_x,\ a_{a_x},\ldots.
+\]
+Starting at $x$, choose the first element $i$ in this cycle whose image satisfies
+\[
+a_i\ge x.
+\]
+All preceding elements of the traversal are smaller than $x$, so
+\[
+i\le x\le a_i.
+\]
+Thus $x\in[i,a_i]$. $\square$
+
+\textbf{Lemma 2.}
+If a good interval $[i,a_i]$ contains $r$ distinct powers of $2$, then
+\[
+\left\lfloor\frac{a_i}{i}\right\rfloor\ge r.
+\]
+
+\textit{Proof.}
+The ratio between the largest and smallest of those powers is at least
+\[
+2^{r-1}.
+\]
+Since both powers lie in $[i,a_i]$,
+\[
+\frac{a_i}{i}\ge2^{r-1}\ge r.
+\]
+$\square$
+
+By Lemma 1, the good intervals cover all $k+1$ members of $\mathcal P$. Therefore
+\[
+\begin{aligned}
+\sum_{i=1}^{n}\left\lfloor\frac{a_i}{i}\right\rfloor
+&=
+\sum_{i\text{ good}}\left\lfloor\frac{a_i}{i}\right\rfloor\\
+&\ge
+\sum_{i\text{ good}}|[i,a_i]\cap\mathcal P|\\
+&\ge
+|\mathcal P|\\
+&=k+1.
+\end{aligned}
+\]
+This establishes the lower bound.
+
+SOLUTION 3:
+As before, the construction in Solution 1 gives the required upper bound. For the lower bound, we use the inequality
+\[
+\left\lfloor\frac ab\right\rfloor
+\ge
+\log_2\frac{a+1}{b}
+\tag{1}
+\]
+for all positive integers $a,b$.
+
+Indeed, put
+\[
+t=\left\lfloor\frac ab\right\rfloor.
+\]
+Since $a<(t+1)b$ and both sides are integers,
+\[
+a+1\le(t+1)b.
+\]
+Also,
+\[
+2^t\ge t+1.
+\]
+Thus
+\[
+t\ge\log_2(t+1)\ge\log_2\frac{a+1}{b},
+\]
+proving (1).
+
+Apply (1) to every pair $(a_i,i)$:
+\[
+\begin{aligned}
+\sum_{i=1}^{n}\left\lfloor\frac{a_i}{i}\right\rfloor
+&\ge
+\sum_{i=1}^{n}\log_2\frac{a_i+1}{i}\\
+&=
+\log_2
+\frac{\prod_{i=1}^{n}(a_i+1)}
+{\prod_{i=1}^{n}i}.
+\end{aligned}
+\]
+Since the $a_i$ form a permutation of $1,\ldots,n$,
+\[
+\frac{\prod_{i=1}^{n}(a_i+1)}
+{\prod_{i=1}^{n}i}
+=
+\frac{2\cdot3\cdots(n+1)}{1\cdot2\cdots n}
+=n+1.
+\]
+Hence
+\[
+\sum_{i=1}^{n}\left\lfloor\frac{a_i}{i}\right\rfloor
+\ge\log_2(n+1).
+\]
+The left side is an integer, so it is at least
+\[
+\left\lceil\log_2(n+1)\right\rceil
+=
+\lfloor\log_2n\rfloor+1.
+\]

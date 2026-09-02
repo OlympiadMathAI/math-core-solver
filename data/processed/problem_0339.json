@@ -1,0 +1,16 @@
+{
+  "id": "0339",
+  "source": "IMO Shortlist",
+  "year": "2021",
+  "topic": "Combinatorics",
+  "subtopics": [
+    "Infinite Graphs",
+    "Edge Colourings",
+    "Greatest Common Divisors",
+    "Pigeonhole Principle"
+  ],
+  "statement": "Let $S$ be an infinite set of positive integers. Suppose that there exist four pairwise distinct elements\n\\[\na,b,c,d\\in S\n\\]\nsuch that\n\\[\n\\gcd(a,b)\\ne\\gcd(c,d).\n\\]\nProve that there exist three pairwise distinct elements\n\\[\nx,y,z\\in S\n\\]\nsuch that\n\\[\n\\gcd(x,y)=\\gcd(y,z)\\ne\\gcd(z,x).\n\\]",
+  "solutions": [
+    "View the elements of $S$ as the vertices of a complete graph, and colour the edge joining $u$ and $v$ by\n\\[\n\\gcd(u,v).\n\\]\nThe hypothesis says that at least two colours occur.\n\nThere is a vertex $\\alpha\\in S$ whose incident edges do not all have the same colour. Indeed, if every vertex had only one incident colour, then the colour of an edge would force the incident colours of both its endpoints to be equal; since the complete graph is connected, every edge would then have the same colour.\n\nThe possible values of\n\\[\n\\gcd(\\alpha,s),\n\\qquad s\\in S\\setminus\\{\\alpha\\},\n\\]\nare divisors of $\\alpha$, so there are only finitely many of them. Hence one value, say $e$, occurs for infinitely many $s$. Put\n\\[\nB=\\{\\beta\\in S\\setminus\\{\\alpha\\}:\\gcd(\\alpha,\\beta)=e\\}.\n\\]\nChoose\n\\[\n\\gamma\\in S\\setminus\\{\\alpha\\}\n\\]\nsuch that\n\\[\n\\gcd(\\alpha,\\gamma)\\ne e.\n\\tag{1}\n\\]\n\nThe numbers $\\gcd(\\gamma,\\beta)$, with $\\beta\\in B$, are divisors of $\\gamma$. By the pigeonhole principle, there are distinct\n\\[\n\\beta_1,\\beta_2\\in B\\setminus\\{\\gamma\\}\n\\]\nsuch that\n\\[\n\\gcd(\\gamma,\\beta_1)=\\gcd(\\gamma,\\beta_2)=e'\n\\tag{2}\n\\]\nfor some divisor $e'$ of $\\gamma$.\n\nIf $e=e'$, then\n\\[\n\\gcd(\\alpha,\\beta_1)=\\gcd(\\beta_1,\\gamma)=e\n\\ne\\gcd(\\gamma,\\alpha),\n\\]\nso the triple\n\\[\n(\\alpha,\\beta_1,\\gamma)\n\\]\nworks.\n\nSuppose now that $e\\ne e'$, and put\n\\[\nh=\\gcd(\\beta_1,\\beta_2).\n\\]\nIf $h\\ne e$, then\n\\[\n\\gcd(\\beta_1,\\alpha)=\\gcd(\\alpha,\\beta_2)=e\\ne h,\n\\]\nso\n\\[\n(\\beta_1,\\alpha,\\beta_2)\n\\]\nworks. If $h=e$, then $h\\ne e'$, and (2) shows that\n\\[\n(\\beta_1,\\gamma,\\beta_2)\n\\]\nworks.\n\nThus the required three elements always exist."
+  ]
+}

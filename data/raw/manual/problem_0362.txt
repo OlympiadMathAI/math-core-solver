@@ -1,0 +1,471 @@
+ID: 0362
+
+SOURCE: IMO Shortlist
+
+YEAR: 2021
+
+TOPIC: Number Theory
+
+SUBTOPICS: Polynomial Iteration, Finite Rings, Chinese Remainder Theorem, Prime-Power Residues, Derivatives Modulo Primes
+
+STATEMENT:
+For a polynomial $P(x)$ with integer coefficients, define its iterates by
+\[
+P^1(x)=P(x)
+\]
+and
+\[
+P^{m+1}(x)=P(P^m(x))
+\qquad(m\ge1).
+\]
+
+Find all positive integers $n$ for which there exists a polynomial $P(x)\in\mathbb Z[x]$ such that, for every integer $m\ge1$, the numbers
+\[
+P^m(1),P^m(2),\ldots,P^m(n)
+\]
+leave exactly
+\[
+\left\lceil\frac{n}{2^m}\right\rceil
+\]
+distinct remainders modulo $n$.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{\text{all primes and all powers of }2}.
+\]
+
+For a positive integer $\ell$, write
+\[
+\mathbb Z_\ell=\mathbb Z/\ell\mathbb Z
+\]
+and define
+\[
+f_{m,\ell}=\left|P^m(\mathbb Z_\ell)\right|,
+\qquad
+f_{0,\ell}=\ell.
+\]
+The required condition is equivalent to
+\[
+f_{m+1,n}
+=
+\left\lceil\frac{f_{m,n}}2\right\rceil
+\qquad(m\ge0).
+\tag{1}
+\]
+Indeed, starting with $f_{0,n}=n$, recurrence (1) gives
+\[
+f_{m,n}=\left\lceil\frac{n}{2^m}\right\rceil.
+\]
+
+\textbf{1. Constructions for primes and powers of $2$.}
+
+If
+\[
+n=2^k,
+\]
+take
+\[
+P(x)=2x.
+\]
+Then
+\[
+P^m(x)=2^mx,
+\]
+and its image modulo $2^k$ has
+\[
+2^{\max(k-m,0)}
+=
+\left\lceil\frac{2^k}{2^m}\right\rceil
+\]
+elements.
+
+Now let
+\[
+n=p
+\]
+be an odd prime. Every function
+\[
+\mathbb Z_p\to\mathbb Z_p
+\]
+is represented by a polynomial over $\mathbb Z_p$, and its coefficients may be lifted to integers. Choose a polynomial representing the function
+\[
+x\longmapsto\left\lfloor\frac x2\right\rfloor
+\qquad
+(x=0,1,\ldots,p-1).
+\]
+Its $m$th iterate sends $x$ to
+\[
+\left\lfloor\frac{x}{2^m}\right\rfloor.
+\]
+The image therefore has
+\[
+\left\lfloor\frac{p-1}{2^m}\right\rfloor+1
+=
+\left\lceil\frac p{2^m}\right\rceil
+\]
+elements. Thus every prime and every power of $2$ works.
+
+\textbf{2. An integer with two distinct prime divisors cannot work.}
+
+Suppose
+\[
+n=ab,
+\qquad
+a,b>1,
+\qquad
+\gcd(a,b)=1.
+\]
+By the Chinese remainder theorem,
+\[
+f_{m,ab}=f_{m,a}f_{m,b}
+\qquad(m\ge0).
+\tag{2}
+\]
+
+For a map on a finite set, if
+\[
+f_{m,\ell}=f_{m+1,\ell},
+\]
+then the map $P$ permutes the set $P^m(\mathbb Z_\ell)$, so
+\[
+f_{j,\ell}=f_{m,\ell}
+\qquad(j\ge m).
+\tag{3}
+\]
+On the other hand, (1) implies that
+\[
+f_{m,n}=1
+\]
+for all sufficiently large $m$. Equation (2) then shows that both
+\[
+f_{m,a}
+\qquad\text{and}\qquad
+f_{m,b}
+\]
+eventually equal $1$.
+
+Choose the least $m$ such that
+\[
+f_{m+1,a}=1
+\qquad\text{or}\qquad
+f_{m+1,b}=1.
+\]
+Assume without loss of generality that
+\[
+f_{m+1,a}=1.
+\]
+Then
+\[
+f_{m,a}\ge2.
+\]
+Also $f_{m,b}>1$ by the minimality of $m$, and therefore (3) gives
+\[
+f_{m+1,b}<f_{m,b}.
+\]
+Using (1) and (2),
+\[
+\begin{aligned}
+f_{m+1,ab}
+&=f_{m+1,b}\\
+&<f_{m,b}\\
+&\le\frac{f_{m,a}f_{m,b}}2\\
+&=\frac{f_{m,ab}}2\\
+&\le
+\left\lceil\frac{f_{m,ab}}2\right\rceil
+=
+f_{m+1,ab},
+\end{aligned}
+\]
+a contradiction. Hence $n$ must be a prime power.
+
+\textbf{3. No odd composite prime power works.}
+
+Suppose
+\[
+n=p^k,
+\qquad
+p\ge3\text{ prime},
+\qquad
+k\ge2.
+\]
+For each residue $r\in\mathbb Z_p$, let
+\[
+S_r=\{x\in\mathbb Z_{p^k}:x\equiv r\pmod p\}.
+\]
+Thus
+\[
+|S_r|=p^{k-1}.
+\]
+
+We first establish a local image-size lemma.
+
+\textbf{Lemma.}
+For every $r\in\mathbb Z_p$, either
+\[
+|P(S_r)|=p^{k-1}
+\]
+or
+\[
+|P(S_r)|\le p^{k-2}.
+\]
+
+\textit{Proof.}
+For integers $h$,
+\[
+P(r+h)=P(r)+hP'(r)+h^2Q(r,h)
+\]
+for some integer polynomial $Q$.
+
+If
+\[
+p\mid P'(r),
+\]
+then for $h=ps$,
+\[
+P(r+ps)\equiv P(r)\pmod{p^2}.
+\]
+All elements of $P(S_r)$ are therefore congruent modulo $p^2$, and so
+\[
+|P(S_r)|\le p^{k-2}.
+\]
+
+If
+\[
+p\nmid P'(r),
+\]
+take $x,y\in S_r$. We may write
+\[
+P(x)-P(y)=(x-y)H(x,y),
+\]
+where
+\[
+H(x,y)\equiv P'(r)\not\equiv0\pmod p.
+\]
+Thus $H(x,y)$ is invertible modulo $p^k$. If
+\[
+P(x)\equiv P(y)\pmod{p^k},
+\]
+then
+\[
+x\equiv y\pmod{p^k}.
+\]
+Hence $P$ is injective on $S_r$, and its image has $p^{k-1}$ elements. $\square$
+
+By induction on $j$, every set $P^j(S_r)$ either has at most $p^{k-2}$ elements or is a complete residue class modulo $p$. Indeed, $P^0(S_r)=S_r$. A set with at most $p^{k-2}$ elements cannot grow under $P$, while if the current set equals some $S_q$, the lemma applies; in its full-size case the image is contained in $S_{P(q)}$ and therefore equals that complete residue class.
+
+Since $f_{j,p^k}=1$ for sufficiently large $j$, choose the smallest positive integer $m$ such that
+\[
+|P^m(S_q)|\le p^{k-2}
+\qquad\text{for every }q\in\mathbb Z_p.
+\tag{4}
+\]
+By minimality, there is an $r$ such that
+\[
+|P^{m-1}(S_r)|=p^{k-1}.
+\tag{5}
+\]
+
+Put
+\[
+A=P^m(\mathbb Z_{p^k})\setminus P^m(S_r),
+\qquad
+a=|A|.
+\]
+The image under $P$ of
+\[
+P^{m-1}(\mathbb Z_{p^k})\setminus P^{m-1}(S_r)
+\]
+contains $A$. Hence, by (4)--(5),
+\[
+a+p^{k-1}
+\le
+f_{m-1,p^k}
+\le
+2f_{m,p^k}
+\le
+2p^{k-2}+2a.
+\]
+Therefore
+\[
+(p-2)p^{k-2}\le a.
+\tag{6}
+\]
+
+Consider now the map induced by $P$ on $\mathbb Z_p$. Its iterated image is eventually a singleton. That singleton is fixed by $P$, and every fixed residue belongs to every iterated image. Hence there is a unique residue
+\[
+t\in\mathbb Z_p
+\]
+with
+\[
+P(t)\equiv t\pmod p.
+\tag{7}
+\]
+If
+\[
+p\nmid P'(t),
+\]
+the lemma shows that $P$ maps $S_t$ bijectively onto itself, contradicting the eventual collapse of the image modulo $p^k$. Thus
+\[
+p\mid P'(t)
+\qquad\text{and}\qquad
+|P(S_t)|\le p^{k-2}.
+\tag{8}
+\]
+
+For $j\ge0$, let
+\[
+X_j=\{x\in\mathbb Z_p:P^j(x)=t\}.
+\]
+The sets
+\[
+X_0\subseteq X_1\subseteq X_2\subseteq\cdots
+\]
+eventually become all of $\mathbb Z_p$. Before that happens, every inclusion is strict: if
+\[
+X_j=X_{j+1},
+\]
+then taking inverse images under $P$ shows that all later sets are equal as well. Therefore either
+\[
+f_{m-1,p}=1,
+\tag{9}
+\]
+or
+\[
+|X_{m-1}|\ge m.
+\tag{10}
+\]
+
+If (9) holds, then
+\[
+P^{m-1}(\mathbb Z_{p^k})\subseteq S_t.
+\]
+By (5), the subset $P^{m-1}(S_r)$ already has $p^{k-1}$ elements, so it equals $S_t$. Hence
+\[
+P^m(\mathbb Z_{p^k})=P^m(S_r),
+\]
+which gives $a=0$, contradicting (6).
+
+We are left with (10). Put
+\[
+X=X_{m-1},
+\]
+let $Y$ be the union of the residue classes $S_x$ with $x\in X$, and put
+\[
+Z=\mathbb Z_{p^k}\setminus Y.
+\]
+Then
+\[
+P^{m-1}(Y)\subseteq S_t,
+\]
+so by (8),
+\[
+|P^m(Y)|\le p^{k-2}.
+\tag{11}
+\]
+The set $Z$ is the union of at most $p-m$ residue classes, and (4) gives
+\[
+|P^m(Z)|\le(p-m)p^{k-2}.
+\tag{12}
+\]
+Because $P^m(S_r)$ is nonempty,
+\[
+a<f_{m,p^k}.
+\]
+Combining (6), (11), and (12),
+\[
+(p-2)p^{k-2}
+\le a
+<
+f_{m,p^k}
+\le
+(p-m+1)p^{k-2}.
+\]
+Thus
+\[
+m<3.
+\tag{13}
+\]
+
+It follows from (4) and (13) that
+\[
+|P^2(S_q)|\le p^{k-2}
+\qquad(q\in\mathbb Z_p).
+\]
+Therefore
+\[
+f_{2,p^k}\le p^{k-1}.
+\tag{14}
+\]
+But the required condition gives
+\[
+f_{2,p^k}
+=
+\left\lceil\frac{p^k}{4}\right\rceil.
+\]
+For $p\ge5$, this is greater than $p^{k-1}$, contradicting (14).
+
+It remains to exclude $p=3$. Let $t$ be the residue from (7). As above,
+\[
+3\mid P'(t).
+\tag{15}
+\]
+We claim that, for every
+\[
+1\le j\le k-1,
+\]
+all elements of $P^j(S_t)$ are congruent modulo $3^{j+1}$.
+
+For $j=1$, this follows from the Taylor expansion and (15). If it holds for $j$, then any two elements $u,v\in P^j(S_t)$ satisfy
+\[
+3^{j+1}\mid u-v
+\qquad\text{and}\qquad
+u\equiv v\equiv t\pmod3.
+\]
+Writing
+\[
+P(u)-P(v)=(u-v)H(u,v),
+\]
+we have
+\[
+H(u,v)\equiv P'(t)\equiv0\pmod3.
+\]
+Thus
+\[
+3^{j+2}\mid P(u)-P(v),
+\]
+which proves the induction. In particular,
+\[
+|P^{k-1}(S_t)|=1.
+\tag{16}
+\]
+
+The image sizes of the induced map on $\mathbb Z_3$ eventually equal $1$. By the stability observation (3),
+\[
+f_{1,3}\le2
+\qquad\text{and}\qquad
+f_{2,3}=1.
+\]
+Hence $P^2(\mathbb Z_3)$ is the singleton $\{t\}$, and therefore
+\[
+P^2(\mathbb Z_{3^k})\subseteq S_t.
+\]
+Using (16),
+\[
+\left|P^{k+1}(\mathbb Z_{3^k})\right|
+\le
+\left|P^{k-1}(S_t)\right|
+=
+1.
+\]
+The required condition would therefore imply
+\[
+\left\lceil\frac{3^k}{2^{k+1}}\right\rceil=1,
+\]
+and hence
+\[
+3^k\le2^{k+1}.
+\]
+This is false for every $k\ge2$.
+
+Thus no odd prime power other than a prime can work. Combining all three parts, the valid integers are exactly the primes and the powers of $2$.

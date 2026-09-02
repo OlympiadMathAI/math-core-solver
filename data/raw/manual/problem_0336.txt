@@ -1,0 +1,101 @@
+ID: 0336
+
+SOURCE: IMO Shortlist
+
+YEAR: 2021
+
+TOPIC: Algebra
+
+SUBTOPICS: Pigeonhole Principle, Base Expansions, Subset Sums, Counting
+
+STATEMENT:
+Let $A$ be a finite set of integers, and let $m\ge2$ be an integer. Suppose there are nonempty subsets
+\[
+B_1,B_2,\ldots,B_m
+\]
+of $A$ whose element sums are respectively
+\[
+m^1,m^2,\ldots,m^m.
+\]
+Prove that
+\[
+|A|\ge\frac m2.
+\]
+
+SOLUTION 1:
+Write
+\[
+A=\{a_1,a_2,\ldots,a_k\}
+\]
+and suppose, for contradiction, that
+\[
+k<\frac m2.
+\tag{1}
+\]
+Let
+\[
+s_i=\sum_{a_j\in B_i}a_j=m^i
+\qquad(1\le i\le m).
+\]
+
+Consider all expressions
+\[
+F(c_1,\ldots,c_m)
+=
+c_1s_1+c_2s_2+\cdots+c_ms_m,
+\]
+where
+\[
+c_i\in\{0,1,\ldots,m-1\}.
+\]
+There are exactly
+\[
+m^m
+\]
+choices of the vector $(c_1,\ldots,c_m)$.
+
+On the other hand, after expanding each $s_i$ as a sum of elements of $A$, every value of $F$ has the form
+\[
+\alpha_1a_1+\cdots+\alpha_ka_k,
+\]
+where
+\[
+0\le\alpha_j\le m(m-1).
+\]
+Thus the number of possible values of $F$ is at most
+\[
+\bigl(m(m-1)+1\bigr)^k
+<
+(m^2)^k
+=
+m^{2k}
+<
+m^m
+\]
+by (1).
+
+The pigeonhole principle therefore gives two distinct digit vectors
+\[
+(c_1,\ldots,c_m)\ne(d_1,\ldots,d_m)
+\]
+with the same value of $F$. Since $s_i=m^i$, this says
+\[
+\sum_{i=1}^{m}c_im^i
+=
+\sum_{i=1}^{m}d_im^i.
+\]
+But all the digits $c_i,d_i$ lie in
+\[
+\{0,1,\ldots,m-1\},
+\]
+so uniqueness of base-$m$ representation forces
+\[
+c_i=d_i
+\qquad(1\le i\le m),
+\]
+a contradiction.
+
+Hence
+\[
+|A|\ge\frac m2.
+\]

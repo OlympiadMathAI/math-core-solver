@@ -1,0 +1,179 @@
+ID: 0357
+
+SOURCE: IMO Shortlist
+
+YEAR: 2021
+
+TOPIC: Number Theory
+
+SUBTOPICS: Divisors, Prefix Sums, Perfect Squares, Induction
+
+STATEMENT:
+Find all positive integers $n$ with the following property:
+
+If the positive divisors of $n$ are
+\[
+d_1,d_2,\ldots,d_k
+\]
+in some order, then the order can be chosen so that
+\[
+d_1+d_2+\cdots+d_i
+\]
+is a perfect square for every
+\[
+i=1,2,\ldots,k.
+\]
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{n=1\ \text{or}\ n=3}.
+\]
+
+Suppose that an ordering with the required property exists. Write
+\[
+d_1+d_2+\cdots+d_i=s_i^2
+\qquad(1\le i\le k),
+\]
+where each $s_i$ is a positive integer, and set
+\[
+s_0=0.
+\]
+Since every $d_i$ is positive,
+\[
+0=s_0<s_1<s_2<\cdots<s_k.
+\]
+Hence
+\[
+s_i\ge i.
+\]
+Moreover,
+\[
+\begin{aligned}
+d_i
+&=s_i^2-s_{i-1}^2\\
+&=(s_i-s_{i-1})(s_i+s_{i-1})\\
+&\ge s_i+s_{i-1}\\
+&\ge2i-1.
+\end{aligned}
+\tag{1}
+\]
+
+The divisor $1$ occurs among the $d_i$. By (1), it can only be $d_1$. Thus
+\[
+d_1=1,\qquad s_1=1.
+\]
+
+Now
+\[
+d_2=s_2^2-1=(s_2-1)(s_2+1).
+\]
+Since $d_2\mid n$, both $s_2-1$ and $s_2+1$ divide $n$.
+
+Let $d_j=s_2+1$. By (1),
+\[
+s_2+1=d_j\ge s_j+s_{j-1},
+\]
+which forces $j\le2$. Similarly, if $d_\ell=s_2-1$, then $\ell\ge2$ would give
+\[
+s_2-1=d_\ell\ge s_\ell+s_{\ell-1}\ge s_2+s_1=s_2+1,
+\]
+which is impossible. Hence
+\[
+s_2-1=d_1=1.
+\]
+Therefore
+\[
+s_2=2,\qquad d_2=3.
+\]
+
+We now prove by induction that
+\[
+s_i=i
+\qquad\text{and}\qquad
+d_i=2i-1
+\tag{2}
+\]
+for every $i$.
+
+Assume that (2) holds up to an index $i<k$. Then
+\[
+d_{i+1}
+=
+s_{i+1}^2-i^2
+=
+(s_{i+1}-i)(s_{i+1}+i).
+\]
+Thus $s_{i+1}+i$ is a divisor of $n$; write
+\[
+d_j=s_{i+1}+i.
+\]
+As in the preceding argument,
+\[
+d_j\ge s_j+s_{j-1}
+\]
+forces
+\[
+j\le i+1.
+\]
+On the other hand,
+\[
+d_j=s_{i+1}+i\ge2i+1>d_i,
+\]
+so the induction hypothesis excludes every $j\le i$. Therefore
+\[
+j=i+1.
+\]
+Hence
+\[
+s_{i+1}+i=d_{i+1}
+=(s_{i+1}-i)(s_{i+1}+i).
+\]
+Since $s_{i+1}+i>0$,
+\[
+s_{i+1}-i=1.
+\]
+Thus
+\[
+s_{i+1}=i+1,\qquad d_{i+1}=2i+1,
+\]
+completing the induction.
+
+Consequently, the full list of positive divisors of $n$ is
+\[
+1,3,5,\ldots,2k-1,
+\]
+and
+\[
+n=2k-1.
+\]
+If $k=1$, then $n=1$. If $k\ge2$, the second-largest divisor is
+\[
+n-2,
+\]
+so
+\[
+n-2\mid n.
+\]
+Therefore
+\[
+n-2\mid2.
+\]
+Since $n$ is odd, this gives
+\[
+n-2=1,
+\qquad n=3.
+\]
+
+Finally,
+\[
+n=1
+\]
+works with the ordering $(1)$, and
+\[
+n=3
+\]
+works with the ordering $(1,3)$, whose prefix sums are
+\[
+1=1^2,\qquad1+3=4=2^2.
+\]

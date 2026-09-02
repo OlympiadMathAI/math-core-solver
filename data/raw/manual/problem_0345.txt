@@ -1,0 +1,250 @@
+ID: 0345
+
+SOURCE: IMO Shortlist
+
+YEAR: 2021
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Directed Lattice Paths, Minimal Vertex Cuts, Extremal Construction, Double Counting
+
+STATEMENT:
+Consider a checkered $3m\times3m$ square, where $m>1$ is an integer. A frog starts in the lower-left corner cell $S$ and wants to reach the upper-right corner cell $F$. From a cell, it may hop either to the next cell to the right or to the next cell above.
+
+Some cells may be sticky, and the frog becomes trapped upon hopping onto a sticky cell. A set $X$ of cells is called \emph{blocking} if the frog cannot reach $F$ from $S$ when all cells of $X$ are sticky. A blocking set is \emph{minimal} if it contains no proper blocking subset.
+
+\begin{enumerate}
+\item[(a)] Prove that there is a minimal blocking set containing at least
+\[
+3m^2-3m
+\]
+cells.
+\item[(b)] Prove that every minimal blocking set contains at most
+\[
+3m^2
+\]
+cells.
+\end{enumerate}
+
+SOLUTION 1:
+Number the columns from left to right and the rows from bottom to top, and put
+\[
+H=3m.
+\]
+Thus
+\[
+S=(1,1),
+\qquad
+F=(H,H).
+\]
+
+\textbf{Part (a).}
+
+Divide the board into $m$ vertical strips of width $3$. Define $X$ as follows.
+
+In the first strip, put into $X$ the cells
+\[
+(1,H),\qquad (3,2),
+\qquad
+(2,y)\quad(3\le y\le H-1).
+\tag{1}
+\]
+
+For every intermediate strip $j=2,\ldots,m-1$, put into $X$ the cells
+\[
+(3j-2,H-1),\qquad (3j,2),
+\qquad
+(3j-1,y)\quad(3\le y\le H-2).
+\tag{2}
+\]
+
+In the last strip, put into $X$ the cells
+\[
+(H-2,H-1),\qquad (H,1),
+\qquad
+(H-1,y)\quad(2\le y\le H-2).
+\tag{3}
+\]
+
+We first show that $X$ is blocking. A path avoiding $X$ must leave the first strip along the bottom row. Indeed, the sticky cells in column $2$ prevent it from crossing that column at any row from $3$ through $H-1$; it cannot reach the top row because $(1,H)$ is sticky, and it cannot leave the strip through row $2$ because $(3,2)$ is sticky.
+
+Suppose inductively that the path enters an intermediate strip in its bottom-left cell. The sticky cell at the top of the strip's first column prevents the path from reaching the top passage. The middle-column cells in (2) force it to use one of the bottom two rows, and the sticky cell $(3j,2)$ then forces it to leave along the bottom row. Thus the path enters every successive strip in its bottom-left cell.
+
+In the final strip, the same argument forces the path to cross its middle column in the bottom row. It then meets the sticky cell
+\[
+(H,1),
+\]
+so it cannot reach $F$. Hence $X$ is blocking.
+
+We now prove minimality. Fix any cell $P\in X$. There is a monotone path from $S$ to $F$ meeting $X$ only at $P$:
+
+\begin{itemize}
+\item If $P$ is the upper-left exceptional cell of its strip, follow the bottom row to that strip, climb its first column through $P$, continue to the top row, and then move right to $F$.
+\item If $P$ lies in the middle column of its strip, follow the bottom row to the strip's first column, climb to the row of $P$, move right through $P$ and into the strip's last column, climb to the top row, and then move right to $F$.
+\item If $P$ is the lower-right exceptional cell of its strip, follow the bottom row to the cell immediately below $P$, move upward through $P$, climb to the top row, and then move right to $F$. For the final cell $(H,1)$, simply follow the bottom row through it and then climb to $F$.
+\end{itemize}
+
+The coordinate ranges in (1)--(3) ensure that none of these paths meets another cell of $X$. Therefore removing any one cell from $X$ permits the frog to reach $F$, so $X$ is minimal.
+
+The first and last strips each contain
+\[
+H-1=3m-1
+\]
+cells of $X$, and every intermediate strip contains
+\[
+H-2=3m-2
+\]
+such cells. Hence
+\[
+\begin{aligned}
+|X|
+&=2(3m-1)+(m-2)(3m-2)\\
+&=3m^2-2m+2\\
+&\ge3m^2-3m.
+\end{aligned}
+\]
+This proves part (a).
+
+\textbf{Part (b).}
+
+Let $X$ be an arbitrary minimal blocking set. Colour a non-sticky cell red if the frog can reach it from $S$ without entering $X$. Colour a non-sticky cell blue if the frog can reach $F$ from it without entering $X$. Colour every cell of $X$ green.
+
+No cell is both red and blue, because such a cell would lie on an $S$-to-$F$ path avoiding $X$. Some cells may receive neither red nor blue.
+
+Let
+\[
+R,\qquad B,\qquad G
+\]
+be the numbers of red, blue, and green cells, respectively. Thus
+\[
+G=|X|.
+\]
+
+There are at most $2R$ directed hops leaving red cells. Every red cell other than $S$ is the endpoint of at least one such hop. Moreover, every green cell is the endpoint of a hop from a red cell: by minimality, for each $P\in X$ there is an $S$-to-$F$ path avoiding $X\setminus\{P\}$, and the cell immediately before $P$ on that path is red. Therefore
+\[
+2R\ge(R-1)+G,
+\]
+so
+\[
+G\le R+1.
+\tag{4}
+\]
+
+Turning the board through $180^\circ$ and applying the same argument to reverse paths gives
+\[
+G\le B+1.
+\tag{5}
+\]
+
+Since the board contains $9m^2$ cells,
+\[
+9m^2\ge R+B+G.
+\]
+Equations (4)--(5) imply
+\[
+R+B+G\ge(G-1)+(G-1)+G=3G-2.
+\]
+Consequently,
+\[
+3G-2\le9m^2.
+\]
+As $G$ is an integer,
+\[
+G\le3m^2.
+\]
+This proves part (b).
+
+SOLUTION 2:
+The construction for part (a) is the one given in Solution 1. We present the second official proof of the upper bound in part (b).
+
+Use the same red, blue, and green colouring as in Solution 1. Thus green cells are the cells of a minimal blocking set $X$, red cells are reachable from $S$, and blue cells can reach $F$.
+
+A minimal blocking set does not contain $S$. Every green cell has a red predecessor immediately below it or to its left, unless it is $S$, and it has a blue successor immediately above it or to its right, unless it is $F$. Indeed, after deleting a green cell, there is an $S$-to-$F$ path passing through it and avoiding all other green cells. The possible boundary exception at $F$ is simply an endpoint of its green chain.
+
+A local check gives two facts.
+
+\begin{enumerate}
+\item No $2\times2$ square contains three green cells. In one of the two possible configurations, one of the three green cells is redundant; in the other, the fourth cell would have to be both red and blue.
+\item Green cells can be partitioned into chains whose consecutive cells are joined horizontally, vertically, or along a northwest-to-southeast diagonal. The opposite diagonal is not used as a link.
+\end{enumerate}
+
+The colours forced around the three allowed links are, up to translation,
+\[
+\begin{array}{cc}
+G&B\\
+R&G
+\end{array},
+\qquad
+\begin{array}{cc}
+B&B\\
+G&G\\
+R&R
+\end{array},
+\qquad
+\begin{array}{ccc}
+R&G&B\\
+R&G&B
+\end{array}.
+\tag{1}
+\]
+Here rows in the arrays are displayed from top to bottom. The first pattern corresponds to a diagonal link, the second to a horizontal link, and the third to a vertical link. These patterns follow directly from reachability and reverse reachability. They also show that the linked components are non-branching chains.
+
+We assign to every green chain an axis-parallel rectangle containing it. The rectangles are chosen so that
+\[
+\text{number of green cells in the rectangle}
+\le
+\frac13\cdot\text{area of the rectangle}.
+\tag{2}
+\]
+
+Let a chain contain $\ell$ cells, and let its minimal bounding rectangle have width $a$ and height $b$.
+
+\textbf{Case 1: $\min(a,b)=1$.}
+The local patterns in (1) provide a red layer on one side and a blue layer on the other. Hence the chain is contained in an $\ell\times3$ or $3\times\ell$ rectangle. For an isolated green cell, one may choose a $1\times3$ or $3\times1$ rectangle. Thus (2) holds with equality.
+
+\textbf{Case 2: $\min(a,b)=2$.}
+A diagonal chain of length $2$ fits into a $2\times3$ or $3\times2$ rectangle containing no other green cell. A longer chain must contain a link parallel to its long side. The forbidden three-green configuration forces its change of level to be diagonal, so the chain has exactly $a$ cells when its bounding rectangle is $a\times2$; enlarging the rectangle to $a\times3$ proves (2). The case of a $2\times b$ rectangle is symmetric.
+
+\textbf{Case 3: $a,b\ge3$.}
+Orient the chain from its upper-left end to its lower-right end. Its links are rightward, downward, or diagonal down-right. If it has $d$ diagonal links, then
+\[
+\ell=a+b-1-d.
+\tag{3}
+\]
+
+If $d\ge2$, then
+\[
+\ell\le a+b-3\le\frac{ab}{3},
+\]
+because
+\[
+(a-3)(b-3)\ge0.
+\]
+Thus the minimal bounding rectangle itself satisfies (2).
+
+If $d=1$, then
+\[
+\ell=a+b-2.
+\]
+The chain has a horizontal end-link and a vertical end-link. The forced colours in (1) allow the bounding rectangle to be enlarged by one row and one column, in the directions of those end-links, without encountering another green cell. The resulting rectangle has area
+\[
+(a+1)(b+1),
+\]
+and
+\[
+a+b-2\le\frac{(a+1)(b+1)}3.
+\]
+Hence (2) again holds.
+
+Finally, the rectangles assigned to distinct chains are disjoint. To see this, use the forced red and blue cells in (1). Two such rectangles can meet only at a corner created by an enlargement. If both were enlarged in the same direction, that corner would be forced to have two different colours. If they were enlarged in different directions, their green chains would be linked and would therefore belong to the same chain. Both alternatives are impossible.
+
+The assigned rectangles are disjoint subsets of the $3m\times3m$ board. Summing (2) over all chains gives
+\[
+|X|
+\le
+\frac13\cdot9m^2
+=
+3m^2.
+\]
+This proves part (b).
+

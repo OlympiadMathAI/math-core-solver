@@ -1,0 +1,187 @@
+ID: 0358
+
+SOURCE: IMO Shortlist
+
+YEAR: 2021
+
+TOPIC: Number Theory
+
+SUBTOPICS: Laurent Polynomials, Rational Root Theorem, Geometric Transformations, Game Strategy
+
+STATEMENT:
+Alice is given a rational number $r>1$ and a line containing two distinct points $B$ and $R$. A red bead is placed at $R$, and a blue bead is placed at $B$.
+
+In one move, Alice chooses an integer $k$, which need not be positive, and chooses one bead. If the chosen bead is at $X$ and the other bead is at $Y$, she moves the chosen bead to the point $X'$ satisfying
+\[
+\overrightarrow{YX'}=r^k\overrightarrow{YX}.
+\]
+
+Alice's goal is to move the red bead to the original point $B$. Determine all rational numbers $r>1$ for which she can achieve this in at most $2021$ moves.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{
+r=\frac{b+1}{b}
+\quad\text{for}\quad
+b=1,2,\ldots,1010
+}.
+\]
+
+Choose coordinates on the line so that initially
+\[
+R=0,\qquad B=1.
+\]
+Because $r^k>0$, the red bead always remains to the left of the blue bead. Every move multiplies the distance between the beads by a power of $r$. Thus, after the $j$th move, the distance has the form
+\[
+d_j=r^{\alpha_j}
+\qquad(\alpha_j\in\mathbb Z),
+\]
+with
+\[
+d_0=1.
+\]
+
+If the same bead is moved in two consecutive moves, the two distance multipliers can be combined into one power of $r$. Hence any successful play can be shortened, if necessary, so that the two beads are moved alternately. The final move must move the red bead.
+
+Suppose first that the red bead is moved first and altogether $t$ times. Then the play has $2t-1$ moves, and the total displacement of the red bead is
+\[
+(d_0-d_1)+(d_2-d_3)+\cdots+(d_{2t-2}-d_{2t-1}).
+\]
+This displacement must equal $1$. Since $d_0=1$, we obtain
+\[
+d_1+d_3+\cdots+d_{2t-1}
+=
+d_2+d_4+\cdots+d_{2t-2}.
+\tag{1}
+\]
+The two sides of (1) contain $t$ and $t-1$ powers of $r$, respectively.
+
+If the blue bead is moved first and the red bead is moved $t$ times, then there are $2t$ moves and
+\[
+(d_1-d_2)+(d_3-d_4)+\cdots+(d_{2t-1}-d_{2t})=1.
+\]
+Treating $1$ as $r^0$, this again gives an equality between $t+1$ powers of $r$ and $t$ powers of $r$.
+
+Therefore a successful play in at most $2021$ moves yields an equation
+\[
+\sum_{i=1}^{N}r^{\beta_i}
+=
+\sum_{i=1}^{N-1}r^{\gamma_i},
+\qquad
+\beta_i,\gamma_i\in\mathbb Z,
+\tag{2}
+\]
+for some
+\[
+N\le1011.
+\]
+Conversely, any equation (2) can be used as the consecutive distances of an alternating play and makes the total displacement of the red bead equal to $1$. Equal powers may be added to both sides, so it is harmless to increase $N$ up to $1011$.
+
+We now determine the rational numbers $r$ for which (2) is possible. Write
+\[
+r=\frac ab
+\]
+in lowest terms, where
+\[
+a>b\ge1.
+\]
+Define the Laurent polynomial
+\[
+L(x)=
+\sum_{i=1}^{N}x^{\beta_i}
+-
+\sum_{i=1}^{N-1}x^{\gamma_i}.
+\]
+Then
+\[
+L\left(\frac ab\right)=0
+\qquad\text{and}\qquad
+L(1)=1.
+\]
+Choose an integer $d$ so large that
+\[
+P(x)=x^dL(x)\in\mathbb Z[x].
+\]
+We still have
+\[
+P\left(\frac ab\right)=0,
+\qquad
+P(1)=1.
+\tag{3}
+\]
+Furthermore, $P(-1)$ is the sum of $2N-1$ numbers, each equal to $1$ or $-1$. Hence it is a nonzero odd integer and
+\[
+1\le|P(-1)|\le2N-1\le2021.
+\tag{4}
+\]
+
+By the rational-root theorem, the primitive polynomial
+\[
+a-bx
+\]
+divides $P(x)$ in $\mathbb Z[x]$. Evaluating this divisibility at $x=1$ and using (3),
+\[
+a-b\mid P(1)=1.
+\]
+Since $a>b$,
+\[
+a-b=1.
+\tag{5}
+\]
+Evaluating at $x=-1$ and using (4),
+\[
+a+b\mid P(-1),
+\]
+so
+\[
+a+b\le2021.
+\tag{6}
+\]
+Equations (5)--(6) give
+\[
+a=b+1
+\qquad\text{and}\qquad
+b\le1010.
+\]
+
+It remains to prove that every such number works. Let
+\[
+r=\frac{b+1}{b}
+\qquad(1\le b\le1010)
+\]
+and put
+\[
+N=b+1.
+\]
+Then
+\[
+\underbrace{1+\cdots+1}_{N\text{ terms}}
+=
+\underbrace{r+\cdots+r}_{N-1=b\text{ terms}},
+\tag{7}
+\]
+because
+\[
+br=b+1=N.
+\]
+Equation (7) has the form (2). More explicitly, Alice may move the red bead first and alternate the beads while taking the distances
+\[
+d_0=1,\qquad
+d_{2j-1}=1\quad(1\le j\le N),
+\qquad
+d_{2j}=r\quad(1\le j\le N-1).
+\]
+Each transition is achievable because the ratio of two consecutive distances is a power of $r$. The red bead moves by
+\[
+1-N+(N-1)r
+=
+1-(b+1)+b\cdot\frac{b+1}{b}
+=
+1.
+\]
+The number of moves is
+\[
+2N-1=2b+1\le2021.
+\]
+Thus the red bead reaches the original point $B$, completing the proof.

@@ -1,0 +1,17 @@
+{
+  "id": "0331",
+  "source": "IMO Shortlist",
+  "year": "2021",
+  "topic": "Algebra",
+  "subtopics": [
+    "Extremal Sets",
+    "Pigeonhole Principle",
+    "Geometric Progressions",
+    "Contradiction"
+  ],
+  "statement": "Let $n$ be a positive integer, and let\n\\[\nA\\subseteq\\{0,1,2,\\ldots,5^n\\}\n\\]\ncontain $4n+2$ numbers. Prove that there exist\n\\[\na,b,c\\in A\n\\]\nsuch that\n\\[\na<b<c\n\\qquad\\text{and}\\qquad\nc+2a>3b.\n\\]",
+  "solutions": [
+    "Assume, for contradiction, that no such triple exists. Write the elements of $A$ in increasing order:\n\\[\nx_0<x_1<\\cdots<x_{4n+1}.\n\\]\nFor every $i=0,1,\\ldots,4n-1$, the triple\n\\[\nx_i<x_{i+1}<x_{4n+1}\n\\]\nmust violate the desired inequality. Hence\n\\[\nx_{4n+1}+2x_i\\le3x_{i+1},\n\\]\nor equivalently,\n\\[\nx_{4n+1}-x_i\n\\ge\n\\frac32\\bigl(x_{4n+1}-x_{i+1}\\bigr).\n\\tag{1}\n\\]\n\nIterating (1) gives\n\\[\nx_{4n+1}-x_i\n\\ge\n\\left(\\frac32\\right)^{4n-i}\n\\bigl(x_{4n+1}-x_{4n}\\bigr).\n\\]\nTaking $i=0$ and using the fact that two distinct integers differ by at least $1$, we obtain\n\\[\n\\begin{aligned}\nx_{4n+1}-x_0\n&\\ge\n\\left(\\frac32\\right)^{4n}\n\\bigl(x_{4n+1}-x_{4n}\\bigr)\\\\\n&\\ge\n\\left(\\frac{81}{16}\\right)^n\n>\n5^n.\n\\end{aligned}\n\\]\nHowever, both $x_0$ and $x_{4n+1}$ belong to\n\\[\n\\{0,1,\\ldots,5^n\\},\n\\]\nso\n\\[\nx_{4n+1}-x_0\\le5^n,\n\\]\na contradiction.\n\nTherefore the required three elements exist.",
+    "Let\n\\[\nc=\\max A.\n\\]\nFor each\n\\[\nk=0,1,\\ldots,4n-1,\n\\]\ndefine\n\\[\nA_k=\n\\left\\{\nx\\in A:\n\\left(1-\\left(\\frac23\\right)^k\\right)c\n\\le x<\n\\left(1-\\left(\\frac23\\right)^{k+1}\\right)c\n\\right\\}.\n\\tag{1}\n\\]\n\nWe claim that these $4n$ sets cover $A\\setminus\\{c\\}$. Their intervals begin at $0$, and the last upper endpoint is\n\\[\n\\begin{aligned}\n\\left(1-\\left(\\frac23\\right)^{4n}\\right)c\n&=\nc-\\left(\\frac{16}{81}\\right)^n c\\\\\n&>\nc-\\left(\\frac15\\right)^n c\\\\\n&\\ge c-1.\n\\end{aligned}\n\\]\nEvery integer in $A$ smaller than $c$ is at most $c-1$, so it belongs to one of the sets in (1).\n\nNow $A\\setminus\\{c\\}$ has $4n+1$ elements distributed among only $4n$ sets. By the pigeonhole principle, some $A_k$ contains two elements\n\\[\na<b.\n\\]\nThen $a<b<c$, and\n\\[\n\\begin{aligned}\nc+2a\n&\\ge\nc+2\\left(1-\\left(\\frac23\\right)^k\\right)c\\\\\n&=\n3\\left(1-\\left(\\frac23\\right)^{k+1}\\right)c\\\\\n&>\n3b.\n\\end{aligned}\n\\]\nThus $a,b,c$ have the required properties."
+  ]
+}

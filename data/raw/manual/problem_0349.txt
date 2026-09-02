@@ -1,0 +1,194 @@
+ID: 0349
+
+SOURCE: IMO Shortlist
+
+YEAR: 2021
+
+TOPIC: Geometry
+
+SUBTOPICS: Lattice Geometry, Polygon Areas, Central Symmetry, Cauchy-Schwarz
+
+STATEMENT:
+Let $n$ be a fixed positive integer, and let
+\[
+S=\{(x,y):x,y\in\mathbb Z,\ 0\le x,y<2n\}.
+\]
+Thus
+\[
+|S|=4n^2.
+\]
+
+\textbf{Version 1.}
+Suppose that $\mathcal F$ consists of $n^2$ quadrilaterals whose vertices lie in $S$, and every point of $S$ is a vertex of exactly one quadrilateral in $\mathcal F$. Determine the largest possible sum of the areas of the quadrilaterals.
+
+\textbf{Version 2.}
+Suppose that $\mathcal F$ is a collection of polygons whose vertices lie in $S$, and every point of $S$ is a vertex of exactly one polygon in $\mathcal F$. Determine the largest possible sum of the areas of the polygons.
+
+SOLUTION 1:
+For both versions, the maximum is
+\[
+\boxed{
+\Sigma(n)=\frac13n^2(2n+1)(2n-1)
+}.
+\tag{1}
+\]
+
+Let
+\[
+O=\left(n-\frac12,n-\frac12\right),
+\]
+the centre of the grid.
+
+For a polygon
+\[
+P=A_1A_2\cdots A_m,
+\qquad A_{m+1}=A_1,
+\]
+we have
+\[
+\begin{aligned}
+[P]
+&\le
+\sum_{i=1}^m[OA_iA_{i+1}]\\
+&\le
+\frac12\sum_{i=1}^m OA_i\cdot OA_{i+1}\\
+&\le
+\frac14\sum_{i=1}^m
+\left(OA_i^2+OA_{i+1}^2\right)\\
+&=
+\frac12\sum_{i=1}^m OA_i^2.
+\end{aligned}
+\tag{2}
+\]
+If $P$ is a square centred at $O$, equality holds throughout (2).
+
+Rotation through $90^\circ$ about $O$ maps $S$ to itself. Every orbit has four points, and those four points are the vertices of a square centred at $O$. Hence the points of $S$ are partitioned into
+\[
+n^2
+\]
+such central squares. Let $\mathcal G$ be this collection.
+
+For any admissible collection $\mathcal F$, summing (2) over all its polygons gives
+\[
+\sum_{P\in\mathcal F}[P]
+\le
+\frac12\sum_{A\in S}OA^2.
+\tag{3}
+\]
+For $\mathcal G$, equality holds in (3). Thus it remains only to compute the right-hand side.
+
+Put
+\[
+c=n-\frac12.
+\]
+Then
+\[
+\begin{aligned}
+\frac12\sum_{(x,y)\in S}
+\left((x-c)^2+(y-c)^2\right)
+&=
+2n\sum_{j=0}^{2n-1}(j-c)^2\\
+&=
+n\sum_{j=0}^{n-1}(2j+1)^2\\
+&=
+n\cdot\frac{n(2n-1)(2n+1)}3\\
+&=
+\frac13n^2(2n-1)(2n+1).
+\end{aligned}
+\]
+This is exactly (1), and the central squares attain it. The same construction is admissible in both versions.
+
+SOLUTION 2:
+This solution concerns Version 1.
+
+The answer is again
+\[
+\boxed{\frac13n^2(2n-1)(2n+1)}.
+\]
+
+For a quadrilateral $ABCD$, let $\phi$ be the angle between its diagonals. Then
+\[
+[ABCD]
+=
+\frac12 AC\cdot BD\,|\sin\phi|
+\le
+\frac14\left(AC^2+BD^2\right).
+\tag{1}
+\]
+
+Across all $n^2$ quadrilaterals, their two diagonals pair the $4n^2$ grid points into
+\[
+2n^2
+\]
+pairs. Write these pairs as
+\[
+A_i=(p_i,q_i),
+\qquad
+B_i=(r_i,s_i),
+\qquad
+1\le i\le2n^2.
+\]
+Every point of $S$ occurs exactly once among all the $A_i$ and $B_i$.
+
+We first bound the contribution of the first coordinates:
+\[
+\sum_{i=1}^{2n^2}(p_i-r_i)^2
+=
+2\sum_{i=1}^{2n^2}(p_i^2+r_i^2)
+-
+\sum_{i=1}^{2n^2}(p_i+r_i)^2.
+\tag{2}
+\]
+Each integer $0,1,\ldots,2n-1$ occurs exactly $2n$ times among the first coordinates of all endpoints. Hence
+\[
+\sum_{i=1}^{2n^2}(p_i^2+r_i^2)
+=
+2n\sum_{j=0}^{2n-1}j^2
+\tag{3}
+\]
+and
+\[
+\sum_{i=1}^{2n^2}(p_i+r_i)
+=
+2n\sum_{j=0}^{2n-1}j
+=
+2n^2(2n-1).
+\tag{4}
+\]
+By Cauchy--Schwarz,
+\[
+\sum_{i=1}^{2n^2}(p_i+r_i)^2
+\ge
+\frac{\left(2n^2(2n-1)\right)^2}{2n^2}.
+\tag{5}
+\]
+Substituting (3)--(5) into (2) gives
+\[
+\sum_{i=1}^{2n^2}(p_i-r_i)^2
+\le
+\frac{2n^2(2n-1)(2n+1)}3.
+\tag{6}
+\]
+The same estimate holds for the second coordinates. Therefore
+\[
+\sum_{i=1}^{2n^2}A_iB_i^2
+\le
+\frac{4n^2(4n^2-1)}3.
+\tag{7}
+\]
+
+Summing (1) over all quadrilaterals and using (7),
+\[
+\sum_{P\in\mathcal F}[P]
+\le
+\frac14\cdot
+\frac{4n^2(4n^2-1)}3
+=
+\frac13n^2(2n-1)(2n+1).
+\]
+
+Equality is attained by partitioning $S$ into the orbits of the rotation through $90^\circ$ about
+\[
+O=\left(n-\frac12,n-\frac12\right).
+\]
+Each orbit is a square centred at $O$; its two diagonals join centrally symmetric points. These $n^2$ squares therefore attain the bound.

@@ -1,0 +1,170 @@
+ID: 0332
+
+SOURCE: IMO Shortlist
+
+YEAR: 2021
+
+TOPIC: Algebra
+
+SUBTOPICS: Floor Sums, Greatest Common Divisors, Modular Arithmetic, Primality Characterization
+
+STATEMENT:
+For an integer $n\ge1$, consider the $n\times n$ table whose entry in row $i$ and column $j$ is
+\[
+\left\lfloor\frac{ij}{n+1}\right\rfloor
+\qquad(1\le i,j\le n).
+\]
+Determine all $n$ for which the sum of the $n^2$ entries is
+\[
+\frac14n^2(n-1).
+\]
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{n+1\text{ is prime}.}
+\]
+
+Let
+\[
+S=\sum_{i=1}^{n}\sum_{j=1}^{n}
+\left\lfloor\frac{ij}{n+1}\right\rfloor.
+\]
+If two real numbers $x,y$ have integral sum, then
+\[
+\lfloor x\rfloor+\lfloor y\rfloor\ge x+y-1,
+\tag{1}
+\]
+with equality unless both $x$ and $y$ are integers.
+
+Replacing $i$ by $n+1-i$ in one copy of the sum gives
+\[
+\begin{aligned}
+2S
+&=
+\sum_{i=1}^{n}\sum_{j=1}^{n}
+\left(
+\left\lfloor\frac{ij}{n+1}\right\rfloor+
+\left\lfloor\frac{(n+1-i)j}{n+1}\right\rfloor
+\right)\\
+&\ge
+\sum_{i=1}^{n}\sum_{j=1}^{n}(j-1)\\
+&=
+\frac12n^2(n-1).
+\end{aligned}
+\tag{2}
+\]
+Thus
+\[
+S\ge\frac14n^2(n-1).
+\tag{3}
+\]
+
+Equality in (3) holds exactly when none of the numbers
+\[
+\frac{ij}{n+1},
+\qquad 1\le i,j\le n,
+\]
+is an integer.
+
+If $n+1$ is composite, write
+\[
+n+1=ab
+\]
+with
+\[
+2\le a,b\le n.
+\]
+Then $ij/(n+1)$ is integral for $i=a,j=b$, so the inequality in (2) is strict.
+
+Conversely, if $n+1$ is prime, it cannot divide any product $ij$ with
+\[
+1\le i,j\le n.
+\]
+Hence equality holds in every application of (1), and
+\[
+S=\frac14n^2(n-1).
+\]
+
+Therefore the required integers are precisely those for which $n+1$ is prime.
+
+SOLUTION 2:
+Again let $S_i$ be the sum of row $i$, and add a phantom column $j=0$, whose entry is $0$.
+
+Fix $i\in\{1,\ldots,n\}$, and put
+\[
+d=\gcd(i,n+1),
+\qquad
+q=\frac{n+1}{d}.
+\]
+For $j=0,1,\ldots,n$, let $r_j$ be the least nonnegative residue of $ij$ modulo $n+1$.
+
+For each
+\[
+g=1,2,\ldots,d,
+\]
+the $q$ residues corresponding to
+\[
+(g-1)q\le j\le gq-1
+\]
+are a permutation of
+\[
+0,d,2d,\ldots,(q-1)d.
+\tag{1}
+\]
+Indeed, all of them are multiples of $d$. If two were equal, then
+\[
+n+1\mid i(j_1-j_2),
+\]
+so
+\[
+q\mid j_1-j_2.
+\]
+Within one block of $q$ consecutive indices this forces $j_1=j_2$, proving (1).
+
+It follows that
+\[
+\begin{aligned}
+\sum_{j=0}^{n}r_j
+&=
+d\sum_{\ell=0}^{q-1}\ell d\\
+&=
+\frac{(n+1-d)(n+1)}2.
+\end{aligned}
+\tag{2}
+\]
+Therefore
+\[
+\begin{aligned}
+S_i
+&=
+\sum_{j=0}^{n}\left\lfloor\frac{ij}{n+1}\right\rfloor\\
+&=
+\sum_{j=0}^{n}\frac{ij-r_j}{n+1}\\
+&=
+\frac{in-n-1+d}{2}.
+\end{aligned}
+\tag{3}
+\]
+Since $d\ge1$,
+\[
+S_i\ge\frac{n(i-1)}2,
+\tag{4}
+\]
+and equality holds exactly when
+\[
+\gcd(i,n+1)=1.
+\]
+
+Summing (4) over all rows gives
+\[
+S\ge
+\sum_{i=1}^{n}\frac{n(i-1)}2
+=
+\frac14n^2(n-1).
+\]
+Equality holds exactly when every integer
+\[
+1\le i\le n
+\]
+is coprime to $n+1$, which is equivalent to $n+1$ being prime.

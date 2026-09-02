@@ -1,0 +1,16 @@
+{
+  "id": "0355",
+  "source": "IMO Shortlist",
+  "year": "2021",
+  "topic": "Number Theory",
+  "subtopics": [
+    "Cube-Free Integers",
+    "Modular Arithmetic",
+    "Prime Valuations",
+    "Divisibility"
+  ],
+  "statement": "Determine all integers $n\\ge1$ for which there exist positive integers $a,b$ such that no cube of a prime divides\n\\[\na^2+b+3\n\\]\nand\n\\[\n\\frac{ab+3b+8}{a^2+b+3}=n.\n\\]",
+  "solutions": [
+    "The answer is\n\\[\n\\boxed{n=2}.\n\\]\n\nPut\n\\[\nD=a^2+b+3.\n\\]\nBecause\n\\[\nb\\equiv-a^2-3\\pmod D,\n\\]\nwe have\n\\[\n\\begin{aligned}\nab+3b+8\n&\\equiv\na(-a^2-3)+3(-a^2-3)+8\\\\\n&=-(a+1)^3\n\\pmod D.\n\\end{aligned}\n\\]\nThus, if the displayed fraction is an integer, then\n\\[\nD\\mid(a+1)^3.\n\\tag{1}\n\\]\n\nNo prime cube divides $D$. Hence, for every prime $p$, the exponent of $p$ in $D$ is at most $2$. From (1), it follows prime by prime that\n\\[\nD\\mid(a+1)^2.\n\\tag{2}\n\\]\nIndeed, if $p^e\\mid D$ with $e\\in\\{1,2\\}$, then\n\\[\n3v_p(a+1)\\ge e,\n\\]\nso $v_p(a+1)\\ge1$ and therefore\n\\[\n2v_p(a+1)\\ge e.\n\\]\n\nFurthermore,\n\\[\n0<(a+1)^2<2D,\n\\]\nbecause\n\\[\n2D-(a+1)^2=(a-1)^2+2b+4>0.\n\\]\nTogether with (2), this forces\n\\[\n(a+1)^2=D=a^2+b+3.\n\\]\nConsequently,\n\\[\nb=2(a-1).\n\\]\nSubstituting this into the numerator,\n\\[\nab+3b+8\n=\n2(a-1)(a+3)+8\n=\n2(a+1)^2\n=\n2D.\n\\]\nTherefore\n\\[\nn=2.\n\\]\n\nConversely, take\n\\[\n(a,b)=(2,2).\n\\]\nThen\n\\[\na^2+b+3=9,\n\\]\nwhich is not divisible by the cube of any prime, and\n\\[\n\\frac{ab+3b+8}{a^2+b+3}\n=\n\\frac{18}{9}\n=\n2.\n\\]\nHence $n=2$ is indeed attainable."
+  ]
+}

@@ -1,0 +1,130 @@
+ID: 0343
+
+SOURCE: IMO Shortlist
+
+YEAR: 2021
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Circular Binary Sequences, Pigeonhole Principle, Periodic Sums, Extremal Arguments
+
+STATEMENT:
+Let $n$ and $k$ be integers with
+\[
+n>k\ge1.
+\]
+There are $2n+1$ students standing in a circle. Each student has $2k$ neighbours: the $k$ closest students on the right and the $k$ closest students on the left.
+
+Suppose that $n+1$ of the students are girls and the other $n$ are boys. Prove that some girl has at least $k$ girls among her neighbours.
+
+SOLUTION 1:
+Represent girls by $1$ and boys by $0$. This gives a circular binary sequence
+\[
+a_1,a_2,\ldots,a_{2n+1},
+\]
+which we extend periodically to all integer indices.
+
+For every integer $i$, define
+\[
+b_i=a_i+a_{i-k-1}-1.
+\]
+Then
+\[
+b_i\in\{-1,0,1\}.
+\]
+Since every period of the sequence $(a_i)$ contains $n+1$ ones,
+\[
+\sum_{i=t+1}^{t+2n+1}b_i
+=
+2(n+1)-(2n+1)
+=
+1
+\tag{1}
+\]
+for every integer $t$. In particular, some $b_i$ equals $1$.
+
+We claim that there is an index $i$ such that
+\[
+b_i=1
+\qquad\text{and}\qquad
+b_{i+1}+b_{i+2}+\cdots+b_{i+k}\ge0.
+\tag{2}
+\]
+Indeed, (2) gives
+\[
+a_i=a_{i-k-1}=1
+\]
+and
+\[
+\begin{aligned}
+0
+&\le
+\sum_{j=1}^k b_{i+j}\\
+&=
+\sum_{j=1}^k a_{i+j}
++
+\sum_{j=1}^k a_{i+j-k-1}
+-k\\
+&=
+\left(a_{i+1}+\cdots+a_{i+k}\right)
++
+\left(a_{i-k}+\cdots+a_{i-1}\right)
+-k.
+\end{aligned}
+\]
+Thus the girl at position $i$ has at least $k$ girls among her $2k$ neighbours.
+
+It remains to prove the claim. Suppose, for contradiction, that whenever $b_i=1$,
+\[
+b_{i+1}+\cdots+b_{i+k}<0.
+\tag{3}
+\]
+Choose an index $i_0$ with $b_{i_0}=1$. Recursively, let $i_{j+1}$ be the smallest index satisfying
+\[
+i_{j+1}>i_j+k
+\qquad\text{and}\qquad
+b_{i_{j+1}}=1.
+\]
+Such an index always exists because $(b_i)$ is periodic and has sum $1$ over every period.
+
+Among the $2n+2$ indices
+\[
+i_0,i_1,\ldots,i_{2n+1},
+\]
+two are congruent modulo $2n+1$. After discarding an initial part of the sequence and relabelling, we may assume that
+\[
+i_T\equiv i_0\pmod{2n+1}
+\]
+for some $T>0$.
+
+For $0\le j<T$, put
+\[
+S_j=\sum_{r=i_j}^{i_{j+1}-1}b_r.
+\]
+By the minimality of $i_{j+1}$, all terms
+\[
+b_{i_j+k+1},\ldots,b_{i_{j+1}-1}
+\]
+are nonpositive. Using (3),
+\[
+S_j
+\le
+b_{i_j}+b_{i_j+1}+\cdots+b_{i_j+k}
+\le0.
+\tag{4}
+\]
+
+On the other hand,
+\[
+2n+1\mid i_T-i_0.
+\]
+Equation (1) therefore gives
+\[
+S_0+\cdots+S_{T-1}
+=
+\sum_{r=i_0}^{i_T-1}b_r
+=
+\frac{i_T-i_0}{2n+1}
+>0,
+\]
+contradicting (4). Hence an index satisfying (2) exists, and the proof is complete.
