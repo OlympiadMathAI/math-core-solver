@@ -1,0 +1,282 @@
+ID: 0384
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Geometry
+
+SUBTOPICS: Homothety, Spiral Similarity, Desargues' Theorem, Miquel Points, Circle Orthogonality
+
+STATEMENT:
+Let $ABC$ be a triangle, and let $\ell_1,\ell_2$ be two parallel lines.
+
+For $i=1,2$, let $\ell_i$ meet the lines $BC,CA,AB$ at $X_i,Y_i,Z_i$, respectively. The line through $X_i$ perpendicular to $BC$, the line through $Y_i$ perpendicular to $CA$, and the line through $Z_i$ perpendicular to $AB$ form a nondegenerate triangle $\Delta_i$.
+
+Prove that the circumcircles of
+\[
+\Delta_1
+\qquad\text{and}\qquad
+\Delta_2
+\]
+are tangent to each other.
+
+SOLUTION 1:
+We use directed angles modulo $180^\circ$. The argument is written for the generic position in which none of $X_i,Y_i,Z_i$ is a vertex of $ABC$; the exceptional cases follow by the same parallel-line relations, or equivalently by a limiting argument.
+
+For $i=1,2$, denote the vertices of $\Delta_i$ by $D_i,E_i,F_i$ so that
+
+\[
+E_iF_i
+\]
+is the perpendicular through $X_i$ to $BC$,
+
+\[
+F_iD_i
+\]
+is the perpendicular through $Y_i$ to $CA$, and
+
+\[
+D_iE_i
+\]
+is the perpendicular through $Z_i$ to $AB$.
+
+Let
+\[
+\omega_i=(D_iE_iF_i).
+\]
+
+The triangles
+\[
+D_1Y_1Z_1
+\qquad\text{and}\qquad
+D_2Y_2Z_2
+\]
+have pairwise parallel corresponding sides: $Y_1Z_1\parallel Y_2Z_2$, both $D_iY_i$ are perpendicular to $AC$, and both $D_iZ_i$ are perpendicular to $AB$. They are therefore homothetic. Since
+\[
+Y_1Y_2\cap Z_1Z_2=A,
+\]
+their homothety centre is $A$. Applying the same argument cyclically gives
+\[
+\begin{gathered}
+A,D_1,D_2\ \text{are collinear},\\
+B,E_1,E_2\ \text{are collinear},\\
+C,F_1,F_2\ \text{are collinear}.
+\end{gathered}
+\tag{1}
+\]
+
+The corresponding sides of $\Delta_1$ and $\Delta_2$ are parallel. Thus the two triangles are either homothetic or translates. We show that they cannot be translates.
+
+The quadrilaterals
+\[
+B,X_2,E_2,Z_2
+\qquad\text{and}\qquad
+C,X_2,F_2,Y_2
+\]
+are cyclic, because the relevant angles at $X_2,Z_2,Y_2$ are right angles. Using (1), the collinearity of $X_2,Y_2,Z_2$, and the perpendicular definitions, we obtain
+\[
+\begin{aligned}
+\measuredangle(E_1E_2,F_1F_2)
+&=
+\measuredangle(BE_2,BX_2)
++
+\measuredangle(CX_2,CF_2)\\
+&=
+\measuredangle(Z_2E_2,Z_2X_2)
++
+\measuredangle(Y_2X_2,Y_2F_2)\\
+&=
+\measuredangle(Z_2E_2,\ell_2)
++
+\measuredangle(\ell_2,Y_2F_2)\\
+&=
+\measuredangle(Z_2E_2,Y_2F_2)\\
+&=
+\measuredangle(AB,AC)\ne0.
+\end{aligned}
+\tag{2}
+\]
+Hence $E_1E_2$ and $F_1F_2$ are not parallel. Therefore $\Delta_1$ and $\Delta_2$ are homothetic. Let $H$ be their homothety centre. By (1),
+\[
+H\in D_1D_2\cap E_1E_2\cap F_1F_2.
+\]
+
+We now prove that
+\[
+H\in\omega_1\cap\omega_2.
+\]
+For each $i$, the quadrilateral
+\[
+A,Y_i,D_i,Z_i
+\]
+is cyclic, again because of two right angles. Therefore, using (2),
+\[
+\begin{aligned}
+\measuredangle(HE_i,HF_i)
+&=
+\measuredangle(E_1E_2,F_1F_2)\\
+&=
+\measuredangle(AB,AC)\\
+&=
+\measuredangle(AZ_i,AY_i)\\
+&=
+\measuredangle(D_iZ_i,D_iY_i)\\
+&=
+\measuredangle(D_iE_i,D_iF_i).
+\end{aligned}
+\]
+Thus
+\[
+H,D_i,E_i,F_i
+\]
+are concyclic, so $H\in\omega_i$.
+
+The homothety centred at $H$ that maps $\Delta_1$ to $\Delta_2$ also maps $\omega_1$ to $\omega_2$. Since $H$ belongs to both circles, their tangent lines at $H$ correspond to one another under a homothety centred at $H$ and therefore coincide. Hence
+\[
+\omega_1
+\qquad\text{and}\qquad
+\omega_2
+\]
+are tangent at $H$.
+
+SOLUTION 2:
+We again write the proof in generic position; coincident-vertex cases follow by continuity.
+
+For $i=1,2$, denote the vertices of $\Delta_i$ by $D_i,E_i,F_i$ so that
+\[
+E_iF_i\perp BC,\qquad
+F_iD_i\perp CA,\qquad
+D_iE_i\perp AB,
+\]
+with these three sides passing through $X_i,Y_i,Z_i$, respectively.
+
+The triangles $D_1Y_1Z_1$ and $D_2Y_2Z_2$ have pairwise parallel corresponding sides and are homothetic about $A$. Thus $A,D_1,D_2$ are collinear. Applying the same argument at $B$ and $C$ gives
+\[
+A,D_1,D_2\ \text{collinear},\qquad
+B,E_1,E_2\ \text{collinear},\qquad
+C,F_1,F_2\ \text{collinear}.
+\tag{1}
+\]
+
+For each $i$, the corresponding sides of triangles
+\[
+ABC
+\qquad\text{and}\qquad
+D_iE_iF_i
+\]
+are perpendicular. Hence there is a direct spiral similarity with rotation angle $\pm90^\circ$ that sends
+\[
+A\mapsto D_i,\qquad
+B\mapsto E_i,\qquad
+C\mapsto F_i.
+\]
+Let $M_i$ be its centre. Then
+\[
+\angle AM_iD_i
+=
+\angle BM_iE_i
+=
+\angle CM_iF_i
+=
+90^\circ.
+\tag{2}
+\]
+
+The circle with diameter $AD_i$ contains $M_i,Y_i,Z_i$, so
+\[
+M_i,A,Y_i,Z_i,D_i
+\]
+are concyclic. Similarly,
+\[
+M_i,B,X_i,Z_i,E_i
+\]
+and
+\[
+M_i,C,X_i,Y_i,F_i
+\]
+are cyclic.
+
+These three circles show, by the Miquel theorem applied to the four lines
+\[
+AB,\ BC,\ CA,\ \ell_i,
+\]
+that
+\[
+M_i\in(ABC).
+\]
+Applying Miquel's theorem instead to the three sidelines of $\Delta_i$ together with $\ell_i$ gives
+\[
+M_i\in(D_iE_iF_i).
+\tag{3}
+\]
+
+The intersections of corresponding sides of triangles $ABC$ and $D_iE_iF_i$ are
+\[
+Z_i,\qquad X_i,\qquad Y_i,
+\]
+which are collinear on $\ell_i$. By the converse of Desargues' theorem, the lines
+\[
+AD_i,\qquad BE_i,\qquad CF_i
+\]
+are concurrent. By (1), this concurrence point is the same for $i=1,2$; call it $H$.
+
+We show that $H$ lies on both relevant circumcircles. First,
+\[
+\begin{aligned}
+\measuredangle(CB,CH)
+&=
+\measuredangle(CX_i,CF_i)\\
+&=
+\measuredangle(Y_iX_i,Y_iF_i)\\
+&=
+\measuredangle(Y_iZ_i,Y_iD_i)\\
+&=
+\measuredangle(AZ_i,AD_i)\\
+&=
+\measuredangle(AB,AH).
+\end{aligned}
+\]
+Thus
+\[
+A,B,C,H
+\]
+are concyclic.
+
+Similarly,
+\[
+\begin{aligned}
+\measuredangle(F_iD_i,F_iH)
+&=
+\measuredangle(F_iY_i,F_iC)\\
+&=
+\measuredangle(X_iY_i,X_iC)\\
+&=
+\measuredangle(X_iZ_i,X_iB)\\
+&=
+\measuredangle(E_iZ_i,E_iB)\\
+&=
+\measuredangle(E_iD_i,E_iH),
+\end{aligned}
+\]
+so
+\[
+D_i,E_i,F_i,H\ \text{are concyclic}.
+\tag{4}
+\]
+
+By (3), the spiral similarity centred at $M_i$ maps two circles that both pass through $M_i$. Its rotation angle is $\pm90^\circ$, so the circles
+\[
+(ABC)
+\qquad\text{and}\qquad
+(D_iE_iF_i)
+\]
+meet orthogonally. At their other common point $H$, the tangent to $(D_iE_iF_i)$ is therefore the radius through $H$ of the fixed circle $(ABC)$.
+
+This same radius is tangent at $H$ to both
+\[
+(D_1E_1F_1)
+\qquad\text{and}\qquad
+(D_2E_2F_2).
+\]
+Hence these two circles are tangent to each other at $H$.

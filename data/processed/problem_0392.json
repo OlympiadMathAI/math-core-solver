@@ -1,0 +1,16 @@
+{
+  "id": "0392",
+  "source": "IMO Shortlist",
+  "year": "2022",
+  "topic": "Number Theory",
+  "subtopics": [
+    "Decimal Digits",
+    "Cyclic Rotations",
+    "Modular Arithmetic",
+    "Double Counting"
+  ],
+  "statement": "For each\n\\[\ni\\in\\{1,2,\\ldots,9\\}\n\\]\nand each positive integer $T$, let $d_i(T)$ be the total number of occurrences of the digit $i$ when all positive multiples of $1829$ not exceeding $T$ are written in base $10$.\n\nProve that there are infinitely many positive integers $T$ for which precisely two distinct values occur among\n\\[\nd_1(T),d_2(T),\\ldots,d_9(T).\n\\]",
+  "solutions": [
+    "Put\n\\[\nn=1829.\n\\]\nSince $\\gcd(n,10)=1$, there are arbitrarily large positive integers $k$ such that\n\\[\nn\\mid10^k-1;\n\\]\nfor example, every positive multiple of $\\varphi(n)$ has this property.\n\nFix such a $k$. We prove that either\n\\[\nT=10^k-1\n\\qquad\\text{or}\\qquad\nT=10^k-2\n\\]\nhas the required property.\n\nIt is enough to establish\n\\[\n\\left|\n\\{d_i(10^k-1):1\\le i\\le9\\}\n\\right|\n\\le2.\n\\tag{1}\n\\]\nIf the cardinality in (1) equals $2$, then $T=10^k-1$ works. If it equals $1$, remove the largest multiple\n\\[\n10^k-1,\n\\]\nwhose decimal representation consists of $k$ digits equal to $9$. Then\n\\[\nd_i(10^k-2)=d_i(10^k-1)\n\\qquad(1\\le i\\le8),\n\\]\nwhereas\n\\[\nd_9(10^k-2)=d_9(10^k-1)-k.\n\\]\nThus exactly two values occur for $T=10^k-2$.\n\nWe now prove (1). Write every integer between $1$ and $10^k-1$ using exactly $k$ digits, allowing leading zeroes. If\n\\[\nN=\\overline{a_{k-1}a_{k-2}\\cdots a_0},\n\\]\nlet\n\\[\nN'=\\overline{a_{k-2}\\cdots a_0a_{k-1}}\n\\]\nbe its cyclic left shift. Then\n\\[\n10N-N'=(10^k-1)a_{k-1}.\n\\]\nSince $n\\mid10^k-1$,\n\\[\nn\\mid N\n\\quad\\Longleftrightarrow\\quad\nn\\mid N'.\n\\tag{2}\n\\]\nThus the set of positive multiples of $n$ not exceeding $10^k-1$ is invariant under cyclic permutation of the $k$ digit positions.\n\nFix a digit\n\\[\ni\\in\\{1,\\ldots,9\\}.\n\\]\nBy double counting pairs consisting of a multiple and a position occupied by $i$, the cyclic symmetry gives\n\\[\nd_i(10^k-1)\n=\nk\\,u_i,\n\\tag{3}\n\\]\nwhere $u_i$ is the number of $k$-digit strings beginning with $i$ that represent a multiple of $n$.\n\nThose strings represent precisely the integers in the interval\n\\[\n[i10^{k-1},(i+1)10^{k-1}-1],\n\\]\nwhich contains $10^{k-1}$ consecutive integers. The number of multiples of $n$ in any interval of this length is either\n\\[\n\\left\\lfloor\\frac{10^{k-1}}n\\right\\rfloor\n\\qquad\\text{or}\\qquad\n1+\\left\\lfloor\\frac{10^{k-1}}n\\right\\rfloor.\n\\]\nTherefore the nine values $u_i$, and hence by (3) the nine values\n\\[\nd_i(10^k-1),\n\\]\nassume at most two distinct values. This proves (1).\n\nSince suitable values of $k$ can be arbitrarily large, the resulting values of $T$ are infinite in number."
+  ]
+}

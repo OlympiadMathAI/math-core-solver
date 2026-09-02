@@ -1,0 +1,277 @@
+ID: 0390
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Number Theory
+
+SUBTOPICS: Dynamical Sequences, Modular Arithmetic, Finite-State Periodicity, Base Expansions
+
+STATEMENT:
+Let $a>1$ and $d>1$ be coprime positive integers. Define
+\[
+x_1=1
+\]
+and, for every $k\ge1$,
+\[
+x_{k+1}=
+\begin{cases}
+x_k+d,&a\nmid x_k,\\[2mm]
+x_k/a,&a\mid x_k.
+\end{cases}
+\]
+
+Find the greatest positive integer $n$ for which there exists an index $k$ such that
+\[
+a^n\mid x_k.
+\]
+
+SOLUTION 1:
+Let $n_0$ be the unique positive integer satisfying
+\[
+a^{n_0-1}<d<a^{n_0},
+\]
+or equivalently,
+\[
+d<a^{n_0}<ad.
+\tag{1}
+\]
+The answer is
+\[
+\boxed{n_0}.
+\]
+
+First observe by induction that
+\[
+\gcd(x_k,d)=1
+\qquad(k\ge1).
+\tag{2}
+\]
+
+We also claim that every term satisfies
+\[
+0<x_k<ad,
+\tag{3}
+\]
+and that every term which is either $x_1$ or is produced by a division is smaller than $d$.
+
+Indeed, $x_1=1<d$. Starting from any term smaller than $d$, successive additions of $d$ encounter a multiple of $a$ after at most $a-1$ additions, because $\gcd(a,d)=1$. All intermediate terms are smaller than
+\[
+d+(a-1)d=ad.
+\]
+Dividing such a multiple by $a$ produces a new term smaller than $d$. This proves the claim.
+
+If $a^r\mid x_k$, then (3) gives
+\[
+a^r<ad.
+\]
+By (1),
+\[
+a^{n_0+1}>ad,
+\]
+so necessarily
+\[
+r\le n_0.
+\tag{4}
+\]
+
+It remains to prove that the value $a^{n_0}$ is actually reached.
+
+The sequence is bounded and integer-valued, so it is eventually periodic. Both additions and divisions occur infinitely often: additions alone would make the sequence unbounded, while infinitely many consecutive divisions are impossible for a positive integer.
+
+Modulo $d$, an addition changes nothing, while a division by $a$ multiplies the residue by $a^{-1}$. Hence, after successive divisions, the sequence contains terms congruent modulo $d$ to
+\[
+1,a^{-1},a^{-2},\ldots.
+\]
+The powers of $a$ modulo $d$ are periodic, so one of these residues is
+\[
+a^{n_0}\pmod d.
+\]
+Let $x_{k_0}$ be the first term of the sequence with
+\[
+x_{k_0}\equiv a^{n_0}\pmod d.
+\tag{5}
+\]
+If $k_0>1$, the preceding step cannot have been an addition, because that would give the same residue one term earlier. Thus $x_{k_0}$ is either $x_1$ or is produced by a division, and therefore
+\[
+x_{k_0}<d.
+\]
+Together with (1) and (5), this gives
+\[
+x_{k_0}=a^{n_0}-jd
+\]
+for some
+\[
+j\in\{1,2,\ldots,a-1\}.
+\tag{6}
+\]
+
+None of the numbers
+\[
+a^{n_0}-jd,\,
+a^{n_0}-(j-1)d,\,
+\ldots,\,
+a^{n_0}-d
+\]
+is divisible by $a$, because $\gcd(a,d)=1$ and the coefficients of $d$ lie between $1$ and $a-1$. Therefore the next $j$ operations are additions, and the sequence reaches
+\[
+a^{n_0}.
+\]
+Combining this with (4), the greatest possible exponent is $n_0$.
+
+SOLUTION 2:
+Let $n_0$ again be determined by
+\[
+a^{n_0-1}<d<a^{n_0}.
+\tag{1}
+\]
+Induction gives
+\[
+\gcd(x_k,d)=1
+\qquad(k\ge1).
+\]
+Also, after every division the resulting term is smaller than $d$, and from such a term at most $a-1$ additions occur before the next division. Hence every term lies in the finite set
+\[
+U=\{x\in\mathbb Z_{>0}:x<ad,\ \gcd(x,d)=1\}.
+\tag{2}
+\]
+
+Every $y\in U$ has at most one possible predecessor in $U$ under the recurrence. Indeed:
+
+\begin{itemize}
+\item if $y<d$, an additive predecessor $y-d$ is not positive, so the only possible predecessor is $ay$;
+\item if $y>d$, a divisive predecessor $ay$ is at least $ad$, so the only possible predecessor is $y-d$;
+\item the value $y=d$ does not belong to $U$.
+\end{itemize}
+
+Since the sequence takes values in the finite set $U$, some value repeats. Let $x_s$ be the first term which repeats an earlier value, say
+\[
+x_s=x_r
+\qquad(r<s).
+\]
+If $r>1$, then $x_{r-1}$ and $x_{s-1}$ would be two predecessors in $U$ of the same value. By uniqueness,
+\[
+x_{r-1}=x_{s-1},
+\]
+contradicting the minimality of $s$. Therefore
+\[
+r=1,
+\]
+so the sequence returns to
+\[
+x_1=1.
+\]
+
+Read the recurrence backwards from this return. Since
+\[
+1,a,a^2,\ldots,a^{n_0-1}<d,
+\]
+the unique predecessor in $U$ of $a^j$ is $a^{j+1}$ for
+\[
+0\le j<n_0.
+\]
+Thus the sequence contains
+\[
+a^{n_0}.
+\]
+
+On the other hand, every term is smaller than $ad$, and
+\[
+a^{n_0+1}>ad.
+\]
+Hence no term can be divisible by $a^{n_0+1}$. The greatest exponent is therefore
+\[
+\boxed{n_0}.
+\]
+
+SOLUTION 3:
+Let $n_0$ be the integer satisfying
+\[
+a^{n_0-1}<d<a^{n_0}.
+\tag{1}
+\]
+Every term is coprime to $d$ and smaller than $ad$: after a division the new term is smaller than $d$, and from such a term at most $a-1$ additions occur before the next division.
+
+The sequence also returns to $1$. Indeed, its orbit is finite. Within the set of possible values, a number $y<d$ can only have the predecessor $ay$, while a number $y>d$ can only have the predecessor $y-d$. Thus every possible value has at most one predecessor in the bounded orbit. At the first repetition, tracing this unique predecessor backwards shows that the repeated earlier term must be the initial value $1$.
+
+List the values immediately after successive division steps during one full period:
+\[
+y_0=1,y_1,\ldots,y_v=1.
+\]
+Between $y_j$ and the next division, let $z_j$ additions occur. Since at most $a-1$ consecutive additions are possible,
+\[
+z_j\in\{0,1,\ldots,a-1\},
+\]
+and
+\[
+y_{j+1}=\frac{y_j+z_jd}{a}.
+\tag{2}
+\]
+
+Iterating (2) gives
+\[
+y_v
+=
+\frac{
+1+d\left(z_0+z_1a+\cdots+z_{v-1}a^{v-1}\right)
+}{a^v}.
+\]
+Since $y_v=1$,
+\[
+\frac{a^v-1}{d}
+=
+z_0+z_1a+\cdots+z_{v-1}a^{v-1}.
+\tag{3}
+\]
+
+If $n_0=1$, the term immediately preceding the return to $1$ is $a$, so the desired value is already present. Assume
+\[
+n_0\ge2.
+\]
+From (1),
+\[
+d>a^{n_0-1},
+\]
+and therefore
+\[
+0<
+\frac{a^v-1}{d}
+<
+a^{v-n_0+1}.
+\tag{4}
+\]
+The left-hand side of (3) is a positive integer, so (4) first implies
+\[
+v\ge n_0.
+\]
+The right-hand side of (3) is the base-$a$ expansion with digits $z_j$. Inequality (4) then implies
+\[
+z_{v-n_0+1}=z_{v-n_0+2}=\cdots=z_{v-1}=0.
+\tag{5}
+\]
+
+Thus the final $n_0$ division steps of the period are consecutive. From
+\[
+y_v=1
+\]
+and (2), equation (5) yields
+\[
+y_{v-1}=a,\quad
+y_{v-2}=a^2,\quad\ldots,\quad
+y_{v-n_0+1}=a^{n_0-1}.
+\]
+The term immediately before the division producing
+\[
+y_{v-n_0+1}
+\]
+is therefore
+\[
+a^{n_0}.
+\]
+Hence the sequence reaches $a^{n_0}$.
+
+Since every term is smaller than $ad<a^{n_0+1}$, no larger exponent can occur. Therefore the answer is
+\[
+\boxed{n_0}.
+\]

@@ -1,0 +1,231 @@
+ID: 0376
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Pebble Processes, Binary Expansion, Greatest Common Divisors, Reverse Moves
+
+STATEMENT:
+Initially there are $n$ piles, each containing one pebble. A move consists of choosing two piles, removing the same positive number of pebbles from each, and forming a new pile from all the removed pebbles.
+
+For each positive integer $n$, determine the smallest number of nonempty piles that can remain after finitely many moves.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{
+\begin{cases}
+1,&n\text{ is a power of }2,\\
+2,&n\text{ is not a power of }2.
+\end{cases}
+}
+\]
+
+If $n=2^r$, repeatedly combine two equal piles completely:
+\[
+2^r\text{ piles of size }1
+\longrightarrow
+2^{r-1}\text{ piles of size }2
+\longrightarrow\cdots\longrightarrow
+1\text{ pile of size }2^r.
+\]
+Thus one pile is attainable when $n$ is a power of $2$.
+
+Now suppose
+\[
+2^r<n<2^{r+1},
+\qquad
+m=n-2^r.
+\]
+First use $2^r$ of the original singleton piles to form one large pile of size $2^r$, leaving $m$ singleton piles.
+
+Perform the following operation exactly
+\[
+2^r-m
+\]
+times. On the first occasion, take one pebble from the large pile and the pebble from one singleton pile, forming a pile of size $2$. On every later occasion, take one pebble from the large pile and one pebble from the current pile of size $2$, again forming a new pile of size $2$.
+
+At the end, the large pile has size $m$. There is one pile of size $2$, and there are
+\[
+(m-1)+(2^r-m-1)=2^r-2
+\]
+singleton piles. Pair these singleton piles to form
+\[
+2^{r-1}-1
+\]
+more piles of size $2$. Together with the existing one, there are $2^{r-1}$ piles of size $2$, and these can be combined into a single pile of size $2^r$. We are left with exactly two piles, of sizes
+\[
+m\qquad\text{and}\qquad2^r.
+\]
+Hence two piles are always attainable.
+
+It remains to prove that one pile is impossible when $n$ is not a power of $2$. Let $d>1$ be an odd divisor of $n$. Include empty piles of size $0$ in the configuration.
+
+Suppose a move changes
+\[
+a,\ b,\ 0
+\quad\text{into}\quad
+a-c,\ b-c,\ 2c.
+\]
+If all pile sizes after the move are divisible by $d$, then
+\[
+d\mid2c.
+\]
+Since $d$ is odd, $d\mid c$, and then
+\[
+d\mid a,\qquad d\mid b.
+\]
+Thus, whenever all pile sizes after a move are divisible by $d$, all pile sizes before the move were also divisible by $d$.
+
+If the process ended with a single pile of size $n$, every final pile size would be divisible by $d$. Reversing the preceding implication through all moves would show that every initial pile size is divisible by $d$, contradicting the initial size $1$.
+
+Therefore one pile is possible exactly for powers of $2$.
+
+SOLUTION 2:
+We give another construction of two piles when $n$ is not a power of $2$.
+
+Write the binary expansion
+\[
+n=2^{i_1}+2^{i_2}+\cdots+2^{i_t},
+\qquad
+i_1>i_2>\cdots>i_t,
+\qquad
+t\ge2.
+\]
+Using disjoint groups of singleton piles, first construct piles of precisely these sizes. Call the pile of size $2^{i_1}$ the \emph{large pile}; all the others are \emph{small piles}. If there is only one small pile, we are already done.
+
+While at least two small piles remain, choose the two smallest, of sizes $x\le y$.
+
+If $x=y$, combine them completely to obtain one pile of size $2x$.
+
+If $x<y$, use the large pile to double the smaller pile: remove all $x$ pebbles from that small pile and remove $x$ pebbles from the large pile, forming a new small pile of size $2x$. Since all small sizes are powers of $2$,
+\[
+2x\le y.
+\]
+After finitely many such doublings, the two smallest piles become equal and can be combined. Thus the number of small piles eventually decreases, and the process ends with one small pile.
+
+We verify that the large pile never becomes empty. Maintain the following invariant for the multiset of small piles:
+\[
+\text{the sum of all small piles except a largest one is at most that largest one.}
+\tag{1}
+\]
+It holds initially because the small sizes are distinct powers of $2$.
+
+Let the two smallest sizes be $x\le y$, and let the current largest small size be $M$.
+
+If $x<y$, then $x$ is the unique smallest size, while every other small size is divisible by $2x$. Thus the sum of all non-largest small piles is congruent to $x$ modulo $2x$, whereas $M$ is divisible by $2x$. By (1), that sum is at most $M-x$. Replacing $x$ by $2x$ therefore preserves (1).
+
+If $x=y<M$, combining them into $2x\le M$ leaves the sum of the non-largest piles unchanged. If $x=y=M$, then (1) shows that there are exactly two small piles, and their combination is the final small pile of size $2M$.
+
+Consequently, the largest small size never exceeds $2^{i_2}$ before the final combination, and the final small pile has size at most
+\[
+2^{i_2+1}.
+\]
+The total size of the small piles never decreases. Its increase is exactly the number of pebbles transferred from the large pile. Hence the final size of the large pile is at least
+\[
+n-2^{i_2+1}>0,
+\]
+because
+\[
+i_1\ge i_2+1
+\qquad\text{and}\qquad
+n>2^{i_1}.
+\]
+Therefore the construction is legal and leaves two nonempty piles.
+
+The odd-divisor argument from the beginning can be stated independently as follows: if all pile sizes after a move are divisible by an odd integer $d$, then all pile sizes before the move are divisible by $d$. Since a non-power of $2$ has an odd divisor greater than $1$, a final single pile would force the initial singleton piles to be divisible by that odd divisor. This is impossible.
+
+SOLUTION 3:
+We characterize all configurations from which the original singleton configuration can be reached by reversing moves.
+
+A \emph{reverse move} takes a pile of even size $2a$, splits it into two halves of size $a$, and adds those halves to two different piles, which are allowed to be empty.
+
+For a configuration $\mathcal C$, let $|\mathcal C|$ be its number of nonempty piles. Call $\mathcal C$
+
+\begin{itemize}
+\item \emph{simple} if every nonempty pile has size $1$;
+\item \emph{good} if it has an even-sized pile and the gcd of all its pile sizes has no odd divisor greater than $1$;
+\item \emph{solvable} if a simple configuration can be reached from it by reverse moves.
+\end{itemize}
+
+\textbf{Lemma 1.}
+Suppose one reverse move changes $\mathcal C$ into $\mathcal C'$. If $\mathcal C'$ has no nontrivial odd common divisor, then neither does $\mathcal C$. The converse also holds whenever
+\[
+|\mathcal C'|\ge|\mathcal C|.
+\]
+
+\textit{Proof.}
+Suppose the move replaces piles of sizes
+\[
+2a,\ b,\ c
+\]
+by piles of sizes
+\[
+a+b,\qquad a+c,
+\]
+where $b,c$ may be zero.
+
+If an odd $d>1$ divides $2a,b,c$, then it divides $a,b,c$ and hence both new sizes. This proves the first assertion by contraposition.
+
+For the converse, the inequality of pile counts means that at least one of $b,c$ is zero. If an odd $d>1$ divides both $a+b$ and $a+c$, one of these numbers is $a$, so $d\mid a$, and then $d\mid b,c,2a$. $\square$
+
+In particular, every solvable configuration has no nontrivial odd common divisor, because a simple configuration has this property.
+
+\textbf{Lemma 2.}
+Every good configuration can be changed by reverse moves into a simple or good configuration having more nonempty piles.
+
+\textit{Proof.}
+Suppose, for contradiction, that a good configuration $\mathcal C$ is a counterexample.
+
+We first claim that $\mathcal C$ has exactly one even pile, say of size $A$, and that
+\[
+a_j\equiv\frac A2\pmod{2^r}
+\tag{1}
+\]
+for every other pile size $a_j$ and every $r\ge1$.
+
+Split $A$ into two empty piles. The number of nonempty piles increases, and Lemma 1 preserves the absence of an odd common divisor. Since $\mathcal C$ is a counterexample, the resulting configuration cannot be good. Hence all its piles are odd. Thus $A/2$ and every $a_j$ are odd, proving (1) for $r=1$ and also proving uniqueness of the even pile.
+
+Assume (1) has been proved modulo $2^{r-1}$. Split $A$ and add one half to a chosen pile $a_j$, while putting the other half into an empty pile. The new pile
+\[
+a_j+\frac A2
+\]
+is even, and Lemma 1 shows that the new configuration is good. It is again a counterexample, since otherwise the original one would not be. Applying the induction hypothesis to this new configuration gives
+\[
+\frac A2
+\equiv
+\frac12\left(a_j+\frac A2\right)
+\pmod{2^{r-1}},
+\]
+and hence
+\[
+a_j\equiv\frac A2\pmod{2^r}.
+\]
+This proves (1).
+
+Since (1) holds for every $r$, all the other piles have size exactly $A/2$. Write
+\[
+A=2u.
+\]
+The integer $u$ is odd and divides every pile size. The odd-divisor condition forces $u=1$. Thus the configuration consists of one pile of size $2$ and all other piles of size $1$. Splitting the pile of size $2$ into two empty piles produces a simple configuration with more nonempty piles, contradicting the assumption. $\square$
+
+\textbf{Lemma 3.}
+A configuration is solvable if and only if it is simple or good.
+
+\textit{Proof.}
+A nonsimple solvable configuration must admit a first reverse move, so it has an even pile; it also has no nontrivial odd common divisor by Lemma 1. Hence it is good.
+
+Conversely, starting from a good configuration, repeatedly apply Lemma 2. The number of nonempty piles strictly increases and is bounded by the total number of pebbles, so the process must eventually reach a simple configuration. $\square$
+
+Now consider a configuration consisting of one pile of size $n$. By Lemma 3, it is solvable exactly when either $n=1$, or $n$ is even and has no odd divisor greater than $1$. This is exactly the condition that $n$ be a power of $2$.
+
+For every $n\ge2$, the two-pile configuration
+\[
+(2,n-2),
+\]
+with a zero pile omitted when $n=2$, is good: it has an even pile and its pile sizes have no common odd divisor. Hence it is solvable.
+
+Reversing the reverse-move sequence, the initial $n$ singleton piles can reach one pile exactly for powers of $2$, and can always reach two piles otherwise. This proves the stated answer.

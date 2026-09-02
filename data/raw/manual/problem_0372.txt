@@ -1,0 +1,113 @@
+ID: 0372
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Dynamical Processes, Block Decomposition, Cyclic Configurations, Extremal Arguments
+
+STATEMENT:
+The Bank of Oslo issues coins made of aluminium, denoted by $A$, and copper, denoted by $C$. Morgane has $n$ aluminium coins and $n$ copper coins, arranged in a row.
+
+Fix an integer
+\[
+1\le k\le2n.
+\]
+At every step, Morgane finds the maximal consecutive block of coins of one metal that contains the $k$th coin from the left, removes that entire block, and places it at the left end of the row.
+
+Determine all pairs $(n,k)$ for which, from every initial arrangement, the process eventually reaches an arrangement having at most one adjacent pair consisting of coins of different metals.
+
+SOLUTION 1:
+The required pairs are exactly
+\[
+\boxed{
+n\le k\le\left\lfloor\frac{3n+1}{2}\right\rfloor
+}.
+\]
+
+Call a maximal consecutive string of coins of one metal a \emph{block}. An arrangement has at most one adjacent pair of unlike metals exactly when it consists of two blocks, one containing all $A$-coins and the other all $C$-coins.
+
+We first prove necessity.
+
+If $k<n$, the arrangement
+\[
+A^{\,n-1}C^{\,n-1}AC
+\]
+never changes: its $k$th coin belongs to the first block, which is already at the left end. It has four blocks, so such a pair $(n,k)$ does not work.
+
+Now suppose
+\[
+k>\frac{3n+1}{2}.
+\]
+Set
+\[
+a=k-n-1,
+\qquad
+b=2n-k+1.
+\]
+Then $a,b$ are positive and
+\[
+a+b=n.
+\]
+Moreover,
+\[
+2a+b=k-1<k
+\]
+and
+\[
+2b+a=3n-k+1<k.
+\]
+Starting from
+\[
+A^aC^bA^bC^a,
+\]
+the operation successively gives
+\[
+\begin{aligned}
+A^aC^bA^bC^a
+&\longrightarrow C^aA^aC^bA^b\\
+&\longrightarrow A^bC^aA^aC^b\\
+&\longrightarrow C^bA^bC^aA^a\\
+&\longrightarrow A^aC^bA^bC^a.
+\end{aligned}
+\]
+Thus the process is periodic and always has four blocks. Hence the upper inequality is also necessary.
+
+It remains to prove sufficiency. Assume
+\[
+n\le k\le\frac{3n+1}{2}.
+\tag{1}
+\]
+The number of blocks can never increase. Moving an interior block makes its two neighbouring blocks, which have the same metal, merge. Moving the rightmost block to the left also causes a merger whenever the first and last blocks have the same metal.
+
+Suppose an arrangement has $c\ge3$ blocks. The leftmost block cannot be moved unless it contains all $n$ coins of its metal, because $k\ge n$; in that exceptional case there are already only two blocks. An interior block decreases the number of blocks. If the rightmost block is moved and $c$ is odd, then the first and last blocks have the same metal, so again the number of blocks decreases.
+
+Consequently, the only way for the number of blocks to remain unchanged is that $c\ge4$ is even and the rightmost block is moved. Suppose, for contradiction, that this happens forever. Write the block sizes as
+\[
+a_1,a_2,\ldots,a_c.
+\]
+Repeatedly moving the rightmost block merely rotates these blocks, so every block eventually becomes the rightmost one. For a rightmost block of size $a_i$ to contain the $k$th coin, we must have
+\[
+k\ge2n-a_i+1.
+\]
+Summing these $c$ inequalities and using
+\[
+a_1+\cdots+a_c=2n,
+\]
+we obtain
+\[
+ck\ge c(2n+1)-2n,
+\]
+and hence
+\[
+k\ge2n+1-\frac{2n}{c}
+\ge\frac{3n}{2}+1.
+\]
+This contradicts (1), because
+\[
+\frac{3n}{2}+1>\frac{3n+1}{2}.
+\]
+
+Therefore, whenever more than two blocks remain, their number decreases after finitely many steps. Repeating this argument eventually leaves exactly two blocks. Hence all pairs in the displayed range work.

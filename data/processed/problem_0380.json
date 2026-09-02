@@ -1,0 +1,17 @@
+{
+  "id": "0380",
+  "source": "IMO Shortlist",
+  "year": "2022",
+  "topic": "Geometry",
+  "subtopics": [
+    "Congruent Triangles",
+    "Similar Triangles",
+    "Cyclic Quadrilaterals",
+    "Homothety"
+  ],
+  "statement": "Let $ABCDE$ be a convex pentagon such that\n\\[\nBC=DE.\n\\]\nAssume that there is a point $T$ inside $ABCDE$ satisfying\n\\[\nTB=TD,\\qquad TC=TE,\n\\qquad\n\\angle TBA=\\angle AET.\n\\]\nThe lines $CD$ and $CT$ meet line $AB$ at $P$ and $Q$, respectively, while the lines $CD$ and $DT$ meet line $AE$ at $R$ and $S$, respectively.\n\nAssume that\n\\[\nP,B,A,Q\n\\qquad\\text{and}\\qquad\nR,E,A,S\n\\]\noccur in these orders on their respective lines.\n\nProve that\n\\[\nP,S,Q,R\n\\]\nare concyclic.",
+  "solutions": [
+    "We use directed angles modulo $180^\\circ$ whenever convenient.\n\nThe triangles\n\\[\nTBC\n\\qquad\\text{and}\\qquad\nTDE\n\\]\nare congruent by SSS, because\n\\[\nTB=TD,\\qquad TC=TE,\\qquad BC=DE.\n\\]\nHence\n\\[\n\\angle BTC=\\angle DTE.\n\\tag{1}\n\\]\n\nNow consider triangles $TBQ$ and $TES$. Since $B,Q,A,P$ are collinear and $E,S,A,R$ are collinear,\n\\[\n\\angle TBQ=\\angle TBA=\\angle AET=\\angle SET.\n\\]\nAlso, because $Q,T,C$ and $S,T,D$ are collinear,\n\\[\n\\angle QTB\n=\n180^\\circ-\\angle BTC\n=\n180^\\circ-\\angle DTE\n=\n\\angle ETS.\n\\]\nTherefore\n\\[\n\\triangle TBQ\\sim\\triangle TES.\n\\]\nIt follows that\n\\[\n\\frac{TB}{TE}=\\frac{TQ}{TS}.\n\\]\nUsing $TB=TD$ and $TE=TC$, we obtain\n\\[\nTD\\cdot TS=TC\\cdot TQ.\n\\tag{2}\n\\]\nSince $C,T,Q$ are collinear and $D,T,S$ are collinear, equation (2) proves that\n\\[\nC,D,Q,S\n\\]\nare concyclic.\n\nThe similarity above also gives\n\\[\n\\angle BQT=\\angle TSE.\n\\tag{3}\n\\]\nUsing the cyclic quadrilateral $CDQS$, the orders of the points, and (3), we get\n\\[\n\\begin{aligned}\n\\angle RPQ\n&=\n\\angle RCQ-\\angle PQC\\\\\n&=\n\\angle DSQ-\\angle DSR\\\\\n&=\n\\angle RSQ.\n\\end{aligned}\n\\]\nThus\n\\[\n\\angle RPQ=\\angle RSQ,\n\\]\nwhich is exactly the cyclicity criterion for $P,Q,R,S$.",
+    "Again,\n\\[\n\\triangle TBC\\cong\\triangle TDE,\n\\tag{1}\n\\]\nso in particular\n\\[\n\\angle BTC=\\angle DTE.\n\\]\n\nLet\n\\[\nV=DT\\cap BA,\n\\qquad\nW=CT\\cap EA.\n\\]\nWe first prove that\n\\[\nV,S,Q,W\n\\]\nare concyclic.\n\nIndeed,\n\\[\n\\begin{aligned}\n\\angle VSW\n&=\\angle DSE\\\\\n&=\n180^\\circ-\\angle SED-\\angle EDS\\\\\n&=\n180^\\circ-\\angle AET-\\angle TED-\\angle EDT\\\\\n&=\n180^\\circ-\\angle TBA-\\angle TCB-\\angle CBT\\\\\n&=\n180^\\circ-\\angle QCB-\\angle CBQ\\\\\n&=\n\\angle BQC\\\\\n&=\n\\angle VQW.\n\\end{aligned}\n\\]\nHence $V,S,Q,W$ are concyclic, and therefore\n\\[\n\\angle WVQ=\\angle WSQ.\n\\tag{2}\n\\]\n\nNext,\n\\[\n\\angle VTB\n=\n180^\\circ-\\angle BTC-\\angle CTD\n=\n180^\\circ-\\angle CTD-\\angle DTE\n=\n\\angle ETW,\n\\]\nwhile\n\\[\n\\angle TBV=\\angle TBA=\\angle AET=\\angle WET.\n\\]\nThus\n\\[\n\\triangle VTB\\sim\\triangle WTE.\n\\]\nConsequently,\n\\[\n\\frac{VT}{WT}\n=\n\\frac{BT}{ET}\n=\n\\frac{DT}{CT},\n\\]\nwhere the last equality follows from (1). Hence triangles $TVW$ and $TDC$ are similar, so\n\\[\nVW\\parallel CD.\n\\tag{3}\n\\]\n\nFinally, since $P,R\\in CD$, $P,Q,V\\in AB$, and $R,S,W\\in AE$, equations (2)--(3) yield\n\\[\n\\angle RPQ\n=\n\\angle WVQ\n=\n\\angle WSQ\n=\n\\angle RSQ.\n\\]\nTherefore $P,Q,R,S$ are concyclic."
+  ]
+}

@@ -1,0 +1,184 @@
+ID: 0368
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Algebra
+
+SUBTOPICS: Functional Equations, Rational Slopes, Fractional Parts, Counterexample Construction
+
+STATEMENT:
+Let $\mathbb R$ be the set of real numbers, and let $\mathcal F$ be the set of all functions
+\[
+f:\mathbb R\to\mathbb R
+\]
+satisfying
+\[
+f(x+f(y))=f(x)+f(y)
+\tag{1}
+\]
+for all real numbers $x,y$.
+
+Find all rational numbers $q$ such that, for every $f\in\mathcal F$, there exists a real number $z$ satisfying
+\[
+f(z)=qz.
+\]
+
+SOLUTION 1:
+The required rational numbers are
+\[
+\boxed{
+q=\frac{m+1}{m}
+\quad\text{for some }m\in\mathbb Z\setminus\{0\}
+}.
+\]
+
+Let $\mathcal Z$ be the set of rational numbers having the required property, and put
+\[
+\mathcal S=
+\left\{
+\frac{m+1}{m}:m\in\mathbb Z\setminus\{0\}
+\right\}.
+\]
+We prove both inclusions.
+
+\textbf{Step 1: $\mathcal S\subseteq\mathcal Z$.}
+
+Fix $f\in\mathcal F$ and write
+\[
+c=f(0).
+\]
+Putting $(x,y)=(0,0)$ in (1),
+\[
+f(c)=2c.
+\]
+Putting $(x,y)=(0,c)$ then gives
+\[
+f(2c)=3c.
+\]
+Inductively,
+\[
+f(mc)=(m+1)c
+\qquad(m\ge1).
+\tag{2}
+\]
+Indeed, if (2) holds for $m$, then equation (1) with $(x,y)=(0,mc)$ gives
+\[
+f((m+1)c)=c+f(mc)=(m+2)c.
+\]
+
+Putting $(x,y)=(-c,0)$ in (1), we obtain
+\[
+f(-c)=0.
+\]
+If, for some $k\ge1$,
+\[
+f(-kc)=(1-k)c,
+\]
+then equation (1) with $(x,y)=(-(k+1)c,0)$ gives
+\[
+f(-kc)=f(-(k+1)c)+c,
+\]
+and therefore
+\[
+f(-(k+1)c)=-kc.
+\]
+Induction yields
+\[
+f(mc)=(m+1)c
+\qquad(m\le-1).
+\tag{3}
+\]
+
+Let
+\[
+q=\frac{m+1}{m}\in\mathcal S.
+\]
+If $c=0$, then $z=0$ satisfies $f(z)=qz$. If $c\ne0$, take
+\[
+z=mc.
+\]
+Equations (2)--(3) give
+\[
+f(z)=(m+1)c=qmc=qz.
+\]
+Thus $q\in\mathcal Z$.
+
+\textbf{Step 2: $\mathcal Z\subseteq\mathcal S$.}
+
+Let $p\in\mathbb Q\setminus\mathcal S$. We construct a function $f\in\mathcal F$ for which
+\[
+f(z)\ne pz
+\qquad(z\in\mathbb R).
+\]
+
+We first need a simple lemma.
+
+\textbf{Lemma.} For every $\alpha\in[0,1)$, there is an integer $m$ such that
+\[
+m+n\ne p(\alpha+n)
+\qquad\text{for every }n\in\mathbb Z.
+\tag{4}
+\]
+
+If $p=1$, choose any integer $m\ne\alpha$, and (4) is immediate. Suppose $p\ne1$. If no such $m$ existed, then for every integer $m$ the number
+\[
+\frac{m-p\alpha}{p-1}
+\]
+would be an integer. Taking two consecutive values of $m$ would imply
+\[
+\frac1{p-1}\in\mathbb Z.
+\]
+Thus
+\[
+p=1+\frac1t=\frac{t+1}{t}
+\]
+for some nonzero integer $t$, contrary to $p\notin\mathcal S$. The lemma follows.
+
+For each $\alpha\in[0,1)$, choose an integer $g(\alpha)$ satisfying (4), and define
+\[
+f(x)=g(\{x\})+\lfloor x\rfloor,
+\tag{5}
+\]
+where $\{x\}=x-\lfloor x\rfloor$ is the fractional part of $x$.
+
+The value $f(y)$ is always an integer. Hence
+\[
+\{x+f(y)\}=\{x\}
+\]
+and
+\[
+\lfloor x+f(y)\rfloor=\lfloor x\rfloor+f(y).
+\]
+Using (5),
+\[
+\begin{aligned}
+f(x+f(y))
+&=g(\{x\})+\lfloor x\rfloor+f(y)\\
+&=f(x)+f(y).
+\end{aligned}
+\]
+Thus $f\in\mathcal F$.
+
+Finally, write any real number as
+\[
+z=\alpha+n,
+\qquad
+\alpha\in[0,1),\ n\in\mathbb Z.
+\]
+Then the defining property of $g(\alpha)$ gives
+\[
+f(z)=g(\alpha)+n\ne p(\alpha+n)=pz.
+\]
+Therefore $p\notin\mathcal Z$.
+
+We conclude that
+\[
+\boxed{
+\mathcal Z=
+\left\{
+\frac{m+1}{m}:m\in\mathbb Z\setminus\{0\}
+\right\}
+}.
+\]

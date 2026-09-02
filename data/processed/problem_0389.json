@@ -1,0 +1,16 @@
+{
+  "id": "0389",
+  "source": "IMO Shortlist",
+  "year": "2022",
+  "topic": "Number Theory",
+  "subtopics": [
+    "Factorials",
+    "Prime Divisibility",
+    "Extremal Primes",
+    "Prime Gaps"
+  ],
+  "statement": "Find all positive integers $n>2$ such that\n\\[\nn!\n\\mid\n\\prod_{\\substack{p<q\\le n\\\\ p,q\\text{ prime}}}(p+q).\n\\]",
+  "solutions": [
+    "The only solution is\n\\[\n\\boxed{n=7}.\n\\]\n\nSuppose that $n$ satisfies the condition, and list the primes not exceeding $n$ as\n\\[\n2=p_1<p_2<\\cdots<p_m.\n\\]\nSince $p_m\\mid n!$, the assumed divisibility implies that $p_m$ divides at least one factor\n\\[\np_i+p_j\n\\qquad(i<j).\n\\]\nNeither summand can equal $p_m$, because then the other summand would have to be divisible by $p_m$. Hence\n\\[\n0<p_i+p_j<2p_m.\n\\]\nIt follows that\n\\[\np_i+p_j=p_m.\n\\]\nThe right-hand side is odd, so one of the two summands is $2$. Therefore\n\\[\np_m=p_{m-1}+2.\n\\tag{1}\n\\]\n\nApply the same argument to $p_{m-1}$. It divides some sum $p_k+p_\\ell$, and\n\\[\n0<\n\\frac{p_k+p_\\ell}{p_{m-1}}\n\\le\n\\frac{p_m+p_{m-1}}{p_{m-1}}\n=\n2+\\frac2{p_{m-1}}\n<3.\n\\]\nThus\n\\[\np_k+p_\\ell=p_{m-1}\n\\qquad\\text{or}\\qquad\np_k+p_\\ell=2p_{m-1}.\n\\]\n\nIn the first case, parity gives\n\\[\np_{m-1}=2+p_{m-2}.\n\\]\nIn the second case, one summand must be larger than $p_{m-1}$, and hence it must be\n\\[\np_m=p_{m-1}+2.\n\\]\nThe other summand is then\n\\[\n2p_{m-1}-p_m=p_{m-1}-2=p_{m-2}.\n\\]\nThus in either case\n\\[\np_{m-2},\\qquad p_{m-2}+2,\\qquad p_{m-2}+4\n\\]\nare three consecutive odd primes in the list.\n\nOne of three odd integers differing successively by $2$ is divisible by $3$. Since all three are prime, the divisible one must be $3$. Therefore\n\\[\np_{m-2}=3,\\qquad p_{m-1}=5,\\qquad p_m=7.\n\\]\nHence\n\\[\n7\\le n<11.\n\\]\n\nFor all $n$ in this range, the product in the statement is\n\\[\n\\begin{aligned}\n&(2+3)(2+5)(2+7)(3+5)(3+7)(5+7)\\\\\n&\\qquad=\n5\\cdot7\\cdot9\\cdot8\\cdot10\\cdot12\\\\\n&\\qquad=\n2^6\\cdot3^3\\cdot5^2\\cdot7.\n\\end{aligned}\n\\]\nThis is divisible by\n\\[\n7!=2^4\\cdot3^2\\cdot5\\cdot7,\n\\]\nbut it is not divisible by $8!$, whose $2$-adic valuation is $7$. Therefore $n=8,9,10$ do not work, while $n=7$ does.\n\nConsequently,\n\\[\n\\boxed{n=7}\n\\]\nis the unique solution."
+  ]
+}

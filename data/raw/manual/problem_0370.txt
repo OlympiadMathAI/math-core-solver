@@ -1,0 +1,495 @@
+ID: 0370
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Algebra
+
+SUBTOPICS: Functional Sequences, Periodicity, Classification, Integer Products, Exponential Growth
+
+STATEMENT:
+For a positive integer $n$, an \emph{$n$-sequence} is a sequence
+\[
+(a_0,a_1,\ldots,a_n)
+\]
+of nonnegative integers satisfying the following condition: whenever $i,j$ are nonnegative integers with $i+j\le n$, one has
+\[
+a_i+a_j\le n
+\qquad\text{and}\qquad
+a_{a_i+a_j}=a_{i+j}.
+\tag{1}
+\]
+Let $f(n)$ be the number of $n$-sequences. Prove that there are positive real constants $c_1,c_2,\lambda$ such that
+\[
+c_1\lambda^n<f(n)<c_2\lambda^n
+\]
+for every positive integer $n$.
+
+SOLUTION 1:
+We prove that the assertion holds with
+\[
+\boxed{\lambda=3^{1/6}}.
+\]
+In fact, we classify all $n$-sequences and then estimate their number.
+
+Put
+\[
+k=\left\lfloor\frac n2\right\rfloor.
+\]
+Call an $n$-sequence \emph{large} if $a_i>k$ for some $i$, and \emph{small} otherwise. We first study a nonidentity sequence, meaning that $a_i\ne i$ for at least one index.
+
+\textbf{Lemma 1.}
+If
+\[
+a_r=a_s
+\qquad\text{and}\qquad
+r,s<n,
+\]
+then
+\[
+a_{r+1}=a_{s+1}.
+\]
+
+\textit{Proof.}
+Using (1) with the pairs $(r,1)$ and $(s,1)$,
+\[
+a_{r+1}=a_{a_r+a_1}=a_{a_s+a_1}=a_{s+1}.
+\]
+
+\textbf{Lemma 2.}
+If $i\le k$, then
+\[
+a_i\le k.
+\]
+
+\textit{Proof.}
+Since $2i\le n$, condition (1) applied to $(i,i)$ gives
+\[
+2a_i\le n.
+\]
+
+\textbf{Lemma 3.}
+There are distinct indices $r,s$ such that
+\[
+a_r=a_s.
+\]
+
+\textit{Proof.}
+If $a_0\ne0$, condition (1) for $(0,0)$ gives
+\[
+a_{2a_0}=a_0,
+\]
+and $2a_0\ne0$. If $a_0=0$, then (1) for $(i,0)$ gives
+\[
+a_{a_i}=a_i.
+\]
+Choose $i$ with $a_i\ne i$; then the two distinct indices $i$ and $a_i$ have equal values.
+
+Let $r$ be the smallest index for which
+\[
+a_s=a_r
+\]
+for some $s>r$, and let $d$ be the smallest positive integer satisfying
+\[
+a_{r+d}=a_r.
+\]
+
+\textbf{Lemma 4.}
+The sequence has the following structure.
+
+\begin{enumerate}
+\item The tail
+\[
+a_r,a_{r+1},\ldots,a_n
+\]
+is periodic with minimal period $d$. More precisely, for $u<v$,
+\[
+a_u=a_v
+\quad\Longleftrightarrow\quad
+u,v\ge r\ \text{ and }\ d\mid v-u.
+\tag{2}
+\]
+\item One has
+\[
+a_i=i\quad(i<r),
+\qquad
+a_i\ge r\quad(i\ge r).
+\tag{3}
+\]
+\end{enumerate}
+
+\textit{Proof.}
+Lemma 1 propagates the equality $a_r=a_{r+d}$ forward, so
+\[
+a_{r+t}=a_{r+d+t}
+\]
+whenever both indices are at most $n$. Thus the tail is periodic with period $d$.
+
+Suppose that $a_u=a_v$ for $r\le u<v$. Reduce both indices modulo $d$ to indices
+\[
+r\le u_0,v_0<r+d.
+\]
+If $u_0\ne v_0$, say $u_0<v_0$, then Lemma 1 propagates
+\[
+a_{u_0}=a_{v_0}
+\]
+forward by $r+d-v_0$ places and gives
+\[
+a_{r+d+u_0-v_0}=a_{r+d}=a_r.
+\]
+The new index lies strictly between $r$ and $r+d$, contradicting the minimality of $d$. Hence $u_0=v_0$, proving (2). The minimality of $r$ excludes any other repeated value before $r$.
+
+If $r>0$, the equality $a_{2a_0}=a_0$ from Lemma 3 forces $a_0=0$. Then
+\[
+a_{a_i}=a_i.
+\]
+For $i<r$, the minimality of $r$ forces $a_i=i$. If $i\ge r$ but $a_i<r$, the equality $a_{a_i}=a_i$ would create a repeated value beginning before $r$. This proves (3). The case $r=0$ is immediate.
+
+We say that the sequence has \emph{period $d$ and offset $r$}.
+
+\textbf{Lemma 5.}
+Exactly one of the following alternatives holds:
+\[
+d\mid a_i-i
+\qquad\text{for every }i,
+\tag{4}
+\]
+or
+\[
+r=0,
+\qquad d\text{ is even},
+\qquad
+d\mid a_i-i-\frac d2
+\quad\text{for every }i.
+\tag{5}
+\]
+
+\textit{Proof.}
+Condition (1) with the pair $(i,0)$ gives
+\[
+a_{a_i+a_0}=a_i.
+\]
+By Lemma 4,
+\[
+d\mid a_i-i+a_0
+\tag{6}
+\]
+for every $i$. Taking $i=0$ gives
+\[
+d\mid2a_0.
+\]
+If $d\mid a_0$, equation (6) yields (4). Otherwise $d$ is even and
+\[
+a_0\equiv\frac d2\pmod d,
+\]
+so (6) yields (5). In the latter case $r=0$, because Lemma 4 gives $a_0=0$ whenever $r>0$.
+
+\textbf{Lemma 6.}
+Every sequence satisfying the second alternative (5) is small.
+
+\textit{Proof.}
+If $d\le k+1$, then the period
+\[
+a_0,a_1,\ldots,a_{d-1}
+\]
+consists only of terms with indices at most $k$, so Lemma 2 makes the whole sequence small.
+
+Now suppose $d>k+1$. Since $d$ is even and $d/2\le k$, Lemma 2 and (5) give
+\[
+d\mid a_{d/2},
+\qquad
+0\le a_{d/2}\le k<d,
+\]
+so
+\[
+a_{d/2}=0.
+\tag{7}
+\]
+We prove by induction that $a_i\le k$ for all $i$. Lemma 2 handles $i\le k$. If $i>k$, then $i-d/2<i$, so the induction hypothesis and (7) give
+\[
+\begin{aligned}
+a_i
+&=a_{(i-d/2)+d/2}\\
+&=a_{a_{i-d/2}+a_{d/2}}\\
+&=a_{a_{i-d/2}}\\
+&\le k,
+\end{aligned}
+\]
+because the index $a_{i-d/2}$ is at most $k$ and Lemma 2 applies to it.
+
+\textbf{Lemma 7.}
+If the sequence is small, then
+\[
+r+d\le k+1.
+\tag{8}
+\]
+
+\textit{Proof.}
+The $k+2$ values
+\[
+a_0,a_1,\ldots,a_{k+1}
+\]
+all lie in the set $\{0,1,\ldots,k\}$. Hence two of them are equal, say $a_u=a_v$ with $u<v\le k+1$. Lemma 4 gives $u\ge r$ and $d\mid v-u$, so
+\[
+r+d\le u+d\le v\le k+1.
+\]
+
+\textbf{Lemma 8.}
+If the sequence is large, then
+\[
+r+d>k+1
+\tag{9}
+\]
+and
+\[
+a_i=i
+\qquad(0\le i<r+d).
+\tag{10}
+\]
+
+\textit{Proof.}
+A value greater than $k$ occurs in the period
+\[
+a_r,\ldots,a_{r+d-1}.
+\]
+By Lemma 2, its index is greater than $k$, so $r+d-1>k$, proving (9).
+
+Lemma 6 excludes alternative (5), so (4) holds. Lemma 4 already gives $a_i=i$ for $i<r$. For
+\[
+r\le i\le k,
+\]
+both $a_i$ and $i$ lie in $[r,k]$, while $d>k+1-r$. Since $d\mid a_i-i$, we must have $a_i=i$.
+
+Now let $k<i<r+d$, and assume inductively that $a_j=j$ for every $j<i$. If $a_i<i$, then $a_i\ge r$ and $d\mid i-a_i$; periodicity gives
+\[
+a_{a_i}=a_i,
+\]
+which is a repetition at two indices less than $r+d$ whose positive difference is smaller than $d$, impossible. Hence $a_i\ge i$.
+
+Since $n-i\le k$, we have
+\[
+a_{n-i}=n-i.
+\]
+The first part of condition (1), applied to $(i,n-i)$, gives
+\[
+a_i+n-i\le n,
+\]
+so $a_i\le i$. Therefore $a_i=i$, completing the induction.
+
+We now count all $n$-sequences.
+
+Large sequences are completely determined by a pair $(r,d)$ satisfying
+\[
+0\le r<n,
+\qquad d\ge1,
+\qquad k+1<r+d\le n.
+\]
+For such a pair, the sequence is
+\[
+a_i=i\quad(i<r+d)
+\]
+and is periodic with period $d$ from index $r$ onward. Conversely, every sequence of this form is an $n$-sequence. Indeed, if $i+j\le n$, at most one of $i,j$ can be at least $r+d$, because $2(r+d)>n$. If both are smaller, then $a_i+a_j=i+j$. If, say, $i\ge r+d$, then $a_j=j$, $a_i\le i$, and
+\[
+a_i+j\equiv i+j\pmod d.
+\]
+Both indices lie in the periodic part, so $a_{a_i+j}=a_{i+j}$, and also $a_i+j\le n$. The number of possible pairs is
+\[
+\sum_{s=k+2}^{n}s
+=
+\frac{(n-k-1)(n+k+2)}2.
+\tag{11}
+\]
+
+For the small sequences, define, for positive integers $x,d$ with $d\le x$,
+\[
+g(x,d)=(p+1)^q p^{d-q},
+\qquad
+p=\left\lfloor\frac xd\right\rfloor,
+\qquad
+q=x-pd.
+\tag{12}
+\]
+This is the product of the numbers of representatives of the $d$ residue classes in any interval of $x$ consecutive integers.
+
+Under alternative (4), a small sequence has some offset $r$ and period $d$ with
+\[
+r+d\le k+1.
+\]
+Its period values must satisfy
+\[
+r\le a_j\le k,
+\qquad
+a_j\equiv j\pmod d
+\qquad(r\le j<r+d).
+\]
+Conversely, any such choices define an $n$-sequence. All values are at most $k$, so their pairwise sums are at most $2k\le n$. Whenever at least one of $i,j$ is in the periodic part, the two indices $a_i+a_j$ and $i+j$ are at least $r$ and are congruent modulo $d$; if both indices are below $r$, the required identity is immediate. The congruence classes of the $d$ period values are all distinct, so the period is genuinely minimal and no sequence is counted with a smaller $d$. The values in the tail are at least $r$, so the offset is genuinely $r$. The number of choices is
+\[
+g(k+1-r,d).
+\]
+
+Under alternative (5), one has $r=0$, $d$ is even, and $d\le k+1$. The period values satisfy
+\[
+0\le a_j\le k,
+\qquad
+a_j\equiv j+\frac d2\pmod d.
+\]
+Again every such choice works: all values are at most $k$, and
+\[
+a_i+a_j\equiv i+j+d\equiv i+j\pmod d.
+\]
+Again the $d$ period values occupy distinct residue classes modulo $d$, so the minimal period is $d$. There are
+\[
+g(k+1,d)
+\]
+choices.
+
+Including the identity sequence, we obtain the exact formula
+\[
+\begin{aligned}
+f(n)
+={}&1+
+\frac{(n-k-1)(n+k+2)}2\\
+&+\sum_{e=1}^{\lfloor(k+1)/2\rfloor}g(k+1,2e)\\
+&+\sum_{r=0}^{k}\sum_{d=1}^{k+1-r}g(k+1-r,d).
+\end{aligned}
+\tag{13}
+\]
+
+We next derive the lower bound. For $n\ge4$, put
+\[
+x=k+1,
+\qquad
+d=\left\lfloor\frac{x}{3}\right\rfloor.
+\]
+Then $d\ge1$, and every factor in (12) is at least $3$, so
+\[
+f(n)>g(x,d)\ge3^d.
+\]
+Since
+\[
+d>\frac n6-1,
+\]
+we get
+\[
+f(n)>3^{n/6-1}=\frac13\left(3^{1/6}\right)^n.
+\tag{14}
+\]
+For $n=1,2,3$, the trivial bound $f(n)\ge1$ is enough. Thus, for example,
+\[
+c_1=\frac14
+\]
+works for every positive integer $n$.
+
+It remains to prove an upper bound. We use the following estimate.
+
+\textbf{Lemma 9.}
+For $1\le d\le x$,
+\[
+g(x,d)\le
+\begin{cases}
+\displaystyle
+3^{x/3}\left(\frac{64}{81}\right)^{x/3-d},&d\le x/3,\\[3mm]
+\displaystyle
+3^{x/3}\left(\frac89\right)^{d-x/3},&d\ge x/3.
+\end{cases}
+\tag{15}
+\]
+
+\textit{Proof.}
+The quantity $g(x,d)$ is also the largest possible product of $d$ positive integers whose sum is $x$: the product is maximized when the integers differ by at most $1$. Formula (12) also gives
+\[
+g(tx,td)=g(x,d)^t
+\tag{16}
+\]
+for every positive integer $t$.
+
+Suppose first that $d\le x/3$, and put
+\[
+h=x-3d\ge0.
+\]
+Take an optimal collection of $3d$ positive integers with sum $3x$ and adjoin $4h$ copies of $3$. This gives
+\[
+3^{4h}g(3x,3d)
+\le
+g(15x-36d,4x-9d).
+\tag{17}
+\]
+The average on the right lies between $3$ and $4$, so
+\[
+g(15x-36d,4x-9d)=3^x4^{3h}.
+\]
+Using (16) in (17),
+\[
+g(x,d)^3
+\le
+3^x\left(\frac{64}{81}\right)^h.
+\]
+Taking cube roots proves the first estimate in (15).
+
+Now suppose $d\ge x/3$, and put
+\[
+h=3d-x\ge0.
+\]
+Adjoin $2h$ copies of $3$ to an optimal collection for $g(3x,3d)$. Then
+\[
+3^{2h}g(3x,3d)
+\le
+g(18d-3x,9d-2x).
+\tag{18}
+\]
+The average on the right lies between $2$ and $3$, so
+\[
+g(18d-3x,9d-2x)=2^{3h}3^x.
+\]
+Equations (16) and (18) give
+\[
+g(x,d)^3
+\le
+3^x\left(\frac89\right)^h,
+\]
+which yields the second estimate in (15).
+
+The two geometric estimates in (15) imply
+\[
+\sum_{d=1}^{x}g(x,d)
+<14\cdot3^{x/3}
+\tag{19}
+\]
+for every positive integer $x$, because
+\[
+\frac1{1-64/81}+\frac1{1-8/9}<14.
+\]
+
+Using (13) and (19),
+\[
+f(n)
+\le
+3n^2+C\sum_{x=1}^{k+1}3^{x/3}
+\le
+3n^2+C'3^{(k+1)/3}
+\tag{20}
+\]
+for absolute positive constants $C,C'$. Since
+\[
+k+1\le\frac n2+1,
+\]
+we have
+\[
+3^{(k+1)/3}
+\le3^{1/3}\left(3^{1/6}\right)^n.
+\]
+Also, because $3^{1/6}>1$, the sequence
+\[
+\frac{n^2}{(3^{1/6})^n}
+\]
+is bounded. Hence (20) implies that there is a positive constant $c_2$ such that
+\[
+f(n)<c_2\left(3^{1/6}\right)^n
+\]
+for all positive integers $n$.
+
+Together with the lower bound, this proves the assertion with
+\[
+\boxed{\lambda=3^{1/6}}.
+\]

@@ -1,0 +1,157 @@
+ID: 0393
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Number Theory
+
+SUBTOPICS: Additive Arithmetic Functions, Parity, Pigeonhole Principle, Positive Density
+
+STATEMENT:
+Let $\mathcal Q$ be an arbitrary set of prime numbers, possibly infinite.
+
+For a positive integer $n$, write its prime factorization and define:
+
+\begin{itemize}
+\item $p(n)$ to be the sum of all exponents in the factorization;
+\item $q(n)$ to be the sum of the exponents belonging only to primes in $\mathcal Q$.
+\end{itemize}
+
+A positive integer $n$ is called \emph{special} if both
+\[
+p(n)+p(n+1)
+\qquad\text{and}\qquad
+q(n)+q(n+1)
+\]
+are even.
+
+Prove that there exists an absolute constant $c>0$, independent of $\mathcal Q$, such that for every integer $N>100$, at least $cN$ of the integers in
+\[
+[1,N]
+\]
+are special.
+
+SOLUTION 1:
+We prove that one may take
+\[
+\boxed{c=\frac1{2000}}.
+\]
+
+Call two positive integers $u,v$ \emph{friends} if
+\[
+p(u)+p(v)
+\qquad\text{and}\qquad
+q(u)+q(v)
+\]
+are both even.
+
+The pair
+\[
+\bigl(p(t)\bmod2,\ q(t)\bmod2\bigr)
+\]
+has only four possible values. Hence, among any five distinct positive integers, two are friends.
+
+Both functions $p$ and $q$ are completely additive:
+\[
+f(xy)=f(x)+f(y).
+\]
+Consequently, if a positive integer $d$ divides both $u$ and $v$, then
+\[
+f(u)+f(v)
+=
+f(u/d)+f(v/d)+2f(d).
+\]
+Therefore
+\[
+u,v\text{ are friends}
+\quad\Longleftrightarrow\quad
+u/d,v/d\text{ are friends}.
+\tag{1}
+\]
+
+Call a set of five distinct integers
+\[
+\{n_1,n_2,n_3,n_4,n_5\}
+\]
+\emph{interesting} if, for every pair of distinct indices $i,j$, the difference
+\[
+d_{ij}=|n_i-n_j|
+\]
+divides both $n_i$ and $n_j$.
+
+Every interesting set of positive integers produces a special integer. Indeed, two of its five elements, say $n_i,n_j$, are friends. By (1), the quotients
+\[
+\frac{n_i}{d_{ij}},
+\qquad
+\frac{n_j}{d_{ij}}
+\]
+are friends. Their difference is $1$, so the smaller quotient is special.
+
+The set
+\[
+\{0,6,8,9,12\}
+\]
+has the required divisibility property. The least common multiple of all of its pairwise differences is
+\[
+72.
+\]
+Thus, for every integer $k\ge1$, the translated set
+\[
+\{72k,72k+6,72k+8,72k+9,72k+12\}
+\tag{2}
+\]
+is an interesting set of positive integers.
+
+For the ten pairs in (2), the smaller members of the corresponding consecutive quotient pairs form the set
+\[
+\begin{aligned}
+S_k=\{&
+6k,8k,9k,12k,12k+1,18k+2,\\
+&24k+2,24k+3,36k+3,72k+8
+\}.
+\end{aligned}
+\tag{3}
+\]
+At least one member of $S_k$ is special.
+
+Every element of $S_k$ is at most $100k$. Hence the sets
+\[
+S_1,S_2,\ldots,S_K
+\]
+all lie in the interval $[1,100K]$. A fixed positive integer can occur in at most ten of these sets, because each of the ten affine expressions in (3) assumes any fixed value for at most one value of $k$. It follows that
+\[
+[1,100K]
+\]
+contains at least
+\[
+\frac K{10}
+\]
+distinct special integers.
+
+Now let
+\[
+N=100K+r,
+\qquad
+K\ge1,\qquad
+0\le r<100.
+\]
+Then
+\[
+N<100(K+1)\le200K.
+\]
+Since
+\[
+[1,100K]\subseteq[1,N],
+\]
+the number of special integers not exceeding $N$ is at least
+\[
+\frac K{10}
+>
+\frac N{2000}.
+\]
+Thus the required constant exists, and
+\[
+c=\frac1{2000}
+\]
+works independently of the set $\mathcal Q$.

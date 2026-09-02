@@ -1,0 +1,115 @@
+ID: 0392
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Number Theory
+
+SUBTOPICS: Decimal Digits, Cyclic Rotations, Modular Arithmetic, Double Counting
+
+STATEMENT:
+For each
+\[
+i\in\{1,2,\ldots,9\}
+\]
+and each positive integer $T$, let $d_i(T)$ be the total number of occurrences of the digit $i$ when all positive multiples of $1829$ not exceeding $T$ are written in base $10$.
+
+Prove that there are infinitely many positive integers $T$ for which precisely two distinct values occur among
+\[
+d_1(T),d_2(T),\ldots,d_9(T).
+\]
+
+SOLUTION 1:
+Put
+\[
+n=1829.
+\]
+Since $\gcd(n,10)=1$, there are arbitrarily large positive integers $k$ such that
+\[
+n\mid10^k-1;
+\]
+for example, every positive multiple of $\varphi(n)$ has this property.
+
+Fix such a $k$. We prove that either
+\[
+T=10^k-1
+\qquad\text{or}\qquad
+T=10^k-2
+\]
+has the required property.
+
+It is enough to establish
+\[
+\left|
+\{d_i(10^k-1):1\le i\le9\}
+\right|
+\le2.
+\tag{1}
+\]
+If the cardinality in (1) equals $2$, then $T=10^k-1$ works. If it equals $1$, remove the largest multiple
+\[
+10^k-1,
+\]
+whose decimal representation consists of $k$ digits equal to $9$. Then
+\[
+d_i(10^k-2)=d_i(10^k-1)
+\qquad(1\le i\le8),
+\]
+whereas
+\[
+d_9(10^k-2)=d_9(10^k-1)-k.
+\]
+Thus exactly two values occur for $T=10^k-2$.
+
+We now prove (1). Write every integer between $1$ and $10^k-1$ using exactly $k$ digits, allowing leading zeroes. If
+\[
+N=\overline{a_{k-1}a_{k-2}\cdots a_0},
+\]
+let
+\[
+N'=\overline{a_{k-2}\cdots a_0a_{k-1}}
+\]
+be its cyclic left shift. Then
+\[
+10N-N'=(10^k-1)a_{k-1}.
+\]
+Since $n\mid10^k-1$,
+\[
+n\mid N
+\quad\Longleftrightarrow\quad
+n\mid N'.
+\tag{2}
+\]
+Thus the set of positive multiples of $n$ not exceeding $10^k-1$ is invariant under cyclic permutation of the $k$ digit positions.
+
+Fix a digit
+\[
+i\in\{1,\ldots,9\}.
+\]
+By double counting pairs consisting of a multiple and a position occupied by $i$, the cyclic symmetry gives
+\[
+d_i(10^k-1)
+=
+k\,u_i,
+\tag{3}
+\]
+where $u_i$ is the number of $k$-digit strings beginning with $i$ that represent a multiple of $n$.
+
+Those strings represent precisely the integers in the interval
+\[
+[i10^{k-1},(i+1)10^{k-1}-1],
+\]
+which contains $10^{k-1}$ consecutive integers. The number of multiples of $n$ in any interval of this length is either
+\[
+\left\lfloor\frac{10^{k-1}}n\right\rfloor
+\qquad\text{or}\qquad
+1+\left\lfloor\frac{10^{k-1}}n\right\rfloor.
+\]
+Therefore the nine values $u_i$, and hence by (3) the nine values
+\[
+d_i(10^k-1),
+\]
+assume at most two distinct values. This proves (1).
+
+Since suitable values of $k$ can be arbitrarily large, the resulting values of $T$ are infinite in number.

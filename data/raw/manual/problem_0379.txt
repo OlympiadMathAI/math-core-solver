@@ -1,0 +1,236 @@
+ID: 0379
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Order-Preserving Bijections, Lattice Point Rankings, Parity, Extremal Constructions
+
+STATEMENT:
+Let
+\[
+f:\mathbb Z_{\ge0}\times\mathbb Z_{\ge0}\to\mathbb Z_{\ge0}
+\]
+be a bijection such that
+\[
+f(x_1,y_1)>f(x_2,y_2)
+\]
+always implies
+\[
+f(x_1+1,y_1)>f(x_2+1,y_2)
+\]
+and
+\[
+f(x_1,y_1+1)>f(x_2,y_2+1).
+\]
+
+Let $N$ be the number of pairs $(x,y)$ satisfying
+\[
+0\le x,y<100
+\]
+for which $f(x,y)$ is odd.
+
+Determine the smallest and largest possible values of $N$.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{2500\le N\le7500},
+\]
+and both bounds are attainable.
+
+We first describe the order induced by $f$.
+
+Because $f$ is injective, translating two lattice points by the same nonnegative vector preserves their strict order in both directions. In particular,
+\[
+f(x+1,y)>f(x,y)
+\qquad\text{and}\qquad
+f(x,y+1)>f(x,y);
+\]
+otherwise one of the rows or columns would give an infinite strictly decreasing sequence of nonnegative integers.
+
+For positive integers $k,\ell$, call the rational number $k/\ell$ a \emph{grade} if
+\[
+f(x+k,y)>f(x,y+\ell)
+\tag{1}
+\]
+for every $x,y\ge0$. The direction of the inequality in (1) does not depend on $x,y$, because any two such comparisons can be translated to a common base point.
+
+Needles are closed under addition. They also have the following division property: if a positive integer multiple of a vector is a needle, then the vector itself is a needle. Otherwise the reverse inequality for the smaller vector, added repeatedly, would make its multiple a non-needle.
+
+Grades are therefore closed upwards. Indeed, suppose
+\[
+\frac{k_1}{\ell_1}<\frac{k_2}{\ell_2}
+\]
+and $k_1/\ell_1$ is a grade. Scaling gives that
+\[
+(k_1\ell_2,\ell_1\ell_2)
+\]
+has property (1). Adding the positive horizontal vector
+\[
+(k_2\ell_1-k_1\ell_2,0)
+\]
+and then dividing by $\ell_1$ shows that $k_2/\ell_2$ is also a grade.
+
+At least one grade exists. Otherwise,
+\[
+f(k,0)<f(0,1)
+\]
+for every positive integer $k$, which is impossible because the left side assumes infinitely many distinct nonnegative values below one fixed number. Similarly, not every positive rational is a grade: if every $1/\ell$ were a grade, then
+\[
+f(1,0)>f(0,\ell)
+\]
+for every $\ell$, again impossible.
+
+Let
+\[
+\alpha=\inf\{q>0:q\text{ is a grade}\}.
+\]
+Then the preceding monotonicity gives the key property
+\[
+x_1+\alpha y_1>x_2+\alpha y_2
+\quad\Longrightarrow\quad
+f(x_1,y_1)>f(x_2,y_2).
+\tag{2}
+\]
+For example, if $x_1\ge x_2$ and $y_1<y_2$, the hypothesis in (2) says
+\[
+\frac{x_1-x_2}{y_2-y_1}>\alpha,
+\]
+so this ratio is a grade. The other mixed case is analogous, using a non-grade. Thus $f$ orders lattice points according to the value of
+\[
+x+\alpha y,
+\]
+with a consistent tie-breaking rule if $\alpha$ is rational.
+
+For the finitely many values of $f$ needed on
+\[
+0\le x,y\le100,
+\]
+we may perturb $\alpha$ slightly, on the side prescribed by the tie-breaking rule, without changing their order or ranks. We may therefore assume that $\alpha$ is irrational. Then all numbers $x+\alpha y$ are distinct and
+\[
+f(a,b)
+=
+\#\bigl\{(x,y)\in\mathbb Z_{\ge0}^2:
+x+\alpha y<a+\alpha b
+\bigr\}.
+\tag{3}
+\]
+
+We derive a local identity. The difference
+\[
+f(x+1,y)-f(x,y)
+\]
+counts lattice points whose weights lie in
+\[
+[x+\alpha y,\ x+1+\alpha y).
+\]
+Likewise,
+\[
+f(x+1,y+1)-f(x,y+1)
+\]
+counts points in the translate of this interval by $\alpha$. Among the latter points, those with positive second coordinate correspond bijectively, after decreasing that coordinate by $1$, to the points in the first interval. There is exactly one additional point with second coordinate $0$, because the interval has length $1$ and irrational endpoints. Hence
+\[
+f(x+1,y+1)-f(x,y+1)
+=
+f(x+1,y)-f(x,y)+1,
+\]
+or
+\[
+f(x,y)+f(x+1,y+1)
+=
+f(x+1,y)+f(x,y+1)+1.
+\tag{4}
+\]
+
+Reduce (4) modulo $2$. Every unit square of lattice points has an odd number of odd $f$-values, so it has either one or three. Partition the $100\times100$ set of points into the $2500$ disjoint groups
+\[
+\{(2i,2j),(2i+1,2j),(2i,2j+1),(2i+1,2j+1)\},
+\]
+where
+\[
+0\le i,j<50.
+\]
+Each group contains between one and three odd values. Therefore
+\[
+2500\le N\le7500.
+\tag{5}
+\]
+
+We now construct functions attaining both bounds. For any positive irrational $\alpha$, ordering all lattice points by increasing $x+\alpha y$ and assigning the ranks
+\[
+0,1,2,\ldots
+\]
+defines a bijection $f_\alpha$ satisfying the required translation property.
+
+Choose an irrational number
+\[
+\alpha_+=200+\varepsilon,
+\qquad
+0<\varepsilon<\frac1{100}.
+\]
+For $0\le r\le100$,
+\[
+f_{\alpha_+}(r,0)=r.
+\tag{6}
+\]
+For $0\le k\le100$, formula (3) gives
+\[
+\begin{aligned}
+f_{\alpha_+}(0,k)
+&=
+\sum_{q=1}^k\#\{x\in\mathbb Z_{\ge0}:x<q\alpha_+\}\\
+&=
+\sum_{q=1}^k(200q+1)
+\equiv k\pmod2.
+\end{aligned}
+\tag{7}
+\]
+
+Let
+\[
+p_{x,y}=f_{\alpha_+}(x,y)\pmod2
+\]
+and
+\[
+q_{x,y}=p_{x+1,y}+p_{x,y}\pmod2.
+\]
+Equation (4) gives
+\[
+q_{x,y+1}=q_{x,y}+1\pmod2.
+\tag{8}
+\]
+By (6),
+\[
+q_{x,0}=1.
+\]
+Hence adjacent parities alternate in every even-indexed row, while every odd-indexed row is constant. Equation (7) shows that each odd row consists entirely of odd values. Thus the $50$ even rows contribute $50$ odd values each, and the $50$ odd rows contribute $100$ each:
+\[
+N=50\cdot50+50\cdot100=7500.
+\]
+
+For the lower bound, choose instead
+\[
+\alpha_-=200-\varepsilon,
+\qquad
+0<\varepsilon<\frac1{100},
+\]
+irrational. Then
+\[
+f_{\alpha_-}(r,0)=r
+\]
+and
+\[
+f_{\alpha_-}(0,k)
+=
+\sum_{q=1}^k200q
+\equiv0\pmod2.
+\]
+Equation (8) again shows that the even rows alternate, while every odd row is constant; now all odd rows are even. Therefore
+\[
+N=50\cdot50=2500.
+\]
+
+Both bounds in (5) are attained, completing the solution.

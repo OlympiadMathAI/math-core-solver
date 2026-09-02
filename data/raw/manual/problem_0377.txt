@@ -1,0 +1,162 @@
+ID: 0377
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Integer Tuples, Coordinatewise Maximum, Tropical Algebra, Invariant Inequalities
+
+STATEMENT:
+Lucy initially writes $s$ integer-valued $2022$-tuples on a blackboard. She may then repeatedly choose two tuples
+\[
+v=(v_1,\ldots,v_{2022}),
+\qquad
+w=(w_1,\ldots,w_{2022}),
+\]
+not necessarily distinct, that are already on the board and write either
+\[
+v+w=(v_1+w_1,\ldots,v_{2022}+w_{2022})
+\]
+or
+\[
+v\vee w=
+\bigl(\max(v_1,w_1),\ldots,\max(v_{2022},w_{2022})\bigr).
+\]
+
+Determine the smallest $s$ for which Lucy can eventually write every integer-valued $2022$-tuple.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{s=3}.
+\]
+
+We prove the corresponding statement for integer-valued $n$-tuples for every $n\ge3$.
+
+First we show that three starting tuples suffice. Let
+\[
+a_i=-i^2,\qquad b_i=i,\qquad c_i=-1
+\qquad(1\le i\le n),
+\]
+so that
+\[
+a=(-1^2,-2^2,\ldots,-n^2),\quad
+b=(1,2,\ldots,n),\quad
+c=(-1,-1,\ldots,-1).
+\]
+
+For each $j\in\{1,\ldots,n\}$, Lucy can form
+\[
+d^{(j)}=2a+4j\,b+(2j^2-1)c.
+\]
+Its $i$th coordinate is
+\[
+d^{(j)}_i
+=
+-2i^2+4ij-(2j^2-1)
+=
+1-2(i-j)^2.
+\]
+Thus
+\[
+d^{(j)}_j=1,
+\qquad
+d^{(j)}_i\le-1\quad(i\ne j).
+\]
+
+Taking the coordinatewise maximum,
+\[
+\mathbf 1=d^{(1)}\vee d^{(2)}\vee\cdots\vee d^{(n)}
+=(1,1,\ldots,1).
+\]
+Hence Lucy can form
+\[
+\mathbf 0=\mathbf 1+c.
+\]
+For each $j$,
+\[
+e^{(j)}=d^{(j)}\vee\mathbf0
+\]
+has a $1$ in coordinate $j$ and $0$ in every other coordinate.
+
+Now let
+\[
+v=(v_1,\ldots,v_n)
+\]
+be any integer tuple. Choose a positive integer $K$ such that
+\[
+K+v_i\ge0
+\qquad(1\le i\le n).
+\]
+Then Lucy can form
+\[
+Kc+\sum_{i=1}^n(K+v_i)e^{(i)}=v.
+\]
+Therefore three tuples suffice.
+
+We now show that two cannot suffice. We use the following invariant.
+
+Suppose $A\ge0$ and two tuples $u,v$ satisfy
+\[
+u_j\ge A u_k
+\qquad\text{and}\qquad
+v_j\ge A v_k
+\tag{1}
+\]
+for two coordinates $j,k$. Then both $u+v$ and $u\vee v$ also satisfy the same inequality. For addition this is immediate. For the maximum, if
+\[
+m=u\vee v,
+\]
+then
+\[
+m_j\ge u_j\ge A u_k
+\quad\text{and}\quad
+m_j\ge v_j\ge A v_k,
+\]
+so
+\[
+m_j\ge A\max(u_k,v_k)=A m_k.
+\]
+
+Suppose Lucy starts with only two tuples $u,v$. If, in some coordinate $i$, both $u_i$ and $v_i$ are nonnegative, then every generated tuple has nonnegative $i$th coordinate. If both are nonpositive, every generated tuple has nonpositive $i$th coordinate. Either case prevents Lucy from generating every integer tuple.
+
+Thus, in every coordinate, $u_i$ and $v_i$ have opposite signs. Since $n\ge3$, two coordinates $j\ne k$ have the same sign pattern. After interchanging $u$ and $v$ if necessary,
+\[
+u_j,u_k>0,
+\qquad
+v_j,v_k<0.
+\]
+Put
+\[
+A=\frac{u_j}{u_k}>0.
+\]
+If
+\[
+\frac{v_j}{v_k}\le A,
+\]
+then, because $v_k<0$,
+\[
+v_j\ge A v_k,
+\]
+and both starting tuples satisfy (1).
+
+If instead
+\[
+\frac{v_j}{v_k}>A,
+\]
+then
+\[
+u_k=\frac1A u_j
+\qquad\text{and}\qquad
+v_k\ge\frac1A v_j,
+\]
+so both starting tuples satisfy the analogous invariant with $j$ and $k$ interchanged.
+
+In either case, every generated tuple obeys a fixed nontrivial coordinate inequality, whereas some integer tuples violate it. Hence two starting tuples cannot generate all integer tuples.
+
+Therefore the minimum is
+\[
+\boxed{3}.
+\]

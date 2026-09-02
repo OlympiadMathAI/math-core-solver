@@ -1,0 +1,16 @@
+{
+  "id": "0375",
+  "source": "IMO Shortlist",
+  "year": "2022",
+  "topic": "Combinatorics",
+  "subtopics": [
+    "Set Systems",
+    "Weighted Subset Sums",
+    "Injective Constructions",
+    "Pigeonhole Principle"
+  ],
+  "statement": "Let $m,n\\ge2$, let $X$ be a set with $n$ elements, and let\n\\[\nX_1,X_2,\\ldots,X_m\n\\]\nbe pairwise distinct nonempty subsets of $X$.\n\nA function\n\\[\nf:X\\to\\{1,2,\\ldots,n+1\\}\n\\]\nis called \\emph{nice} if there is an index $k$ such that\n\\[\n\\sum_{x\\in X_k}f(x)\n>\n\\sum_{x\\in X_i}f(x)\n\\qquad\\text{for every }i\\ne k.\n\\]\n\nProve that there are at least\n\\[\nn^n\n\\]\nnice functions.",
+  "solutions": [
+    "For a subset $Y\\subseteq X$, write\n\\[\nf(Y)=\\sum_{y\\in Y}f(y).\n\\]\n\nConsider the set $\\mathcal F$ of all functions\n\\[\nf:X\\to\\{1,2,\\ldots,n\\}.\n\\]\nIt has exactly\n\\[\n|\\mathcal F|=n^n\n\\]\nelements.\n\nFor each $f\\in\\mathcal F$, choose an index $\\ell$ for which\n\\[\nf(X_\\ell)=\\max_{1\\le i\\le m}f(X_i).\n\\]\nDefine\n\\[\nf^+(x)=\n\\begin{cases}\nf(x)+1,&x\\in X_\\ell,\\\\\nf(x),&x\\notin X_\\ell.\n\\end{cases}\n\\tag{1}\n\\]\nThen\n\\[\nf^+:X\\to\\{1,2,\\ldots,n+1\\}.\n\\]\n\nWe prove that $f^+$ is nice and that $X_\\ell$ is its unique maximizing set. For $j\\ne\\ell$,\n\\[\nf^+(X_j)=f(X_j)+|X_j\\cap X_\\ell|,\n\\]\nwhereas\n\\[\nf^+(X_\\ell)=f(X_\\ell)+|X_\\ell|.\n\\]\nThe containment\n\\[\nX_\\ell\\subseteq X_j\n\\]\nis impossible: because the sets are distinct and all values of $f$ are positive, it would imply\n\\[\nf(X_j)>f(X_\\ell),\n\\]\ncontrary to the choice of $\\ell$. Hence\n\\[\n|X_j\\cap X_\\ell|<|X_\\ell|.\n\\]\nTogether with\n\\[\nf(X_j)\\le f(X_\\ell),\n\\]\nthis gives\n\\[\nf^+(X_j)<f^+(X_\\ell).\n\\]\nThus $f^+$ is nice.\n\nFinally, the original function $f$ can be recovered uniquely from $f^+$. Its unique maximizing set identifies $X_\\ell$, and then one subtracts $1$ from $f^+(x)$ exactly for\n\\[\nx\\in X_\\ell.\n\\]\nTherefore the map\n\\[\nf\\longmapsto f^+\n\\]\nis injective.\n\nSince there are $n^n$ functions in $\\mathcal F$, there are at least $n^n$ nice functions."
+  ]
+}

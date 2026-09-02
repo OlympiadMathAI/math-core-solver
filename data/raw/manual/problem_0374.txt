@@ -1,0 +1,228 @@
+ID: 0374
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Chip-Firing, Modular Invariants, Graph Laplacians, Constructive Algorithms
+
+STATEMENT:
+Let $n\ge4$. There are $n$ children arranged around a circle and a total of $n$ coins distributed among them. Some children may initially have no coins.
+
+A legal move consists of choosing a child with at least two coins; that child gives one coin to each of the two neighbouring children.
+
+Determine all initial distributions from which it is possible, after finitely many legal moves, to reach the distribution in which every child has exactly one coin.
+
+SOLUTION 1:
+Number the children cyclically by
+\[
+1,2,\ldots,n,
+\]
+and let $c_i$ be the number of coins held by child $i$.
+
+The answer is precisely the set of distributions satisfying
+\[
+\boxed{
+\sum_{i=1}^n i c_i
+\equiv
+\frac{n(n+1)}2
+\pmod n
+}.
+\tag{1}
+\]
+
+A move at child $i$ changes the weighted sum in (1) by
+\[
+(i-1)-2i+(i+1),
+\]
+where the indices are interpreted cyclically. This change is a multiple of $n$, including at the two wrap-around positions. Hence the weighted sum modulo $n$ is invariant. The final all-one distribution has weighted sum
+\[
+1+2+\cdots+n=\frac{n(n+1)}2,
+\]
+so condition (1) is necessary.
+
+We now prove sufficiency.
+
+First, never allow child $n$ to make a move, and repeatedly fire any other child having at least two coins. This process terminates. Indeed, the quantity
+\[
+\Phi=\sum_{i=1}^n i^2c_i
+\]
+strictly increases at every such move: the increase is $2$ for $2\le i\le n-1$, and it is $n^2+2$ when $i=1$. Since the total number of coins is $n$, the quantity $\Phi$ is bounded above.
+
+We therefore reach a state
+\[
+(z_1,z_2,\ldots,z_{n-1},M),
+\tag{2}
+\]
+where every $z_i$ is $0$ or $1$. We call this a \emph{semi-uniform state} of irregularity $M$. Necessarily $M\ge1$.
+
+We use the following elementary operation.
+
+\textbf{Long-passing lemma.}
+Suppose that consecutive children hold
+\[
+a,\underbrace{1,\ldots,1}_{r\text{ terms}},b,
+\underbrace{1,\ldots,1}_{r\text{ terms}},c,
+\qquad b\ge2.
+\]
+Then legal moves can transform these holdings into
+\[
+a+1,\underbrace{1,\ldots,1}_{r\text{ terms}},b-2,
+\underbrace{1,\ldots,1}_{r\text{ terms}},c+1.
+\tag{3}
+\]
+
+\textit{Proof.}
+For $r=0$, this is one legal move. For $r\ge1$, first fire the middle pile $b$, and then successively fire the two piles of size $2$ that move outward through the two strings of ones. This gives
+\[
+a+1,0,\underbrace{1,\ldots,1}_{r-1\text{ terms}},b,
+\underbrace{1,\ldots,1}_{r-1\text{ terms}},0,c+1.
+\]
+Apply the induction hypothesis to the central substring beginning and ending with the two zeros. This yields (3). $\square$
+
+We show that every semi-uniform state with $M\ge3$ can be changed into another semi-uniform state with smaller irregularity.
+
+There are exactly $M-1$ zeroes among the other $n-1$ positions, so at least two zeroes exist. Choose the nearest zero on each side of the pile $M$. The intervening arc has the form
+\[
+0,\underbrace{1,\ldots,1}_{a},M,
+\underbrace{1,\ldots,1}_{b},0.
+\tag{4}
+\]
+
+If $a=b$, the long-passing lemma changes the two endpoint zeroes into ones and replaces $M$ by $M-2$. Thus the irregularity decreases.
+
+Assume, after reversing the circle if necessary, that $a>b$. Long-pass from $M$ to the right-hand zero and to the position at the same distance on the left. The relevant part of the state becomes
+\[
+0,\underbrace{1,\ldots,1}_{a-b-1},2,
+\underbrace{1,\ldots,1}_{b},M-2,
+\underbrace{1,\ldots,1}_{b+1}.
+\tag{5}
+\]
+Write
+\[
+\alpha=a-b-1,\qquad \beta=b,\qquad p=M-2.
+\]
+Focus on the substring
+\[
+0,1^\alpha,2,1^\beta,p.
+\tag{6}
+\]
+
+If $\alpha<\beta$, long-passing from the pile $2$ to the left zero and to an equally distant $1$ on the right replaces the pair $(\alpha,\beta)$ by
+\[
+(\alpha,\beta-\alpha-1).
+\]
+The sum of the two parameters strictly decreases. Repeating, we eventually reach $\alpha\ge\beta$.
+
+If $\alpha=\beta$, long-passing from the pile $2$ to the left zero and to the pile $p$ produces a semi-uniform state whose irregularity is
+\[
+p+1=M-1.
+\]
+
+If $\alpha>\beta$, the same operation, now using the pile $p$ and an equally distant $1$ on the left, produces a pile $p+1=M-1$ and leaves a substring
+\[
+0,1^u,2,1^v,0
+\tag{7}
+\]
+between two zeroes. Whenever $u\ne v$, long-pass from the central $2$ to the nearer zero and to an equally distant $1$ on the other side. This replaces the larger of $u,v$ by
+\[
+|u-v|-1
+\]
+and strictly shortens the substring. Eventually $u=v$, after which one final long-pass to the two zeroes leaves only zeroes and ones in (7). We again obtain a semi-uniform state of irregularity $M-1$.
+
+Thus repeated legal moves reduce every semi-uniform state to one with
+\[
+M\le2.
+\]
+
+If $M=1$, the state is the all-one distribution. If $M=2$, there is exactly one zero, say at child $k$ with $1\le k<n$. Relative to the all-one state, the weighted sum has changed by
+\[
+n-k\equiv-k\not\equiv0\pmod n,
+\]
+contradicting the invariant (1). Hence $M=2$ cannot occur when (1) holds.
+
+Therefore every distribution satisfying (1) can reach the all-one distribution.
+
+SOLUTION 2:
+We give an algebraic proof that the same congruence condition is sufficient.
+
+Let
+\[
+d_i=c_i-1
+\qquad(1\le i\le n),
+\]
+with all indices interpreted modulo $n$. Since both the initial and target distributions contain $n$ coins,
+\[
+\sum_{i=1}^n d_i=0.
+\tag{2}
+\]
+Condition (1) is equivalent to
+\[
+\sum_{i=1}^n i d_i\equiv0\pmod n.
+\tag{3}
+\]
+
+We claim that there are integers $t_1,\ldots,t_n$ such that
+\[
+d_i=2t_i-t_{i-1}-t_{i+1}
+\qquad(1\le i\le n).
+\tag{4}
+\]
+Here $t_0=t_n$ and $t_{n+1}=t_1$.
+
+To construct them, first seek integers
+\[
+s_i=t_i-t_{i-1}.
+\]
+Equation (4) becomes
+\[
+d_i=s_i-s_{i+1}.
+\]
+Set
+\[
+s_i=s_1-\sum_{j=1}^{i-1}d_j.
+\]
+Because of (2), we have $s_{n+1}=s_1$. We also need
+\[
+s_1+\cdots+s_n=0
+\]
+in order to recover cyclic values $t_i$. This is achieved by taking
+\[
+s_1=
+\frac1n\sum_{j=1}^{n-1}(n-j)d_j.
+\]
+The numerator is divisible by $n$ because, modulo $n$, it equals
+\[
+-\sum_{j=1}^{n-1}j d_j,
+\]
+which is $0$ by (3). We may now define the $t_i$ successively. Adding the same integer to all of them does not affect (4), so choose this constant so that
+\[
+t_i\ge0
+\qquad\text{for all }i,
+\qquad
+\min_i t_i=0.
+\tag{5}
+\]
+
+Interpret $t_i$ as the number of times child $i$ is intended to move. If all these moves can be legally performed, equation (4) says that the resulting distribution is the all-one distribution.
+
+Suppose that some moves remain. Let $r_i$ be the number of remaining moves at child $i$. The current number of coins at child $i$ is then
+\[
+1+2r_i-r_{i-1}-r_{i+1}.
+\tag{6}
+\]
+Let
+\[
+S=\{i:r_i>0\}.
+\]
+By (5), $S$ is a nonempty proper subset of the cycle. Summing the expression after the $1$ in (6) over $i\in S$ gives
+\[
+\sum_{\substack{i\in S,\ j\notin S\\ i\sim j}} r_i>0,
+\]
+where $i\sim j$ means that $i$ and $j$ are neighbouring children. Therefore some $i\in S$ has more than one coin and can legally move.
+
+Perform that move and reduce $r_i$ by $1$. Repeating this argument eventually carries out all prescribed moves, and (4) then gives the all-one state.
+
+Thus the congruence in (1) is both necessary and sufficient.

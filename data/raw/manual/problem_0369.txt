@@ -1,0 +1,138 @@
+ID: 0369
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Algebra
+
+SUBTOPICS: Decimal Digit Sums, Polynomial Values, Carrying, Place-Value Blocks
+
+STATEMENT:
+For a positive integer $m$, let $s(m)$ denote the sum of its decimal digits. Let
+\[
+P(x)=x^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0,
+\]
+where $n\ge2$ and every $a_i$ is a positive integer.
+
+Can it happen that $s(k)$ and $s(P(k))$ have the same parity for every positive integer $k$?
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{\text{No}}.
+\]
+We construct two positive integers having the same digit sum, while the digit sums of their polynomial values differ by $9$.
+
+For convenience, put
+\[
+a_n=1
+\]
+and let
+\[
+M=\max\{a_0,a_1,\ldots,a_n\}.
+\]
+Choose a positive integer $t$ so large that the interval
+\[
+I=
+\left[
+\left(\frac9{a_{n-1}}10^t\right)^{1/(n-1)},
+\left(\frac1{a_{n-1}}10^{t+1}\right)^{1/(n-1)}
+\right)
+\tag{1}
+\]
+has length greater than $100$ and has lower endpoint greater than $10M$.
+Such a choice is possible because both the lower endpoint and the length of $I$ tend to infinity with $t$.
+
+Choose an integer
+\[
+X\in I
+\qquad\text{with}\qquad
+X\equiv1\pmod{100}.
+\tag{2}
+\]
+The interval is long enough to contain such an integer. From (1),
+\[
+9\cdot10^t
+\le a_{n-1}X^{n-1}
+<10^{t+1}.
+\tag{3}
+\]
+Thus the first decimal digit of
+\[
+a_{n-1}X^{n-1}
+\]
+is $9$.
+
+Also, $X>10M$. Hence, for every $0\le i<n$,
+\[
+a_iX^i<a_{i+1}X^{i+1},
+\]
+and in fact each successive quantity has strictly more decimal digits than the preceding one. Let
+\[
+\alpha
+\]
+be the number of decimal digits of $a_{n-1}X^{n-1}$. Then
+\[
+10^{\alpha-1}
+\le a_{n-1}X^{n-1}
+<10^\alpha.
+\tag{4}
+\]
+
+Consider first
+\[
+P(10^\alpha X)
+=
+10^{\alpha n}X^n
++a_{n-1}10^{\alpha(n-1)}X^{n-1}
++\cdots+a_0.
+\]
+Every block below the leading block occupies at most $\alpha$ decimal places. Hence consecutive blocks do not overlap, and no carrying occurs. Therefore
+\[
+s(P(10^\alpha X))
+=
+s(X^n)+s(a_{n-1}X^{n-1})+\cdots+s(a_0).
+\tag{5}
+\]
+
+Now consider
+\[
+P(10^{\alpha-1}X)
+=
+10^{(\alpha-1)n}X^n
++a_{n-1}10^{(\alpha-1)(n-1)}X^{n-1}
++\cdots+a_0.
+\]
+For $i<n-1$, the number $a_iX^i$ has at most $\alpha-1$ digits, so all lower blocks remain disjoint. The only overlap is between the leading digit of
+\[
+a_{n-1}10^{(\alpha-1)(n-1)}X^{n-1}
+\]
+and the units digit of the shifted block
+\[
+10^{(\alpha-1)n}X^n.
+\]
+
+By (3), the first of these digits is $9$. By (2),
+\[
+X^n\equiv1\pmod{100},
+\]
+so the last two digits of $X^n$ are $01$. At the overlap, the digits $9$ and $1$ add to $10$: the $9$ and $1$ become $0$, and the following $0$ becomes $1$. No other digit is affected. Hence the total digit sum decreases by exactly $9$:
+\[
+\begin{aligned}
+s(P(10^{\alpha-1}X))
+&=s(X^n)+s(a_{n-1}X^{n-1})+\cdots+s(a_0)-9\\
+&=s(P(10^\alpha X))-9.
+\end{aligned}
+\tag{6}
+\]
+
+However,
+\[
+s(10^\alpha X)=s(X)=s(10^{\alpha-1}X).
+\]
+Thus the two inputs have digit sums of the same parity, while by (6) their polynomial values have digit sums of opposite parity. Therefore it is impossible for
+\[
+s(k)\equiv s(P(k))\pmod2
+\]
+to hold for every positive integer $k$.

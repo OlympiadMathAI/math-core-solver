@@ -1,0 +1,110 @@
+ID: 0375
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Set Systems, Weighted Subset Sums, Injective Constructions, Pigeonhole Principle
+
+STATEMENT:
+Let $m,n\ge2$, let $X$ be a set with $n$ elements, and let
+\[
+X_1,X_2,\ldots,X_m
+\]
+be pairwise distinct nonempty subsets of $X$.
+
+A function
+\[
+f:X\to\{1,2,\ldots,n+1\}
+\]
+is called \emph{nice} if there is an index $k$ such that
+\[
+\sum_{x\in X_k}f(x)
+>
+\sum_{x\in X_i}f(x)
+\qquad\text{for every }i\ne k.
+\]
+
+Prove that there are at least
+\[
+n^n
+\]
+nice functions.
+
+SOLUTION 1:
+For a subset $Y\subseteq X$, write
+\[
+f(Y)=\sum_{y\in Y}f(y).
+\]
+
+Consider the set $\mathcal F$ of all functions
+\[
+f:X\to\{1,2,\ldots,n\}.
+\]
+It has exactly
+\[
+|\mathcal F|=n^n
+\]
+elements.
+
+For each $f\in\mathcal F$, choose an index $\ell$ for which
+\[
+f(X_\ell)=\max_{1\le i\le m}f(X_i).
+\]
+Define
+\[
+f^+(x)=
+\begin{cases}
+f(x)+1,&x\in X_\ell,\\
+f(x),&x\notin X_\ell.
+\end{cases}
+\tag{1}
+\]
+Then
+\[
+f^+:X\to\{1,2,\ldots,n+1\}.
+\]
+
+We prove that $f^+$ is nice and that $X_\ell$ is its unique maximizing set. For $j\ne\ell$,
+\[
+f^+(X_j)=f(X_j)+|X_j\cap X_\ell|,
+\]
+whereas
+\[
+f^+(X_\ell)=f(X_\ell)+|X_\ell|.
+\]
+The containment
+\[
+X_\ell\subseteq X_j
+\]
+is impossible: because the sets are distinct and all values of $f$ are positive, it would imply
+\[
+f(X_j)>f(X_\ell),
+\]
+contrary to the choice of $\ell$. Hence
+\[
+|X_j\cap X_\ell|<|X_\ell|.
+\]
+Together with
+\[
+f(X_j)\le f(X_\ell),
+\]
+this gives
+\[
+f^+(X_j)<f^+(X_\ell).
+\]
+Thus $f^+$ is nice.
+
+Finally, the original function $f$ can be recovered uniquely from $f^+$. Its unique maximizing set identifies $X_\ell$, and then one subtracts $1$ from $f^+(x)$ exactly for
+\[
+x\in X_\ell.
+\]
+Therefore the map
+\[
+f\longmapsto f^+
+\]
+is injective.
+
+Since there are $n^n$ functions in $\mathcal F$, there are at least $n^n$ nice functions.

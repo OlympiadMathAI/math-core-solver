@@ -1,0 +1,17 @@
+{
+  "id": "0381",
+  "source": "IMO Shortlist",
+  "year": "2022",
+  "topic": "Geometry",
+  "subtopics": [
+    "Reflections",
+    "Radical Axes",
+    "Cyclic Quadrilaterals",
+    "Power of a Point"
+  ],
+  "statement": "Let $ABC$ be an acute triangle, and let $F$ be the foot of the altitude from $A$. A point $P$ lies on segment $AF$.\n\nThe line through $P$ parallel to $AC$ meets $BC$ at $D$, and the line through $P$ parallel to $AB$ meets $BC$ at $E$.\n\nLet $X\\ne A$ lie on the circumcircle of triangle $ABD$ and satisfy\n\\[\nDA=DX.\n\\]\nLet $Y\\ne A$ lie on the circumcircle of triangle $ACE$ and satisfy\n\\[\nEA=EY.\n\\]\n\nProve that\n\\[\nB,C,X,Y\n\\]\nare concyclic.",
+  "solutions": [
+    "Let\n\\[\nA'=BX\\cap CY.\n\\]\n\nBecause $A,B,D,X$ are concyclic and\n\\[\nDA=DX,\n\\]\nthe equal chords $DA$ and $DX$ subtend equal angles at $B$. Thus line $BD=BC$ is either the internal or the external angle bisector of $\\angle ABX$. Equivalently, line $BX$ is the reflection of line $BA$ in $BC$.\n\nSimilarly, line $CY$ is the reflection of line $CA$ in $BC$. Therefore $A'$ is the reflection of $A$ in $BC$. In particular,\n\\[\nA,A',F,P\n\\]\nare collinear.\n\nLet\n\\[\n\\omega_B=(ABDX),\n\\qquad\n\\omega_C=(ACEY).\n\\]\nSince $PD\\parallel AC$ and $PE\\parallel AB$, the similar right triangles determined by the altitude give\n\\[\n\\frac{FD}{FC}\n=\n\\frac{FP}{FA}\n=\n\\frac{FE}{FB}.\n\\]\nHence\n\\[\nFD\\cdot FB=FE\\cdot FC.\n\\tag{1}\n\\]\nThe two sides of (1) are the powers of $F$ with respect to $\\omega_B$ and $\\omega_C$. Thus $F$ has equal powers with respect to the two circles.\n\nThe point $A$ belongs to both circles, so their radical axis is line\n\\[\nAF=AA'.\n\\]\nTherefore $A'$ has equal powers:\n\\[\nA'B\\cdot A'X=A'C\\cdot A'Y.\n\\]\nAs $A',B,X$ are collinear and $A',C,Y$ are collinear, the converse of the secant theorem gives\n\\[\nB,C,X,Y\n\\]\nconcyclic.",
+    "If $P=A$, then $D=C$ and $E=B$, so both $X$ and $Y$ already lie on $(ABC)$ and the conclusion is immediate.\n\nIf $P=F$, the circles $(ABD)$ and $(ACE)$ have the common chord $AF$. The reflection argument below places $A'=BX\\cap CY$ on $AF$, so the power equality and the conclusion follow immediately. We may therefore assume\n\\[\nP\\notin\\{A,F\\}.\n\\]\n\nBecause $A,B,D,X$ are concyclic and $DA=DX$, the equal chords $DA$ and $DX$ subtend equal angles at $B$. Hence line $BD=BC$ bisects the angle formed by $BA$ and $BX$, internally or externally, and $BX$ is the reflection of $BA$ in $BC$.\n\nSimilarly, $CY$ is the reflection of $CA$ in $BC$. Therefore\n\\[\nA'=BX\\cap CY\n\\]\nis the reflection of $A$ in $BC$. Since $AF\\perp BC$ and $P\\in AF$,\n\\[\nA',P,A\n\\]\nare collinear.\n\nIt remains to prove that line $AP$ is the radical axis of the circles\n\\[\n(ABD)\n\\qquad\\text{and}\\qquad\n(ACE).\n\\]\n\nLet $N\\ne P$ be the second intersection of line $AP$ with the circumcircle of triangle $PDE$. Using directed angles,\n\\[\n\\angle DNA\n=\n\\angle DNP\n=\n\\angle DEP\n=\n\\angle DBA,\n\\]\nbecause $DE$ lies on $BC$ and $EP\\parallel AB$. Hence\n\\[\nA,B,D,N\n\\]\nare concyclic.\n\nSimilarly,\n\\[\n\\angle ENA\n=\n\\angle ENP\n=\n\\angle EDP\n=\n\\angle ECA,\n\\]\nbecause $DP\\parallel AC$. Therefore\n\\[\nA,C,E,N\n\\]\nare concyclic.\n\nThus $A$ and $N$ are the two common points of the circles $(ABD)$ and $(ACE)$, so their radical axis is\n\\[\nAN=AP.\n\\]\nThe point $A'$ lies on this line, and consequently\n\\[\nA'B\\cdot A'X=A'C\\cdot A'Y.\n\\]\nIt follows that $B,C,X,Y$ are concyclic."
+  ]
+}

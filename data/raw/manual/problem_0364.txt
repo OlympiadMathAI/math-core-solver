@@ -1,0 +1,147 @@
+ID: 0364
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Algebra
+
+SUBTOPICS: Extremal Ordering, Additive Constructions, Symmetric Sets
+
+STATEMENT:
+Let $k\ge2$ be an integer. Find the smallest integer $n\ge k+1$ for which there exists a set of $n$ distinct real numbers such that each of its elements can be written as a sum of $k$ other distinct elements of the set.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{n=k+4}.
+\]
+
+We first prove the lower bound. Suppose that such a set has $n$ elements, written in increasing order as
+\[
+a_1<a_2<\cdots<a_n.
+\]
+To express the smallest element $a_1$ as a sum of $k$ other elements, we must have
+\[
+a_1\ge a_2+a_3+\cdots+a_{k+1}.
+\tag{1}
+\]
+Similarly, to express the largest element $a_n$, we must have
+\[
+a_{n-k}+a_{n-k+1}+\cdots+a_{n-1}\ge a_n.
+\tag{2}
+\]
+
+If $n=k+1$, then (1) and (2) give
+\[
+a_1\ge a_2+\cdots+a_{k+1}
+>a_1+\cdots+a_k
+\ge a_{k+1},
+\]
+which is impossible.
+
+If $n=k+2$, then
+\[
+a_1\ge a_2+\cdots+a_{k+1}\ge a_{k+2},
+\]
+again impossible.
+
+If $n=k+3$, equations (1) and (2) become
+\[
+a_1\ge a_2+\cdots+a_{k+1}
+\]
+and
+\[
+a_3+\cdots+a_{k+2}\ge a_{k+3}.
+\]
+Adding and cancelling the common terms gives
+\[
+a_1+a_{k+2}\ge a_2+a_{k+3},
+\]
+contrary to
+\[
+a_1<a_2
+\qquad\text{and}\qquad
+a_{k+2}<a_{k+3}.
+\]
+Thus
+\[
+n\ge k+4.
+\]
+
+We now construct a suitable set with $k+4$ elements.
+
+\textbf{Case 1: $k=2\ell$ is even.}
+For
+\[
+1\le j\le\ell+2,
+\]
+put
+\[
+A_j=\{-j,j\},
+\]
+and take
+\[
+A=A_1\cup A_2\cup\cdots\cup A_{\ell+2}.
+\]
+This set has
+\[
+2\ell+4=k+4
+\]
+elements.
+
+It is enough to express every positive element $i$; negating the resulting identity then gives an expression for $-i$.
+
+If $1\le i<\ell+2$, choose $\ell-1$ indices $j$ from $\{1,2,\ldots,\ell+2\}$ while avoiding
+\[
+\{1,i,i+1\}.
+\]
+This is possible; when $i=1$, there are $\ell$ available indices and we omit any one of them. Take all elements of the corresponding pairs $A_j$, and add the two elements
+\[
+i+1
+\qquad\text{and}\qquad
+-1.
+\]
+There are
+\[
+2(\ell-1)+2=2\ell=k
+\]
+distinct summands, none equal to $i$, and their sum is
+\[
+(i+1)+(-1)=i.
+\]
+
+For $i=\ell+2$, take all the elements from the $\ell-1$ pairs
+\[
+A_j\qquad
+\bigl(j\notin\{1,\ell+1,\ell+2\}\bigr)
+\]
+and add
+\[
+\ell+1
+\qquad\text{and}\qquad
+1.
+\]
+Again there are $2\ell$ distinct summands, none equal to $\ell+2$, and their sum is $\ell+2$.
+
+\textbf{Case 2: $k=2\ell+1$ is odd.}
+Start with the preceding set for $2\ell$ and adjoin $0$. Every nonzero element can now be represented by adding $0$ to its representation from Case 1.
+
+The element $0$ itself is represented as
+\[
+1+2-3
+\]
+together with all elements of the $\ell-1$ pairs
+\[
+A_4,A_5,\ldots,A_{\ell+2}.
+\]
+The number of summands is
+\[
+3+2(\ell-1)=2\ell+1=k,
+\]
+and their sum is $0$.
+
+Thus a set of size $k+4$ always exists, so the minimum is
+\[
+\boxed{k+4}.
+\]

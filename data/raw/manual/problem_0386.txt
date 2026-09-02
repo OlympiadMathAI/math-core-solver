@@ -1,0 +1,173 @@
+ID: 0386
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Geometry
+
+SUBTOPICS: Orthocentre, Nine-Point Circle, Pole and Polar, Brocard's Theorem, Coaxial Circles
+
+STATEMENT:
+Let $ABC$ and $A'B'C'$ be two triangles with the same circumcircle $\omega$ and the same orthocentre $H$.
+
+The three lines
+\[
+AA',\qquad BB',\qquad CC'
+\]
+form a nondegenerate triangle. Let $\Omega$ be its circumcircle.
+
+Prove that
+\[
+H,
+\]
+the centre of $\omega$, and the centre of $\Omega$ are collinear.
+
+SOLUTION 1:
+Let $O$ and $R$ be the centre and radius of $\omega$.
+
+In every triangle, the homothety of ratio $-1/2$ centred at the centroid sends the orthocentre to the circumcentre and the vertices to the midpoints of the opposite sides. Since the two triangles have the same $O$ and $H$, they have the same centroid $G$. Their six side-midpoints therefore lie on one common nine-point circle $\rho$, whose centre lies on line $OH$.
+
+We prove that
+\[
+\omega,\qquad\Omega,\qquad\rho
+\]
+are coaxial.
+
+Let
+\[
+D=BB'\cap CC',\qquad
+E=CC'\cap AA',\qquad
+F=AA'\cap BB'.
+\]
+Thus
+\[
+\Omega=(DEF).
+\]
+Also define
+\[
+S=BC'\cap B'C,
+\qquad
+T=BC\cap B'C'.
+\]
+
+The points $D,S,T$ are the three diagonal points of the complete quadrilateral formed by the four chords
+\[
+BB',\quad CC',\quad BC',\quad B'C
+\]
+of $\omega$. By Brocard's theorem, triangle $DST$ is self-polar with respect to $\omega$.
+
+Because $D$ is the pole of $ST$, the inverse $D^*$ of $D$ with respect to $\omega$ is the perpendicular projection of $D$ onto $ST$. Let $N$ be the midpoint of $SD$. Since $D^*$ lies on the circle with diameter $SD$,
+\[
+ON^2-ND^2=OD\cdot OD^*=R^2.
+\]
+Therefore
+\[
+\operatorname{Pow}_{\omega}(N)=ON^2-R^2=ND^2.
+\tag{1}
+\]
+
+We next show that $SD$ is tangent to $\Omega$ at $D$.
+
+Since $T$ is the pole of $SD$,
+\[
+OT\perp SD.
+\tag{2}
+\]
+Let $M$ and $M'$ be the midpoints of $BC$ and $B'C'$, respectively. Then
+\[
+OM\perp BC,\qquad OM'\perp B'C',
+\]
+so the four points
+\[
+O,M,M',T
+\]
+are concyclic. Consequently,
+\[
+\measuredangle(SD,BC)
+=
+\measuredangle(OT,OM)
+=
+\measuredangle(B'C',MM').
+\tag{3}
+\]
+
+The cyclicity of $B,B',C,C'$ gives
+\[
+\measuredangle(BC,BB')
+=
+\measuredangle(CC',B'C').
+\tag{4}
+\]
+Adding (3)--(4),
+\[
+\measuredangle(SD,BB')
+=
+\measuredangle(CC',MM').
+\tag{5}
+\]
+
+Because the two triangles have the same centroid,
+\[
+MM'\parallel AA'.
+\tag{6}
+\]
+Now
+\[
+DF=BB',\qquad DE=CC',\qquad EF=AA',
+\]
+so equations (5)--(6) become
+\[
+\measuredangle(SD,DF)=\measuredangle(DE,EF).
+\]
+By the tangent--chord theorem, $SD$ is tangent to $\Omega$ at $D$. Since $N\in SD$,
+\[
+\operatorname{Pow}_{\Omega}(N)=ND^2.
+\tag{7}
+\]
+
+It remains to compute the power of $N$ with respect to $\rho$. The cyclic quadrilateral $BB'CC'$ makes triangles $DBC$ and $DC'B'$ inversely similar, from which
+\[
+\measuredangle(BB',DM')
+=
+\measuredangle(DM,CC').
+\tag{8}
+\]
+Using (5), (8), and (6),
+\[
+\begin{aligned}
+\measuredangle(SD,DM')
+&=
+\measuredangle(SD,BB')
++
+\measuredangle(BB',DM')\\
+&=
+\measuredangle(CC',MM')
++
+\measuredangle(DM,CC')\\
+&=
+\measuredangle(DM,MM').
+\end{aligned}
+\]
+Thus the circle $(DMM')$ is tangent to $SD$ at $D$.
+
+The points $N,M,M'$ are collinear on the Newton--Gauss line of the same complete quadrilateral. Taking powers from $N$ to $(DMM')$ gives
+\[
+ND^2=NM\cdot NM'.
+\tag{9}
+\]
+Since $M,M'\in\rho$, the right-hand side of (9) is
+\[
+\operatorname{Pow}_{\rho}(N).
+\]
+Combining (1), (7), and (9), the point $N$ has the same power with respect to
+\[
+\omega,\qquad\Omega,\qquad\rho.
+\tag{10}
+\]
+
+Repeating the same construction cyclically at $E$ and $F$ gives two further points, lying respectively on the tangents to $\Omega$ at $E$ and $F$, that satisfy (10). The three tangents to a nondegenerate circle at three distinct points cannot be concurrent. Hence at least two of these equal-power points are distinct.
+
+Therefore the pairwise radical axes of $\omega,\Omega,\rho$ contain the same two distinct points, so the three circles are coaxial. Their centres are consequently collinear. Since the centres of $\omega$ and $\rho$ lie on $OH$, the centre of $\Omega$ also lies on $OH$.
+
+Thus $H$, $O$, and the centre of $\Omega$ are collinear.

@@ -1,0 +1,244 @@
+ID: 0385
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Geometry
+
+SUBTOPICS: Angle Bisectors, Homothety Centres, Monge's Theorem, Hyperbolas, Brianchon's Theorem
+
+STATEMENT:
+Let $ABC$ be an acute triangle, and let $H$ be the foot of the altitude from $A$.
+
+A point $P$ varies so that the internal angle bisectors $k$ and $\ell$ of
+\[
+\angle PBC
+\qquad\text{and}\qquad
+\angle PCB,
+\]
+respectively, meet at a point of segment $AH$.
+
+Let
+\[
+E=k\cap AC,\qquad
+F=\ell\cap AB,\qquad
+Q=EF\cap AH.
+\]
+
+Prove that, as $P$ varies, line $PQ$ passes through a fixed point.
+
+SOLUTION 1:
+Reflect line $BC$ in $AB$ and in $AC$. Let the two reflected lines meet at $K$. We prove that
+\[
+P,Q,K
+\]
+are collinear; hence $K$ is the required fixed point.
+
+Let
+\[
+I=BE\cap CF.
+\]
+Then $I$ is the incenter of triangle $PBC$, and by hypothesis
+\[
+A,I,H
+\]
+are collinear.
+
+For a point $U$ and a positive number $r$, write $(U,r)$ for the circle with centre $U$ and radius $r$. Define
+
+\[
+\omega_A=(A,AH),\qquad
+\omega_I=(I,IH),
+\]
+let $\omega_K$ be the incircle of triangle $KBC$, and let $\omega_P$ be the $P$-excircle of triangle $PBC$.
+
+The circles $\omega_A$ and $\omega_I$ are tangent at $H$. Thus $H$ is their external homothety centre. The complete quadrilateral formed by
+\[
+AB,\ AC,\ BE,\ CF
+\]
+gives the harmonic relation
+\[
+(A,I;Q,H)=-1.
+\tag{1}
+\]
+For two internally tangent circles, the second homothety centre is the harmonic conjugate of the tangency point with respect to their centres. Hence $Q$ is the internal homothety centre of
+\[
+\omega_A
+\qquad\text{and}\qquad
+\omega_I.
+\tag{2}
+\]
+
+Because $AB$ and $AC$ are the external angle bisectors at $B$ and $C$ of triangle $KBC$, the circle $\omega_A$ is the $K$-excircle of that triangle. Therefore $K$ is the external homothety centre of $\omega_A$ and $\omega_K$.
+
+Likewise, $P$ is the external homothety centre of $\omega_I$ and $\omega_P$.
+
+Let $T$ be the point where $\omega_P$ touches $BC$, and let $T'$ be the point where $\omega_K$ touches $BC$. In triangle $PBC$, the incircle touches $BC$ at $H$, so the standard tangent-length formulas for the incircle and the $P$-excircle give
+\[
+CT=BH,\qquad BT=CH.
+\tag{3}
+\]
+In triangle $KBC$, the $K$-excircle touches $BC$ at $H$, and its incircle touches $BC$ at $T'$. The same formulas give
+\[
+CT'=BH,\qquad BT'=CH.
+\]
+Thus
+\[
+T'=T,
+\]
+and $\omega_K$ and $\omega_P$ are tangent at $T$.
+
+Let $S$ be the internal homothety centre of $\omega_A$ and $\omega_P$, and let $S'$ be the internal homothety centre of $\omega_I$ and $\omega_K$. Both points lie on $BC$.
+
+Denote the radii of the four circles by
+\[
+r_A,r_I,r_P,r_K.
+\]
+For a triangle with incircle radius $r$ and opposite excircle radius $r_a$, one has
+\[
+rr_a=(s-b)(s-c),
+\tag{4}
+\]
+where $s$ is the semiperimeter and $b,c$ are the two sides adjacent to the corresponding vertex.
+
+Applying (4) to triangle $PBC$ gives
+\[
+r_Ir_P=BH\cdot CH.
+\]
+Applying it to triangle $KBC$ gives
+\[
+r_Kr_A=BT\cdot CT.
+\]
+By (3),
+\[
+r_Ir_P=r_Kr_A,
+\]
+and hence
+\[
+\frac{r_A}{r_P}=\frac{r_I}{r_K}.
+\tag{5}
+\]
+
+Since the circles in each pair touch the same line $BC$ at $H$ and $T$,
+\[
+\frac{HS}{ST}=\frac{r_A}{r_P},
+\qquad
+\frac{HS'}{S'T}=\frac{r_I}{r_K}.
+\]
+Equation (5) therefore gives
+\[
+S=S'.
+\tag{6}
+\]
+
+Apply the generalized Monge theorem to the circles
+\[
+\omega_A,\omega_I,\omega_K.
+\]
+Their two internal homothety centres and their external homothety centre are
+\[
+Q,\ S,\ K,
+\]
+so these three points are collinear.
+
+Apply the same theorem to
+\[
+\omega_A,\omega_I,\omega_P.
+\]
+The corresponding homothety centres are
+\[
+Q,\ S,\ P,
+\]
+so these points are also collinear.
+
+Consequently,
+\[
+P,Q,K
+\]
+are collinear. The point $K$ depends only on triangle $ABC$, completing the proof.
+
+SOLUTION 2:
+If $AB=AC$, then $AH$ is the perpendicular bisector of $BC$. Since the incenter $I=BE\cap CF$ of triangle $PBC$ lies on $AH$, the half-angles at $B$ and $C$ are equal, so
+\[
+PB=PC.
+\]
+Hence $P\in AH$. The entire construction is symmetric about $AH$, so $E$ and $F$ are reflections of one another and $Q\in AH$. Thus
+\[
+PQ=AH,
+\]
+and the result is immediate.
+
+Assume from now on that
+\[
+AB\ne AC.
+\]
+
+Let
+\[
+I=BE\cap CF.
+\]
+Then $I$ is the incenter of triangle $PBC$, and $PI$ is its third internal angle bisector.
+
+Since the incircle of triangle $PBC$ touches $BC$ at $H$, equal tangent lengths give
+\[
+PB-PC=BH-CH.
+\tag{1}
+\]
+Thus the possible points $P$ lie on one fixed branch $\mathcal H$ of the hyperbola with foci $B,C$. The point $H$ is a vertex of this branch.
+
+The internal bisector $PI$ of the angle between the focal radii $PB$ and $PC$ is tangent to $\mathcal H$ at $P$. Also, the tangent to $\mathcal H$ at the vertex $H$ is
+\[
+AH=AI.
+\]
+
+Let $K\ne P$ be the second intersection of $PQ$ with $\mathcal H$. We prove that $AK$ is tangent to $\mathcal H$ at $K$. Since $AH$ is already one tangent from $A$ to the fixed hyperbola, this identifies $K$ as the other, fixed, point of tangency from $A$.
+
+Define
+\[
+G=KI\cap AP,
+\qquad
+M=PI\cap AK.
+\]
+The complete quadrilateral $BCEF$ gives
+\[
+(H,Q;I,A)=-1.
+\tag{2}
+\]
+In the complete quadrangle $APIK$, the three diagonal points are
+\[
+Q=AI\cap PK,\qquad
+G=AP\cap IK,\qquad
+M=AK\cap PI.
+\]
+The harmonic property of a complete quadrangle and (2) imply
+\[
+H,G,M
+\]
+are collinear.
+
+Now consider the degenerate hexagon
+\[
+A,H,I,P,M,K.
+\]
+Its three Brianchon diagonals are
+\[
+AP,\qquad HM,\qquad IK,
+\]
+and they concur at $G$. By the converse of Brianchon's theorem, there is a conic tangent to
+\[
+AI\ \text{at }H,\qquad
+IM\ \text{at }P,\qquad
+AM\ \text{at }K.
+\]
+This conic has the points $H,P,K$ and the tangents at $H,P$ in common with $\mathcal H$. These five incidence-and-tangency conditions determine a conic uniquely, so it is $\mathcal H$ itself. Therefore
+\[
+AK
+\]
+is tangent to $\mathcal H$ at $K$.
+
+The point $K$ is consequently fixed, and by its definition
+\[
+P,Q,K
+\]
+are collinear for every admissible $P$. This proves the assertion.

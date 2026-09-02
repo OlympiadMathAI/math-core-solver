@@ -1,0 +1,228 @@
+ID: 0367
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Algebra
+
+SUBTOPICS: Geometric Progressions, Difference Sets, Convexity, Extremal Exponents
+
+STATEMENT:
+Find all positive integers $n\ge2$ for which there exist real numbers
+\[
+a_1<a_2<\cdots<a_n
+\]
+and a real number $r>0$ such that the
+\[
+\binom n2
+\]
+differences
+\[
+a_j-a_i
+\qquad(1\le i<j\le n)
+\]
+are, in some order, the numbers
+\[
+r,r^2,\ldots,r^{\binom n2}.
+\]
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{n\in\{2,3,4\}}.
+\]
+
+We first give constructions.
+
+For $n=2$, take
+\[
+(a_1,a_2)=(1,3),
+\qquad r=2.
+\]
+
+For $n=3$, let $r>1$ satisfy
+\[
+r^2-r-1=0
+\]
+and take
+\[
+(a_1,a_2,a_3)=(0,r,r+r^2).
+\]
+Then the three differences are
+\[
+r,
+\qquad r^2,
+\qquad r+r^2=r^3.
+\]
+
+For $n=4$, let $r\in(1,2)$ satisfy
+\[
+r^3-r-1=0
+\]
+and take
+\[
+(a_1,a_2,a_3,a_4)
+=(0,r,r+r^2,r+r^2+r^3).
+\]
+The six differences are
+\[
+r,r^2,r^3,r^4,r^5,r^6,
+\]
+because
+\[
+r^4=r+r^2,
+\qquad
+r^5=r^2+r^3,
+\qquad
+r^6=r+r^2+r^3.
+\]
+
+We now prove that no $n\ge5$ works. Suppose otherwise, and put
+\[
+B=\binom n2.
+\]
+The case $r=1$ is impossible because the pairwise differences would all be equal. If $0<r<1$, multiply every $a_i$ by $r^{-B-1}$ and replace $r$ by $r^{-1}$; the new differences are again precisely the first $B$ powers of the new ratio. Hence we may assume
+\[
+r>1.
+\]
+
+\textbf{Lemma.}
+\[
+r^{n-1}>2.
+\tag{1}
+\]
+
+Among the $n$ powers
+\[
+r,r^2,\ldots,r^n,
+\]
+at least one is not an adjacent difference $a_{i+1}-a_i$, because there are only $n-1$ adjacent differences. It is therefore equal to a difference $a_j-a_i$ with $j\ge i+2$, which is a sum of at least two distinct adjacent differences. Every adjacent difference is at least $r$, so this sum is strictly greater than $2r$. Thus
+\[
+r^n>2r,
+\]
+proving (1).
+
+The largest difference is
+\[
+a_n-a_1=r^B.
+\tag{2}
+\]
+For every $i=2,\ldots,n-1$, write
+\[
+r^B=(a_n-a_i)+(a_i-a_1).
+\tag{3}
+\]
+One of the two terms on the right is at least $r^B/2$. By (1),
+\[
+r^{B-(n-1)}<\frac{r^B}{2}.
+\]
+Consequently, the larger term in each of the $n-2$ equations (3) must be one of
+\[
+r^{B-1},r^{B-2},\ldots,r^{B-(n-2)}.
+\]
+All pairwise differences are distinct, so these $n-2$ large powers occur exactly once.
+
+After ordering the equations accordingly, write
+\[
+r^B=r^{B-i}+r^{\alpha_i}
+\qquad(1\le i\le n-2),
+\tag{4}
+\]
+where
+\[
+1\le\alpha_1<\alpha_2<\cdots<\alpha_{n-2}\le B-(n-1).
+\tag{5}
+\]
+Subtracting consecutive equations in (4),
+\[
+r^{\alpha_{i+1}}-r^{\alpha_i}
+=r^{B-i}-r^{B-i-1}.
+\tag{6}
+\]
+The right-hand side strictly decreases as $i$ increases. Since the function $x\mapsto r^x$ is strictly increasing and strictly convex, (6) implies that the positive integers
+\[
+\alpha_{i+1}-\alpha_i
+\]
+strictly decrease with $i$.
+
+The last of these differences is at least $2$. Indeed, if
+\[
+\alpha_{n-2}-\alpha_{n-3}=1,
+\]
+then the last instance of (6) would give
+\[
+r^{\alpha_{n-3}}(r-1)
+=r^{B-(n-2)}(r-1),
+\]
+so
+\[
+\alpha_{n-3}=B-(n-2).
+\]
+But that exponent is already used by one of the large terms in (4), contradicting the fact that all differences are distinct.
+
+Therefore
+\[
+\begin{aligned}
+\alpha_{n-2}-\alpha_1
+&\ge2+3+\cdots+(n-2)\\
+&=\frac{n(n-3)}2.
+\end{aligned}
+\tag{7}
+\]
+On the other hand, (5) gives
+\[
+\alpha_{n-2}-\alpha_1
+\le B-n
+=\frac{n(n-3)}2.
+\tag{8}
+\]
+Thus equality holds everywhere in (7)--(8). In particular,
+\[
+\alpha_{n-2}=B-(n-1)
+\]
+and
+\[
+\alpha_{n-3}=B-(n+1).
+\]
+The last two equations in (4) are therefore
+\[
+r^B=r^{B-(n-2)}+r^{B-(n-1)}
+\]
+and
+\[
+r^B=r^{B-(n-3)}+r^{B-(n+1)}.
+\]
+After division, these become
+\[
+r^{n-1}=r+1
+\tag{9}
+\]
+and
+\[
+r^{n+1}=r^4+1.
+\tag{10}
+\]
+Using (9) in (10),
+\[
+r^4+1=r^{n+1}=r^2(r+1)=r^3+r^2.
+\]
+Hence
+\[
+(r-1)(r^3-r-1)=0.
+\]
+Since $r>1$,
+\[
+r^3=r+1.
+\]
+Comparing this with (9) yields
+\[
+n-1=3,
+\]
+so $n=4$, contradicting $n\ge5$.
+
+Thus precisely
+\[
+\boxed{n=2,3,4}
+\]
+are possible.

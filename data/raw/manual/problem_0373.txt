@@ -1,0 +1,106 @@
+ID: 0373
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Combinatorial Games, Board Colourings, Pigeonhole Principle, Scheduling Strategies
+
+STATEMENT:
+Every square of a $2022\times2022$ garden initially contains a tree of height $0$. A gardener and a lumberjack play alternately, with the gardener moving first.
+
+On each gardener move, one square is chosen, and the tree in that square together with all trees in its surrounding squares, at most eight of them, grows by one unit.
+
+On each lumberjack move, four different squares are chosen, and every chosen tree of positive height loses one unit of height.
+
+A tree is called \emph{majestic} if its height is at least
+\[
+10^6.
+\]
+Determine the largest integer $K$ such that the gardener can guarantee that eventually at least $K$ trees are majestic, regardless of the lumberjack's play.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{
+K=\frac{5\cdot2022^2}{9}=2271380
+}.
+\]
+
+More generally, we solve the game on a $3N\times3N$ board and prove that the answer is
+\[
+5N^2.
+\tag{1}
+\]
+
+First we give a strategy for the lumberjack. Number the rows and columns from $1$ to $3N$, and colour a square if at least one of its two coordinates is divisible by $3$. There are
+\[
+(3N)^2-(2N)^2=5N^2
+\]
+coloured squares.
+
+Any three consecutive row indices contain exactly one multiple of $3$, and the same is true of any three consecutive column indices. Therefore any $3\times3$ square contains exactly four uncoloured squares. A gardener move affects a subset of such a $3\times3$ square, so it increases the heights of at most four uncoloured trees. The lumberjack cuts precisely those trees, using any unused choices arbitrarily if fewer than four occur.
+
+After every lumberjack move, every uncoloured tree has height $0$. Thus only the $5N^2$ coloured trees can ever become majestic, proving
+\[
+K\le5N^2.
+\tag{2}
+\]
+
+We now give a strategy for the gardener. It is enough to win a harder modified game. In this game, after the gardener grows the trees in a chosen $3\times3$ subboard, the lumberjack may cut four of those nine trees and may additionally cut every positive-height tree outside that subboard. Thus, in the chosen subboard, five trees gain one unit and four have no net change; outside it, every positive tree may lose one unit.
+
+Let
+\[
+M=\binom95=126,
+\]
+the number of possible sets of five trees that can be left uncut inside a $3\times3$ subboard.
+
+Partition the $3N\times3N$ board into $N^2$ disjoint $3\times3$ subboards, numbered
+\[
+0,1,\ldots,N^2-1.
+\]
+Process them in descending order. For
+\[
+b=N^2-1,N^2-2,\ldots,0,
+\]
+the gardener repeatedly chooses the centre square of subboard $b$, thereby growing exactly that full $3\times3$ subboard. He does this exactly
+\[
+10^6M(M+1)^b
+\tag{3}
+\]
+times.
+
+Among the $M$ possible five-square sets, one is left uncut at least
+\[
+10^6(M+1)^b
+\tag{4}
+\]
+times during the moves on subboard $b$. Hence five trees in that subboard reach height at least the quantity in (4).
+
+Before subboard $b$ is first used, all of its trees still have height $0$, so earlier cuts cannot have lowered them. After the gardener finishes with subboard $b$, the number of remaining moves is
+\[
+\sum_{j=0}^{b-1}10^6M(M+1)^j
+=
+10^6\bigl((M+1)^b-1\bigr).
+\tag{5}
+\]
+Each of the five selected trees can lose at most one unit on each of these later moves. Combining (4) and (5), its final height is at least
+\[
+10^6(M+1)^b
+-
+10^6\bigl((M+1)^b-1\bigr)
+=
+10^6.
+\]
+Thus every subboard ends with five majestic trees, giving $5N^2$ in total. Together with (2), this proves (1).
+
+Finally,
+\[
+2022=3\cdot674,
+\]
+so $N=674$ and
+\[
+K=5\cdot674^2=2271380.
+\]

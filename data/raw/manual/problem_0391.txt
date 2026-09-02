@@ -1,0 +1,478 @@
+ID: 0391
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Number Theory
+
+SUBTOPICS: Factorials, Prime Valuations, LTE, Zsigmondy Theorem, Congruences
+
+STATEMENT:
+Find all triples of positive integers
+\[
+(a,b,p),
+\]
+where $p$ is prime, such that
+\[
+a^p=b!+p.
+\]
+
+SOLUTION 1:
+The solutions are
+\[
+\boxed{(a,b,p)=(2,2,2)\quad\text{and}\quad(3,4,3)}.
+\]
+Both triples are checked directly.
+
+Clearly
+\[
+a>1.
+\]
+We consider three cases.
+
+\textbf{Case 1: $a<p$.}
+
+If $a\le b$, then $a$ divides both $a^p$ and $b!$, and hence
+\[
+a\mid a^p-b!=p.
+\]
+This is impossible because
+\[
+1<a<p.
+\]
+
+If $a>b$, then
+\[
+b!\le(a-1)!<a^{a-1}<a^p-p,
+\]
+contrary to
+\[
+b!=a^p-p.
+\]
+Thus this case is impossible.
+
+\textbf{Case 2: $a>p$.}
+
+We have
+\[
+b!=a^p-p>p^p-p\ge p!,
+\]
+so
+\[
+b>p.
+\]
+Since
+\[
+p\mid a^p=b!+p,
+\]
+we have $p\mid a$. Moreover,
+\[
+b!=p\left(p^{p-1}\left(\frac ap\right)^p-1\right),
+\]
+so
+\[
+v_p(b!)=1.
+\]
+Therefore
+\[
+p<b<2p.
+\tag{1}
+\]
+
+If $a<p^2$, then
+\[
+1<\frac ap<p<b.
+\]
+The integer $a/p$ divides both $a^p$ and $b!$, and hence divides their difference $p$. This is impossible.
+
+If $a\ge p^2$, then
+\[
+a^p\ge p^{2p}.
+\]
+On the other hand, by (1),
+\[
+b!+p\le(2p-1)!+p.
+\]
+Pairing the factors of $(2p-1)!$ as
+\[
+(2p-1)!
+=
+p\prod_{i=1}^{p-1}i(2p-i)
+<
+p\left(p^2\right)^{p-1}
+=
+p^{2p-1},
+\]
+we obtain
+\[
+(2p-1)!+p<p^{2p},
+\]
+a contradiction. Hence this case is also impossible.
+
+\textbf{Case 3: $a=p$.}
+
+Now
+\[
+b!=p^p-p.
+\tag{2}
+\]
+For $p=2$ and $p=3$, equation (2) gives respectively
+\[
+b!=2
+\qquad\text{and}\qquad
+b!=24,
+\]
+so
+\[
+b=2\qquad\text{and}\qquad b=4.
+\]
+The prime $p=5$ gives
+\[
+b!=3120,
+\]
+which is impossible because
+\[
+6!<3120<7!.
+\]
+
+Assume now that
+\[
+p\ge7.
+\]
+Equation (2) gives $b!\!>p!$, so
+\[
+b\ge p+1.
+\tag{3}
+\]
+By the lifting-the-exponent lemma,
+\[
+\begin{aligned}
+v_2(b!)
+&=
+v_2(p^p-p)\\
+&=
+v_2\left(p^{p-1}-1\right)\\
+&=
+2v_2(p-1)+v_2(p+1)-1\\
+&=
+v_2\left(\frac{p-1}{2}(p-1)(p+1)\right).
+\end{aligned}
+\tag{4}
+\]
+However, the three factors on the right of (4) all occur among the factors of $(p+1)!$. Since
+\[
+p+1\ge8,
+\]
+there is at least one further even factor in $(p+1)!$, and therefore
+\[
+v_2((p+1)!)
+>
+v_2\left(\frac{p-1}{2}(p-1)(p+1)\right).
+\]
+Together with (3), this contradicts (4).
+
+Thus no further solutions exist, and the answer is
+\[
+\boxed{(2,2,2),(3,4,3)}.
+\]
+
+SOLUTION 2:
+We first eliminate the cases $a\ne p$.
+
+If $a<p$ and $a\le b$, then
+\[
+a\mid a^p-b!=p,
+\]
+which is impossible. If $a<p$ and $a>b$, then
+\[
+b!\le(a-1)!<a^p-p,
+\]
+also impossible.
+
+If $a>p$, then $b!>p!$, so $b>p$. The equation implies $p\mid a$ and
+\[
+v_p(b!)=1,
+\]
+hence
+\[
+p<b<2p.
+\]
+If $a<p^2$, the integer $a/p$ lies strictly between $1$ and $p$ and divides both $a^p$ and $b!$, so it divides $p$, a contradiction. If $a\ge p^2$, then
+\[
+a^p\ge p^{2p}>(2p-1)!+p\ge b!+p,
+\]
+again a contradiction.
+
+Therefore
+\[
+a=p
+\]
+and
+\[
+b!=p^p-p=p\left(p^{p-1}-1\right).
+\tag{1}
+\]
+The cases $p=2,3$ give the two stated solutions.
+
+Assume
+\[
+p\ge5.
+\]
+Then $b>p$. By Zsigmondy's theorem, the number
+\[
+p^{p-1}-1
+\]
+has a prime divisor $q$ which divides no number
+\[
+p^j-1
+\qquad(1\le j<p-1).
+\]
+Thus
+\[
+\operatorname{ord}_q(p)=p-1,
+\]
+and consequently
+\[
+q\equiv1\pmod{p-1}.
+\]
+Also $q\ne p$, so
+\[
+q\ge2p-1.
+\]
+Since $q\mid b!$, we have
+\[
+b\ge q\ge2p-1.
+\]
+Therefore
+\[
+b!\ge(2p-1)!>p^p>p^p-p,
+\]
+contradicting (1).
+
+Hence only
+\[
+\boxed{(2,2,2)\quad\text{and}\quad(3,4,3)}
+\]
+are possible.
+
+SOLUTION 3:
+We first eliminate the cases $a<p$ and $a>p$.
+
+Indeed, if $a<p$ and $a\le b$, then
+\[
+a\mid a^p-b!=p,
+\]
+whereas if $a>b$, then
+\[
+b!<a^p-p.
+\]
+If $a>p$, the equation gives $p\mid a$ and
+\[
+p<b<2p.
+\]
+For $a<p^2$, the nontrivial divisor $a/p$ of both $a^p$ and $b!$ would divide $p$; for $a\ge p^2$, one has
+\[
+a^p\ge p^{2p}>(2p-1)!+p\ge b!+p.
+\]
+Thus
+\[
+a=p
+\qquad\text{and}\qquad
+b!=p^p-p.
+\tag{1}
+\]
+
+The primes $p=2,3$ give the two stated solutions. For
+\[
+p=5,7,11,
+\]
+direct comparison with consecutive factorials gives
+\[
+6!<5^5-5<7!,
+\]
+\[
+9!<7^7-7<10!,
+\]
+and
+\[
+14!<11^{11}-11<15!,
+\]
+so none of these primes gives another solution.
+
+Assume now that
+\[
+p\ge13.
+\]
+Then $b>p$.
+
+Let $q$ be an odd prime divisor of $p+1$. By LTE,
+\[
+\begin{aligned}
+v_q(p^p-p)
+&=
+v_q\left(p^{p-1}-1\right)\\
+&=
+v_q(p^2-1)
++
+v_q\left(\frac{p-1}{2}\right)\\
+&=
+v_q(p+1).
+\end{aligned}
+\]
+But $b\ge p+1$, and the factorial $b!$ contains both the factor $p+1$ and the additional factor $q$. Hence
+\[
+v_q(b!)>v_q(p+1),
+\]
+contradicting (1). Therefore
+\[
+p+1=2^t
+\tag{2}
+\]
+for some positive integer $t$.
+
+Since $p+1=2^t$ and $p\ge13$, the number
+\[
+p-1=2\left(2^{t-1}-1\right)
+\]
+has an odd prime divisor. Let $q$ be any such divisor, and put
+\[
+d=v_q(p-1).
+\]
+Again by LTE,
+\[
+v_q(b!)
+=
+v_q(p^p-p)
+=
+2d.
+\tag{3}
+\]
+
+We claim that $d=1$. If $d\ge2$, then
+\[
+p\ge q^d+1.
+\]
+Consequently,
+\[
+v_q(b!)\ge v_q(p!)\ge v_q((q^d)!)
+=
+1+q+\cdots+q^{d-1}.
+\]
+This is greater than $2d$ except possibly when $(q,d)=(3,2)$. In that remaining case,
+\[
+p\ge13
+\]
+and
+\[
+v_3(b!)\ge v_3(13!)=5>4=2d.
+\]
+Both alternatives contradict (3). Hence $d=1$.
+
+If
+\[
+p>2q+1,
+\]
+then, since $(p-1)/q$ is an even integer, we have
+\[
+p>3q.
+\]
+Thus
+\[
+v_q(b!)\ge v_q(p!)\ge3,
+\]
+contradicting (3), which now equals $2$. Therefore
+\[
+p-1=2q.
+\tag{4}
+\]
+
+Combining (2) and (4),
+\[
+p=2^t-1
+\qquad\text{and}\qquad
+q=2^{t-1}-1
+\]
+are both prime. Hence both $t$ and $t-1$ are prime. The only two consecutive prime integers are $2$ and $3$, which would give $p=7$, contrary to $p\ge13$.
+
+No further solutions exist.
+
+SOLUTION 4:
+We first show that $a=p$.
+
+If $a<p$, then either $a\le b$, in which case
+\[
+a\mid a^p-b!=p,
+\]
+or $a>b$, in which case
+\[
+b!<a^p-p.
+\]
+Both are impossible.
+
+If $a>p$, then $p\mid a$ and
+\[
+p<b<2p.
+\]
+If $a<p^2$, the integer $a/p$ lies strictly between $1$ and $p$ and divides both $a^p$ and $b!$, so it would divide $p$, which is impossible. If $a\ge p^2$, then
+\[
+a^p\ge p^{2p}>(2p-1)!+p\ge b!+p,
+\]
+again impossible.
+
+Thus
+\[
+a=p
+\qquad\text{and}\qquad
+b!=p^p-p.
+\tag{1}
+\]
+The cases $p=2,3$ give
+\[
+(a,b,p)=(2,2,2),(3,4,3).
+\]
+
+Assume
+\[
+p\ge5.
+\]
+Then $b>p$, so
+\[
+b\ge p+1.
+\tag{2}
+\]
+Put
+\[
+t=p+1.
+\]
+Modulo $t^2$, the binomial theorem gives
+\[
+\begin{aligned}
+p^p-p
+&=(t-1)^p-(t-1)\\
+&\equiv -1+pt-t+1\\
+&=(p-1)t\\
+&=p^2-1
+\not\equiv0\pmod{t^2}.
+\end{aligned}
+\tag{3}
+\]
+
+On the other hand, the three distinct integers
+\[
+2,\qquad \frac{p+1}{2},\qquad p+1
+\]
+all occur among the factors of $(p+1)!$, and their product is divisible by
+\[
+(p+1)^2=t^2.
+\]
+Therefore, by (2),
+\[
+t^2\mid(p+1)!\mid b!,
+\]
+contradicting (1) and (3).
+
+Thus the only solutions are
+\[
+\boxed{(2,2,2)\quad\text{and}\quad(3,4,3)}.
+\]

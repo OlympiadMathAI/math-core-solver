@@ -1,0 +1,16 @@
+{
+  "id": "0369",
+  "source": "IMO Shortlist",
+  "year": "2022",
+  "topic": "Algebra",
+  "subtopics": [
+    "Decimal Digit Sums",
+    "Polynomial Values",
+    "Carrying",
+    "Place-Value Blocks"
+  ],
+  "statement": "For a positive integer $m$, let $s(m)$ denote the sum of its decimal digits. Let\n\\[\nP(x)=x^n+a_{n-1}x^{n-1}+\\cdots+a_1x+a_0,\n\\]\nwhere $n\\ge2$ and every $a_i$ is a positive integer.\n\nCan it happen that $s(k)$ and $s(P(k))$ have the same parity for every positive integer $k$?",
+  "solutions": [
+    "The answer is\n\\[\n\\boxed{\\text{No}}.\n\\]\nWe construct two positive integers having the same digit sum, while the digit sums of their polynomial values differ by $9$.\n\nFor convenience, put\n\\[\na_n=1\n\\]\nand let\n\\[\nM=\\max\\{a_0,a_1,\\ldots,a_n\\}.\n\\]\nChoose a positive integer $t$ so large that the interval\n\\[\nI=\n\\left[\n\\left(\\frac9{a_{n-1}}10^t\\right)^{1/(n-1)},\n\\left(\\frac1{a_{n-1}}10^{t+1}\\right)^{1/(n-1)}\n\\right)\n\\tag{1}\n\\]\nhas length greater than $100$ and has lower endpoint greater than $10M$.\nSuch a choice is possible because both the lower endpoint and the length of $I$ tend to infinity with $t$.\n\nChoose an integer\n\\[\nX\\in I\n\\qquad\\text{with}\\qquad\nX\\equiv1\\pmod{100}.\n\\tag{2}\n\\]\nThe interval is long enough to contain such an integer. From (1),\n\\[\n9\\cdot10^t\n\\le a_{n-1}X^{n-1}\n<10^{t+1}.\n\\tag{3}\n\\]\nThus the first decimal digit of\n\\[\na_{n-1}X^{n-1}\n\\]\nis $9$.\n\nAlso, $X>10M$. Hence, for every $0\\le i<n$,\n\\[\na_iX^i<a_{i+1}X^{i+1},\n\\]\nand in fact each successive quantity has strictly more decimal digits than the preceding one. Let\n\\[\n\\alpha\n\\]\nbe the number of decimal digits of $a_{n-1}X^{n-1}$. Then\n\\[\n10^{\\alpha-1}\n\\le a_{n-1}X^{n-1}\n<10^\\alpha.\n\\tag{4}\n\\]\n\nConsider first\n\\[\nP(10^\\alpha X)\n=\n10^{\\alpha n}X^n\n+a_{n-1}10^{\\alpha(n-1)}X^{n-1}\n+\\cdots+a_0.\n\\]\nEvery block below the leading block occupies at most $\\alpha$ decimal places. Hence consecutive blocks do not overlap, and no carrying occurs. Therefore\n\\[\ns(P(10^\\alpha X))\n=\ns(X^n)+s(a_{n-1}X^{n-1})+\\cdots+s(a_0).\n\\tag{5}\n\\]\n\nNow consider\n\\[\nP(10^{\\alpha-1}X)\n=\n10^{(\\alpha-1)n}X^n\n+a_{n-1}10^{(\\alpha-1)(n-1)}X^{n-1}\n+\\cdots+a_0.\n\\]\nFor $i<n-1$, the number $a_iX^i$ has at most $\\alpha-1$ digits, so all lower blocks remain disjoint. The only overlap is between the leading digit of\n\\[\na_{n-1}10^{(\\alpha-1)(n-1)}X^{n-1}\n\\]\nand the units digit of the shifted block\n\\[\n10^{(\\alpha-1)n}X^n.\n\\]\n\nBy (3), the first of these digits is $9$. By (2),\n\\[\nX^n\\equiv1\\pmod{100},\n\\]\nso the last two digits of $X^n$ are $01$. At the overlap, the digits $9$ and $1$ add to $10$: the $9$ and $1$ become $0$, and the following $0$ becomes $1$. No other digit is affected. Hence the total digit sum decreases by exactly $9$:\n\\[\n\\begin{aligned}\ns(P(10^{\\alpha-1}X))\n&=s(X^n)+s(a_{n-1}X^{n-1})+\\cdots+s(a_0)-9\\\\\n&=s(P(10^\\alpha X))-9.\n\\end{aligned}\n\\tag{6}\n\\]\n\nHowever,\n\\[\ns(10^\\alpha X)=s(X)=s(10^{\\alpha-1}X).\n\\]\nThus the two inputs have digit sums of the same parity, while by (6) their polynomial values have digit sums of opposite parity. Therefore it is impossible for\n\\[\ns(k)\\equiv s(P(k))\\pmod2\n\\]\nto hold for every positive integer $k$."
+  ]
+}

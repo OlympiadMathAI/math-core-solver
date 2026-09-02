@@ -1,0 +1,16 @@
+{
+  "id": "0363",
+  "source": "IMO Shortlist",
+  "year": "2022",
+  "topic": "Algebra",
+  "subtopics": [
+    "Sequences",
+    "Inequalities",
+    "Extremal Arguments",
+    "Contradiction"
+  ],
+  "statement": "Let $(a_n)_{n\\ge1}$ be a sequence of positive real numbers such that\n\\[\n(a_{n+1})^2+a_na_{n+2}\\le a_n+a_{n+2}\n\\tag{1}\n\\]\nfor every positive integer $n$. Prove that\n\\[\na_{2022}\\le1.\n\\]",
+  "solutions": [
+    "Rearranging (1), we obtain\n\\[\n(a_{n+1})^2-1\n\\le a_n+a_{n+2}-a_na_{n+2}-1\n=(1-a_n)(a_{n+2}-1).\n\\tag{2}\n\\]\n\nWe first show that two consecutive terms among\n\\[\na_2,a_3,a_4,\\ldots\n\\]\ncannot both be greater than $1$.\n\nSuppose, to the contrary, that\n\\[\na_{n+1}>1\n\\qquad\\text{and}\\qquad\na_{n+2}>1\n\\]\nfor some positive integer $n$. The left-hand side of (2) is positive, so\n\\[\n0<a_n<1.\n\\]\nConsequently,\n\\[\n\\begin{aligned}\n(a_{n+1})^2-1\n&\\le(1-a_n)(a_{n+2}-1)\\\\\n&<(1+a_{n+2})(a_{n+2}-1)\\\\\n&=(a_{n+2})^2-1.\n\\end{aligned}\n\\tag{3}\n\\]\n\nApplying (2) with $n+1$ in place of $n$, we have\n\\[\n(a_{n+2})^2-1\n\\le(1-a_{n+1})(a_{n+3}-1).\n\\]\nSince the left-hand side is positive and $1-a_{n+1}<0$, we must have\n\\[\na_{n+3}<1.\n\\]\nTherefore\n\\[\n\\begin{aligned}\n(a_{n+2})^2-1\n&\\le(a_{n+1}-1)(1-a_{n+3})\\\\\n&<(a_{n+1}-1)(a_{n+1}+1)\\\\\n&=(a_{n+1})^2-1,\n\\end{aligned}\n\\]\ncontradicting (3). This proves the claim.\n\nNow suppose that $a_{2022}>1$. The claim gives\n\\[\na_{2021}\\le1\n\\qquad\\text{and}\\qquad\na_{2023}\\le1.\n\\]\nUsing (2) with $n=2021$, we obtain\n\\[\n0<(a_{2022})^2-1\n\\le(1-a_{2021})(a_{2023}-1)\n\\le0,\n\\]\na contradiction. Hence\n\\[\n\\boxed{a_{2022}\\le1}.\n\\]"
+  ]
+}

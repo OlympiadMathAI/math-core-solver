@@ -1,0 +1,151 @@
+ID: 0378
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Directed Paths, Grid Graphs, Dynamic Programming, Induced Trees, Independent Sets
+
+STATEMENT:
+Alice fills an $n\times n$ board with the integers
+\[
+1,2,\ldots,n^2,
+\]
+using every integer exactly once.
+
+A \emph{good path} is a sequence of board squares, of any positive length, such that:
+
+\begin{enumerate}
+\item the first square is adjacent only to squares containing larger numbers;
+\item every later square is side-adjacent to the preceding square;
+\item the numbers along the sequence are strictly increasing.
+\end{enumerate}
+
+Determine the smallest possible total number of good paths.
+
+SOLUTION 1:
+The minimum is
+\[
+\boxed{2n^2-2n+1}.
+\]
+
+For every square $v$, let $g(v)$ be the number of good paths ending at $v$. Call a square a \emph{well} if all its neighbours contain larger numbers.
+
+A well has
+\[
+g(v)=1,
+\]
+corresponding to the one-square path. Every non-well square satisfies
+\[
+g(v)=
+\sum_{\substack{u\sim v\\ \text{number at }u<\text{number at }v}}
+g(u),
+\tag{1}
+\]
+where $u\sim v$ means that the two squares share a side.
+
+Sum (1) over all non-wells. Every adjacent pair of squares contributes exactly once, through its lower-numbered endpoint. Hence
+\[
+\sum_{\text{non-wells }v}g(v)
+=
+\sum_{\{u,v\}\text{ an edge}}g(\text{lower endpoint})
+\ge
+2n(n-1),
+\]
+because the $n\times n$ grid has $2n(n-1)$ edges and every $g(u)\ge1$.
+
+There is at least one well, namely the square containing $1$, so the wells contribute at least $1$. Therefore
+\[
+\sum_v g(v)\ge2n(n-1)+1=2n^2-2n+1.
+\tag{2}
+\]
+
+It remains to construct a filling attaining equality.
+
+We first construct a set $\mathcal M$ of \emph{marked} squares such that:
+
+\begin{itemize}
+\item the subgraph induced by $\mathcal M$ is a tree;
+\item no two unmarked squares are adjacent.
+\end{itemize}
+
+For $n=1$, mark the only square. For $n=2$, mark three squares forming an L-shape.
+
+Now assume $n\ge3$. Give squares coordinates
+\[
+(x,y),\qquad1\le x,y\le n.
+\]
+Set
+\[
+s=
+\begin{cases}
+1,&n\equiv1\pmod3,\\
+2,&n\equiv0\text{ or }2\pmod3.
+\end{cases}
+\]
+
+First mark squares in the first two columns as follows:
+
+\begin{itemize}
+\item mark $(1,y)$ unless
+\[
+y=6q+s
+\]
+for some integer $q\ge0$;
+\item mark $(2,y)$ whenever
+\[
+y\in\{6q+s-1,6q+s,6q+s+1\}
+\]
+for some integer $q\ge0$.
+\end{itemize}
+
+These squares form a path in the first two columns.
+
+For every $q\ge0$, consider each of the two possible anchor squares
+\[
+(2,6q+s),
+\qquad
+(1,6q+s+3)
+\]
+that lies on the board. For an anchor $(i,j)$, additionally mark
+
+\[
+(x,j)\qquad(i<x\le n)
+\]
+and
+\[
+(i+2r,j-1),\qquad(i+2r,j+1)
+\]
+for every $r\ge0$ for which the displayed squares lie on the board.
+
+For each anchor, the newly added squares form a horizontal path with isolated one-square branches above and below it. It attaches to the path in the first two columns at exactly one place. Consecutive anchor rows are three rows apart, and the branch columns alternate in parity, so different added pieces have no unintended common edge. Thus the marked squares induce a connected acyclic graph.
+
+The unmarked squares are exactly the squares of the following forms that lie on the board:
+\[
+(1,6q+s),
+\]
+\[
+(3+2r,6q+s\pm1),
+\]
+and
+\[
+(2+2r,6q+s+3\pm1),
+\qquad q,r\ge0.
+\]
+Along every row these squares are separated by marked squares, and between consecutive relevant rows the two column parities alternate. Hence no two unmarked squares are adjacent. This proves the two required properties.
+
+Root the marked tree at any marked square. Number all marked squares first, in an order in which every parent precedes its children. Then assign the remaining, larger numbers arbitrarily to the unmarked squares.
+
+The root is the unique well. Every other marked square has exactly one lower-numbered neighbour, namely its parent, and therefore has $g(v)=1$. Every unmarked square is adjacent only to marked squares and is numbered after all of them. Thus every edge of the board has a lower endpoint with $g=1$.
+
+Consequently, equality holds in every estimate leading to (2):
+\[
+\sum_v g(v)
+=
+1+2n(n-1)
+=
+2n^2-2n+1.
+\]
+This proves that the lower bound is attainable.

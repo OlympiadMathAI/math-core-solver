@@ -1,0 +1,339 @@
+ID: 0395
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Number Theory
+
+SUBTOPICS: Divisibility, Binary Powers, Quadratic Forms, Infinite Descent, Jacobi Symbols
+
+STATEMENT:
+Prove that
+\[
+2^n+65
+\]
+does not divide
+\[
+5^n-3^n
+\]
+for any positive integer $n$.
+
+SOLUTION 1:
+Suppose, for contradiction, that
+\[
+m=2^n+65
+\]
+divides
+\[
+5^n-3^n.
+\tag{1}
+\]
+
+If $n$ is even, then
+\[
+3\mid m,
+\]
+whereas
+\[
+3\nmid5^n-3^n,
+\]
+contradicting (1). Thus $n$ is odd. The case $n=1$ is immediate, so assume
+\[
+n=2h+1\ge3.
+\]
+Then
+\[
+\gcd(m,30)=1.
+\tag{2}
+\]
+
+Let $m_1$ be the smallest positive multiple of $m$ which can be written in at least one of the forms
+\[
+|5a^2-3b^2|
+\qquad\text{or}\qquad
+|a^2-15b^2|
+\tag{3}
+\]
+with integers $a,b$.
+
+Such a multiple exists, because
+\[
+5^n-3^n
+=
+5(5^h)^2-3(3^h)^2
+\]
+has the first form in (3) and is divisible by $m$.
+
+\textbf{Step 1: $m_1\le5m$.}
+
+Consider all residues modulo $m$ of the numbers
+\[
+5^{h+1}x+3^{h+1}y,
+\qquad
+0\le x,y\le\lfloor\sqrt m\rfloor.
+\]
+There are
+\[
+\bigl(\lfloor\sqrt m\rfloor+1\bigr)^2>m
+\]
+pairs $(x,y)$, so two distinct pairs give the same residue. Subtracting them, we obtain integers $a,b$, not both zero, such that
+\[
+|a|,|b|\le\sqrt m
+\]
+and
+\[
+5^{h+1}a+3^{h+1}b\equiv0\pmod m.
+\]
+Squaring and using
+\[
+5^n\equiv3^n\pmod m
+\]
+from (1), we get
+\[
+\begin{aligned}
+0
+&\equiv
+5^{n+1}a^2-3^{n+1}b^2\\
+&\equiv
+3^n(5a^2-3b^2)
+\pmod m.
+\end{aligned}
+\]
+By (2), $3$ is invertible modulo $m$, so
+\[
+m\mid5a^2-3b^2.
+\]
+The expression is nonzero, because
+\[
+5a^2=3b^2
+\]
+has no nonzero integer solution. Therefore
+\[
+0<|5a^2-3b^2|
+\le
+\max(5a^2,3b^2)
+\le5m.
+\]
+By the minimality of $m_1$,
+\[
+m_1\le5m.
+\tag{4}
+\]
+
+\textbf{Step 2: $m_1$ is divisible by none of $2,3,5$.}
+
+Each possible divisibility would produce a smaller positive multiple of $m$ of one of the forms in (3).
+
+If
+\[
+m_1=|5a^2-3b^2|,
+\]
+then:
+
+\[
+5\mid m_1
+\quad\Longrightarrow\quad
+5\mid b
+\quad\text{and}\quad
+\left|a^2-15\left(\frac b5\right)^2\right|
+=
+\frac{m_1}{5};
+\]
+
+\[
+3\mid m_1
+\quad\Longrightarrow\quad
+3\mid a
+\quad\text{and}\quad
+\left|b^2-15\left(\frac a3\right)^2\right|
+=
+\frac{m_1}{3};
+\]
+
+and, if $2\mid m_1$, then $a$ and $b$ have the same parity, and
+\[
+\left|
+\left(\frac{5a-3b}{2}\right)^2
+-
+15\left(\frac{a-b}{2}\right)^2
+\right|
+=
+\frac{m_1}{2}.
+\]
+
+If
+\[
+m_1=|a^2-15b^2|,
+\]
+then:
+
+\[
+5\mid m_1
+\quad\Longrightarrow\quad
+5\mid a
+\quad\text{and}\quad
+\left|
+5\left(\frac a5\right)^2-3b^2
+\right|
+=
+\frac{m_1}{5};
+\]
+
+\[
+3\mid m_1
+\quad\Longrightarrow\quad
+3\mid a
+\quad\text{and}\quad
+\left|
+5b^2-3\left(\frac a3\right)^2
+\right|
+=
+\frac{m_1}{3};
+\]
+
+and, if $2\mid m_1$, then $a$ and $b$ have the same parity, and
+\[
+\left|
+5\left(\frac{a-3b}{2}\right)^2
+-
+3\left(\frac{a-5b}{2}\right)^2
+\right|
+=
+\frac{m_1}{2}.
+\]
+
+Because of (2), each quotient above remains a positive multiple of $m$. This contradicts the minimality of $m_1$. Hence
+\[
+\gcd(m_1,30)=1.
+\tag{5}
+\]
+
+Since $m_1$ is a positive multiple of $m$, equations (4)--(5) imply
+\[
+m_1=m.
+\tag{6}
+\]
+
+\textbf{Step 3: neither form in (3) can equal $m$.}
+
+For odd $n\ge3$,
+\[
+m\equiv1\pmod3,
+\qquad
+m\equiv1\pmod4,
+\qquad
+m\equiv\pm2\pmod5.
+\tag{7}
+\]
+
+The equality
+\[
+m=5a^2-3b^2
+\]
+is impossible modulo $3$, because its right-hand side is congruent to
+\[
+2a^2\in\{0,2\}\pmod3.
+\]
+
+The equality
+\[
+m=3b^2-5a^2
+\]
+is impossible modulo $4$, because an expression of the form
+\[
+3b^2-a^2
+\]
+is never congruent to $1$ modulo $4$.
+
+The equality
+\[
+m=a^2-15b^2
+\]
+is impossible modulo $5$, because its right-hand side is a quadratic residue modulo $5$, whereas $m\equiv\pm2\pmod5$.
+
+Finally,
+\[
+m=15b^2-a^2
+\]
+is impossible modulo $4$, because
+\[
+3b^2-a^2
+\]
+is never congruent to $1$ modulo $4$.
+
+All possibilities contradict (6). Therefore
+\[
+2^n+65\nmid5^n-3^n
+\]
+for every positive integer $n$.
+
+SOLUTION 2:
+Suppose, for contradiction, that
+\[
+m=2^n+65
+\mid
+5^n-3^n.
+\tag{1}
+\]
+The integer $n$ cannot be even, because then
+\[
+3\mid m
+\qquad\text{but}\qquad
+3\nmid5^n-3^n.
+\]
+The case $n=1$ is immediate, so
+\[
+n\ge3
+\]
+is odd. In particular,
+\[
+m\equiv1\pmod4,
+\qquad
+m\equiv1\pmod3,
+\qquad
+\gcd(m,15)=1.
+\tag{2}
+\]
+
+Using Jacobi symbols and quadratic reciprocity,
+\[
+\begin{aligned}
+-1
+&=
+\left(\frac{m}{5}\right)\\
+&=
+\left(\frac{5}{m}\right)\\
+&=
+\left(\frac{5^n}{m}\right)\\
+&=
+\left(\frac{3^n}{m}\right)\\
+&=
+\left(\frac{3}{m}\right)\\
+&=
+\left(\frac{m}{3}\right)\\
+&=1.
+\end{aligned}
+\]
+Here:
+
+\begin{itemize}
+\item the first equality follows because, for odd $n$, the residue
+\[
+m\equiv2^n\pmod5
+\]
+is either $2$ or $3$, both quadratic nonresidues modulo $5$;
+\item the second and sixth equalities follow from quadratic reciprocity, using
+\[
+5\equiv1\pmod4
+\qquad\text{and}\qquad
+m\equiv1\pmod4;
+\]
+\item the fourth equality follows from the congruence in (1);
+\item the last equality follows from
+\[
+m\equiv1\pmod3.
+\]
+\end{itemize}
+
+The contradiction proves that the divisibility in (1) is impossible.

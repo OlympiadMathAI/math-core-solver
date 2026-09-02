@@ -1,0 +1,93 @@
+ID: 0363
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Algebra
+
+SUBTOPICS: Sequences, Inequalities, Extremal Arguments, Contradiction
+
+STATEMENT:
+Let $(a_n)_{n\ge1}$ be a sequence of positive real numbers such that
+\[
+(a_{n+1})^2+a_na_{n+2}\le a_n+a_{n+2}
+\tag{1}
+\]
+for every positive integer $n$. Prove that
+\[
+a_{2022}\le1.
+\]
+
+SOLUTION 1:
+Rearranging (1), we obtain
+\[
+(a_{n+1})^2-1
+\le a_n+a_{n+2}-a_na_{n+2}-1
+=(1-a_n)(a_{n+2}-1).
+\tag{2}
+\]
+
+We first show that two consecutive terms among
+\[
+a_2,a_3,a_4,\ldots
+\]
+cannot both be greater than $1$.
+
+Suppose, to the contrary, that
+\[
+a_{n+1}>1
+\qquad\text{and}\qquad
+a_{n+2}>1
+\]
+for some positive integer $n$. The left-hand side of (2) is positive, so
+\[
+0<a_n<1.
+\]
+Consequently,
+\[
+\begin{aligned}
+(a_{n+1})^2-1
+&\le(1-a_n)(a_{n+2}-1)\\
+&<(1+a_{n+2})(a_{n+2}-1)\\
+&=(a_{n+2})^2-1.
+\end{aligned}
+\tag{3}
+\]
+
+Applying (2) with $n+1$ in place of $n$, we have
+\[
+(a_{n+2})^2-1
+\le(1-a_{n+1})(a_{n+3}-1).
+\]
+Since the left-hand side is positive and $1-a_{n+1}<0$, we must have
+\[
+a_{n+3}<1.
+\]
+Therefore
+\[
+\begin{aligned}
+(a_{n+2})^2-1
+&\le(a_{n+1}-1)(1-a_{n+3})\\
+&<(a_{n+1}-1)(a_{n+1}+1)\\
+&=(a_{n+1})^2-1,
+\end{aligned}
+\]
+contradicting (3). This proves the claim.
+
+Now suppose that $a_{2022}>1$. The claim gives
+\[
+a_{2021}\le1
+\qquad\text{and}\qquad
+a_{2023}\le1.
+\]
+Using (2) with $n=2021$, we obtain
+\[
+0<(a_{2022})^2-1
+\le(1-a_{2021})(a_{2023}-1)
+\le0,
+\]
+a contradiction. Hence
+\[
+\boxed{a_{2022}\le1}.
+\]

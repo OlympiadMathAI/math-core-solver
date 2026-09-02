@@ -1,0 +1,86 @@
+ID: 0371
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Combinatorics
+
+SUBTOPICS: Subsequences, Pigeonhole Principle, Extremal Constructions, Block Arguments
+
+STATEMENT:
+A \emph{$\pm1$-sequence} is a sequence
+\[
+a_1,a_2,\ldots,a_{2022}
+\]
+in which every term is either $1$ or $-1$.
+
+Determine the largest real number $C$ such that every $\pm1$-sequence contains indices
+\[
+1\le t_1<t_2<\cdots<t_k\le2022
+\]
+satisfying
+\[
+t_{i+1}-t_i\le2
+\qquad(1\le i<k)
+\]
+and
+\[
+\left|\sum_{i=1}^k a_{t_i}\right|\ge C.
+\]
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{C=506}.
+\]
+
+We first prove that $506$ can always be attained. Replacing every term by its negative does not change the problem, so we may suppose that at least
+\[
+\frac{2022}{2}=1011
+\]
+terms are equal to $1$.
+
+Construct a subsequence by scanning the sequence from left to right. Select every term equal to $1$. If $a_1=-1$, leave it unselected. For $i\ge2$, when $a_i=-1$, select it exactly when $a_{i-1}$ was not selected.
+
+No two consecutive indices are left unselected. Hence the gap between consecutive selected indices is at most $2$, so the selected terms form an admissible subsequence.
+
+Every selected term equal to $-1$ is immediately preceded by an unselected term equal to $-1$. These preceding terms are distinct, and therefore at most half of all the negative terms are selected. Since there are at most $1011$ negative terms, at most
+\[
+\left\lfloor\frac{1011}{2}\right\rfloor=505
+\]
+selected terms are negative. All positive terms are selected, so the sum of the selected terms is at least
+\[
+1011-505=506.
+\]
+Thus $C\ge506$.
+
+We now construct a sequence for which no admissible subsequence has absolute sum greater than $506$. Arrange the terms in $1012$ alternating blocks:
+\[
+\{-1\},
+\{1,1\},
+\{-1,-1\},
+\{1,1\},
+\ldots,
+\{-1,-1\},
+\{1\}.
+\tag{1}
+\]
+There are $506$ positive blocks and $506$ negative blocks. The first and last blocks are singletons, and every other block has two terms. Hence (1) contains $1011$ terms of each sign and has total length $2022$.
+
+Consider an admissible subsequence and suppose it meets exactly $r$ positive blocks. Between any two consecutive positive blocks that it meets, it must also select at least one term from the intervening negative block; otherwise it would jump over two consecutive positions, producing a gap of at least $3$.
+
+The subsequence contains at most two positive terms from each positive block and at least $r-1$ negative terms between those blocks. Therefore its sum is at most
+\[
+2r-(r-1)=r+1.
+\]
+If $r\le505$, this is at most $506$. If $r=506$, then the subsequence meets the final positive block, which contains only one term, so it has at most $2r-1$ positive terms. Its sum is then at most
+\[
+(2r-1)-(r-1)=r=506.
+\]
+Thus every admissible subsequence has sum at most $506$.
+
+Applying the same argument with the two signs interchanged shows that every admissible subsequence has sum at least $-506$. Hence its absolute sum is at most $506$, and therefore
+\[
+\boxed{C=506}.
+\]

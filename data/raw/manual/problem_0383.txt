@@ -1,0 +1,217 @@
+ID: 0383
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Geometry
+
+SUBTOPICS: Miquel Point, Spiral Similarity, Circle Orthogonality, Tangent-Chord Theorem
+
+STATEMENT:
+Let $ABC$ be an acute triangle with
+\[
+AC>AB,
+\]
+and let $O$ be its circumcentre. Let $D$ be a point on segment $BC$.
+
+The line through $D$ perpendicular to $BC$ meets $AO$, $AC$, and $AB$ at $W$, $X$, and $Y$, respectively. The circumcircles of triangles $AXY$ and $ABC$ meet again at
+\[
+Z\ne A.
+\]
+
+Assume that
+\[
+W\ne D
+\qquad\text{and}\qquad
+OW=OD.
+\]
+Prove that $DZ$ is tangent to the circumcircle of triangle $AXY$.
+
+SOLUTION 1:
+Let
+\[
+E=AO\cap BC.
+\]
+The triangle $EDW$ is right-angled at $D$, and $O$ lies on its hypotenuse $EW$. Since
+\[
+OW=OD
+\]
+and $W\ne D$, the point $O$ is the midpoint of $EW$, hence the circumcentre of triangle $EDW$. Therefore
+\[
+OE=OD.
+\]
+As $O$ lies on the perpendicular bisector of $BC$, the points $D$ and $E$ are reflections of one another in that perpendicular bisector.
+
+We use directed angles modulo $180^\circ$. Since $D,X,Y$ are collinear, $A,X,Y,Z$ are cyclic, $A,B,C,Z$ are cyclic, and $B,C,D$ are collinear,
+\[
+\begin{aligned}
+\measuredangle(DX,XZ)
+&=\measuredangle(YX,XZ)\\
+&=\measuredangle(YA,AZ)\\
+&=\measuredangle(BA,AZ)\\
+&=\measuredangle(BC,CZ)\\
+&=\measuredangle(DC,CZ).
+\end{aligned}
+\]
+Hence
+\[
+C,D,X,Z
+\]
+are concyclic.
+
+Let $Z'$ be the reflection of $A$ in the perpendicular bisector of $BC$. Then
+\[
+Z'\in(ABC)
+\qquad\text{and}\qquad
+AZ'\parallel BC.
+\tag{2}
+\]
+The reflection maps triangle $BAE$ to triangle $CZ'D$. Consequently,
+\[
+\begin{aligned}
+\angle DZ'C
+&=\angle BAE\\
+&=\angle BAO\\
+&=90^\circ-\frac12\angle AOB\\
+&=90^\circ-\angle ACB\\
+&=\angle DXC.
+\end{aligned}
+\]
+Thus
+\[
+C,D,X,Z'
+\]
+are concyclic. Reversing the directed-angle calculation that produced (1), and using $Z'\in(ABC)$, shows that
+\[
+A,X,Y,Z'
+\]
+are also concyclic. Hence $Z'$ is the second common point of $(ABC)$ and $(AXY)$:
+\[
+Z'=Z.
+\]
+In particular,
+\[
+AZ\parallel BC.
+\tag{3}
+\]
+
+Finally, by the cyclicity of $C,D,X,Z$ and by (3),
+\[
+\angle AZD
+=
+\angle CDZ
+=
+\angle CXZ
+=
+\angle AYZ.
+\]
+The tangent--chord theorem now shows that $DZ$ is tangent at $Z$ to the circle $(AXY)$.
+
+SOLUTION 2:
+The point $Z$ is the Miquel point of the four lines
+\[
+AC,\qquad BC,\qquad BA,\qquad DY.
+\]
+Indeed, it lies on $(ABC)$ and $(AXY)$. Therefore it also lies on
+\[
+(BDY)
+\qquad\text{and}\qquad
+(CDX).
+\]
+
+The cyclic quadrilaterals $(BDYZ)$ and $(CDXZ)$ give
+\[
+\angle ZBC=\angle ZYX,
+\qquad
+\angle ZCB=\angle ZXY.
+\]
+Thus
+\[
+\triangle ZBC\sim\triangle ZYX,
+\]
+so the spiral similarity centred at $Z$ sends segment $BC$ to segment $YX$. Since
+\[
+BC\perp YX,
+\]
+its rotation angle is $90^\circ$. Hence the angle between the circumcircles $(ABC)$ and $(AXY)$ at $Z$ is $90^\circ$. Thus the radius
+\[
+OZ
+\]
+of $(ABC)$ is tangent at $Z$ to $(AXY)$.
+
+It remains to prove that $D,O,Z$ are collinear.
+
+Let
+\[
+E=AO\cap BC.
+\]
+The triangle $EDW$ is right-angled at $D$, because $E,D\in BC$ and $DW\perp BC$. Since $O\in EW$, $W\ne D$, and
+\[
+OW=OD,
+\]
+the point $O$ is the midpoint of $EW$. Hence
+\[
+OE=OD,
+\]
+so reflection $\sigma$ in the perpendicular bisector of $BC$ sends
+\[
+B\leftrightarrow C,\qquad E\leftrightarrow D.
+\]
+
+Let
+\[
+Z'=\sigma(A).
+\]
+Because $\sigma$ fixes $O$ and sends line $AE=AO$ to line $Z'D$, we have
+\[
+D,O,Z'\ \text{collinear}.
+\tag{1}
+\]
+Also,
+\[
+Z'\in(ABC).
+\tag{2}
+\]
+
+We show that $Z'\in(AXY)$. Reflection sends triangle $BAE$ to triangle $CZ'D$, so
+\[
+\begin{aligned}
+\angle DZ'C
+&=\angle BAE\\
+&=\angle BAO\\
+&=90^\circ-\frac12\angle AOB\\
+&=90^\circ-\angle ACB\\
+&=\angle DXC.
+\end{aligned}
+\]
+Therefore
+\[
+C,D,X,Z'
+\]
+are concyclic.
+
+Using directed angles, the collinearities $D,X,Y$ and $B,C,D$, together with (2), now give
+\[
+\begin{aligned}
+\measuredangle(YX,XZ')
+&=\measuredangle(DX,XZ')\\
+&=\measuredangle(DC,CZ')\\
+&=\measuredangle(BC,CZ')\\
+&=\measuredangle(BA,AZ')\\
+&=\measuredangle(YA,AZ').
+\end{aligned}
+\]
+Hence
+\[
+A,X,Y,Z'
+\]
+are concyclic. Thus $Z'$ is the second common point of $(ABC)$ and $(AXY)$, so
+\[
+Z'=Z.
+\]
+Equation (1) gives
+\[
+D,O,Z\ \text{collinear}.
+\]
+Since $OZ$ is tangent to $(AXY)$ at $Z$, the same is true of $DZ$.

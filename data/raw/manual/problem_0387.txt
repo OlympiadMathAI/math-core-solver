@@ -1,0 +1,247 @@
+ID: 0387
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Geometry
+
+SUBTOPICS: Incircles, Arc Midpoints, Radical Centres, Monge's Theorem, Homothety
+
+STATEMENT:
+Let
+\[
+AA'BCC'B'
+\]
+be a convex cyclic hexagon in this order.
+
+Assume that $AC$ is tangent to the incircle of triangle $A'B'C'$, and that $A'C'$ is tangent to the incircle of triangle $ABC$.
+
+Let
+\[
+X=AB\cap A'B',
+\qquad
+Y=BC\cap B'C'.
+\]
+Prove that, if $XBYB'$ is a convex quadrilateral, then it has an incircle.
+
+SOLUTION 1:
+Let $\Omega$ be the circumcircle of the hexagon. Denote the incircles of triangles
+\[
+ABC
+\qquad\text{and}\qquad
+A'B'C'
+\]
+by $\omega$ and $\omega'$, with centres $I$ and $I'$, respectively.
+
+Let $N\ne B$ and $N'\ne B'$ be the second intersections of
+\[
+BI
+\qquad\text{and}\qquad
+B'I'
+\]
+with $\Omega$. Then $N$ and $N'$ are the midpoints of the appropriate arcs $AC$ and $A'C'$. Hence, if $O$ is the centre of $\Omega$,
+\[
+ON\perp AC,\qquad
+ON'\perp A'C',\qquad
+ON=ON'.
+\tag{1}
+\]
+
+Both $\omega$ and $\omega'$ are tangent to the two lines
+\[
+AC
+\qquad\text{and}\qquad
+A'C'.
+\]
+The side choices in the convex configuration place their centres on the same angle-bisector line through
+\[
+P=AC\cap A'C'.
+\]
+Thus
+\[
+P,I,I'\ \text{are collinear},
+\]
+and $II'$ is an angle bisector of the two lines. From (1), the chord $NN'$ is parallel to the same angle-bisector direction:
+\[
+NN'\parallel II'.
+\tag{2}
+\]
+
+Because $B,N,N',B'$ lie on $\Omega$, equation (2) gives
+\[
+\measuredangle(BI,II')
+=
+\measuredangle(BN,NN')
+=
+\measuredangle(BB',B'N')
+=
+\measuredangle(BB',B'I').
+\]
+Therefore
+\[
+B,I,I',B'\ \text{are concyclic}.
+\tag{3}
+\]
+
+Let $M$ be the antipode of $N'$ on $\Omega$.
+
+Consider the circle
+\[
+\Gamma_1
+\]
+with centre $N$ and radius $NA=NC$, and the circle
+\[
+\Gamma_2
+\]
+with centre $M$ and radius $MA'=MC'$.
+
+The point $P$ has equal powers with respect to these circles:
+\[
+PN^2-NA^2=PA\cdot PC
+\]
+and
+\[
+PM^2-MA'^2=PA'\cdot PC',
+\]
+while the two products are equal to the power of $P$ with respect to $\Omega$. Hence $P$ lies on the radical axis of $\Gamma_1$ and $\Gamma_2$.
+
+Since $MN\perp NN'$ and, by (2), $IP\parallel NN'$, that radical axis is line $IP$. The standard arc-midpoint identity gives
+\[
+NI=NA,
+\]
+so $I\in\Gamma_1$. Therefore
+\[
+I\in\Gamma_2,
+\qquad\text{and hence}\qquad
+MI=MA'=MC'.
+\tag{4}
+\]
+
+Let $Z\ne M$ be the second intersection of $MI$ with $\Omega$. The point $M$ is an arc midpoint of $A'C'$ in triangle $ZA'C'$, and (4) is the usual arc-midpoint characterization of the incenter. Thus
+\[
+I
+\]
+is the incenter of triangle $ZA'C'$. Since the circle centred at $I$ tangent to $A'C'$ is $\omega$, the circle $\omega$ is also the incircle of triangle $ZA'C'$.
+
+Let $\omega_c$ be the incircle of triangle $C'B'Z$, and let its centre be $I_c$.
+
+The incenter angle formulas and the cyclicity of the hexagon give
+\[
+\angle ZIC'
+=
+90^\circ+\frac12\angle ZA'C'
+=
+90^\circ+\frac12\angle ZB'C'
+=
+\angle ZI_cC'.
+\]
+Hence
+\[
+Z,I,I_c,C'\ \text{are concyclic}.
+\tag{5}
+\]
+
+Similarly,
+\[
+\angle B'I'C'
+=
+90^\circ+\frac12\angle B'A'C'
+=
+90^\circ+\frac12\angle B'ZC'
+=
+\angle B'I_cC',
+\]
+so
+\[
+B',I',I_c,C'\ \text{are concyclic}.
+\tag{6}
+\]
+
+Let $D$ be the external homothety centre of $\omega$ and $\omega_c$. Since these two circles are tangent to the common line $C'Z$,
+\[
+D=II_c\cap C'Z.
+\]
+By (5), the lines $II_c$ and $C'Z$ are radical axes of the three circles
+\[
+(II'I_c),\qquad
+(ZII_cC'),\qquad
+\Omega.
+\]
+Thus $D$ lies on the radical axis of
+\[
+\Omega
+\qquad\text{and}\qquad
+(II'I_c).
+\tag{7}
+\]
+
+Likewise, let $D'$ be the external homothety centre of $\omega'$ and $\omega_c$. Since their common tangent is $B'C'$,
+\[
+D'=I'I_c\cap B'C',
+\]
+and (6) shows that $D'$ lies on the same radical axis in (7).
+
+Let $T$ be the external homothety centre of $\omega$ and $\omega'$. Monge's theorem applied to
+\[
+\omega,\qquad\omega',\qquad\omega_c
+\]
+gives
+\[
+D,D',T
+\]
+collinear. Hence $T$ lies on the radical axis in (7).
+
+By definition,
+\[
+T\in II'.
+\tag{8}
+\]
+Let
+\[
+T'=BB'\cap II'.
+\]
+From the cyclic quadrilateral (3),
+\[
+T'B\cdot T'B'=T'I\cdot T'I'.
+\]
+The left side is the power of $T'$ with respect to $\Omega$, and the right side is its power with respect to $(II'I_c)$. Thus $T'$ also lies on the radical axis in (7). Together with (8), this yields
+\[
+T'=T.
+\]
+Therefore
+\[
+T\in BB'.
+\tag{9}
+\]
+
+Now construct a circle $\Omega_0$ tangent to the three lines
+\[
+A'B',\qquad B'C',\qquad AB
+\]
+on the same chosen sides as $\omega'$.
+
+The external homothety centre of $\omega'$ and $\Omega_0$ is $B'$, because the two circles have the common tangents $A'B'$ and $B'C'$. By Monge's theorem, the external homothety centre of $\Omega_0$ and $\omega$ lies on
+\[
+B'T=BB'
+\]
+by (9).
+
+The circles $\Omega_0$ and $\omega$ are both tangent to $AB$, so their external homothety centre also lies on $AB$. Consequently it is
+\[
+AB\cap BB'=B.
+\]
+The homothety centred at $B$ mapping $\Omega_0$ to $\omega$ preserves every line through $B$. Since $BC$ is the second tangent from $B$ to $\omega$, it follows that
+\[
+BC
+\]
+is tangent to $\Omega_0$ as well.
+
+Thus $\Omega_0$ is tangent to all four sidelines
+\[
+XB\subset AB,\qquad
+BY\subset BC,\qquad
+YB'\subset B'C',\qquad
+B'X\subset A'B'.
+\]
+The assumed convexity places $\Omega_0$ inside the quadrilateral. Hence $XBYB'$ has an incircle.

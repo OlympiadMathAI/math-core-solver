@@ -1,0 +1,179 @@
+ID: 0388
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Number Theory
+
+SUBTOPICS: Divisors, Unit Fractions, Diophantine Equations, Divisibility
+
+STATEMENT:
+A positive integer is called \emph{Norwegian} if it has three distinct positive divisors whose sum is equal to $2022$.
+
+Determine the smallest Norwegian number.
+
+The total number of positive divisors of a Norwegian number is allowed to be larger than $3$.
+
+SOLUTION 1:
+The answer is
+\[
+\boxed{1344}.
+\]
+
+Indeed,
+\[
+6+672+1344=2022,
+\]
+and all three summands are distinct positive divisors of $1344$. Thus $1344$ is Norwegian.
+
+Suppose, for contradiction, that a Norwegian number
+\[
+N<1344
+\]
+exists. Write three of its distinct divisors as
+\[
+\frac Na,\qquad \frac Nb,\qquad \frac Nc,
+\]
+where
+\[
+a<b<c
+\]
+are positive integers. Then
+\[
+2022
+=
+N\left(\frac1a+\frac1b+\frac1c\right),
+\]
+and therefore
+\[
+\frac1a+\frac1b+\frac1c
+>
+\frac{2022}{1344}
+=
+\frac32+\frac1{224}.
+\tag{1}
+\]
+
+If $a>1$, then
+\[
+a\ge2,\qquad b\ge3,\qquad c\ge4,
+\]
+so
+\[
+\frac1a+\frac1b+\frac1c
+\le
+\frac12+\frac13+\frac14
+=
+\frac{13}{12}
+<
+\frac32,
+\]
+contrary to (1). Hence
+\[
+a=1.
+\]
+
+If $b\ge4$, then $c\ge5$ and
+\[
+1+\frac1b+\frac1c
+\le
+1+\frac14+\frac15
+<
+\frac32,
+\]
+again contradicting (1). Thus
+\[
+b\in\{2,3\}.
+\]
+
+Suppose first that $b=3$. From (1),
+\[
+\frac1c
+>
+\frac32+\frac1{224}-1-\frac13
+>
+\frac16.
+\]
+Since $c>3$, this leaves only
+\[
+c=4\qquad\text{or}\qquad c=5.
+\]
+If $c=4$, then
+\[
+2022
+=
+N\left(1+\frac13+\frac14\right)
+=
+\frac{19}{12}N,
+\]
+which is impossible because $19\nmid2022$. If $c=5$, then
+\[
+2022
+=
+N\left(1+\frac13+\frac15\right)
+=
+\frac{23}{15}N,
+\]
+which is impossible because $23\nmid2022$.
+
+It remains to consider $b=2$. Inequality (1) gives
+\[
+\frac1c>\frac1{224},
+\]
+so
+\[
+c<224.
+\tag{2}
+\]
+Moreover,
+\[
+2022
+=
+N\left(1+\frac12+\frac1c\right)
+=
+\frac{3c+2}{2c}N,
+\]
+and hence
+\[
+(3c+2)N=4044c.
+\tag{3}
+\]
+Since
+\[
+\gcd(c,3c+2)=\gcd(c,2)\in\{1,2\},
+\]
+equation (3) implies
+\[
+3c+2\mid8088=2^3\cdot3\cdot337.
+\]
+But
+\[
+3c+2\not\equiv0\pmod3,
+\]
+so in fact
+\[
+3c+2\mid2^3\cdot337.
+\]
+Now $c\ge3$, so $3c+2>8$, and
+\[
+3c+2\ne337
+\]
+because the two numbers have different residues modulo $3$. The next possible divisor of
+\[
+2^3\cdot337
+\]
+is at least
+\[
+2\cdot337=674.
+\]
+Thus
+\[
+3c+2\ge674,
+\]
+which gives $c\ge224$, contradicting (2).
+
+Therefore no Norwegian number smaller than $1344$ exists, and the minimum is
+\[
+\boxed{1344}.
+\]

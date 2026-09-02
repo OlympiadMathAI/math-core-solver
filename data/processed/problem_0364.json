@@ -1,0 +1,15 @@
+{
+  "id": "0364",
+  "source": "IMO Shortlist",
+  "year": "2022",
+  "topic": "Algebra",
+  "subtopics": [
+    "Extremal Ordering",
+    "Additive Constructions",
+    "Symmetric Sets"
+  ],
+  "statement": "Let $k\\ge2$ be an integer. Find the smallest integer $n\\ge k+1$ for which there exists a set of $n$ distinct real numbers such that each of its elements can be written as a sum of $k$ other distinct elements of the set.",
+  "solutions": [
+    "The answer is\n\\[\n\\boxed{n=k+4}.\n\\]\n\nWe first prove the lower bound. Suppose that such a set has $n$ elements, written in increasing order as\n\\[\na_1<a_2<\\cdots<a_n.\n\\]\nTo express the smallest element $a_1$ as a sum of $k$ other elements, we must have\n\\[\na_1\\ge a_2+a_3+\\cdots+a_{k+1}.\n\\tag{1}\n\\]\nSimilarly, to express the largest element $a_n$, we must have\n\\[\na_{n-k}+a_{n-k+1}+\\cdots+a_{n-1}\\ge a_n.\n\\tag{2}\n\\]\n\nIf $n=k+1$, then (1) and (2) give\n\\[\na_1\\ge a_2+\\cdots+a_{k+1}\n>a_1+\\cdots+a_k\n\\ge a_{k+1},\n\\]\nwhich is impossible.\n\nIf $n=k+2$, then\n\\[\na_1\\ge a_2+\\cdots+a_{k+1}\\ge a_{k+2},\n\\]\nagain impossible.\n\nIf $n=k+3$, equations (1) and (2) become\n\\[\na_1\\ge a_2+\\cdots+a_{k+1}\n\\]\nand\n\\[\na_3+\\cdots+a_{k+2}\\ge a_{k+3}.\n\\]\nAdding and cancelling the common terms gives\n\\[\na_1+a_{k+2}\\ge a_2+a_{k+3},\n\\]\ncontrary to\n\\[\na_1<a_2\n\\qquad\\text{and}\\qquad\na_{k+2}<a_{k+3}.\n\\]\nThus\n\\[\nn\\ge k+4.\n\\]\n\nWe now construct a suitable set with $k+4$ elements.\n\n\\textbf{Case 1: $k=2\\ell$ is even.}\nFor\n\\[\n1\\le j\\le\\ell+2,\n\\]\nput\n\\[\nA_j=\\{-j,j\\},\n\\]\nand take\n\\[\nA=A_1\\cup A_2\\cup\\cdots\\cup A_{\\ell+2}.\n\\]\nThis set has\n\\[\n2\\ell+4=k+4\n\\]\nelements.\n\nIt is enough to express every positive element $i$; negating the resulting identity then gives an expression for $-i$.\n\nIf $1\\le i<\\ell+2$, choose $\\ell-1$ indices $j$ from $\\{1,2,\\ldots,\\ell+2\\}$ while avoiding\n\\[\n\\{1,i,i+1\\}.\n\\]\nThis is possible; when $i=1$, there are $\\ell$ available indices and we omit any one of them. Take all elements of the corresponding pairs $A_j$, and add the two elements\n\\[\ni+1\n\\qquad\\text{and}\\qquad\n-1.\n\\]\nThere are\n\\[\n2(\\ell-1)+2=2\\ell=k\n\\]\ndistinct summands, none equal to $i$, and their sum is\n\\[\n(i+1)+(-1)=i.\n\\]\n\nFor $i=\\ell+2$, take all the elements from the $\\ell-1$ pairs\n\\[\nA_j\\qquad\n\\bigl(j\\notin\\{1,\\ell+1,\\ell+2\\}\\bigr)\n\\]\nand add\n\\[\n\\ell+1\n\\qquad\\text{and}\\qquad\n1.\n\\]\nAgain there are $2\\ell$ distinct summands, none equal to $\\ell+2$, and their sum is $\\ell+2$.\n\n\\textbf{Case 2: $k=2\\ell+1$ is odd.}\nStart with the preceding set for $2\\ell$ and adjoin $0$. Every nonzero element can now be represented by adding $0$ to its representation from Case 1.\n\nThe element $0$ itself is represented as\n\\[\n1+2-3\n\\]\ntogether with all elements of the $\\ell-1$ pairs\n\\[\nA_4,A_5,\\ldots,A_{\\ell+2}.\n\\]\nThe number of summands is\n\\[\n3+2(\\ell-1)=2\\ell+1=k,\n\\]\nand their sum is $0$.\n\nThus a set of size $k+4$ always exists, so the minimum is\n\\[\n\\boxed{k+4}.\n\\]"
+  ]
+}

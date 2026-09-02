@@ -1,0 +1,16 @@
+{
+  "id": "0366",
+  "source": "IMO Shortlist",
+  "year": "2022",
+  "topic": "Algebra",
+  "subtopics": [
+    "Inequalities",
+    "Extremal Pairs",
+    "Dyadic Decomposition",
+    "Bernoulli Inequality"
+  ],
+  "statement": "Let $n\\ge3$ be an integer, and let\n\\[\nx_1,x_2,\\ldots,x_n\\in[0,1].\n\\]\nPut\n\\[\ns=x_1+x_2+\\cdots+x_n,\n\\]\nand assume that $s\\ge3$. Prove that there exist integers $i,j$ with\n\\[\n1\\le i<j\\le n\n\\]\nsuch that\n\\[\n2^{j-i}x_ix_j>2^{s-3}.\n\\]",
+  "solutions": [
+    "Choose indices\n\\[\n1\\le a<b\\le n\n\\]\nfor which\n\\[\n2^{b-a}x_ax_b\n\\]\nis maximal. Since $s\\ge3$, at least two of the $x_i$ are positive, so this maximum is positive and\n\\[\nx_a,x_b>0.\n\\]\nPut\n\\[\nd=b-a.\n\\]\n\nMaximality gives the two estimates\n\\[\nx_i\\le2^{i-a}x_a\n\\qquad(1\\le i<b)\n\\tag{1}\n\\]\nand\n\\[\nx_i\\le2^{b-i}x_b\n\\qquad(a<i\\le n).\n\\tag{2}\n\\]\nIndeed, (1) follows by comparing the pair $(i,b)$ with $(a,b)$, and (2) follows by comparing $(a,i)$ with $(a,b)$.\n\nChoose nonnegative integers $u,v$ such that\n\\[\n2^{-u-1}<x_a\\le2^{-u},\n\\qquad\n2^{-v-1}<x_b\\le2^{-v},\n\\]\nand write\n\\[\nx_a=2^{-\\alpha},\n\\qquad\nx_b=2^{-\\beta}.\n\\]\nThen\n\\[\nu\\le\\alpha<u+1,\n\\qquad\nv\\le\\beta<v+1.\n\\tag{3}\n\\]\n\nWe first note that\n\\[\nu<d\n\\qquad\\text{and}\\qquad\nv<d.\n\\tag{4}\n\\]\nIf $u\\ge d$, then by (1) and (2),\n\\[\n\\sum_{i=1}^{b-1}x_i\n<2^dx_a\\le1\n\\]\nand\n\\[\n\\sum_{i=b}^{n}x_i\n<2x_b\\le2.\n\\]\nThis would give $s<3$, a contradiction. The argument for $v\\ge d$ is symmetric: in that case\n\\[\n\\sum_{i=a+1}^{n}x_i<2^dx_b\\le1\n\\]\nand\n\\[\n\\sum_{i=1}^{a}x_i<2x_a\\le2,\n\\]\nagain contradicting $s\\ge3$. Thus (4) holds.\n\nUsing (1),\n\\[\n\\begin{aligned}\n\\sum_{i=1}^{a+u-1}x_i\n&\\le\nx_a\\sum_{t=1-a}^{u-1}2^t\\\\\n&<2^ux_a\\\\\n&\\le1.\n\\end{aligned}\n\\tag{5}\n\\]\nSimilarly, by (2),\n\\[\n\\sum_{i=b-v+1}^{n}x_i\n<2^vx_b\n\\le1.\n\\tag{6}\n\\]\nThus the sum of all $x_i$ whose indices lie outside the interval\n\\[\n[a+u,b-v]\n\\]\nis strictly smaller than $2$. Since the total sum is at least $3$ and each $x_i$ is at most $1$, this interval contains at least two integers. Hence\n\\[\na+u<b-v.\n\\tag{7}\n\\]\n\nWe now include the two endpoints in the geometric estimates. Equations (1), (2), and (7) give\n\\[\n\\sum_{i=1}^{a+u}x_i<2^{u+1}x_a\n\\]\nand\n\\[\n\\sum_{i=b-v}^{n}x_i<2^{v+1}x_b.\n\\]\nEvery remaining term is at most $1$, so\n\\[\n\\begin{aligned}\ns\n&<2^{u+1}x_a+2^{v+1}x_b\n  +\\bigl((b-v)-(a+u)-1\\bigr)\\\\\n&=b-a+\n\\left(2^{u+1-\\alpha}+2^{v+1-\\beta}-(u+v+1)\\right).\n\\end{aligned}\n\\tag{8}\n\\]\n\nFor $0\\le t\\le1$, convexity of $2^t$ on $[0,1]$ gives\n\\[\n2^t\\le1+t.\n\\]\nApplying this to\n\\[\nt=u+1-\\alpha\n\\qquad\\text{and}\\qquad\nt=v+1-\\beta,\n\\]\nwhich belong to $(0,1]$ by (3), we obtain\n\\[\n2^{u+1-\\alpha}+2^{v+1-\\beta}-(u+v+1)\n\\le3-\\alpha-\\beta.\n\\]\nTogether with (8),\n\\[\ns-3<b-a-\\alpha-\\beta.\n\\]\nExponentiating base $2$ gives\n\\[\n2^{s-3}\n<2^{b-a-\\alpha-\\beta}\n=2^{b-a}x_ax_b.\n\\]\nThus the pair $(i,j)=(a,b)$ has the required property."
+  ]
+}

@@ -1,0 +1,192 @@
+ID: 0394
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Number Theory
+
+SUBTOPICS: Cyclic Orderings, Quadratic Congruences, Vieta's Formulas, Induction
+
+STATEMENT:
+Let $k$ be a positive integer, and let $S$ be a finite set of odd prime numbers.
+
+Prove that, up to rotation and reflection, there is at most one way to arrange the elements of $S$ around a circle such that the product of every two neighbouring primes has the form
+\[
+x^2+x+k
+\]
+for some positive integer $x$.
+
+SOLUTION 1:
+We prove the stronger statement in which
+\[
+x\ge0
+\]
+is allowed.
+
+Call an unordered pair of distinct primes
+\[
+\{p,q\}
+\]
+\emph{special} if
+\[
+pq=x^2+x+k
+\tag{1}
+\]
+for some nonnegative integer $x$.
+
+We need the following claim.
+
+\textbf{Claim.}
+Let $r$ be a prime.
+
+\begin{enumerate}
+\item[(a)] At most two primes smaller than $r$ form a special pair with $r$.
+\item[(b)] If two such primes $p,q$ exist, then $\{p,q\}$ is itself special.
+\end{enumerate}
+
+\textit{Proof 1 of the claim.}
+If a prime $p<r$ forms a special pair with $r$, then
+\[
+pr=x^2+x+k
+\]
+for a uniquely determined integer
+\[
+0\le x<r.
+\]
+In particular,
+\[
+x^2+x+k\equiv0\pmod r.
+\tag{2}
+\]
+The quadratic congruence (2) has at most two solutions modulo $r$, proving part (a).
+
+Now suppose
+\[
+p<q<r
+\]
+and
+\[
+pr=x^2+x+k,\qquad
+qr=y^2+y+k
+\tag{3}
+\]
+with $0\le x<y\le r-1$. The numbers $x$ and $y$ are the two roots of (2). By Vieta's formulas,
+\[
+x+y\equiv-1\pmod r.
+\]
+Since
+\[
+0<x+y<2r-1,
+\]
+we obtain
+\[
+x+y=r-1.
+\tag{4}
+\]
+
+Put
+\[
+K=4k-1,\qquad
+X=2x+1,\qquad
+Y=2y+1.
+\]
+Then
+\[
+4pr=X^2+K,\qquad
+4qr=Y^2+K,
+\qquad
+X+Y=2r.
+\]
+Multiplying the first two equations and using
+\[
+(X^2+K)(Y^2+K)
+=
+(XY-K)^2+K(X+Y)^2,
+\]
+we get
+\[
+4pq
+=
+\left(\frac{XY-K}{2r}\right)^2+K.
+\tag{5}
+\]
+The square of the rational number in (5) is an integer, so the rational number itself is an integer. Let
+\[
+W=
+\left|
+\frac{XY-K}{2r}
+\right|.
+\]
+Modulo $4$, equation (5) gives
+\[
+W^2\equiv1\pmod4,
+\]
+so $W$ is odd. Taking
+\[
+z=\frac{W-1}{2}\ge0,
+\]
+equation (5) becomes
+\[
+pq=z^2+z+k.
+\]
+Thus $\{p,q\}$ is special. This proves part (b). $\square$
+
+For completeness, we give a second proof of part (b).
+
+\textit{Proof 2 of part (b).}
+Subtracting the two equations in (3) gives
+\[
+(x+y+1)(x-y)=r(p-q).
+\]
+By (4),
+\[
+x-y=p-q.
+\]
+Therefore
+\[
+x=\frac{r+p-q-1}{2},
+\qquad
+y=\frac{r+q-p-1}{2}.
+\]
+Substituting into
+\[
+k=pr-x^2-x
+\]
+gives
+\[
+k=
+\frac{
+2pq+2pr+2qr-p^2-q^2-r^2+1
+}{4},
+\tag{6}
+\]
+an expression symmetric in $p,q,r$.
+
+Consequently,
+\[
+pq=z^2+z+k,
+\qquad
+z=\frac{p+q-r-1}{2}.
+\]
+If $z\ge0$, this proves the result. If $z<0$, replace $z$ by
+\[
+-z-1\ge0,
+\]
+which leaves $z^2+z$ unchanged. Thus $\{p,q\}$ is again special. $\square$
+
+We now prove the theorem by induction on
+\[
+|S|.
+\]
+For $|S|\le3$, the assertion is immediate.
+
+Assume the result for sets of $n$ primes, and let
+\[
+|S|=n+1.
+\]
+Let $r$ be the largest prime in $S$. In any valid circular arrangement, the two neighbours of $r$ are primes smaller than $r$ which form special pairs with it. By part (a) of the claim, these two neighbours are uniquely determined.
+
+Remove $r$ from the circle. By part (b), its two former neighbours form a special pair with each other, so the remaining primes form a valid circular arrangement. By the induction hypothesis, that smaller arrangement is unique up to rotation and reflection. The uniquely determined edge joining the two neighbours of $r$ is then split by inserting $r$, which is also unique.
+
+Therefore the original circular arrangement is unique up to rotation and reflection. This proves the result.

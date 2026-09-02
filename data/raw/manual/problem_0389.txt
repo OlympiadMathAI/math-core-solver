@@ -1,0 +1,112 @@
+ID: 0389
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Number Theory
+
+SUBTOPICS: Factorials, Prime Divisibility, Extremal Primes, Prime Gaps
+
+STATEMENT:
+Find all positive integers $n>2$ such that
+\[
+n!
+\mid
+\prod_{\substack{p<q\le n\\ p,q\text{ prime}}}(p+q).
+\]
+
+SOLUTION 1:
+The only solution is
+\[
+\boxed{n=7}.
+\]
+
+Suppose that $n$ satisfies the condition, and list the primes not exceeding $n$ as
+\[
+2=p_1<p_2<\cdots<p_m.
+\]
+Since $p_m\mid n!$, the assumed divisibility implies that $p_m$ divides at least one factor
+\[
+p_i+p_j
+\qquad(i<j).
+\]
+Neither summand can equal $p_m$, because then the other summand would have to be divisible by $p_m$. Hence
+\[
+0<p_i+p_j<2p_m.
+\]
+It follows that
+\[
+p_i+p_j=p_m.
+\]
+The right-hand side is odd, so one of the two summands is $2$. Therefore
+\[
+p_m=p_{m-1}+2.
+\tag{1}
+\]
+
+Apply the same argument to $p_{m-1}$. It divides some sum $p_k+p_\ell$, and
+\[
+0<
+\frac{p_k+p_\ell}{p_{m-1}}
+\le
+\frac{p_m+p_{m-1}}{p_{m-1}}
+=
+2+\frac2{p_{m-1}}
+<3.
+\]
+Thus
+\[
+p_k+p_\ell=p_{m-1}
+\qquad\text{or}\qquad
+p_k+p_\ell=2p_{m-1}.
+\]
+
+In the first case, parity gives
+\[
+p_{m-1}=2+p_{m-2}.
+\]
+In the second case, one summand must be larger than $p_{m-1}$, and hence it must be
+\[
+p_m=p_{m-1}+2.
+\]
+The other summand is then
+\[
+2p_{m-1}-p_m=p_{m-1}-2=p_{m-2}.
+\]
+Thus in either case
+\[
+p_{m-2},\qquad p_{m-2}+2,\qquad p_{m-2}+4
+\]
+are three consecutive odd primes in the list.
+
+One of three odd integers differing successively by $2$ is divisible by $3$. Since all three are prime, the divisible one must be $3$. Therefore
+\[
+p_{m-2}=3,\qquad p_{m-1}=5,\qquad p_m=7.
+\]
+Hence
+\[
+7\le n<11.
+\]
+
+For all $n$ in this range, the product in the statement is
+\[
+\begin{aligned}
+&(2+3)(2+5)(2+7)(3+5)(3+7)(5+7)\\
+&\qquad=
+5\cdot7\cdot9\cdot8\cdot10\cdot12\\
+&\qquad=
+2^6\cdot3^3\cdot5^2\cdot7.
+\end{aligned}
+\]
+This is divisible by
+\[
+7!=2^4\cdot3^2\cdot5\cdot7,
+\]
+but it is not divisible by $8!$, whose $2$-adic valuation is $7$. Therefore $n=8,9,10$ do not work, while $n=7$ does.
+
+Consequently,
+\[
+\boxed{n=7}
+\]
+is the unique solution.

@@ -1,0 +1,329 @@
+ID: 0365
+
+SOURCE: IMO Shortlist
+
+YEAR: 2022
+
+TOPIC: Algebra
+
+SUBTOPICS: Functional Equations, Uniqueness, AM-GM Inequality, Monotonicity, Convexity
+
+STATEMENT:
+Let $\mathbb R_{>0}$ be the set of positive real numbers. Determine all functions
+\[
+f:\mathbb R_{>0}\to\mathbb R_{>0}
+\]
+such that, for every $x\in\mathbb R_{>0}$, there exists a unique $y\in\mathbb R_{>0}$ satisfying
+\[
+xf(y)+yf(x)\le2.
+\tag{1}
+\]
+
+SOLUTION 1:
+The unique solution is
+\[
+\boxed{f(x)=\frac1x}.
+\]
+Indeed, for this function, (1) becomes
+\[
+\frac{x}{y}+\frac{y}{x}\le2.
+\]
+By AM-GM, the left-hand side is at least $2$, with equality exactly when $x=y$. Thus the required $y$ exists and is unique.
+
+Now let $f$ satisfy the condition. Call a pair $(x,y)$ \emph{good} if
+\[
+xf(y)+yf(x)\le2.
+\]
+Goodness is symmetric in $x$ and $y$.
+
+\textbf{Lemma.} Every good pair satisfies $x=y$.
+
+Suppose that $(x,y)$ is good with $x\ne y$. Since $y$ is the unique good partner of $x$, the pair $(x,x)$ is not good, so
+\[
+xf(x)>1.
+\]
+Similarly,
+\[
+yf(y)>1.
+\]
+Therefore AM-GM gives
+\[
+\begin{aligned}
+xf(y)+yf(x)
+&\ge2\sqrt{xyf(x)f(y)}\\
+&=2\sqrt{\bigl(xf(x)\bigr)\bigl(yf(y)\bigr)}\\
+&>2,
+\end{aligned}
+\]
+contradicting the goodness of $(x,y)$. The lemma follows.
+
+For every $x$, a good partner exists, and the lemma says it must be $x$. Hence
+\[
+2xf(x)\le2,
+\qquad\text{so}\qquad
+f(x)\le\frac1x.
+\tag{2}
+\]
+
+Fix $t>0$ and apply (2) to $1/f(t)$:
+\[
+\frac1{f(t)}f\left(\frac1{f(t)}\right)\le1.
+\]
+Multiplying by $tf(t)$ and using (2) once more gives
+\[
+tf\left(\frac1{f(t)}\right)
+\le tf(t)
+\le1.
+\]
+Consequently,
+\[
+tf\left(\frac1{f(t)}\right)
++\frac1{f(t)}f(t)
+\le2.
+\]
+Thus
+\[
+\left(t,\frac1{f(t)}\right)
+\]
+is a good pair. By the lemma,
+\[
+t=\frac1{f(t)}.
+\]
+Therefore
+\[
+f(t)=\frac1t
+\]
+for every $t>0$.
+
+SOLUTION 2:
+We again verify first that $f(x)=1/x$ works. Let $f$ be any solution, and for each $x>0$ let $g(x)$ denote its unique good partner.
+
+We first prove that $f$ is strictly decreasing. Take $0<x<y$. The pair
+\[
+(g(y),y)
+\]
+is good. Since $y$ is its unique second component and $x\ne y$, the pair
+\[
+(g(y),x)
+\]
+is not good. Hence
+\[
+x f(g(y))+g(y)f(x)>2
+\]
+and
+\[
+y f(g(y))+g(y)f(y)\le2.
+\]
+Subtracting,
+\[
+f(g(y))(x-y)>g(y)(f(y)-f(x)).
+\]
+The left-hand side is negative, while $g(y)>0$, so
+\[
+f(x)>f(y).
+\]
+Thus $f$ is strictly decreasing.
+
+We now show that every good pair is diagonal. If $(x,y)$ were good with $x\ne y$, uniqueness would imply that neither $(x,x)$ nor $(y,y)$ is good. Hence
+\[
+xf(x)>1,
+\qquad
+yf(y)>1.
+\]
+It follows that
+\[
+xf(x)+yf(y)>2\ge xf(y)+yf(x),
+\]
+or
+\[
+(x-y)(f(x)-f(y))>0,
+\]
+contradicting the fact that $f$ is decreasing. Therefore the unique good partner of $x$ is $x$, and
+\[
+f(x)\le\frac1x.
+\tag{2}
+\]
+
+Fix $x>0$ and take $y>x$. Since $(x,y)$ is not good,
+\[
+xf(y)+yf(x)>2.
+\]
+Using $f(x)>f(y)$, we obtain
+\[
+(x+y)f(x)>2,
+\qquad\text{so}\qquad
+f(x)>\frac2{x+y}.
+\]
+Letting $y$ decrease to $x$ gives
+\[
+f(x)\ge\frac1x.
+\]
+Together with (2), this yields
+\[
+f(x)=\frac1x.
+\]
+
+SOLUTION 3:
+For $f(x)=1/x$, the condition follows from AM-GM, with equality only when $y=x$. We prove that no other solution exists.
+
+For each $x>0$, let $g(x)$ be the unique positive number for which
+\[
+xf(g(x))+g(x)f(x)\le2.
+\]
+We prove that this inequality is always an equality.
+
+Suppose, to the contrary, that for some $x>0$, with
+\[
+y=g(x),
+\]
+we have
+\[
+A:=2-xf(y)-yf(x)>0.
+\tag{2}
+\]
+Choose
+\[
+0<\varepsilon<\frac{A}{2f(x)}.
+\]
+Since $y+\varepsilon\ne y$, uniqueness gives
+\[
+xf(y+\varepsilon)+(y+\varepsilon)f(x)>2,
+\]
+and hence
+\[
+f(y+\varepsilon)
+>
+ f(y)+\frac{A}{2x}.
+\tag{3}
+\]
+
+Put
+\[
+h=g(y+\varepsilon).
+\]
+The pair $(h,y+\varepsilon)$ is good, while $(h,y)$ is not good. Therefore
+\[
+hf(y+\varepsilon)+(y+\varepsilon)f(h)\le2
+\]
+and
+\[
+hf(y)+yf(h)>2.
+\]
+Eliminating $f(h)$ gives
+\[
+2\varepsilon
+<
+h\bigl((y+\varepsilon)f(y)-y f(y+\varepsilon)\bigr).
+\tag{4}
+\]
+By (3), the expression in parentheses is smaller than
+\[
+\varepsilon f(y)-\frac{yA}{2x},
+\]
+which is negative for all sufficiently small positive $\varepsilon$. This contradicts (4). Hence
+\[
+xf(g(x))+g(x)f(x)=2
+\tag{5}
+\]
+for every $x>0$.
+
+By uniqueness, every other pair has value strictly greater than $2$. Thus, for all positive $x,y$,
+\[
+xf(y)+yf(x)\ge2.
+\]
+Taking $y=x$ gives
+\[
+f(x)\ge\frac1x.
+\tag{6}
+\]
+Using (6) in (5),
+\[
+2
+\ge
+\frac{x}{g(x)}+\frac{g(x)}{x}
+\ge2.
+\]
+Equality in AM-GM forces
+\[
+g(x)=x.
+\]
+Equation (5) then gives
+\[
+2xf(x)=2,
+\]
+so
+\[
+f(x)=\frac1x.
+\]
+
+SOLUTION 4:
+The function $f(x)=1/x$ works by AM-GM. Let $f$ be any solution, and let $g(x)$ denote the unique good partner of $x$.
+
+We first prove that $f$ is strictly convex. For a real number $s$, define
+\[
+q_s(t)=f(t)+st.
+\]
+Suppose that strict convexity fails. Then there are
+\[
+0<u<v,
+\qquad
+0<\theta<1,
+\qquad
+w=\theta u+(1-\theta)v
+\]
+such that
+\[
+f(w)\ge\theta f(u)+(1-\theta)f(v).
+\tag{2}
+\]
+Choose
+\[
+s=\frac{f(g(w))}{g(w)}>0.
+\]
+The goodness of $(w,g(w))$ gives
+\[
+q_s(w)\le\frac2{g(w)}.
+\]
+For every $t\ne w$, the pair $(g(w),t)$ is not good, so
+\[
+q_s(t)>\frac2{g(w)}.
+\]
+Thus $q_s$ has a unique minimum at $w$.
+
+On the other hand, (2) implies
+\[
+q_s(w)\ge\theta q_s(u)+(1-\theta)q_s(v),
+\]
+so at least one of $q_s(u),q_s(v)$ is no larger than $q_s(w)$. This contradicts the uniqueness of the minimum. Hence $f$ is strictly convex and therefore continuous on $(0,\infty)$.
+
+We next show that every good pair is diagonal. Suppose $(x,y)$ is good with $x\ne y$. Uniqueness implies that $(x,x)$ and $(y,y)$ are not good, so
+\[
+xf(x)>1,
+\qquad
+yf(y)>1.
+\]
+AM-GM then gives
+\[
+xf(y)+yf(x)
+\ge2\sqrt{\bigl(xf(x)\bigr)\bigl(yf(y)\bigr)}
+>2,
+\]
+a contradiction. Thus the unique good partner of $x$ is $x$, and consequently
+\[
+f(x)\le\frac1x.
+\tag{3}
+\]
+
+If strict inequality held in (3) for some $x$, then the continuous function
+\[
+h(y)=xf(y)+yf(x)
+\]
+would satisfy
+\[
+h(x)=2xf(x)<2.
+\]
+It would therefore be smaller than $2$ for every $y$ in a nontrivial interval around $x$, producing more than one good partner of $x$. This is impossible. Hence
+\[
+f(x)=\frac1x
+\]
+for all $x>0$.
