@@ -216,3 +216,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Generated benchmark/training artifacts
+benchmarks/imo64/questions.jsonl
+benchmarks/imo64/references.jsonl
+data/training/imo_pool.jsonl
+data/training/imo_sft.jsonl

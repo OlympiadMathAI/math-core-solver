@@ -1,0 +1,40 @@
+{
+  "dataset_name": "OlympiadMathAI IMO Training Pool",
+  "source": "IMO Shortlist",
+  "input_processed_problems": 425,
+  "protected_benchmark_problems": 64,
+  "additional_hash_exclusions": 0,
+  "training_problems": 361,
+  "sft_examples": 618,
+  "topics": {
+    "Algebra": 85,
+    "Combinatorics": 93,
+    "Geometry": 92,
+    "Number Theory": 91
+  },
+  "years": {
+    "2010": 24,
+    "2011": 26,
+    "2012": 26,
+    "2013": 23,
+    "2014": 26,
+    "2015": 25,
+    "2016": 28,
+    "2017": 28,
+    "2018": 24,
+    "2019": 25,
+    "2020": 27,
+    "2021": 28,
+    "2022": 29,
+    "2023": 22
+  },
+  "benchmark_protection": {
+    "id_exclusion": true,
+    "normalized_statement_hash": true,
+    "benchmark": "IMO64"
+  },
+  "files": {
+    "master_pool": "data\\training\\imo_pool.jsonl",
+    "sft": "data\\training\\imo_sft.jsonl"
+  }
+}

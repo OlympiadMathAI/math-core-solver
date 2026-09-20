@@ -1,0 +1,538 @@
+{
+  "name": "IMO64",
+  "version": "1.0",
+  "total_problems": 64,
+  "description": "Protected development benchmark for olympiad mathematical reasoning.",
+  "subjects": {
+    "Algebra": 16,
+    "Combinatorics": 16,
+    "Geometry": 16,
+    "Number Theory": 16
+  },
+  "difficulty_bands": {
+    "L1": 16,
+    "L2": 16,
+    "L3": 16,
+    "L4": 16
+  },
+  "pass_rule": {
+    "overall_minimum": 52,
+    "minimum_per_subject": 13,
+    "subject_total": 16
+  },
+  "important_rule": "Benchmark problems and solutions must not appear in model training.",
+  "problems": [
+    {
+      "benchmark_id": "IMO64-A01",
+      "source_id": "0001",
+      "year": "2010",
+      "problem_code": "A1",
+      "topic": "Algebra",
+      "difficulty_band": "L1"
+    },
+    {
+      "benchmark_id": "IMO64-A02",
+      "source_id": "0116",
+      "year": "2014",
+      "problem_code": "A1",
+      "topic": "Algebra",
+      "difficulty_band": "L1"
+    },
+    {
+      "benchmark_id": "IMO64-A03",
+      "source_id": "0239",
+      "year": "2018",
+      "problem_code": "A1",
+      "topic": "Algebra",
+      "difficulty_band": "L1"
+    },
+    {
+      "benchmark_id": "IMO64-A04",
+      "source_id": "0363",
+      "year": "2022",
+      "problem_code": "A1",
+      "topic": "Algebra",
+      "difficulty_band": "L1"
+    },
+    {
+      "benchmark_id": "IMO64-A05",
+      "source_id": "0030",
+      "year": "2011",
+      "problem_code": "A2",
+      "topic": "Algebra",
+      "difficulty_band": "L2"
+    },
+    {
+      "benchmark_id": "IMO64-A06",
+      "source_id": "0147",
+      "year": "2015",
+      "problem_code": "A2",
+      "topic": "Algebra",
+      "difficulty_band": "L2"
+    },
+    {
+      "benchmark_id": "IMO64-A07",
+      "source_id": "0268",
+      "year": "2019",
+      "problem_code": "A2",
+      "topic": "Algebra",
+      "difficulty_band": "L2"
+    },
+    {
+      "benchmark_id": "IMO64-A08",
+      "source_id": "0397",
+      "year": "2023",
+      "problem_code": "A2",
+      "topic": "Algebra",
+      "difficulty_band": "L2"
+    },
+    {
+      "benchmark_id": "IMO64-A09",
+      "source_id": "0062",
+      "year": "2012",
+      "problem_code": "A4",
+      "topic": "Algebra",
+      "difficulty_band": "L3"
+    },
+    {
+      "benchmark_id": "IMO64-A10",
+      "source_id": "0178",
+      "year": "2016",
+      "problem_code": "A4",
+      "topic": "Algebra",
+      "difficulty_band": "L3"
+    },
+    {
+      "benchmark_id": "IMO64-A11",
+      "source_id": "0302",
+      "year": "2020",
+      "problem_code": "A4",
+      "topic": "Algebra",
+      "difficulty_band": "L3"
+    },
+    {
+      "benchmark_id": "IMO64-A12",
+      "source_id": "0334",
+      "year": "2021",
+      "problem_code": "A4",
+      "topic": "Algebra",
+      "difficulty_band": "L3"
+    },
+    {
+      "benchmark_id": "IMO64-A13",
+      "source_id": "0094",
+      "year": "2013",
+      "problem_code": "A6",
+      "topic": "Algebra",
+      "difficulty_band": "L4"
+    },
+    {
+      "benchmark_id": "IMO64-A14",
+      "source_id": "0213",
+      "year": "2017",
+      "problem_code": "A7",
+      "topic": "Algebra",
+      "difficulty_band": "L4"
+    },
+    {
+      "benchmark_id": "IMO64-A15",
+      "source_id": "0306",
+      "year": "2020",
+      "problem_code": "A8",
+      "topic": "Algebra",
+      "difficulty_band": "L4"
+    },
+    {
+      "benchmark_id": "IMO64-A16",
+      "source_id": "0401",
+      "year": "2023",
+      "problem_code": "A6",
+      "topic": "Algebra",
+      "difficulty_band": "L4"
+    },
+    {
+      "benchmark_id": "IMO64-C01",
+      "source_id": "0009",
+      "year": "2010",
+      "problem_code": "C1",
+      "topic": "Combinatorics",
+      "difficulty_band": "L1"
+    },
+    {
+      "benchmark_id": "IMO64-C02",
+      "source_id": "0122",
+      "year": "2014",
+      "problem_code": "C1",
+      "topic": "Combinatorics",
+      "difficulty_band": "L1"
+    },
+    {
+      "benchmark_id": "IMO64-C03",
+      "source_id": "0246",
+      "year": "2018",
+      "problem_code": "C1",
+      "topic": "Combinatorics",
+      "difficulty_band": "L1"
+    },
+    {
+      "benchmark_id": "IMO64-C04",
+      "source_id": "0371",
+      "year": "2022",
+      "problem_code": "C1",
+      "topic": "Combinatorics",
+      "difficulty_band": "L1"
+    },
+    {
+      "benchmark_id": "IMO64-C05",
+      "source_id": "0037",
+      "year": "2011",
+      "problem_code": "C2",
+      "topic": "Combinatorics",
+      "difficulty_band": "L2"
+    },
+    {
+      "benchmark_id": "IMO64-C06",
+      "source_id": "0153",
+      "year": "2015",
+      "problem_code": "C2",
+      "topic": "Combinatorics",
+      "difficulty_band": "L2"
+    },
+    {
+      "benchmark_id": "IMO64-C07",
+      "source_id": "0275",
+      "year": "2019",
+      "problem_code": "C2",
+      "topic": "Combinatorics",
+      "difficulty_band": "L2"
+    },
+    {
+      "benchmark_id": "IMO64-C08",
+      "source_id": "0404",
+      "year": "2023",
+      "problem_code": "C2",
+      "topic": "Combinatorics",
+      "difficulty_band": "L2"
+    },
+    {
+      "benchmark_id": "IMO64-C09",
+      "source_id": "0069",
+      "year": "2012",
+      "problem_code": "C4",
+      "topic": "Combinatorics",
+      "difficulty_band": "L3"
+    },
+    {
+      "benchmark_id": "IMO64-C10",
+      "source_id": "0186",
+      "year": "2016",
+      "problem_code": "C4",
+      "topic": "Combinatorics",
+      "difficulty_band": "L3"
+    },
+    {
+      "benchmark_id": "IMO64-C11",
+      "source_id": "0310",
+      "year": "2020",
+      "problem_code": "C4",
+      "topic": "Combinatorics",
+      "difficulty_band": "L3"
+    },
+    {
+      "benchmark_id": "IMO64-C12",
+      "source_id": "0342",
+      "year": "2021",
+      "problem_code": "C4",
+      "topic": "Combinatorics",
+      "difficulty_band": "L3"
+    },
+    {
+      "benchmark_id": "IMO64-C13",
+      "source_id": "0100",
+      "year": "2013",
+      "problem_code": "C6",
+      "topic": "Combinatorics",
+      "difficulty_band": "L4"
+    },
+    {
+      "benchmark_id": "IMO64-C14",
+      "source_id": "0220",
+      "year": "2017",
+      "problem_code": "C6",
+      "topic": "Combinatorics",
+      "difficulty_band": "L4"
+    },
+    {
+      "benchmark_id": "IMO64-C15",
+      "source_id": "0279",
+      "year": "2019",
+      "problem_code": "C6",
+      "topic": "Combinatorics",
+      "difficulty_band": "L4"
+    },
+    {
+      "benchmark_id": "IMO64-C16",
+      "source_id": "0408",
+      "year": "2023",
+      "problem_code": "C6",
+      "topic": "Combinatorics",
+      "difficulty_band": "L4"
+    },
+    {
+      "benchmark_id": "IMO64-G01",
+      "source_id": "0016",
+      "year": "2010",
+      "problem_code": "G1",
+      "topic": "Geometry",
+      "difficulty_band": "L1"
+    },
+    {
+      "benchmark_id": "IMO64-G02",
+      "source_id": "0131",
+      "year": "2014",
+      "problem_code": "G1",
+      "topic": "Geometry",
+      "difficulty_band": "L1"
+    },
+    {
+      "benchmark_id": "IMO64-G03",
+      "source_id": "0253",
+      "year": "2018",
+      "problem_code": "G1",
+      "topic": "Geometry",
+      "difficulty_band": "L1"
+    },
+    {
+      "benchmark_id": "IMO64-G04",
+      "source_id": "0380",
+      "year": "2022",
+      "problem_code": "G1",
+      "topic": "Geometry",
+      "difficulty_band": "L1"
+    },
+    {
+      "benchmark_id": "IMO64-G05",
+      "source_id": "0044",
+      "year": "2011",
+      "problem_code": "G2",
+      "topic": "Geometry",
+      "difficulty_band": "L2"
+    },
+    {
+      "benchmark_id": "IMO64-G06",
+      "source_id": "0160",
+      "year": "2015",
+      "problem_code": "G2",
+      "topic": "Geometry",
+      "difficulty_band": "L2"
+    },
+    {
+      "benchmark_id": "IMO64-G07",
+      "source_id": "0284",
+      "year": "2019",
+      "problem_code": "G2",
+      "topic": "Geometry",
+      "difficulty_band": "L2"
+    },
+    {
+      "benchmark_id": "IMO64-G08",
+      "source_id": "0411",
+      "year": "2023",
+      "problem_code": "G2",
+      "topic": "Geometry",
+      "difficulty_band": "L2"
+    },
+    {
+      "benchmark_id": "IMO64-G09",
+      "source_id": "0076",
+      "year": "2012",
+      "problem_code": "G4",
+      "topic": "Geometry",
+      "difficulty_band": "L3"
+    },
+    {
+      "benchmark_id": "IMO64-G10",
+      "source_id": "0194",
+      "year": "2016",
+      "problem_code": "G4",
+      "topic": "Geometry",
+      "difficulty_band": "L3"
+    },
+    {
+      "benchmark_id": "IMO64-G11",
+      "source_id": "0318",
+      "year": "2020",
+      "problem_code": "G4",
+      "topic": "Geometry",
+      "difficulty_band": "L3"
+    },
+    {
+      "benchmark_id": "IMO64-G12",
+      "source_id": "0350",
+      "year": "2021",
+      "problem_code": "G4",
+      "topic": "Geometry",
+      "difficulty_band": "L3"
+    },
+    {
+      "benchmark_id": "IMO64-G13",
+      "source_id": "0108",
+      "year": "2013",
+      "problem_code": "G6",
+      "topic": "Geometry",
+      "difficulty_band": "L4"
+    },
+    {
+      "benchmark_id": "IMO64-G14",
+      "source_id": "0228",
+      "year": "2017",
+      "problem_code": "G6",
+      "topic": "Geometry",
+      "difficulty_band": "L4"
+    },
+    {
+      "benchmark_id": "IMO64-G15",
+      "source_id": "0288",
+      "year": "2019",
+      "problem_code": "G6",
+      "topic": "Geometry",
+      "difficulty_band": "L4"
+    },
+    {
+      "benchmark_id": "IMO64-G16",
+      "source_id": "0415",
+      "year": "2023",
+      "problem_code": "G6",
+      "topic": "Geometry",
+      "difficulty_band": "L4"
+    },
+    {
+      "benchmark_id": "IMO64-N01",
+      "source_id": "0023",
+      "year": "2010",
+      "problem_code": "N1",
+      "topic": "Number Theory",
+      "difficulty_band": "L1"
+    },
+    {
+      "benchmark_id": "IMO64-N02",
+      "source_id": "0138",
+      "year": "2014",
+      "problem_code": "N1",
+      "topic": "Number Theory",
+      "difficulty_band": "L1"
+    },
+    {
+      "benchmark_id": "IMO64-N03",
+      "source_id": "0260",
+      "year": "2018",
+      "problem_code": "N1",
+      "topic": "Number Theory",
+      "difficulty_band": "L1"
+    },
+    {
+      "benchmark_id": "IMO64-N04",
+      "source_id": "0388",
+      "year": "2022",
+      "problem_code": "N1",
+      "topic": "Number Theory",
+      "difficulty_band": "L1"
+    },
+    {
+      "benchmark_id": "IMO64-N05",
+      "source_id": "0052",
+      "year": "2011",
+      "problem_code": "N2",
+      "topic": "Number Theory",
+      "difficulty_band": "L2"
+    },
+    {
+      "benchmark_id": "IMO64-N06",
+      "source_id": "0168",
+      "year": "2015",
+      "problem_code": "N2",
+      "topic": "Number Theory",
+      "difficulty_band": "L2"
+    },
+    {
+      "benchmark_id": "IMO64-N07",
+      "source_id": "0292",
+      "year": "2019",
+      "problem_code": "N2",
+      "topic": "Number Theory",
+      "difficulty_band": "L2"
+    },
+    {
+      "benchmark_id": "IMO64-N08",
+      "source_id": "0419",
+      "year": "2023",
+      "problem_code": "N2",
+      "topic": "Number Theory",
+      "difficulty_band": "L2"
+    },
+    {
+      "benchmark_id": "IMO64-N09",
+      "source_id": "0084",
+      "year": "2012",
+      "problem_code": "N4",
+      "topic": "Number Theory",
+      "difficulty_band": "L3"
+    },
+    {
+      "benchmark_id": "IMO64-N10",
+      "source_id": "0202",
+      "year": "2016",
+      "problem_code": "N4",
+      "topic": "Number Theory",
+      "difficulty_band": "L3"
+    },
+    {
+      "benchmark_id": "IMO64-N11",
+      "source_id": "0327",
+      "year": "2020",
+      "problem_code": "N4",
+      "topic": "Number Theory",
+      "difficulty_band": "L3"
+    },
+    {
+      "benchmark_id": "IMO64-N12",
+      "source_id": "0358",
+      "year": "2021",
+      "problem_code": "N4",
+      "topic": "Number Theory",
+      "difficulty_band": "L3"
+    },
+    {
+      "benchmark_id": "IMO64-N13",
+      "source_id": "0114",
+      "year": "2013",
+      "problem_code": "N6",
+      "topic": "Number Theory",
+      "difficulty_band": "L4"
+    },
+    {
+      "benchmark_id": "IMO64-N14",
+      "source_id": "0236",
+      "year": "2017",
+      "problem_code": "N6",
+      "topic": "Number Theory",
+      "difficulty_band": "L4"
+    },
+    {
+      "benchmark_id": "IMO64-N15",
+      "source_id": "0296",
+      "year": "2019",
+      "problem_code": "N6",
+      "topic": "Number Theory",
+      "difficulty_band": "L4"
+    },
+    {
+      "benchmark_id": "IMO64-N16",
+      "source_id": "0423",
+      "year": "2023",
+      "problem_code": "N6",
+      "topic": "Number Theory",
+      "difficulty_band": "L4"
+    }
+  ]
+}

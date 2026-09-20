@@ -1,0 +1,522 @@
+{
+  "benchmark": "IMO64",
+  "warning": "These problems must never be used for training or fine-tuning.",
+  "source_ids": [
+    "0001",
+    "0009",
+    "0016",
+    "0023",
+    "0030",
+    "0037",
+    "0044",
+    "0052",
+    "0062",
+    "0069",
+    "0076",
+    "0084",
+    "0094",
+    "0100",
+    "0108",
+    "0114",
+    "0116",
+    "0122",
+    "0131",
+    "0138",
+    "0147",
+    "0153",
+    "0160",
+    "0168",
+    "0178",
+    "0186",
+    "0194",
+    "0202",
+    "0213",
+    "0220",
+    "0228",
+    "0236",
+    "0239",
+    "0246",
+    "0253",
+    "0260",
+    "0268",
+    "0275",
+    "0279",
+    "0284",
+    "0288",
+    "0292",
+    "0296",
+    "0302",
+    "0306",
+    "0310",
+    "0318",
+    "0327",
+    "0334",
+    "0342",
+    "0350",
+    "0358",
+    "0363",
+    "0371",
+    "0380",
+    "0388",
+    "0397",
+    "0401",
+    "0404",
+    "0408",
+    "0411",
+    "0415",
+    "0419",
+    "0423"
+  ],
+  "source_files": [
+    "problem_0001.json",
+    "problem_0009.json",
+    "problem_0016.json",
+    "problem_0023.json",
+    "problem_0030.json",
+    "problem_0037.json",
+    "problem_0044.json",
+    "problem_0052.json",
+    "problem_0062.json",
+    "problem_0069.json",
+    "problem_0076.json",
+    "problem_0084.json",
+    "problem_0094.json",
+    "problem_0100.json",
+    "problem_0108.json",
+    "problem_0114.json",
+    "problem_0116.json",
+    "problem_0122.json",
+    "problem_0131.json",
+    "problem_0138.json",
+    "problem_0147.json",
+    "problem_0153.json",
+    "problem_0160.json",
+    "problem_0168.json",
+    "problem_0178.json",
+    "problem_0186.json",
+    "problem_0194.json",
+    "problem_0202.json",
+    "problem_0213.json",
+    "problem_0220.json",
+    "problem_0228.json",
+    "problem_0236.json",
+    "problem_0239.json",
+    "problem_0246.json",
+    "problem_0253.json",
+    "problem_0260.json",
+    "problem_0268.json",
+    "problem_0275.json",
+    "problem_0279.json",
+    "problem_0284.json",
+    "problem_0288.json",
+    "problem_0292.json",
+    "problem_0296.json",
+    "problem_0302.json",
+    "problem_0306.json",
+    "problem_0310.json",
+    "problem_0318.json",
+    "problem_0327.json",
+    "problem_0334.json",
+    "problem_0342.json",
+    "problem_0350.json",
+    "problem_0358.json",
+    "problem_0363.json",
+    "problem_0371.json",
+    "problem_0380.json",
+    "problem_0388.json",
+    "problem_0397.json",
+    "problem_0401.json",
+    "problem_0404.json",
+    "problem_0408.json",
+    "problem_0411.json",
+    "problem_0415.json",
+    "problem_0419.json",
+    "problem_0423.json"
+  ],
+  "problems": [
+    {
+      "source_id": "0001",
+      "year": "2010",
+      "problem_code": "A1",
+      "topic": "Algebra"
+    },
+    {
+      "source_id": "0116",
+      "year": "2014",
+      "problem_code": "A1",
+      "topic": "Algebra"
+    },
+    {
+      "source_id": "0239",
+      "year": "2018",
+      "problem_code": "A1",
+      "topic": "Algebra"
+    },
+    {
+      "source_id": "0363",
+      "year": "2022",
+      "problem_code": "A1",
+      "topic": "Algebra"
+    },
+    {
+      "source_id": "0030",
+      "year": "2011",
+      "problem_code": "A2",
+      "topic": "Algebra"
+    },
+    {
+      "source_id": "0147",
+      "year": "2015",
+      "problem_code": "A2",
+      "topic": "Algebra"
+    },
+    {
+      "source_id": "0268",
+      "year": "2019",
+      "problem_code": "A2",
+      "topic": "Algebra"
+    },
+    {
+      "source_id": "0397",
+      "year": "2023",
+      "problem_code": "A2",
+      "topic": "Algebra"
+    },
+    {
+      "source_id": "0062",
+      "year": "2012",
+      "problem_code": "A4",
+      "topic": "Algebra"
+    },
+    {
+      "source_id": "0178",
+      "year": "2016",
+      "problem_code": "A4",
+      "topic": "Algebra"
+    },
+    {
+      "source_id": "0302",
+      "year": "2020",
+      "problem_code": "A4",
+      "topic": "Algebra"
+    },
+    {
+      "source_id": "0334",
+      "year": "2021",
+      "problem_code": "A4",
+      "topic": "Algebra"
+    },
+    {
+      "source_id": "0094",
+      "year": "2013",
+      "problem_code": "A6",
+      "topic": "Algebra"
+    },
+    {
+      "source_id": "0213",
+      "year": "2017",
+      "problem_code": "A7",
+      "topic": "Algebra"
+    },
+    {
+      "source_id": "0306",
+      "year": "2020",
+      "problem_code": "A8",
+      "topic": "Algebra"
+    },
+    {
+      "source_id": "0401",
+      "year": "2023",
+      "problem_code": "A6",
+      "topic": "Algebra"
+    },
+    {
+      "source_id": "0009",
+      "year": "2010",
+      "problem_code": "C1",
+      "topic": "Combinatorics"
+    },
+    {
+      "source_id": "0122",
+      "year": "2014",
+      "problem_code": "C1",
+      "topic": "Combinatorics"
+    },
+    {
+      "source_id": "0246",
+      "year": "2018",
+      "problem_code": "C1",
+      "topic": "Combinatorics"
+    },
+    {
+      "source_id": "0371",
+      "year": "2022",
+      "problem_code": "C1",
+      "topic": "Combinatorics"
+    },
+    {
+      "source_id": "0037",
+      "year": "2011",
+      "problem_code": "C2",
+      "topic": "Combinatorics"
+    },
+    {
+      "source_id": "0153",
+      "year": "2015",
+      "problem_code": "C2",
+      "topic": "Combinatorics"
+    },
+    {
+      "source_id": "0275",
+      "year": "2019",
+      "problem_code": "C2",
+      "topic": "Combinatorics"
+    },
+    {
+      "source_id": "0404",
+      "year": "2023",
+      "problem_code": "C2",
+      "topic": "Combinatorics"
+    },
+    {
+      "source_id": "0069",
+      "year": "2012",
+      "problem_code": "C4",
+      "topic": "Combinatorics"
+    },
+    {
+      "source_id": "0186",
+      "year": "2016",
+      "problem_code": "C4",
+      "topic": "Combinatorics"
+    },
+    {
+      "source_id": "0310",
+      "year": "2020",
+      "problem_code": "C4",
+      "topic": "Combinatorics"
+    },
+    {
+      "source_id": "0342",
+      "year": "2021",
+      "problem_code": "C4",
+      "topic": "Combinatorics"
+    },
+    {
+      "source_id": "0100",
+      "year": "2013",
+      "problem_code": "C6",
+      "topic": "Combinatorics"
+    },
+    {
+      "source_id": "0220",
+      "year": "2017",
+      "problem_code": "C6",
+      "topic": "Combinatorics"
+    },
+    {
+      "source_id": "0279",
+      "year": "2019",
+      "problem_code": "C6",
+      "topic": "Combinatorics"
+    },
+    {
+      "source_id": "0408",
+      "year": "2023",
+      "problem_code": "C6",
+      "topic": "Combinatorics"
+    },
+    {
+      "source_id": "0016",
+      "year": "2010",
+      "problem_code": "G1",
+      "topic": "Geometry"
+    },
+    {
+      "source_id": "0131",
+      "year": "2014",
+      "problem_code": "G1",
+      "topic": "Geometry"
+    },
+    {
+      "source_id": "0253",
+      "year": "2018",
+      "problem_code": "G1",
+      "topic": "Geometry"
+    },
+    {
+      "source_id": "0380",
+      "year": "2022",
+      "problem_code": "G1",
+      "topic": "Geometry"
+    },
+    {
+      "source_id": "0044",
+      "year": "2011",
+      "problem_code": "G2",
+      "topic": "Geometry"
+    },
+    {
+      "source_id": "0160",
+      "year": "2015",
+      "problem_code": "G2",
+      "topic": "Geometry"
+    },
+    {
+      "source_id": "0284",
+      "year": "2019",
+      "problem_code": "G2",
+      "topic": "Geometry"
+    },
+    {
+      "source_id": "0411",
+      "year": "2023",
+      "problem_code": "G2",
+      "topic": "Geometry"
+    },
+    {
+      "source_id": "0076",
+      "year": "2012",
+      "problem_code": "G4",
+      "topic": "Geometry"
+    },
+    {
+      "source_id": "0194",
+      "year": "2016",
+      "problem_code": "G4",
+      "topic": "Geometry"
+    },
+    {
+      "source_id": "0318",
+      "year": "2020",
+      "problem_code": "G4",
+      "topic": "Geometry"
+    },
+    {
+      "source_id": "0350",
+      "year": "2021",
+      "problem_code": "G4",
+      "topic": "Geometry"
+    },
+    {
+      "source_id": "0108",
+      "year": "2013",
+      "problem_code": "G6",
+      "topic": "Geometry"
+    },
+    {
+      "source_id": "0228",
+      "year": "2017",
+      "problem_code": "G6",
+      "topic": "Geometry"
+    },
+    {
+      "source_id": "0288",
+      "year": "2019",
+      "problem_code": "G6",
+      "topic": "Geometry"
+    },
+    {
+      "source_id": "0415",
+      "year": "2023",
+      "problem_code": "G6",
+      "topic": "Geometry"
+    },
+    {
+      "source_id": "0023",
+      "year": "2010",
+      "problem_code": "N1",
+      "topic": "Number Theory"
+    },
+    {
+      "source_id": "0138",
+      "year": "2014",
+      "problem_code": "N1",
+      "topic": "Number Theory"
+    },
+    {
+      "source_id": "0260",
+      "year": "2018",
+      "problem_code": "N1",
+      "topic": "Number Theory"
+    },
+    {
+      "source_id": "0388",
+      "year": "2022",
+      "problem_code": "N1",
+      "topic": "Number Theory"
+    },
+    {
+      "source_id": "0052",
+      "year": "2011",
+      "problem_code": "N2",
+      "topic": "Number Theory"
+    },
+    {
+      "source_id": "0168",
+      "year": "2015",
+      "problem_code": "N2",
+      "topic": "Number Theory"
+    },
+    {
+      "source_id": "0292",
+      "year": "2019",
+      "problem_code": "N2",
+      "topic": "Number Theory"
+    },
+    {
+      "source_id": "0419",
+      "year": "2023",
+      "problem_code": "N2",
+      "topic": "Number Theory"
+    },
+    {
+      "source_id": "0084",
+      "year": "2012",
+      "problem_code": "N4",
+      "topic": "Number Theory"
+    },
+    {
+      "source_id": "0202",
+      "year": "2016",
+      "problem_code": "N4",
+      "topic": "Number Theory"
+    },
+    {
+      "source_id": "0327",
+      "year": "2020",
+      "problem_code": "N4",
+      "topic": "Number Theory"
+    },
+    {
+      "source_id": "0358",
+      "year": "2021",
+      "problem_code": "N4",
+      "topic": "Number Theory"
+    },
+    {
+      "source_id": "0114",
+      "year": "2013",
+      "problem_code": "N6",
+      "topic": "Number Theory"
+    },
+    {
+      "source_id": "0236",
+      "year": "2017",
+      "problem_code": "N6",
+      "topic": "Number Theory"
+    },
+    {
+      "source_id": "0296",
+      "year": "2019",
+      "problem_code": "N6",
+      "topic": "Number Theory"
+    },
+    {
+      "source_id": "0423",
+      "year": "2023",
+      "problem_code": "N6",
+      "topic": "Number Theory"
+    }
+  ]
+}
